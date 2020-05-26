@@ -10,13 +10,19 @@ import UIKit
 
 class BrewVC: UIViewController {
 
+    @IBOutlet var balanceSelect: UISegmentedControl!
+    @IBOutlet var strengthSelect: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func startTapped(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
