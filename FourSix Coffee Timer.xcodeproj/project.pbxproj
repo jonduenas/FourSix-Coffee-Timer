@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		652756432475B138004E067F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756422475B138004E067F /* AppDelegate.swift */; };
 		652756452475B138004E067F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756442475B138004E067F /* SceneDelegate.swift */; };
-		652756472475B138004E067F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756462475B138004E067F /* ViewController.swift */; };
+		652756472475B138004E067F /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756462475B138004E067F /* WelcomeVC.swift */; };
 		6527564A2475B138004E067F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652756482475B138004E067F /* Main.storyboard */; };
 		6527564C2475B13B004E067F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6527564B2475B13B004E067F /* Assets.xcassets */; };
 		6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6527564D2475B13B004E067F /* LaunchScreen.storyboard */; };
+		65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C04247D8DEC00A4CE76 /* BrewVC.swift */; };
+		65859C07247D8E4300A4CE76 /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C06247D8E4300A4CE76 /* NotesVC.swift */; };
+		65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C08247D95B700A4CE76 /* TimerVC.swift */; };
+		65F859C4247D987400A7FB88 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F859C3247D987400A7FB88 /* InfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6527563F2475B138004E067F /* FourSix Coffee Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FourSix Coffee Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		652756422475B138004E067F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		652756442475B138004E067F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		652756462475B138004E067F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		652756462475B138004E067F /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		652756492475B138004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6527564B2475B13B004E067F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6527564E2475B13B004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		652756502475B13B004E067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65859C04247D8DEC00A4CE76 /* BrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewVC.swift; sourceTree = "<group>"; };
+		65859C06247D8E4300A4CE76 /* NotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesVC.swift; sourceTree = "<group>"; };
+		65859C08247D95B700A4CE76 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
+		65F859C3247D987400A7FB88 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,12 @@
 			children = (
 				652756422475B138004E067F /* AppDelegate.swift */,
 				652756442475B138004E067F /* SceneDelegate.swift */,
-				652756462475B138004E067F /* ViewController.swift */,
+				652756462475B138004E067F /* WelcomeVC.swift */,
+				65F859C3247D987400A7FB88 /* InfoVC.swift */,
 				652756482475B138004E067F /* Main.storyboard */,
+				65859C08247D95B700A4CE76 /* TimerVC.swift */,
+				65859C06247D8E4300A4CE76 /* NotesVC.swift */,
+				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
 				6527564B2475B13B004E067F /* Assets.xcassets */,
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				652756502475B13B004E067F /* Info.plist */,
@@ -138,8 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				652756472475B138004E067F /* ViewController.swift in Sources */,
+				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
+				65859C07247D8E4300A4CE76 /* NotesVC.swift in Sources */,
+				652756472475B138004E067F /* WelcomeVC.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
+				65F859C4247D987400A7FB88 /* InfoVC.swift in Sources */,
+				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
