@@ -19,6 +19,9 @@ class WelcomeVC: UIViewController {
     }
     
     @IBAction func brewButton(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Start")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
     
 }

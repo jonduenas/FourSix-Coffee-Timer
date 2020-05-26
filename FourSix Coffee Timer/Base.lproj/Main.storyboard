@@ -109,7 +109,7 @@
         <!--BrewTab-->
         <scene sceneID="5gd-vA-SRp">
             <objects>
-                <viewController title="BrewTab" id="dQX-07-Wto" customClass="BrewVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrewTab" title="BrewTab" id="dQX-07-Wto" customClass="BrewVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aZT-55-iAV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,8 +260,9 @@
         <!--Tab Bar Controller-->
         <scene sceneID="1JZ-J1-M4D">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="n3B-sp-fRC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Start" automaticallyAdjustsScrollViewInsets="NO" id="n3B-sp-fRC" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="UaG-Xh-1tJ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6nd-2A-v0p">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
