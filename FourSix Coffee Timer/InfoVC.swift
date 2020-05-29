@@ -17,6 +17,10 @@ class InfoVC: UIViewController {
     }
     
 
+    @IBAction func closeTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

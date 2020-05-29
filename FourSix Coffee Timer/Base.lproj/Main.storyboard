@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -24,6 +24,7 @@
                                 </state>
                                 <connections>
                                     <action selector="infoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jy6-RW-Mjr"/>
+                                    <segue destination="kFO-lO-NXh" kind="presentation" modalPresentationStyle="automatic" id="D0v-H4-fFH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksc-iU-Azf">
@@ -67,7 +68,7 @@
         <!--InfoVC-->
         <scene sceneID="ph6-QH-8nU">
             <objects>
-                <viewController id="1h2-tr-gkc" customClass="InfoVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Info" id="1h2-tr-gkc" customClass="InfoVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xhr-X9-plV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,10 +113,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="hfP-IR-Z3d"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="NBZ-XJ-ExC">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="xmark" catalog="system" id="EJ5-Cj-eaI">
+                            <connections>
+                                <action selector="closeTapped:" destination="1h2-tr-gkc" id="O1q-NB-UHa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AX0-Ji-Ppw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="845.75892857142856"/>
+            <point key="canvasLocation" x="1032" y="880"/>
         </scene>
         <!--BrewTab-->
         <scene sceneID="5gd-vA-SRp">
@@ -233,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0F-o6-4rL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3026.0869565217395" y="861.83035714285711"/>
+            <point key="canvasLocation" x="4846.376811594203" y="861.83035714285711"/>
         </scene>
         <!--SettingsTab-->
         <scene sceneID="MnD-Dx-ikN">
@@ -325,14 +334,37 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9f-zo-LcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2115.9420289855075" y="861.83035714285711"/>
+            <point key="canvasLocation" x="3936.2318840579715" y="861.83035714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4mR-bo-T9j">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kFO-lO-NXh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tvY-8s-k1Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1h2-tr-gkc" kind="relationship" relationship="rootViewController" id="KVl-ta-MnE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RO2-Fu-RKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="880"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="Accent"/>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>
         <image name="cup" width="289" height="363"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="timer" catalog="system" width="128" height="121"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="Accent">
+            <color red="0.65098039215686276" green="0.53333333333333333" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Background">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
