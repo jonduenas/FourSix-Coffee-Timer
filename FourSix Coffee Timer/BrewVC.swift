@@ -13,15 +13,17 @@ class BrewVC: UIViewController {
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
+    @IBOutlet var startButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        startButton.layer.cornerRadius = 25
     }
     
     @IBAction func startTapped(_ sender: Any) {
     }
+    
     
     /*
     // MARK: - Navigation
