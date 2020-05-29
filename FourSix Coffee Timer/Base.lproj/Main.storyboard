@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                                 <rect key="frame" x="134" y="663" width="146" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="What Is FourSix?">
-                                    <color key="titleColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" name="Primary"/>
                                 </state>
                                 <connections>
                                     <action selector="infoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jy6-RW-Mjr"/>
@@ -27,13 +28,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksc-iU-Azf">
                                 <rect key="frame" x="109" y="732" width="196" height="51"/>
-                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="Primary"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="L46-Y0-dvi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Let's Brew!">
-                                    <color key="titleColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" name="Background"/>
                                 </state>
                                 <connections>
                                     <action selector="brewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="agU-fZ-j54"/>
@@ -43,7 +44,7 @@
                                 <rect key="frame" x="62.5" y="271.5" width="289" height="363"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="dSI-x9-ZbT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8r9-fw-C1U"/>
                             <constraint firstItem="loZ-cA-geI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="F2k-us-6V5"/>
@@ -199,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWY-f0-870" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2903" y="-569"/>
+            <point key="canvasLocation" x="3026" y="-569"/>
         </scene>
         <!--NotesTab-->
         <scene sceneID="Tox-Am-FSV">
@@ -228,11 +229,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="y1L-iK-CnO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notes" image="book.fill" catalog="system" id="ESe-Hq-H7O"/>
+                    <navigationItem key="navigationItem" id="zNX-cM-3vS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0F-o6-4rL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2115.9420289855075" y="861.83035714285711"/>
+            <point key="canvasLocation" x="3026.0869565217395" y="861.83035714285711"/>
         </scene>
         <!--SettingsTab-->
         <scene sceneID="MnD-Dx-ikN">
@@ -261,11 +262,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Qhe-Bx-AqL"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="GWi-Nq-EWR"/>
+                    <navigationItem key="navigationItem" id="4eY-Sz-DSV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6W-Fu-v41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2115.9420289855075" y="138.61607142857142"/>
+            <point key="canvasLocation" x="3026.0869565217395" y="138.61607142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1JZ-J1-M4D">
@@ -280,13 +281,51 @@
                     </tabBar>
                     <connections>
                         <segue destination="dQX-07-Wto" kind="relationship" relationship="viewControllers" id="6hB-9J-CLD"/>
-                        <segue destination="kfX-DN-j4E" kind="relationship" relationship="viewControllers" id="hwP-iV-NJi"/>
-                        <segue destination="CsU-Li-9uh" kind="relationship" relationship="viewControllers" id="VKu-eo-lM0"/>
+                        <segue destination="kP6-3s-SVU" kind="relationship" relationship="viewControllers" id="hwP-iV-NJi"/>
+                        <segue destination="sfe-FW-G9E" kind="relationship" relationship="viewControllers" id="VKu-eo-lM0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsC-I7-MJ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1032" y="139"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Khg-rL-XSL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sfe-FW-G9E" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="GWi-Nq-EWR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IFY-4O-ciP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CsU-Li-9uh" kind="relationship" relationship="rootViewController" id="L6f-P3-0Dr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aCC-dm-B4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2115.9420289855075" y="138.61607142857142"/>
+        </scene>
+        <!--Notes-->
+        <scene sceneID="GwP-cH-6Wx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kP6-3s-SVU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notes" image="book.fill" catalog="system" id="ESe-Hq-H7O"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7oe-EH-0J0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kfX-DN-j4E" kind="relationship" relationship="rootViewController" id="4rK-ba-k54"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f9f-zo-LcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2115.9420289855075" y="861.83035714285711"/>
         </scene>
     </scenes>
     <resources>
@@ -294,5 +333,11 @@
         <image name="cup" width="289" height="363"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="timer" catalog="system" width="128" height="121"/>
+        <namedColor name="Background">
+            <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
