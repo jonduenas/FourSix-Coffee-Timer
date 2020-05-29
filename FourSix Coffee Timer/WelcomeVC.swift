@@ -10,9 +10,12 @@ import UIKit
 
 class WelcomeVC: UIViewController {
 
+    @IBOutlet var letsBrewButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        letsBrewButton.layer.cornerRadius = 25
     }
 
     @IBAction func infoButton(_ sender: Any) {

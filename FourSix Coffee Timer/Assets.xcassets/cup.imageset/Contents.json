@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "cup-light.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,6 +12,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "cup-dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

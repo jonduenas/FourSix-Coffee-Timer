@@ -15,43 +15,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FourSix Brew Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7p-sT-AYR">
-                                <rect key="frame" x="54" y="125" width="306" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-x9-ZbT">
-                                <rect key="frame" x="99" y="558" width="216" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="What Is FourSix?"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-x9-ZbT">
+                                <rect key="frame" x="134" y="663" width="146" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="What Is FourSix?">
+                                    <color key="titleColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="infoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jy6-RW-Mjr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksc-iU-Azf">
-                                <rect key="frame" x="136" y="663" width="142" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Let's Brew!"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksc-iU-Azf">
+                                <rect key="frame" x="109" y="732" width="196" height="51"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="L46-Y0-dvi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Let's Brew!">
+                                    <color key="titleColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="brewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="agU-fZ-j54"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cup" translatesAutoresizingMaskIntoConstraints="NO" id="loZ-cA-geI">
-                                <rect key="frame" x="60" y="199" width="314" height="314"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup" translatesAutoresizingMaskIntoConstraints="NO" id="loZ-cA-geI">
+                                <rect key="frame" x="62.5" y="271.5" width="289" height="363"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dSI-x9-ZbT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8r9-fw-C1U"/>
+                            <constraint firstItem="loZ-cA-geI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="F2k-us-6V5"/>
+                            <constraint firstItem="ksc-iU-Azf" firstAttribute="centerX" secondItem="loZ-cA-geI" secondAttribute="centerX" id="JiP-H9-sGI"/>
+                            <constraint firstItem="ksc-iU-Azf" firstAttribute="top" secondItem="dSI-x9-ZbT" secondAttribute="bottom" constant="33" id="Tcz-LI-bXA"/>
+                            <constraint firstItem="loZ-cA-geI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vlO-l4-dFP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ksc-iU-Azf" secondAttribute="bottom" constant="79" id="wGu-SD-5a3"/>
+                            <constraint firstItem="ksc-iU-Azf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="109" id="zXe-qh-lCn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="letsBrewButton" destination="ksc-iU-Azf" id="CIW-el-6OL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
         <!--InfoVC-->
         <scene sceneID="ph6-QH-8nU">
@@ -281,7 +291,7 @@
     </scenes>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="100"/>
-        <image name="cup" width="314" height="314"/>
+        <image name="cup" width="289" height="363"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="timer" catalog="system" width="128" height="121"/>
     </resources>
