@@ -17,11 +17,6 @@ class WelcomeVC: UIViewController {
         
         letsBrewButton.layer.cornerRadius = 25
     }
-
-    @IBAction func infoButton(_ sender: Any) {
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Info")
-//        self.show(vc, sender: self)
-    }
     
     @IBAction func brewButton(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Start")
