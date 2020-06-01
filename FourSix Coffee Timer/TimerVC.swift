@@ -20,7 +20,10 @@ class TimerVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func xTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

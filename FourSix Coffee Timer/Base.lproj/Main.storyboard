@@ -165,7 +165,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="JtO-0t-KWp"/>
-                                    <segue destination="nIU-F0-MSK" kind="show" id="sRo-Md-ewv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Brew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-vd-sGH">
@@ -225,11 +224,11 @@
             <objects>
                 <viewController id="ubt-b4-YQe" customClass="WalkthroughVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="99x-ca-E1I">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyP-I3-Duc">
-                                <rect key="frame" x="20" y="76" width="374" height="732"/>
+                                <rect key="frame" x="20" y="108" width="374" height="754"/>
                                 <color key="backgroundColor" name="Background"/>
                             </view>
                         </subviews>
@@ -251,6 +250,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="Hwo-ip-viw">
                             <connections>
                                 <action selector="skipButtonTapped:" destination="ubt-b4-YQe" id="eNf-IQ-sQ8"/>
+                                <segue destination="I6i-1q-bNY" kind="show" id="FHH-A1-8AK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -265,7 +265,7 @@
         <!--Timer-->
         <scene sceneID="WDw-Ge-ljq">
             <objects>
-                <viewController title="Timer" id="I6i-1q-bNY" customClass="TimerVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Timer" title="Timer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I6i-1q-bNY" customClass="TimerVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pRo-9a-2Py">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,12 +406,16 @@
                         <viewLayoutGuide key="safeArea" id="xG9-yV-H3D"/>
                     </view>
                     <navigationItem key="navigationItem" id="OqC-Ai-lHe">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="Om7-G6-0si"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="Om7-G6-0si">
+                            <connections>
+                                <action selector="xTapped:" destination="I6i-1q-bNY" id="FHW-vR-Sbb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWY-f0-870" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6671.1999999999998" y="-570.76461769115451"/>
+            <point key="canvasLocation" x="5641" y="-569"/>
         </scene>
         <!--Custom Page View Controller-->
         <scene sceneID="yVJ-WE-PZI">
@@ -629,11 +633,11 @@
         <!--Navigation Controller-->
         <scene sceneID="4EV-pk-FAb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nIU-F0-MSK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Walkthrough" automaticallyAdjustsScrollViewInsets="NO" id="nIU-F0-MSK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="k5h-Dw-ytZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gIb-r2-bOr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -644,25 +648,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejy-7e-Fq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3024.6376811594205" y="-569.19642857142856"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Axh-cY-K9b">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wx-PN-GxF" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Is-VM-kUF">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="Background"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="I6i-1q-bNY" kind="relationship" relationship="rootViewController" id="hmS-6d-zxC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WhI-jf-hF6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5732" y="-569.86506746626696"/>
         </scene>
     </scenes>
     <color key="tintColor" name="Accent"/>

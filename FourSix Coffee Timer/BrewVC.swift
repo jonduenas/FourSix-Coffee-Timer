@@ -22,6 +22,10 @@ class BrewVC: UIViewController {
     }
     
     @IBAction func startTapped(_ sender: Any) {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Walkthrough")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
     
     

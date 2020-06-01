@@ -71,7 +71,9 @@ class WalkthroughVC: UIViewController {
     }
     @IBAction func skipButtonTapped(_ sender: Any) {
         
-        
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Timer")
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true)
     }
 }
 
