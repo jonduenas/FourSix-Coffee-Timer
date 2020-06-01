@@ -134,35 +134,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="03L-Qm-9vC">
-                                <rect key="frame" x="49" y="295" width="316" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="03L-Qm-9vC">
+                                <rect key="frame" x="49" y="333.5" width="316" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="316" id="Ds8-Wx-JJb"/>
+                                    <constraint firstAttribute="height" constant="31" id="hxj-JX-8Lr"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Sweet"/>
                                     <segment title="Neutral"/>
                                     <segment title="Bright"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today I'd like a cup that is..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jv7-Zb-AXW">
-                                <rect key="frame" x="89" y="212" width="237" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today I'd like a cup that is..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jv7-Zb-AXW">
+                                <rect key="frame" x="88.5" y="193" width="237" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="DJn-eZ-TUv">
-                                <rect key="frame" x="49" y="556" width="316" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Light"/>
-                                    <segment title="Medium"/>
-                                    <segment title="Strong"/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-ZW-LPo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-ZW-LPo">
                                 <rect key="frame" x="109" y="726" width="196" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Primary"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="DlK-tp-vqK"/>
+                                    <constraint firstAttribute="height" constant="51" id="Sy3-Nu-V0P"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" name="Background"/>
@@ -172,21 +168,45 @@
                                     <segue destination="nIU-F0-MSK" kind="show" id="sRo-Md-ewv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's Brew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-vd-sGH">
-                                <rect key="frame" x="125" y="117" width="165" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Brew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-vd-sGH">
+                                <rect key="frame" x="124.5" y="94" width="165" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="and..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raP-za-LGt">
-                                <rect key="frame" x="182" y="436" width="50" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raP-za-LGt">
+                                <rect key="frame" x="182" y="416.5" width="50" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="DJn-eZ-TUv">
+                                <rect key="frame" x="49" y="481.5" width="316" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="FfP-bk-1pp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="316" id="YJs-07-ery"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Light"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Strong"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="raP-za-LGt" firstAttribute="centerY" secondItem="9no-cl-2lK" secondAttribute="centerY" id="6af-jj-LyR"/>
+                            <constraint firstItem="3uN-vd-sGH" firstAttribute="top" secondItem="9no-cl-2lK" secondAttribute="top" constant="50" id="8Kf-mu-M2J"/>
+                            <constraint firstItem="DJn-eZ-TUv" firstAttribute="top" secondItem="raP-za-LGt" secondAttribute="bottom" constant="41" id="CIc-EH-pqO"/>
+                            <constraint firstItem="03L-Qm-9vC" firstAttribute="centerX" secondItem="9no-cl-2lK" secondAttribute="centerX" id="JFl-Fd-0xg"/>
+                            <constraint firstItem="raP-za-LGt" firstAttribute="top" secondItem="03L-Qm-9vC" secondAttribute="bottom" constant="52" id="JSh-PT-Hh3"/>
+                            <constraint firstItem="9no-cl-2lK" firstAttribute="bottom" secondItem="pgi-ZW-LPo" secondAttribute="bottom" constant="36" id="c3O-wi-ycD"/>
+                            <constraint firstItem="Jv7-Zb-AXW" firstAttribute="top" secondItem="3uN-vd-sGH" secondAttribute="bottom" constant="58" id="cyP-3j-3ZC"/>
+                            <constraint firstItem="DJn-eZ-TUv" firstAttribute="centerX" secondItem="9no-cl-2lK" secondAttribute="centerX" id="gYE-Ws-XcL"/>
+                            <constraint firstItem="3uN-vd-sGH" firstAttribute="centerX" secondItem="9no-cl-2lK" secondAttribute="centerX" id="hjU-2L-9Jk"/>
+                            <constraint firstItem="pgi-ZW-LPo" firstAttribute="centerX" secondItem="9no-cl-2lK" secondAttribute="centerX" id="iPl-g0-Q6J"/>
+                            <constraint firstItem="raP-za-LGt" firstAttribute="centerX" secondItem="9no-cl-2lK" secondAttribute="centerX" id="kom-bU-QLd"/>
+                            <constraint firstItem="Jv7-Zb-AXW" firstAttribute="centerX" secondItem="9no-cl-2lK" secondAttribute="centerX" id="lkQ-J9-xQY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9no-cl-2lK"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Brew" image="timer" catalog="system" id="arm-Gs-D4U"/>
