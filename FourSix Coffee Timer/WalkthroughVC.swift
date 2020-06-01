@@ -19,6 +19,10 @@ class WalkthroughVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
         configurePageViewController()
     }
     
@@ -36,7 +40,7 @@ class WalkthroughVC: UIViewController {
         
         contentView.addSubview(pageViewController.view)
         
-        let views: [String: Any] = ["pageView": pageViewController.view]
+        let views: [String: Any] = ["pageView": pageViewController.view as Any]
         
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
         
@@ -64,6 +68,10 @@ class WalkthroughVC: UIViewController {
 
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        
+        
     }
 }
 
