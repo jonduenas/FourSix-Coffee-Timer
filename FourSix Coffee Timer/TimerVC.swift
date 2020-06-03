@@ -31,8 +31,14 @@ class TimerVC: UIViewController {
     var pausedTime: Date?
     var pausedIntervals = [TimeInterval]()
     
-    var recipeStepCount = 0
+    var recipeWater = [Int]()
+    var recipeTime = [Double]()
+    var recipeIntervals = [Double]()
     var recipeIndex = 0
+    var totalWater = 0
+    var totalCoffee = 0
+    var currentWater = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +54,18 @@ class TimerVC: UIViewController {
         
         //setup for new timer
         timerState = .new
+        
+        //setup recipe
+        recipeTime = [45, 90, 135, 180, 225]
+        recipeIntervals = [0, 45, 90, 135, 180]
+        recipeWater = [50, 70, 60, 60, 60]
+        totalWater = 300
+        totalCoffee = 20
+        
+        ratioLabel.text = "\(totalCoffee)g coffee : \(totalWater)g water"
+        nextStepLabel.isHidden = true
+        currentStepLabel.text = "Pour \(recipeWater[0])g"
+        currentWeightLabel.text = "\(currentWater)g"
     }
     
     @IBAction func xTapped(_ sender: Any) {
@@ -67,6 +85,9 @@ class TimerVC: UIViewController {
             startTime = Date.timeIntervalSinceReferenceDate
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            
+            currentWater += recipeWater[recipeIndex]
+            currentWeightLabel.text = "\(currentWater)g"
         } else if timerState == .running {
             //pause timer
             timer.invalidate()
@@ -101,28 +122,41 @@ class TimerVC: UIViewController {
             pausedSeconds += Date().timeIntervalSince(pausedTime)
         }
         
-        let elapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
+        let totalElapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
         
-        //Convert elapsedTime into format 00:00.00
+        if totalElapsedTime <= recipeTime[recipeIndex] {
+            let currentElapsedTime = totalElapsedTime - recipeIntervals[recipeIndex]
+            
+            currentStepTimeLabel.text = format(time: currentElapsedTime)
+            totalTimeLabel.text = format(time: totalElapsedTime)
+        } else if totalElapsedTime > recipeTime[recipeIndex] {
+            let currentElapsedTime = totalElapsedTime - recipeIntervals[recipeIndex]
+
+            currentStepTimeLabel.text = format(time: currentElapsedTime)
+            totalTimeLabel.text = format(time: totalElapsedTime)
+
+            if recipeIndex < recipeTime.count - 1 {
+                recipeIndex += 1
+                currentWater += recipeWater[recipeIndex]
+                currentWeightLabel.text = "\(currentWater)g"
+                currentStepLabel.text = "Pour \(recipeWater[recipeIndex])g"
+            } else if recipeIndex == recipeTime.count - 1 {
+                //last step
+                timer.invalidate()
+                let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+                    self?.dismiss(animated: true)
+                }))
+                present(ac, animated: true)
+            }
+        }
+    }
+    
+    func format(time: TimeInterval) -> String {
         let formater = DateFormatter()
         formater.dateFormat = "mm:ss.SS"
         
-        let date = Date(timeIntervalSinceReferenceDate: elapsedTime)
-        let timeString = formater.string(from: date)
-        
-        currentStepTimeLabel.text = timeString
-        totalTimeLabel.text = timeString
-        
+        let date = Date(timeIntervalSinceReferenceDate: time)
+        return formater.string(from: date)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
