@@ -51,7 +51,13 @@ class TimerVC: UIViewController {
     }
     
     @IBAction func xTapped(_ sender: Any) {
-        self.dismiss(animated: true)
+        let ac = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
+            self?.timer.invalidate()
+            self?.dismiss(animated: true)
+        }))
+        present(ac, animated: true)        
     }
     
     @IBAction func playPauseTapped(_ sender: Any) {
