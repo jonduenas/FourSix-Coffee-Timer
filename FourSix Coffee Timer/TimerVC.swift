@@ -30,10 +30,10 @@ class TimerVC: UIViewController {
     var startTime = TimeInterval()
     var pausedTime: Date?
     var pausedIntervals = [TimeInterval]()
+    var stepsTime = TimeInterval()
     
     var recipeWater = [Int]()
-    var recipeTime = [Double]()
-    var recipeIntervals = [Double]()
+    var recipeInterval: Double = 0
     var recipeIndex = 0
     var totalWater = 0
     var totalCoffee = 0
@@ -56,8 +56,7 @@ class TimerVC: UIViewController {
         timerState = .new
         
         //setup recipe
-        recipeTime = [45, 90, 135, 180, 225]
-        recipeIntervals = [0, 45, 90, 135, 180]
+        recipeInterval = 45
         recipeWater = [50, 70, 60, 60, 60]
         totalWater = 300
         totalCoffee = 20
@@ -79,16 +78,7 @@ class TimerVC: UIViewController {
     }
     
     @IBAction func playPauseTapped(_ sender: Any) {
-        if timerState == .new {
-            //start new timer
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-            startTime = Date.timeIntervalSinceReferenceDate
-            timerState = .running
-            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
-            
-            currentWater += recipeWater[recipeIndex]
-            currentWeightLabel.text = "\(currentWater)g"
-        } else if timerState == .running {
+        if timerState == .running {
             //pause timer
             timer.invalidate()
             timerState = .paused
@@ -99,9 +89,18 @@ class TimerVC: UIViewController {
             let pausedInterval = Date().timeIntervalSince(pausedTime!)
             pausedIntervals.append(pausedInterval)
             pausedTime = nil
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+            startTimer()
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+        } else {
+            //first run of brand new timer
+            startTimer()
+            startTime = Date.timeIntervalSinceReferenceDate
+            timerState = .running
+            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            
+            currentWater += recipeWater[recipeIndex]
+            currentWeightLabel.text = "\(currentWater)g"
         }
         
     }
@@ -111,6 +110,10 @@ class TimerVC: UIViewController {
     
     
     @IBAction func previousTapped(_ sender: Any) {
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
     @objc func runTimer() {
@@ -124,24 +127,23 @@ class TimerVC: UIViewController {
         
         let totalElapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
         
-        if totalElapsedTime <= recipeTime[recipeIndex] {
-            let currentElapsedTime = totalElapsedTime - recipeIntervals[recipeIndex]
-            
-            currentStepTimeLabel.text = format(time: currentElapsedTime)
-            totalTimeLabel.text = format(time: totalElapsedTime)
-        } else if totalElapsedTime > recipeTime[recipeIndex] {
-            let currentElapsedTime = totalElapsedTime - recipeIntervals[recipeIndex]
-
-            currentStepTimeLabel.text = format(time: currentElapsedTime)
-            totalTimeLabel.text = format(time: totalElapsedTime)
-
-            if recipeIndex < recipeTime.count - 1 {
+        let currentStepCountdown: TimeInterval = recipeInterval - totalElapsedTime + stepsTime
+        
+        currentStepTimeLabel.text = format(currentStepCountdown)
+        totalTimeLabel.text = format(totalElapsedTime)
+        
+        if currentStepCountdown <= 0 {
+            //check if end of recipe
+            if recipeIndex < recipeWater.count - 1 {
+                //move to next step
+                stepsTime += recipeInterval
                 recipeIndex += 1
                 currentWater += recipeWater[recipeIndex]
                 currentWeightLabel.text = "\(currentWater)g"
                 currentStepLabel.text = "Pour \(recipeWater[recipeIndex])g"
-            } else if recipeIndex == recipeTime.count - 1 {
+            } else {
                 //last step
+                currentStepTimeLabel.text = "00:00.00"
                 timer.invalidate()
                 let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
@@ -152,7 +154,7 @@ class TimerVC: UIViewController {
         }
     }
     
-    func format(time: TimeInterval) -> String {
+    func format(_ time: TimeInterval) -> String {
         let formater = DateFormatter()
         formater.dateFormat = "mm:ss.SS"
         
