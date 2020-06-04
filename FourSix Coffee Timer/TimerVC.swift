@@ -65,6 +65,7 @@ class TimerVC: UIViewController {
         nextStepLabel.isHidden = true
         currentStepLabel.text = "Pour \(recipeWater[0])g"
         currentWeightLabel.text = "\(currentWater)g"
+        currentStepTimeLabel.text = "00:45.00"
     }
     
     @IBAction func xTapped(_ sender: Any) {
@@ -105,13 +106,6 @@ class TimerVC: UIViewController {
         
     }
     
-    @IBAction func nextTapped(_ sender: Any) {
-    }
-    
-    
-    @IBAction func previousTapped(_ sender: Any) {
-    }
-    
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
@@ -129,13 +123,11 @@ class TimerVC: UIViewController {
         
         let currentStepCountdown: TimeInterval = recipeInterval - totalElapsedTime + stepsTime
         
-        currentStepTimeLabel.text = format(currentStepCountdown)
-        totalTimeLabel.text = format(totalElapsedTime)
-        
         if currentStepCountdown <= 0 {
             //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
                 //move to next step
+                currentStepTimeLabel.text = "00:00.00"
                 stepsTime += recipeInterval
                 recipeIndex += 1
                 currentWater += recipeWater[recipeIndex]
@@ -152,13 +144,16 @@ class TimerVC: UIViewController {
                 present(ac, animated: true)
             }
         }
+        
+        currentStepTimeLabel.text = format(currentStepCountdown)
+        totalTimeLabel.text = format(totalElapsedTime)
     }
     
     func format(_ time: TimeInterval) -> String {
         let formater = DateFormatter()
         formater.dateFormat = "mm:ss.SS"
         
-        let date = Date(timeIntervalSinceReferenceDate: time)
+        let date = Date(timeIntervalSinceReferenceDate: abs(time))
         return formater.string(from: date)
     }
 }
