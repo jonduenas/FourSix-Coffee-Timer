@@ -42,6 +42,7 @@ class TimerVC: UIViewController {
     var currentWater = 0
     
     let shapeLayer = CAShapeLayer()
+    let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,9 +69,8 @@ class TimerVC: UIViewController {
         nextStepLabel.isHidden = true
         currentStepLabel.text = "Pour \(recipeWater[0])g"
         currentWeightLabel.text = "\(currentWater)g"
-        currentStepTimeLabel.text = "00:45.00"
-        
-        
+        currentStepTimeLabel.text = "00:45"
+        totalTimeLabel.text = "00:00"
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,6 +91,7 @@ class TimerVC: UIViewController {
     @IBAction func playPauseTapped(_ sender: Any) {
         if timerState == .running {
             //pause timer
+            pauseAnimation()
             timer.invalidate()
             timerState = .paused
             pausedTime = Date()
@@ -101,11 +102,13 @@ class TimerVC: UIViewController {
             pausedIntervals.append(pausedInterval)
             pausedTime = nil
             startTimer()
+            resumeAnimation()
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         } else {
             //first run of brand new timer
             startTimer()
+            startProgressBar()
             startTime = Date.timeIntervalSinceReferenceDate
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
@@ -117,7 +120,7 @@ class TimerVC: UIViewController {
     }
     
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
     @objc func runTimer() {
@@ -131,13 +134,15 @@ class TimerVC: UIViewController {
         
         let totalElapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
         
-        let currentStepCountdown: TimeInterval = recipeInterval - totalElapsedTime + stepsTime
+        let currentStepCountdown: TimeInterval = 1 + recipeInterval - totalElapsedTime + stepsTime
         
         if currentStepCountdown <= 0 {
             //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
                 //move to next step
-                currentStepTimeLabel.text = "00:00.00"
+                //shapeLayer.strokeEnd = 1
+                startProgressBar()
+                //currentStepTimeLabel.text = "00:45"
                 stepsTime += recipeInterval
                 recipeIndex += 1
                 currentWater += recipeWater[recipeIndex]
@@ -145,7 +150,8 @@ class TimerVC: UIViewController {
                 currentStepLabel.text = "Pour \(recipeWater[recipeIndex])g"
             } else {
                 //last step
-                currentStepTimeLabel.text = "00:00.00"
+                //shapeLayer.strokeEnd = 0
+                currentStepTimeLabel.text = "00:00"
                 timer.invalidate()
                 let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
@@ -154,14 +160,14 @@ class TimerVC: UIViewController {
                 present(ac, animated: true)
             }
         }
-        
-        currentStepTimeLabel.text = format(currentStepCountdown)
-        totalTimeLabel.text = format(totalElapsedTime)
+        //update time labels
+        currentStepTimeLabel.text = currentStepCountdown.stringFromTimeInterval()
+        totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
     }
     
     func format(_ time: TimeInterval) -> String {
         let formater = DateFormatter()
-        formater.dateFormat = "mm:ss.SS"
+        formater.dateFormat = "mm:ss"
         
         let date = Date(timeIntervalSinceReferenceDate: abs(time))
         return formater.string(from: date)
@@ -170,12 +176,10 @@ class TimerVC: UIViewController {
     func createProgressBar() {
         let center = centerView.convert(centerView.center, from: centerView.superview)
         
-        
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: 0, endAngle: -3 * CGFloat.pi, clockwise: false)
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: 0, endAngle: 360.degreesToRadians, clockwise: true)
         
         //create track layer
         let trackLayer = CAShapeLayer()
-        
         trackLayer.path = circularPath.cgPath
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.strokeColor = UIColor.systemGray2.cgColor
@@ -184,32 +188,63 @@ class TimerVC: UIViewController {
         
         centerView.layer.addSublayer(trackLayer)
         
+        //create progress layer
         shapeLayer.path = circularPath.cgPath
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor(named: "Accent")?.cgColor
         shapeLayer.lineWidth = 10
-        shapeLayer.strokeEnd = 0
+        shapeLayer.strokeEnd = 1
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.position = center
-        shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
+        shapeLayer.transform = CATransform3DMakeRotation(-90.degreesToRadians, 0, 0, 1)
         
         centerView.layer.addSublayer(shapeLayer)
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
-    @objc private func handleTap() {
-        print("Tap tap tap")
-        
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        
-        basicAnimation.toValue = 1
-        
-        basicAnimation.duration = 2
-        
+    func startProgressBar() {
+        basicAnimation.fromValue = 1
+        basicAnimation.toValue = 0
+        basicAnimation.duration = recipeInterval
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         
         shapeLayer.add(basicAnimation, forKey: "circleAnimation")
+    }
+    
+    func pauseAnimation() {
+        let pausedTime = shapeLayer.convertTime(CACurrentMediaTime(), from: nil)
+        shapeLayer.speed = 0.0
+        shapeLayer.timeOffset = pausedTime
+    }
+
+    func resumeAnimation() {
+        let pausedTime = shapeLayer.timeOffset
+        shapeLayer.speed = 1
+        shapeLayer.timeOffset = 0
+        shapeLayer.beginTime = 0
+        let timeSincePause = shapeLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        shapeLayer.beginTime = timeSincePause
+    }
+}
+
+extension Int {
+    var degreesToRadians : CGFloat {
+        return CGFloat(self) * .pi / 180
+    }
+}
+
+extension TimeInterval{
+
+    func stringFromTimeInterval() -> String {
+
+        let time = NSInteger(self)
+
+        //let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        //let hours = (time / 3600)
+
+        return String(format: "%0.2d:%0.2d",minutes,seconds)
+
     }
 }
