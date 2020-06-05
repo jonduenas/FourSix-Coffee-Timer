@@ -25,6 +25,8 @@ class TimerVC: UIViewController {
     
     @IBOutlet var playPauseButton: UIButton!
     
+    @IBOutlet var centerView: UIView!
+    
     var timer = Timer()
     var timerState: TimerState?
     var startTime = TimeInterval()
@@ -39,6 +41,7 @@ class TimerVC: UIViewController {
     var totalCoffee = 0
     var currentWater = 0
     
+    let shapeLayer = CAShapeLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +69,13 @@ class TimerVC: UIViewController {
         currentStepLabel.text = "Pour \(recipeWater[0])g"
         currentWeightLabel.text = "\(currentWater)g"
         currentStepTimeLabel.text = "00:45.00"
+        
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        //circle progress indicator
+        createProgressBar()
     }
     
     @IBAction func xTapped(_ sender: Any) {
@@ -155,5 +165,51 @@ class TimerVC: UIViewController {
         
         let date = Date(timeIntervalSinceReferenceDate: abs(time))
         return formater.string(from: date)
+    }
+    
+    func createProgressBar() {
+        let center = centerView.convert(centerView.center, from: centerView.superview)
+        
+        
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: 0, endAngle: -3 * CGFloat.pi, clockwise: false)
+        
+        //create track layer
+        let trackLayer = CAShapeLayer()
+        
+        trackLayer.path = circularPath.cgPath
+        trackLayer.fillColor = UIColor.clear.cgColor
+        trackLayer.strokeColor = UIColor.systemGray2.cgColor
+        trackLayer.lineWidth = 10
+        trackLayer.position = center
+        
+        centerView.layer.addSublayer(trackLayer)
+        
+        shapeLayer.path = circularPath.cgPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor(named: "Accent")?.cgColor
+        shapeLayer.lineWidth = 10
+        shapeLayer.strokeEnd = 0
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
+        shapeLayer.position = center
+        shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
+        
+        centerView.layer.addSublayer(shapeLayer)
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+    
+    @objc private func handleTap() {
+        print("Tap tap tap")
+        
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        
+        basicAnimation.toValue = 1
+        
+        basicAnimation.duration = 2
+        
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        
+        shapeLayer.add(basicAnimation, forKey: "circleAnimation")
     }
 }
