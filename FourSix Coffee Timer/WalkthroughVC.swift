@@ -12,16 +12,23 @@ class WalkthroughVC: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
     
-    let dataSource = ["50g", "70g", "60g", "60g", "60g"]
+    var recipeWater = [Double]()
     
     var currentViewControllerIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //remove shadow from navigation controller
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
+        
+        if recipeWater.isEmpty {
+            recipeWater = [60, 60, 60, 60, 60]
+        }
+        
+        print(recipeWater)
         
         configurePageViewController()
     }
@@ -53,7 +60,7 @@ class WalkthroughVC: UIViewController {
 
     func contentViewControllerAt(index: Int) -> WalkthroughContentVC? {
         
-        if index >= dataSource.count || dataSource.count == 0 {
+        if index >= recipeWater.count || recipeWater.count == 0 {
             return nil
         }
         
@@ -61,7 +68,7 @@ class WalkthroughVC: UIViewController {
         
         contentViewController.index = index
         contentViewController.stepText = "Step \(index + 1)"
-        contentViewController.amountText = dataSource[index]
+        contentViewController.amountText = "\( recipeWater[index])"
         
         return contentViewController
     }
@@ -84,7 +91,7 @@ extension WalkthroughVC: UIPageViewControllerDelegate, UIPageViewControllerDataS
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return dataSource.count
+        return recipeWater.count
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -108,7 +115,7 @@ extension WalkthroughVC: UIPageViewControllerDelegate, UIPageViewControllerDataS
         
         guard var currentIndex = contentViewController?.index else { return nil }
         
-        if currentIndex == dataSource.count {
+        if currentIndex == recipeWater.count {
             return nil
         }
         
