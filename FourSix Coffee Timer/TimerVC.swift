@@ -29,13 +29,14 @@ class TimerVC: UIViewController {
     
     var timer = Timer()
     var timerState: TimerState?
-    var startTime = TimeInterval()
+    var startTime: Date!
+    var currentStepEndTime: Date!
     var pausedTime: Date?
     var pausedIntervals = [TimeInterval]()
     var stepsTime = TimeInterval()
     
     var recipeWater = [Int]()
-    var recipeInterval: Double = 0
+    var recipeInterval: TimeInterval = 0
     var recipeIndex = 0
     var totalWater = 0
     var totalCoffee = 0
@@ -99,7 +100,9 @@ class TimerVC: UIViewController {
         } else if timerState == .paused {
             //resume paused timer
             let pausedInterval = Date().timeIntervalSince(pausedTime!)
-            pausedIntervals.append(pausedInterval)
+            //pausedIntervals.append(pausedInterval)
+            startTime += pausedInterval
+            currentStepEndTime = currentStepEndTime.addingTimeInterval(pausedInterval)
             pausedTime = nil
             startTimer()
             resumeAnimation()
@@ -109,7 +112,8 @@ class TimerVC: UIViewController {
             //first run of brand new timer
             startTimer()
             startProgressBar()
-            startTime = Date.timeIntervalSinceReferenceDate
+            startTime = Date()
+            currentStepEndTime = Date().addingTimeInterval(recipeInterval)
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             
@@ -120,26 +124,30 @@ class TimerVC: UIViewController {
     }
     
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
     @objc func runTimer() {
-        let currentTime = Date.timeIntervalSinceReferenceDate
+        let currentTime = Date()
+        //let currentTime = Date.timeIntervalSinceReferenceDate
         
         //calculate total paused time
-        var pausedSeconds = pausedIntervals.reduce(0) { $0 + $1 }
-        if let pausedTime = pausedTime {
-            pausedSeconds += Date().timeIntervalSince(pausedTime)
-        }
+//        var pausedSeconds = pausedIntervals.reduce(0) { $0 + $1 }
+//        if let pausedTime = pausedTime {
+//            pausedSeconds += Date().timeIntervalSince(pausedTime)
+//        }
         
-        let totalElapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
+        let totalElapsedTime = startTime.timeIntervalSince(currentTime)
+        //let totalElapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
         
-        let currentStepCountdown: TimeInterval = 1 + recipeInterval - totalElapsedTime + stepsTime
+        let currentInterval = currentStepEndTime.timeIntervalSince(currentTime)
+        //let currentStepCountdown: TimeInterval = 1 + recipeInterval - totalElapsedTime + stepsTime
         
-        if currentStepCountdown <= 0 {
+        if currentInterval <= 0 {
             //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
                 //move to next step
+                currentStepEndTime = Date().addingTimeInterval(recipeInterval)
                 //shapeLayer.strokeEnd = 1
                 startProgressBar()
                 //currentStepTimeLabel.text = "00:45"
@@ -161,22 +169,22 @@ class TimerVC: UIViewController {
             }
         }
         //update time labels
-        currentStepTimeLabel.text = currentStepCountdown.stringFromTimeInterval()
-        totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
+        currentStepTimeLabel.text = format(currentInterval)
+        totalTimeLabel.text = format(totalElapsedTime)
     }
     
     func format(_ time: TimeInterval) -> String {
         let formater = DateFormatter()
         formater.dateFormat = "mm:ss"
-        
-        let date = Date(timeIntervalSinceReferenceDate: abs(time))
+
+        let date = Date(timeIntervalSinceReferenceDate: abs(time.rounded()))
         return formater.string(from: date)
     }
     
     func createProgressBar() {
         let center = centerView.convert(centerView.center, from: centerView.superview)
         
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: 0, endAngle: 360.degreesToRadians, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
         
         //create track layer
         let trackLayer = CAShapeLayer()
@@ -196,7 +204,7 @@ class TimerVC: UIViewController {
         shapeLayer.strokeEnd = 1
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.position = center
-        shapeLayer.transform = CATransform3DMakeRotation(-90.degreesToRadians, 0, 0, 1)
+        //shapeLayer.transform = CATransform3DMakeRotation(-90.degreesToRadians, 0, 0, 1)
         
         centerView.layer.addSublayer(shapeLayer)
     }
@@ -239,10 +247,8 @@ extension TimeInterval{
 
         let time = NSInteger(self)
 
-        //let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
         let seconds = time % 60
         let minutes = (time / 60) % 60
-        //let hours = (time / 3600)
 
         return String(format: "%0.2d:%0.2d",minutes,seconds)
 
