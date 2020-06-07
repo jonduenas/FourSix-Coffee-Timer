@@ -64,8 +64,6 @@ class TimerVC: UIViewController {
         
         //setup recipe
         recipeInterval = 45
-        //recipeWater = [50, 70, 60, 60, 60]
-        //totalWater = 300
         totalCoffee = 20
         totalTime = recipeInterval * Double(recipeWater.count)
         
@@ -102,9 +100,9 @@ class TimerVC: UIViewController {
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
         } else if timerState == .paused {
             //resume paused timer
-            let pausedInterval = Date().timeIntervalSince(pausedTime!)
-            //pausedIntervals.append(pausedInterval)
-            startTime! += pausedInterval
+            guard let pause = pausedTime else { return }
+            let pausedInterval = Date().timeIntervalSince(pause)
+            startTime = startTime?.addingTimeInterval(pausedInterval)
             endTime = endTime?.addingTimeInterval(pausedInterval)
             currentStepEndTime = currentStepEndTime?.addingTimeInterval(pausedInterval)
             pausedTime = nil
@@ -118,7 +116,7 @@ class TimerVC: UIViewController {
             startProgressBar()
             startTime = Date()
             if let totalTime = totalTime {
-                endTime = startTime! + totalTime
+                endTime = startTime?.addingTimeInterval(totalTime)
             }
             currentStepEndTime = Date().addingTimeInterval(recipeInterval)
             timerState = .running
@@ -134,42 +132,29 @@ class TimerVC: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
-    fileprivate func nextStep() {
-        startProgressBar()
-        currentStepTimeLabel.text = "00:45"
-        stepsTime += recipeInterval
-        recipeIndex += 1
-        currentWater += recipeWater[recipeIndex]
-    }
-    
     @objc func runTimer() {
         let currentTime = Date()
-        //let currentTime = Date.timeIntervalSinceReferenceDate
         
-        //calculate total paused time
-//        var pausedSeconds = pausedIntervals.reduce(0) { $0 + $1 }
-//        if let pausedTime = pausedTime {
-//            pausedSeconds += Date().timeIntervalSince(pausedTime)
-//        }
-        
-        guard let totalElapsedTime = endTime?.timeIntervalSince(currentTime).rounded() else { return }
-        //let totalElapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
+        guard let totalTimeLeft = endTime?.timeIntervalSince(currentTime).rounded() else { return }
         
         guard let currentInterval = currentStepEndTime?.timeIntervalSince(currentTime).rounded() else { return }
-        //let currentStepCountdown: TimeInterval = 1 + recipeInterval - totalElapsedTime + stepsTime
         
+        //current step end
         if currentInterval <= 0 {
             //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
                 //move to next step
-                totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
+                totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
                 currentStepEndTime = Date().addingTimeInterval(recipeInterval)
-                nextStep()
+                startProgressBar()
+                currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
+                stepsTime += recipeInterval
+                recipeIndex += 1
+                currentWater += recipeWater[recipeIndex]
                 currentWeightLabel.text = "\(currentWater)g"
                 currentStepLabel.text = "Pour \(recipeWater[recipeIndex])g"
             } else {
                 //last step
-                //shapeLayer.strokeEnd = 0
                 currentStepTimeLabel.text = "00:00"
                 totalTimeLabel.text = "00:00"
                 timer.invalidate()
@@ -182,7 +167,7 @@ class TimerVC: UIViewController {
         } else {
             //update time labels
             currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
-            totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
+            totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
         }
         
     }
