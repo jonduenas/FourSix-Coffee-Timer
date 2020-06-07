@@ -25,6 +25,8 @@ class BrewVC: UIViewController {
     var water60Pour: Double = 0
     var water60Count: Int = 0
     
+    var showWalkthrough: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +43,9 @@ class BrewVC: UIViewController {
         waterPour2 = waterPour1
         water60Count = 3
         water60Pour = water60! / Double(water60Count)
+        
+        //load user settings
+        showWalkthrough = true
         
     }
     
@@ -122,19 +127,45 @@ class BrewVC: UIViewController {
         print(balance)
         print(strength)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "Walkthrough") as WalkthroughVC
+        //check user setting for showing walkthrough
+        if let showWalkthrough = showWalkthrough {
+            if !showWalkthrough {
+                //skip walkthrough
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "Timer") as TimerVC
+                
+                let nc = UINavigationController(rootViewController: vc)
+                
+                nc.modalPresentationStyle = .fullScreen
+                nc.navigationBar.tintColor = UIColor(named: "Accent")
+                
+                vc.recipeWater.append(contentsOf: balance)
+                vc.recipeWater.append(contentsOf: strength)
+                if let waterTotal = waterTotal {
+                    vc.totalWater = waterTotal
+                }
+                
+                
+                present(nc, animated: true)
+            } else {
+                //show walkthrough
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "Walkthrough") as WalkthroughVC
+                
+                let nc = UINavigationController(rootViewController: vc)
+                
+                nc.modalPresentationStyle = .fullScreen
+                nc.navigationBar.tintColor = UIColor(named: "Accent")
+                
+                vc.recipeWater.append(contentsOf: balance)
+                vc.recipeWater.append(contentsOf: strength)
+                vc.recipeStepCount = balance.count + strength.count
+                
+                present(nc, animated: true)
+            }
+        }
         
-        let nc = UINavigationController(rootViewController: vc)
         
-        nc.modalPresentationStyle = .fullScreen
-        nc.navigationBar.tintColor = UIColor(named: "Accent")
-        
-        vc.recipeWater.append(contentsOf: balance)
-        vc.recipeWater.append(contentsOf: strength)
-        vc.recipeStepCount = balance.count + strength.count
-        
-        present(nc, animated: true)
     }
     
     

@@ -15,6 +15,7 @@ class WalkthroughVC: UIViewController {
     var recipeWater = [Double]()
     var recipeWaterString = [String]()
     var recipeStepCount = 0
+    var totalWater: Double = 0
     
     var currentViewControllerIndex = 0
     
@@ -22,13 +23,17 @@ class WalkthroughVC: UIViewController {
         super.viewDidLoad()
         
         //remove shadow from navigation controller
-        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
+        //load default recipe if none passed from previous viewcontroller
         if recipeWater.isEmpty {
             recipeWater = [60, 60, 60, 60, 60]
+        }
+        
+        if totalWater == 0 {
+            totalWater = 300
         }
         
         print(recipeWater)
@@ -72,6 +77,8 @@ class WalkthroughVC: UIViewController {
         contentViewController.index = index
         contentViewController.stepText = "Step \(index + 1)"
         contentViewController.amountText = recipeWater[index].clean + "g"
+        contentViewController.recipeWater = recipeWater
+        contentViewController.totalWater = totalWater
         
         return contentViewController
     }
@@ -84,6 +91,12 @@ class WalkthroughVC: UIViewController {
 //        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Timer")
 //        vc.modalPresentationStyle = .fullScreen
 //        self.present(vc, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! TimerVC
+        vc.recipeWater = recipeWater
+        vc.totalWater = totalWater
     }
 }
 

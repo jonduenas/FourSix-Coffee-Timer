@@ -12,10 +12,13 @@ class WalkthroughContentVC: UIViewController {
 
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet var startButton: UIButton!
     
     var stepText: String?
     var amountText: String?
     var index: Int?
+    var recipeWater = [Double]()
+    var totalWater: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +26,20 @@ class WalkthroughContentVC: UIViewController {
         stepLabel.text = stepText
         amountLabel.text = amountText
 
-        // Do any additional setup after loading the view.
+        //round button
+        startButton.layer.cornerRadius = 25
+        startButton.isHidden = true
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+         let vc = segue.destination as! TimerVC
+         vc.recipeWater = recipeWater
+         vc.totalWater = totalWater
     }
-    */
+    
 
 }

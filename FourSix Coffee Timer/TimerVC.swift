@@ -35,12 +35,12 @@ class TimerVC: UIViewController {
     var pausedIntervals = [TimeInterval]()
     var stepsTime = TimeInterval()
     
-    var recipeWater = [Int]()
+    var recipeWater = [Double]()
     var recipeInterval: TimeInterval = 0
     var recipeIndex = 0
-    var totalWater = 0
-    var totalCoffee = 0
-    var currentWater = 0
+    var totalWater: Double = 0
+    var totalCoffee: Double = 0
+    var currentWater: Double = 0
     
     let shapeLayer = CAShapeLayer()
     let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
@@ -62,8 +62,8 @@ class TimerVC: UIViewController {
         
         //setup recipe
         recipeInterval = 45
-        recipeWater = [50, 70, 60, 60, 60]
-        totalWater = 300
+        //recipeWater = [50, 70, 60, 60, 60]
+        //totalWater = 300
         totalCoffee = 20
         
         ratioLabel.text = "\(totalCoffee)g coffee : \(totalWater)g water"
