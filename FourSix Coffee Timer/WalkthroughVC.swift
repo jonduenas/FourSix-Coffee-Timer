@@ -80,6 +80,11 @@ class WalkthroughVC: UIViewController {
         contentViewController.recipeWater = recipeWater
         contentViewController.totalWater = totalWater
         
+        if index == recipeStepCount - 1 {
+            //last page - show start button
+            contentViewController.startIsHidden = false
+        }
+        
         return contentViewController
     }
 

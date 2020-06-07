@@ -19,6 +19,7 @@ class WalkthroughContentVC: UIViewController {
     var index: Int?
     var recipeWater = [Double]()
     var totalWater: Double = 0
+    var startIsHidden = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,12 @@ class WalkthroughContentVC: UIViewController {
 
         //round button
         startButton.layer.cornerRadius = 25
-        startButton.isHidden = true
+        if startIsHidden {
+            startButton.isHidden = true
+        } else {
+            startButton.isHidden = false
+        }
+        
     }
     
 
