@@ -13,6 +13,7 @@ class WalkthroughVC: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     var recipeWater = [Double]()
+    var recipeStepCount = 0
     
     var currentViewControllerIndex = 0
     
@@ -20,6 +21,7 @@ class WalkthroughVC: UIViewController {
         super.viewDidLoad()
         
         //remove shadow from navigation controller
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
@@ -91,7 +93,7 @@ extension WalkthroughVC: UIPageViewControllerDelegate, UIPageViewControllerDataS
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return recipeWater.count
+        return recipeStepCount
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -115,7 +117,7 @@ extension WalkthroughVC: UIPageViewControllerDelegate, UIPageViewControllerDataS
         
         guard var currentIndex = contentViewController?.index else { return nil }
         
-        if currentIndex == recipeWater.count {
+        if currentIndex == recipeStepCount - 1 {
             return nil
         }
         

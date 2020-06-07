@@ -70,7 +70,7 @@
             <objects>
                 <viewController storyboardIdentifier="Info" id="1h2-tr-gkc" customClass="InfoVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xhr-X9-plV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What Is 4:6?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPU-9R-lA6">
@@ -145,6 +145,9 @@
                                     <segment title="Neutral"/>
                                     <segment title="Bright"/>
                                 </segments>
+                                <connections>
+                                    <action selector="balanceChanged:" destination="dQX-07-Wto" eventType="valueChanged" id="DZO-qP-g1H"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today I'd like a cup that is..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jv7-Zb-AXW">
                                 <rect key="frame" x="69" y="149" width="237" height="24"/>
@@ -189,6 +192,9 @@
                                     <segment title="Medium"/>
                                     <segment title="Strong"/>
                                 </segments>
+                                <connections>
+                                    <action selector="strengthChanged:" destination="dQX-07-Wto" eventType="valueChanged" id="sXQ-Ie-Lyf"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
@@ -222,7 +228,7 @@
         <!--WalkthroughVC-->
         <scene sceneID="PXV-Da-PXh">
             <objects>
-                <viewController id="ubt-b4-YQe" customClass="WalkthroughVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Walkthrough" id="ubt-b4-YQe" customClass="WalkthroughVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="99x-ca-E1I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -624,7 +630,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4EV-pk-FAb">
             <objects>
-                <navigationController storyboardIdentifier="Walkthrough" automaticallyAdjustsScrollViewInsets="NO" id="nIU-F0-MSK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WalkthroughNC" automaticallyAdjustsScrollViewInsets="NO" id="nIU-F0-MSK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="k5h-Dw-ytZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gIb-r2-bOr">
