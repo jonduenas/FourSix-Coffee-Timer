@@ -13,6 +13,7 @@ class WalkthroughVC: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     var recipeWater = [Double]()
+    var recipeWaterString = [String]()
     var recipeStepCount = 0
     
     var currentViewControllerIndex = 0
@@ -70,7 +71,7 @@ class WalkthroughVC: UIViewController {
         
         contentViewController.index = index
         contentViewController.stepText = "Step \(index + 1)"
-        contentViewController.amountText = "\( recipeWater[index])"
+        contentViewController.amountText = recipeWater[index].clean + "g"
         
         return contentViewController
     }
@@ -126,5 +127,11 @@ extension WalkthroughVC: UIPageViewControllerDelegate, UIPageViewControllerDataS
         currentViewControllerIndex = currentIndex
         
         return contentViewControllerAt(index: currentIndex)
+    }
+}
+
+extension Double {
+    var clean: String {
+        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
 }
