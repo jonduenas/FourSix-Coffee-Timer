@@ -29,8 +29,10 @@ class TimerVC: UIViewController {
     
     var timer = Timer()
     var timerState: TimerState?
-    var startTime: Date!
-    var currentStepEndTime: Date!
+    var startTime: Date?
+    var endTime: Date?
+    var totalTime: TimeInterval?
+    var currentStepEndTime: Date?
     var pausedTime: Date?
     var pausedIntervals = [TimeInterval]()
     var stepsTime = TimeInterval()
@@ -65,13 +67,14 @@ class TimerVC: UIViewController {
         //recipeWater = [50, 70, 60, 60, 60]
         //totalWater = 300
         totalCoffee = 20
+        totalTime = recipeInterval * Double(recipeWater.count)
         
         ratioLabel.text = "\(totalCoffee)g coffee : \(totalWater)g water"
         nextStepLabel.isHidden = true
         currentStepLabel.text = "Pour \(recipeWater[0])g"
         currentWeightLabel.text = "\(currentWater)g"
-        currentStepTimeLabel.text = "00:45"
-        totalTimeLabel.text = "00:00"
+        currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
+        totalTimeLabel.text = totalTime?.stringFromTimeInterval()
     }
     
     override func viewDidLayoutSubviews() {
@@ -101,8 +104,9 @@ class TimerVC: UIViewController {
             //resume paused timer
             let pausedInterval = Date().timeIntervalSince(pausedTime!)
             //pausedIntervals.append(pausedInterval)
-            startTime += pausedInterval
-            currentStepEndTime = currentStepEndTime.addingTimeInterval(pausedInterval)
+            startTime! += pausedInterval
+            endTime = endTime?.addingTimeInterval(pausedInterval)
+            currentStepEndTime = currentStepEndTime?.addingTimeInterval(pausedInterval)
             pausedTime = nil
             startTimer()
             resumeAnimation()
@@ -113,6 +117,9 @@ class TimerVC: UIViewController {
             startTimer()
             startProgressBar()
             startTime = Date()
+            if let totalTime = totalTime {
+                endTime = startTime! + totalTime
+            }
             currentStepEndTime = Date().addingTimeInterval(recipeInterval)
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
@@ -127,6 +134,14 @@ class TimerVC: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
+    fileprivate func nextStep() {
+        startProgressBar()
+        currentStepTimeLabel.text = "00:45"
+        stepsTime += recipeInterval
+        recipeIndex += 1
+        currentWater += recipeWater[recipeIndex]
+    }
+    
     @objc func runTimer() {
         let currentTime = Date()
         //let currentTime = Date.timeIntervalSinceReferenceDate
@@ -137,29 +152,26 @@ class TimerVC: UIViewController {
 //            pausedSeconds += Date().timeIntervalSince(pausedTime)
 //        }
         
-        let totalElapsedTime = startTime.timeIntervalSince(currentTime)
+        guard let totalElapsedTime = endTime?.timeIntervalSince(currentTime).rounded() else { return }
         //let totalElapsedTime: TimeInterval = currentTime - startTime - pausedSeconds
         
-        let currentInterval = currentStepEndTime.timeIntervalSince(currentTime)
+        guard let currentInterval = currentStepEndTime?.timeIntervalSince(currentTime).rounded() else { return }
         //let currentStepCountdown: TimeInterval = 1 + recipeInterval - totalElapsedTime + stepsTime
         
         if currentInterval <= 0 {
             //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
                 //move to next step
+                totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
                 currentStepEndTime = Date().addingTimeInterval(recipeInterval)
-                //shapeLayer.strokeEnd = 1
-                startProgressBar()
-                //currentStepTimeLabel.text = "00:45"
-                stepsTime += recipeInterval
-                recipeIndex += 1
-                currentWater += recipeWater[recipeIndex]
+                nextStep()
                 currentWeightLabel.text = "\(currentWater)g"
                 currentStepLabel.text = "Pour \(recipeWater[recipeIndex])g"
             } else {
                 //last step
                 //shapeLayer.strokeEnd = 0
                 currentStepTimeLabel.text = "00:00"
+                totalTimeLabel.text = "00:00"
                 timer.invalidate()
                 let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
@@ -167,18 +179,12 @@ class TimerVC: UIViewController {
                 }))
                 present(ac, animated: true)
             }
+        } else {
+            //update time labels
+            currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
+            totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
         }
-        //update time labels
-        currentStepTimeLabel.text = format(currentInterval)
-        totalTimeLabel.text = format(totalElapsedTime)
-    }
-    
-    func format(_ time: TimeInterval) -> String {
-        let formater = DateFormatter()
-        formater.dateFormat = "mm:ss"
-
-        let date = Date(timeIntervalSinceReferenceDate: abs(time.rounded()))
-        return formater.string(from: date)
+        
     }
     
     func createProgressBar() {
