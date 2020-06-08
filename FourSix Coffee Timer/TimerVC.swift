@@ -34,7 +34,6 @@ class TimerVC: UIViewController {
     var totalTime: TimeInterval?
     var currentStepEndTime: Date?
     var pausedTime: Date?
-    var pausedIntervals = [TimeInterval]()
     var stepsTime = TimeInterval()
     
     var recipeWater = [Double]()
@@ -44,8 +43,8 @@ class TimerVC: UIViewController {
     var totalCoffee: Double = 0
     var currentWater: Double = 0
     
-    let shapeLayer = CAShapeLayer()
-    let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+    var progressLayer: CAShapeLayer!
+    var trackLayer: CAShapeLayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,22 +62,33 @@ class TimerVC: UIViewController {
         timerState = .new
         
         //setup recipe
-        recipeInterval = 45
-        totalCoffee = 20
+        if recipeInterval == 0 {
+            recipeInterval = 45
+        }
+        
+        if totalCoffee == 0 {
+            totalCoffee = 20
+        }
+        
+        if recipeWater.isEmpty {
+            recipeWater = [60, 60, 60, 60, 60]
+        }
+        
         totalTime = recipeInterval * Double(recipeWater.count)
         
-        ratioLabel.text = "\(totalCoffee)g coffee : \(totalWater)g water"
+        ratioLabel.text = totalCoffee.clean + "g coffee : " + totalWater.clean + "g water"
         nextStepLabel.isHidden = true
-        currentStepLabel.text = "Pour \(recipeWater[0])g"
-        currentWeightLabel.text = "\(currentWater)g"
+        updateWeightLabels()
         currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
         totalTimeLabel.text = totalTime?.stringFromTimeInterval()
+        
+        createProgressBar()
     }
     
     override func viewDidLayoutSubviews() {
-        //circle progress indicator
-        createProgressBar()
+        layoutProgressBar()
     }
+
     
     @IBAction func xTapped(_ sender: Any) {
         let ac = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
@@ -123,10 +133,17 @@ class TimerVC: UIViewController {
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             
             currentWater += recipeWater[recipeIndex]
-            currentWeightLabel.text = "\(currentWater)g"
+            updateWeightLabels()
         }
         
     }
+    
+    func updateWeightLabels() {
+        currentStepLabel.text = "Pour " + recipeWater[recipeIndex].clean + "g"
+        currentWeightLabel.text = currentWater.clean + "g"
+    }
+    
+    
     
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
@@ -139,90 +156,110 @@ class TimerVC: UIViewController {
         
         guard let currentInterval = currentStepEndTime?.timeIntervalSince(currentTime).rounded() else { return }
         
-        //current step end
-        if currentInterval <= 0 {
+        if currentInterval <= 0 { //end of current step
             //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
                 //move to next step
-                totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
-                currentStepEndTime = Date().addingTimeInterval(recipeInterval)
-                startProgressBar()
-                currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
-                stepsTime += recipeInterval
-                recipeIndex += 1
-                currentWater += recipeWater[recipeIndex]
-                currentWeightLabel.text = "\(currentWater)g"
-                currentStepLabel.text = "Pour \(recipeWater[recipeIndex])g"
+                nextStep(totalTimeLeft)
             } else {
                 //last step
-                currentStepTimeLabel.text = "00:00"
-                totalTimeLabel.text = "00:00"
-                timer.invalidate()
-                let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-                    self?.dismiss(animated: true)
-                }))
-                present(ac, animated: true)
+                endTimer()
             }
         } else {
-            //update time labels
-            currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
-            totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
+            updateTimeLabels(currentInterval, totalTimeLeft)
         }
+    }
+    
+    fileprivate func endTimer() {
         
+        currentStepTimeLabel.text = "00:00"
+        totalTimeLabel.text = "00:00"
+        timer.invalidate()
+        let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            self?.dismiss(animated: true)
+        }))
+        present(ac, animated: true)
+    }
+    
+    fileprivate func updateTimeLabels(_ currentInterval: TimeInterval, _ totalTimeLeft: TimeInterval) {
+        //update time labels
+        currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
+        totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
+    }
+    
+    fileprivate func nextStep(_ totalTimeLeft: TimeInterval) {
+        totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
+        currentStepEndTime = Date().addingTimeInterval(recipeInterval)
+        startProgressBar()
+        currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
+        stepsTime += recipeInterval
+        recipeIndex += 1
+        currentWater += recipeWater[recipeIndex]
+        updateWeightLabels()
+    }
+    
+    func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
+        let layer = CAShapeLayer()
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+        
+        layer.path = circularPath.cgPath
+        layer.fillColor = fillColor.cgColor
+        layer.strokeColor = strokeColor.cgColor
+        layer.lineWidth = 10
+        layer.strokeEnd = 1
+        layer.lineCap = CAShapeLayerLineCap.round
+        
+        return layer
     }
     
     func createProgressBar() {
-        let center = centerView.convert(centerView.center, from: centerView.superview)
-        
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
-        
         //create track layer
-        let trackLayer = CAShapeLayer()
-        trackLayer.path = circularPath.cgPath
-        trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.strokeColor = UIColor.systemGray2.cgColor
-        trackLayer.lineWidth = 10
-        trackLayer.position = center
+        trackLayer = createCircleShapeLayer(strokeColor: .systemGray2, fillColor: .clear)
         
         centerView.layer.addSublayer(trackLayer)
         
         //create progress layer
-        shapeLayer.path = circularPath.cgPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor(named: "Accent")?.cgColor
-        shapeLayer.lineWidth = 10
-        shapeLayer.strokeEnd = 1
-        shapeLayer.lineCap = CAShapeLayerLineCap.round
-        shapeLayer.position = center
-        //shapeLayer.transform = CATransform3DMakeRotation(-90.degreesToRadians, 0, 0, 1)
+        progressLayer = createCircleShapeLayer(strokeColor: UIColor(named: "Accent")!, fillColor: .clear)
         
-        centerView.layer.addSublayer(shapeLayer)
+        centerView.layer.addSublayer(progressLayer)
+    }
+    
+    fileprivate func layoutProgressBar() {
+        let center = centerView.convert(centerView.center, from: centerView.superview)
+        position(circle: progressLayer, at: center)
+        position(circle: trackLayer, at: center)
+    }
+    
+    func position(circle: CAShapeLayer, at center: CGPoint) {
+        circle.position = center
     }
     
     func startProgressBar() {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        
         basicAnimation.fromValue = 1
         basicAnimation.toValue = 0
         basicAnimation.duration = recipeInterval
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         
-        shapeLayer.add(basicAnimation, forKey: "circleAnimation")
+        self.progressLayer.add(basicAnimation, forKey: "circleAnimation")
     }
     
     func pauseAnimation() {
-        let pausedTime = shapeLayer.convertTime(CACurrentMediaTime(), from: nil)
-        shapeLayer.speed = 0.0
-        shapeLayer.timeOffset = pausedTime
+        let pausedTime = progressLayer.convertTime(CACurrentMediaTime(), from: nil)
+        progressLayer.speed = 0.0
+        progressLayer.timeOffset = pausedTime
     }
 
     func resumeAnimation() {
-        let pausedTime = shapeLayer.timeOffset
-        shapeLayer.speed = 1
-        shapeLayer.timeOffset = 0
-        shapeLayer.beginTime = 0
-        let timeSincePause = shapeLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        shapeLayer.beginTime = timeSincePause
+        let pausedTime = progressLayer.timeOffset
+        progressLayer.speed = 1
+        progressLayer.timeOffset = 0
+        progressLayer.beginTime = 0
+        let timeSincePause = progressLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        progressLayer.beginTime = timeSincePause
     }
 }
 
