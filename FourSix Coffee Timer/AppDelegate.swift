@@ -11,14 +11,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //change appearance of page control
         let pageControl = UIPageControl.appearance()
         pageControl.currentPageIndicatorTintColor = .systemGray
         pageControl.pageIndicatorTintColor = .systemGray4
+        
         return true
     }
 

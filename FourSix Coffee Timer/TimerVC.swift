@@ -27,14 +27,17 @@ class TimerVC: UIViewController {
     
     @IBOutlet var centerView: UIView!
     
-    var timer = Timer()
+    var timer: Timer?
     var timerState: TimerState?
-    var startTime: Date?
-    var endTime: Date?
-    var totalTime: TimeInterval?
-    var currentStepEndTime: Date?
-    var pausedTime: Date?
+    var startTime: Date!
+    var endTime: Date!
+    var totalTime: TimeInterval!
+    var currentStepEndTime: Date!
+    var pausedTime: Date!
     var stepsTime = TimeInterval()
+    
+    var totalTimeLeft: TimeInterval = 0
+    var currentStepTimeLeft: TimeInterval = 0
     
     var recipeWater = [Double]()
     var recipeInterval: TimeInterval = 0
@@ -89,12 +92,14 @@ class TimerVC: UIViewController {
         layoutProgressBar()
     }
 
+    // MARK: Button methods
     
     @IBAction func xTapped(_ sender: Any) {
         let ac = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
-            self?.timer.invalidate()
+            self?.timer?.invalidate()
+            self?.timer = nil
             self?.dismiss(animated: true)
         }))
         present(ac, animated: true)        
@@ -103,31 +108,27 @@ class TimerVC: UIViewController {
     @IBAction func playPauseTapped(_ sender: Any) {
         if timerState == .running {
             //pause timer
+            print("Paused")
             pauseAnimation()
-            timer.invalidate()
+            timer?.invalidate()
+            timer = nil
             timerState = .paused
-            pausedTime = Date()
             playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
         } else if timerState == .paused {
             //resume paused timer
-            guard let pause = pausedTime else { return }
-            let pausedInterval = Date().timeIntervalSince(pause)
-            startTime = startTime?.addingTimeInterval(pausedInterval)
-            endTime = endTime?.addingTimeInterval(pausedInterval)
-            currentStepEndTime = currentStepEndTime?.addingTimeInterval(pausedInterval)
-            pausedTime = nil
+            print("Resume")
+            endTime = Date().addingTimeInterval(totalTimeLeft)
+            currentStepEndTime = Date().addingTimeInterval(currentStepTimeLeft)
             startTimer()
             resumeAnimation()
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         } else {
             //first run of brand new timer
+            print("Start")
             startTimer()
             startProgressBar()
-            startTime = Date()
-            if let totalTime = totalTime {
-                endTime = startTime?.addingTimeInterval(totalTime)
-            }
+            endTime = Date().addingTimeInterval(totalTime)
             currentStepEndTime = Date().addingTimeInterval(recipeInterval)
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
@@ -135,51 +136,13 @@ class TimerVC: UIViewController {
             currentWater += recipeWater[recipeIndex]
             updateWeightLabels()
         }
-        
     }
+    
+    // MARK: Update UI methods
     
     func updateWeightLabels() {
         currentStepLabel.text = "Pour " + recipeWater[recipeIndex].clean + "g"
         currentWeightLabel.text = currentWater.clean + "g"
-    }
-    
-    
-    
-    func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-    }
-    
-    @objc func runTimer() {
-        let currentTime = Date()
-        
-        guard let totalTimeLeft = endTime?.timeIntervalSince(currentTime).rounded() else { return }
-        
-        guard let currentInterval = currentStepEndTime?.timeIntervalSince(currentTime).rounded() else { return }
-        
-        if currentInterval <= 0 { //end of current step
-            //check if end of recipe
-            if recipeIndex < recipeWater.count - 1 {
-                //move to next step
-                nextStep(totalTimeLeft)
-            } else {
-                //last step
-                endTimer()
-            }
-        } else {
-            updateTimeLabels(currentInterval, totalTimeLeft)
-        }
-    }
-    
-    fileprivate func endTimer() {
-        
-        currentStepTimeLabel.text = "00:00"
-        totalTimeLabel.text = "00:00"
-        timer.invalidate()
-        let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            self?.dismiss(animated: true)
-        }))
-        present(ac, animated: true)
     }
     
     fileprivate func updateTimeLabels(_ currentInterval: TimeInterval, _ totalTimeLeft: TimeInterval) {
@@ -188,16 +151,59 @@ class TimerVC: UIViewController {
         totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
     }
     
-    fileprivate func nextStep(_ totalTimeLeft: TimeInterval) {
-        totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
+    fileprivate func nextStep() {
+        currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
         currentStepEndTime = Date().addingTimeInterval(recipeInterval)
         startProgressBar()
-        currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
-        stepsTime += recipeInterval
         recipeIndex += 1
         currentWater += recipeWater[recipeIndex]
         updateWeightLabels()
     }
+    
+    // MARK: Timer methods
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func runTimer() {
+        let currentTime = Date()
+        
+        totalTimeLeft = round(endTime.timeIntervalSince(currentTime))
+        
+        currentStepTimeLeft = round(currentStepEndTime.timeIntervalSince(currentTime))
+        
+//        print("Total - \(endTime.timeIntervalSince(currentTime)) / " + totalTimeLeft.stringFromTimeInterval())
+//        print("Step - \(currentStepEndTime.timeIntervalSince(currentTime)) / " + currentStepTimeLeft.stringFromTimeInterval())
+        
+        if currentStepTimeLeft <= 0 { //end of current step
+        //check if end of recipe
+            if recipeIndex < recipeWater.count - 1 {
+                //move to next step
+                totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
+                nextStep()
+            } else {
+                //last step
+                endTimer()
+            }
+        } else {
+            updateTimeLabels(currentStepTimeLeft, totalTimeLeft)
+        }
+    }
+    
+    fileprivate func endTimer() {
+        currentStepTimeLabel.text = "00:00"
+        totalTimeLabel.text = "00:00"
+        timer?.invalidate()
+        timer = nil
+        let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            self?.dismiss(animated: true)
+        }))
+        present(ac, animated: true)
+    }
+    
+    // MARK: Progress Circle Methods
     
     func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
@@ -262,6 +268,8 @@ class TimerVC: UIViewController {
         progressLayer.beginTime = timeSincePause
     }
 }
+
+// MARK: Extensions
 
 extension Int {
     var degreesToRadians : CGFloat {
