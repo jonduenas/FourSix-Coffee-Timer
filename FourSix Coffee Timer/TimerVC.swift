@@ -16,16 +16,15 @@ enum TimerState {
 
 class TimerVC: UIViewController {
 
-    @IBOutlet var ratioLabel: UILabel!
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
     @IBOutlet var currentStepLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
-    @IBOutlet var nextStepLabel: UILabel!
     
     @IBOutlet var playPauseButton: UIButton!
     
     @IBOutlet var centerView: UIView!
+    @IBOutlet var progressView: UIView!
     
     var timer: Timer?
     var timerState: TimerState?
@@ -58,8 +57,8 @@ class TimerVC: UIViewController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         //make timer font monospaced
-        currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 70, weight: .light)
-        totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 30, weight: .light)
+        currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
+        totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
         
         //setup for new timer
         timerState = .new
@@ -79,9 +78,7 @@ class TimerVC: UIViewController {
         
         totalTime = recipeInterval * Double(recipeWater.count)
         
-        ratioLabel.text = totalCoffee.clean + "g coffee : " + totalWater.clean + "g water"
-        nextStepLabel.isHidden = true
-        updateWeightLabels()
+        //updateWeightLabels()
         currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
         totalTimeLabel.text = totalTime?.stringFromTimeInterval()
         
@@ -113,7 +110,7 @@ class TimerVC: UIViewController {
             timer?.invalidate()
             timer = nil
             timerState = .paused
-            playPauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         } else if timerState == .paused {
             //resume paused timer
             print("Resume")
@@ -122,7 +119,7 @@ class TimerVC: UIViewController {
             startTimer()
             resumeAnimation()
             timerState = .running
-            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else {
             //first run of brand new timer
             print("Start")
@@ -131,7 +128,7 @@ class TimerVC: UIViewController {
             endTime = Date().addingTimeInterval(totalTime)
             currentStepEndTime = Date().addingTimeInterval(recipeInterval)
             timerState = .running
-            playPauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             
             currentWater += recipeWater[recipeIndex]
             updateWeightLabels()
@@ -223,16 +220,16 @@ class TimerVC: UIViewController {
         //create track layer
         trackLayer = createCircleShapeLayer(strokeColor: .systemGray2, fillColor: .clear)
         
-        centerView.layer.addSublayer(trackLayer)
+        progressView.layer.addSublayer(trackLayer)
         
         //create progress layer
         progressLayer = createCircleShapeLayer(strokeColor: UIColor(named: "Accent")!, fillColor: .clear)
         
-        centerView.layer.addSublayer(progressLayer)
+        progressView.layer.addSublayer(progressLayer)
     }
     
     fileprivate func layoutProgressBar() {
-        let center = centerView.convert(centerView.center, from: centerView.superview)
+        let center = progressView.convert(progressView.center, from: progressView.superview)
         position(circle: progressLayer, at: center)
         position(circle: trackLayer, at: center)
     }
