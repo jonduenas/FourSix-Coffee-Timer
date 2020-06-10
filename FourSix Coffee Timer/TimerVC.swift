@@ -23,7 +23,6 @@ class TimerVC: UIViewController {
     
     @IBOutlet var playPauseButton: UIButton!
     
-    @IBOutlet var centerView: UIView!
     @IBOutlet var progressView: UIView!
     
     var timer: Timer?
@@ -97,6 +96,7 @@ class TimerVC: UIViewController {
         ac.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
             self?.timer?.invalidate()
             self?.timer = nil
+            UIApplication.shared.isIdleTimerDisabled = false
             self?.dismiss(animated: true)
         }))
         present(ac, animated: true)        
@@ -123,6 +123,8 @@ class TimerVC: UIViewController {
         } else {
             //first run of brand new timer
             print("Start")
+            //disable screen from sleeping while timer being used
+            UIApplication.shared.isIdleTimerDisabled = true
             startTimer()
             startProgressBar()
             endTime = Date().addingTimeInterval(totalTime)
@@ -193,6 +195,7 @@ class TimerVC: UIViewController {
         totalTimeLabel.text = "00:00"
         timer?.invalidate()
         timer = nil
+        UIApplication.shared.isIdleTimerDisabled = false
         let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
             self?.dismiss(animated: true)
