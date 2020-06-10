@@ -1,14 +1,14 @@
 //
-//  NotesVC.swift
+//  SettingsVC.swift
 //  FourSix Coffee Timer
 //
-//  Created by Jon Duenas on 5/26/20.
+//  Created by Jon Duenas on 6/10/20.
 //  Copyright © 2020 Jon Duenas. All rights reserved.
 //
 
 import UIKit
 
-class NotesVC: UITableViewController {
+class SettingsVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
