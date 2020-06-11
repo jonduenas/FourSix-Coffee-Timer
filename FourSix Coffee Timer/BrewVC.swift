@@ -44,9 +44,6 @@ class BrewVC: UIViewController {
         water60Count = 3
         water60Pour = water60! / Double(water60Count)
         
-        //load user settings
-        showWalkthrough = true
-        
     }
     
     @IBAction func balanceChanged(_ sender: Any) {
@@ -128,8 +125,10 @@ class BrewVC: UIViewController {
         print(strength)
         
         //check user setting for showing walkthrough
-        if let showWalkthrough = showWalkthrough {
-            if !showWalkthrough {
+        let defaults = UserDefaults.standard
+        if let loadedSetting = defaults.object(forKey: "walkthroughEnabled") as? Bool {
+            showWalkthrough = loadedSetting
+            if !showWalkthrough! {
                 //skip walkthrough
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(identifier: "Timer") as TimerVC
@@ -144,7 +143,6 @@ class BrewVC: UIViewController {
                 if let waterTotal = waterTotal {
                     vc.totalWater = waterTotal
                 }
-                
                 
                 present(nc, animated: true)
             } else {
@@ -164,19 +162,5 @@ class BrewVC: UIViewController {
                 present(nc, animated: true)
             }
         }
-        
-        
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
