@@ -16,115 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-x9-ZbT">
-                                <rect key="frame" x="134" y="663" width="146" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="What Is FourSix?">
-                                    <color key="titleColor" name="Primary"/>
-                                </state>
-                                <connections>
-                                    <action selector="infoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jy6-RW-Mjr"/>
-                                    <segue destination="kFO-lO-NXh" kind="presentation" modalPresentationStyle="automatic" id="D0v-H4-fFH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksc-iU-Azf">
-                                <rect key="frame" x="109" y="732" width="196" height="51"/>
-                                <color key="backgroundColor" name="Primary"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="L46-Y0-dvi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Let's Brew!">
-                                    <color key="titleColor" name="Background"/>
-                                </state>
-                                <connections>
-                                    <action selector="brewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="agU-fZ-j54"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup" translatesAutoresizingMaskIntoConstraints="NO" id="loZ-cA-geI">
                                 <rect key="frame" x="62.5" y="271.5" width="289" height="363"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="dSI-x9-ZbT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8r9-fw-C1U"/>
                             <constraint firstItem="loZ-cA-geI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="F2k-us-6V5"/>
-                            <constraint firstItem="ksc-iU-Azf" firstAttribute="centerX" secondItem="loZ-cA-geI" secondAttribute="centerX" id="JiP-H9-sGI"/>
-                            <constraint firstItem="ksc-iU-Azf" firstAttribute="top" secondItem="dSI-x9-ZbT" secondAttribute="bottom" constant="33" id="Tcz-LI-bXA"/>
                             <constraint firstItem="loZ-cA-geI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vlO-l4-dFP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ksc-iU-Azf" secondAttribute="bottom" constant="79" id="wGu-SD-5a3"/>
-                            <constraint firstItem="ksc-iU-Azf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="109" id="zXe-qh-lCn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="letsBrewButton" destination="ksc-iU-Azf" id="CIW-el-6OL"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851" y="-570"/>
-        </scene>
-        <!--InfoVC-->
-        <scene sceneID="ph6-QH-8nU">
-            <objects>
-                <viewController storyboardIdentifier="Info" id="1h2-tr-gkc" customClass="InfoVC" customModule="FourSix_Coffee_Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xhr-X9-plV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What Is 4:6?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPU-9R-lA6">
-                                <rect key="frame" x="107" y="129" width="200" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjI-RI-hkJ">
-                                <rect key="frame" x="20" y="186" width="374" height="235"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">"4:6" is a method for brewing coffee with a Hario V60. The method, invented by Tetsu Kasuya, "begins by dividing the total water into 40% and 60%.
-
-"You pour the first 40% in two pours, and then decide how many pours you want to make for the last 60%. The first 2 pours decide the balance of the acidity and sweetness. The remaining number of pours will decide the strength of the coffee."</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What Do I Need?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KL4-Mt-yHJ">
-                                <rect key="frame" x="76" y="448" width="263" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3l-VP-jKA">
-                                <rect key="frame" x="99" y="508" width="216" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">∙ Hario V60
-∙ Paper filter ∙ Gooseneck Kettle
-∙ Mug or caraffe
-∙ Fresh ground coffee
-∙ Filtered water</string>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" name="Background"/>
-                        <viewLayoutGuide key="safeArea" id="hfP-IR-Z3d"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="NBZ-XJ-ExC">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="xmark" catalog="system" id="EJ5-Cj-eaI">
-                            <connections>
-                                <action selector="closeTapped:" destination="1h2-tr-gkc" id="O1q-NB-UHa"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AX0-Ji-Ppw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1675" y="131"/>
         </scene>
         <!--BrewVC-->
         <scene sceneID="5gd-vA-SRp">
@@ -547,25 +453,6 @@
             <point key="canvasLocation" x="4754" y="-1263"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="4mR-bo-T9j">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kFO-lO-NXh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tvY-8s-k1Q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="Background"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1h2-tr-gkc" kind="relationship" relationship="rootViewController" id="KVl-ta-MnE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RO2-Fu-RKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="851" y="131"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="4EV-pk-FAb">
             <objects>
                 <navigationController storyboardIdentifier="WalkthroughNC" automaticallyAdjustsScrollViewInsets="NO" id="nIU-F0-MSK" sceneMemberID="viewController">
@@ -796,7 +683,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-lC-3nD">
                                                 <rect key="frame" x="25" y="262.5" width="364" height="372.5"/>
-                                                <mutableString key="text">FourSix is designed to make the 4:6 method simple and easy enough for anyone to try without having to pull out a calculator. Simply pick whether you want a sweet, neutral, or bright tasting cup, and your desired strength, press “Calculate” and see your resulting recipe. Simply follow the directions by pouring the amount of water shown at the appropriate times, and enjoy!  For now, the app is designed to work with a set 20g of coffee and 300g of water. To best follow the recipe as designed, use 92ºC water and allow it to completely drain from the cone between each pour before moving on to the next one. They should be about 45 seconds apart.</mutableString>
+                                                <string key="text">FourSix is designed to make the 4:6 method simple and easy enough for anyone to try without having to pull out a calculator. Simply pick whether you want a sweet, neutral, or bright tasting cup, and your desired strength, press “Calculate” and see your resulting recipe. Simply follow the directions by pouring the amount of water shown at the appropriate times, and enjoy!  For now, the app is designed to work with a set 20g of coffee and 300g of water. To best follow the recipe as designed, use 92ºC water and allow it to completely drain from the cone between each pour before moving on to the next one. They should be about 45 seconds apart.</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -896,9 +783,6 @@
         </namedColor>
         <namedColor name="Background">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Primary">
-            <color red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
