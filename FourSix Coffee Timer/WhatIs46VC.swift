@@ -16,8 +16,6 @@ class WhatIs46VC: UIViewController {
         super.viewDidLoad()
 
         loadYoutube(videoID: "wmCW8xSWGZY")
-        
-        
     }
     
     func loadYoutube(videoID:String) {
