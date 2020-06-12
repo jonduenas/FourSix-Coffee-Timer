@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum TimerState {
     case new
@@ -151,6 +152,7 @@ class TimerVC: UIViewController {
     }
     
     fileprivate func nextStep() {
+        AudioServicesPlaySystemSound(SystemSoundID(1322))
         currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
         currentStepEndTime = Date().addingTimeInterval(recipeInterval)
         startProgressBar()
