@@ -138,6 +138,16 @@ class TimerVC: UIViewController {
         }
     }
     
+    @IBAction func forwardTapped(_ sender: Any) {
+        
+        if recipeIndex < recipeWater.count - 1 {
+            nextStep()
+        } else {
+            endTimer()
+        }
+        
+    }
+    
     // MARK: Update UI methods
     
     func updateWeightLabels() {
@@ -193,6 +203,8 @@ class TimerVC: UIViewController {
     }
     
     fileprivate func endTimer() {
+        AudioServicesPlaySystemSound(SystemSoundID(1322))
+        pauseAnimation()
         currentStepTimeLabel.text = "00:00"
         totalTimeLabel.text = "00:00"
         timer?.invalidate()

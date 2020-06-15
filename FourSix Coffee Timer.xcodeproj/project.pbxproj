@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6527563F2475B138004E067F /* FourSix Coffee Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FourSix Coffee Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6527563F2475B138004E067F /* FourSix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		652756422475B138004E067F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		652756442475B138004E067F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		652756462475B138004E067F /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		652756402475B138004E067F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6527563F2475B138004E067F /* FourSix Coffee Timer.app */,
+				6527563F2475B138004E067F /* FourSix.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			);
 			name = "FourSix Coffee Timer";
 			productName = "FourSix Coffee Timer";
-			productReference = 6527563F2475B138004E067F /* FourSix Coffee Timer.app */;
+			productReference = 6527563F2475B138004E067F /* FourSix.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -340,7 +340,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -358,7 +358,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
