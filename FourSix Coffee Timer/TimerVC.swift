@@ -36,6 +36,9 @@ class TimerVC: UIViewController {
     var pausedTime: Date!
     var stepsTime = TimeInterval()
     
+    var totalElapsedTime: TimeInterval = 0
+    var currentStepElapsedTime: TimeInterval = 0
+    
     var totalTimeLeft: TimeInterval = 0
     var currentStepTimeLeft: TimeInterval = 0
     
@@ -116,8 +119,10 @@ class TimerVC: UIViewController {
         } else if timerState == .paused {
             //resume paused timer
             print("Resume")
-            endTime = Date().addingTimeInterval(totalTimeLeft)
-            currentStepEndTime = Date().addingTimeInterval(currentStepTimeLeft)
+            //endTime = Date().addingTimeInterval(totalTimeLeft)
+            startTime = Date().addingTimeInterval(totalElapsedTime)
+            //currentStepEndTime = Date().addingTimeInterval(currentStepTimeLeft)
+            currentStepStartTime = Date().addingTimeInterval(currentStepElapsedTime)
             startTimer()
             resumeAnimation()
             timerState = .running
@@ -187,10 +192,10 @@ class TimerVC: UIViewController {
         let currentTime = Date()
         
         //totalTimeLeft = round(endTime.timeIntervalSince(currentTime))
-        let totalElapsedTime = round(startTime.timeIntervalSince(currentTime))
+        totalElapsedTime = round(startTime.timeIntervalSince(currentTime))
         
         //currentStepTimeLeft = round(currentStepEndTime.timeIntervalSince(currentTime))
-        let currentStepElapsedTime = round(currentStepStartTime.timeIntervalSince(currentTime))
+        currentStepElapsedTime = round(currentStepStartTime.timeIntervalSince(currentTime))
         
 //        print("Total - \(endTime.timeIntervalSince(currentTime)) / " + totalTimeLeft.stringFromTimeInterval())
 //        print("Step - \(currentStepEndTime.timeIntervalSince(currentTime)) / " + currentStepTimeLeft.stringFromTimeInterval())
