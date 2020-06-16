@@ -33,7 +33,14 @@ class BrewVC: UIViewController {
         //round button
         startButton.layer.cornerRadius = 25
         
-        balanceSelect.selectedSegmentIndex = 1
+        //load last used recipe
+        let defaults = UserDefaults.standard
+        
+        let previousBalance = defaults.object(forKey: "balance") as? Int ?? 1
+        let previousStrength = defaults.object(forKey: "strength") as? Int ?? 1
+        
+        balanceSelect.selectedSegmentIndex = previousBalance
+        strengthSelect.selectedSegmentIndex = previousStrength
         
         //load default recipe
         waterTotal = 300
@@ -124,43 +131,49 @@ class BrewVC: UIViewController {
         print(balance)
         print(strength)
         
-        //check user setting for showing walkthrough
+        //load user preferences
         let defaults = UserDefaults.standard
-        if let loadedSetting = defaults.object(forKey: "walkthroughEnabled") as? Bool {
-            showWalkthrough = loadedSetting
-            if !showWalkthrough! {
-                //skip walkthrough
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "Timer") as TimerVC
-                
-                let nc = UINavigationController(rootViewController: vc)
-                
-                nc.modalPresentationStyle = .fullScreen
-                nc.navigationBar.tintColor = UIColor(named: "Accent")
-                
-                vc.recipeWater.append(contentsOf: balance)
-                vc.recipeWater.append(contentsOf: strength)
-                if let waterTotal = waterTotal {
-                    vc.totalWater = waterTotal
-                }
-                
-                present(nc, animated: true)
-            } else {
-                //show walkthrough
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "Walkthrough") as WalkthroughVC
-                
-                let nc = UINavigationController(rootViewController: vc)
-                
-                nc.modalPresentationStyle = .fullScreen
-                nc.navigationBar.tintColor = UIColor(named: "Accent")
-                
-                vc.recipeWater.append(contentsOf: balance)
-                vc.recipeWater.append(contentsOf: strength)
-                vc.recipeStepCount = balance.count + strength.count
-                
-                present(nc, animated: true)
+        
+        //set UserDefaults for current selected recipe
+        defaults.set(balanceSelect.selectedSegmentIndex, forKey: "balance")
+        defaults.set(strengthSelect.selectedSegmentIndex, forKey: "strength")
+        
+        //check user setting for showing walkthrough
+        showWalkthrough = defaults.object(forKey: "walkthroughEnabled") as? Bool ?? true
+        
+        if !showWalkthrough! {
+            //skip walkthrough
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "Timer") as TimerVC
+            
+            let nc = UINavigationController(rootViewController: vc)
+            
+            nc.modalPresentationStyle = .fullScreen
+            nc.navigationBar.tintColor = UIColor(named: "Accent")
+            
+            vc.recipeWater.append(contentsOf: balance)
+            vc.recipeWater.append(contentsOf: strength)
+            if let waterTotal = waterTotal {
+                vc.totalWater = waterTotal
             }
+            
+            present(nc, animated: true)
+        } else {
+            //show walkthrough
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "Walkthrough") as WalkthroughVC
+            
+            let nc = UINavigationController(rootViewController: vc)
+            
+            nc.modalPresentationStyle = .fullScreen
+            nc.navigationBar.tintColor = UIColor(named: "Accent")
+            
+            vc.recipeWater.append(contentsOf: balance)
+            vc.recipeWater.append(contentsOf: strength)
+            vc.recipeStepCount = balance.count + strength.count
+            
+            present(nc, animated: true)
+            
         }
     }
 }
