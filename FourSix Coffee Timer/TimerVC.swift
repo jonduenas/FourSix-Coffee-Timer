@@ -31,6 +31,7 @@ class TimerVC: UIViewController {
     var startTime: Date!
     var endTime: Date!
     var totalTime: TimeInterval!
+    var currentStepStartTime: Date!
     var currentStepEndTime: Date!
     var pausedTime: Date!
     var stepsTime = TimeInterval()
@@ -79,8 +80,8 @@ class TimerVC: UIViewController {
         totalTime = recipeInterval * Double(recipeWater.count)
         
         //updateWeightLabels()
-        currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
-        totalTimeLabel.text = totalTime?.stringFromTimeInterval()
+        //currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
+        //totalTimeLabel.text = totalTime?.stringFromTimeInterval()
         
         createProgressBar()
     }
@@ -124,12 +125,16 @@ class TimerVC: UIViewController {
         } else {
             //first run of brand new timer
             print("Start")
+            
             //disable screen from sleeping while timer being used
             UIApplication.shared.isIdleTimerDisabled = true
+            
             startTimer()
             startProgressBar()
-            endTime = Date().addingTimeInterval(totalTime)
-            currentStepEndTime = Date().addingTimeInterval(recipeInterval)
+            startTime = Date()
+            endTime = startTime.addingTimeInterval(totalTime)
+            currentStepStartTime = Date()
+            currentStepEndTime = currentStepStartTime.addingTimeInterval(recipeInterval)
             timerState = .running
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             
@@ -155,16 +160,17 @@ class TimerVC: UIViewController {
         currentWeightLabel.text = currentWater.clean + "g"
     }
     
-    fileprivate func updateTimeLabels(_ currentInterval: TimeInterval, _ totalTimeLeft: TimeInterval) {
+    fileprivate func updateTimeLabels(_ currentInterval: TimeInterval, _ totalTimeElapsed: TimeInterval) {
         //update time labels
         currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
-        totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
+        totalTimeLabel.text = totalTimeElapsed.stringFromTimeInterval()
     }
     
     fileprivate func nextStep() {
         AudioServicesPlaySystemSound(SystemSoundID(1322))
-        currentStepTimeLabel.text = recipeInterval.stringFromTimeInterval()
-        currentStepEndTime = Date().addingTimeInterval(recipeInterval)
+        currentStepTimeLabel.text = "00:00"
+        currentStepStartTime = Date()
+        currentStepEndTime = currentStepStartTime.addingTimeInterval(recipeInterval)
         startProgressBar()
         recipeIndex += 1
         currentWater += recipeWater[recipeIndex]
@@ -180,33 +186,35 @@ class TimerVC: UIViewController {
     @objc func runTimer() {
         let currentTime = Date()
         
-        totalTimeLeft = round(endTime.timeIntervalSince(currentTime))
+        //totalTimeLeft = round(endTime.timeIntervalSince(currentTime))
+        let totalElapsedTime = round(startTime.timeIntervalSince(currentTime))
         
-        currentStepTimeLeft = round(currentStepEndTime.timeIntervalSince(currentTime))
+        //currentStepTimeLeft = round(currentStepEndTime.timeIntervalSince(currentTime))
+        let currentStepElapsedTime = round(currentStepStartTime.timeIntervalSince(currentTime))
         
 //        print("Total - \(endTime.timeIntervalSince(currentTime)) / " + totalTimeLeft.stringFromTimeInterval())
 //        print("Step - \(currentStepEndTime.timeIntervalSince(currentTime)) / " + currentStepTimeLeft.stringFromTimeInterval())
         
-        if currentStepTimeLeft <= 0 { //end of current step
+        //if currentStepTimeLeft <= 0 { //end of current step
+        if currentStepElapsedTime >= recipeInterval {
         //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
                 //move to next step
-                totalTimeLabel.text = totalTimeLeft.stringFromTimeInterval()
+                totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
                 nextStep()
             } else {
                 //last step
+                updateTimeLabels(currentStepElapsedTime, totalElapsedTime)
                 endTimer()
             }
         } else {
-            updateTimeLabels(currentStepTimeLeft, totalTimeLeft)
+            updateTimeLabels(currentStepElapsedTime, totalElapsedTime)
         }
     }
     
     fileprivate func endTimer() {
         AudioServicesPlaySystemSound(SystemSoundID(1322))
         pauseAnimation()
-        currentStepTimeLabel.text = "00:00"
-        totalTimeLabel.text = "00:00"
         timer?.invalidate()
         timer = nil
         UIApplication.shared.isIdleTimerDisabled = false
@@ -295,7 +303,7 @@ extension TimeInterval{
 
     func stringFromTimeInterval() -> String {
 
-        let time = NSInteger(self)
+        let time = NSInteger(abs(self))
 
         let seconds = time % 60
         let minutes = (time / 60) % 60
