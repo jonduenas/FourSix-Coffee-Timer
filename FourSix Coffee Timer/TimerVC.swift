@@ -192,10 +192,10 @@ class TimerVC: UIViewController {
         let currentTime = Date()
         
         //totalTimeLeft = round(endTime.timeIntervalSince(currentTime))
-        totalElapsedTime = round(startTime.timeIntervalSince(currentTime))
+        totalElapsedTime = -round(startTime.timeIntervalSince(currentTime))
         
         //currentStepTimeLeft = round(currentStepEndTime.timeIntervalSince(currentTime))
-        currentStepElapsedTime = round(currentStepStartTime.timeIntervalSince(currentTime))
+        currentStepElapsedTime = -round(currentStepStartTime.timeIntervalSince(currentTime))
         
 //        print("Total - \(endTime.timeIntervalSince(currentTime)) / " + totalTimeLeft.stringFromTimeInterval())
 //        print("Step - \(currentStepEndTime.timeIntervalSince(currentTime)) / " + currentStepTimeLeft.stringFromTimeInterval())
