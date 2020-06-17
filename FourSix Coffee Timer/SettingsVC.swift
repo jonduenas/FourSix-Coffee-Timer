@@ -21,16 +21,18 @@ class SettingsVC: UITableViewController {
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         
-        if let loadedSetting = defaults.object(forKey: "walkthroughEnabled") as? Bool {
-            walkthroughEnabled = loadedSetting
-            if walkthroughEnabled! {
-                walkthroughSwitch.isOn = true
-            } else {
-                walkthroughSwitch.isOn = false
-            }
+        //load saved setting for walkthrough
+        walkthroughEnabled = defaults.object(forKey: "walkthroughEnabled") as? Bool ?? true
+        
+        if walkthroughEnabled! {
+            walkthroughSwitch.isOn = true
+        } else {
+            walkthroughSwitch.isOn = false
         }
+        
     }
 
+    //load link in safari if "Send Feedback" cell tapped
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 3 {

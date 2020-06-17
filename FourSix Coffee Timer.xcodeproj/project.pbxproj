@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		652756432475B138004E067F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756422475B138004E067F /* AppDelegate.swift */; };
 		652756452475B138004E067F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756442475B138004E067F /* SceneDelegate.swift */; };
-		652756472475B138004E067F /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756462475B138004E067F /* WelcomeVC.swift */; };
 		6527564A2475B138004E067F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652756482475B138004E067F /* Main.storyboard */; };
 		6527564C2475B13B004E067F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6527564B2475B13B004E067F /* Assets.xcassets */; };
 		6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6527564D2475B13B004E067F /* LaunchScreen.storyboard */; };
+		65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Double+clean.swift */; };
 		655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BB6B224916B3900ED5575 /* SettingsVC.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
 		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
@@ -21,19 +21,17 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */; };
-		65BF4530248EE8AB0064741A /* Double+clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF452F248EE8AB0064741A /* Double+clean.swift */; };
-		65F859C4247D987400A7FB88 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F859C3247D987400A7FB88 /* InfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6527563F2475B138004E067F /* FourSix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		652756422475B138004E067F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		652756442475B138004E067F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		652756462475B138004E067F /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		652756492475B138004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6527564B2475B13B004E067F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6527564E2475B13B004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		652756502475B13B004E067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65315ADD249ADB4D00994E28 /* Double+clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+clean.swift"; sourceTree = "<group>"; };
 		655BB6B224916B3900ED5575 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
@@ -42,8 +40,6 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVC.swift; sourceTree = "<group>"; };
-		65BF452F248EE8AB0064741A /* Double+clean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+clean.swift"; sourceTree = SOURCE_ROOT; };
-		65F859C3247D987400A7FB88 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +74,9 @@
 		652756412475B138004E067F /* FourSix Coffee Timer */ = {
 			isa = PBXGroup;
 			children = (
-				65BF452F248EE8AB0064741A /* Double+clean.swift */,
+				65315ADD249ADB4D00994E28 /* Double+clean.swift */,
 				652756422475B138004E067F /* AppDelegate.swift */,
 				652756442475B138004E067F /* SceneDelegate.swift */,
-				652756462475B138004E067F /* WelcomeVC.swift */,
-				65F859C3247D987400A7FB88 /* InfoVC.swift */,
 				652756482475B138004E067F /* Main.storyboard */,
 				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
 				65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */,
@@ -180,11 +174,9 @@
 				655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
-				652756472475B138004E067F /* WelcomeVC.swift in Sources */,
-				65BF4530248EE8AB0064741A /* Double+clean.swift in Sources */,
+				65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
-				65F859C4247D987400A7FB88 /* InfoVC.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,

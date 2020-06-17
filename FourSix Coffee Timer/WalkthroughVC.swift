@@ -91,12 +91,6 @@ class WalkthroughVC: UIViewController {
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    @IBAction func skipButtonTapped(_ sender: Any) {
-        
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Timer")
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! TimerVC

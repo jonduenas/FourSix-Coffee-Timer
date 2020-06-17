@@ -134,7 +134,7 @@ class BrewVC: UIViewController {
         //load user preferences
         let defaults = UserDefaults.standard
         
-        //set UserDefaults for current selected recipe
+        //save current selected recipe
         defaults.set(balanceSelect.selectedSegmentIndex, forKey: "balance")
         defaults.set(strengthSelect.selectedSegmentIndex, forKey: "strength")
         
