@@ -35,6 +35,7 @@ class TimerVC: UIViewController {
     var currentStepEndTime: Date!
     var pausedTime: Date!
     var stepsTime = TimeInterval()
+    var stepsActualTime = [TimeInterval]()
     
     var totalElapsedTime: TimeInterval = 0
     var currentStepElapsedTime: TimeInterval = 0
@@ -172,7 +173,8 @@ class TimerVC: UIViewController {
     }
     
     fileprivate func nextStep() {
-        AudioServicesPlaySystemSound(SystemSoundID(1322))
+        playAudioNotification()
+        stepsActualTime.append(currentStepElapsedTime)
         currentStepTimeLabel.text = "00:00"
         currentStepStartTime = Date()
         currentStepEndTime = currentStepStartTime.addingTimeInterval(recipeInterval)
@@ -218,16 +220,23 @@ class TimerVC: UIViewController {
     }
     
     fileprivate func endTimer() {
-        AudioServicesPlaySystemSound(SystemSoundID(1322))
+        playAudioNotification()
         pauseAnimation()
         timer?.invalidate()
         timer = nil
         UIApplication.shared.isIdleTimerDisabled = false
-        let ac = UIAlertController(title: "Done!", message: "Enjoy your coffee.", preferredStyle: .alert)
+        
+        let averageStepTime = stepsActualTime.reduce(0, +) / Double(stepsActualTime.count)
+        
+        let ac = UIAlertController(title: "Done!", message: "Total time elapsed was \(totalElapsedTime.stringFromTimeInterval()).\nAverage time for each step was \(averageStepTime.stringFromTimeInterval()).", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
             self?.dismiss(animated: true)
         }))
         present(ac, animated: true)
+    }
+    
+    func playAudioNotification() {
+        AudioServicesPlaySystemSound(SystemSoundID(1322))
     }
     
     // MARK: Progress Circle Methods
