@@ -15,8 +15,12 @@ class BrewVC: UIViewController {
     
     @IBOutlet var startButton: UIButton!
     
-    var balance = [Double]()
-    var strength = [Double]()
+    var calculator = Calculator()
+    //var recipe = Recipe()
+    
+    var balance: Balance = .neutral
+    var strength: Strength = .medium
+    
     var waterTotal: Double?
     var water40: Double?
     var water60: Double?
@@ -57,31 +61,25 @@ class BrewVC: UIViewController {
         
         if balanceSelect.selectedSegmentIndex == 0 {
             print("Sweet")
-            if let water = water40 {
-                waterPour1 = round(water * 0.42)
-                print("\(waterPour1)")
-                
-                waterPour2 = water - waterPour1
-                print("\(waterPour2)")
-            }
+            balance = .sweet
+            calculator.calculate4(with: balance)
+            
+//            if let water = water40 {
+//                waterPour1 = round(water * 0.42)
+//                print("\(waterPour1)")
+//
+//                waterPour2 = water - waterPour1
+//                print("\(waterPour2)")
+//            }
         } else if balanceSelect.selectedSegmentIndex == 1 {
             print("Neutral")
-            if let water = water40 {
-                waterPour1 = round(water * 0.5)
-                print("\(waterPour1)")
-                
-                waterPour2 = water - waterPour1
-                print("\(waterPour2)")
-            }
+            balance = .neutral
+            calculator.calculate4(with: balance)
+            
         } else if balanceSelect.selectedSegmentIndex == 2 {
             print("Bright")
-            if let water = water40 {
-                waterPour1 = round(water * 0.58)
-                print("\(waterPour1)")
-                
-                waterPour2 = water - waterPour1
-                print("\(waterPour2)")
-            }
+            balance = .bright
+            calculator.calculate4(with: balance)
         } else {
             return
         }
@@ -121,12 +119,12 @@ class BrewVC: UIViewController {
     
     @IBAction func startTapped(_ sender: Any) {
         
-        balance.removeAll()
-        balance.append(waterPour1)
-        balance.append(waterPour2)
-        
-        strength.removeAll()
-        strength.append(contentsOf: repeatElement(water60Pour, count: water60Count))
+//        balance.removeAll()
+//        balance.append(waterPour1)
+//        balance.append(waterPour2)
+//
+//        strength.removeAll()
+//        strength.append(contentsOf: repeatElement(water60Pour, count: water60Count))
         
         print(balance)
         print(strength)
@@ -151,8 +149,8 @@ class BrewVC: UIViewController {
             nc.modalPresentationStyle = .fullScreen
             nc.navigationBar.tintColor = UIColor(named: "Accent")
             
-            vc.recipeWater.append(contentsOf: balance)
-            vc.recipeWater.append(contentsOf: strength)
+//            vc.recipeWater.append(contentsOf: balance)
+//            vc.recipeWater.append(contentsOf: strength)
             if let waterTotal = waterTotal {
                 vc.totalWater = waterTotal
             }
@@ -168,9 +166,9 @@ class BrewVC: UIViewController {
             nc.modalPresentationStyle = .fullScreen
             nc.navigationBar.tintColor = UIColor(named: "Accent")
             
-            vc.recipeWater.append(contentsOf: balance)
-            vc.recipeWater.append(contentsOf: strength)
-            vc.recipeStepCount = balance.count + strength.count
+//            vc.recipeWater.append(contentsOf: balance)
+//            vc.recipeWater.append(contentsOf: strength)
+//            vc.recipeStepCount = balance.count + strength.count
             
             present(nc, animated: true)
             

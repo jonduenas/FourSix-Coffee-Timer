@@ -21,6 +21,9 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */; };
+		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
+		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
+		65FB654D249C203F00ED732F /* Balance+Strength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654C249C203F00ED732F /* Balance+Strength.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVC.swift; sourceTree = "<group>"; };
+		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		65FB654C249C203F00ED732F /* Balance+Strength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+Strength.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
 				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
+				65FB6547249C18A100ED732F /* Model */,
 				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
 				6527564B2475B13B004E067F /* Assets.xcassets */,
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
@@ -98,6 +105,16 @@
 				6572EE732492A0C5008AAD56 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65FB6547249C18A100ED732F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65FB6548249C18CC00ED732F /* Calculator.swift */,
+				65FB654A249C19F800ED732F /* Recipe.swift */,
+				65FB654C249C203F00ED732F /* Balance+Strength.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,8 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FB6549249C18CC00ED732F /* Calculator.swift in Sources */,
 				655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
+				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
+				65FB654D249C203F00ED732F /* Balance+Strength.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
 				65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
