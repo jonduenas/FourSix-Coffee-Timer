@@ -49,7 +49,7 @@
                                     <color key="titleColor" name="Background"/>
                                 </state>
                                 <connections>
-                                    <action selector="startTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="JtO-0t-KWp"/>
+                                    <action selector="calculateTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="JtO-0t-KWp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Brew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-vd-sGH">
@@ -89,7 +89,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IMj-yo-NAX" kind="show" id="RtM-9Q-7KR"/>
+                                    <segue destination="IMj-yo-NAX" kind="show" identifier="showSettings" id="RtM-9Q-7KR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -115,7 +115,7 @@
                     <navigationItem key="navigationItem" id="9Kz-as-LnU"/>
                     <connections>
                         <outlet property="balanceSelect" destination="03L-Qm-9vC" id="H88-zL-PYt"/>
-                        <outlet property="startButton" destination="pgi-ZW-LPo" id="qR4-h1-igp"/>
+                        <outlet property="calculateButton" destination="pgi-ZW-LPo" id="qR4-h1-igp"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
                     </connections>
                 </viewController>
@@ -411,7 +411,7 @@
                                     <color key="titleColor" name="Background"/>
                                 </state>
                                 <connections>
-                                    <action selector="startTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="nd8-OF-38H"/>
+                                    <action selector="calculateTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="nd8-OF-38H"/>
                                     <segue destination="I6i-1q-bNY" kind="show" id="WIf-1e-KkZ"/>
                                 </connections>
                             </button>

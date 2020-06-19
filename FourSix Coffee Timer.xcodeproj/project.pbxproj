@@ -83,17 +83,10 @@
 				65315ADD249ADB4D00994E28 /* Double+clean.swift */,
 				652756422475B138004E067F /* AppDelegate.swift */,
 				652756442475B138004E067F /* SceneDelegate.swift */,
-				652756482475B138004E067F /* Main.storyboard */,
-				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
-				65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */,
-				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
-				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
-				65859C08247D95B700A4CE76 /* TimerVC.swift */,
-				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
 				65FB6547249C18A100ED732F /* Model */,
-				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
+				65AFC1FB249D55A300576AFA /* View */,
+				65AFC1FC249D5A0800576AFA /* Controllers */,
 				6527564B2475B13B004E067F /* Assets.xcassets */,
-				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				652756502475B13B004E067F /* Info.plist */,
 			);
 			path = "FourSix Coffee Timer";
@@ -105,6 +98,29 @@
 				6572EE732492A0C5008AAD56 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65AFC1FB249D55A300576AFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
+				652756482475B138004E067F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65AFC1FC249D5A0800576AFA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
+				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
+				65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */,
+				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
+				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
+				65859C08247D95B700A4CE76 /* TimerVC.swift */,
+				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		65FB6547249C18A100ED732F /* Model */ = {
