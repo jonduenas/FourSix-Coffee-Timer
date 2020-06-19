@@ -62,24 +62,12 @@ class BrewVC: UIViewController {
         if balanceSelect.selectedSegmentIndex == 0 {
             print("Sweet")
             balance = .sweet
-            calculator.calculate4(with: balance)
-            
-//            if let water = water40 {
-//                waterPour1 = round(water * 0.42)
-//                print("\(waterPour1)")
-//
-//                waterPour2 = water - waterPour1
-//                print("\(waterPour2)")
-//            }
         } else if balanceSelect.selectedSegmentIndex == 1 {
             print("Neutral")
             balance = .neutral
-            calculator.calculate4(with: balance)
-            
         } else if balanceSelect.selectedSegmentIndex == 2 {
             print("Bright")
             balance = .bright
-            calculator.calculate4(with: balance)
         } else {
             return
         }
@@ -89,29 +77,13 @@ class BrewVC: UIViewController {
     @IBAction func strengthChanged(_ sender: Any) {
         if strengthSelect.selectedSegmentIndex == 0 {
             print("Light")
-            if let water = water60 {
-                water60Count = 2
-                water60Pour = water / Double(water60Count)
-
-                print(water60Pour)
-            }
-            
+            strength = .light
         } else if strengthSelect.selectedSegmentIndex == 1 {
             print("Medium")
-            if let water = water60 {
-                water60Count = 3
-                water60Pour = water / Double(water60Count)
-
-                print(water60Pour)
-            }
+            strength = .medium
         } else if strengthSelect.selectedSegmentIndex == 2 {
             print("Strong")
-            if let water = water60 {
-                water60Count = 4
-                water60Pour = water / Double(water60Count)
-
-                print(water60Pour)
-            }
+            strength = .strong
         } else {
             return
         }
@@ -124,10 +96,14 @@ class BrewVC: UIViewController {
 //        balance.append(waterPour2)
 //
 //        strength.removeAll()
-//        strength.append(contentsOf: repeatElement(water60Pour, count: water60Count))
+        //strength.append(contentsOf: repeatElement(water60Pour, count: water60Count))
         
-        print(balance)
-        print(strength)
+        calculator.calculate4(with: balance)
+        calculator.calculate6(with: strength)
+        
+        let recipe = calculator.recipe
+        print(recipe.waterPours)
+        
         
         //load user preferences
         let defaults = UserDefaults.standard

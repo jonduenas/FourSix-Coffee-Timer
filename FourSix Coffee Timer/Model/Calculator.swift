@@ -18,18 +18,22 @@ struct Calculator {
         switch balance {
         case .sweet:
             setBalance(balance)
-            print(recipe.waterPours)
         case .neutral:
             setBalance(balance)
-            print(recipe.waterPours)
         case .bright:
             setBalance(balance)
-            print(recipe.waterPours)
         }
     }
     
-    func calculate6() {
-        
+    mutating func calculate6(with strength: Strength) {
+        switch strength {
+        case .light:
+            setStrength(strength)
+        case .medium:
+            setStrength(strength)
+        case .strong:
+            setStrength(strength)
+        }
     }
     
     mutating func setBalance(_ balance: Balance) {
@@ -41,4 +45,10 @@ struct Calculator {
         recipe.waterPours.append(secondPour.rounded())
     }
     
+    mutating func setStrength(_ strength: Strength) {
+        let water60 = recipe.waterTotal * 0.6
+        let water60Count = strength.rawValue
+        let water60Pour = water60 / Double(water60Count)
+        recipe.waterPours.append(contentsOf: repeatElement(water60Pour.rounded(), count: water60Count))
+    }
 }
