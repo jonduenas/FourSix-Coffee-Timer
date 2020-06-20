@@ -95,7 +95,6 @@ class WalkthroughVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! TimerVC
         vc.recipeWater = recipeWater
-        vc.totalWater = totalWater
     }
 }
 

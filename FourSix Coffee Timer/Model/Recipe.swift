@@ -12,4 +12,5 @@ struct Recipe {
     let waterTotal: Double
     let coffee: Double
     let waterPours: [Double]
+    let interval: TimeInterval = 45
 }

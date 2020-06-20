@@ -111,7 +111,6 @@ class BrewVC: UIViewController {
         nc.navigationBar.tintColor = UIColor(named: "Accent")
         
         vc.recipeWater = calculator.getPours()
-        vc.totalWater = calculator.getTotalWater()
         
         present(nc, animated: true)
     }
