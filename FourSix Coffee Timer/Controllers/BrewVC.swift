@@ -116,6 +116,18 @@ class BrewVC: UIViewController {
         present(nc, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSettings" {
+            let nc = segue.destination as! UINavigationController
+            let vc = nc.viewControllers.first as! SettingsVC
+            vc.delegate = self
+        }
+    }
+    
+    func updateWalkthroughPreference(to showWalkthrough: Bool) {
+        self.showWalkthrough = showWalkthrough
+    }
+    
     //MARK: UserDefaults Methods
     
     fileprivate func saveUserDefaults() {

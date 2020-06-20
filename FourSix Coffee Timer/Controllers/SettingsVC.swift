@@ -12,6 +12,8 @@ class SettingsVC: UITableViewController {
     
     @IBOutlet var walkthroughSwitch: UISwitch!
     
+    weak var delegate: BrewVC!
+    
     var walkthroughEnabled: Bool?
     
     let defaults = UserDefaults.standard
@@ -43,7 +45,11 @@ class SettingsVC: UITableViewController {
     }
 
     @IBAction func xTapped(_ sender: Any) {
-        self.dismiss(animated: true)
+        dismiss(animated: true) { [weak self] in
+            if let walkthroughPref = self?.walkthroughEnabled {
+                self?.delegate.updateWalkthroughPreference(to: walkthroughPref)
+            }
+        }
     }
     
     @IBAction func walkthroughSwitchChanged(_ sender: Any) {
