@@ -22,6 +22,7 @@ class SettingsVC: UITableViewController {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         //load saved setting for walkthrough
         walkthroughEnabled = defaults.object(forKey: "walkthroughEnabled") as? Bool ?? true

@@ -634,7 +634,7 @@
             </objects>
             <point key="canvasLocation" x="4857.971014492754" y="166.74107142857142"/>
         </scene>
-        <!--What Is46VC-->
+        <!--What Is 4:6?-->
         <scene sceneID="KBD-yv-Vgi">
             <objects>
                 <viewController id="dba-gI-lEk" customClass="WhatIs46VC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
@@ -692,7 +692,7 @@ The point is to use coarse grounds and make the second pour after the water from
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bsl-n0-rqs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eqN-eC-OqU"/>
+                    <navigationItem key="navigationItem" title="What Is 4:6?" id="eqN-eC-OqU"/>
                     <connections>
                         <outlet property="webView" destination="yYg-FK-Orn" id="1PI-A6-UN6"/>
                     </connections>
@@ -713,16 +713,10 @@ The point is to use coarse grounds and make the second pour after the water from
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Po9-xz-9fQ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1479.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1418.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Troubleshooting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nE-Fg-3E9">
-                                                <rect key="frame" x="25" y="25" width="235" height="41"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vx-1Q-c6c">
-                                                <rect key="frame" x="25" y="81" width="364" height="1378.5"/>
+                                                <rect key="frame" x="25" y="20" width="364" height="1378.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
                                                         <string key="content">Here may be some common questions or issues you have.
@@ -854,13 +848,10 @@ Get in touch on Twitter - @jonduenas.</string>
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
                                         <constraints>
-                                            <constraint firstItem="8Vx-1Q-c6c" firstAttribute="top" secondItem="6nE-Fg-3E9" secondAttribute="bottom" constant="15" id="8tG-VO-9R0"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6nE-Fg-3E9" secondAttribute="trailing" constant="20" symbolic="YES" id="Bv3-3t-L4C"/>
                                             <constraint firstAttribute="trailing" secondItem="8Vx-1Q-c6c" secondAttribute="trailing" constant="25" id="KyK-oT-WXn"/>
-                                            <constraint firstItem="6nE-Fg-3E9" firstAttribute="leading" secondItem="Po9-xz-9fQ" secondAttribute="leading" constant="25" id="fRB-9I-G8t"/>
                                             <constraint firstItem="8Vx-1Q-c6c" firstAttribute="leading" secondItem="Po9-xz-9fQ" secondAttribute="leading" constant="25" id="hsC-r5-Ayb"/>
-                                            <constraint firstItem="6nE-Fg-3E9" firstAttribute="top" secondItem="Po9-xz-9fQ" secondAttribute="top" constant="25" id="lBt-HT-1Jn"/>
                                             <constraint firstAttribute="bottom" secondItem="8Vx-1Q-c6c" secondAttribute="bottom" constant="20" symbolic="YES" id="p5d-03-OjZ"/>
+                                            <constraint firstItem="8Vx-1Q-c6c" firstAttribute="top" secondItem="Po9-xz-9fQ" secondAttribute="top" constant="20" id="qKj-eH-yCm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -885,7 +876,7 @@ Get in touch on Twitter - @jonduenas.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WUm-FB-Sc3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kWm-D3-hEC"/>
+                    <navigationItem key="navigationItem" title="Troubleshooting" largeTitleDisplayMode="always" id="kWm-D3-hEC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J39-Hk-f0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -903,29 +894,23 @@ Get in touch on Twitter - @jonduenas.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FT2-ew-KXH" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="594"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Use FourSix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suA-PA-8bx">
-                                                <rect key="frame" x="25" y="20" width="291" height="41"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start, you’ll need:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkx-pk-pId">
-                                                <rect key="frame" x="25" y="76" width="155" height="21"/>
+                                                <rect key="frame" x="25" y="20" width="155" height="21"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-lC-3nD">
-                                                <rect key="frame" x="25" y="257.5" width="364" height="372.5"/>
+                                                <rect key="frame" x="25" y="201.5" width="364" height="372.5"/>
                                                 <string key="text">FourSix is designed to make the 4:6 method simple and easy enough for anyone to try without having to pull out a calculator. Simply pick whether you want a sweet, neutral, or bright tasting cup, and your desired strength, press “Calculate” and see your resulting recipe. Simply follow the directions by pouring the amount of water shown at the appropriate times, and enjoy!  For now, the app is designed to work with a set 20g of coffee and 300g of water. To best follow the recipe as designed, use 92ºC water and allow it to completely drain from the cone between each pour before moving on to the next one. They should be about 45 seconds apart.</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBn-1E-LAd">
-                                                <rect key="frame" x="50" y="112" width="235" height="130.5"/>
+                                                <rect key="frame" x="50" y="56" width="235" height="130.5"/>
                                                 <string key="text">∙ Hario V60 dripper cone
 ∙ Pouring kettle (narrow spout)
 ∙ Digital scale
@@ -939,19 +924,16 @@ Get in touch on Twitter - @jonduenas.</string>
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xkx-pk-pId" secondAttribute="trailing" constant="20" symbolic="YES" id="2bY-WL-XlV"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GBn-1E-LAd" secondAttribute="trailing" constant="20" symbolic="YES" id="6kH-QV-idK"/>
                                             <constraint firstItem="GBn-1E-LAd" firstAttribute="leading" secondItem="FT2-ew-KXH" secondAttribute="leading" constant="50" id="8sZ-Lk-iQr"/>
-                                            <constraint firstItem="xkx-pk-pId" firstAttribute="leading" secondItem="suA-PA-8bx" secondAttribute="leading" id="Hxq-qn-nr9"/>
                                             <constraint firstItem="z5y-lC-3nD" firstAttribute="top" secondItem="GBn-1E-LAd" secondAttribute="bottom" constant="15" id="KCL-GJ-oPT"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xkx-pk-pId" secondAttribute="trailing" constant="20" symbolic="YES" id="KJh-Xm-6eb"/>
-                                            <constraint firstItem="xkx-pk-pId" firstAttribute="top" secondItem="suA-PA-8bx" secondAttribute="bottom" constant="15" id="MBU-a0-fch"/>
                                             <constraint firstAttribute="trailing" secondItem="z5y-lC-3nD" secondAttribute="trailing" constant="25" id="d0i-5w-TLb"/>
                                             <constraint firstItem="z5y-lC-3nD" firstAttribute="leading" secondItem="FT2-ew-KXH" secondAttribute="leading" constant="25" id="ffe-oO-B6f"/>
                                             <constraint firstAttribute="bottom" secondItem="z5y-lC-3nD" secondAttribute="bottom" constant="20" symbolic="YES" id="hVJ-be-QuC"/>
                                             <constraint firstItem="GBn-1E-LAd" firstAttribute="top" secondItem="xkx-pk-pId" secondAttribute="bottom" constant="15" id="ml2-gE-6N6"/>
-                                            <constraint firstItem="suA-PA-8bx" firstAttribute="top" secondItem="FT2-ew-KXH" secondAttribute="top" constant="20" symbolic="YES" id="pI3-j3-s7Y"/>
-                                            <constraint firstItem="suA-PA-8bx" firstAttribute="leading" secondItem="FT2-ew-KXH" secondAttribute="leading" constant="25" id="qzf-0b-v9D"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="suA-PA-8bx" secondAttribute="trailing" constant="20" symbolic="YES" id="x6t-tN-r7w"/>
+                                            <constraint firstItem="xkx-pk-pId" firstAttribute="top" secondItem="FT2-ew-KXH" secondAttribute="top" constant="20" id="rPT-bR-MO2"/>
+                                            <constraint firstItem="xkx-pk-pId" firstAttribute="leading" secondItem="FT2-ew-KXH" secondAttribute="leading" constant="25" id="yjr-LG-MKV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -976,7 +958,7 @@ Get in touch on Twitter - @jonduenas.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w7B-aK-ZCC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fwe-Oe-Gx7"/>
+                    <navigationItem key="navigationItem" title="How To Use Four Six" largeTitleDisplayMode="always" id="fwe-Oe-Gx7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ML-nR-ywQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -987,7 +969,7 @@ Get in touch on Twitter - @jonduenas.</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IMj-yo-NAX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Settings" id="Ni9-Za-7c6"/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="Ni9-Za-7c6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pjH-RO-aeA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
