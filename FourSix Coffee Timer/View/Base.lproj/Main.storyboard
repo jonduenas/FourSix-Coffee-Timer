@@ -466,7 +466,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="Settings" id="6WR-Et-o1w" customClass="SettingsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dQs-0k-fED">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <sections>
@@ -639,7 +639,7 @@
             <objects>
                 <viewController id="dba-gI-lEk" customClass="WhatIs46VC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNX-WE-fzs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-FK-Orn">
@@ -704,9 +704,9 @@ The point is to use coarse grounds and make the second pour after the water from
         <!--Troubleshooting-->
         <scene sceneID="6pb-IZ-AVn">
             <objects>
-                <viewController title="Troubleshooting" automaticallyAdjustsScrollViewInsets="NO" id="SjP-RY-7Zq" sceneMemberID="viewController">
+                <viewController title="Troubleshooting" automaticallyAdjustsScrollViewInsets="NO" id="SjP-RY-7Zq" customClass="TroubleshootingVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ehD-r6-iaJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q3-6w-gTO">
@@ -877,6 +877,9 @@ Get in touch on Twitter - @jonduenas.</string>
                         <viewLayoutGuide key="safeArea" id="WUm-FB-Sc3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Troubleshooting" largeTitleDisplayMode="always" id="kWm-D3-hEC"/>
+                    <connections>
+                        <outlet property="contentLabel" destination="8Vx-1Q-c6c" id="5hh-oY-FFN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J39-Hk-f0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -885,9 +888,9 @@ Get in touch on Twitter - @jonduenas.</string>
         <!--HowTo-->
         <scene sceneID="Img-oO-n7P">
             <objects>
-                <viewController title="HowTo" id="u4w-pl-BN6" sceneMemberID="viewController">
+                <viewController title="HowTo" id="u4w-pl-BN6" customClass="HowToVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tBH-12-ZM4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xo-Wa-1Gh">
@@ -959,6 +962,9 @@ Get in touch on Twitter - @jonduenas.</string>
                         <viewLayoutGuide key="safeArea" id="w7B-aK-ZCC"/>
                     </view>
                     <navigationItem key="navigationItem" title="How To Use Four Six" largeTitleDisplayMode="always" id="fwe-Oe-Gx7"/>
+                    <connections>
+                        <outlet property="contentLabel" destination="z5y-lC-3nD" id="Mve-KD-cOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ML-nR-ywQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
