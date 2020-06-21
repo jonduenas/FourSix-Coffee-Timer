@@ -1,5 +1,5 @@
 //
-//  Timer.swift
+//  CoffeeTimer.swift
 //  FourSix Coffee Timer
 //
 //  Created by Jon Duenas on 6/19/20.

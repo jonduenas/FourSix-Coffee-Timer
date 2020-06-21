@@ -12,10 +12,10 @@ class WalkthroughVC: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
     
+    var recipe: Recipe?
+    
     var recipeWater = [Double]()
-    var recipeWaterString = [String]()
     var recipeStepCount = 0
-    var totalWater: Double = 0
     
     var currentViewControllerIndex = 0
     
@@ -27,18 +27,14 @@ class WalkthroughVC: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
-        //load default recipe if none passed from previous viewcontroller
-        if recipeWater.isEmpty {
-            recipeWater = [60, 60, 60, 60, 60]
-        }
-        
-        if totalWater == 0 {
-            totalWater = 300
-        }
-        
-        print(recipeWater)
+        loadRecipe()
         
         configurePageViewController()
+    }
+    
+    private func loadRecipe() {
+        guard let recipe = recipe else { return }
+        recipeWater = recipe.waterPours
     }
     
     func configurePageViewController() {
@@ -77,8 +73,10 @@ class WalkthroughVC: UIViewController {
         contentViewController.index = index
         contentViewController.stepText = "Step \(index + 1)"
         contentViewController.amountText = recipeWater[index].clean + "g"
-        contentViewController.recipeWater = recipeWater
-        contentViewController.totalWater = totalWater
+        
+        if let recipe = recipe {
+            contentViewController.recipe = recipe
+        }
         
         if index == recipeStepCount - 1 {
             //last page - show start button
@@ -93,8 +91,10 @@ class WalkthroughVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! TimerVC
-        vc.recipeWater = recipeWater
+        if let recipe = recipe {
+            let vc = segue.destination as! TimerVC
+            vc.recipe = recipe
+        }
     }
 }
 

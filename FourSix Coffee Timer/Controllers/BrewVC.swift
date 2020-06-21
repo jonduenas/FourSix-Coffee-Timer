@@ -94,6 +94,7 @@ class BrewVC: UIViewController {
         nc.modalPresentationStyle = .fullScreen
         nc.navigationBar.tintColor = UIColor(named: "Accent")
         
+        vc.recipe = calculator.getRecipe()
         vc.recipeWater = calculator.getPours()
         vc.recipeStepCount = calculator.getPours().count
         
@@ -110,6 +111,7 @@ class BrewVC: UIViewController {
         nc.modalPresentationStyle = .fullScreen
         nc.navigationBar.tintColor = UIColor(named: "Accent")
         
+        vc.recipe = calculator.getRecipe()
         vc.recipeWater = calculator.getPours()
         
         present(nc, animated: true)

@@ -1,5 +1,5 @@
 //
-//  StartWalkthroughVC.swift
+//  WalkthroughContentVC.swift
 //  FourSix Coffee Timer
 //
 //  Created by Jon Duenas on 5/30/20.
@@ -14,11 +14,12 @@ class WalkthroughContentVC: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet var startButton: UIButton!
     
+    var recipe: Recipe?
+    
     var stepText: String?
     var amountText: String?
     var index: Int?
-    var recipeWater = [Double]()
-    var totalWater: Double = 0
+    
     var startIsHidden = true
     
     override func viewDidLoad() {
@@ -34,16 +35,15 @@ class WalkthroughContentVC: UIViewController {
         } else {
             startButton.isHidden = false
         }
-        
     }
     
-
-    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         let vc = segue.destination as! TimerVC
-         vc.recipeWater = recipeWater
+        if let recipe = recipe {
+            let vc = segue.destination as! TimerVC
+            vc.recipe = recipe
+        }
     }
     
 

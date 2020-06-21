@@ -24,6 +24,8 @@ class TimerVC: UIViewController {
     var timer: Timer?
     var stepsActualTime = [TimeInterval]()
     
+    var recipe: Recipe?
+    
     var recipeWater = [Double]()
     var recipeInterval: TimeInterval = 45
     var recipeIndex = 0
@@ -44,11 +46,19 @@ class TimerVC: UIViewController {
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
         totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
         
+        loadRecipe()
+        
         createProgressBar()
     }
     
     override func viewDidLayoutSubviews() {
         layoutProgressBar()
+    }
+    
+    private func loadRecipe() {
+        guard let recipe = recipe else { return }
+        recipeWater = recipe.waterPours
+        recipeInterval = recipe.interval
     }
 
     // MARK: Button methods

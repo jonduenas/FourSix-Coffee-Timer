@@ -1,5 +1,5 @@
 //
-//  RecipeCalculator.swift
+//  Calculator.swift
 //  FourSix Coffee Timer
 //
 //  Created by Jon Duenas on 6/18/20.
@@ -38,6 +38,10 @@ struct Calculator {
     
     func getTotalWater() -> Double {
         return recipe?.waterTotal ?? 300
+    }
+    
+    func getRecipe() -> Recipe {
+        return recipe ?? Recipe(waterTotal: 300, coffee: 20, waterPours: [60, 60, 60, 60, 60])
     }
     
 }
