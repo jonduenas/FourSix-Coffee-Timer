@@ -39,8 +39,14 @@ class SettingsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 3 {
-                let url = URL(string: "https://www.twitter.com/jonduenas")
-                UIApplication.shared.open(url!)
+                let ac = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    if let url = URL(string: "https://www.twitter.com/jonduenas") {
+                        UIApplication.shared.open(url)
+                    }
+                }))
+                present(ac, animated: true)
             }
         }
     }

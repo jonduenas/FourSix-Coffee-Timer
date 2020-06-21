@@ -16,6 +16,7 @@
 		6529E117249FE66F0093FAE1 /* TroubleshootingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E116249FE66F0093FAE1 /* TroubleshootingVC.swift */; };
 		6529E119249FECC60093FAE1 /* troubleshooting.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E118249FECC60093FAE1 /* troubleshooting.rtf */; };
 		6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E11A249FEFFB0093FAE1 /* HowToVC.swift */; };
+		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
 		65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Double+clean.swift */; };
 		655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BB6B224916B3900ED5575 /* SettingsVC.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
@@ -41,7 +42,8 @@
 		652756502475B13B004E067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6529E116249FE66F0093FAE1 /* TroubleshootingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleshootingVC.swift; sourceTree = "<group>"; };
 		6529E118249FECC60093FAE1 /* troubleshooting.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = troubleshooting.rtf; sourceTree = "<group>"; };
-		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/View/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
+		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
+		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		65315ADD249ADB4D00994E28 /* Double+clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+clean.swift"; sourceTree = "<group>"; };
 		655BB6B224916B3900ED5575 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -136,6 +138,7 @@
 		65FB6547249C18A100ED732F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6529E11C249FF2E30093FAE1 /* howto.rtf */,
 				6529E118249FECC60093FAE1 /* troubleshooting.rtf */,
 				651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */,
 				65FB6548249C18CC00ED732F /* Calculator.swift */,
@@ -207,6 +210,7 @@
 				6529E119249FECC60093FAE1 /* troubleshooting.rtf in Resources */,
 				6527564C2475B13B004E067F /* Assets.xcassets in Resources */,
 				6527564A2475B138004E067F /* Main.storyboard in Resources */,
+				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,10 +12,14 @@ import WebKit
 class WhatIs46VC: UIViewController {
 
     @IBOutlet var webView: WKWebView!
+    @IBOutlet var contentLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadYoutube(videoID: "wmCW8xSWGZY")
+        
+        contentLabel.text = "\"A new coffee brewing theory created with the concept of 'easily-brewed delicious coffee for everyone.' Divide water into a ratio of 4 to 6. Adjust taste with the first 40% of water and density with the remaining 60%.\n\n\"The point is to use coarse grounds and make the second pour after the water from the first pour completely drips through.\"*"
     }
     
     func loadYoutube(videoID:String) {
