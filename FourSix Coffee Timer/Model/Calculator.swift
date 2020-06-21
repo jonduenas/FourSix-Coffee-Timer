@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jon Duenas. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Calculator {
     

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jon Duenas. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum Balance: Double {
     case sweet = 0.42

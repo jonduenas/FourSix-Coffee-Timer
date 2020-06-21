@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jon Duenas. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum TimerState {
     case new
@@ -27,7 +27,6 @@ class CoffeeTimer {
         switch timerState {
         case .new:
             //disable screen from sleeping while timer being used
-            UIApplication.shared.isIdleTimerDisabled = true
             print("start")
             startTime = Date()
             currentStepStartTime = Date()
