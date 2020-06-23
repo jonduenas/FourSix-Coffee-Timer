@@ -938,7 +938,7 @@ Get in touch on Twitter - @jonduenas.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w7B-aK-ZCC"/>
                     </view>
-                    <navigationItem key="navigationItem" title="How To Use Four Six" largeTitleDisplayMode="always" id="fwe-Oe-Gx7"/>
+                    <navigationItem key="navigationItem" title="How To Use FourSix" largeTitleDisplayMode="always" id="fwe-Oe-Gx7"/>
                     <connections>
                         <outlet property="contentLabel" destination="z5y-lC-3nD" id="Mve-KD-cOd"/>
                     </connections>

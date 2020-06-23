@@ -26,7 +26,6 @@ class CoffeeTimer {
     func start() {
         switch timerState {
         case .new:
-            //disable screen from sleeping while timer being used
             print("start")
             startTime = Date()
             currentStepStartTime = Date()
