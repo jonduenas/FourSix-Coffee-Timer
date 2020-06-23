@@ -24,7 +24,7 @@ class WhatIs46VC: UIViewController {
     
     func loadYoutube(videoID:String) {
         guard
-            let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoID)?rel=0&cc_load_policy=1")
+            let youtubeURL = URL(string: "http://www.youtube.com/embed/\(videoID)?rel=0&cc_load_policy=1")
             else { return }
         webView.load(URLRequest(url: youtubeURL) )
     }

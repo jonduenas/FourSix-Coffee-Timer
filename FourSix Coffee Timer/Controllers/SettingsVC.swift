@@ -42,7 +42,7 @@ class SettingsVC: UITableViewController {
                 let ac = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    if let url = URL(string: "https://www.twitter.com/jonduenas") {
+                    if let url = URL(string: "http://www.twitter.com/jonduenas") {
                         UIApplication.shared.open(url)
                     }
                 }))
