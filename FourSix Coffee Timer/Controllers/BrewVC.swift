@@ -26,7 +26,8 @@ class BrewVC: UIViewController {
         super.viewDidLoad()
 
         //remove shadow from navigation bar
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         

@@ -180,14 +180,14 @@
             <objects>
                 <viewController storyboardIdentifier="Timer" title="Timer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I6i-1q-bNY" customClass="TimerVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pRo-9a-2Py">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wsk-c3-hOX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="733"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="699"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Zz-tj-6lm">
-                                        <rect key="frame" x="57" y="216.5" width="300" height="300"/>
+                                        <rect key="frame" x="57" y="199.5" width="300" height="300"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qm-WN-2Rv">
                                                 <rect key="frame" x="0.0" y="95" width="300" height="110"/>
@@ -228,7 +228,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmb-AM-jLc">
-                                        <rect key="frame" x="0.0" y="74.5" width="414" height="130"/>
+                                        <rect key="frame" x="0.0" y="57.5" width="414" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-8I-gY6">
                                                 <rect key="frame" x="181.5" y="5" width="51" height="29"/>
@@ -254,7 +254,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KI-BT-gPk">
-                                        <rect key="frame" x="0.0" y="536.5" width="414" height="86"/>
+                                        <rect key="frame" x="0.0" y="519.5" width="414" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="127" translatesAutoresizingMaskIntoConstraints="NO" id="Azg-CP-EPw">
                                                 <rect key="frame" x="161" y="5" width="92" height="41"/>
@@ -294,7 +294,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0Z-53-8HA">
-                                <rect key="frame" x="0.0" y="733" width="414" height="75"/>
+                                <rect key="frame" x="0.0" y="787" width="414" height="75"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1h-Xl-nf3">
                                         <rect key="frame" x="187" y="5" width="40" height="40"/>
@@ -995,8 +995,8 @@ Get in touch on Twitter - @jonduenas.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xMi-QH-OwV"/>
-        <segue reference="WIf-1e-KkZ"/>
+        <segue reference="t5N-HG-LCt"/>
+        <segue reference="FHH-A1-8AK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Accent"/>
     <resources>
