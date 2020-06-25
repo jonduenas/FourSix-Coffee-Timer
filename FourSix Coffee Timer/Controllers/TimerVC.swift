@@ -192,7 +192,7 @@ class TimerVC: UIViewController {
     
     // MARK: Progress Circle Methods
     
-    func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
+    func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor, strokeEnd: CGFloat) -> CAShapeLayer {
         let layer = CAShapeLayer()
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 140, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
         
@@ -200,7 +200,7 @@ class TimerVC: UIViewController {
         layer.fillColor = fillColor.cgColor
         layer.strokeColor = strokeColor.cgColor
         layer.lineWidth = 10
-        layer.strokeEnd = 1
+        layer.strokeEnd = strokeEnd
         layer.lineCap = CAShapeLayerLineCap.round
         
         return layer
@@ -208,12 +208,12 @@ class TimerVC: UIViewController {
     
     func createProgressBar() {
         //create track layer
-        trackLayer = createCircleShapeLayer(strokeColor: .systemGray2, fillColor: .clear)
+        trackLayer = createCircleShapeLayer(strokeColor: .systemGray2, fillColor: .clear, strokeEnd: 1)
         
         progressView.layer.addSublayer(trackLayer)
         
         //create progress layer
-        progressLayer = createCircleShapeLayer(strokeColor: UIColor(named: "Accent")!, fillColor: .clear)
+        progressLayer = createCircleShapeLayer(strokeColor: UIColor(named: "Accent")!, fillColor: .clear, strokeEnd: 0)
         
         progressView.layer.addSublayer(progressLayer)
     }
@@ -231,8 +231,8 @@ class TimerVC: UIViewController {
     func startProgressBar() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-        basicAnimation.fromValue = 1
-        basicAnimation.toValue = 0
+        basicAnimation.fromValue = 0
+        basicAnimation.toValue = 1
         basicAnimation.duration = recipeInterval
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
