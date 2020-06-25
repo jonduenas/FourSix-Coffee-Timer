@@ -198,8 +198,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0c-Vg-yHs">
-                                                        <rect key="frame" x="131" y="10" width="38" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0c-Vg-yHs">
+                                                        <rect key="frame" x="106.5" y="10" width="87" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -308,7 +308,7 @@
                                             <action selector="playPauseTapped:" destination="I6i-1q-bNY" eventType="touchUpInside" id="FY3-jP-R3C"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXf-Tj-ANC">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXf-Tj-ANC">
                                         <rect key="frame" x="349" y="5" width="45" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Vtm-Jc-b7x"/>
@@ -354,6 +354,7 @@
                         <outlet property="currentStepLabel" destination="yJM-8I-gY6" id="gvF-tg-zz2"/>
                         <outlet property="currentStepTimeLabel" destination="sHI-cb-y8N" id="tH0-Wb-Qym"/>
                         <outlet property="currentWeightLabel" destination="nzI-Tp-WWg" id="X2A-yC-Smd"/>
+                        <outlet property="nextButton" destination="RXf-Tj-ANC" id="WD1-Aw-xN0"/>
                         <outlet property="playPauseButton" destination="J1h-Xl-nf3" id="DSf-6h-eMG"/>
                         <outlet property="progressView" destination="2Zz-tj-6lm" id="M99-Xu-DCs"/>
                         <outlet property="totalTimeLabel" destination="Azg-CP-EPw" id="Ddr-an-HAz"/>
@@ -641,7 +642,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6K-FG-aKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4857.971014492754" y="166.74107142857142"/>
+            <point key="canvasLocation" x="3391" y="175"/>
         </scene>
         <!--What Is 4:6?-->
         <scene sceneID="KBD-yv-Vgi">
@@ -709,7 +710,7 @@ The point is to use coarse grounds and make the second pour after the water from
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1J-iy-uVQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5728.985507246377" y="174.77678571428569"/>
+            <point key="canvasLocation" x="4696" y="175"/>
         </scene>
         <!--Troubleshooting-->
         <scene sceneID="6pb-IZ-AVn">
@@ -893,7 +894,7 @@ Get in touch on Twitter - @jonduenas.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J39-Hk-f0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4871.0144927536239" y="1008.1473214285713"/>
+            <point key="canvasLocation" x="4654" y="942"/>
         </scene>
         <!--HowTo-->
         <scene sceneID="Img-oO-n7P">
@@ -954,7 +955,7 @@ Get in touch on Twitter - @jonduenas.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ML-nR-ywQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5708.6956521739139" y="897.99107142857133"/>
+            <point key="canvasLocation" x="3791" y="1045"/>
         </scene>
         <!--Settings-->
         <scene sceneID="vHZ-SL-2lj">
@@ -973,7 +974,7 @@ Get in touch on Twitter - @jonduenas.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bxz-IG-HLw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3947.826086956522" y="166.74107142857142"/>
+            <point key="canvasLocation" x="2481" y="188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nis-ws-Rdk">
@@ -995,7 +996,7 @@ Get in touch on Twitter - @jonduenas.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="t5N-HG-LCt"/>
+        <segue reference="xMi-QH-OwV"/>
         <segue reference="FHH-A1-8AK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Accent"/>

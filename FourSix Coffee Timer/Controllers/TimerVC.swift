@@ -17,6 +17,7 @@ class TimerVC: UIViewController {
     @IBOutlet var currentWeightLabel: UILabel!
     
     @IBOutlet var playPauseButton: UIButton!
+    @IBOutlet var nextButton: UIButton!
     
     @IBOutlet var progressView: UIView!
     
@@ -102,6 +103,7 @@ class TimerVC: UIViewController {
             startProgressBar()
             
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            nextButton.isHidden = false
             
             updateWeightLabels()
         }
