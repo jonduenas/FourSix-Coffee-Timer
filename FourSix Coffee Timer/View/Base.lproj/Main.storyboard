@@ -111,12 +111,12 @@
                         <viewLayoutGuide key="safeArea" id="9no-cl-2lK"/>
                     </view>
                     <navigationItem key="navigationItem" id="9Kz-as-LnU">
-                        <barButtonItem key="leftBarButtonItem" title="Info" image="info.circle" catalog="system" style="plain" id="2tE-Yh-rfE">
+                        <barButtonItem key="leftBarButtonItem" title="Info" image="info.circle" catalog="system" id="2tE-Yh-rfE">
                             <connections>
                                 <segue destination="u4w-pl-BN6" kind="show" id="xMi-QH-OwV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" style="plain" id="WeS-qa-sNO">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="WeS-qa-sNO">
                             <connections>
                                 <segue destination="IMj-yo-NAX" kind="show" identifier="showSettings" id="OrI-Rz-wjp"/>
                             </connections>
