@@ -25,6 +25,11 @@ class BrewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //remove shadow from navigation bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
         //round button
         calculateButton.layer.cornerRadius = 25
         
