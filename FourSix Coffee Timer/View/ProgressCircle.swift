@@ -15,19 +15,25 @@ class ProgressCircle: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         createProgressBar()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         createProgressBar()
     }
     
-    override func draw(_ rect: CGRect) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         layoutProgressBar()
     }
     
-    func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor, strokeEnd: CGFloat) -> CAShapeLayer {
+    //MARK: Draw Circle Methods
+    
+    private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor, strokeEnd: CGFloat) -> CAShapeLayer {
         let layer = CAShapeLayer()
 
         layer.fillColor = fillColor.cgColor
@@ -39,31 +45,31 @@ class ProgressCircle: UIView {
         return layer
     }
     
-    func createProgressBar() {
+    private func createProgressBar() {
         //create track layer
         trackLayer = createCircleShapeLayer(strokeColor: .systemGray2, fillColor: .clear, strokeEnd: 1)
         
         self.layer.addSublayer(trackLayer)
         
         //create progress layer
-        progressLayer = createCircleShapeLayer(strokeColor: UIColor(named: "Accent")!, fillColor: .clear, strokeEnd: 1)
+        progressLayer = createCircleShapeLayer(strokeColor: UIColor(named: "Accent")!, fillColor: .clear, strokeEnd: 0)
         
         self.layer.addSublayer(progressLayer)
     }
     
-    func layoutProgressBar() {
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: self.frame.size.height / 2, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+    private func layoutProgressBar() {
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: (self.frame.size.height / 2) - 10, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+        
         trackLayer.path = circularPath.cgPath
         progressLayer.path = circularPath.cgPath
         
         let center = self.convert(self.center, from: self.superview)
-        position(circle: progressLayer, at: center)
-        position(circle: trackLayer, at: center)
+        
+        progressLayer.position = center
+        trackLayer.position = center
     }
     
-    func position(circle: CAShapeLayer, at center: CGPoint) {
-        circle.position = center
-    }
+    //MARK: Animation Methods
     
     func startProgressBar(duration: Double) {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")

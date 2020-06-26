@@ -19,7 +19,7 @@ class TimerVC: UIViewController {
     @IBOutlet var playPauseButton: UIButton!
     @IBOutlet var nextButton: UIButton!
     
-//    @IBOutlet var progressView: UIView!
+    @IBOutlet var progressView: ProgressCircle!
     
     let coffeeTimer = CoffeeTimer()
     var timer: Timer?
@@ -31,9 +31,6 @@ class TimerVC: UIViewController {
     var recipeInterval: TimeInterval = 45
     var recipeIndex = 0
     var currentWater: Double = 0
-    
-    let progressCircleView = ProgressCircle()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +46,7 @@ class TimerVC: UIViewController {
         
         loadRecipe()
         
-        
     }
-    
-    
-    
-    
     
     private func loadRecipe() {
         guard let recipe = recipe else { return }
@@ -80,7 +72,7 @@ class TimerVC: UIViewController {
         if coffeeTimer.timerState == .running {
             //pause timer
             coffeeTimer.pause()
-            progressCircleView.pauseAnimation()
+            progressView.pauseAnimation()
             timer?.invalidate()
             timer = nil
     
@@ -89,7 +81,7 @@ class TimerVC: UIViewController {
             //resume paused timer
             coffeeTimer.start()
             startTimer()
-            progressCircleView.resumeAnimation()
+            progressView.resumeAnimation()
 
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else {
@@ -100,7 +92,7 @@ class TimerVC: UIViewController {
             
             coffeeTimer.start()
             startTimer()
-            progressCircleView.startProgressBar(duration: recipeInterval)
+            progressView.startProgressBar(duration: recipeInterval)
             
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             nextButton.isHidden = false
@@ -120,29 +112,29 @@ class TimerVC: UIViewController {
     
     // MARK: Update UI methods
     
-    func updateWeightLabels() {
+    private func updateWeightLabels() {
         currentWater += recipeWater[recipeIndex]
         currentStepLabel.text = "Pour " + recipeWater[recipeIndex].clean + "g"
         currentWeightLabel.text = currentWater.clean + "g"
     }
     
-    fileprivate func updateTimeLabels(_ currentInterval: TimeInterval, _ totalElapsedTime: TimeInterval) {
+    private func updateTimeLabels(_ currentInterval: TimeInterval, _ totalElapsedTime: TimeInterval) {
         currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
         totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
     }
     
-    fileprivate func nextStep() {
+    private func nextStep() {
         playAudioNotification()
         stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
         currentStepTimeLabel.text = "00:00"
         coffeeTimer.nextStep()
-        progressCircleView.startProgressBar(duration: recipeInterval)
+        progressView.startProgressBar(duration: recipeInterval)
         recipeIndex += 1
         
         updateWeightLabels()
     }
     
-    fileprivate func showEndAC() {
+    private func showEndAC() {
         let averageStepTime = stepsActualTime.reduce(0, +) / Double(stepsActualTime.count)
         
         let ac = UIAlertController(title: "Done!", message: "Total time elapsed was \(coffeeTimer.totalElapsedTime.stringFromTimeInterval()).\nAverage time for each step was \(averageStepTime.stringFromTimeInterval()).", preferredStyle: .alert)
@@ -154,11 +146,11 @@ class TimerVC: UIViewController {
     
     // MARK: Timer methods
     
-    func startTimer() {
+    private func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
-    @objc func runTimer() {
+    @objc private func runTimer() {
         coffeeTimer.runCoffeeTimer()
         
         if coffeeTimer.currentStepElapsedTime < recipeInterval {
@@ -177,10 +169,9 @@ class TimerVC: UIViewController {
         }
     }
     
-    
-    fileprivate func endTimer() {
+    private func endTimer() {
         playAudioNotification()
-        progressCircleView.pauseAnimation()
+        progressView.pauseAnimation()
         timer?.invalidate()
         timer = nil
         UIApplication.shared.isIdleTimerDisabled = false
@@ -191,9 +182,4 @@ class TimerVC: UIViewController {
     func playAudioNotification() {
         AudioServicesPlaySystemSound(SystemSoundID(1322))
     }
-    
-    // MARK: Progress Circle Methods
-    
-    
-
 }
