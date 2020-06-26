@@ -46,7 +46,7 @@
 		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		65315ADD249ADB4D00994E28 /* Double+clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+clean.swift"; sourceTree = "<group>"; };
-		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/Controllers/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
+		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/View/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
 		655BB6B224916B3900ED5575 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 		65AFC1FB249D55A300576AFA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
+				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				652756482475B138004E067F /* Main.storyboard */,
 			);
 			path = View;
