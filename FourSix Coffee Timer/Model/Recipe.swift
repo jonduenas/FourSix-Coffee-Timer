@@ -13,4 +13,6 @@ struct Recipe {
     let coffee: Double
     let waterPours: [Double]
     let interval: TimeInterval = 45
+    let balance: Balance
+    let strength: Strength
 }

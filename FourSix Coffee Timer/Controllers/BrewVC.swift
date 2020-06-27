@@ -13,8 +13,6 @@ class BrewVC: UIViewController {
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
-    @IBOutlet var calculateButton: UIButton!
-    
     var calculator = Calculator()
     
     var balance: Balance = .neutral
@@ -29,9 +27,6 @@ class BrewVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
-        
-        //round button
-        calculateButton.layer.cornerRadius = 25
         
         loadUserDefaults()
     }
@@ -75,16 +70,15 @@ class BrewVC: UIViewController {
         let coffee: Double = 20
         
         calculator.waterPours.removeAll()
-        calculator.calculate4(balance, with: coffee, totalWater)
-        calculator.calculate6(strength, with: coffee, totalWater)
+        calculator.calculate(balance, strength, with: coffee, totalWater)
         
         saveUserDefaults()
         
-        if showWalkthrough! {
-            showWalkthroughVC()
-        } else {
-            showTimerVC()
-        }
+//        if showWalkthrough! {
+//            showWalkthroughVC()
+//        } else {
+//            showTimerVC()
+//        }
     }
     
     //MARK: Navigation Methods
@@ -127,6 +121,9 @@ class BrewVC: UIViewController {
             let nc = segue.destination as! UINavigationController
             let vc = nc.viewControllers.first as! SettingsVC
             vc.delegate = self
+        } else if segue.identifier == "showRecipe" {
+            let vc = segue.destination as! RecipeVC
+            vc.recipe = calculator.getRecipe()
         }
     }
     
