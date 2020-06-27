@@ -35,10 +35,7 @@ class TimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //remove shadow from navigation bar
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
+        self.clearNavigationBar()
         
         //make timer font monospaced
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)

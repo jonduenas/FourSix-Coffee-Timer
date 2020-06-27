@@ -23,10 +23,7 @@ class BrewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //remove shadow from navigation bar
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
+        self.clearNavigationBar()
         
         loadUserDefaults()
     }
@@ -122,7 +119,9 @@ class BrewVC: UIViewController {
             let vc = nc.viewControllers.first as! SettingsVC
             vc.delegate = self
         } else if segue.identifier == "showRecipe" {
-            let vc = segue.destination as! RecipeVC
+            let nc = segue.destination as! UINavigationController
+            nc.modalPresentationStyle = .fullScreen
+            let vc = nc.viewControllers.first as! RecipeVC
             vc.recipe = calculator.getRecipe()
         }
     }

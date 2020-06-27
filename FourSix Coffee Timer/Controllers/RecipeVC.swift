@@ -23,6 +23,11 @@ class RecipeVC: UIViewController {
     @IBOutlet var pour2Height: NSLayoutConstraint!
     @IBOutlet var graphHeight: NSLayoutConstraint!
     @IBOutlet var graphView: UIStackView!
+    @IBOutlet var graphHiderHeight: NSLayoutConstraint!
+    @IBOutlet var graphHiderView: UIView!
+    
+    @IBOutlet var brace60Stack: UIStackView!
+    @IBOutlet var brace40Stack: UIStackView!
     
     @IBOutlet var pour1Label: UILabel!
     @IBOutlet var pour2Label: UILabel!
@@ -45,6 +50,8 @@ class RecipeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.clearNavigationBar()
 
         labelArray = [pour1Label, pour2Label, pour3Label, pour4Label, pour5Label, pour6Label]
         
@@ -52,8 +59,8 @@ class RecipeVC: UIViewController {
         loadGraph()
     }
     
-    override func viewDidLayoutSubviews() {
-        
+    override func viewDidAppear(_ animated: Bool) {
+        animateGraph()
     }
     
     func loadRecipe() {
@@ -96,29 +103,46 @@ class RecipeVC: UIViewController {
         }
     }
     
-    @IBAction func startTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "Timer") as TimerVC
+    func animateGraph() {
+        view.layoutIfNeeded()
+        self.graphHiderHeight.constant = 0
         
-        let nc = UINavigationController(rootViewController: vc)
-        
-        nc.modalPresentationStyle = .fullScreen
-        nc.navigationBar.tintColor = UIColor(named: "Accent")
-        
-        vc.recipe = recipe
-        vc.recipeWater = recipeWaterPours
-        
-        present(nc, animated: true)
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: .calculationModeCubic, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25) {
+                self.view.layoutIfNeeded()
+                //self.graphHiderView.alpha = 0
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.33) {
+                self.brace40Stack.alpha = 1
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.33) {
+                self.brace60Stack.alpha = 1
+            }
+        })
+//        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+//            self.graphHiderHeight.constant = 0
+//            self.graphHiderView.alpha = 0
+//        }) { [weak self] _ in
+//            self?.animateBraces()
+//        }
     }
     
-    /*
+    @IBAction func startTapped(_ sender: Any) {
+        
+    }
+    
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let vc = segue.destination as! TimerVC
+        vc.recipe = recipe
+        vc.recipeWater = recipeWaterPours
     }
-    */
-
+    
+    @IBAction func closeTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
+    }
+    
+    
 }
