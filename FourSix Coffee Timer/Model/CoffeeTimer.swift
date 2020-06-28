@@ -23,6 +23,9 @@ class CoffeeTimer {
     var totalElapsedTime: TimeInterval = 0
     var currentStepElapsedTime: TimeInterval = 0
     
+    var currentElapsedPercentage: Double = 0
+    var lastElapsedPercentage: Double = 0
+    
     func start() {
         switch timerState {
         case .new:
@@ -51,11 +54,20 @@ class CoffeeTimer {
     
     func nextStep() {
         currentStepStartTime = Date()
+        currentElapsedPercentage = 0
+        lastElapsedPercentage = 0
     }
     
     func runCoffeeTimer() {
         totalElapsedTime = -round(startTime?.timeIntervalSinceNow ?? 0)
         currentStepElapsedTime = -round(currentStepStartTime?.timeIntervalSinceNow ?? 0)
+    }
+    
+    func getCurrentElapsedPercentageFor(_ recipeInterval: Double) -> Double {
+        lastElapsedPercentage = currentElapsedPercentage
+        currentElapsedPercentage = currentStepElapsedTime / recipeInterval
+        
+        return currentElapsedPercentage
     }
 }
 

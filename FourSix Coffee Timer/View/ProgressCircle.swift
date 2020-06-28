@@ -13,6 +13,8 @@ class ProgressCircle: UIView {
     private var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!
     
+    var progressAmount: Double = 0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -71,18 +73,30 @@ class ProgressCircle: UIView {
     
     //MARK: Animation Methods
     
-    func startProgressBar(duration: Double) {
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        
-        basicAnimation.fromValue = 0
-        basicAnimation.toValue = 1
-        basicAnimation.duration = duration
-        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.isRemovedOnCompletion = false
-        
-        progressLayer.add(basicAnimation, forKey: "circleAnimation")
+    func animateProgress(from start: Double, to end: Double) {
+            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            
+            basicAnimation.fromValue = start
+            basicAnimation.toValue = end
+        basicAnimation.duration = 1
+            basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+            basicAnimation.isRemovedOnCompletion = false
+            
+            progressLayer.add(basicAnimation, forKey: "circleAnimation")
     }
     
+//    func startProgressBar(duration: Double) {
+//        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+//        
+//        basicAnimation.fromValue = 0
+//        basicAnimation.toValue = 1
+//        basicAnimation.duration = duration
+//        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+//        basicAnimation.isRemovedOnCompletion = false
+//        
+//        progressLayer.add(basicAnimation, forKey: "circleAnimation")
+//    }
+//    
     func pauseAnimation() {
         let pausedTime = progressLayer.convertTime(CACurrentMediaTime(), from: nil)
         progressLayer.speed = 0.0
@@ -96,6 +110,11 @@ class ProgressCircle: UIView {
         progressLayer.beginTime = 0
         let timeSincePause = progressLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         progressLayer.beginTime = timeSincePause
+    }
+    
+    func resetProgress() {
+        progressLayer.removeAllAnimations()
+        progressLayer.strokeEnd = 0
     }
 }
 
