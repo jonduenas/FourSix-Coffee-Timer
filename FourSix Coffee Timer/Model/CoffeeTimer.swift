@@ -30,13 +30,11 @@ class CoffeeTimer {
             startTime = Date()
             currentStepStartTime = Date()
             timerState = .running
-            print(timerState)
         case .paused:
             print("resume")
             startTime = Date().addingTimeInterval(-totalElapsedTime)
             currentStepStartTime = Date().addingTimeInterval(-currentStepElapsedTime)
             timerState = .running
-            print(timerState)
         default:
             return
         }
@@ -46,7 +44,6 @@ class CoffeeTimer {
         if timerState == .running {
             print("pause")
             timerState = .paused
-            print(timerState)
         } else {
             return
         }

@@ -24,6 +24,7 @@ class TimerVC: UIViewController {
     let coffeeTimer = CoffeeTimer()
     var timer: Timer?
     var stepsActualTime = [TimeInterval]()
+    var startCountdown = 3
     
     var recipe: Recipe?
     
@@ -81,20 +82,10 @@ class TimerVC: UIViewController {
             progressView.resumeAnimation()
 
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        } else if coffeeTimer.timerState == .new {
+            countdownStart()
         } else {
-            //first run of brand new timer
-            
-            //disable screen from sleeping while timer being used
-            UIApplication.shared.isIdleTimerDisabled = true
-            
-            coffeeTimer.start()
-            startTimer()
-            progressView.startProgressBar(duration: recipeInterval)
-            
-            playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            nextButton.isHidden = false
-            
-            updateWeightLabels()
+            print("Error loading coffeeTimer.")
         }
     }
     
@@ -143,6 +134,36 @@ class TimerVC: UIViewController {
     
     // MARK: Timer methods
     
+    private func startNewTimer() {
+        if coffeeTimer.timerState == .new {
+            //first run of brand new timer
+            
+            //disable screen from sleeping while timer being used
+            UIApplication.shared.isIdleTimerDisabled = true
+            
+            coffeeTimer.start()
+            startTimer()
+            progressView.startProgressBar(duration: recipeInterval)
+            
+            playPauseButton.isEnabled = true
+            playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            
+            updateWeightLabels()
+            nextButton.isHidden = false
+            
+            UIView.animate(withDuration: 0.2) {
+                self.nextButton.alpha = 1
+                self.currentStepLabel.alpha = 1
+            }
+            
+            currentStepTimeLabel.text = "00:00"
+            
+            playAudioNotification()
+        } else {
+            print("Attempting to start new timer when timer state is not new.")
+        }
+    }
+    
     private func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
@@ -178,5 +199,28 @@ class TimerVC: UIViewController {
     
     func playAudioNotification() {
         AudioServicesPlaySystemSound(SystemSoundID(1322))
+    }
+    
+    private func countdownStart() {
+        playPauseButton.isEnabled = false
+        currentStepTimeLabel.text = "\(startCountdown)"
+        UIView.animate(withDuration: 0.2) {
+            self.currentStepTimeLabel.alpha = 1
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func countdown() {
+        if startCountdown > 1 {
+            startCountdown -= 1
+            currentStepTimeLabel.text = "\(startCountdown)"
+        } else {
+            if let timer = self.timer {
+                timer.invalidate()
+                self.timer = nil
+                startNewTimer()
+            }
+        }
     }
 }
