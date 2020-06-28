@@ -33,6 +33,8 @@ class TimerVC: UIViewController {
     var recipeIndex = 0
     var currentWater: Double = 0
     
+    var chimeNotification: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -198,7 +200,16 @@ class TimerVC: UIViewController {
     }
     
     func playAudioNotification() {
-        AudioServicesPlaySystemSound(SystemSoundID(1322))
+        let path = Bundle.main.path(forResource: "custom-notification.mp3", ofType: nil)!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            chimeNotification = try AVAudioPlayer(contentsOf: url)
+            chimeNotification?.play()
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     private func countdownStart() {

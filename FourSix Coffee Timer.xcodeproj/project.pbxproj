@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */; };
+		6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6522A40D24A955EB00583547 /* custom-notification.mp3 */; };
 		652756432475B138004E067F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756422475B138004E067F /* AppDelegate.swift */; };
 		652756452475B138004E067F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756442475B138004E067F /* SceneDelegate.swift */; };
 		6527564A2475B138004E067F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652756482475B138004E067F /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeTimer.swift; path = "FourSix Coffee Timer/Model/CoffeeTimer.swift"; sourceTree = SOURCE_ROOT; };
+		6522A40D24A955EB00583547 /* custom-notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "custom-notification.mp3"; sourceTree = "<group>"; };
 		6527563F2475B138004E067F /* FourSix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		652756422475B138004E067F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		652756442475B138004E067F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				65315ADD249ADB4D00994E28 /* Double+clean.swift */,
 				652756422475B138004E067F /* AppDelegate.swift */,
+				6522A40D24A955EB00583547 /* custom-notification.mp3 */,
 				652756442475B138004E067F /* SceneDelegate.swift */,
 				65FB6547249C18A100ED732F /* Model */,
 				65AFC1FB249D55A300576AFA /* View */,
@@ -221,6 +224,7 @@
 				6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */,
 				6529E119249FECC60093FAE1 /* troubleshooting.rtf in Resources */,
 				6527564C2475B13B004E067F /* Assets.xcassets in Resources */,
+				6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */,
 				6527564A2475B138004E067F /* Main.storyboard in Resources */,
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
 			);
