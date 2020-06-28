@@ -843,13 +843,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Walkthrough" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sea-Sy-2Go">
-                                                    <rect key="frame" x="20" y="11" width="144" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This doesn't do anything for now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sea-Sy-2Go">
+                                                    <rect key="frame" x="19.999999999999986" y="11" width="249.66666666666663" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-ue-Iay">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-ue-Iay">
                                                     <rect key="frame" x="347" y="6.6666666666666679" width="49" height="31.000000000000004"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="47" id="19R-Ws-GGD"/>
@@ -1351,7 +1351,7 @@ Get in touch on Twitter - @jonduenas.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xMi-QH-OwV"/>
+        <segue reference="t5N-HG-LCt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Accent"/>
     <resources>
