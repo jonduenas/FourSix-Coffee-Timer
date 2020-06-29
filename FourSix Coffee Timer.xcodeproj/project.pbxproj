@@ -18,6 +18,7 @@
 		6529E119249FECC60093FAE1 /* troubleshooting.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E118249FECC60093FAE1 /* troubleshooting.rtf */; };
 		6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E11A249FEFFB0093FAE1 /* HowToVC.swift */; };
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
+		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
 		652DD6D124A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DD6D024A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift */; };
 		65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Double+clean.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
@@ -50,6 +51,7 @@
 		6529E118249FECC60093FAE1 /* troubleshooting.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = troubleshooting.rtf; sourceTree = "<group>"; };
 		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
+		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
 		652DD6D024A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ViewController+clearNavigationBar.swift"; path = "FourSix Coffee Timer/View/ViewController+clearNavigationBar.swift"; sourceTree = SOURCE_ROOT; };
 		65315ADD249ADB4D00994E28 /* Double+clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+clean.swift"; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
 				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
 				6529E116249FE66F0093FAE1 /* TroubleshootingVC.swift */,
+				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
+				652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
 				65AA73EA2482EE5B00F8B519 /* WalkthroughVC.swift in Sources */,
