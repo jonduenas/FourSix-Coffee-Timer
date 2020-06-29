@@ -416,7 +416,7 @@
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VxD-vA-oa4">
                                                                                 <rect key="frame" x="67" y="0.0" width="143" height="60"/>
-                                                                                <color key="backgroundColor" red="0.248" green="0.43399999989689131" blue="0.62" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.24313725490196078" green="0.51764705882352935" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -436,7 +436,7 @@
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yax-vO-34L">
                                                                                 <rect key="frame" x="67" y="0.0" width="143" height="60"/>
-                                                                                <color key="backgroundColor" red="0.22799999999999998" green="0.39899999990520651" blue="0.56999999999999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.22352941176470587" green="0.4823529411764706" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -455,7 +455,7 @@
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-Z2-SKR">
                                                                                 <rect key="frame" x="67" y="0.0" width="143" height="60"/>
-                                                                                <color key="backgroundColor" red="0.20800000000000002" green="0.36399999991352178" blue="0.52000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.20392156862745098" green="0.44705882352941173" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -474,7 +474,7 @@
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jo-yE-iW7">
                                                                                 <rect key="frame" x="67" y="0.0" width="143" height="60"/>
-                                                                                <color key="backgroundColor" red="0.188" green="0.32899999992183693" blue="0.46999999999999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.18823529411764706" green="0.41176470588235292" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -504,7 +504,7 @@
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPh-fy-MiZ">
                                                                                 <rect key="frame" x="67" y="0.0" width="143" height="80"/>
-                                                                                <color key="backgroundColor" red="0.16800000000000001" green="0.29399999993015219" blue="0.41999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.17254901960784313" green="0.37254901960784315" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -524,7 +524,7 @@
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-iX-e39">
                                                                                 <rect key="frame" x="67" y="0.0" width="143" height="80"/>
-                                                                                <color key="backgroundColor" red="0.14588235294117646" green="0.25529411764705878" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.14117647058823529" green="0.32941176470588235" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="143" id="jC5-9a-68q"/>
                                                                                 </constraints>
@@ -622,10 +622,10 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-SG-5au">
-                                                <rect key="frame" x="0.0" y="0.0" width="314.66666666666669" height="400"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314.66666666666669" height="0.0"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="400" id="mkn-mB-gV8"/>
+                                                    <constraint firstAttribute="height" id="mkn-mB-gV8"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
