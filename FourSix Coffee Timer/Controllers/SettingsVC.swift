@@ -12,11 +12,21 @@ class SettingsVC: UITableViewController {
     
     @IBOutlet var walkthroughSwitch: UISwitch!
     
-    weak var delegate: BrewVC!
+    let delegate: BrewVC
     
-    var walkthroughEnabled: Bool?
+    var walkthroughEnabled: Bool = true
     
     let defaults = UserDefaults.standard
+    
+    init?(coder: NSCoder, delegate: BrewVC) {
+        self.delegate = delegate
+        
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +37,7 @@ class SettingsVC: UITableViewController {
         //load saved setting for walkthrough
         walkthroughEnabled = defaults.object(forKey: "walkthroughEnabled") as? Bool ?? true
         
-        if walkthroughEnabled! {
+        if walkthroughEnabled {
             walkthroughSwitch.isOn = true
         } else {
             walkthroughSwitch.isOn = false
@@ -63,11 +73,9 @@ class SettingsVC: UITableViewController {
         if walkthroughSwitch.isOn {
             walkthroughEnabled = true
             defaults.set(walkthroughEnabled, forKey: "walkthroughEnabled")
-            //print("walkthrough on")
         } else {
             walkthroughEnabled = false
             defaults.set(walkthroughEnabled, forKey: "walkthroughEnabled")
-            //print("walkthrough off")
         }
     }
 }

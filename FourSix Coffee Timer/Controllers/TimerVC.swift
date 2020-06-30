@@ -26,14 +26,22 @@ class TimerVC: UIViewController {
     var stepsActualTime = [TimeInterval]()
     var startCountdown = 3
     
-    var recipe: Recipe?
+    let recipe: Recipe
     
-    var recipeWater = [Double]()
-    var recipeInterval: TimeInterval = 45
     var recipeIndex = 0
     var currentWater: Double = 0
     
     var chimeNotification: AVAudioPlayer?
+    
+    init?(coder: NSCoder, recipe: Recipe) {
+        self.recipe = recipe
+        
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +51,6 @@ class TimerVC: UIViewController {
         //make timer font monospaced
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
         totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
-        
-        loadRecipe()
-        
-    }
-    
-    private func loadRecipe() {
-        guard let recipe = recipe else { return }
-        recipeWater = recipe.waterPours
-        recipeInterval = recipe.interval
     }
 
     // MARK: Button methods
@@ -93,7 +92,7 @@ class TimerVC: UIViewController {
     
     @IBAction func forwardTapped(_ sender: Any) {
         
-        if recipeIndex < recipeWater.count - 1 {
+        if recipeIndex < recipe.waterPours.count - 1 {
             nextStep()
         } else {
             endTimer()
@@ -103,8 +102,8 @@ class TimerVC: UIViewController {
     // MARK: Update UI methods
     
     private func updateWeightLabels() {
-        currentWater += recipeWater[recipeIndex]
-        currentStepLabel.text = "Pour " + recipeWater[recipeIndex].clean + "g"
+        currentWater += recipe.waterPours[recipeIndex]
+        currentStepLabel.text = "Pour " + recipe.waterPours[recipeIndex].clean + "g"
         currentWeightLabel.text = currentWater.clean + "g"
     }
     
@@ -118,7 +117,7 @@ class TimerVC: UIViewController {
         stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
         currentStepTimeLabel.text = "00:00"
         coffeeTimer.nextStep()
-        progressView.startProgressBar(duration: recipeInterval)
+        progressView.startProgressBar(duration: recipe.interval)
         recipeIndex += 1
         
         updateWeightLabels()
@@ -145,7 +144,7 @@ class TimerVC: UIViewController {
             
             coffeeTimer.start()
             startTimer()
-            progressView.startProgressBar(duration: recipeInterval)
+            progressView.startProgressBar(duration: recipe.interval)
             
             playPauseButton.isEnabled = true
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
@@ -173,11 +172,11 @@ class TimerVC: UIViewController {
     @objc private func runTimer() {
         coffeeTimer.runCoffeeTimer()
         
-        if coffeeTimer.currentStepElapsedTime < recipeInterval {
+        if coffeeTimer.currentStepElapsedTime < recipe.interval {
             updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
         } else {
             //check if end of recipe
-            if recipeIndex < recipeWater.count - 1 {
+            if recipeIndex < recipe.waterPours.count - 1 {
                 //move to next step
                 totalTimeLabel.text = coffeeTimer.totalElapsedTime.stringFromTimeInterval()
                 nextStep()

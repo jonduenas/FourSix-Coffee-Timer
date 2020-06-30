@@ -67,63 +67,24 @@ class BrewVC: UIViewController {
         let coffee: Double = 20
         
         calculator.waterPours.removeAll()
-        calculator.calculate(balance, strength, with: coffee, totalWater)
+        
+        if calculator.recipe == nil {
+            calculator.calculate(balance, strength, with: coffee, totalWater)
+        }
         
         saveUserDefaults()
-        
-//        if showWalkthrough! {
-//            showWalkthroughVC()
-//        } else {
-//            showTimerVC()
-//        }
     }
     
     //MARK: Navigation Methods
     
-    fileprivate func showWalkthroughVC() {
-        //show walkthrough
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "Walkthrough") as WalkthroughVC
-        
-        let nc = UINavigationController(rootViewController: vc)
-        
-        nc.modalPresentationStyle = .fullScreen
-        nc.navigationBar.tintColor = UIColor(named: "Accent")
-        
-        vc.recipe = calculator.getRecipe()
-        vc.recipeWater = calculator.getPours()
-        vc.recipeStepCount = calculator.getPours().count
-        
-        present(nc, animated: true)
+    @IBSegueAction
+    func makeRecipeViewController(coder: NSCoder) -> UIViewController? {
+        RecipeVC(coder: coder, recipe: calculator.getRecipe())
     }
     
-    fileprivate func showTimerVC() {
-        //skip walkthrough
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "Timer") as TimerVC
-        
-        let nc = UINavigationController(rootViewController: vc)
-        
-        nc.modalPresentationStyle = .fullScreen
-        nc.navigationBar.tintColor = UIColor(named: "Accent")
-        
-        vc.recipe = calculator.getRecipe()
-        vc.recipeWater = calculator.getPours()
-        
-        present(nc, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSettings" {
-            let nc = segue.destination as! UINavigationController
-            let vc = nc.viewControllers.first as! SettingsVC
-            vc.delegate = self
-        } else if segue.identifier == "showRecipe" {
-            let nc = segue.destination as! UINavigationController
-            nc.modalPresentationStyle = .fullScreen
-            let vc = nc.viewControllers.first as! RecipeVC
-            vc.recipe = calculator.getRecipe()
-        }
+    @IBSegueAction
+    func makeSettingsViewController(coder: NSCoder) -> UIViewController? {
+        SettingsVC(coder: coder, delegate: self)
     }
     
     func updateWalkthroughPreference(to showWalkthrough: Bool) {

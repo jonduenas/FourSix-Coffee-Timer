@@ -90,12 +90,12 @@ class WalkthroughVC: UIViewController {
         self.dismiss(animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let recipe = recipe {
-            let vc = segue.destination as! TimerVC
-            vc.recipe = recipe
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let recipe = recipe {
+//            let vc = segue.destination as! TimerVC
+//            vc.recipe = recipe
+//        }
+//    }
 }
 
 extension WalkthroughVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
