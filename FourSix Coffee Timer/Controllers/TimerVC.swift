@@ -17,8 +17,10 @@ class TimerVC: UIViewController {
 
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
+    @IBOutlet var currentStepWeightLabel: UILabel!
+    @IBOutlet var currentTotalWeightLabel: UILabel!
     @IBOutlet var currentStepLabel: UILabel!
-    @IBOutlet var currentWeightLabel: UILabel!
+    @IBOutlet var currentStepStackView: UIStackView!
     
     @IBOutlet var playPauseButton: UIButton!
     @IBOutlet var nextButton: UIButton!
@@ -55,6 +57,8 @@ class TimerVC: UIViewController {
         //make timer font monospaced
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
         totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
+        
+        updateWeightLabels()
     }
 
     // MARK: Button methods
@@ -93,7 +97,6 @@ class TimerVC: UIViewController {
     }
     
     @IBAction func forwardTapped(_ sender: Any) {
-        
         if recipeIndex < recipe.waterPours.count - 1 {
             nextStep()
         } else {
@@ -104,9 +107,9 @@ class TimerVC: UIViewController {
     // MARK: Update UI methods
     
     private func updateWeightLabels() {
-        currentWater += recipe.waterPours[recipeIndex]
-        currentStepLabel.text = "Pour " + recipe.waterPours[recipeIndex].clean + "g"
-        currentWeightLabel.text = currentWater.clean + "g"
+        currentStepLabel.text = "Step \(recipeIndex + 1) of \(recipe.waterPours.count)"
+        currentStepWeightLabel.text = "Pour " + recipe.waterPours[recipeIndex].clean + "g"
+        currentTotalWeightLabel.text = currentWater.clean + "g"
     }
     
     private func updateTimeLabels(_ currentInterval: TimeInterval, _ totalElapsedTime: TimeInterval) {
@@ -117,11 +120,12 @@ class TimerVC: UIViewController {
     private func nextStep() {
         playAudioNotification()
         stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
-        currentStepTimeLabel.text = "00:00"
+
         coffeeTimer.nextStep()
         
         recipeIndex += 1
         
+        currentWater += recipe.waterPours[recipeIndex]
         updateWeightLabels()
     }
     
@@ -150,15 +154,13 @@ class TimerVC: UIViewController {
             playPauseButton.isEnabled = true
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             
+            currentWater += recipe.waterPours[recipeIndex]
             updateWeightLabels()
             nextButton.isHidden = false
             
             UIView.animate(withDuration: 0.2) {
                 self.nextButton.alpha = 1
-                self.currentStepLabel.alpha = 1
             }
-            
-            currentStepTimeLabel.text = "00:00"
             
             playAudioNotification()
         } else {
@@ -222,11 +224,12 @@ class TimerVC: UIViewController {
     }
     
     private func countdownStart() {
-        playPauseButton.isEnabled = false
-        currentStepTimeLabel.text = "\(startCountdown)"
-        UIView.animate(withDuration: 0.2) {
-            self.currentStepTimeLabel.alpha = 1
-        }
+        coffeeTimer.timerState = .countdown
+        playPauseButton.setImage(nil, for: .normal)
+        playPauseButton.setTitle("\(startCountdown)", for: .normal)
+        playPauseButton.setTitleColor(UIColor(named: "Accent"), for: .normal)
+        playPauseButton.contentHorizontalAlignment = .center
+        playPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 38)
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
@@ -234,11 +237,14 @@ class TimerVC: UIViewController {
     @objc private func countdown() {
         if startCountdown > 1 {
             startCountdown -= 1
-            currentStepTimeLabel.text = "\(startCountdown)"
+            playPauseButton.setTitle("\(startCountdown)", for: .normal)
         } else {
             if let timer = self.timer {
                 timer.invalidate()
                 self.timer = nil
+                playPauseButton.setTitle(nil, for: .normal)
+                playPauseButton.contentHorizontalAlignment = .fill
+                coffeeTimer.timerState = .new
                 startNewTimer()
             }
         }

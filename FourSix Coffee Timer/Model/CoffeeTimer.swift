@@ -12,6 +12,7 @@ enum TimerState {
     case new
     case running
     case paused
+    case countdown
 }
 
 class CoffeeTimer {
@@ -67,13 +68,6 @@ class CoffeeTimer {
         totalElapsedTime = abs(startTime?.timeIntervalSinceNow ?? 0)
         currentStepElapsedTime = newCurrentStepElapsedTime
     }
-    
-//    func getCurrentElapsedPercentageFor(_ recipeInterval: Double) -> Double {
-//        lastElapsedPercentage = currentElapsedPercentage
-//        currentElapsedPercentage = currentStepElapsedTime / recipeInterval
-//
-//        return currentElapsedPercentage
-//    }
 }
 
 extension TimeInterval {
