@@ -75,7 +75,6 @@ class TimerVC: UIViewController {
         if coffeeTimer.timerState == .running {
             //pause timer
             coffeeTimer.pause()
-            //progressView.pauseAnimation()
             timer?.invalidate()
             timer = nil
     
@@ -84,7 +83,6 @@ class TimerVC: UIViewController {
             //resume paused timer
             coffeeTimer.start()
             startTimer()
-            //progressView.resumeAnimation()
 
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else if coffeeTimer.timerState == .new {
@@ -148,7 +146,6 @@ class TimerVC: UIViewController {
             
             coffeeTimer.start()
             startTimer()
-            //progressView.startProgressBar(duration: recipeInterval)
             
             playPauseButton.isEnabled = true
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)

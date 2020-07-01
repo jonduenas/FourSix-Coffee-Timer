@@ -68,9 +68,7 @@ class BrewVC: UIViewController {
         
         calculator.waterPours.removeAll()
         
-        if calculator.recipe == nil {
-            calculator.calculate(balance, strength, with: coffee, totalWater)
-        }
+        calculator.calculate(balance, strength, with: coffee, totalWater)
         
         saveUserDefaults()
     }
