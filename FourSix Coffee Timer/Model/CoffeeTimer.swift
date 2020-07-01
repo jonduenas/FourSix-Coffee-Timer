@@ -74,7 +74,7 @@ extension TimeInterval {
 
     func stringFromTimeInterval() -> String {
 
-        let time = NSInteger(abs(self))
+        let time = Int(ceil(self))
 
         let seconds = time % 60
         let minutes = (time / 60) % 60
