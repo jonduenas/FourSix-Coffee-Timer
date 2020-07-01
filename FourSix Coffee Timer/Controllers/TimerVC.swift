@@ -10,6 +10,10 @@ import UIKit
 import AVFoundation
 
 class TimerVC: UIViewController {
+    
+    private enum Constants {
+        static let timerInterval: TimeInterval = 0.25
+    }
 
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
@@ -71,7 +75,7 @@ class TimerVC: UIViewController {
         if coffeeTimer.timerState == .running {
             //pause timer
             coffeeTimer.pause()
-            progressView.pauseAnimation()
+            //progressView.pauseAnimation()
             timer?.invalidate()
             timer = nil
     
@@ -80,7 +84,7 @@ class TimerVC: UIViewController {
             //resume paused timer
             coffeeTimer.start()
             startTimer()
-            progressView.resumeAnimation()
+            //progressView.resumeAnimation()
 
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else if coffeeTimer.timerState == .new {
@@ -117,7 +121,7 @@ class TimerVC: UIViewController {
         stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
         currentStepTimeLabel.text = "00:00"
         coffeeTimer.nextStep()
-        progressView.startProgressBar(duration: recipe.interval)
+        
         recipeIndex += 1
         
         updateWeightLabels()
@@ -144,7 +148,7 @@ class TimerVC: UIViewController {
             
             coffeeTimer.start()
             startTimer()
-            progressView.startProgressBar(duration: recipe.interval)
+            //progressView.startProgressBar(duration: recipeInterval)
             
             playPauseButton.isEnabled = true
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
@@ -166,7 +170,7 @@ class TimerVC: UIViewController {
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: Constants.timerInterval, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
     @objc private func runTimer() {
@@ -174,6 +178,8 @@ class TimerVC: UIViewController {
         
         if coffeeTimer.currentStepElapsedTime < recipe.interval {
             updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
+            
+            updateProgress()
         } else {
             //check if end of recipe
             if recipeIndex < recipe.waterPours.count - 1 {
@@ -188,9 +194,16 @@ class TimerVC: UIViewController {
         }
     }
     
+    private func updateProgress() {
+        let fromPercentage = coffeeTimer.fromPercentage
+        let toPercentage = coffeeTimer.toPercentage
+        
+        progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: Constants.timerInterval)
+    }
+    
     private func endTimer() {
         playAudioNotification()
-        progressView.pauseAnimation()
+        
         timer?.invalidate()
         timer = nil
         UIApplication.shared.isIdleTimerDisabled = false

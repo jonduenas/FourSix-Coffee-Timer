@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jon Duenas. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum TimerState {
     case new
@@ -20,8 +20,12 @@ class CoffeeTimer {
     private var currentStepStartTime: Date?
     private var timer: Timer?
     var timerState: TimerState = .new
+    var recipeStepInterval: TimeInterval = 45
     var totalElapsedTime: TimeInterval = 0
     var currentStepElapsedTime: TimeInterval = 0
+    
+    var fromPercentage: CGFloat = 0
+    var toPercentage: CGFloat = 0
     
     func start() {
         switch timerState {
@@ -51,12 +55,25 @@ class CoffeeTimer {
     
     func nextStep() {
         currentStepStartTime = Date()
+        currentStepElapsedTime = 0
     }
     
     func runCoffeeTimer() {
-        totalElapsedTime = -round(startTime?.timeIntervalSinceNow ?? 0)
-        currentStepElapsedTime = -round(currentStepStartTime?.timeIntervalSinceNow ?? 0)
+        let newCurrentStepElapsedTime = abs(currentStepStartTime?.timeIntervalSinceNow ?? 0)
+        
+        fromPercentage = CGFloat(currentStepElapsedTime) / CGFloat(recipeStepInterval)
+        toPercentage = CGFloat(newCurrentStepElapsedTime) / CGFloat (recipeStepInterval)
+        
+        totalElapsedTime = abs(startTime?.timeIntervalSinceNow ?? 0)
+        currentStepElapsedTime = newCurrentStepElapsedTime
     }
+    
+//    func getCurrentElapsedPercentageFor(_ recipeInterval: Double) -> Double {
+//        lastElapsedPercentage = currentElapsedPercentage
+//        currentElapsedPercentage = currentStepElapsedTime / recipeInterval
+//
+//        return currentElapsedPercentage
+//    }
 }
 
 extension TimeInterval {
