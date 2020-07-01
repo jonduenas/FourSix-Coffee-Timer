@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ProgressCircle: UIView {
+class ProgressCircle: UIControl, CAAnimationDelegate {
     
     private var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!
     
-    var progressAmount: Double = 0
+    private(set) var isAnimating: Bool = false
+    private(set) var progressAmount: CGFloat = 0 {
+        didSet {
+            sendActions(for: .valueChanged)
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,48 +78,40 @@ class ProgressCircle: UIView {
     
     //MARK: Animation Methods
     
-    func animateProgress(from start: Double, to end: Double) {
-            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-            
-            basicAnimation.fromValue = start
-            basicAnimation.toValue = end
-        basicAnimation.duration = 1
-            basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-            basicAnimation.isRemovedOnCompletion = false
-            
-            progressLayer.add(basicAnimation, forKey: "circleAnimation")
+    func animateProgress(from start: CGFloat, to end: CGFloat, duration: TimeInterval, completion: (() -> ())? = nil) {
+        
+        isAnimating = true
+        let fromProgress = (0...1).clamp(value: start)
+        let toProgress = (0...1).clamp(value: end)
+        
+        
+        let displayLink = CADisplayLink(target: self, selector: #selector(animationDidUpdate))
+        displayLink.add(to: .main, forMode: RunLoop.Mode.common)
+        
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        let basicAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
+        basicAnimation.delegate = self
+        basicAnimation.fromValue = fromProgress
+        basicAnimation.toValue = toProgress
+        basicAnimation.duration = duration
+        basicAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
+        
+        CATransaction.setCompletionBlock {
+            self.progressAmount = toProgress
+            displayLink.invalidate()
+            self.isAnimating = false
+            completion?()
+        }
+        
+        progressLayer.strokeEnd = toProgress
+        progressLayer.add(basicAnimation, forKey: "animateProgress_\(arc4random())")
+        CATransaction.commit()
     }
     
-//    func startProgressBar(duration: Double) {
-//        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-//        
-//        basicAnimation.fromValue = 0
-//        basicAnimation.toValue = 1
-//        basicAnimation.duration = duration
-//        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-//        basicAnimation.isRemovedOnCompletion = false
-//        
-//        progressLayer.add(basicAnimation, forKey: "circleAnimation")
-//    }
-//    
-    func pauseAnimation() {
-        let pausedTime = progressLayer.convertTime(CACurrentMediaTime(), from: nil)
-        progressLayer.speed = 0.0
-        progressLayer.timeOffset = pausedTime
-    }
-    
-    func resumeAnimation() {
-        let pausedTime = progressLayer.timeOffset
-        progressLayer.speed = 1
-        progressLayer.timeOffset = 0
-        progressLayer.beginTime = 0
-        let timeSincePause = progressLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        progressLayer.beginTime = timeSincePause
-    }
-    
-    func resetProgress() {
-        progressLayer.removeAllAnimations()
-        progressLayer.strokeEnd = 0
+    @objc private func animationDidUpdate(displayLink: CADisplayLink) {
+        guard var progress = progressLayer.presentation()?.strokeEnd else { return }
+        progress = (0...1).clamp(value: progress)
     }
 }
 
@@ -123,5 +120,11 @@ class ProgressCircle: UIView {
 extension Int {
     var degreesToRadians : CGFloat {
         return CGFloat(self) * .pi / 180
+    }
+}
+
+extension ClosedRange {
+    func clamp(value : Bound) -> Bound {
+        return lowerBound > value ? lowerBound : (upperBound < value ? upperBound : value)
     }
 }

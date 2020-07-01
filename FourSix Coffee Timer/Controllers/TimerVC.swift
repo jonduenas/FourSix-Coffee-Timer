@@ -10,6 +10,10 @@ import UIKit
 import AVFoundation
 
 class TimerVC: UIViewController {
+    
+    private enum Constants {
+        static let timerInterval: TimeInterval = 0.25
+    }
 
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
@@ -117,8 +121,6 @@ class TimerVC: UIViewController {
         currentStepTimeLabel.text = "00:00"
         coffeeTimer.nextStep()
         
-        progressView.resetProgress()
-        
         recipeIndex += 1
         
         updateWeightLabels()
@@ -167,7 +169,7 @@ class TimerVC: UIViewController {
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: Constants.timerInterval, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
     @objc private func runTimer() {
@@ -175,10 +177,8 @@ class TimerVC: UIViewController {
         
         if coffeeTimer.currentStepElapsedTime < recipeInterval {
             updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
-            let progressEnd = coffeeTimer.getCurrentElapsedPercentageFor(recipeInterval)
-            let progressStart = coffeeTimer.lastElapsedPercentage
             
-            progressView.animateProgress(from: progressStart, to: progressEnd)
+            updateProgress()
         } else {
             //check if end of recipe
             if recipeIndex < recipeWater.count - 1 {
@@ -193,9 +193,16 @@ class TimerVC: UIViewController {
         }
     }
     
+    private func updateProgress() {
+        let fromPercentage = coffeeTimer.fromPercentage
+        let toPercentage = coffeeTimer.toPercentage
+        
+        progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: Constants.timerInterval)
+    }
+    
     private func endTimer() {
         playAudioNotification()
-        progressView.pauseAnimation()
+        
         timer?.invalidate()
         timer = nil
         UIApplication.shared.isIdleTimerDisabled = false
