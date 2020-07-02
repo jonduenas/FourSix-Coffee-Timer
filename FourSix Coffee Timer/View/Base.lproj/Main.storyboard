@@ -474,9 +474,14 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VxD-vA-oa4">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VxD-vA-oa4" customClass="RoundGraphTop" customModule="FourSix" customModuleProvider="target">
                                                                                 <rect key="frame" x="82" y="0.0" width="128" height="60"/>
                                                                                 <color key="backgroundColor" red="0.24313725490196078" green="0.51764705882352935" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="15"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -494,9 +499,14 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yax-vO-34L">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yax-vO-34L" customClass="RoundGraphTop" customModule="FourSix" customModuleProvider="target">
                                                                                 <rect key="frame" x="82" y="0.0" width="128" height="60"/>
                                                                                 <color key="backgroundColor" red="0.22352941176470587" green="0.4823529411764706" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="0.0"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -513,9 +523,14 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-Z2-SKR">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-Z2-SKR" customClass="RoundGraphTop" customModule="FourSix" customModuleProvider="target">
                                                                                 <rect key="frame" x="82" y="0.0" width="128" height="60"/>
                                                                                 <color key="backgroundColor" red="0.20392156862745098" green="0.44705882352941173" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="0.0"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>
@@ -585,7 +600,7 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-iX-e39">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0a2-iX-e39" customClass="RoundGraphBottom" customModule="FourSix" customModuleProvider="target">
                                                                                 <rect key="frame" x="82" y="0.0" width="128" height="80"/>
                                                                                 <color key="backgroundColor" red="0.14117647058823529" green="0.32941176470588235" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
@@ -764,10 +779,13 @@
                         <outlet property="pour2View" destination="oEV-7u-NRx" id="Dzu-8M-YJA"/>
                         <outlet property="pour3Label" destination="BZv-C3-beb" id="tRp-4r-9y5"/>
                         <outlet property="pour3View" destination="0af-vB-a0J" id="XuQ-co-ptA"/>
+                        <outlet property="pour4Graph" destination="Zhq-Z2-SKR" id="JtS-he-e6c"/>
                         <outlet property="pour4Label" destination="3Hu-T0-cc3" id="EWH-bV-1rL"/>
                         <outlet property="pour4View" destination="6QJ-c4-Tm1" id="3aB-40-75S"/>
+                        <outlet property="pour5Graph" destination="yax-vO-34L" id="paH-g1-0qn"/>
                         <outlet property="pour5Label" destination="Wwn-wA-k5u" id="Vdw-hx-6O9"/>
                         <outlet property="pour5View" destination="68N-z2-jhH" id="pIW-Oq-I61"/>
+                        <outlet property="pour6Graph" destination="VxD-vA-oa4" id="zLM-8J-KOU"/>
                         <outlet property="pour6Label" destination="Ubq-yr-10y" id="oHS-yW-qFM"/>
                         <outlet property="pour6View" destination="qii-Q9-Zcs" id="zYb-Qj-7ry"/>
                         <outlet property="stack40" destination="JOY-wA-RQu" id="ZCH-lo-ta5"/>

@@ -25,6 +25,8 @@
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
 		6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6557571424A673C00071DDB8 /* ProgressCircle.swift */; };
 		655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BB6B224916B3900ED5575 /* SettingsVC.swift */; };
+		656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */; };
+		656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
 		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
 		65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C04247D8DEC00A4CE76 /* BrewVC.swift */; };
@@ -58,6 +60,8 @@
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/View/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
 		655BB6B224916B3900ED5575 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphTop.swift; sourceTree = "<group>"; };
+		656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphBottom.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
 		65859C04247D8DEC00A4CE76 /* BrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewVC.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				652DD6D024A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift */,
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
+				656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */,
+				656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 				655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */,
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
+				656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65FB654D249C203F00ED732F /* Balance+Strength.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
@@ -258,6 +265,7 @@
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */,
+				656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
 				65AA73EA2482EE5B00F8B519 /* WalkthroughVC.swift in Sources */,
@@ -405,7 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -425,7 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;

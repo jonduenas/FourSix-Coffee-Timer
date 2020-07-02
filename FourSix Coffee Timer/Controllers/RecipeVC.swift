@@ -26,6 +26,10 @@ class RecipeVC: UIViewController {
     @IBOutlet var graphHiderHeight: NSLayoutConstraint!
     @IBOutlet var graphHiderView: UIView!
     
+    @IBOutlet var pour6Graph: RoundGraphTop!
+    @IBOutlet var pour5Graph: RoundGraphTop!
+    @IBOutlet var pour4Graph: RoundGraphTop!
+    
     @IBOutlet var brace60Stack: UIStackView!
     @IBOutlet var brace40Stack: UIStackView!
     
@@ -87,10 +91,16 @@ class RecipeVC: UIViewController {
         if recipe.strength == .light {
             pour5View.isHidden = true
             pour6View.isHidden = true
+            pour4Graph.cornerRadius = 15
             labelArray.removeLast(2)
         } else if recipe.strength == .medium {
             pour6View.isHidden = true
+            pour5Graph.cornerRadius = 15
+            pour4Graph.cornerRadius = 0
             labelArray.removeLast()
+        } else {
+            pour5Graph.cornerRadius = 0
+            pour4Graph.cornerRadius = 0
         }
         
         for (index, label) in labelArray.enumerated() {
