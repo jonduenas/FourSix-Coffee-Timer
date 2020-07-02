@@ -10,6 +10,9 @@ import UIKit
 
 class ProgressCircle: UIControl, CAAnimationDelegate {
     
+    private let progressStrokeColor = UIColor(named: "Accent")!
+    private let trackStrokeColor = UIColor.systemGray2
+    
     private var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!
     
@@ -54,12 +57,12 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
     
     private func createProgressBar() {
         //create track layer
-        trackLayer = createCircleShapeLayer(strokeColor: .systemGray2, fillColor: .clear, strokeEnd: 1)
+        trackLayer = createCircleShapeLayer(strokeColor: trackStrokeColor, fillColor: .clear, strokeEnd: 1)
         
         self.layer.addSublayer(trackLayer)
         
         //create progress layer
-        progressLayer = createCircleShapeLayer(strokeColor: UIColor(named: "Accent")!, fillColor: .clear, strokeEnd: 0)
+        progressLayer = createCircleShapeLayer(strokeColor: progressStrokeColor, fillColor: .clear, strokeEnd: 0)
         
         self.layer.addSublayer(progressLayer)
     }
@@ -113,6 +116,20 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         guard var progress = progressLayer.presentation()?.strokeEnd else { return }
         progress = (0...1).clamp(value: progress)
     }
+    
+    //MARK: Update colors on dark mode toggle
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateColors()
+        self.setNeedsDisplay()
+    }
+    
+    private func updateColors() {
+        self.progressLayer.strokeColor = progressStrokeColor.cgColor
+        self.trackLayer.strokeColor = trackStrokeColor.cgColor
+    }
+    
 }
 
 // MARK: Extensions
