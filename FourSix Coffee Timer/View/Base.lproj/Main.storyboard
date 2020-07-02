@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OCw-yD-UST">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OCw-yD-UST">
                                 <rect key="frame" x="10" y="88" width="394" height="754"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Brew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-vd-sGH">
@@ -25,15 +25,8 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup" translatesAutoresizingMaskIntoConstraints="NO" id="sUj-pk-3Xa">
-                                        <rect key="frame" x="122" y="87" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="h6i-kX-yXR"/>
-                                            <constraint firstAttribute="width" constant="150" id="ihJ-mk-Kmj"/>
-                                        </constraints>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-xE-ICZ">
-                                        <rect key="frame" x="25" y="274.5" width="344" height="58"/>
+                                        <rect key="frame" x="25" y="127.5" width="344" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BALANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLM-eO-blP">
                                                 <rect key="frame" x="0.0" y="0.0" width="68" height="18"/>
@@ -62,7 +55,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-hd-SvQ">
-                                        <rect key="frame" x="25" y="416.5" width="344" height="58"/>
+                                        <rect key="frame" x="25" y="272" width="344" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STRENGTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItY-Sl-V0C">
                                                 <rect key="frame" x="0.0" y="0.0" width="79" height="18"/>
@@ -90,12 +83,48 @@
                                             <constraint firstItem="DJn-eZ-TUv" firstAttribute="leading" secondItem="ijM-hd-SvQ" secondAttribute="leading" id="yiT-1u-dr6"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20g coffee : 300g water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ive-sG-IpM">
-                                        <rect key="frame" x="56" y="572" width="282.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YBi-B1-c9w">
+                                        <rect key="frame" x="50" y="416.5" width="294" height="200"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-cg-76m">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COFFEE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fr-rp-jfr">
+                                                        <rect key="frame" x="0.0" y="16" width="147" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WATER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxX-Zw-2F5">
+                                                        <rect key="frame" x="147" y="16" width="147" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="4fr-rp-jfr" firstAttribute="leading" secondItem="xzY-cg-76m" secondAttribute="leading" id="Gp8-Qh-IFH"/>
+                                                    <constraint firstItem="4fr-rp-jfr" firstAttribute="centerY" secondItem="xzY-cg-76m" secondAttribute="centerY" id="NoS-9b-Ect"/>
+                                                    <constraint firstItem="rxX-Zw-2F5" firstAttribute="width" secondItem="xzY-cg-76m" secondAttribute="width" multiplier="0.5" id="Wn2-oC-w2I"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rxX-Zw-2F5" secondAttribute="trailing" id="aAb-Tr-qXl"/>
+                                                    <constraint firstItem="4fr-rp-jfr" firstAttribute="width" secondItem="xzY-cg-76m" secondAttribute="width" multiplier="0.5" id="cTe-Gh-YFV"/>
+                                                    <constraint firstItem="rxX-Zw-2F5" firstAttribute="centerY" secondItem="4fr-rp-jfr" secondAttribute="centerY" id="csZ-mK-pTw"/>
+                                                </constraints>
+                                            </view>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Uc-VJ-Suc">
+                                                <rect key="frame" x="0.0" y="50" width="294" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="qb9-of-ohK"/>
+                                                </constraints>
+                                            </pickerView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="BU4-QB-w4t"/>
+                                            <constraint firstItem="xzY-cg-76m" firstAttribute="leading" secondItem="YBi-B1-c9w" secondAttribute="leading" id="FYp-0P-N02"/>
+                                            <constraint firstAttribute="trailing" secondItem="xzY-cg-76m" secondAttribute="trailing" id="tSC-TI-VaA"/>
+                                        </constraints>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-ZW-LPo" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
                                         <rect key="frame" x="99" y="703" width="196" height="51"/>
                                         <color key="backgroundColor" name="Accent"/>
@@ -121,8 +150,10 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ijM-hd-SvQ" secondAttribute="trailing" constant="25" id="D7d-Tb-TXk"/>
                                     <constraint firstAttribute="trailing" secondItem="nIe-xE-ICZ" secondAttribute="trailing" constant="25" id="LRO-W0-jCg"/>
+                                    <constraint firstItem="YBi-B1-c9w" firstAttribute="leading" secondItem="OCw-yD-UST" secondAttribute="leading" constant="50" id="gIj-FH-J5m"/>
                                     <constraint firstItem="ijM-hd-SvQ" firstAttribute="leading" secondItem="OCw-yD-UST" secondAttribute="leading" constant="25" id="gdx-RJ-8Ow"/>
                                     <constraint firstItem="nIe-xE-ICZ" firstAttribute="leading" secondItem="OCw-yD-UST" secondAttribute="leading" constant="25" id="hxf-vt-rek"/>
+                                    <constraint firstAttribute="trailing" secondItem="YBi-B1-c9w" secondAttribute="trailing" constant="50" id="qFg-gK-eRN"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -149,6 +180,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="balanceSelect" destination="03L-Qm-9vC" id="H88-zL-PYt"/>
+                        <outlet property="coffeeWaterPicker" destination="5Uc-VJ-Suc" id="2iB-yW-olR"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
                     </connections>
                 </viewController>
@@ -650,10 +682,10 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-SG-5au">
-                                                <rect key="frame" x="0.0" y="0.0" width="314.5" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314.5" height="400"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" id="mkn-mB-gV8"/>
+                                                    <constraint firstAttribute="height" constant="400" id="mkn-mB-gV8"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1447,7 +1479,6 @@ Get in touch on Twitter - @jonduenas.</string>
     <resources>
         <image name="brace-40" width="23" height="143"/>
         <image name="brace-60" width="23" height="215"/>
-        <image name="cup" width="289" height="289"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
