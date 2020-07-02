@@ -37,6 +37,9 @@ class BrewVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         loadUserDefaults()
         
+        balanceSelect.fixBackgroundSegmentControl()
+        strengthSelect.fixBackgroundSegmentControl()
+        
         initializeCoffeeWaterPicker()
     }
     
