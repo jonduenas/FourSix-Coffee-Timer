@@ -8,20 +8,14 @@
 
 import UIKit
 
-class BrewVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class BrewVC: UIViewController {
 
     @IBOutlet var coffeeButton: RoundButtonWithShadow!
     @IBOutlet var waterButton: RoundButtonWithShadow!
     
+    @IBOutlet var coffeeWaterRatioSelect: CustomSegmentControl!
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
-    
-    @IBOutlet var coffeePicker: UIPickerView!
-    @IBOutlet var waterPicker: UIPickerView!
-    
-    @IBOutlet var coffeeStackView: UIStackView!
-    @IBOutlet var waterStackView: UIStackView!
-    
     
     var calculator = Calculator()
     
@@ -48,8 +42,9 @@ class BrewVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         loadUserDefaults()
         
-        balanceSelect.fixBackgroundSegmentControl()
-        strengthSelect.fixBackgroundSegmentControl()
+        coffeeWaterRatioSelect.setFontLarge()
+        balanceSelect.setFontMedium()
+        strengthSelect.setFontMedium()
         
         initializeCoffeeWaterButtons()
         
@@ -57,10 +52,6 @@ class BrewVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     fileprivate func initializeCoffeeWaterPicker() {
-        coffeePicker.delegate = self
-        coffeePicker.dataSource = self
-        waterPicker.delegate = self
-        waterPicker.dataSource = self
         
         coffeeArray = Array(15...30)
         waterArray = Array(225...450)
@@ -121,19 +112,11 @@ class BrewVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //MARK: Coffee and Water Buttons
     @IBAction func coffeeButtonTapped(_ sender: UIButton) {
-        if waterStackView.isHidden {
-            showAnimatedView(coffeeStackView)
-        } else {
-            hideThenShowView(hide: waterStackView, show: coffeeStackView)
-        }
+        
     }
     
     @IBAction func waterButtonTapped(_ sender: UIButton) {
-        if coffeeStackView.isHidden {
-            showAnimatedView(waterStackView)
-        } else {
-            hideThenShowView(hide: coffeeStackView, show: waterStackView)
-        }
+        
     }
     
     private func showAnimatedView(_ view: UIView) {
@@ -156,48 +139,6 @@ class BrewVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
                 showView.isHidden = false
             }
         }
-    }
-    
-    //MARK: UIPicker Methods
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == coffeePicker {
-            return coffeeStringArray.count
-        } else {
-            return waterStringArray.count
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == coffeePicker {
-            return "\(coffeeStringArray[row])g"
-        } else {
-            return "\(waterStringArray[row])g"
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == coffeePicker {
-            if let selectedValue = Double(coffeeStringArray[row]) {
-                coffee = selectedValue
-            }
-        } else if pickerView == waterPicker {
-            if let selectedValue = Double(waterStringArray[row]) {
-                water = selectedValue
-            }
-        }
-    }
-    
-    @IBAction func coffeePickerDoneTapped(_ sender: UIButton) {
-        hideAnimatedView(coffeeStackView)
-    }
-    
-    @IBAction func waterPickerDoneTapped(_ sender: UIButton) {
-        hideAnimatedView(waterStackView)
     }
     
     //MARK: Navigation Methods
@@ -226,8 +167,7 @@ class BrewVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         defaults.set(balanceSelect.selectedSegmentIndex, forKey: "balanceSelect")
         defaults.set(strength.rawValue, forKey: "strength")
         defaults.set(strengthSelect.selectedSegmentIndex, forKey: "strengthSelect")
-//        defaults.set(coffeePicker.selectedRow(inComponent: 0), forKey: "selectedCoffee")
-//        defaults.set(coffeePicker.selectedRow(inComponent: 1), forKey: "selectedWater")
+
     }
     
     fileprivate func loadUserDefaults() {

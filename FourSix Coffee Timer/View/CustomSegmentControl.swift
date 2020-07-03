@@ -9,18 +9,31 @@
 import UIKit
 
 extension UISegmentedControl {
-    
-    func fixBackgroundSegmentControl() {
-        if #available(iOS 13.0, *) {
-            //just to be sure it is full loaded
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                for i in 0...(self.numberOfSegments-1)  {
-                    let backgroundSegmentView = self.subviews[i]
-                    backgroundSegmentView.isHidden = true
-                }
-            }
-            selectedSegmentTintColor = UIColor(named: "Highlight")
-        }
+    func setFontLarge() {
+        let font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        
+        setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
     }
     
+    func setFontMedium() {
+        let font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        
+        setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+    }
+}
+
+class CustomSegmentControl: UISegmentedControl {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initializeSegmentControl()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initializeSegmentControl()
+    }
+    
+    func initializeSegmentControl() {
+        selectedSegmentTintColor = UIColor(named: "Highlight")
+    }
 }
