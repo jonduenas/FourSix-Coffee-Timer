@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class RoundButton: UIButton {
     
     @IBInspectable var cornerRadius: CGFloat = 15 {

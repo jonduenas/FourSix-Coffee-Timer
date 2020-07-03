@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class RoundButtonWithShadow: UIButton {
     
     private var shadowLayer: CAShapeLayer!

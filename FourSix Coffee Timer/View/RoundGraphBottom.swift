@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class RoundGraphBottom: UIView {
     @IBInspectable var cornerRadius: CGFloat = 15 {
         didSet {
