@@ -227,7 +227,7 @@ class TimerVC: UIViewController {
         coffeeTimer.timerState = .countdown
         playPauseButton.setImage(nil, for: .normal)
         playPauseButton.setTitle("\(startCountdown)", for: .normal)
-        playPauseButton.setTitleColor(UIColor(named: "Accent"), for: .normal)
+        playPauseButton.setTitleColor(UIColor.systemGray2, for: .normal)
         playPauseButton.contentHorizontalAlignment = .center
         playPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 38)
         

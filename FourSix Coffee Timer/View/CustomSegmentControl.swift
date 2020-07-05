@@ -40,6 +40,7 @@ class CustomSegmentControl: UISegmentedControl {
     }
     
     func initializeSegmentControl() {
-        selectedSegmentTintColor = UIColor(named: "Highlight")
+        //selectedSegmentTintColor = UIColor(named: "Fill")
+        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
     }
 }

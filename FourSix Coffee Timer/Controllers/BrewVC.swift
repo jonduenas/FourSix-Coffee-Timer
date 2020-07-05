@@ -51,7 +51,16 @@ class BrewVC: UIViewController {
         balanceSelect.setFontMedium()
         strengthSelect.setFontMedium()
         
+        slider.setValue(waterMin, animated: false)
+        
         updateLabels()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.slider.setValue(self.water, animated: true)
+        }
+        
     }
     
     private func initializeSlider() {

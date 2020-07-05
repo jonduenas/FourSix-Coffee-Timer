@@ -10,8 +10,8 @@ import UIKit
 
 class ProgressCircle: UIControl, CAAnimationDelegate {
     
-    private let progressStrokeColor = UIColor(named: "Accent")!
-    private let trackStrokeColor = UIColor.systemGray2
+    private let progressStrokeColor = UIColor(named: "Fill")!
+    private let trackStrokeColor = UIColor.systemGray4
     
     private var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!
