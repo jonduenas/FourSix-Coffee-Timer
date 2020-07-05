@@ -20,6 +20,12 @@ extension UISegmentedControl {
         
         setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
     }
+    
+    func setFontLargeMonospaced() {
+        let font = UIFont.monospacedDigitSystemFont(ofSize: 24, weight: .semibold)
+        
+        setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+    }
 }
 
 class CustomSegmentControl: UISegmentedControl {

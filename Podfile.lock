@@ -1,0 +1,16 @@
+PODS:
+  - TactileSlider (1.3.0)
+
+DEPENDENCIES:
+  - TactileSlider (= 1.3.0)
+
+SPEC REPOS:
+  trunk:
+    - TactileSlider
+
+SPEC CHECKSUMS:
+  TactileSlider: 1dc3a05df4bf0bc5ccfba4805c65111ddc308ecd
+
+PODFILE CHECKSUM: af942bd91be691270b3d29c3c52cd35330d31f43
+
+COCOAPODS: 1.9.3

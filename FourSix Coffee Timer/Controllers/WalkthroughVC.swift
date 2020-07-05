@@ -14,7 +14,7 @@ class WalkthroughVC: UIViewController {
     
     var recipe: Recipe?
     
-    var recipeWater = [Double]()
+    var recipeWater = [Float]()
     var recipeStepCount = 0
     
     var currentViewControllerIndex = 0

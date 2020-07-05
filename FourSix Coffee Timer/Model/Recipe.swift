@@ -9,9 +9,9 @@
 import Foundation
 
 struct Recipe {
-    let waterTotal: Double
-    let coffee: Double
-    let waterPours: [Double]
+    let waterTotal: Float
+    let coffee: Float
+    let waterPours: [Float]
     let interval: TimeInterval = 45
     let balance: Balance
     let strength: Strength

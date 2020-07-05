@@ -64,6 +64,9 @@
                                                             <segment title="300g"/>
                                                             <segment title="1:15"/>
                                                         </segments>
+                                                        <connections>
+                                                            <action selector="coffeeWaterRatioSelected:" destination="dQX-07-Wto" eventType="valueChanged" id="kJQ-Ge-pxO"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                 </subviews>
                                             </stackView>
@@ -169,9 +172,8 @@
                                                     <constraint firstItem="9LB-tk-fdN" firstAttribute="height" secondItem="yzs-1h-qVs" secondAttribute="height" id="seX-gJ-8kz"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZi-FL-C3T" customClass="RoundButtonWithShadow" customModule="FourSix" customModuleProvider="target">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZi-FL-C3T" customClass="TactileSlider" customModule="TactileSlider">
                                                 <rect key="frame" x="0.0" y="138.33333333333331" width="313" height="60"/>
-                                                <color key="backgroundColor" name="Highlight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="pZ3-ar-5ML"/>
                                                 </constraints>
@@ -179,7 +181,34 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="trackBackground">
+                                                        <color key="value" name="Highlight"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbTint">
+                                                        <color key="value" name="Accent"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimum">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maximum">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sliderChanged:" destination="dQX-07-Wto" eventType="valueChanged" id="W2x-LW-65z"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -326,6 +355,7 @@
                         <outlet property="balanceSelect" destination="03L-Qm-9vC" id="H88-zL-PYt"/>
                         <outlet property="coffeeButton" destination="yzs-1h-qVs" id="lCW-vB-H7A"/>
                         <outlet property="coffeeWaterRatioSelect" destination="C7w-VP-KZU" id="vH9-ao-h1S"/>
+                        <outlet property="slider" destination="aZi-FL-C3T" id="bL7-pd-0DO"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
                         <outlet property="waterButton" destination="9LB-tk-fdN" id="LOO-VE-gwF"/>
                     </connections>

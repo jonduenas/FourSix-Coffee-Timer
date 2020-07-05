@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import TactileSlider
 
 class BrewVC: UIViewController {
+//    func myTrackingBegan() {
+//        print("tracking began")
+//    }
+//
+//    func myTrackingContinuing(location: CGPoint) {
+//        print("\(location.x)")
+//    }
+//
+//    func myTrackingEnded() {
+//        print("tracking ended")
+//    }
+    
 
     @IBOutlet var coffeeButton: RoundButtonWithShadow!
     @IBOutlet var waterButton: RoundButtonWithShadow!
@@ -17,6 +30,8 @@ class BrewVC: UIViewController {
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
+    @IBOutlet var slider: TactileSlider!
+    
     var calculator = Calculator()
     
     var balance: Balance = .neutral
@@ -24,16 +39,17 @@ class BrewVC: UIViewController {
     
     var showWalkthrough: Bool?
     
-    let coffeeWaterRatio = 15
-    var coffeeArray = [Int]()
-    var waterArray = [Int]()
-    var coffeeStringArray = [String]()
-    var waterStringArray = [String]()
-    var selectedCoffeeRow = 5
-    var selectedWaterRow = 5
+    var recipeCustomizerSelect: RecipeCustomizer = .coffee
+    var ratio: Float = 15
+    var coffee: Float = 20.0
+    var water: Float = 300.0
     
-    var coffee: Double = 20
-    var water: Double = 300
+    var coffeeMin: Float = 15
+    var coffeeMax: Float = 30
+    var waterMin: Float = 225
+    var waterMax: Float = 450
+    var ratioMin: Float = 12
+    var ratioMax: Float = 18
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,29 +58,94 @@ class BrewVC: UIViewController {
         
         loadUserDefaults()
         
-        coffeeWaterRatioSelect.setFontLarge()
+        coffeeWaterRatioSelect.setFontLargeMonospaced()
         balanceSelect.setFontMedium()
         strengthSelect.setFontMedium()
-        
-        initializeCoffeeWaterButtons()
-        
-        initializeCoffeeWaterPicker()
     }
     
-    fileprivate func initializeCoffeeWaterPicker() {
+    private func initializeSlider() {
         
-        coffeeArray = Array(15...30)
-        waterArray = Array(225...450)
-        
-        coffeeStringArray = coffeeArray.map(String.init)
-        waterStringArray = waterArray.map(String.init)
-    }
-    
-    private func initializeCoffeeWaterButtons() {
-        coffeeButton.setTitle(coffee.clean + "g", for: .normal)
     }
     
     //MARK: UI Methods
+    
+    @IBAction func sliderChanged(_ sender: TactileSlider) {
+        let currentValue = slider.value
+        
+        if recipeCustomizerSelect == .coffee {
+            coffee = currentValue
+            water = coffee * Float(ratio)
+            coffeeWaterRatioSelect.setTitle(coffee.clean + "g", forSegmentAt: 0)
+            coffeeWaterRatioSelect.setTitle(water.clean + "g", forSegmentAt: 1)
+        } else if recipeCustomizerSelect == .water {
+            water = currentValue
+            coffee = water / Float(ratio)
+            coffeeWaterRatioSelect.setTitle(coffee.clean + "g", forSegmentAt: 0)
+            coffeeWaterRatioSelect.setTitle(water.clean + "g", forSegmentAt: 1)
+        } else if recipeCustomizerSelect == .ratio {
+            ratio = currentValue
+            water = coffee * ratio.rounded()
+            coffeeWaterRatioSelect.setTitle(water.clean + "g", forSegmentAt: 1)
+            coffeeWaterRatioSelect.setTitle("1:" + ratio.clean, forSegmentAt: 2)
+        }
+    }
+    
+    
+    @IBAction func coffeeWaterRatioSelected(_ sender: Any) {
+        if coffeeWaterRatioSelect.selectedSegmentIndex == 0 {
+            recipeCustomizerSelect = .coffee
+            activateCoffeeSlider()
+        } else if coffeeWaterRatioSelect.selectedSegmentIndex == 1 {
+            recipeCustomizerSelect = .water
+            activateWaterSlider()
+        } else if coffeeWaterRatioSelect.selectedSegmentIndex == 2 {
+            recipeCustomizerSelect = .ratio
+            activateRatioSlider()
+        }
+    }
+    
+    private func setSliderMinMax() {
+        
+    }
+    
+    private func activateCoffeeSlider() {
+        if coffeeMax < coffee {
+            coffeeMax = coffee
+        }
+        if coffeeMin > coffee {
+            coffeeMin = coffee
+        }
+
+        slider.minimum = coffeeMin
+        slider.maximum = coffeeMax
+        slider.setValue(coffee.rounded(), animated: false)
+    }
+    
+    private func activateWaterSlider() {
+        if waterMax < water {
+            waterMax = water
+        }
+        if waterMin > water {
+            waterMin = water
+        }
+
+        slider.minimum = waterMin
+        slider.maximum = waterMax
+        slider.setValue(water.rounded(), animated: false)
+    }
+    
+    private func activateRatioSlider() {
+        if ratioMax < ratio {
+            ratioMax = ratio
+        }
+        if ratioMin > ratio {
+            ratioMin = ratio
+        }
+        
+        slider.minimum = ratioMin
+        slider.maximum = ratioMax
+        slider.setValue(ratio.rounded(), animated: false)
+    }
     
     @IBAction func balanceChanged(_ sender: Any) {
         
@@ -100,12 +181,12 @@ class BrewVC: UIViewController {
     @IBAction func calculateTapped(_ sender: Any) {
 //        let coffee = Double(coffeeArray[coffeePicker.selectedRow(inComponent: 0)])
 //        let totalWater = Double(waterArray[waterPicker.selectedRow(inComponent: 0)])
-        let coffee: Double = 20
-        let totalWater: Double = 300
+//        let coffee: Double = 20
+//        let totalWater: Double = 300
         
         calculator.waterPours.removeAll()
         
-        calculator.calculate(balance, strength, with: coffee, totalWater)
+        calculator.calculate(balance, strength, with: coffee, water)
         
         saveUserDefaults()
     }
@@ -140,6 +221,13 @@ class BrewVC: UIViewController {
             }
         }
     }
+    
+    //MARK: Touch Methods
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//    }
+    
+    
     
     //MARK: Navigation Methods
     
@@ -177,21 +265,13 @@ class BrewVC: UIViewController {
         let previousSelectedBalance = defaults.object(forKey: "balanceSelect") as? Int ?? 1
         let previousSelectedStrength = defaults.object(forKey: "strengthSelect") as? Int ?? 1
         
-        balance = Balance(rawValue: defaults.double(forKey: "balance")) ?? .neutral
+        balance = Balance(rawValue: defaults.float(forKey: "balance")) ?? .neutral
         balanceSelect.selectedSegmentIndex = previousSelectedBalance
         print("\(balance)")
         
         strength = Strength(rawValue: defaults.integer(forKey: "strength")) ?? .medium
         strengthSelect.selectedSegmentIndex = previousSelectedStrength
         print("\(strength)")
-        
-        if let previousSelectedCoffeeRow = defaults.object(forKey: "selectedCoffee") as? Int {
-            selectedCoffeeRow = previousSelectedCoffeeRow
-        }
-        
-        if let previousSelectedWaterRow = defaults.object(forKey: "selectedWater") as? Int {
-            selectedWaterRow = previousSelectedWaterRow
-        }
         
         //load Show Walkthrough option
         showWalkthrough = defaults.object(forKey: "walkthroughEnabled") as? Bool ?? true

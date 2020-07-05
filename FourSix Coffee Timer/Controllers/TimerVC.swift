@@ -35,7 +35,7 @@ class TimerVC: UIViewController {
     let recipe: Recipe
     
     var recipeIndex = 0
-    var currentWater: Double = 0
+    var currentWater: Float = 0
     
     var chimeNotification: AVAudioPlayer?
     
