@@ -10,11 +10,7 @@ import UIKit
 
 class SettingsVC: UITableViewController {
     
-    @IBOutlet var walkthroughSwitch: UISwitch!
-    
     let delegate: BrewVC
-    
-    var walkthroughEnabled: Bool = true
     
     let defaults = UserDefaults.standard
     
@@ -33,15 +29,6 @@ class SettingsVC: UITableViewController {
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        //load saved setting for walkthrough
-        walkthroughEnabled = defaults.object(forKey: "walkthroughEnabled") as? Bool ?? true
-        
-        if walkthroughEnabled {
-            walkthroughSwitch.isOn = true
-        } else {
-            walkthroughSwitch.isOn = false
-        }
         
     }
 
@@ -62,20 +49,10 @@ class SettingsVC: UITableViewController {
     }
 
     @IBAction func xTapped(_ sender: Any) {
-        dismiss(animated: true) { [weak self] in
-            if let walkthroughPref = self?.walkthroughEnabled {
-                self?.delegate.updateWalkthroughPreference(to: walkthroughPref)
-            }
-        }
-    }
-    
-    @IBAction func walkthroughSwitchChanged(_ sender: Any) {
-        if walkthroughSwitch.isOn {
-            walkthroughEnabled = true
-            defaults.set(walkthroughEnabled, forKey: "walkthroughEnabled")
-        } else {
-            walkthroughEnabled = false
-            defaults.set(walkthroughEnabled, forKey: "walkthroughEnabled")
-        }
+        dismiss(animated: true) //{ [weak self] in
+//            if let walkthroughPref = self?.walkthroughEnabled {
+//                self?.delegate.updateWalkthroughPreference(to: walkthroughPref)
+//            }
+//        }
     }
 }

@@ -10,23 +10,11 @@ import UIKit
 import TactileSlider
 
 class BrewVC: UIViewController {
-//    func myTrackingBegan() {
-//        print("tracking began")
-//    }
-//
-//    func myTrackingContinuing(location: CGPoint) {
-//        print("\(location.x)")
-//    }
-//
-//    func myTrackingEnded() {
-//        print("tracking ended")
-//    }
     
-
-    @IBOutlet var coffeeButton: RoundButtonWithShadow!
-    @IBOutlet var waterButton: RoundButtonWithShadow!
+    //MARK: IBOutlets
+    @IBOutlet var coffeeLabel: UILabel!
+    @IBOutlet var waterLabel: UILabel!
     
-    @IBOutlet var coffeeWaterRatioSelect: CustomSegmentControl!
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
@@ -58,9 +46,12 @@ class BrewVC: UIViewController {
         
         loadUserDefaults()
         
-        coffeeWaterRatioSelect.setFontLargeMonospaced()
+        coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
+        waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         balanceSelect.setFontMedium()
         strengthSelect.setFontMedium()
+        
+        updateLabels()
     }
     
     private func initializeSlider() {
@@ -72,36 +63,15 @@ class BrewVC: UIViewController {
     @IBAction func sliderChanged(_ sender: TactileSlider) {
         let currentValue = slider.value
         
-        if recipeCustomizerSelect == .coffee {
-            coffee = currentValue
-            water = coffee * Float(ratio)
-            coffeeWaterRatioSelect.setTitle(coffee.clean + "g", forSegmentAt: 0)
-            coffeeWaterRatioSelect.setTitle(water.clean + "g", forSegmentAt: 1)
-        } else if recipeCustomizerSelect == .water {
-            water = currentValue
-            coffee = water / Float(ratio)
-            coffeeWaterRatioSelect.setTitle(coffee.clean + "g", forSegmentAt: 0)
-            coffeeWaterRatioSelect.setTitle(water.clean + "g", forSegmentAt: 1)
-        } else if recipeCustomizerSelect == .ratio {
-            ratio = currentValue
-            water = coffee * ratio.rounded()
-            coffeeWaterRatioSelect.setTitle(water.clean + "g", forSegmentAt: 1)
-            coffeeWaterRatioSelect.setTitle("1:" + ratio.clean, forSegmentAt: 2)
-        }
+        water = currentValue.rounded()
+        coffee = (water / ratio).rounded()
+        
+        updateLabels()
     }
     
-    
-    @IBAction func coffeeWaterRatioSelected(_ sender: Any) {
-        if coffeeWaterRatioSelect.selectedSegmentIndex == 0 {
-            recipeCustomizerSelect = .coffee
-            activateCoffeeSlider()
-        } else if coffeeWaterRatioSelect.selectedSegmentIndex == 1 {
-            recipeCustomizerSelect = .water
-            activateWaterSlider()
-        } else if coffeeWaterRatioSelect.selectedSegmentIndex == 2 {
-            recipeCustomizerSelect = .ratio
-            activateRatioSlider()
-        }
+    private func updateLabels() {
+        coffeeLabel.text = coffee.clean + "g"
+        waterLabel.text = water.clean + "g"
     }
     
     private func setSliderMinMax() {

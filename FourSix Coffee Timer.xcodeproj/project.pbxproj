@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
 		651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */; };
 		6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6522A40D24A955EB00583547 /* custom-notification.mp3 */; };
 		652756432475B138004E067F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756422475B138004E067F /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
+		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeTimer.swift; path = "FourSix Coffee Timer/Model/CoffeeTimer.swift"; sourceTree = SOURCE_ROOT; };
 		6522A40D24A955EB00583547 /* custom-notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "custom-notification.mp3"; sourceTree = "<group>"; };
 		6527563F2475B138004E067F /* FourSix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
 				656BE05124AE7CE00024AB48 /* RoundButtonWithShadow.swift */,
+				6515EACE24B2563B004255EB /* Shadow.swift */,
 				656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */,
 				656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */,
 				656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */,
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6515EACF24B2563B004255EB /* Shadow.swift in Sources */,
 				6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */,
 				652DD6D124A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift in Sources */,
 				6529E117249FE66F0093FAE1 /* TroubleshootingVC.swift in Sources */,
