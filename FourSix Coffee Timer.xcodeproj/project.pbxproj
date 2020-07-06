@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65065FED24B3B27E0070E3CE /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65065FEC24B3B27E0070E3CE /* UIViewController+presentAlert.swift */; };
+		65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */; };
 		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
 		651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */; };
 		6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6522A40D24A955EB00583547 /* custom-notification.mp3 */; };
@@ -20,6 +22,7 @@
 		6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E11A249FEFFB0093FAE1 /* HowToVC.swift */; };
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
 		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
+		652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652C95E424B28E3B00B471C8 /* Settings.storyboard */; };
 		652DD6D124A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DD6D024A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift */; };
 		65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Double+clean.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
@@ -46,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
+		65065FEC24B3B27E0070E3CE /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
+		65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeTimer.swift; path = "FourSix Coffee Timer/Model/CoffeeTimer.swift"; sourceTree = SOURCE_ROOT; };
 		6522A40D24A955EB00583547 /* custom-notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "custom-notification.mp3"; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
+		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		652DD6D024A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ViewController+clearNavigationBar.swift"; path = "FourSix Coffee Timer/View/ViewController+clearNavigationBar.swift"; sourceTree = SOURCE_ROOT; };
 		65315ADD249ADB4D00994E28 /* Double+clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+clean.swift"; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			children = (
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				652756482475B138004E067F /* Main.storyboard */,
+				652C95E424B28E3B00B471C8 /* Settings.storyboard */,
 				652DD6D024A7DFAD0093ADBC /* ViewController+clearNavigationBar.swift */,
 				65E9571B24AFFE7F00FC0A58 /* CustomSlider.swift */,
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
@@ -174,6 +181,7 @@
 				65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */,
 				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
 				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
+				65065FEC24B3B27E0070E3CE /* UIViewController+presentAlert.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 				65FB6548249C18CC00ED732F /* Calculator.swift */,
 				65FB654A249C19F800ED732F /* Recipe.swift */,
 				65FB654C249C203F00ED732F /* RecipeEnums.swift */,
+				65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +275,7 @@
 				6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */,
 				6527564A2475B138004E067F /* Main.storyboard in Resources */,
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
+				652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +339,7 @@
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */,
+				65065FED24B3B27E0070E3CE /* UIViewController+presentAlert.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65FB654D249C203F00ED732F /* RecipeEnums.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
@@ -340,6 +351,7 @@
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				656BE05224AE7CE00024AB48 /* RoundButtonWithShadow.swift in Sources */,
 				652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */,
+				65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */,
 				656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				65E9571C24AFFE7F00FC0A58 /* CustomSlider.swift in Sources */,
@@ -365,6 +377,14 @@
 				6527564E2475B13B004E067F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		652C95E424B28E3B00B471C8 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652C95E524B28E3B00B471C8 /* Base */,
+			);
+			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

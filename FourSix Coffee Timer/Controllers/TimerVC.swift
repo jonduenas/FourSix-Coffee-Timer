@@ -21,6 +21,7 @@ class TimerVC: UIViewController {
     @IBOutlet var currentTotalWeightLabel: UILabel!
     @IBOutlet var currentStepLabel: UILabel!
     @IBOutlet var currentStepStackView: UIStackView!
+    @IBOutlet var totalTimeStackView: UIStackView!
     
     @IBOutlet var playPauseButton: UIButton!
     @IBOutlet var nextButton: UIButton!
@@ -57,6 +58,10 @@ class TimerVC: UIViewController {
         //make timer font monospaced
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
         totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
+        
+        if UserDefaultsManager.totalTimeShown {
+            totalTimeStackView.isHidden = false
+        }
         
         updateWeightLabels()
     }

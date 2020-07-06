@@ -11,6 +11,8 @@ import TactileSlider
 
 class BrewVC: UIViewController {
     
+    var didPurchasePro: Bool = true
+    
     //MARK: IBOutlets
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
@@ -28,9 +30,24 @@ class BrewVC: UIViewController {
     var showWalkthrough: Bool?
     
     var recipeCustomizerSelect: RecipeCustomizer = .coffee
-    var ratio: Float = 15
-    var coffee: Float = 20.0
-    var water: Float = 300.0
+    
+    var ratio: Int = 15 {
+        didSet {
+            water = (coffee * Float(ratio)).rounded()
+        }
+    }
+    
+    var coffee: Float = 20.0 {
+        didSet {
+            coffeeLabel.text = coffee.clean + "g"
+            calculateWater()
+        }
+    }
+    var water: Float = 300.0 {
+        didSet {
+            waterLabel.text = water.clean + "g"
+        }
+    }
     
     var coffeeMin: Float = 15
     var coffeeMax: Float = 30
@@ -51,14 +68,15 @@ class BrewVC: UIViewController {
         balanceSelect.setFontMedium()
         strengthSelect.setFontMedium()
         
-        slider.setValue(waterMin, animated: false)
+        initializeSlider()
+        slider.setValue(coffeeMin, animated: false)
         
-        updateLabels()
+        //updateLabels()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.slider.setValue(self.water, animated: true)
+            self.slider.setValue(self.coffee, animated: true)
         }
         
     }
@@ -70,18 +88,28 @@ class BrewVC: UIViewController {
     //MARK: UI Methods
     
     @IBAction func sliderChanged(_ sender: TactileSlider) {
+        if !didPurchasePro {
+            let ac = UIAlertController(title: "Purchase FourSix Pro", message: "Adjusting the amounts requires a purchase of FourSix Pro.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(ac, animated: true)
+            return
+        }
         let currentValue = slider.value
         
-        water = currentValue.rounded()
-        coffee = (water / ratio).rounded()
+        coffee = currentValue.rounded()
+        //calculateWater(coffee: coffee, ratio: ratio)
         
-        updateLabels()
+       // updateLabels()
     }
     
-    private func updateLabels() {
-        coffeeLabel.text = coffee.clean + "g"
-        waterLabel.text = water.clean + "g"
+    func calculateWater() {
+        water = (coffee * Float(ratio)).rounded()
     }
+    
+//    private func updateLabels() {
+//        coffeeLabel.text = coffee.clean + "g"
+//        waterLabel.text = water.clean + "g"
+//    }
     
     private func setSliderMinMax() {
         
@@ -113,18 +141,18 @@ class BrewVC: UIViewController {
         slider.setValue(water.rounded(), animated: false)
     }
     
-    private func activateRatioSlider() {
-        if ratioMax < ratio {
-            ratioMax = ratio
-        }
-        if ratioMin > ratio {
-            ratioMin = ratio
-        }
-        
-        slider.minimum = ratioMin
-        slider.maximum = ratioMax
-        slider.setValue(ratio.rounded(), animated: false)
-    }
+//    private func activateRatioSlider() {
+//        if ratioMax < ratio {
+//            ratioMax = ratio
+//        }
+//        if ratioMin > ratio {
+//            ratioMin = ratio
+//        }
+//
+//        slider.minimum = ratioMin
+//        slider.maximum = ratioMax
+//        slider.setValue(ratio.rounded(), animated: false)
+//    }
     
     @IBAction func balanceChanged(_ sender: Any) {
         
@@ -254,5 +282,9 @@ class BrewVC: UIViewController {
         
         //load Show Walkthrough option
         showWalkthrough = defaults.object(forKey: "walkthroughEnabled") as? Bool ?? true
+        
+        if UserDefaultsManager.ratio != 0 {
+            ratio = UserDefaultsManager.ratio
+        }
     }
 }
