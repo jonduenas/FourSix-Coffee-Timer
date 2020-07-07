@@ -10,23 +10,26 @@ import UIKit
 
 class SettingsVC: UITableViewController {
     
+    //MARK: Constants
     let delegate: BrewVC
+    let defaultRatio = 15
+    let ratioArray = [12, 13, 14, 15, 16, 17, 18]
     
-    @IBOutlet var showTotalTimeSwitch: UISwitch!
-    @IBOutlet var timerAutoAdvanceSwitch: UISwitch!
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+    let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
     
-    @IBOutlet var ratioLabel: UILabel!
-    
+    //MARK: Variables
     var ratio = 15 {
         didSet {
             ratioLabel.text = "1:\(ratio)"
         }
     }
     
-    let defaultRatio = 15
-    let ratioArray = [12, 13, 14, 15, 16, 17, 18]
+    //MARK: IBOutlets
+    @IBOutlet var showTotalTimeSwitch: UISwitch!
+    @IBOutlet var timerAutoAdvanceSwitch: UISwitch!
+    @IBOutlet var ratioLabel: UILabel!
     
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     
     init?(coder: NSCoder, delegate: BrewVC) {
         self.delegate = delegate
@@ -69,26 +72,21 @@ class SettingsVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 // Purchase FourSixPro
-                tableView.deselectRow(at: indexPath, animated: true)
-                
                 let ac = UIAlertController(title: "Purchase FourSix Pro", message: "On release, some features will be available through a one-time in app purchase. These features include adjusting the amount of coffee and water, adjusting the ratio, disabling auto-advance of the timer, and (at a later date) saving each session's details with notes and a rating. For now, you can test these features for free.", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                ac.addAction(okActionNoClosure)
                 present(ac, animated: true)
             } else if indexPath.row == 1 {
                 // Restore Purchase of FourSix Pro
-                tableView.deselectRow(at: indexPath, animated: true)
-                
                 let ac = UIAlertController(title: "Restore Purchase of FourSix Pro", message: "This is a placeholder for the function of restoring previous in-app purchases.", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                ac.addAction(okActionNoClosure)
                 present(ac, animated: true)
             } else if indexPath.row == 2 {
                 // Coffee:Water Ratio
-                tableView.deselectRow(at: indexPath, animated: true)
-                
                 let ac = UIAlertController(title: "Coffee:Water Ratio", message: "Lower numbers = stronger coffee.", preferredStyle: .actionSheet)
                 
                 for ratio in ratioArray {
@@ -106,9 +104,8 @@ class SettingsVC: UITableViewController {
         } else if indexPath.section == 2 {
             if indexPath.row == 3 {
                 // Send Feedback
-                tableView.deselectRow(at: indexPath, animated: true)
                 let ac = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                ac.addAction(cancelAction)
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                     if let url = URL(string: "https://www.twitter.com/jonduenas") {
                         UIApplication.shared.open(url)
@@ -128,26 +125,14 @@ class SettingsVC: UITableViewController {
     }
     
     @IBAction func timerAutoAdvanceSwitched(_ sender: Any) {
-    
-    }
-    
-    private func openSettingsAC(_ tableView: UITableView, indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let ac = UIAlertController(title: "label.text", message: nil, preferredStyle: .actionSheet)
-        
-        for ratio in ratioArray {
-            ac.addAction(UIAlertAction(title: "1:\(ratio)", style: .default, handler: { [weak self] _ in
-                self?.ratio = ratio
-                
-            }))
-        }
-        ac.addAction(cancelAction)
+        let ac = UIAlertController(title: "This feature is not yet functional.", message: nil, preferredStyle: .alert)
+        ac.addAction(okActionNoClosure)
         present(ac, animated: true)
     }
 
     @IBAction func xTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
-            self?.delegate.ratio = self!.ratio
+            self?.delegate.ratio = UserDefaultsManager.ratio
         }
     }
 }
