@@ -45,7 +45,6 @@ class SettingsVC: UITableViewController {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         loadUserDefaults()
     }
