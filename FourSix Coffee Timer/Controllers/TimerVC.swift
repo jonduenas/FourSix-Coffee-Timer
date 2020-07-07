@@ -180,7 +180,7 @@ class TimerVC: UIViewController {
     @objc private func runTimer() {
         coffeeTimer.runCoffeeTimer()
         
-        if coffeeTimer.currentStepElapsedTime < recipe.interval {
+        if coffeeTimer.currentStepElapsedTime < recipe.interval - Constants.timerInterval {
             updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
             
             updateProgress()
