@@ -131,7 +131,11 @@ class SettingsVC: UITableViewController {
 
     @IBAction func xTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
-            self?.delegate.ratio = UserDefaultsManager.ratio
+            if UserDefaultsManager.ratio == 0 {
+                UserDefaultsManager.ratio = 15
+            } else {
+                self?.delegate.ratio = UserDefaultsManager.ratio
+            }
         }
     }
 }
