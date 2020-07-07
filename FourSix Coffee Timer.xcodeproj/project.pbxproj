@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65065FED24B3B27E0070E3CE /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65065FEC24B3B27E0070E3CE /* UIViewController+presentAlert.swift */; };
 		65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */; };
 		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
 		651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */; };
@@ -49,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
-		65065FEC24B3B27E0070E3CE /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
 		65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeTimer.swift; path = "FourSix Coffee Timer/Model/CoffeeTimer.swift"; sourceTree = SOURCE_ROOT; };
@@ -181,7 +179,6 @@
 				65AA73E92482EE5B00F8B519 /* WalkthroughVC.swift */,
 				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
 				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
-				65065FEC24B3B27E0070E3CE /* UIViewController+presentAlert.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,7 +336,6 @@
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */,
-				65065FED24B3B27E0070E3CE /* UIViewController+presentAlert.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65FB654D249C203F00ED732F /* RecipeEnums.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
