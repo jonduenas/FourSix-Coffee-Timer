@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */; };
 		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
+		6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6518D13424B4FADE00F786C4 /* Settings.bundle */; };
 		651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */; };
 		6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6522A40D24A955EB00583547 /* custom-notification.mp3 */; };
 		652756432475B138004E067F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756422475B138004E067F /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
 		65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		6518D13424B4FADE00F786C4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeTimer.swift; path = "FourSix Coffee Timer/Model/CoffeeTimer.swift"; sourceTree = SOURCE_ROOT; };
 		6522A40D24A955EB00583547 /* custom-notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "custom-notification.mp3"; sourceTree = "<group>"; };
 		6527563F2475B138004E067F /* FourSix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				652756422475B138004E067F /* AppDelegate.swift */,
 				6522A40D24A955EB00583547 /* custom-notification.mp3 */,
 				652756442475B138004E067F /* SceneDelegate.swift */,
+				6518D13424B4FADE00F786C4 /* Settings.bundle */,
 				65FB6547249C18A100ED732F /* Model */,
 				65AFC1FB249D55A300576AFA /* View */,
 				65AFC1FC249D5A0800576AFA /* Controllers */,
@@ -218,6 +221,7 @@
 				6527563C2475B138004E067F /* Frameworks */,
 				6527563D2475B138004E067F /* Resources */,
 				8784522A606F2AE8E34B583A /* [CP] Embed Pods Frameworks */,
+				6518D13624B4FBBA00F786C4 /* Copy Acknowledgements */,
 			);
 			buildRules = (
 			);
@@ -266,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */,
 				6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */,
 				6529E119249FECC60093FAE1 /* troubleshooting.rtf in Resources */,
 				6527564C2475B13B004E067F /* Assets.xcassets in Resources */,
@@ -279,6 +284,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6518D13624B4FBBA00F786C4 /* Copy Acknowledgements */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Acknowledgements";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp \"${SRCROOT}/Pods/Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer-acknowledgements.plist\" \"${SRCROOT}/FourSix Coffee Timer/Settings.bundle/OpenSource.plist\"\n";
+		};
 		8784522A606F2AE8E34B583A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

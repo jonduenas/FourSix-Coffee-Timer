@@ -303,7 +303,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
                                         <connections>
-                                            <segue destination="ahQ-nl-JlL" kind="show" id="dXl-MW-qJV"/>
+                                            <segue destination="zhX-VZ-g69" kind="show" id="n0D-V8-HMc"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -581,43 +581,107 @@ Get in touch on Twitter - @jonduenas.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J39-Hk-f0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3246" y="1501"/>
+            <point key="canvasLocation" x="2399" y="1501"/>
         </scene>
         <!--Acknowledgements-->
-        <scene sceneID="o7A-FL-U1j">
+        <scene sceneID="SY4-WY-fKY">
             <objects>
-                <viewController id="ahQ-nl-JlL" customClass="AcknowledgementsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3lS-LN-LFS">
+                <tableViewController id="zhX-VZ-g69" customClass="AcknowledgementsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r52-7S-7q1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpw-v6-RAn">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" name="Background"/>
-                        <constraints>
-                            <constraint firstItem="uFO-Dy-Bpk" firstAttribute="trailing" secondItem="Dpw-v6-RAn" secondAttribute="trailing" id="GAi-L5-LOQ"/>
-                            <constraint firstItem="uFO-Dy-Bpk" firstAttribute="bottom" secondItem="Dpw-v6-RAn" secondAttribute="bottom" id="TWs-tm-E0z"/>
-                            <constraint firstItem="Dpw-v6-RAn" firstAttribute="leading" secondItem="uFO-Dy-Bpk" secondAttribute="leading" id="U21-0R-Zr1"/>
-                            <constraint firstItem="Dpw-v6-RAn" firstAttribute="top" secondItem="uFO-Dy-Bpk" secondAttribute="top" id="pqh-aH-M3s"/>
-                        </constraints>
-                        <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="20" bottom="0.0" trailing="20"/>
-                        <viewLayoutGuide key="safeArea" id="uFO-Dy-Bpk"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Acknowledgements" id="pgE-kV-bPp"/>
+                        <color key="sectionIndexBackgroundColor" name="Background"/>
+                        <sections>
+                            <tableViewSection id="4Q1-t5-edP">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wbm-MU-Plx">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wbm-MU-Plx" id="uwW-aP-u2J">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgment 1" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r43-6G-sOR">
+                                                    <rect key="frame" x="20" y="11" width="374" height="23"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="r43-6G-sOR" secondAttribute="trailing" id="0Os-PY-3SU"/>
+                                                <constraint firstItem="r43-6G-sOR" firstAttribute="leading" secondItem="uwW-aP-u2J" secondAttribute="leadingMargin" id="Cdy-CA-NNi"/>
+                                                <constraint firstAttribute="bottom" secondItem="r43-6G-sOR" secondAttribute="bottom" constant="10" id="MiO-BT-Pmj"/>
+                                                <constraint firstItem="r43-6G-sOR" firstAttribute="top" secondItem="uwW-aP-u2J" secondAttribute="topMargin" id="PHo-xs-gW6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8Q0-rX-qfe">
+                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Q0-rX-qfe" id="VEX-Y6-63e">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgment 2" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5M4-Oa-EDo">
+                                                    <rect key="frame" x="20" y="11" width="374" height="23"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5M4-Oa-EDo" firstAttribute="leading" secondItem="VEX-Y6-63e" secondAttribute="leadingMargin" id="DAj-t9-lcl"/>
+                                                <constraint firstItem="5M4-Oa-EDo" firstAttribute="top" secondItem="VEX-Y6-63e" secondAttribute="topMargin" id="I3y-hI-aJ0"/>
+                                                <constraint firstAttribute="bottom" secondItem="5M4-Oa-EDo" secondAttribute="bottom" constant="10" id="PTo-0B-NP3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5M4-Oa-EDo" secondAttribute="trailing" id="TB9-wh-oT4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SrZ-1k-oVN">
+                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SrZ-1k-oVN" id="KiI-q6-lf1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgment 3" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-TI-xCi">
+                                                    <rect key="frame" x="20" y="11" width="374" height="23"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ja2-TI-xCi" secondAttribute="trailing" id="2M6-0q-j9O"/>
+                                                <constraint firstItem="ja2-TI-xCi" firstAttribute="leading" secondItem="KiI-q6-lf1" secondAttribute="leadingMargin" id="8rz-Xg-qiF"/>
+                                                <constraint firstAttribute="bottom" secondItem="ja2-TI-xCi" secondAttribute="bottom" constant="10" id="CaD-yN-33o"/>
+                                                <constraint firstItem="ja2-TI-xCi" firstAttribute="top" secondItem="KiI-q6-lf1" secondAttribute="topMargin" id="v8C-pJ-Khe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="zhX-VZ-g69" id="9DV-4z-NuD"/>
+                            <outlet property="delegate" destination="zhX-VZ-g69" id="aEE-GI-5oW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Acknowledgements" id="LB5-yF-sMn"/>
                     <connections>
-                        <outlet property="textView" destination="Dpw-v6-RAn" id="xJ1-Pw-2gK"/>
+                        <outlet property="ackLabel1" destination="r43-6G-sOR" id="lxN-N9-YV3"/>
+                        <outlet property="ackLabel2" destination="5M4-Oa-EDo" id="7Tn-az-wb0"/>
+                        <outlet property="ackLabel3" destination="ja2-TI-xCi" id="QSo-OW-NYZ"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydg-xw-L1U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Awi-2n-4aj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="1501"/>
+            <point key="canvasLocation" x="3245" y="1501"/>
         </scene>
         <!--HowTo-->
         <scene sceneID="Img-oO-n7P">
@@ -678,7 +742,7 @@ Get in touch on Twitter - @jonduenas.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ML-nR-ywQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3245" y="758"/>
+            <point key="canvasLocation" x="3245" y="528"/>
         </scene>
         <!--Settings-->
         <scene sceneID="vHZ-SL-2lj">

@@ -41,17 +41,17 @@
 		7763285ED91F9B7CF9700F44E39BA789 /* Pods-FourSix Coffee Timer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FourSix Coffee Timer-umbrella.h"; sourceTree = "<group>"; };
 		90F43EC90F3D43F32314878F35702DA5 /* TactileSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TactileSlider-dummy.m"; sourceTree = "<group>"; };
 		91B18474CF8862CD30AF7296CB9B59B0 /* TactileSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BA98300E0450B3B01F7278415ECE7BCF /* TactileSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-umbrella.h"; sourceTree = "<group>"; };
 		C07438602E3AB6D228C0A9BECAA073DC /* TactileSliderLayerRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSliderLayerRenderer.swift; path = TactileSlider/Classes/TactileSliderLayerRenderer.swift; sourceTree = "<group>"; };
 		D6EDD21378CBBF23FB44EEAE2F805C19 /* Pods-FourSix Coffee Timer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FourSix Coffee Timer-frameworks.sh"; sourceTree = "<group>"; };
 		D6F946D2C22192BDB63523335EC5C857 /* Pods-FourSix Coffee Timer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FourSix Coffee Timer-Info.plist"; sourceTree = "<group>"; };
 		DEF3F2B93F424FB1982FB1DD52BF85A0 /* Pods-FourSix Coffee Timer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FourSix Coffee Timer-dummy.m"; sourceTree = "<group>"; };
 		E855111E9875D6D063BF1EB4691FB871 /* TactileSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-prefix.pch"; sourceTree = "<group>"; };
-		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TactileSlider.framework; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF58BEBD942314D6881B02C59E6FCD8C /* Pods-FourSix Coffee Timer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FourSix Coffee Timer.modulemap"; sourceTree = "<group>"; };
 		F8F6872CC00D378B4324550ED173E8BC /* TactileSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TactileSlider.modulemap; sourceTree = "<group>"; };
-		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FourSix_Coffee_Timer.framework; path = "Pods-FourSix Coffee Timer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,6 @@
 				C07438602E3AB6D228C0A9BECAA073DC /* TactileSliderLayerRenderer.swift */,
 				7C348DBDA36017CA37926D4DC68AA56F /* Support Files */,
 			);
-			name = TactileSlider;
 			path = TactileSlider;
 			sourceTree = "<group>";
 		};
