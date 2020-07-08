@@ -252,7 +252,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Calculate">
-                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -488,6 +488,7 @@
                                                     <constraint firstAttribute="width" constant="47" id="Z0E-c9-ZED"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" name="Accent"/>
                                                 <state key="normal" image="forward.end.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="forwardTapped:" destination="I6i-1q-bNY" eventType="touchUpInside" id="0qm-aB-9Ut"/>
@@ -855,7 +856,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Start">
-                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1072,7 +1073,7 @@
             <point key="canvasLocation" x="2854" y="52"/>
         </scene>
     </scenes>
-    <color key="tintColor" name="Accent"/>
+    <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="brace-40" width="23" height="143.33332824707031"/>
         <image name="brace-60" width="23" height="215"/>
@@ -1082,13 +1083,13 @@
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="Accent">
-            <color red="0.65098039215686276" green="0.53333333333333333" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.74509803921568629" green="0.5607843137254902" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Background">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Fill">
-            <color red="0.44705882352941179" green="0.51764705882352946" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.33725490196078434" green="0.47058823529411764" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SliderBackground">
             <color red="0.8666666666666667" green="0.8666666666666667" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

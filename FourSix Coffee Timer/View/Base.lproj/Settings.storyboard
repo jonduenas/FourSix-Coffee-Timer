@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="Settings" id="6WR-Et-o1w" customClass="SettingsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dQs-0k-fED">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -336,11 +336,11 @@
             <objects>
                 <viewController id="dba-gI-lEk" customClass="WhatIs46VC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNX-WE-fzs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-FK-Orn">
-                                <rect key="frame" x="0.0" y="93" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="5" width="414" height="250"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="zuH-Nn-DGi"/>
@@ -351,19 +351,19 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app has no affiliation with HARIO Co, Ltd. or Tetsu Kasuya." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAv-Bu-mqw">
-                                <rect key="frame" x="28" y="358" width="358" height="15"/>
+                                <rect key="frame" x="28" y="270" width="358" height="15"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Description from the Hario Japan website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6S-MG-Q96">
-                                <rect key="frame" x="87" y="837" width="240" height="15"/>
+                                <rect key="frame" x="87" y="749" width="240" height="15"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-xo-UpV">
-                                <rect key="frame" x="57" y="398" width="300" height="223.5"/>
+                                <rect key="frame" x="57" y="310" width="300" height="223.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="cRo-bT-G98"/>
                                 </constraints>
@@ -404,11 +404,11 @@ The point is to use coarse grounds and make the second pour after the water from
             <objects>
                 <viewController title="Troubleshooting" automaticallyAdjustsScrollViewInsets="NO" id="SjP-RY-7Zq" customClass="TroubleshootingVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ehD-r6-iaJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q3-6w-gTO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Po9-xz-9fQ" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1418.5"/>
@@ -588,7 +588,7 @@ Get in touch on Twitter - @jonduenas.</string>
             <objects>
                 <tableViewController id="zhX-VZ-g69" customClass="AcknowledgementsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r52-7S-7q1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <color key="sectionIndexBackgroundColor" name="Background"/>
@@ -688,11 +688,11 @@ Get in touch on Twitter - @jonduenas.</string>
             <objects>
                 <viewController storyboardIdentifier="UIViewController-u4w-pl-BN6" title="HowTo" id="u4w-pl-BN6" customClass="HowToVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tBH-12-ZM4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xo-Wa-1Gh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FT2-ew-KXH" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="412.5"/>
@@ -750,10 +750,8 @@ Get in touch on Twitter - @jonduenas.</string>
                 <navigationController storyboardIdentifier="UINavigationController-IMj-yo-NAX" automaticallyAdjustsScrollViewInsets="NO" id="IMj-yo-NAX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="Ni9-Za-7c6"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
-                        <color key="tintColor" name="Accent"/>
-                    </simulatedNavigationBarMetrics>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pjH-RO-aeA">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="pjH-RO-aeA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -767,14 +765,11 @@ Get in touch on Twitter - @jonduenas.</string>
             <point key="canvasLocation" x="807" y="529"/>
         </scene>
     </scenes>
-    <color key="tintColor" name="Accent"/>
+    <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="Accent">
-            <color red="0.65098039215686276" green="0.53333333333333333" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Accent">
-            <color red="0.65098039215686276" green="0.53333333333333333" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.74509803921568629" green="0.54509803921568623" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Background">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
