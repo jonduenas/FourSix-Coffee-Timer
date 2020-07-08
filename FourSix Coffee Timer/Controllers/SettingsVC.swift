@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsVC: UITableViewController {
+class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegate {
     
     //MARK: Constants
     let delegate: BrewVC
@@ -44,11 +44,23 @@ class SettingsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.presentationController?.delegate = self
+        
         self.isModalInPresentation = true
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         
         loadUserDefaults()
+    }
+    
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        dismiss(animated: true) { [weak self] in
+            if UserDefaultsManager.ratio == 0 {
+                UserDefaultsManager.ratio = 15
+            } else {
+                self?.delegate.ratio = UserDefaultsManager.ratio
+            }
+        }
     }
     
     fileprivate func loadUserDefaults() {
