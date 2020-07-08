@@ -43,6 +43,8 @@ class SettingsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.isModalInPresentation = true
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         
@@ -96,6 +98,7 @@ class SettingsVC: UITableViewController {
                 }
                 ac.addAction(UIAlertAction(title: "Restore Default", style: .default, handler: { [weak self] _ in
                     self?.ratio = self!.defaultRatio
+                    UserDefaultsManager.ratio = self!.defaultRatio
                 }))
                 ac.addAction(cancelAction)
                 present(ac, animated: true)
@@ -129,6 +132,8 @@ class SettingsVC: UITableViewController {
         present(ac, animated: true)
     }
 
+    //MARK: Navigation Methods
+    
     @IBAction func xTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             if UserDefaultsManager.ratio == 0 {
@@ -138,4 +143,6 @@ class SettingsVC: UITableViewController {
             }
         }
     }
+    
+    
 }
