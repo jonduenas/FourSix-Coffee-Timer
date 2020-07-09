@@ -9,42 +9,26 @@
 import UIKit
 
 class WalkthroughContentVC: UIViewController {
-
-    @IBOutlet weak var stepLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
+    
+    @IBOutlet var walkthroughImage: UIImageView!
     @IBOutlet var startButton: UIButton!
+    @IBOutlet var pageControl: UIPageControl!
     
-    var recipe: Recipe?
-    
-    var stepText: String?
-    var amountText: String?
-    var index: Int?
-    
-    var startIsHidden = true
-    
+    var walkthroughImageName = ""
+    var index = 0
+//    var startIsHidden = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        stepLabel.text = stepText
-        amountLabel.text = amountText
+        pageControl.currentPage = index
+        
+        walkthroughImage.image = UIImage(named: walkthroughImageName)
 
-        //round button
-        startButton.layer.cornerRadius = 25
-        if startIsHidden {
-            startButton.isHidden = true
-        } else {
-            startButton.isHidden = false
-        }
-    }
-    
-    // MARK: - Navigation
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let recipe = recipe {
-//            let vc = segue.destination as! TimerVC
-//            vc.recipe = recipe
+//        if startIsHidden {
+//            startButton.isHidden = true
+//        } else {
+//            startButton.isHidden = false
 //        }
-//    }
-    
-
+    }
 }

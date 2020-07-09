@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //change appearance of page control
-        let pageControl = UIPageControl.appearance()
-        pageControl.currentPageIndicatorTintColor = .systemGray
-        pageControl.pageIndicatorTintColor = .systemGray4
+//        let pageControl = UIPageControl.appearance()
+//        pageControl.currentPageIndicatorTintColor = .systemGray
+//        pageControl.pageIndicatorTintColor = .systemGray4
         
         return true
     }
