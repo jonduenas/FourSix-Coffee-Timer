@@ -127,6 +127,7 @@ class TimerVC: UIViewController {
         stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
 
         coffeeTimer.nextStep()
+        progressView.setStrokeColor(for: progressView.progressLayer, to: progressView.progressStrokeColor, animated: true)
         
         recipeIndex += 1
         
@@ -180,21 +181,33 @@ class TimerVC: UIViewController {
     @objc private func runTimer() {
         coffeeTimer.runCoffeeTimer()
         
+        //Check if end of recipe's set interval
         if coffeeTimer.currentStepElapsedTime < recipe.interval - Constants.timerInterval {
             updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
             
             updateProgress()
         } else {
-            //check if end of recipe
-            if recipeIndex < recipe.waterPours.count - 1 {
-                //move to next step
-                totalTimeLabel.text = coffeeTimer.totalElapsedTime.stringFromTimeInterval()
-                nextStep()
+            //Check if user has set auto-advance on
+            if UserDefaultsManager.timerAutoAdvance {
+                //Check if end of recipe
+                if recipeIndex < recipe.waterPours.count - 1 {
+                    //Move to next step
+                    totalTimeLabel.text = coffeeTimer.totalElapsedTime.stringFromTimeInterval()
+                    nextStep()
+                } else {
+                    //End timer
+                    updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
+                    endTimer()
+                }
             } else {
-                //last step
+                //Set color of progress to red to warn user
+                progressView.setStrokeColor(for: progressView.progressLayer, to: progressView.progressOverStrokeColor, animated: true)
+                
                 updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
-                endTimer()
+                
+                updateProgress()
             }
+            
         }
     }
     
@@ -202,7 +215,11 @@ class TimerVC: UIViewController {
         let fromPercentage = coffeeTimer.fromPercentage
         let toPercentage = coffeeTimer.toPercentage
         
-        progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: Constants.timerInterval)
+        if fromPercentage >= 1 {
+            progressView.progressLayer.strokeEnd = 1
+        } else {
+            progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: Constants.timerInterval)
+        }
     }
     
     private func endTimer() {

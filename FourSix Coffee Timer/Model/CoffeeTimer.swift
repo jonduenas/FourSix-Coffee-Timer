@@ -21,7 +21,7 @@ class CoffeeTimer {
     private var currentStepStartTime: Date?
     private var timer: Timer?
     var timerState: TimerState = .new
-    var recipeStepInterval: TimeInterval = 45
+    private let recipeStepInterval: TimeInterval = 45
     var totalElapsedTime: TimeInterval = 0
     var currentStepElapsedTime: TimeInterval = 0
     

@@ -10,10 +10,11 @@ import UIKit
 
 class ProgressCircle: UIControl, CAAnimationDelegate {
     
-    private let progressStrokeColor = UIColor(named: "Fill")!
+    let progressStrokeColor = UIColor(named: "Fill")!
+    let progressOverStrokeColor = UIColor.red
     private let trackStrokeColor = UIColor.systemGray4
     
-    private var progressLayer: CAShapeLayer!
+    var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!
     
     private(set) var isAnimating: Bool = false
@@ -87,7 +88,6 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         let fromProgress = (0...1).clamp(value: start)
         let toProgress = (0...1).clamp(value: end)
         
-        
         let displayLink = CADisplayLink(target: self, selector: #selector(animationDidUpdate))
         displayLink.add(to: .main, forMode: RunLoop.Mode.common)
         
@@ -99,6 +99,7 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         basicAnimation.toValue = toProgress
         basicAnimation.duration = duration
         basicAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
+        basicAnimation.fillMode = .forwards
         
         CATransaction.setCompletionBlock {
             self.progressAmount = toProgress
@@ -115,6 +116,24 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
     @objc private func animationDidUpdate(displayLink: CADisplayLink) {
         guard var progress = progressLayer.presentation()?.strokeEnd else { return }
         progress = (0...1).clamp(value: progress)
+    }
+    
+    func setStrokeColor(for layer: CAShapeLayer, to color: UIColor, animated: Bool) {
+        if animated {
+            CATransaction.begin()
+            let colorChangeAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeColor))
+            colorChangeAnimation.delegate = self
+            colorChangeAnimation.fromValue = layer.strokeColor
+            colorChangeAnimation.toValue = color.cgColor
+            colorChangeAnimation.duration = 0.25
+            colorChangeAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
+            
+            layer.strokeColor = color.cgColor
+            layer.add(colorChangeAnimation, forKey: "animateStrokeColor_\(arc4random())")
+            CATransaction.commit()
+        } else {
+            layer.strokeColor = color.cgColor
+        }
     }
     
     //MARK: Update colors on dark mode toggle

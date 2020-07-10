@@ -139,9 +139,17 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     }
     
     @IBAction func timerAutoAdvanceSwitched(_ sender: Any) {
-        let ac = UIAlertController(title: "This feature is not yet functional.", message: nil, preferredStyle: .alert)
-        ac.addAction(okActionNoClosure)
-        present(ac, animated: true)
+        if timerAutoAdvanceSwitch.isOn {
+            UserDefaultsManager.timerAutoAdvance = true
+            print(UserDefaultsManager.timerAutoAdvance)
+        } else {
+            UserDefaultsManager.timerAutoAdvance = false
+            print(UserDefaultsManager.timerAutoAdvance)
+        }
+        
+//        let ac = UIAlertController(title: "This feature is not yet functional.", message: nil, preferredStyle: .alert)
+//        ac.addAction(okActionNoClosure)
+//        present(ac, animated: true)
     }
 
     //MARK: Navigation Methods
