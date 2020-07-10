@@ -83,16 +83,39 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     
     //MARK: TableView Methods
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            if indexPath.row == 2 {
+                // Coffee:Water Ratio
+                if UserDefaultsManager.didPurchasePro {
+                    return tableView.rowHeight
+                } else {
+                    return 0
+                }
+            } else if indexPath.row == 3 {
+                if UserDefaultsManager.didPurchasePro {
+                    return tableView.rowHeight
+                } else {
+                    return 0
+                }
+            }
+        }
+        return tableView.rowHeight
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 1 {
             if indexPath.row == 0 {
-                // Purchase FourSixPro
-                let ac = UIAlertController(title: "Purchase FourSix Pro", message: "On release, some features will be available through a one-time in app purchase. These features include adjusting the amount of coffee and water, adjusting the ratio, disabling auto-advance of the timer, and (at a later date) saving each session's details with notes and a rating. For now, you can test these features for free.", preferredStyle: .alert)
-                ac.addAction(okActionNoClosure)
-                present(ac, animated: true)
+                if UserDefaultsManager.didPurchasePro {
+                    let ac = UIAlertController(title: "You've already purchased FourSix Pro", message: nil, preferredStyle: .alert)
+                    ac.addAction(okActionNoClosure)
+                    present(ac, animated: true)
+                } else {
+                    purchasePro()
+                }
             } else if indexPath.row == 1 {
                 // Restore Purchase of FourSix Pro
                 let ac = UIAlertController(title: "Restore Purchase of FourSix Pro", message: "This is a placeholder for the function of restoring previous in-app purchases.", preferredStyle: .alert)
@@ -100,20 +123,25 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
                 present(ac, animated: true)
             } else if indexPath.row == 2 {
                 // Coffee:Water Ratio
-                let ac = UIAlertController(title: "Coffee:Water Ratio", message: "Lower numbers = stronger coffee.", preferredStyle: .actionSheet)
-                
-                for ratio in ratioArray {
-                    ac.addAction(UIAlertAction(title: "1:\(ratio)", style: .default, handler: { [weak self] _ in
-                        self?.ratio = ratio
-                        UserDefaultsManager.ratio = ratio
+                if UserDefaultsManager.didPurchasePro {
+                    let ac = UIAlertController(title: "Coffee:Water Ratio", message: "Lower numbers = stronger coffee.", preferredStyle: .actionSheet)
+                    
+                    for ratio in ratioArray {
+                        ac.addAction(UIAlertAction(title: "1:\(ratio)", style: .default, handler: { [weak self] _ in
+                            self?.ratio = ratio
+                            UserDefaultsManager.ratio = ratio
+                        }))
+                    }
+                    ac.addAction(UIAlertAction(title: "Restore Default", style: .default, handler: { [weak self] _ in
+                        self?.ratio = self!.defaultRatio
+                        UserDefaultsManager.ratio = self!.defaultRatio
                     }))
+                    ac.addAction(cancelAction)
+                    present(ac, animated: true)
+                } else {
+                    purchasePro()
                 }
-                ac.addAction(UIAlertAction(title: "Restore Default", style: .default, handler: { [weak self] _ in
-                    self?.ratio = self!.defaultRatio
-                    UserDefaultsManager.ratio = self!.defaultRatio
-                }))
-                ac.addAction(cancelAction)
-                present(ac, animated: true)
+                
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 3 {
@@ -141,15 +169,20 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     @IBAction func timerAutoAdvanceSwitched(_ sender: Any) {
         if timerAutoAdvanceSwitch.isOn {
             UserDefaultsManager.timerAutoAdvance = true
-            print(UserDefaultsManager.timerAutoAdvance)
         } else {
             UserDefaultsManager.timerAutoAdvance = false
-            print(UserDefaultsManager.timerAutoAdvance)
         }
-        
-//        let ac = UIAlertController(title: "This feature is not yet functional.", message: nil, preferredStyle: .alert)
-//        ac.addAction(okActionNoClosure)
-//        present(ac, animated: true)
+    }
+    
+    func purchasePro() {
+        // Purchase FourSixPro
+        let ac = UIAlertController(title: "Purchase FourSix Pro", message: "On release, some features will be available through a one-time in app purchase. These features include adjusting the amount of coffee and water, adjusting the ratio, disabling auto-advance of the timer, and (at a later date) saving each session's details with notes and a rating. For now, you can test these features for free. Tap OK to turn the features on.", preferredStyle: .alert)
+        ac.addAction((UIAlertAction(title: "OK", style: .default, handler: { _ in
+            UserDefaultsManager.didPurchasePro = true
+            print("FourSix Pro Purchased")
+            self.tableView.reloadData()
+        })))
+        present(ac, animated: true)
     }
 
     //MARK: Navigation Methods
@@ -157,7 +190,7 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     @IBAction func xTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             if UserDefaultsManager.ratio == 0 {
-                UserDefaultsManager.ratio = 15
+                UserDefaultsManager.ratio = self!.defaultRatio
             } else {
                 self?.delegate.ratio = UserDefaultsManager.ratio
             }

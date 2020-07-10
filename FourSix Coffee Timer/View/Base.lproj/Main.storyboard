@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-hQ-KGE">
-                                        <rect key="frame" x="21" y="74" width="313" height="174.5"/>
+                                        <rect key="frame" x="21" y="87.5" width="313" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-uo-qi4">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="70"/>
@@ -84,8 +84,16 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-qw-I3m">
-                                                <rect key="frame" x="0.0" y="90" width="313" height="84.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-ku-8J4">
+                                                <rect key="frame" x="134.5" y="90" width="44" height="30"/>
+                                                <color key="tintColor" name="Accent"/>
+                                                <state key="normal" title="Adjust"/>
+                                                <connections>
+                                                    <action selector="adjustTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="2pD-7t-J1I"/>
+                                                </connections>
+                                            </button>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-qw-I3m">
+                                                <rect key="frame" x="0.0" y="120" width="313" height="70"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIy-gb-ykS" customClass="Shadow" customModule="FourSix" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="313" height="60"/>
@@ -139,7 +147,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide to adjust" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ziv-EH-0fx">
-                                                        <rect key="frame" x="116" y="70" width="81" height="14.5"/>
+                                                        <rect key="frame" x="116" y="70" width="81" height="0.0"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -160,7 +168,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKE-sT-B5i">
-                                        <rect key="frame" x="21" y="281" width="313" height="99.5"/>
+                                        <rect key="frame" x="21" y="254" width="313" height="99.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-xE-ICZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="99.5"/>
@@ -204,7 +212,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-LE-uJD">
-                                        <rect key="frame" x="21" y="413.5" width="313" height="106"/>
+                                        <rect key="frame" x="21" y="399.5" width="313" height="106"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-hd-SvQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="106"/>
@@ -289,9 +297,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adjustButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>
                         <outlet property="balanceSelect" destination="03L-Qm-9vC" id="H88-zL-PYt"/>
                         <outlet property="coffeeLabel" destination="apM-sG-DyS" id="lxa-O9-vYf"/>
                         <outlet property="slider" destination="aZi-FL-C3T" id="bL7-pd-0DO"/>
+                        <outlet property="sliderStackView" destination="UsE-qw-I3m" id="eVH-SM-7yZ"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
                         <outlet property="waterLabel" destination="ddD-7S-1A3" id="LKK-wy-fGX"/>
                     </connections>

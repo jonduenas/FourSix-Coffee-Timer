@@ -18,7 +18,6 @@ class BrewVC: UIViewController {
     let coffeeMax: Float = 30
     
     //MARK: Variables
-    var didPurchasePro: Bool = true
     var calculator = Calculator()
     var balance: Balance = .neutral
     var strength: Strength = .medium
@@ -47,7 +46,9 @@ class BrewVC: UIViewController {
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
+    @IBOutlet var adjustButton: UIButton!
     @IBOutlet var slider: TactileSlider!
+    @IBOutlet var sliderStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,10 @@ class BrewVC: UIViewController {
         self.clearNavigationBar()
         
         loadUserDefaults()
+        
+        if checkForPro() {
+            enableProFeatures()
+        }
         
         coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
@@ -95,14 +100,21 @@ class BrewVC: UIViewController {
     
     //MARK: UI Methods
     
-    @IBAction func sliderChanged(_ sender: TactileSlider) {
-        if !didPurchasePro {
+    @IBAction func adjustTapped(_ sender: UIButton) {
+        if checkForPro() {
+            adjustButton.isHidden = true
+            UIView.animate(withDuration: 0.25) {
+                self.enableProFeatures()
+            }
+        } else {
             let ac = UIAlertController(title: "Purchase FourSix Pro", message: "Adjusting the amounts requires a purchase of FourSix Pro.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(ac, animated: true)
-            return
         }
-        
+    }
+    
+    
+    @IBAction func sliderChanged(_ sender: TactileSlider) {
         let currentValue = slider.value
         
         coffee = currentValue.rounded()
@@ -176,13 +188,24 @@ class BrewVC: UIViewController {
         strength = Strength(rawValue: rawStrength) ?? .medium
         print(rawStrength)
         
-        
         if UserDefaultsManager.ratio != 0 {
             ratio = UserDefaultsManager.ratio
+        } else { // Set default ratio value to 15
+            ratio = 15
+            UserDefaultsManager.ratio = ratio
         }
         
         if UserDefaultsManager.previousCoffee != 0 {
             coffee = UserDefaultsManager.previousCoffee
         }
+    }
+    
+    private func checkForPro() -> Bool {
+        return UserDefaultsManager.didPurchasePro
+    }
+    
+    private func enableProFeatures() {
+        adjustButton.isHidden = true
+        sliderStackView.isHidden = false
     }
 }
