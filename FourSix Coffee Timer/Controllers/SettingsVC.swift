@@ -50,6 +50,9 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44
+        
         loadUserDefaults()
     }
     
@@ -70,10 +73,10 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
             showTotalTimeSwitch.isOn = false
         }
         
-        if UserDefaultsManager.timerAutoAdvance {
-            timerAutoAdvanceSwitch.isOn = true
-        } else {
+        if UserDefaultsManager.timerAutoAdvanceOff {
             timerAutoAdvanceSwitch.isOn = false
+        } else {
+            timerAutoAdvanceSwitch.isOn = true
         }
         
         if UserDefaultsManager.ratio != 0 {
@@ -88,19 +91,19 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
             if indexPath.row == 2 {
                 // Coffee:Water Ratio
                 if UserDefaultsManager.didPurchasePro {
-                    return tableView.rowHeight
+                    return UITableView.automaticDimension
                 } else {
                     return 0
                 }
             } else if indexPath.row == 3 {
                 if UserDefaultsManager.didPurchasePro {
-                    return tableView.rowHeight
+                    return UITableView.automaticDimension
                 } else {
                     return 0
                 }
             }
         }
-        return tableView.rowHeight
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -168,9 +171,9 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     
     @IBAction func timerAutoAdvanceSwitched(_ sender: Any) {
         if timerAutoAdvanceSwitch.isOn {
-            UserDefaultsManager.timerAutoAdvance = true
+            UserDefaultsManager.timerAutoAdvanceOff = false
         } else {
-            UserDefaultsManager.timerAutoAdvance = false
+            UserDefaultsManager.timerAutoAdvanceOff = true
         }
     }
     
@@ -194,6 +197,7 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
             } else {
                 self?.delegate.ratio = UserDefaultsManager.ratio
             }
+            self?.delegate.enableProFeatures()
         }
     }
     

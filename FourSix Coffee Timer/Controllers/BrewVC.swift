@@ -88,12 +88,10 @@ class BrewVC: UIViewController {
         strengthSelect.setFontMedium()
         
         if let balance = balanceDict[balance] {
-            print(balance)
             balanceSelect.selectedSegmentIndex = balance
         }
         
         if let strength = strengthDict[strength] {
-            print(strength)
             strengthSelect.selectedSegmentIndex = strength
         }
     }
@@ -102,10 +100,7 @@ class BrewVC: UIViewController {
     
     @IBAction func adjustTapped(_ sender: UIButton) {
         if checkForPro() {
-            adjustButton.isHidden = true
-            UIView.animate(withDuration: 0.25) {
-                self.enableProFeatures()
-            }
+            enableProFeatures()
         } else {
             let ac = UIAlertController(title: "Purchase FourSix Pro", message: "Adjusting the amounts requires a purchase of FourSix Pro.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -182,11 +177,9 @@ class BrewVC: UIViewController {
     fileprivate func loadUserDefaults() {
         let rawBalance = UserDefaultsManager.previousSelectedBalance
         balance = Balance(rawValue: rawBalance) ?? .neutral
-        print(rawBalance)
         
         let rawStrength = UserDefaultsManager.previousSelectedStrength
         strength = Strength(rawValue: rawStrength) ?? .medium
-        print(rawStrength)
         
         if UserDefaultsManager.ratio != 0 {
             ratio = UserDefaultsManager.ratio
@@ -204,8 +197,10 @@ class BrewVC: UIViewController {
         return UserDefaultsManager.didPurchasePro
     }
     
-    private func enableProFeatures() {
+    func enableProFeatures() {
         adjustButton.isHidden = true
-        sliderStackView.isHidden = false
+        UIView.animate(withDuration: 0.25) {
+            self.sliderStackView.isHidden = false
+        }
     }
 }

@@ -15,7 +15,7 @@ class UserDefaultsManager {
     //MARK: Key Values
     private static let didPurchaseProKey = "didPurchaseProKey"
     private static let totalTimeShownKey = "totalTimeShownKey"
-    private static let timerAutoAdvanceKey = "timerAutoAdvanceKey"
+    private static let timerAutoAdvanceOffKey = "timerAutoAdvanceOffKey"
     private static let ratioKey = "ratioKey"
     private static let previousCoffeeKey = "previousCoffeeKey"
     private static let previousSelectedBalanceKey = "previousSelectedBalanceKey"
@@ -42,12 +42,12 @@ class UserDefaultsManager {
         }
     }
     
-    static var timerAutoAdvance: Bool {
+    static var timerAutoAdvanceOff: Bool {
         get {
-            return userDefaults.bool(forKey: timerAutoAdvanceKey)
+            return userDefaults.bool(forKey: timerAutoAdvanceOffKey)
         }
         set {
-            userDefaults.set(newValue, forKey: timerAutoAdvanceKey)
+            userDefaults.set(newValue, forKey: timerAutoAdvanceOffKey)
         }
     }
     

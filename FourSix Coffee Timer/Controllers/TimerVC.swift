@@ -188,7 +188,7 @@ class TimerVC: UIViewController {
             updateProgress()
         } else {
             //Check if user has set auto-advance on
-            if UserDefaultsManager.timerAutoAdvance {
+            if !UserDefaultsManager.timerAutoAdvanceOff {
                 //Check if end of recipe
                 if recipeIndex < recipe.waterPours.count - 1 {
                     //Move to next step
