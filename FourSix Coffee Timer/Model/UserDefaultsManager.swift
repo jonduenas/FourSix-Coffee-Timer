@@ -20,6 +20,7 @@ class UserDefaultsManager {
     private static let previousCoffeeKey = "previousCoffeeKey"
     private static let previousSelectedBalanceKey = "previousSelectedBalanceKey"
     private static let previousSelectedStrengthKey = "previousSelectedStrengthKey"
+    private static let userHasSeenWalkthroughKey = "userHasSeenWalkthroughKey"
     
     //MARK: Variables
     
@@ -83,6 +84,15 @@ class UserDefaultsManager {
         }
         set {
             userDefaults.set(newValue, forKey: previousSelectedStrengthKey)
+        }
+    }
+    
+    static var userHasSeenWalkthrough: Bool {
+        get {
+            return userDefaults.bool(forKey: userHasSeenWalkthroughKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: userHasSeenWalkthroughKey)
         }
     }
 }

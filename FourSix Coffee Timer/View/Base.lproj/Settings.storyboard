@@ -175,7 +175,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="v1.0.0 beta (build 5)" id="5Oa-k1-1cp">
+                            <tableViewSection footerTitle="v1.0.0 beta (build 6)" id="5Oa-k1-1cp">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="wIh-zO-Rza">
                                         <rect key="frame" x="0.0" y="307.5" width="414" height="43.5"/>
@@ -686,7 +686,7 @@ Get in touch on Twitter - @jonduenas.</string>
         <!--HowTo-->
         <scene sceneID="Img-oO-n7P">
             <objects>
-                <viewController storyboardIdentifier="UIViewController-u4w-pl-BN6" title="HowTo" id="u4w-pl-BN6" customClass="HowToVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowToVC" title="HowTo" id="u4w-pl-BN6" customClass="HowToVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tBH-12-ZM4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -747,7 +747,7 @@ Get in touch on Twitter - @jonduenas.</string>
         <!--Settings-->
         <scene sceneID="vHZ-SL-2lj">
             <objects>
-                <navigationController storyboardIdentifier="UINavigationController-IMj-yo-NAX" automaticallyAdjustsScrollViewInsets="NO" id="IMj-yo-NAX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNav" automaticallyAdjustsScrollViewInsets="NO" id="IMj-yo-NAX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="Ni9-Za-7c6"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

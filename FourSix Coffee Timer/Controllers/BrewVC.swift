@@ -67,8 +67,10 @@ class BrewVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let pageViewController = storyboard?.instantiateViewController(identifier: "WalkthroughPageVC") as? WalkthroughPageVC {
-            present(pageViewController, animated: true, completion: nil)
+        if !UserDefaultsManager.userHasSeenWalkthrough {
+            if let pageViewController = storyboard?.instantiateViewController(identifier: "Walkthrough") as? WalkthroughPageVC {
+                present(pageViewController, animated: true, completion: nil)
+            }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

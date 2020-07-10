@@ -11,24 +11,38 @@ import UIKit
 class WalkthroughContentVC: UIViewController {
     
     @IBOutlet var walkthroughImage: UIImageView!
+    @IBOutlet var endLabel: UILabel!
     @IBOutlet var startButton: UIButton!
-    @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var questionsButton: UIButton!
     
     var walkthroughImageName = ""
     var index = 0
-//    var startIsHidden = false
+    var isLastPage = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pageControl.currentPage = index
-        
         walkthroughImage.image = UIImage(named: walkthroughImageName)
 
-//        if startIsHidden {
-//            startButton.isHidden = true
-//        } else {
-//            startButton.isHidden = false
-//        }
+        if isLastPage {
+            showLastPage(true)
+        } else {
+            showLastPage(false)
+        }
+    }
+    
+    private func showLastPage(_ show: Bool) {
+        walkthroughImage.isHidden = show
+        endLabel.isHidden = !show
+        questionsButton.isHidden = !show
+        startButton.isHidden = !show
+    }
+    
+    @IBAction func questionsTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func startTapped(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 }
