@@ -197,7 +197,9 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
             } else {
                 self?.delegate.ratio = UserDefaultsManager.ratio
             }
-            self?.delegate.enableProFeatures()
+            if UserDefaultsManager.didPurchasePro {
+                self?.delegate.enableProFeatures()
+            }
         }
     }
     
