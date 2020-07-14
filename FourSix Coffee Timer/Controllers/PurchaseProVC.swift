@@ -60,7 +60,7 @@ class PurchaseProVC: UIViewController {
         productPrice = package?.localizedPriceString
         
         titleLabel.text = productName
-        subtitleLabel.text = "\(productName!) unlocks several features."
+        subtitleLabel.text = "\(productName!) is a one time purchase that unlocks several features and helps support future development."
         purchaseButton.setTitle("Get Pro for \(productPrice!)", for: .normal)
     }
     

@@ -335,7 +335,8 @@
                                 <color key="backgroundColor" name="Background"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTs-qS-q48">
-                                <rect key="frame" x="369" y="54" width="30" height="30"/>
+                                <rect key="frame" x="366" y="54" width="33" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" name="Accent"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>

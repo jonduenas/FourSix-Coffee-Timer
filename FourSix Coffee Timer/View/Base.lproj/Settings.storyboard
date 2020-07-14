@@ -355,32 +355,36 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app has no affiliation with HARIO Co, Ltd. or Tetsu Kasuya." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAv-Bu-mqw">
-                                <rect key="frame" x="28" y="270" width="358" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="This app has no affiliation with HARIO Co, Ltd. or Tetsu Kasuya." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAv-Bu-mqw">
+                                <rect key="frame" x="28" y="270" width="358" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Description from the Hario Japan website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6S-MG-Q96">
                                 <rect key="frame" x="87" y="749" width="240" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="31G-8x-g9Q"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-xo-UpV">
-                                <rect key="frame" x="57" y="310" width="300" height="223.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-xo-UpV">
+                                <rect key="frame" x="57" y="309.5" width="300" height="374.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="cRo-bT-G98"/>
                                 </constraints>
-                                <string key="text">"A new coffee brewing theory created with the concept of 'easily-brewed delicious coffee for everyone.' Divide water into a ratio of 4 to 6. Adjust taste with the first 40% of water and density with the remaining 60%.
-
-The point is to use coarse grounds and make the second pour after the water from the first pour completely drips through."*</string>
+                                <mutableString key="text">FourSix is named after a method of brewing coffee called the "4:6 method" invented by Tetsu Kasuya, former World Brewer's Champion.  4:6 is "a new coffee brewing theory created with the concept of 'easily-brewed delicious coffee for everyone.' Divide water into a ratio of 4 to 6. Adjust taste with the first 40% of water and density with the remaining 60%.  "The point is to use coarse grounds and make the second pour after the water from the first pour completely drips through."*</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dF-hf-ore">
-                                <rect key="frame" x="122.5" y="548.5" width="169" height="33"/>
+                                <rect key="frame" x="122.5" y="704" width="169" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="St5-fU-PCU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" name="Accent"/>
                                 <state key="normal" title="How do I use FourSix?"/>
@@ -395,10 +399,11 @@ The point is to use coarse grounds and make the second pour after the water from
                             <constraint firstItem="OAv-Bu-mqw" firstAttribute="centerX" secondItem="yYg-FK-Orn" secondAttribute="centerX" id="29z-cB-x2c"/>
                             <constraint firstItem="Bsl-n0-rqs" firstAttribute="bottom" secondItem="S6S-MG-Q96" secondAttribute="bottom" constant="10" id="5PC-jp-2CI"/>
                             <constraint firstItem="0Au-xo-UpV" firstAttribute="top" secondItem="OAv-Bu-mqw" secondAttribute="bottom" constant="25" id="65D-6k-9CE"/>
-                            <constraint firstItem="7dF-hf-ore" firstAttribute="top" secondItem="0Au-xo-UpV" secondAttribute="bottom" constant="15" id="7zL-90-X9T"/>
+                            <constraint firstItem="7dF-hf-ore" firstAttribute="top" secondItem="0Au-xo-UpV" secondAttribute="bottom" constant="20" id="7zL-90-X9T"/>
                             <constraint firstItem="7dF-hf-ore" firstAttribute="centerX" secondItem="LNX-WE-fzs" secondAttribute="centerX" id="87N-S5-G1g"/>
                             <constraint firstItem="yYg-FK-Orn" firstAttribute="leading" secondItem="Bsl-n0-rqs" secondAttribute="leading" id="IP3-Ap-vpp"/>
                             <constraint firstItem="0Au-xo-UpV" firstAttribute="centerX" secondItem="LNX-WE-fzs" secondAttribute="centerX" id="J8z-tf-fSo"/>
+                            <constraint firstItem="S6S-MG-Q96" firstAttribute="top" secondItem="7dF-hf-ore" secondAttribute="bottom" priority="750" constant="20" id="JZV-49-YII"/>
                             <constraint firstItem="yYg-FK-Orn" firstAttribute="top" secondItem="Bsl-n0-rqs" secondAttribute="top" constant="5" id="WXc-JE-Lak"/>
                             <constraint firstItem="yYg-FK-Orn" firstAttribute="trailing" secondItem="Bsl-n0-rqs" secondAttribute="trailing" id="Xka-v4-Uli"/>
                             <constraint firstItem="OAv-Bu-mqw" firstAttribute="top" secondItem="yYg-FK-Orn" secondAttribute="bottom" constant="15" id="ldL-5Z-oW7"/>
@@ -793,8 +798,8 @@ Get in touch on Twitter - @jonduenas.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="t5N-HG-LCt"/>
-        <segue reference="jt5-DN-x9b"/>
+        <segue reference="aK3-3Z-O1T"/>
+        <segue reference="14D-h6-37g"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
     <resources>
