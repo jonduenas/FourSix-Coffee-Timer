@@ -65,14 +65,21 @@ class PurchaseProVC: UIViewController {
     }
     
     @IBAction func restorePurchaseTapped(_ sender: Any) {
+        // Check if user has already purchased
         Purchases.shared.restoreTransactions { (purchaserInfo, error) in
             if let purchaseRestoredHandler = self.delegate?.purchaseRestored {
+                // Restore successful
                 purchaseRestoredHandler(self, purchaserInfo, error)
-                self.dismiss(animated: true, completion: nil)
+                self.showAlert(title: "Restored Purchase", message: "Welcome back! Let's start brewing.") { [weak self] in
+                    self?.dismiss(animated: true, completion: nil)
+                }
             } else {
+                // Restore unsuccessful, check if there was an error for reason
                 if let error = error {
+                    // There was an error
                     self.showAlert(title: "Error", message: error.localizedDescription)
                 } else {
+                    // No error, check if user has made prior purchase
                     if let purchaserInfo = purchaserInfo {
                         if purchaserInfo.entitlements.active.isEmpty {
                             self.showAlert(title: "Restore Unsuccessful", message: "No prior purchases found for your account.")
@@ -86,47 +93,48 @@ class PurchaseProVC: UIViewController {
     }
     
     @IBAction func getProTapped(_ sender: Any) {
-        if let package = package {
-            Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-                // Check for successful purchase
-                if let purchaseCompleteHandler = self.delegate?.purchaseCompleted {
-                    purchaseCompleteHandler(self, transaction!, purchaserInfo!)
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                // Check for errors
-                if let err = error as NSError? {
-                    // Log error details
-                    print("Error: \(String(describing: err.userInfo[Purchases.ReadableErrorCodeKey]))")
-                    print("Message: \(err.localizedDescription)")
-                    print("Underlying Error: \(String(describing: err.userInfo[NSUnderlyingErrorKey]))")
+        // Check if user is authorized to make purchases
+        if Purchases.canMakePayments() {
+            if let package = package {
+                Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+                    // Check for successful purchase
+                    if let purchaseCompleteHandler = self.delegate?.purchaseCompleted {
+                        purchaseCompleteHandler(self, transaction!, purchaserInfo!)
+                        
+                        self.showAlert(title: "FourSix Pro Purchased", message: "Thanks for your support! Enjoy all your Pro features.") { [weak self] in
+                            self?.dismiss(animated: true, completion: nil)
+                        }
+                    }
                     
-                    // Handle specific errors
-                    switch Purchases.ErrorCode(_nsError: err).code {
-                    case .purchaseNotAllowedError:
-                        self.showAlert(message: "Purchases not allowed on this device.")
-                    case .purchaseInvalidError:
-                        self.showAlert(message: "Purchase invalid, check payment source.")
-                    default:
-                        break
+                    // Check for errors
+                    if let err = error as NSError? {
+                        // Log error details
+                        print("Error: \(String(describing: err.userInfo[Purchases.ReadableErrorCodeKey]))")
+                        print("Message: \(err.localizedDescription)")
+                        print("Underlying Error: \(String(describing: err.userInfo[NSUnderlyingErrorKey]))")
+                        
+                        // Handle specific errors
+                        switch Purchases.ErrorCode(_nsError: err).code {
+                        case .purchaseNotAllowedError:
+                            self.showAlert(message: "Purchases not allowed on this device.")
+                        case .purchaseInvalidError:
+                            self.showAlert(message: "Purchase invalid, check payment source.")
+                        default:
+                            break
+                        }
                     }
                 }
             }
+        } else {
+            // User is not authorized
+            showAlert(message: "Purchases not allowed on this device.") { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            }
+            
         }
     }
     
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

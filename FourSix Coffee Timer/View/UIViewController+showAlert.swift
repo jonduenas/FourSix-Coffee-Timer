@@ -11,9 +11,13 @@ import Purchases
 
 extension UIViewController {
     
-    func showAlert(title: String = "", message: String) {
+    func showAlert(title: String = "", message: String, afterConfirm: (() -> ())? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
+            if let action = afterConfirm {
+                action()
+            }
+        }
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
