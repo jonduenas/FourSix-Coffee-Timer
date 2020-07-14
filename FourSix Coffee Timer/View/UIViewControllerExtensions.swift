@@ -1,5 +1,5 @@
 //
-//  UIViewController+showAlert.swift
+//  UIViewControllerExtensions.swift
 //  FourSix Coffee Timer
 //
 //  Created by Jon Duenas on 7/12/20.
@@ -28,5 +28,12 @@ extension UIViewController {
         let popup = sb.instantiateInitialViewController() as! PurchaseProVC
         popup.delegate = delegate
         self.present(popup, animated: true)
+    }
+    
+    // Makes navigation controller bar clear and removes the shadow
+    func clearNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
     }
 }
