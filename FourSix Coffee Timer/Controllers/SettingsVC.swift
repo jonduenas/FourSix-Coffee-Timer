@@ -109,7 +109,21 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 1 {
-            if indexPath.row == 2 {
+            if indexPath.row == 0 {
+                // Purchase FourSix Pro
+                if IAPManager.isUserPro() {
+                    return 0
+                } else {
+                    return UITableView.automaticDimension
+                }
+            } else if indexPath.row == 1 {
+                // Restore Purchase
+                if IAPManager.isUserPro() {
+                    return 0
+                } else {
+                    return UITableView.automaticDimension
+                }
+            } else if indexPath.row == 2 {
                 // Coffee:Water Ratio
                 if IAPManager.isUserPro() {
                     return UITableView.automaticDimension
