@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserDefaultsManager {
+class UserDefaultsManager: NSObject {
     
     private static let userDefaults = UserDefaults.standard
     

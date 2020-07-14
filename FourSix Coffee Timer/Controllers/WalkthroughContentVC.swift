@@ -43,6 +43,7 @@ class WalkthroughContentVC: UIViewController {
     }
     
     @IBAction func startTapped(_ sender: Any) {
+        UserDefaultsManager.userHasSeenWalkthrough = true
         self.dismiss(animated: true)
     }
 }

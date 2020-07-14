@@ -1,16 +1,20 @@
 PODS:
+  - Purchases (3.4.0)
   - TactileSlider (1.3.0)
 
 DEPENDENCIES:
+  - Purchases (= 3.4.0)
   - TactileSlider (= 1.3.0)
 
 SPEC REPOS:
   trunk:
+    - Purchases
     - TactileSlider
 
 SPEC CHECKSUMS:
+  Purchases: b8cac232e403ca51541a425a65992b902cecc044
   TactileSlider: 1dc3a05df4bf0bc5ccfba4805c65111ddc308ecd
 
-PODFILE CHECKSUM: af942bd91be691270b3d29c3c52cd35330d31f43
+PODFILE CHECKSUM: edb64e7bbb1c945fd2457aae04a1f0ce05bee88f
 
 COCOAPODS: 1.9.3

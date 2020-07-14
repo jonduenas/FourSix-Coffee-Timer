@@ -20,8 +20,6 @@ class WalkthroughPageVC: UIViewController {
         super.viewDidLoad()
         
         configurePageViewController()
-        
-        UserDefaultsManager.userHasSeenWalkthrough = true
     }
     
     func configurePageViewController() {
@@ -68,6 +66,7 @@ class WalkthroughPageVC: UIViewController {
         return contentViewController
     }
     @IBAction func skipTapped(_ sender: Any) {
+        UserDefaultsManager.userHasSeenWalkthrough = true
         self.dismiss(animated: true)
     }
 }

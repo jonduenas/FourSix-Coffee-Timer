@@ -8,8 +8,9 @@
 
 import UIKit
 import TactileSlider
+import Purchases
 
-class BrewVC: UIViewController {
+class BrewVC: UIViewController, PaywallDelegate {
     
     //MARK: Constants
     let balanceDict: [Balance: Int] = [.sweet: 0, .neutral: 1, .bright: 2]
@@ -57,16 +58,14 @@ class BrewVC: UIViewController {
         
         loadUserDefaults()
         
-        if checkForPro() {
-            enableProFeatures()
-        }
-        
         coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         
         slider.setValue(coffeeMin, animated: false)
         
         initializeSelectors()
+        
+        checkForPro()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,6 +82,14 @@ class BrewVC: UIViewController {
         }
     }
     
+    fileprivate func checkForPro() {
+        if IAPManager.isUserPro() {
+            enableProFeatures(true)
+        } else {
+            enableProFeatures(false)
+        }
+    }
+    
     private func initializeSelectors() {
         balanceSelect.setFontMedium()
         strengthSelect.setFontMedium()
@@ -96,16 +103,17 @@ class BrewVC: UIViewController {
         }
     }
     
+    func purchaseCompleted(paywall: PurchaseProVC, transaction: SKPaymentTransaction, purchaserInfo: Purchases.PurchaserInfo) {
+        if purchaserInfo.entitlements["pro"]?.isActive == true {
+            enableProFeatures(true)
+        }
+
+    }
+    
     //MARK: UI Methods
     
     @IBAction func adjustTapped(_ sender: UIButton) {
-        if checkForPro() {
-            enableProFeatures()
-        } else {
-            let ac = UIAlertController(title: "Purchase FourSix Pro", message: "Adjusting the amounts requires a purchase of FourSix Pro.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(ac, animated: true)
-        }
+        showProPopup(delegate: self)
     }
     
     
@@ -193,14 +201,15 @@ class BrewVC: UIViewController {
         }
     }
     
-    private func checkForPro() -> Bool {
-        return UserDefaultsManager.didPurchasePro
-    }
-    
-    func enableProFeatures() {
-        adjustButton.isHidden = true
-        UIView.animate(withDuration: 0.25) {
-            self.sliderStackView.isHidden = false
+    func enableProFeatures(_ enable: Bool) {
+        if enable {
+            adjustButton.isHidden = true
+            UIView.animate(withDuration: 0.25) {
+                self.sliderStackView.isHidden = false
+            }
+        } else {
+            adjustButton.isHidden = false
+            sliderStackView.isHidden = true
         }
     }
 }

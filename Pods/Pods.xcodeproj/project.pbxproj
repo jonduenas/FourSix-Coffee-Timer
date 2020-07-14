@@ -3,23 +3,120 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30F0841CB14615815FAFAD07FD5612F5 /* TactileSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F43EC90F3D43F32314878F35702DA5 /* TactileSlider-dummy.m */; };
-		6777E068E5E5795923C647B334EBB949 /* Pods-FourSix Coffee Timer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF3F2B93F424FB1982FB1DD52BF85A0 /* Pods-FourSix Coffee Timer-dummy.m */; };
-		8DA63E1AB6CACC734831182734388F50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
-		96400FA6A6CA360611783E777B22CEC9 /* TactileSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA98300E0450B3B01F7278415ECE7BCF /* TactileSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A19FAF02A903C83DCEFCECAD94411253 /* TactileSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2D6B55FAC84CD9C5E47B0CC0C1023 /* TactileSlider.swift */; };
-		A445F1D3459F65B07F3016D854E70CC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		D678BA168140E6A07B00558BF86CDAB9 /* Pods-FourSix Coffee Timer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7763285ED91F9B7CF9700F44E39BA789 /* Pods-FourSix Coffee Timer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D6F7EBADE0ABCB7D667ACD3E4EBD89F1 /* TactileSliderLayerRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07438602E3AB6D228C0A9BECAA073DC /* TactileSliderLayerRenderer.swift */; };
-		F860FE4783F03E984BC92E153B9BE862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		085EAAA4CD3F22574ED78CDE1544AAE7 /* NSLocale+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E82D30857B12618F81E8C55039F5849 /* NSLocale+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0B8D23813FC054449CFA0424798B5D63 /* RCPurchases+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AFAB23512C591529CFB97CE08D5DCD2 /* RCPurchases+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0D7FB24E73870D4B344B08F4B3FB308E /* RCOffering.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B9C39B9848CF5B2E14DA1C99FE2351E /* RCOffering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13B5805793D08FC9F09DEEA1CA07FF58 /* RCStoreKitWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C933A9A05AC154423EB05782B7DD3B62 /* RCStoreKitWrapper.m */; };
+		1591B29747DF65D203A70F0658A8A557 /* RCPurchaserInfo+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EFEDBF475350C4E217B9E93EE3E29F4 /* RCPurchaserInfo+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		15AC69750CE320FDDA19D1DE815E8A29 /* RCIdentityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE9B3E4D3619D5F825B6E3864828EB /* RCIdentityManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		189E656FB3ABDA4450DD3470106847EF /* RCOfferings+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EFC8C4610F4C8B0FFFC8E175FD75DD4 /* RCOfferings+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		18DFEB9A8ED49E77C8D7762C618F08C2 /* RCPurchasesErrorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFD668B6376577922DE7C8DA682592C /* RCPurchasesErrorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B55D1C61C1D8C79E08AFE3D2D44AAD0 /* RCSubscriberAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B6C91EB0441888D8365C24BD5B18F9E /* RCSubscriberAttribute.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1C81C4FE4E250467A932CC31C4AF4944 /* RCPurchaserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E30962C48B42CA7982627A704ADE61E /* RCPurchaserInfo.m */; };
+		1EF369CFF9439E599116739F332BE851 /* RCDeviceCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D202FAF3FFE7F66567AF6F20B1ED9E /* RCDeviceCache.m */; };
+		223BD81A453791B8E1A40E64608A2783 /* RCSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 678D625F6387672282434777119C885A /* RCSystemInfo.m */; };
+		25EF9BFD5DC060388BCAA10812F98D21 /* RCDateProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A443F671F3AD88D5DB9B4A5F6057D8AA /* RCDateProvider.m */; };
+		28AAE0AA5DDEFB1625CA50236161D41D /* NSError+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8549F37BEE39F21C44060C9AA4CF4A58 /* NSError+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		28AFE91E738A7A0DF36078B4E354B5ED /* RCDeviceCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DCD63D86ABB1C273FEB8A694B0A2535 /* RCDeviceCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2B1ED0E560E04C4A666FAC635D3A7651 /* RCPurchaserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 37D8669A85AADE78FAB2E21A4E2DD34B /* RCPurchaserInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BD504C726534E659BB114EBB9AC27A7 /* RCDeviceCache+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = B4BAB3FA71C83AB0733481E5442CAD5D /* RCDeviceCache+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2D659765AF7CBC1FEEC421503ADDD02D /* RCHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD5235DFCDADCAF6B650EEC73D692E5 /* RCHTTPClient.m */; };
+		2E5A9CA217FA7C9712126698C7D800C5 /* NSData+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 34FE26A427B9AA83064D18F1A47D2856 /* NSData+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		304E5429B500566B93E92B2B66654A6F /* RCBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 809014524A1A46D896670E1AD6EBAD3D /* RCBackend.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		30F0841CB14615815FAFAD07FD5612F5 /* TactileSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 943AA3E949CE51ED1BAFA533F9FB8BA7 /* TactileSlider-dummy.m */; };
+		31C526228CA9E9FF79195F13E57187EF /* Purchases-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FB828CAC9CE4D2CCF280E07C40FEC951 /* Purchases-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		331BAF4F1E904C0D84B1AC30D8EDBB9C /* RCProductInfoExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E1F25A8FC62A35959581D73009E3D1 /* RCProductInfoExtractor.m */; };
+		3C771B3782116054BB839800D71973DD /* RCPromotionalOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB26CAE578B5DC3AE29DD67E70245DA /* RCPromotionalOffer.m */; };
+		3CB53F9E2417BB5B4032EECE777879DC /* RCIntroEligibility.h in Headers */ = {isa = PBXBuildFile; fileRef = BA444BADCAFEF6AE54FEC9CF3C227EAC /* RCIntroEligibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D4759EBBA0779A1F485DCF451CBB657 /* RCIdentityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F08E4683E2860E31CAAE52FDDD174B /* RCIdentityManager.m */; };
+		3DD958DE7D635355C73EFE0F0312C798 /* RCOffering+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F0503E6B9FF0F69EE116836317B5E0 /* RCOffering+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		44F82C9018EFC1232114358639A1FEE3 /* NSDate+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA942F10155519050BF94218833480 /* NSDate+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4653536AB628779E55886AE12E1FBA01 /* RCPurchases.m in Sources */ = {isa = PBXBuildFile; fileRef = BC45C65BC8A166CE4AD852623F8A4A2B /* RCPurchases.m */; };
+		4687AB4D587A899DCF9DE054B39D1533 /* Pods-FourSix Coffee Timer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7763285ED91F9B7CF9700F44E39BA789 /* Pods-FourSix Coffee Timer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48A3C84E5F4567014125CE9EC7CD4012 /* RCOfferings.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA4F662D8D15A65B32FD058708AD238 /* RCOfferings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		493F055AA0280B7FA51B945374B2CBF0 /* RCEntitlementInfos+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = DEC021B14BBD87A07369CDFE27B08725 /* RCEntitlementInfos+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		54AF7BF9296B02D25E4A40C71059CE56 /* RCOffering.m in Sources */ = {isa = PBXBuildFile; fileRef = F559F5248C67BD2D6901B0B53F4A96A2 /* RCOffering.m */; };
+		54FE561F0CB5E301D3F1B5708C78ECD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151956DAD8D964E9A029FCFC181978F9 /* Foundation.framework */; };
+		66488AADE1E86599CE3EB8CEFDEADA1C /* RCPurchasesErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = F19B6D5FA1C1E8679DE22CE09EAA59C9 /* RCPurchasesErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6866B075B093016E65E8AD0307210173 /* RCInMemoryCachedObject+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = DBB7FF7D4553554C90819500EB530700 /* RCInMemoryCachedObject+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		68A3050D222878C47C4A9CF5AE038A1B /* RCPurchases+SubscriberAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 151AC3BE41037C515289DD7CD00848F5 /* RCPurchases+SubscriberAttributes.m */; };
+		68DF04A0D2F9F0F6C362E71002A3FBBD /* RCReceiptFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A4452DB5A45568FAB6834F821EF8A8C7 /* RCReceiptFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6A6B9D435C7590EED661DF85BE874B36 /* RCSystemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 014D041F3C261BDD887F8D1FD6AF9CBF /* RCSystemInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6E8D25C60B277D05B4604F89B6CDF244 /* RCSubscriberAttributesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DDE790436FB1942CCD7FDEA59AC69A4 /* RCSubscriberAttributesManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7460F8FD7A29CD6D0F423DD1A45DBE5A /* NSDate+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D7186BB128594C18FFE653932FB578 /* NSDate+RCExtensions.m */; };
+		74CB9DBE3260C7AAA505082481905961 /* RCOfferingsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB5A06842085AED3C4AD90DF77DDD94 /* RCOfferingsFactory.m */; };
+		779121E0BC436C95061DD07A7D5D4BCB /* RCOfferingsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 841631883CFA44841F71C26A519F01DE /* RCOfferingsFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		784736609B55C86F2CAC6FBE73B965C4 /* RCPurchases+SubscriberAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB2E59ADF8ACDA8F4A910E8D15AA4D1 /* RCPurchases+SubscriberAttributes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		78D150DA1F5579C615D41B2FB78CFBEB /* RCSubscriberAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CBFB9676FE2DF3869D79D160497EFE /* RCSubscriberAttribute.m */; };
+		7B75E8F4697CDBFC91D3DEF7B7E84A5B /* RCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30F5FA8FE497B1339D760BC403EF73 /* RCBackend.m */; };
+		7E9BA1D51E5D517BEA54D90A8873C2DF /* RCEntitlementInfos.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F84FF62DC0D3A1919A93D5895A7BF3 /* RCEntitlementInfos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86826A7DE8400791613961619AB47AA5 /* RCStoreKitRequestFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D374DA4F5343BE2FC4ED8F9362BA1B0 /* RCStoreKitRequestFetcher.m */; };
+		88A4E6004493F6C45E4A090DF2E830D3 /* RCOfferings.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D3C80424D7310EF5A929721EE59BA5 /* RCOfferings.m */; };
+		897C7417031908767A2EC663EFBDE64E /* RCStoreKitWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 350D7600D29A33EBF1BB1861266613B3 /* RCStoreKitWrapper.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8A5AFCF4DA7F5DCE2A289627D03AC7C2 /* RCCrossPlatformSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CAFC0759E9246F1A9597097B97E7871 /* RCCrossPlatformSupport.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8C8DA4A53B2EDCF4B1A8ABEE50F79E0E /* RCSubscriberAttributesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA15544890EC161B43448F8715D50FF /* RCSubscriberAttributesManager.m */; };
+		8DA63E1AB6CACC734831182734388F50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FD7C1828E16DF1403A9F2463430129 /* UIKit.framework */; };
+		8FC193170D8A9FE229551A9ACF48A99C /* RCHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A19748A020380E8592388DA75836131 /* RCHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9160B094CCF11AAC80490341EA2C86B3 /* RCISOPeriodFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1442F30BCC54B1D27B9648B95D455D /* RCISOPeriodFormatter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		91AD32651A045860D07549AEBD9BBBD3 /* RCProductInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 751B0C2B334B97376F1C3D8814812632 /* RCProductInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		92A35B863A271E72CE8999DB4F3B87EC /* RCDateProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CDE45E29ED31AB0C689C10CB219CDA /* RCDateProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		96400FA6A6CA360611783E777B22CEC9 /* TactileSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC1424585DA7FC93CF446803A7631BD /* TactileSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AA81B6AFAEEF66A8033D70802D0C09A /* RCAttributionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A23BF215AC12F3EE05A23F0125A934 /* RCAttributionData.m */; };
+		9DFE0F34B7BDAEBB5DE8B9871AB25C5A /* RCPromotionalOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 72BBCADEF7946B99F5465395D411B1D7 /* RCPromotionalOffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9E79FAC4EA7593A27A927D4861A9A9C6 /* RCProductInfoExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C634632C6D762E6E202A8C5BD32A830 /* RCProductInfoExtractor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A073621120D44AD598FA4B2157B61E2F /* RCPurchasesErrorUtils+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5F8B58565D15382BFA36AF7A5C1FCA /* RCPurchasesErrorUtils+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A19FAF02A903C83DCEFCECAD94411253 /* TactileSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E414D9116F8B9F2C0F74826223E42 /* TactileSlider.swift */; };
+		A447709B27450AC66030E41B718FB73F /* NSLocale+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F23D0D1B9454C4597DC6156CA817B /* NSLocale+RCExtensions.m */; };
+		A815E6FBA88466B0F06A77E794B8149B /* NSData+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD43B79CFA680036ECCA7B312BC5E1B8 /* NSData+RCExtensions.m */; };
+		AA5EDAFFD28DCD45B2EC5E5BBF2F8F13 /* RCPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9125FCCD87A98CAEFB3D0A6343FFC4DD /* RCPackage.m */; };
+		ADEAC0F5B1A39BC7B9D07AC2B9E1FB69 /* RCAttributionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A32FFF93A99ECE4E27F781D93C52085 /* RCAttributionFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AE6EFFD4F9D69B258241DFC78564CF51 /* RCProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6FAD6219D77065BC43CCACB9972FAF /* RCProductInfo.m */; };
+		AED47CC21D6DB544DDDEBD6901364988 /* RCSubscriberAttribute+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 32387D56A9F6BDF76A63CFFF20C2C454 /* RCSubscriberAttribute+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AFE1DD8543DFDFF5F8EE7B5206E8CC33 /* RCISOPeriodFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 717DC7342CBC156CDCCA1DC41F0E54BE /* RCISOPeriodFormatter.m */; };
+		AFF16E49E80DC43460A14C76E1784019 /* RCPurchasesErrorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B27ED571B4D226C5C1434FE7BB14A42 /* RCPurchasesErrorUtils.m */; };
+		B103F639A8B9CCC28D83F4CE1BD6A748 /* RCAttributionData.h in Headers */ = {isa = PBXBuildFile; fileRef = AFEFA8A65558DB9C1F180EFC57FEF211 /* RCAttributionData.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B93814BBCE1F7CB8D86080C17E8CD2FA /* RCEntitlementInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2E37B1FA826C9EB3BF3F278035A12 /* RCEntitlementInfos.m */; };
+		C0FC5ED65517FD2E6E537149155A3998 /* RCPromotionalOffer+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AFB12D5D69C9EAAE76994A85C2E8298 /* RCPromotionalOffer+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C3469B1A69D68B38E96F54B0CB57DF97 /* RCPackage+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E3FA139A6905037108F78713718891F /* RCPackage+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C35A1D9FA569913AAEE7F6E615CDD49A /* RCInMemoryCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 963522694C063C9C5AC4B0CD4D635A32 /* RCInMemoryCachedObject.m */; };
+		C6AB852C520B5E42EB6734FCE4FBF64D /* RCInMemoryCachedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A0880F56B6C6F9146AA2F9F1A2EEA02C /* RCInMemoryCachedObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CB2EA3DEEF880537CED6388A28579F7B /* RCReceiptFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCD5B50A6576F855FDFC62C04EC404C /* RCReceiptFetcher.m */; };
+		CB45C0074598773F51B285AD992BDD24 /* RCStoreKitRequestFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB54D4AB5F14C6771FF3DF6B75980923 /* RCStoreKitRequestFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CB75574ADDADA9A180104576A976914D /* RCSpecialSubscriberAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D09AF05DA3B340133C48E5DBD52D101 /* RCSpecialSubscriberAttributes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CBBF4C5AED94268E632F875BB9A45DE8 /* RCIntroEligibility+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 776DDB67AFF4489ABF63A194B0AE8D8C /* RCIntroEligibility+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CD149D9C6F62139AB9B3CE8E00F4C78F /* Pods-FourSix Coffee Timer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF3F2B93F424FB1982FB1DD52BF85A0 /* Pods-FourSix Coffee Timer-dummy.m */; };
+		D2F892CB7EC73A705BFEAA4CF6F365BF /* NSError+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD6558979C07086B4C9D1CBDA6C76C4 /* NSError+RCExtensions.m */; };
+		D4B3586851BE1C61979B99B139F6B452 /* RCIntroEligibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5C4E19090B0F24EA835DF2E40471D /* RCIntroEligibility.m */; };
+		D6F7EBADE0ABCB7D667ACD3E4EBD89F1 /* TactileSliderLayerRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAF7919D583EFD190A7D186FBC2EEEB /* TactileSliderLayerRenderer.swift */; };
+		D918BF8C7B4BC65B99C616136E7ACCAF /* RCPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = B79DFBF8AB6AC44AE41DAD5E7862F535 /* RCPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC4D9BC8E16AE62D3CFED4D327F6B30F /* RCHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FA17E4AB70D933206BEDF4C3A61E653 /* RCHTTPClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DFF5E72CE9A78AFF02E7DEF9578492FD /* RCLogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8781AF2CD78E0789B698047F8FCC55 /* RCLogUtils.m */; };
+		E6413A5035CA3BA2216085D86D2B1FB1 /* RCEntitlementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = BBE18D224A32588924A958DFC40499A3 /* RCEntitlementInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E874DC64FA5E6D093CF5DBAD6571375D /* Purchases-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DDFB0DDB7C213EEC38E70F5990FA40 /* Purchases-dummy.m */; };
+		EA75E892AE20C803748CDE9E548C137E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35044E805CA3D48293047BE73528C514 /* StoreKit.framework */; };
+		EC2A5EA360CEA0778942829BF4D6625D /* RCLogUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = BEAEFAFF8EF2A859B0D6EB7C6CC270A9 /* RCLogUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EE4A6E25777BD4EF8A2EA3A5C29E3209 /* RCPurchases.h in Headers */ = {isa = PBXBuildFile; fileRef = 59204D0F79520E8257EF4B5B008B4160 /* RCPurchases.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4341F68DF0ECC327953714E64B70039 /* RCEntitlementInfo+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = CB238F3CD367E87F43CD62F6AC102A61 /* RCEntitlementInfo+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F47C7EE42C99600B02BCCF1AB324F0FE /* Purchases.h in Headers */ = {isa = PBXBuildFile; fileRef = E437405C561A4DA4E63C527FE6EB50AD /* Purchases.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F65C49E68D135E5B8717FA801D091C29 /* RCEntitlementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2902722D1BD888778846897E39FCDE30 /* RCEntitlementInfo.m */; };
+		F860FE4783F03E984BC92E153B9BE862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151956DAD8D964E9A029FCFC181978F9 /* Foundation.framework */; };
+		FB16DAD07472E552EBF5A77AE060FB01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151956DAD8D964E9A029FCFC181978F9 /* Foundation.framework */; };
+		FE208AA3208802164BB4ADA2CE4216C2 /* RCAttributionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F588E6846D7BA7D8AF9CCEF5A61CD /* RCAttributionFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1FBDA07E1E2E5E9B2B0FBBCA31649B40 /* PBXContainerItemProxy */ = {
+		5C79214A22F39D8713B5B5815324A614 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19EF5509BA60F0CD4916B9F24A2F7886;
+			remoteInfo = Purchases;
+		};
+		86C0ECF23910DA457046A335D92B81D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -29,29 +126,124 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10E7D147E1ADB7236F8208D45AECE8AA /* TactileSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TactileSlider-Info.plist"; sourceTree = "<group>"; };
+		014D041F3C261BDD887F8D1FD6AF9CBF /* RCSystemInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSystemInfo.h; path = Purchases/Misc/RCSystemInfo.h; sourceTree = "<group>"; };
+		0C634632C6D762E6E202A8C5BD32A830 /* RCProductInfoExtractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCProductInfoExtractor.h; path = Purchases/Purchasing/RCProductInfoExtractor.h; sourceTree = "<group>"; };
+		0E678720731A3184BC781B664392C6D4 /* Purchases-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Purchases-Info.plist"; sourceTree = "<group>"; };
+		0E82D30857B12618F81E8C55039F5849 /* NSLocale+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLocale+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSLocale+RCExtensions.h"; sourceTree = "<group>"; };
+		0FB2E59ADF8ACDA8F4A910E8D15AA4D1 /* RCPurchases+SubscriberAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchases+SubscriberAttributes.h"; path = "Purchases/SubscriberAttributes/RCPurchases+SubscriberAttributes.h"; sourceTree = "<group>"; };
+		151956DAD8D964E9A029FCFC181978F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		151AC3BE41037C515289DD7CD00848F5 /* RCPurchases+SubscriberAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "RCPurchases+SubscriberAttributes.m"; path = "Purchases/SubscriberAttributes/RCPurchases+SubscriberAttributes.m"; sourceTree = "<group>"; };
+		1A32FFF93A99ECE4E27F781D93C52085 /* RCAttributionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionFetcher.h; path = Purchases/Purchasing/RCAttributionFetcher.h; sourceTree = "<group>"; };
+		1AFB12D5D69C9EAAE76994A85C2E8298 /* RCPromotionalOffer+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPromotionalOffer+Protected.h"; path = "Purchases/ProtectedExtensions/RCPromotionalOffer+Protected.h"; sourceTree = "<group>"; };
+		1B27ED571B4D226C5C1434FE7BB14A42 /* RCPurchasesErrorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchasesErrorUtils.m; path = Purchases/Public/RCPurchasesErrorUtils.m; sourceTree = "<group>"; };
+		21F84FF62DC0D3A1919A93D5895A7BF3 /* RCEntitlementInfos.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEntitlementInfos.h; path = Purchases/Public/RCEntitlementInfos.h; sourceTree = "<group>"; };
+		23A23BF215AC12F3EE05A23F0125A934 /* RCAttributionData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCAttributionData.m; path = Purchases/Purchasing/RCAttributionData.m; sourceTree = "<group>"; };
 		27EA8CC5F2530AA237873A09C31C0BEB /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
-		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		2902722D1BD888778846897E39FCDE30 /* RCEntitlementInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEntitlementInfo.m; path = Purchases/Public/RCEntitlementInfo.m; sourceTree = "<group>"; };
+		2AA15544890EC161B43448F8715D50FF /* RCSubscriberAttributesManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSubscriberAttributesManager.m; path = Purchases/SubscriberAttributes/RCSubscriberAttributesManager.m; sourceTree = "<group>"; };
+		2D09AF05DA3B340133C48E5DBD52D101 /* RCSpecialSubscriberAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSpecialSubscriberAttributes.h; path = Purchases/SubscriberAttributes/RCSpecialSubscriberAttributes.h; sourceTree = "<group>"; };
+		2E3FA139A6905037108F78713718891F /* RCPackage+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPackage+Protected.h"; path = "Purchases/ProtectedExtensions/RCPackage+Protected.h"; sourceTree = "<group>"; };
+		2FA17E4AB70D933206BEDF4C3A61E653 /* RCHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCHTTPClient.h; path = Purchases/Networking/RCHTTPClient.h; sourceTree = "<group>"; };
+		32387D56A9F6BDF76A63CFFF20C2C454 /* RCSubscriberAttribute+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCSubscriberAttribute+Protected.h"; path = "Purchases/ProtectedExtensions/RCSubscriberAttribute+Protected.h"; sourceTree = "<group>"; };
+		32F0503E6B9FF0F69EE116836317B5E0 /* RCOffering+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCOffering+Protected.h"; path = "Purchases/ProtectedExtensions/RCOffering+Protected.h"; sourceTree = "<group>"; };
+		34FE26A427B9AA83064D18F1A47D2856 /* NSData+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSData+RCExtensions.h"; sourceTree = "<group>"; };
+		35044E805CA3D48293047BE73528C514 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		350D7600D29A33EBF1BB1861266613B3 /* RCStoreKitWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoreKitWrapper.h; path = Purchases/Purchasing/RCStoreKitWrapper.h; sourceTree = "<group>"; };
+		37D8669A85AADE78FAB2E21A4E2DD34B /* RCPurchaserInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchaserInfo.h; path = Purchases/Public/RCPurchaserInfo.h; sourceTree = "<group>"; };
 		3840B073C253014586D44E00FBA7896F /* Pods-FourSix Coffee Timer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FourSix Coffee Timer-acknowledgements.plist"; sourceTree = "<group>"; };
-		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3AC76784E095600C4A36345DC1875561 /* TactileSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.release.xcconfig; sourceTree = "<group>"; };
+		3B9C39B9848CF5B2E14DA1C99FE2351E /* RCOffering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOffering.h; path = Purchases/Public/RCOffering.h; sourceTree = "<group>"; };
+		3DDE790436FB1942CCD7FDEA59AC69A4 /* RCSubscriberAttributesManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSubscriberAttributesManager.h; path = Purchases/SubscriberAttributes/RCSubscriberAttributesManager.h; sourceTree = "<group>"; };
+		3FFD668B6376577922DE7C8DA682592C /* RCPurchasesErrorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchasesErrorUtils.h; path = Purchases/Public/RCPurchasesErrorUtils.h; sourceTree = "<group>"; };
 		4500AEF802F0744A5E1AE38731CDF944 /* Pods-FourSix Coffee Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FourSix Coffee Timer.debug.xcconfig"; sourceTree = "<group>"; };
-		48DBB8D5777FEFFB82BCE0688CC41175 /* TactileSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.release.xcconfig; sourceTree = "<group>"; };
+		455F0345D8547CCD106833B95ACC4611 /* Purchases.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Purchases.modulemap; sourceTree = "<group>"; };
+		4AB2E37B1FA826C9EB3BF3F278035A12 /* RCEntitlementInfos.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEntitlementInfos.m; path = Purchases/Public/RCEntitlementInfos.m; sourceTree = "<group>"; };
+		4EFEDBF475350C4E217B9E93EE3E29F4 /* RCPurchaserInfo+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchaserInfo+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchaserInfo+Protected.h"; sourceTree = "<group>"; };
+		52DDFB0DDB7C213EEC38E70F5990FA40 /* Purchases-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Purchases-dummy.m"; sourceTree = "<group>"; };
 		5346ADAEAEEED006DEC4C5F2003E31E9 /* Pods-FourSix Coffee Timer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FourSix Coffee Timer-acknowledgements.markdown"; sourceTree = "<group>"; };
-		74F2D6B55FAC84CD9C5E47B0CC0C1023 /* TactileSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSlider.swift; path = TactileSlider/Classes/TactileSlider.swift; sourceTree = "<group>"; };
+		58E1F25A8FC62A35959581D73009E3D1 /* RCProductInfoExtractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCProductInfoExtractor.m; path = Purchases/Purchasing/RCProductInfoExtractor.m; sourceTree = "<group>"; };
+		59204D0F79520E8257EF4B5B008B4160 /* RCPurchases.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchases.h; path = Purchases/Public/RCPurchases.h; sourceTree = "<group>"; };
+		5DC5C4E19090B0F24EA835DF2E40471D /* RCIntroEligibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIntroEligibility.m; path = Purchases/Public/RCIntroEligibility.m; sourceTree = "<group>"; };
+		5E1442F30BCC54B1D27B9648B95D455D /* RCISOPeriodFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCISOPeriodFormatter.h; path = Purchases/Misc/RCISOPeriodFormatter.h; sourceTree = "<group>"; };
+		678D625F6387672282434777119C885A /* RCSystemInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSystemInfo.m; path = Purchases/Misc/RCSystemInfo.m; sourceTree = "<group>"; };
+		69FD7C1828E16DF1403A9F2463430129 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6A6F23D0D1B9454C4597DC6156CA817B /* NSLocale+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLocale+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSLocale+RCExtensions.m"; sourceTree = "<group>"; };
+		6B6FAD6219D77065BC43CCACB9972FAF /* RCProductInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCProductInfo.m; path = Purchases/Purchasing/RCProductInfo.m; sourceTree = "<group>"; };
+		6B8781AF2CD78E0789B698047F8FCC55 /* RCLogUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCLogUtils.m; path = Purchases/Misc/RCLogUtils.m; sourceTree = "<group>"; };
+		6CC1424585DA7FC93CF446803A7631BD /* TactileSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-umbrella.h"; sourceTree = "<group>"; };
+		6DCD63D86ABB1C273FEB8A694B0A2535 /* RCDeviceCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDeviceCache.h; path = Purchases/Caching/RCDeviceCache.h; sourceTree = "<group>"; };
+		6DD5235DFCDADCAF6B650EEC73D692E5 /* RCHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCHTTPClient.m; path = Purchases/Networking/RCHTTPClient.m; sourceTree = "<group>"; };
+		717DC7342CBC156CDCCA1DC41F0E54BE /* RCISOPeriodFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCISOPeriodFormatter.m; path = Purchases/Misc/RCISOPeriodFormatter.m; sourceTree = "<group>"; };
+		72BBCADEF7946B99F5465395D411B1D7 /* RCPromotionalOffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPromotionalOffer.h; path = Purchases/Purchasing/RCPromotionalOffer.h; sourceTree = "<group>"; };
+		751B0C2B334B97376F1C3D8814812632 /* RCProductInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCProductInfo.h; path = Purchases/Purchasing/RCProductInfo.h; sourceTree = "<group>"; };
+		76EE9B3E4D3619D5F825B6E3864828EB /* RCIdentityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIdentityManager.h; path = Purchases/Purchasing/RCIdentityManager.h; sourceTree = "<group>"; };
 		7763285ED91F9B7CF9700F44E39BA789 /* Pods-FourSix Coffee Timer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FourSix Coffee Timer-umbrella.h"; sourceTree = "<group>"; };
-		90F43EC90F3D43F32314878F35702DA5 /* TactileSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TactileSlider-dummy.m"; sourceTree = "<group>"; };
-		91B18474CF8862CD30AF7296CB9B59B0 /* TactileSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BA98300E0450B3B01F7278415ECE7BCF /* TactileSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-umbrella.h"; sourceTree = "<group>"; };
-		C07438602E3AB6D228C0A9BECAA073DC /* TactileSliderLayerRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSliderLayerRenderer.swift; path = TactileSlider/Classes/TactileSliderLayerRenderer.swift; sourceTree = "<group>"; };
+		776DDB67AFF4489ABF63A194B0AE8D8C /* RCIntroEligibility+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCIntroEligibility+Protected.h"; path = "Purchases/ProtectedExtensions/RCIntroEligibility+Protected.h"; sourceTree = "<group>"; };
+		809014524A1A46D896670E1AD6EBAD3D /* RCBackend.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCBackend.h; path = Purchases/Networking/RCBackend.h; sourceTree = "<group>"; };
+		80D3C80424D7310EF5A929721EE59BA5 /* RCOfferings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOfferings.m; path = Purchases/Public/RCOfferings.m; sourceTree = "<group>"; };
+		841631883CFA44841F71C26A519F01DE /* RCOfferingsFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOfferingsFactory.h; path = Purchases/Purchasing/RCOfferingsFactory.h; sourceTree = "<group>"; };
+		8549F37BEE39F21C44060C9AA4CF4A58 /* NSError+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSError+RCExtensions.h"; sourceTree = "<group>"; };
+		87A18621CC6D2B57DAB2A0516F5FC870 /* TactileSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.debug.xcconfig; sourceTree = "<group>"; };
+		889C35B4D2750A015B5E46F195EAD136 /* Purchases.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Purchases.release.xcconfig; sourceTree = "<group>"; };
+		88CDE45E29ED31AB0C689C10CB219CDA /* RCDateProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDateProvider.h; path = Purchases/Misc/RCDateProvider.h; sourceTree = "<group>"; };
+		8B6C91EB0441888D8365C24BD5B18F9E /* RCSubscriberAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSubscriberAttribute.h; path = Purchases/SubscriberAttributes/RCSubscriberAttribute.h; sourceTree = "<group>"; };
+		8BA4F662D8D15A65B32FD058708AD238 /* RCOfferings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOfferings.h; path = Purchases/Public/RCOfferings.h; sourceTree = "<group>"; };
+		8CAFC0759E9246F1A9597097B97E7871 /* RCCrossPlatformSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCrossPlatformSupport.h; path = Purchases/Misc/RCCrossPlatformSupport.h; sourceTree = "<group>"; };
+		8D374DA4F5343BE2FC4ED8F9362BA1B0 /* RCStoreKitRequestFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoreKitRequestFetcher.m; path = Purchases/Purchasing/RCStoreKitRequestFetcher.m; sourceTree = "<group>"; };
+		8DB26CAE578B5DC3AE29DD67E70245DA /* RCPromotionalOffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPromotionalOffer.m; path = Purchases/Purchasing/RCPromotionalOffer.m; sourceTree = "<group>"; };
+		8E30962C48B42CA7982627A704ADE61E /* RCPurchaserInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchaserInfo.m; path = Purchases/Public/RCPurchaserInfo.m; sourceTree = "<group>"; };
+		8EFC8C4610F4C8B0FFFC8E175FD75DD4 /* RCOfferings+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCOfferings+Protected.h"; path = "Purchases/ProtectedExtensions/RCOfferings+Protected.h"; sourceTree = "<group>"; };
+		9125FCCD87A98CAEFB3D0A6343FFC4DD /* RCPackage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPackage.m; path = Purchases/Public/RCPackage.m; sourceTree = "<group>"; };
+		943AA3E949CE51ED1BAFA533F9FB8BA7 /* TactileSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TactileSlider-dummy.m"; sourceTree = "<group>"; };
+		944A4A2EFC6051BE7B067C167A603FD4 /* TactileSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TactileSlider-Info.plist"; sourceTree = "<group>"; };
+		963522694C063C9C5AC4B0CD4D635A32 /* RCInMemoryCachedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCInMemoryCachedObject.m; path = Purchases/Caching/RCInMemoryCachedObject.m; sourceTree = "<group>"; };
+		9A19748A020380E8592388DA75836131 /* RCHTTPStatusCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCHTTPStatusCodes.h; path = Purchases/Networking/RCHTTPStatusCodes.h; sourceTree = "<group>"; };
+		9AFAB23512C591529CFB97CE08D5DCD2 /* RCPurchases+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchases+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchases+Protected.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F92D03896C1B869F3CD7951A7F4B2CA /* Purchases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Purchases.debug.xcconfig; sourceTree = "<group>"; };
+		A0880F56B6C6F9146AA2F9F1A2EEA02C /* RCInMemoryCachedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCInMemoryCachedObject.h; path = Purchases/Caching/RCInMemoryCachedObject.h; sourceTree = "<group>"; };
+		A443F671F3AD88D5DB9B4A5F6057D8AA /* RCDateProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDateProvider.m; path = Purchases/Misc/RCDateProvider.m; sourceTree = "<group>"; };
+		A4452DB5A45568FAB6834F821EF8A8C7 /* RCReceiptFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCReceiptFetcher.h; path = Purchases/Purchasing/RCReceiptFetcher.h; sourceTree = "<group>"; };
+		ADD6558979C07086B4C9D1CBDA6C76C4 /* NSError+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSError+RCExtensions.m"; sourceTree = "<group>"; };
+		AFEFA8A65558DB9C1F180EFC57FEF211 /* RCAttributionData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionData.h; path = Purchases/Purchasing/RCAttributionData.h; sourceTree = "<group>"; };
+		B4BAB3FA71C83AB0733481E5442CAD5D /* RCDeviceCache+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCDeviceCache+Protected.h"; path = "Purchases/ProtectedExtensions/RCDeviceCache+Protected.h"; sourceTree = "<group>"; };
+		B5D7186BB128594C18FFE653932FB578 /* NSDate+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSDate+RCExtensions.m"; sourceTree = "<group>"; };
+		B6AEA8ED73C551D938B14FE9CC032CFE /* TactileSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-prefix.pch"; sourceTree = "<group>"; };
+		B79DFBF8AB6AC44AE41DAD5E7862F535 /* RCPackage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPackage.h; path = Purchases/Public/RCPackage.h; sourceTree = "<group>"; };
+		BA444BADCAFEF6AE54FEC9CF3C227EAC /* RCIntroEligibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIntroEligibility.h; path = Purchases/Public/RCIntroEligibility.h; sourceTree = "<group>"; };
+		BB54D4AB5F14C6771FF3DF6B75980923 /* RCStoreKitRequestFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoreKitRequestFetcher.h; path = Purchases/Purchasing/RCStoreKitRequestFetcher.h; sourceTree = "<group>"; };
+		BBE18D224A32588924A958DFC40499A3 /* RCEntitlementInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEntitlementInfo.h; path = Purchases/Public/RCEntitlementInfo.h; sourceTree = "<group>"; };
+		BC45C65BC8A166CE4AD852623F8A4A2B /* RCPurchases.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchases.m; path = Purchases/Public/RCPurchases.m; sourceTree = "<group>"; };
+		BC5F8B58565D15382BFA36AF7A5C1FCA /* RCPurchasesErrorUtils+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchasesErrorUtils+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchasesErrorUtils+Protected.h"; sourceTree = "<group>"; };
+		BCAF7919D583EFD190A7D186FBC2EEEB /* TactileSliderLayerRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSliderLayerRenderer.swift; path = TactileSlider/Classes/TactileSliderLayerRenderer.swift; sourceTree = "<group>"; };
+		BCCD5B50A6576F855FDFC62C04EC404C /* RCReceiptFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCReceiptFetcher.m; path = Purchases/Purchasing/RCReceiptFetcher.m; sourceTree = "<group>"; };
+		BEAEFAFF8EF2A859B0D6EB7C6CC270A9 /* RCLogUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCLogUtils.h; path = Purchases/Misc/RCLogUtils.h; sourceTree = "<group>"; };
+		C6D202FAF3FFE7F66567AF6F20B1ED9E /* RCDeviceCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDeviceCache.m; path = Purchases/Caching/RCDeviceCache.m; sourceTree = "<group>"; };
+		C933A9A05AC154423EB05782B7DD3B62 /* RCStoreKitWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoreKitWrapper.m; path = Purchases/Purchasing/RCStoreKitWrapper.m; sourceTree = "<group>"; };
+		CB238F3CD367E87F43CD62F6AC102A61 /* RCEntitlementInfo+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCEntitlementInfo+Protected.h"; path = "Purchases/ProtectedExtensions/RCEntitlementInfo+Protected.h"; sourceTree = "<group>"; };
+		CF18D762C713FBD2071EF64AF70D9D52 /* Purchases-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Purchases-prefix.pch"; sourceTree = "<group>"; };
+		D0F08E4683E2860E31CAAE52FDDD174B /* RCIdentityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIdentityManager.m; path = Purchases/Purchasing/RCIdentityManager.m; sourceTree = "<group>"; };
+		D12E414D9116F8B9F2C0F74826223E42 /* TactileSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSlider.swift; path = TactileSlider/Classes/TactileSlider.swift; sourceTree = "<group>"; };
+		D3CBFB9676FE2DF3869D79D160497EFE /* RCSubscriberAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSubscriberAttribute.m; path = Purchases/SubscriberAttributes/RCSubscriberAttribute.m; sourceTree = "<group>"; };
 		D6EDD21378CBBF23FB44EEAE2F805C19 /* Pods-FourSix Coffee Timer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FourSix Coffee Timer-frameworks.sh"; sourceTree = "<group>"; };
 		D6F946D2C22192BDB63523335EC5C857 /* Pods-FourSix Coffee Timer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FourSix Coffee Timer-Info.plist"; sourceTree = "<group>"; };
+		D7DA942F10155519050BF94218833480 /* NSDate+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSDate+RCExtensions.h"; sourceTree = "<group>"; };
+		DBB7FF7D4553554C90819500EB530700 /* RCInMemoryCachedObject+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCInMemoryCachedObject+Protected.h"; path = "Purchases/ProtectedExtensions/RCInMemoryCachedObject+Protected.h"; sourceTree = "<group>"; };
+		DEB5A06842085AED3C4AD90DF77DDD94 /* RCOfferingsFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOfferingsFactory.m; path = Purchases/Purchasing/RCOfferingsFactory.m; sourceTree = "<group>"; };
+		DEC021B14BBD87A07369CDFE27B08725 /* RCEntitlementInfos+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCEntitlementInfos+Protected.h"; path = "Purchases/ProtectedExtensions/RCEntitlementInfos+Protected.h"; sourceTree = "<group>"; };
 		DEF3F2B93F424FB1982FB1DD52BF85A0 /* Pods-FourSix Coffee Timer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FourSix Coffee Timer-dummy.m"; sourceTree = "<group>"; };
-		E855111E9875D6D063BF1EB4691FB871 /* TactileSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-prefix.pch"; sourceTree = "<group>"; };
-		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF30F5FA8FE497B1339D760BC403EF73 /* RCBackend.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCBackend.m; path = Purchases/Networking/RCBackend.m; sourceTree = "<group>"; };
+		E34F588E6846D7BA7D8AF9CCEF5A61CD /* RCAttributionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCAttributionFetcher.m; path = Purchases/Purchasing/RCAttributionFetcher.m; sourceTree = "<group>"; };
+		E437405C561A4DA4E63C527FE6EB50AD /* Purchases.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Purchases.h; path = Purchases/Public/Purchases.h; sourceTree = "<group>"; };
+		E9709E2A4E63DE9930B2C25E10D5BE81 /* TactileSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TactileSlider.modulemap; sourceTree = "<group>"; };
+		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TactileSlider.framework; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF58BEBD942314D6881B02C59E6FCD8C /* Pods-FourSix Coffee Timer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FourSix Coffee Timer.modulemap"; sourceTree = "<group>"; };
-		F8F6872CC00D378B4324550ED173E8BC /* TactileSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TactileSlider.modulemap; sourceTree = "<group>"; };
-		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19B6D5FA1C1E8679DE22CE09EAA59C9 /* RCPurchasesErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchasesErrors.h; path = Purchases/Public/RCPurchasesErrors.h; sourceTree = "<group>"; };
+		F559F5248C67BD2D6901B0B53F4A96A2 /* RCOffering.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOffering.m; path = Purchases/Public/RCOffering.m; sourceTree = "<group>"; };
+		FB828CAC9CE4D2CCF280E07C40FEC951 /* Purchases-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Purchases-umbrella.h"; sourceTree = "<group>"; };
+		FBA7F9EF3FAEB0BC7D79BB1AFF265A06 /* Purchases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Purchases.framework; path = Purchases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD43B79CFA680036ECCA7B312BC5E1B8 /* NSData+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSData+RCExtensions.m"; sourceTree = "<group>"; };
+		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FourSix_Coffee_Timer.framework; path = "Pods-FourSix Coffee Timer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,23 +256,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29CE9654A3A12FD52275D42F3B65FAD0 /* Frameworks */ = {
+		5FF177AA80B5E4631B406EA03F185FA3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A445F1D3459F65B07F3016D854E70CC2 /* Foundation.framework in Frameworks */,
+				54FE561F0CB5E301D3F1B5708C78ECD6 /* Foundation.framework in Frameworks */,
+				EA75E892AE20C803748CDE9E548C137E /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C46504D4264AE317D902D1256E23D98C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB16DAD07472E552EBF5A77AE060FB01 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
+				3B9CE0F2380CAE9F3E8C9342E4A74948 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1EDB8BDBEF4FFACB8B16E692D894B01E /* TactileSlider */ = {
+			isa = PBXGroup;
+			children = (
+				D12E414D9116F8B9F2C0F74826223E42 /* TactileSlider.swift */,
+				BCAF7919D583EFD190A7D186FBC2EEEB /* TactileSliderLayerRenderer.swift */,
+				AE54F91F94F3EC7BFE4D11054E92BE34 /* Support Files */,
+			);
+			name = TactileSlider;
+			path = TactileSlider;
 			sourceTree = "<group>";
 		};
 		345A2691B49CCD110B8C729F8E863B41 /* Targets Support Files */ = {
@@ -89,6 +301,25 @@
 				6C90F8457566EA9BCE03933F1388048C /* Pods-FourSix Coffee Timer */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3B9CE0F2380CAE9F3E8C9342E4A74948 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				151956DAD8D964E9A029FCFC181978F9 /* Foundation.framework */,
+				35044E805CA3D48293047BE73528C514 /* StoreKit.framework */,
+				69FD7C1828E16DF1403A9F2463430129 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3F110DC98FDEDCBE63483EBA9F008CFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E835B6959104F720A1408FFCDA8E796 /* Purchases */,
+				1EDB8BDBEF4FFACB8B16E692D894B01E /* TactileSlider */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		6C90F8457566EA9BCE03933F1388048C /* Pods-FourSix Coffee Timer */ = {
@@ -108,76 +339,220 @@
 			path = "Target Support Files/Pods-FourSix Coffee Timer";
 			sourceTree = "<group>";
 		};
-		7C348DBDA36017CA37926D4DC68AA56F /* Support Files */ = {
+		8E835B6959104F720A1408FFCDA8E796 /* Purchases */ = {
 			isa = PBXGroup;
 			children = (
-				F8F6872CC00D378B4324550ED173E8BC /* TactileSlider.modulemap */,
-				90F43EC90F3D43F32314878F35702DA5 /* TactileSlider-dummy.m */,
-				10E7D147E1ADB7236F8208D45AECE8AA /* TactileSlider-Info.plist */,
-				E855111E9875D6D063BF1EB4691FB871 /* TactileSlider-prefix.pch */,
-				BA98300E0450B3B01F7278415ECE7BCF /* TactileSlider-umbrella.h */,
-				91B18474CF8862CD30AF7296CB9B59B0 /* TactileSlider.debug.xcconfig */,
-				48DBB8D5777FEFFB82BCE0688CC41175 /* TactileSlider.release.xcconfig */,
+				34FE26A427B9AA83064D18F1A47D2856 /* NSData+RCExtensions.h */,
+				FD43B79CFA680036ECCA7B312BC5E1B8 /* NSData+RCExtensions.m */,
+				D7DA942F10155519050BF94218833480 /* NSDate+RCExtensions.h */,
+				B5D7186BB128594C18FFE653932FB578 /* NSDate+RCExtensions.m */,
+				8549F37BEE39F21C44060C9AA4CF4A58 /* NSError+RCExtensions.h */,
+				ADD6558979C07086B4C9D1CBDA6C76C4 /* NSError+RCExtensions.m */,
+				0E82D30857B12618F81E8C55039F5849 /* NSLocale+RCExtensions.h */,
+				6A6F23D0D1B9454C4597DC6156CA817B /* NSLocale+RCExtensions.m */,
+				E437405C561A4DA4E63C527FE6EB50AD /* Purchases.h */,
+				AFEFA8A65558DB9C1F180EFC57FEF211 /* RCAttributionData.h */,
+				23A23BF215AC12F3EE05A23F0125A934 /* RCAttributionData.m */,
+				1A32FFF93A99ECE4E27F781D93C52085 /* RCAttributionFetcher.h */,
+				E34F588E6846D7BA7D8AF9CCEF5A61CD /* RCAttributionFetcher.m */,
+				809014524A1A46D896670E1AD6EBAD3D /* RCBackend.h */,
+				DF30F5FA8FE497B1339D760BC403EF73 /* RCBackend.m */,
+				8CAFC0759E9246F1A9597097B97E7871 /* RCCrossPlatformSupport.h */,
+				88CDE45E29ED31AB0C689C10CB219CDA /* RCDateProvider.h */,
+				A443F671F3AD88D5DB9B4A5F6057D8AA /* RCDateProvider.m */,
+				6DCD63D86ABB1C273FEB8A694B0A2535 /* RCDeviceCache.h */,
+				C6D202FAF3FFE7F66567AF6F20B1ED9E /* RCDeviceCache.m */,
+				B4BAB3FA71C83AB0733481E5442CAD5D /* RCDeviceCache+Protected.h */,
+				BBE18D224A32588924A958DFC40499A3 /* RCEntitlementInfo.h */,
+				2902722D1BD888778846897E39FCDE30 /* RCEntitlementInfo.m */,
+				CB238F3CD367E87F43CD62F6AC102A61 /* RCEntitlementInfo+Protected.h */,
+				21F84FF62DC0D3A1919A93D5895A7BF3 /* RCEntitlementInfos.h */,
+				4AB2E37B1FA826C9EB3BF3F278035A12 /* RCEntitlementInfos.m */,
+				DEC021B14BBD87A07369CDFE27B08725 /* RCEntitlementInfos+Protected.h */,
+				2FA17E4AB70D933206BEDF4C3A61E653 /* RCHTTPClient.h */,
+				6DD5235DFCDADCAF6B650EEC73D692E5 /* RCHTTPClient.m */,
+				9A19748A020380E8592388DA75836131 /* RCHTTPStatusCodes.h */,
+				76EE9B3E4D3619D5F825B6E3864828EB /* RCIdentityManager.h */,
+				D0F08E4683E2860E31CAAE52FDDD174B /* RCIdentityManager.m */,
+				A0880F56B6C6F9146AA2F9F1A2EEA02C /* RCInMemoryCachedObject.h */,
+				963522694C063C9C5AC4B0CD4D635A32 /* RCInMemoryCachedObject.m */,
+				DBB7FF7D4553554C90819500EB530700 /* RCInMemoryCachedObject+Protected.h */,
+				BA444BADCAFEF6AE54FEC9CF3C227EAC /* RCIntroEligibility.h */,
+				5DC5C4E19090B0F24EA835DF2E40471D /* RCIntroEligibility.m */,
+				776DDB67AFF4489ABF63A194B0AE8D8C /* RCIntroEligibility+Protected.h */,
+				5E1442F30BCC54B1D27B9648B95D455D /* RCISOPeriodFormatter.h */,
+				717DC7342CBC156CDCCA1DC41F0E54BE /* RCISOPeriodFormatter.m */,
+				BEAEFAFF8EF2A859B0D6EB7C6CC270A9 /* RCLogUtils.h */,
+				6B8781AF2CD78E0789B698047F8FCC55 /* RCLogUtils.m */,
+				3B9C39B9848CF5B2E14DA1C99FE2351E /* RCOffering.h */,
+				F559F5248C67BD2D6901B0B53F4A96A2 /* RCOffering.m */,
+				32F0503E6B9FF0F69EE116836317B5E0 /* RCOffering+Protected.h */,
+				8BA4F662D8D15A65B32FD058708AD238 /* RCOfferings.h */,
+				80D3C80424D7310EF5A929721EE59BA5 /* RCOfferings.m */,
+				8EFC8C4610F4C8B0FFFC8E175FD75DD4 /* RCOfferings+Protected.h */,
+				841631883CFA44841F71C26A519F01DE /* RCOfferingsFactory.h */,
+				DEB5A06842085AED3C4AD90DF77DDD94 /* RCOfferingsFactory.m */,
+				B79DFBF8AB6AC44AE41DAD5E7862F535 /* RCPackage.h */,
+				9125FCCD87A98CAEFB3D0A6343FFC4DD /* RCPackage.m */,
+				2E3FA139A6905037108F78713718891F /* RCPackage+Protected.h */,
+				751B0C2B334B97376F1C3D8814812632 /* RCProductInfo.h */,
+				6B6FAD6219D77065BC43CCACB9972FAF /* RCProductInfo.m */,
+				0C634632C6D762E6E202A8C5BD32A830 /* RCProductInfoExtractor.h */,
+				58E1F25A8FC62A35959581D73009E3D1 /* RCProductInfoExtractor.m */,
+				72BBCADEF7946B99F5465395D411B1D7 /* RCPromotionalOffer.h */,
+				8DB26CAE578B5DC3AE29DD67E70245DA /* RCPromotionalOffer.m */,
+				1AFB12D5D69C9EAAE76994A85C2E8298 /* RCPromotionalOffer+Protected.h */,
+				37D8669A85AADE78FAB2E21A4E2DD34B /* RCPurchaserInfo.h */,
+				8E30962C48B42CA7982627A704ADE61E /* RCPurchaserInfo.m */,
+				4EFEDBF475350C4E217B9E93EE3E29F4 /* RCPurchaserInfo+Protected.h */,
+				59204D0F79520E8257EF4B5B008B4160 /* RCPurchases.h */,
+				BC45C65BC8A166CE4AD852623F8A4A2B /* RCPurchases.m */,
+				9AFAB23512C591529CFB97CE08D5DCD2 /* RCPurchases+Protected.h */,
+				0FB2E59ADF8ACDA8F4A910E8D15AA4D1 /* RCPurchases+SubscriberAttributes.h */,
+				151AC3BE41037C515289DD7CD00848F5 /* RCPurchases+SubscriberAttributes.m */,
+				F19B6D5FA1C1E8679DE22CE09EAA59C9 /* RCPurchasesErrors.h */,
+				3FFD668B6376577922DE7C8DA682592C /* RCPurchasesErrorUtils.h */,
+				1B27ED571B4D226C5C1434FE7BB14A42 /* RCPurchasesErrorUtils.m */,
+				BC5F8B58565D15382BFA36AF7A5C1FCA /* RCPurchasesErrorUtils+Protected.h */,
+				A4452DB5A45568FAB6834F821EF8A8C7 /* RCReceiptFetcher.h */,
+				BCCD5B50A6576F855FDFC62C04EC404C /* RCReceiptFetcher.m */,
+				2D09AF05DA3B340133C48E5DBD52D101 /* RCSpecialSubscriberAttributes.h */,
+				BB54D4AB5F14C6771FF3DF6B75980923 /* RCStoreKitRequestFetcher.h */,
+				8D374DA4F5343BE2FC4ED8F9362BA1B0 /* RCStoreKitRequestFetcher.m */,
+				350D7600D29A33EBF1BB1861266613B3 /* RCStoreKitWrapper.h */,
+				C933A9A05AC154423EB05782B7DD3B62 /* RCStoreKitWrapper.m */,
+				8B6C91EB0441888D8365C24BD5B18F9E /* RCSubscriberAttribute.h */,
+				D3CBFB9676FE2DF3869D79D160497EFE /* RCSubscriberAttribute.m */,
+				32387D56A9F6BDF76A63CFFF20C2C454 /* RCSubscriberAttribute+Protected.h */,
+				3DDE790436FB1942CCD7FDEA59AC69A4 /* RCSubscriberAttributesManager.h */,
+				2AA15544890EC161B43448F8715D50FF /* RCSubscriberAttributesManager.m */,
+				014D041F3C261BDD887F8D1FD6AF9CBF /* RCSystemInfo.h */,
+				678D625F6387672282434777119C885A /* RCSystemInfo.m */,
+				E8458E483E727F53C576ED210E9B49FE /* Support Files */,
+			);
+			name = Purchases;
+			path = Purchases;
+			sourceTree = "<group>";
+		};
+		AE54F91F94F3EC7BFE4D11054E92BE34 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9709E2A4E63DE9930B2C25E10D5BE81 /* TactileSlider.modulemap */,
+				943AA3E949CE51ED1BAFA533F9FB8BA7 /* TactileSlider-dummy.m */,
+				944A4A2EFC6051BE7B067C167A603FD4 /* TactileSlider-Info.plist */,
+				B6AEA8ED73C551D938B14FE9CC032CFE /* TactileSlider-prefix.pch */,
+				6CC1424585DA7FC93CF446803A7631BD /* TactileSlider-umbrella.h */,
+				87A18621CC6D2B57DAB2A0516F5FC870 /* TactileSlider.debug.xcconfig */,
+				3AC76784E095600C4A36345DC1875561 /* TactileSlider.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/TactileSlider";
-			sourceTree = "<group>";
-		};
-		8E67514C342C36763069A10B6C4E14FB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				ADB52B8CA1303BEE935E0532D2F5D452 /* TactileSlider */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		ADB52B8CA1303BEE935E0532D2F5D452 /* TactileSlider */ = {
-			isa = PBXGroup;
-			children = (
-				74F2D6B55FAC84CD9C5E47B0CC0C1023 /* TactileSlider.swift */,
-				C07438602E3AB6D228C0A9BECAA073DC /* TactileSliderLayerRenderer.swift */,
-				7C348DBDA36017CA37926D4DC68AA56F /* Support Files */,
-			);
-			path = TactileSlider;
-			sourceTree = "<group>";
-		};
-		AE4CAB7C140C2BFFA285E12DE95BB6F8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */,
-				EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				8E67514C342C36763069A10B6C4E14FB /* Pods */,
-				AE4CAB7C140C2BFFA285E12DE95BB6F8 /* Products */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				3F110DC98FDEDCBE63483EBA9F008CFA /* Pods */,
+				DA24A1B95DAB5A8F23A81549F2CFDA41 /* Products */,
 				345A2691B49CCD110B8C729F8E863B41 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+		DA24A1B95DAB5A8F23A81549F2CFDA41 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
-				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+				FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */,
+				FBA7F9EF3FAEB0BC7D79BB1AFF265A06 /* Purchases.framework */,
+				EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */,
 			);
-			name = iOS;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8458E483E727F53C576ED210E9B49FE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				455F0345D8547CCD106833B95ACC4611 /* Purchases.modulemap */,
+				52DDFB0DDB7C213EEC38E70F5990FA40 /* Purchases-dummy.m */,
+				0E678720731A3184BC781B664392C6D4 /* Purchases-Info.plist */,
+				CF18D762C713FBD2071EF64AF70D9D52 /* Purchases-prefix.pch */,
+				FB828CAC9CE4D2CCF280E07C40FEC951 /* Purchases-umbrella.h */,
+				9F92D03896C1B869F3CD7951A7F4B2CA /* Purchases.debug.xcconfig */,
+				889C35B4D2750A015B5E46F195EAD136 /* Purchases.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Purchases";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C725BE646EF11DD2CBC6939397844DA2 /* Headers */ = {
+		3B299F7F8B7A58CCE0105D953778781B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D678BA168140E6A07B00558BF86CDAB9 /* Pods-FourSix Coffee Timer-umbrella.h in Headers */,
+				2E5A9CA217FA7C9712126698C7D800C5 /* NSData+RCExtensions.h in Headers */,
+				44F82C9018EFC1232114358639A1FEE3 /* NSDate+RCExtensions.h in Headers */,
+				28AAE0AA5DDEFB1625CA50236161D41D /* NSError+RCExtensions.h in Headers */,
+				085EAAA4CD3F22574ED78CDE1544AAE7 /* NSLocale+RCExtensions.h in Headers */,
+				31C526228CA9E9FF79195F13E57187EF /* Purchases-umbrella.h in Headers */,
+				F47C7EE42C99600B02BCCF1AB324F0FE /* Purchases.h in Headers */,
+				B103F639A8B9CCC28D83F4CE1BD6A748 /* RCAttributionData.h in Headers */,
+				ADEAC0F5B1A39BC7B9D07AC2B9E1FB69 /* RCAttributionFetcher.h in Headers */,
+				304E5429B500566B93E92B2B66654A6F /* RCBackend.h in Headers */,
+				8A5AFCF4DA7F5DCE2A289627D03AC7C2 /* RCCrossPlatformSupport.h in Headers */,
+				92A35B863A271E72CE8999DB4F3B87EC /* RCDateProvider.h in Headers */,
+				2BD504C726534E659BB114EBB9AC27A7 /* RCDeviceCache+Protected.h in Headers */,
+				28AFE91E738A7A0DF36078B4E354B5ED /* RCDeviceCache.h in Headers */,
+				F4341F68DF0ECC327953714E64B70039 /* RCEntitlementInfo+Protected.h in Headers */,
+				E6413A5035CA3BA2216085D86D2B1FB1 /* RCEntitlementInfo.h in Headers */,
+				493F055AA0280B7FA51B945374B2CBF0 /* RCEntitlementInfos+Protected.h in Headers */,
+				7E9BA1D51E5D517BEA54D90A8873C2DF /* RCEntitlementInfos.h in Headers */,
+				DC4D9BC8E16AE62D3CFED4D327F6B30F /* RCHTTPClient.h in Headers */,
+				8FC193170D8A9FE229551A9ACF48A99C /* RCHTTPStatusCodes.h in Headers */,
+				15AC69750CE320FDDA19D1DE815E8A29 /* RCIdentityManager.h in Headers */,
+				6866B075B093016E65E8AD0307210173 /* RCInMemoryCachedObject+Protected.h in Headers */,
+				C6AB852C520B5E42EB6734FCE4FBF64D /* RCInMemoryCachedObject.h in Headers */,
+				CBBF4C5AED94268E632F875BB9A45DE8 /* RCIntroEligibility+Protected.h in Headers */,
+				3CB53F9E2417BB5B4032EECE777879DC /* RCIntroEligibility.h in Headers */,
+				9160B094CCF11AAC80490341EA2C86B3 /* RCISOPeriodFormatter.h in Headers */,
+				EC2A5EA360CEA0778942829BF4D6625D /* RCLogUtils.h in Headers */,
+				3DD958DE7D635355C73EFE0F0312C798 /* RCOffering+Protected.h in Headers */,
+				0D7FB24E73870D4B344B08F4B3FB308E /* RCOffering.h in Headers */,
+				189E656FB3ABDA4450DD3470106847EF /* RCOfferings+Protected.h in Headers */,
+				48A3C84E5F4567014125CE9EC7CD4012 /* RCOfferings.h in Headers */,
+				779121E0BC436C95061DD07A7D5D4BCB /* RCOfferingsFactory.h in Headers */,
+				C3469B1A69D68B38E96F54B0CB57DF97 /* RCPackage+Protected.h in Headers */,
+				D918BF8C7B4BC65B99C616136E7ACCAF /* RCPackage.h in Headers */,
+				91AD32651A045860D07549AEBD9BBBD3 /* RCProductInfo.h in Headers */,
+				9E79FAC4EA7593A27A927D4861A9A9C6 /* RCProductInfoExtractor.h in Headers */,
+				C0FC5ED65517FD2E6E537149155A3998 /* RCPromotionalOffer+Protected.h in Headers */,
+				9DFE0F34B7BDAEBB5DE8B9871AB25C5A /* RCPromotionalOffer.h in Headers */,
+				1591B29747DF65D203A70F0658A8A557 /* RCPurchaserInfo+Protected.h in Headers */,
+				2B1ED0E560E04C4A666FAC635D3A7651 /* RCPurchaserInfo.h in Headers */,
+				0B8D23813FC054449CFA0424798B5D63 /* RCPurchases+Protected.h in Headers */,
+				784736609B55C86F2CAC6FBE73B965C4 /* RCPurchases+SubscriberAttributes.h in Headers */,
+				EE4A6E25777BD4EF8A2EA3A5C29E3209 /* RCPurchases.h in Headers */,
+				66488AADE1E86599CE3EB8CEFDEADA1C /* RCPurchasesErrors.h in Headers */,
+				A073621120D44AD598FA4B2157B61E2F /* RCPurchasesErrorUtils+Protected.h in Headers */,
+				18DFEB9A8ED49E77C8D7762C618F08C2 /* RCPurchasesErrorUtils.h in Headers */,
+				68DF04A0D2F9F0F6C362E71002A3FBBD /* RCReceiptFetcher.h in Headers */,
+				CB75574ADDADA9A180104576A976914D /* RCSpecialSubscriberAttributes.h in Headers */,
+				CB45C0074598773F51B285AD992BDD24 /* RCStoreKitRequestFetcher.h in Headers */,
+				897C7417031908767A2EC663EFBDE64E /* RCStoreKitWrapper.h in Headers */,
+				AED47CC21D6DB544DDDEBD6901364988 /* RCSubscriberAttribute+Protected.h in Headers */,
+				1B55D1C61C1D8C79E08AFE3D2D44AAD0 /* RCSubscriberAttribute.h in Headers */,
+				6E8D25C60B277D05B4604F89B6CDF244 /* RCSubscriberAttributesManager.h in Headers */,
+				6A6B9D435C7590EED661DF85BE874B36 /* RCSystemInfo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9A10BF087893276AD3E2F96ED4E7F76 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4687AB4D587A899DCF9DE054B39D1533 /* Pods-FourSix Coffee Timer-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,19 +567,38 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		455BC8D4DCF5B3EC87C1EA45F8FC5D6E /* Pods-FourSix Coffee Timer */ = {
+		19EF5509BA60F0CD4916B9F24A2F7886 /* Purchases */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5CA1E895A9E6D871689F680DCE746A7 /* Build configuration list for PBXNativeTarget "Pods-FourSix Coffee Timer" */;
+			buildConfigurationList = 800FE604C038B85DE089C34C9DF6D3E0 /* Build configuration list for PBXNativeTarget "Purchases" */;
 			buildPhases = (
-				C725BE646EF11DD2CBC6939397844DA2 /* Headers */,
-				05E5EB5B57C539CFE6E30962468A923E /* Sources */,
-				29CE9654A3A12FD52275D42F3B65FAD0 /* Frameworks */,
-				6878B000BC9521123FCAB96E3E473A46 /* Resources */,
+				3B299F7F8B7A58CCE0105D953778781B /* Headers */,
+				CF941DE557271896CB90F085446B9DB0 /* Sources */,
+				5FF177AA80B5E4631B406EA03F185FA3 /* Frameworks */,
+				68786A63436A349154FC609D15542318 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3180DCA6E345B2A76BF0401278182D67 /* PBXTargetDependency */,
+			);
+			name = Purchases;
+			productName = Purchases;
+			productReference = FBA7F9EF3FAEB0BC7D79BB1AFF265A06 /* Purchases.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		455BC8D4DCF5B3EC87C1EA45F8FC5D6E /* Pods-FourSix Coffee Timer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3164E6DC02025DB584136D78DA9D231 /* Build configuration list for PBXNativeTarget "Pods-FourSix Coffee Timer" */;
+			buildPhases = (
+				C9A10BF087893276AD3E2F96ED4E7F76 /* Headers */,
+				D04C6D98AA9EAA95C44DEB6F97A01346 /* Sources */,
+				C46504D4264AE317D902D1256E23D98C /* Frameworks */,
+				7F4D37B9DA94C7FF5D2ADA47EF0728F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				688540B207BD6CB753EEF7590278195F /* PBXTargetDependency */,
+				E9C675A96AB6742CAF2FF7020AD1F44A /* PBXTargetDependency */,
 			);
 			name = "Pods-FourSix Coffee Timer";
 			productName = "Pods-FourSix Coffee Timer";
@@ -239,7 +633,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -247,11 +641,12 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = AE4CAB7C140C2BFFA285E12DE95BB6F8 /* Products */;
+			productRefGroup = DA24A1B95DAB5A8F23A81549F2CFDA41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				455BC8D4DCF5B3EC87C1EA45F8FC5D6E /* Pods-FourSix Coffee Timer */,
+				19EF5509BA60F0CD4916B9F24A2F7886 /* Purchases */,
 				80DEE1020F4A777B4C5B940B77991565 /* TactileSlider */,
 			);
 		};
@@ -265,7 +660,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6878B000BC9521123FCAB96E3E473A46 /* Resources */ = {
+		68786A63436A349154FC609D15542318 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F4D37B9DA94C7FF5D2ADA47EF0728F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,14 +677,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		05E5EB5B57C539CFE6E30962468A923E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6777E068E5E5795923C647B334EBB949 /* Pods-FourSix Coffee Timer-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C9DCF278E3A12523625AEA000E609FA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,18 +687,113 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CF941DE557271896CB90F085446B9DB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A815E6FBA88466B0F06A77E794B8149B /* NSData+RCExtensions.m in Sources */,
+				7460F8FD7A29CD6D0F423DD1A45DBE5A /* NSDate+RCExtensions.m in Sources */,
+				D2F892CB7EC73A705BFEAA4CF6F365BF /* NSError+RCExtensions.m in Sources */,
+				A447709B27450AC66030E41B718FB73F /* NSLocale+RCExtensions.m in Sources */,
+				E874DC64FA5E6D093CF5DBAD6571375D /* Purchases-dummy.m in Sources */,
+				9AA81B6AFAEEF66A8033D70802D0C09A /* RCAttributionData.m in Sources */,
+				FE208AA3208802164BB4ADA2CE4216C2 /* RCAttributionFetcher.m in Sources */,
+				7B75E8F4697CDBFC91D3DEF7B7E84A5B /* RCBackend.m in Sources */,
+				25EF9BFD5DC060388BCAA10812F98D21 /* RCDateProvider.m in Sources */,
+				1EF369CFF9439E599116739F332BE851 /* RCDeviceCache.m in Sources */,
+				F65C49E68D135E5B8717FA801D091C29 /* RCEntitlementInfo.m in Sources */,
+				B93814BBCE1F7CB8D86080C17E8CD2FA /* RCEntitlementInfos.m in Sources */,
+				2D659765AF7CBC1FEEC421503ADDD02D /* RCHTTPClient.m in Sources */,
+				3D4759EBBA0779A1F485DCF451CBB657 /* RCIdentityManager.m in Sources */,
+				C35A1D9FA569913AAEE7F6E615CDD49A /* RCInMemoryCachedObject.m in Sources */,
+				D4B3586851BE1C61979B99B139F6B452 /* RCIntroEligibility.m in Sources */,
+				AFE1DD8543DFDFF5F8EE7B5206E8CC33 /* RCISOPeriodFormatter.m in Sources */,
+				DFF5E72CE9A78AFF02E7DEF9578492FD /* RCLogUtils.m in Sources */,
+				54AF7BF9296B02D25E4A40C71059CE56 /* RCOffering.m in Sources */,
+				88A4E6004493F6C45E4A090DF2E830D3 /* RCOfferings.m in Sources */,
+				74CB9DBE3260C7AAA505082481905961 /* RCOfferingsFactory.m in Sources */,
+				AA5EDAFFD28DCD45B2EC5E5BBF2F8F13 /* RCPackage.m in Sources */,
+				AE6EFFD4F9D69B258241DFC78564CF51 /* RCProductInfo.m in Sources */,
+				331BAF4F1E904C0D84B1AC30D8EDBB9C /* RCProductInfoExtractor.m in Sources */,
+				3C771B3782116054BB839800D71973DD /* RCPromotionalOffer.m in Sources */,
+				1C81C4FE4E250467A932CC31C4AF4944 /* RCPurchaserInfo.m in Sources */,
+				68A3050D222878C47C4A9CF5AE038A1B /* RCPurchases+SubscriberAttributes.m in Sources */,
+				4653536AB628779E55886AE12E1FBA01 /* RCPurchases.m in Sources */,
+				AFF16E49E80DC43460A14C76E1784019 /* RCPurchasesErrorUtils.m in Sources */,
+				CB2EA3DEEF880537CED6388A28579F7B /* RCReceiptFetcher.m in Sources */,
+				86826A7DE8400791613961619AB47AA5 /* RCStoreKitRequestFetcher.m in Sources */,
+				13B5805793D08FC9F09DEEA1CA07FF58 /* RCStoreKitWrapper.m in Sources */,
+				78D150DA1F5579C615D41B2FB78CFBEB /* RCSubscriberAttribute.m in Sources */,
+				8C8DA4A53B2EDCF4B1A8ABEE50F79E0E /* RCSubscriberAttributesManager.m in Sources */,
+				223BD81A453791B8E1A40E64608A2783 /* RCSystemInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D04C6D98AA9EAA95C44DEB6F97A01346 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD149D9C6F62139AB9B3CE8E00F4C78F /* Pods-FourSix Coffee Timer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3180DCA6E345B2A76BF0401278182D67 /* PBXTargetDependency */ = {
+		688540B207BD6CB753EEF7590278195F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Purchases;
+			target = 19EF5509BA60F0CD4916B9F24A2F7886 /* Purchases */;
+			targetProxy = 5C79214A22F39D8713B5B5815324A614 /* PBXContainerItemProxy */;
+		};
+		E9C675A96AB6742CAF2FF7020AD1F44A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TactileSlider;
 			target = 80DEE1020F4A777B4C5B940B77991565 /* TactileSlider */;
-			targetProxy = 1FBDA07E1E2E5E9B2B0FBBCA31649B40 /* PBXContainerItemProxy */;
+			targetProxy = 86C0ECF23910DA457046A335D92B81D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		084E6D3CBD8EF60131968F6D1A9A0F47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27EA8CC5F2530AA237873A09C31C0BEB /* Pods-FourSix Coffee Timer.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -365,82 +854,7 @@
 			};
 			name = Release;
 		};
-		29770FDF058C5508E63A0990F2980D84 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27EA8CC5F2530AA237873A09C31C0BEB /* Pods-FourSix Coffee Timer.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		CBCB85D4540FFEE628DC833DB0E0E90D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48DBB8D5777FEFFB82BCE0688CC41175 /* TactileSlider.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TactileSlider/TactileSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TactileSlider/TactileSlider-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/TactileSlider/TactileSlider.modulemap";
-				PRODUCT_MODULE_NAME = TactileSlider;
-				PRODUCT_NAME = TactileSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E29EAB4C27CCE443A9F47B6677F5C6E4 /* Debug */ = {
+		806395D0F64267DFBD55F6D3B95889DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4500AEF802F0744A5E1AE38731CDF944 /* Pods-FourSix Coffee Timer.debug.xcconfig */;
 			buildSettings = {
@@ -478,9 +892,79 @@
 			};
 			name = Debug;
 		};
+		8C6F07A1870CDBF2554083682A0BA221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F92D03896C1B869F3CD7951A7F4B2CA /* Purchases.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Purchases/Purchases-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Purchases/Purchases-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Purchases/Purchases.modulemap";
+				PRODUCT_MODULE_NAME = Purchases;
+				PRODUCT_NAME = Purchases;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CBCB85D4540FFEE628DC833DB0E0E90D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AC76784E095600C4A36345DC1875561 /* TactileSlider.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TactileSlider/TactileSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TactileSlider/TactileSlider-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/TactileSlider/TactileSlider.modulemap";
+				PRODUCT_MODULE_NAME = TactileSlider;
+				PRODUCT_NAME = TactileSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		E67F853542B2320BFA8D2A352F7BAA27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91B18474CF8862CD30AF7296CB9B59B0 /* TactileSlider.debug.xcconfig */;
+			baseConfigurationReference = 87A18621CC6D2B57DAB2A0516F5FC870 /* TactileSlider.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -577,6 +1061,41 @@
 			};
 			name = Debug;
 		};
+		FE7777DAD0D86F104FE415B6DE51A104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 889C35B4D2750A015B5E46F195EAD136 /* Purchases.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Purchases/Purchases-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Purchases/Purchases-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Purchases/Purchases.modulemap";
+				PRODUCT_MODULE_NAME = Purchases;
+				PRODUCT_NAME = Purchases;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +1104,15 @@
 			buildConfigurations = (
 				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
 				1422B121EAEAEA11307496903FA623C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		800FE604C038B85DE089C34C9DF6D3E0 /* Build configuration list for PBXNativeTarget "Purchases" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C6F07A1870CDBF2554083682A0BA221 /* Debug */,
+				FE7777DAD0D86F104FE415B6DE51A104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -598,11 +1126,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5CA1E895A9E6D871689F680DCE746A7 /* Build configuration list for PBXNativeTarget "Pods-FourSix Coffee Timer" */ = {
+		E3164E6DC02025DB584136D78DA9D231 /* Build configuration list for PBXNativeTarget "Pods-FourSix Coffee Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E29EAB4C27CCE443A9F47B6677F5C6E4 /* Debug */,
-				29770FDF058C5508E63A0990F2980D84 /* Release */,
+				806395D0F64267DFBD55F6D3B95889DB /* Debug */,
+				084E6D3CBD8EF60131968F6D1A9A0F47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
