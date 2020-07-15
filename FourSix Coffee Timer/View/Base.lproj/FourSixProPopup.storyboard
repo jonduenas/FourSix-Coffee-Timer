@@ -153,6 +153,11 @@
             <point key="canvasLocation" x="3986.9565217391309" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="U9B-Uz-27Z">
+            <size key="intrinsicContentSize" width="130" height="33"/>
+        </designable>
+    </designables>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
     <resources>
         <image name="cup" width="200" height="296.5"/>

@@ -350,7 +350,7 @@
                                 <color key="backgroundColor" name="Background"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTs-qS-q48">
-                                <rect key="frame" x="366" y="54" width="33" height="33"/>
+                                <rect key="frame" x="361" y="54" width="33" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" name="Accent"/>
                                 <state key="normal" title="Skip"/>
@@ -368,7 +368,7 @@
                             <constraint firstItem="yyP-I3-Duc" firstAttribute="top" secondItem="lGL-Gr-hIl" secondAttribute="top" constant="20" id="byZ-wg-ukc"/>
                             <constraint firstItem="yyP-I3-Duc" firstAttribute="bottom" secondItem="lGL-Gr-hIl" secondAttribute="bottom" id="iL5-Tc-dqr"/>
                             <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="yyP-I3-Duc" secondAttribute="trailing" id="w3v-hP-SXZ"/>
-                            <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="CTs-qS-q48" secondAttribute="trailing" constant="15" id="yn7-1p-6qK"/>
+                            <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="CTs-qS-q48" secondAttribute="trailing" constant="20" id="yn7-1p-6qK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dwT-0P-IM5">
@@ -1014,22 +1014,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbO-yz-eat">
-                                <rect key="frame" x="168.5" y="736" width="77" height="30"/>
-                                <color key="tintColor" name="Accent"/>
-                                <state key="normal" title="Questions?"/>
-                                <connections>
-                                    <action selector="questionsTapped:" destination="FRd-qs-9je" eventType="touchUpInside" id="o0H-74-0ms"/>
-                                    <segue destination="kn7-LP-pMe" kind="show" id="LuK-tS-zw6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YWV-aN-WHc"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="Tr6-ON-C1Y" firstAttribute="top" secondItem="PbO-yz-eat" secondAttribute="bottom" constant="20" id="0SO-BB-YXo"/>
                             <constraint firstItem="YWV-aN-WHc" firstAttribute="bottom" secondItem="vx9-sE-Riq" secondAttribute="bottom" id="1SA-rH-XT0"/>
-                            <constraint firstItem="PbO-yz-eat" firstAttribute="centerX" secondItem="Tr6-ON-C1Y" secondAttribute="centerX" id="1h0-ME-QiC"/>
                             <constraint firstItem="vx9-sE-Riq" firstAttribute="leading" secondItem="YWV-aN-WHc" secondAttribute="leading" id="F08-gt-etI"/>
                             <constraint firstItem="Tr6-ON-C1Y" firstAttribute="centerX" secondItem="vnn-O2-44w" secondAttribute="centerX" id="T7q-TD-u4t"/>
                             <constraint firstItem="vx9-sE-Riq" firstAttribute="trailing" secondItem="YWV-aN-WHc" secondAttribute="trailing" id="Tb7-Qx-BTI"/>
@@ -1041,7 +1030,6 @@
                     </view>
                     <connections>
                         <outlet property="endLabel" destination="qYA-Vs-TH5" id="zWq-Cq-zHO"/>
-                        <outlet property="questionsButton" destination="PbO-yz-eat" id="YoB-8p-ngc"/>
                         <outlet property="startButton" destination="Tr6-ON-C1Y" id="W3m-LK-iqi"/>
                         <outlet property="walkthroughImage" destination="vx9-sE-Riq" id="NVo-MI-yZL"/>
                     </connections>
@@ -1049,16 +1037,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePM-2M-j83" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3980" y="-1317"/>
-        </scene>
-        <!--HowToVC-->
-        <scene sceneID="5Dv-4M-LQS">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="HowToVC" id="kn7-LP-pMe" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="OCY-MN-8Jx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2tJ-N3-cXI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4661" y="-1257"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4EV-pk-FAb">
