@@ -70,6 +70,7 @@ class PurchaseProVC: UIViewController {
     @IBAction func restorePurchaseTapped(_ sender: Any) {
         
         setState(loading: true)
+        
         // Check if user has already purchased
         Purchases.shared.restoreTransactions { (purchaserInfo, error) in
             self.setState(loading: false)

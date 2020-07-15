@@ -128,6 +128,10 @@ class BrewVC: UIViewController, PaywallDelegate {
     }
     
     @IBAction func balanceChanged(_ sender: Any) {
+        // Haptic feedback
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+        
         if balanceSelect.selectedSegmentIndex == 0 {
             print("Sweet")
             balance = .sweet
@@ -146,6 +150,10 @@ class BrewVC: UIViewController, PaywallDelegate {
     }
     
     @IBAction func strengthChanged(_ sender: Any) {
+        // Haptic feedback
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+        
         if strengthSelect.selectedSegmentIndex == 0 {
             print("Light")
             strength = .light

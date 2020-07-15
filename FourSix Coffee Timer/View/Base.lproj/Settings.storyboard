@@ -77,8 +77,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AUF-Gq-eUk" secondAttribute="trailing" constant="20" symbolic="YES" id="Bla-Zn-8O3"/>
                                                 <constraint firstItem="AUF-Gq-eUk" firstAttribute="top" secondItem="3mS-0o-N8f" secondAttribute="topMargin" constant="0.5" id="F9I-tC-xFJ"/>
-                                                <constraint firstItem="AUF-Gq-eUk" firstAttribute="centerY" secondItem="3mS-0o-N8f" secondAttribute="centerY" id="T5d-Jy-hqE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="AUF-Gq-eUk" secondAttribute="bottom" constant="0.5" id="mhU-bz-1ZF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AUF-Gq-eUk" secondAttribute="bottom" priority="750" constant="0.5" id="mhU-bz-1ZF"/>
                                                 <constraint firstItem="AUF-Gq-eUk" firstAttribute="leading" secondItem="3mS-0o-N8f" secondAttribute="leadingMargin" id="w0T-0f-Y4N"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -99,8 +98,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="irD-u2-tvI" firstAttribute="centerY" secondItem="DoR-Oc-UFU" secondAttribute="centerY" id="3lf-XJ-waF"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="irD-u2-tvI" secondAttribute="bottom" constant="0.5" id="KV9-69-Pf2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="irD-u2-tvI" secondAttribute="bottom" priority="750" constant="0.5" id="KV9-69-Pf2"/>
                                                 <constraint firstItem="irD-u2-tvI" firstAttribute="leading" secondItem="DoR-Oc-UFU" secondAttribute="leadingMargin" id="Yy5-CZ-cTo"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="irD-u2-tvI" secondAttribute="trailing" constant="20" symbolic="YES" id="cNg-6X-Sqo"/>
                                                 <constraint firstItem="irD-u2-tvI" firstAttribute="top" secondItem="DoR-Oc-UFU" secondAttribute="topMargin" constant="0.5" id="uN9-xb-yfw"/>
