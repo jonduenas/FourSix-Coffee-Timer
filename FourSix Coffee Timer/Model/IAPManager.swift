@@ -19,7 +19,7 @@ class IAPManager: NSObject {
             if let e = error {
                 print(e.localizedDescription)
             }
-            
+
             // Route the view depending if user is Pro or not
             if purchaserInfo?.entitlements["pro"]?.isActive == true {
                 proUser = true

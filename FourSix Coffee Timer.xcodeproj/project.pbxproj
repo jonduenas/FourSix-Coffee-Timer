@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */; };
 		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
+		65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65185B9324BF8CB200F47F30 /* LoadingButton.swift */; };
 		6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6518D13424B4FADE00F786C4 /* Settings.bundle */; };
 		651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */; };
 		6520951224B953550014CE21 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6520951124B953550014CE21 /* StoreKit.framework */; };
@@ -54,6 +55,7 @@
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
 		65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		65185B9324BF8CB200F47F30 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		6518D13424B4FADE00F786C4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeTimer.swift; path = "FourSix Coffee Timer/Model/CoffeeTimer.swift"; sourceTree = SOURCE_ROOT; };
 		6520951124B953550014CE21 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -167,6 +169,7 @@
 				6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */,
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
+				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
 				6561ACA924BBDE5800C9F129 /* RoundedView.swift */,
 				6515EACE24B2563B004255EB /* Shadow.swift */,
 				656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */,
@@ -372,6 +375,7 @@
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
+				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
 				65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */,

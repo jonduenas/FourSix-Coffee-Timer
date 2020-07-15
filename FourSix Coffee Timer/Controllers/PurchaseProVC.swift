@@ -24,11 +24,14 @@ class PurchaseProVC: UIViewController {
     var productPrice: String?
     var productName: String?
     var productDescription: String?
+    var defaultRestoreButtonText: String?
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var featureListLabel: UILabel!
-    @IBOutlet var purchaseButton: RoundButton!
+    @IBOutlet var purchaseButton: LoadingButton!
+    @IBOutlet var restoreButton: UIButton!
+    @IBOutlet var closeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +68,12 @@ class PurchaseProVC: UIViewController {
     }
     
     @IBAction func restorePurchaseTapped(_ sender: Any) {
+        
+        setState(loading: true)
         // Check if user has already purchased
         Purchases.shared.restoreTransactions { (purchaserInfo, error) in
+            self.setState(loading: false)
+            
             if let purchaseRestoredHandler = self.delegate?.purchaseRestored {
                 // Restore successful
                 purchaseRestoredHandler(self, purchaserInfo, error)
@@ -96,7 +103,13 @@ class PurchaseProVC: UIViewController {
         // Check if user is authorized to make purchases
         if Purchases.canMakePayments() {
             if let package = package {
+                
+                setState(loading: true)
+                
                 Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+                    
+                    self.setState(loading: false)
+                    
                     if purchaserInfo == nil {
                         self.showAlert(message: "Error loading purchaser info. Are you signed in?")
                         return
@@ -135,11 +148,29 @@ class PurchaseProVC: UIViewController {
             showAlert(message: "Purchases not allowed on this device.") { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
             }
-            
         }
     }
     
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    private func setState(loading: Bool) {
+        if loading {
+            purchaseButton.showLoading()
+            
+            defaultRestoreButtonText = restoreButton.titleLabel?.text
+            restoreButton.isEnabled = false
+            restoreButton.setTitle("Loading...", for: .normal)
+            
+            closeButton.isHidden = true
+        } else {
+            purchaseButton.hideLoading()
+            
+            restoreButton.isEnabled = true
+            restoreButton.setTitle(defaultRestoreButtonText, for: .normal)
+            
+            closeButton.isHidden = false
+        }
     }
 }

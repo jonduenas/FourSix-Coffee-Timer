@@ -8,6 +8,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,7 +69,7 @@
                                                             <action selector="restorePurchaseTapped:" destination="B7I-HA-IVP" eventType="touchUpInside" id="iSM-0s-ATE"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9B-Uz-27Z" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9B-Uz-27Z" customClass="LoadingButton" customModule="FourSix" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="48" width="200" height="50"/>
                                                         <color key="backgroundColor" name="Accent"/>
                                                         <constraints>
@@ -76,6 +77,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="wqk-CZ-6ua"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="tintColor" systemColor="linkColor"/>
                                                         <state key="normal" title="Get Pro for $1.99">
                                                             <color key="titleColor" name="Background"/>
                                                         </state>
@@ -142,8 +144,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="UqS-yU-A0u"/>
                     <connections>
+                        <outlet property="closeButton" destination="bWT-Hv-SSj" id="EZR-Bi-eim"/>
                         <outlet property="featureListLabel" destination="mUy-h8-21J" id="FpK-eN-xq6"/>
                         <outlet property="purchaseButton" destination="U9B-Uz-27Z" id="qKM-Is-f40"/>
+                        <outlet property="restoreButton" destination="SNI-sE-0ZM" id="jCk-kd-3gw"/>
                         <outlet property="subtitleLabel" destination="QJB-Ly-Cbr" id="XtZ-fl-R5u"/>
                         <outlet property="titleLabel" destination="I8J-yl-bFJ" id="Pfz-ud-5EI"/>
                     </connections>
@@ -168,6 +172,9 @@
         <namedColor name="Background">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

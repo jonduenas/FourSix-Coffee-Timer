@@ -176,6 +176,11 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
                     self?.ratio = self!.defaultRatio
                 }))
                 ac.addAction(cancelAction)
+                //TODO: Add code for iPad compatibility
+//                let cellRect = tableView.rectForRow(at: indexPath)
+//                ac.popoverPresentationController?.sourceView = tableView
+//                ac.popoverPresentationController?.sourceRect = cellRect
+//                ac.popoverPresentationController?.canOverlapSourceViewRect = true
                 present(ac, animated: true)
             } else if indexPath.row == 3 {
                 // Timer Step Advance
