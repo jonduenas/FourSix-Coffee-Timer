@@ -196,7 +196,7 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
                 let ac = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
                 ac.addAction(cancelAction)
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    if let url = URL(string: "https://www.twitter.com/jonduenas") {
+                    if let url = URL(string: "https://www.twitter.com/foursixcoffee") {
                         UIApplication.shared.open(url)
                     }
                 }))
