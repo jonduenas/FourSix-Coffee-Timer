@@ -97,6 +97,11 @@ class PurchaseProVC: UIViewController {
         if Purchases.canMakePayments() {
             if let package = package {
                 Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+                    if purchaserInfo == nil {
+                        self.showAlert(message: "Error loading purchaser info. Are you signed in?")
+                        return
+                    }
+                    
                     // Check for successful purchase
                     if let purchaseCompleteHandler = self.delegate?.purchaseCompleted {
                         purchaseCompleteHandler(self, transaction!, purchaserInfo!)

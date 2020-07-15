@@ -183,12 +183,13 @@ class TimerVC: UIViewController {
         
         //Check if end of recipe's set interval
         if coffeeTimer.currentStepElapsedTime < recipe.interval - Constants.timerInterval {
+            // Continue counting
             updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
             
             updateProgress()
         } else {
-            //Check if user has set auto-advance on
-            if !UserDefaultsManager.timerAutoAdvanceOff {
+            // End of interval - Check if user has set auto-advance on
+            if UserDefaultsManager.timerStepAdvance == 0 {
                 //Check if end of recipe
                 if recipeIndex < recipe.waterPours.count - 1 {
                     //Move to next step

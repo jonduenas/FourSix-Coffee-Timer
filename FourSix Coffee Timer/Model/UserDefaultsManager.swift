@@ -15,7 +15,7 @@ class UserDefaultsManager: NSObject {
     //MARK: Key Values
     private static let didPurchaseProKey = "didPurchaseProKey"
     private static let totalTimeShownKey = "totalTimeShownKey"
-    private static let timerAutoAdvanceOffKey = "timerAutoAdvanceOffKey"
+    private static let timerStepAdvanceKey = "timerStepAdvanceKey"
     private static let ratioKey = "ratioKey"
     private static let previousCoffeeKey = "previousCoffeeKey"
     private static let previousSelectedBalanceKey = "previousSelectedBalanceKey"
@@ -42,12 +42,12 @@ class UserDefaultsManager: NSObject {
         }
     }
     
-    static var timerAutoAdvanceOff: Bool {
+    static var timerStepAdvance: Int {
         get {
-            return userDefaults.bool(forKey: timerAutoAdvanceOffKey)
+            return userDefaults.integer(forKey: timerStepAdvanceKey)
         }
         set {
-            userDefaults.set(newValue, forKey: timerAutoAdvanceOffKey)
+            userDefaults.set(newValue, forKey: timerStepAdvanceKey)
         }
     }
     

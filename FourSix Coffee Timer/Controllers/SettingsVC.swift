@@ -15,7 +15,7 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     let delegate: BrewVC
     let defaultRatio = 15
     let ratioArray = [12, 13, 14, 15, 16, 17, 18]
-    let proFeatures = "customizing your brew Recipe, the option to manually advance steps in the Timer, access to new Pro features coming in the future, and you'll be supporting an independent one-man develeopment team."
+    let stepAdvanceArray = ["Auto", "Manual"]
     
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
@@ -24,12 +24,20 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     var ratio = 15 {
         didSet {
             ratioLabel.text = "1:\(ratio)"
+            UserDefaultsManager.ratio = ratio
+        }
+    }
+    
+    var stepAdvance = 0 {
+        didSet {
+            stepAdvanceLabel.text = stepAdvanceArray[stepAdvance]
+            UserDefaultsManager.timerStepAdvance = stepAdvance
         }
     }
     
     //MARK: IBOutlets
     @IBOutlet var showTotalTimeSwitch: UISwitch!
-    @IBOutlet var timerAutoAdvanceSwitch: UISwitch!
+    @IBOutlet var stepAdvanceLabel: UILabel!
     @IBOutlet var ratioLabel: UILabel!
     @IBOutlet var settingsTableView: UITableView!
     
@@ -75,11 +83,7 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
             showTotalTimeSwitch.isOn = false
         }
         
-        if UserDefaultsManager.timerAutoAdvanceOff {
-            timerAutoAdvanceSwitch.isOn = false
-        } else {
-            timerAutoAdvanceSwitch.isOn = true
-        }
+        stepAdvance = UserDefaultsManager.timerStepAdvance
         
         if UserDefaultsManager.ratio != 0 {
             ratio = UserDefaultsManager.ratio
@@ -166,13 +170,23 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
                 for ratio in ratioArray {
                     ac.addAction(UIAlertAction(title: "1:\(ratio)", style: .default, handler: { [weak self] _ in
                         self?.ratio = ratio
-                        UserDefaultsManager.ratio = ratio
                     }))
                 }
                 ac.addAction(UIAlertAction(title: "Restore Default", style: .default, handler: { [weak self] _ in
                     self?.ratio = self!.defaultRatio
-                    UserDefaultsManager.ratio = self!.defaultRatio
                 }))
+                ac.addAction(cancelAction)
+                present(ac, animated: true)
+            } else if indexPath.row == 3 {
+                // Timer Step Advance
+                let ac = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
+                
+                for (index, option) in stepAdvanceArray.enumerated() {
+                    ac.addAction(UIAlertAction(title: option, style: .default, handler: { [weak self] _ in
+                        self?.stepAdvance = index
+                        print(index)
+                    }))
+                }
                 ac.addAction(cancelAction)
                 present(ac, animated: true)
             }
@@ -199,66 +213,10 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
             UserDefaultsManager.totalTimeShown = false
         }
     }
-    
-    @IBAction func timerAutoAdvanceSwitched(_ sender: Any) {
-        if timerAutoAdvanceSwitch.isOn {
-            UserDefaultsManager.timerAutoAdvanceOff = false
-        } else {
-            UserDefaultsManager.timerAutoAdvanceOff = true
-        }
-    }
-    
-    //MARK: IAP Methods
-    
-//    func purchasePro() {
-//        // Purchase FourSixPro
-//        Purchases.shared.offerings { (offerings, error) in
-//            if let packages = offerings?.current?.availablePackages {
-//                self.showPaywall(packages: packages)
-//            }
-//        }
-//    }
-    
-//    func showPaywall(packages: [Purchases.Package]) {
-//        if let package = packages.first {
-//            let productPrice = package.localizedPriceString
-//            let productName = package.product.localizedTitle
-//
-//            let ac = UIAlertController(title: "Purchase \(productName)", message: "Would you like to purchase \(productName) for \(productPrice)? This gives you \(proFeatures)", preferredStyle: .alert)
-//            ac.addAction(cancelAction)
-//            ac.addAction(UIAlertAction(title: "Purchase", style: .default, handler: { _ in
-//                Purchases.shared.purchaseProduct(package.product) { (transaction, purchaserInfo, error, userCancelled) in
-//                    // Check for successful purchase
-//                    if purchaserInfo?.entitlements["pro"]?.isActive == true {
-//                        print("Pro purchase successful - unlock features")
-//                    }
-//
-//                    // Check for errors
-//                    if let err = error as NSError? {
-//                        // Log error details
-//                        print("Error: \(String(describing: err.userInfo[Purchases.ReadableErrorCodeKey]))")
-//                        print("Message: \(err.localizedDescription)")
-//                        print("Underlying Error: \(String(describing: err.userInfo[NSUnderlyingErrorKey]))")
-//
-//                        // Handle specific errors
-//                        switch Purchases.ErrorCode(_nsError: err).code {
-//                        case .purchaseNotAllowedError:
-//                            self.showAlert(message: "Purchases not allowed on this device.")
-//                        case .purchaseInvalidError:
-//                            self.showAlert(message: "Purchase invalid, check payment source.")
-//                        default:
-//                            break
-//                        }
-//                    }
-//                }
-//            }))
-//            present(ac, animated: true, completion: nil)
-//        }
-//    }
 
     //MARK: Navigation Methods
     
-    @IBAction func xTapped(_ sender: Any) {
+    @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             if let self_ = self {
                 if UserDefaultsManager.ratio == 0 {
@@ -272,6 +230,4 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
             }
         }
     }
-    
-    
 }

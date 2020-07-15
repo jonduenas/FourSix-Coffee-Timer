@@ -146,30 +146,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Auto Advance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZo-ua-quo">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Step Advance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZo-ua-quo">
                                                     <rect key="frame" x="20" y="11.5" width="153.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C31-7D-YDM">
-                                                    <rect key="frame" x="347" y="6.5" width="49" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="47" id="XhX-lw-k38"/>
-                                                    </constraints>
-                                                    <color key="onTintColor" name="Accent"/>
-                                                    <connections>
-                                                        <action selector="timerAutoAdvanceSwitched:" destination="6WR-Et-o1w" eventType="valueChanged" id="jLR-dO-Kdo"/>
-                                                    </connections>
-                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNL-St-GDK">
+                                                    <rect key="frame" x="338.5" y="11.5" width="55.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="bNL-St-GDK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rZo-ua-quo" secondAttribute="trailing" constant="8" symbolic="YES" id="3Ko-i1-bUV"/>
                                                 <constraint firstItem="rZo-ua-quo" firstAttribute="top" secondItem="nH7-0d-q9W" secondAttribute="topMargin" constant="0.5" id="5on-Fa-gnL"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="rZo-ua-quo" secondAttribute="bottom" priority="750" constant="0.5" id="Fk3-Ki-lW2"/>
-                                                <constraint firstItem="C31-7D-YDM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rZo-ua-quo" secondAttribute="trailing" constant="8" symbolic="YES" id="O2W-fQ-uM3"/>
                                                 <constraint firstItem="rZo-ua-quo" firstAttribute="leading" secondItem="nH7-0d-q9W" secondAttribute="leadingMargin" id="V3b-O4-mCI"/>
-                                                <constraint firstAttribute="trailing" secondItem="C31-7D-YDM" secondAttribute="trailing" constant="20" id="uty-g3-Zgg"/>
-                                                <constraint firstItem="rZo-ua-quo" firstAttribute="centerY" secondItem="C31-7D-YDM" secondAttribute="centerY" id="v9R-Z5-WRm"/>
+                                                <constraint firstItem="bNL-St-GDK" firstAttribute="trailing" secondItem="nH7-0d-q9W" secondAttribute="trailingMargin" id="Yge-35-fmW"/>
+                                                <constraint firstItem="bNL-St-GDK" firstAttribute="centerY" secondItem="rZo-ua-quo" secondAttribute="centerY" id="vgc-Xj-pAI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
@@ -321,7 +317,7 @@
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="66w-bb-227">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="8eN-RM-JYK">
                             <connections>
-                                <action selector="xTapped:" destination="6WR-Et-o1w" id="dNk-Lb-aRj"/>
+                                <action selector="closeTapped:" destination="6WR-Et-o1w" id="dNk-Lb-aRj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -329,7 +325,7 @@
                         <outlet property="ratioLabel" destination="7Jb-vf-2YR" id="Y0c-zI-w2i"/>
                         <outlet property="settingsTableView" destination="dQs-0k-fED" id="To0-8T-dyt"/>
                         <outlet property="showTotalTimeSwitch" destination="PTz-Mm-CaB" id="9qm-hi-nyY"/>
-                        <outlet property="timerAutoAdvanceSwitch" destination="C31-7D-YDM" id="0Zl-m1-roA"/>
+                        <outlet property="stepAdvanceLabel" destination="bNL-St-GDK" id="czF-eL-rBJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6K-FG-aKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -798,7 +794,7 @@ Get in touch on Twitter - @jonduenas.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aK3-3Z-O1T"/>
+        <segue reference="t5N-HG-LCt"/>
         <segue reference="jt5-DN-x9b"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
