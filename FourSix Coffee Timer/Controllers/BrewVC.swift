@@ -47,7 +47,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
-    @IBOutlet var adjustButton: UIButton!
+    @IBOutlet var editButton: UIButton!
     @IBOutlet var slider: TactileSlider!
     @IBOutlet var sliderStackView: UIStackView!
     
@@ -112,7 +112,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     
     //MARK: UI Methods
     
-    @IBAction func adjustTapped(_ sender: UIButton) {
+    @IBAction func editTapped(_ sender: UIButton) {
         showProPopup(delegate: self)
     }
     
@@ -203,12 +203,12 @@ class BrewVC: UIViewController, PaywallDelegate {
     
     func enableProFeatures(_ enable: Bool) {
         if enable {
-            adjustButton.isHidden = true
+            editButton.isHidden = true
             UIView.animate(withDuration: 0.25) {
                 self.sliderStackView.isHidden = false
             }
         } else {
-            adjustButton.isHidden = false
+            editButton.isHidden = false
             sliderStackView.isHidden = true
         }
     }

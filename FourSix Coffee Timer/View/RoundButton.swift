@@ -8,12 +8,24 @@
 
 import UIKit
 
-//@IBDesignable
+@IBDesignable
 class RoundButton: UIButton {
     
     @IBInspectable var cornerRadius: CGFloat = 15 {
         didSet {
             refreshCorners(value: cornerRadius)
+        }
+    }
+    
+    @IBInspectable var borderSize: CGFloat = 0 {
+        didSet {
+            refreshBorderWidth(value: borderSize)
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
+        didSet {
+            refreshBorderColor(borderColor)
         }
     }
     
@@ -37,5 +49,13 @@ class RoundButton: UIButton {
     
     func refreshCorners(value: CGFloat) {
         layer.cornerRadius = value
+    }
+    
+    func refreshBorderColor(_ color: UIColor) {
+        layer.borderColor = color.cgColor
+    }
+    
+    func refreshBorderWidth(value: CGFloat) {
+        layer.borderWidth = value
     }
 }

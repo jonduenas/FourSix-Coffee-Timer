@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-hQ-KGE">
-                                        <rect key="frame" x="40.5" y="126" width="313" height="117"/>
+                                        <rect key="frame" x="40.5" y="123.5" width="313" height="127"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-uo-qi4">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="67"/>
@@ -87,15 +87,30 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-ku-8J4">
-                                                <rect key="frame" x="134.5" y="87" width="44" height="30"/>
+                                                <rect key="frame" x="106.5" y="87" width="100" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Kwb-uC-e6e"/>
+                                                    <constraint firstAttribute="height" constant="40" id="uQu-i4-kum"/>
+                                                </constraints>
                                                 <color key="tintColor" name="Accent"/>
-                                                <state key="normal" title="Adjust"/>
+                                                <state key="normal" title="Edit"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="Accent"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="adjustTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="2pD-7t-J1I"/>
+                                                    <action selector="editTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="2pD-7t-J1I"/>
                                                 </connections>
                                             </button>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-qw-I3m">
-                                                <rect key="frame" x="0.0" y="117" width="313" height="70"/>
+                                                <rect key="frame" x="0.0" y="127" width="313" height="70"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIy-gb-ykS" customClass="Shadow" customModule="FourSix" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="313" height="60"/>
@@ -170,7 +185,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKE-sT-B5i">
-                                        <rect key="frame" x="40.5" y="328" width="313" height="99.5"/>
+                                        <rect key="frame" x="40.5" y="333" width="313" height="99.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-xE-ICZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="99.5"/>
@@ -214,7 +229,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-LE-uJD">
-                                        <rect key="frame" x="40.5" y="512" width="313" height="106"/>
+                                        <rect key="frame" x="40.5" y="514.5" width="313" height="106"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-hd-SvQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="106"/>
@@ -299,9 +314,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adjustButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>
                         <outlet property="balanceSelect" destination="03L-Qm-9vC" id="H88-zL-PYt"/>
                         <outlet property="coffeeLabel" destination="apM-sG-DyS" id="lxa-O9-vYf"/>
+                        <outlet property="editButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>
                         <outlet property="slider" destination="aZi-FL-C3T" id="bL7-pd-0DO"/>
                         <outlet property="sliderStackView" destination="UsE-qw-I3m" id="eVH-SM-7yZ"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
@@ -1085,6 +1100,17 @@
             <point key="canvasLocation" x="2480" y="-571"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Tr6-ON-C1Y">
+            <size key="intrinsicContentSize" width="43" height="36"/>
+        </designable>
+        <designable name="pgi-ZW-LPo">
+            <size key="intrinsicContentSize" width="82" height="36"/>
+        </designable>
+        <designable name="sWb-J0-MUX">
+            <size key="intrinsicContentSize" width="43" height="36"/>
+        </designable>
+    </designables>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
     <resources>
         <image name="brace-40" width="23" height="143"/>
