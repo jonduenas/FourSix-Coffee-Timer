@@ -40,6 +40,8 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     @IBOutlet var stepAdvanceLabel: UILabel!
     @IBOutlet var ratioLabel: UILabel!
     @IBOutlet var settingsTableView: UITableView!
+    @IBOutlet var restoreCell: UITableViewCell!
+    @IBOutlet var ratioCell: UITableViewCell!
     
     init?(coder: NSCoder, delegate: BrewVC) {
         self.delegate = delegate
@@ -96,6 +98,7 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     
     //MARK: TableView Methods
     
+    // Hides cells when user is Pro or not
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 1 {
@@ -109,7 +112,7 @@ class SettingsVC: UITableViewController, PaywallDelegate {
             } else if indexPath.row == 1 {
                 // Restore Purchase
                 if IAPManager.isUserPro() {
-                    return 0
+                    return 0.25 // Keeps top border of section
                 } else {
                     return UITableView.automaticDimension
                 }
