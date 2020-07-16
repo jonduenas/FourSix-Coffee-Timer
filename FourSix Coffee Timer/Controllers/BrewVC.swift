@@ -107,7 +107,12 @@ class BrewVC: UIViewController, PaywallDelegate {
         if purchaserInfo.entitlements["pro"]?.isActive == true {
             enableProFeatures(true)
         }
-
+    }
+    
+    func purchaseRestored(paywall: PurchaseProVC, purchaserInfo: Purchases.PurchaserInfo?, error: Error?) {
+        if purchaserInfo?.entitlements["pro"]?.isActive == true {
+            enableProFeatures(true)
+        }
     }
     
     //MARK: UI Methods
