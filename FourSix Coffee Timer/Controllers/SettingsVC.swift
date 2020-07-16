@@ -40,8 +40,6 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     @IBOutlet var stepAdvanceLabel: UILabel!
     @IBOutlet var ratioLabel: UILabel!
     @IBOutlet var settingsTableView: UITableView!
-    @IBOutlet var restoreCell: UITableViewCell!
-    @IBOutlet var ratioCell: UITableViewCell!
     
     init?(coder: NSCoder, delegate: BrewVC) {
         self.delegate = delegate
@@ -198,6 +196,16 @@ class SettingsVC: UITableViewController, PaywallDelegate {
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 2 {
+            let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+            let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+            return "v\(appVersionString)-beta.\(buildNumber)"
+        } else {
+            return nil
+        }
     }
     
     @IBAction func showTotalTimeSwitched(_ sender: UISwitch) {
