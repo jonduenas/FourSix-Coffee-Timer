@@ -9,7 +9,7 @@
 import UIKit
 import Purchases
 
-class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegate, PaywallDelegate {
+class SettingsVC: UITableViewController, PaywallDelegate {
     
     //MARK: Constants
     let delegate: BrewVC
@@ -53,10 +53,6 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.presentationController?.delegate = self
-        
-        self.isModalInPresentation = true
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
         
@@ -64,16 +60,6 @@ class SettingsVC: UITableViewController, UIAdaptivePresentationControllerDelegat
         tableView.estimatedRowHeight = 44
         
         loadUserDefaults()
-    }
-    
-    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
-        dismiss(animated: true) { [weak self] in
-            if UserDefaultsManager.ratio == 0 {
-                UserDefaultsManager.ratio = 15
-            } else {
-                self?.delegate.ratio = UserDefaultsManager.ratio
-            }
-        }
     }
     
     fileprivate func loadUserDefaults() {
