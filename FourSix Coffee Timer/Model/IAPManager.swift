@@ -30,15 +30,16 @@ class IAPManager: NSObject {
         return proUser
     }
     
-    static func restorePurchases() {
+    static func restorePurchases() -> Bool {
+        var proUser = false
         Purchases.shared.restoreTransactions { (purchaserInfo, error) in
             if let e = error {
                 print(e.localizedDescription)
-            }
-            
-            if purchaserInfo?.entitlements["pro"]?.isActive == true {
-                
+                proUser = false
+            } else if purchaserInfo?.entitlements["pro"]?.isActive == true {
+                proUser = true
             }
         }
+        return proUser
     }
 }

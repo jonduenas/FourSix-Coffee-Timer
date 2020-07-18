@@ -20,15 +20,9 @@ enum Strength: Int {
     case strong = 4
 }
 
-enum RecipeCustomizer {
-    case coffee
-    case water
-    case ratio
-}
-
 struct Recipe {
-    let waterTotal: Float
     let coffee: Float
+    let waterTotal: Float
     let waterPours: [Float]
     let interval: TimeInterval = 45
     let balance: Balance

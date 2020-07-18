@@ -82,7 +82,7 @@ class BrewVC: UIViewController, PaywallDelegate {
         }
     }
     
-    fileprivate func checkForPro() {
+    func checkForPro() {
         if IAPManager.isUserPro() {
             enableProFeatures(true)
         } else {
@@ -214,7 +214,7 @@ class BrewVC: UIViewController, PaywallDelegate {
         }
     }
     
-    func enableProFeatures(_ enable: Bool) {
+    private func enableProFeatures(_ enable: Bool) {
         if enable {
             editButton.isHidden = true
             UIView.animate(withDuration: 0.25) {

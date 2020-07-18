@@ -73,32 +73,31 @@ class PurchaseProVC: UIViewController {
         
         // Check if user has already purchased
         Purchases.shared.restoreTransactions { (purchaserInfo, error) in
+            
             self.setState(loading: false)
             
-            if let purchaseRestoredHandler = self.delegate?.purchaseRestored {
-                // Restore successful
-                purchaseRestoredHandler(self, purchaserInfo, error)
-                self.showAlert(title: "Restored Purchase", message: "Welcome back! Let's start brewing.") { [weak self] in
-                    self?.dismiss(animated: true, completion: nil)
-                }
+            // Check for error
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription)
             } else {
-                // Restore unsuccessful, check if there was an error for reason
-                if let error = error {
-                    // There was an error
-                    self.showAlert(title: "Error", message: error.localizedDescription)
-                } else {
-                    // No error, check if user has made prior purchase
-                    if let purchaserInfo = purchaserInfo {
-                        if purchaserInfo.entitlements.active.isEmpty {
-                            self.showAlert(title: "Restore Unsuccessful", message: "No prior purchases found for your account.")
-                        } else {
-                            self.dismiss(animated: true, completion: nil)
+                // No error, check if user has made prior purchase
+                if let purchaserInfo = purchaserInfo {
+                    if purchaserInfo.entitlements.active.isEmpty {
+                        self.showAlert(title: "Restore Unsuccessful", message: "No prior purchases found for your account.")
+                    } else {
+                        self.showAlert(title: "Restore Successful", message: "...And we're back. Let's get brewing.") {
+                            self.dismiss(animated: true) {
+                                if let purchaseRestoredHandler = self.delegate?.purchaseRestored {
+                                    purchaseRestoredHandler(self, purchaserInfo, error)
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
+    
     
     @IBAction func getProTapped(_ sender: Any) {
         // Check if user is authorized to make purchases
@@ -111,35 +110,34 @@ class PurchaseProVC: UIViewController {
                     
                     self.setState(loading: false)
                     
-                    if purchaserInfo == nil {
-                        self.showAlert(message: "Error loading purchaser info. Are you signed in?")
-                        return
-                    }
-                    
-                    // Check for successful purchase
-                    if let purchaseCompleteHandler = self.delegate?.purchaseCompleted {
-                        purchaseCompleteHandler(self, transaction!, purchaserInfo!)
-                        
-                        self.showAlert(title: "FourSix Pro Purchased", message: "Thanks for your support! Enjoy all your Pro features.") { [weak self] in
-                            self?.dismiss(animated: true, completion: nil)
+                    if let error = error as NSError? {
+                        if !userCancelled {
+                            // Log error details
+                            print("Error: \(String(describing: error.userInfo[Purchases.ReadableErrorCodeKey]))")
+                            print("Message: \(error.localizedDescription)")
+                            print("Underlying Error: \(String(describing: error.userInfo[NSUnderlyingErrorKey]))")
+                            
+                            // Handle specific errors
+                            switch Purchases.ErrorCode(_nsError: error).code {
+                            case .purchaseNotAllowedError:
+                                self.showAlert(message: "Purchases not allowed on this device.")
+                            case .purchaseInvalidError:
+                                self.showAlert(message: "Purchase invalid, check payment source.")
+                            default:
+                                break
+                            }
                         }
-                    }
-                    
-                    // Check for errors
-                    if let err = error as NSError? {
-                        // Log error details
-                        print("Error: \(String(describing: err.userInfo[Purchases.ReadableErrorCodeKey]))")
-                        print("Message: \(err.localizedDescription)")
-                        print("Underlying Error: \(String(describing: err.userInfo[NSUnderlyingErrorKey]))")
-                        
-                        // Handle specific errors
-                        switch Purchases.ErrorCode(_nsError: err).code {
-                        case .purchaseNotAllowedError:
-                            self.showAlert(message: "Purchases not allowed on this device.")
-                        case .purchaseInvalidError:
-                            self.showAlert(message: "Purchase invalid, check payment source.")
-                        default:
-                            break
+                    } else {
+                        // Successful purchase
+                        if purchaserInfo?.entitlements["pro"]?.isActive == true {
+                            self.showAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Enjoy all your Pro features.") {
+                                [weak self] in
+                                self?.dismiss(animated: true, completion: {
+                                    if let purchaseCompleteHandler = self?.delegate?.purchaseCompleted {
+                                        purchaseCompleteHandler(self!, transaction!, purchaserInfo!)
+                                    }
+                                })
+                            }
                         }
                     }
                 }

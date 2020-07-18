@@ -27,7 +27,7 @@ struct Calculator {
         
         waterPours.append(contentsOf: repeatElement(water60Pour.rounded(), count: water60Count))
         
-        recipe = Recipe(waterTotal: water, coffee: coffee, waterPours: waterPours, balance: balance, strength: strength)
+        recipe = Recipe(coffee: coffee, waterTotal: water, waterPours: waterPours, balance: balance, strength: strength)
     }
     
     func getPours() -> [Float] {
@@ -39,7 +39,7 @@ struct Calculator {
     }
     
     func getRecipe() -> Recipe {
-        return recipe ?? Recipe(waterTotal: 300, coffee: 20, waterPours: [60, 60, 60, 60, 60], balance: .neutral, strength: .medium)
+        return recipe ?? Recipe(coffee: 20, waterTotal: 300, waterPours: [60, 60, 60, 60, 60], balance: .neutral, strength: .medium)
     }
     
 }
