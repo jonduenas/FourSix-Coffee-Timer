@@ -24,7 +24,7 @@ extension UIViewController {
     
     // Show FourSix Pro Popup
     func showProPopup(delegate: PaywallDelegate) {
-        let sb = UIStoryboard(name: IAPManager.proPopUpSBName, bundle: nil)
+        let sb = UIStoryboard(name: IAPManager.shared.proPopUpSBName, bundle: nil)
         let popup = sb.instantiateInitialViewController() as! PurchaseProVC
         popup.delegate = delegate
         self.present(popup, animated: true)

@@ -83,7 +83,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     }
     
     func checkForPro() {
-        if IAPManager.isUserPro() {
+        if IAPManager.shared.userIsPro() {
             enableProFeatures(true)
         } else {
             enableProFeatures(false)
@@ -103,19 +103,19 @@ class BrewVC: UIViewController, PaywallDelegate {
         }
     }
     
-    func purchaseCompleted(paywall: PurchaseProVC, transaction: SKPaymentTransaction, purchaserInfo: Purchases.PurchaserInfo) {
-        if purchaserInfo.entitlements["pro"]?.isActive == true {
-            enableProFeatures(true)
-        }
+    func purchaseCompleted() {
+        checkForPro()
     }
     
-    func purchaseRestored(paywall: PurchaseProVC, purchaserInfo: Purchases.PurchaserInfo?, error: Error?) {
-        if purchaserInfo?.entitlements["pro"]?.isActive == true {
-            enableProFeatures(true)
-        }
+    func purchaseRestored() {
+        checkForPro()
     }
     
-    //MARK: UI Methods
+    private func calculateWater() {
+        water = (coffee * Float(ratio)).rounded()
+    }
+    
+    //MARK: IBActions
     
     @IBAction func editTapped(_ sender: UIButton) {
         showProPopup(delegate: self)
@@ -126,10 +126,6 @@ class BrewVC: UIViewController, PaywallDelegate {
         let currentValue = slider.value
         
         coffee = currentValue.rounded()
-    }
-    
-    private func calculateWater() {
-        water = (coffee * Float(ratio)).rounded()
     }
     
     @IBAction func balanceChanged(_ sender: Any) {

@@ -76,19 +76,23 @@ class SettingsVC: UITableViewController, PaywallDelegate {
         }
     }
     
-    func purchaseCompleted(paywall: PurchaseProVC, transaction: SKPaymentTransaction, purchaserInfo: Purchases.PurchaserInfo) {
-        if purchaserInfo.entitlements["pro"]?.isActive == true {
-            enablePro(true)
+    func checkForPro() {
+        if IAPManager.shared.userIsPro() {
+            enableProFeatures(true)
+        } else {
+            enableProFeatures(false)
         }
     }
     
-    func purchaseRestored(paywall: PurchaseProVC, purchaserInfo: Purchases.PurchaserInfo?, error: Error?) {
-        if purchaserInfo?.entitlements["pro"]?.isActive == true {
-            enablePro(true)
-        }
+    func purchaseCompleted() {
+        checkForPro()
     }
     
-    private func enablePro(_ enable: Bool) {
+    func purchaseRestored() {
+        checkForPro()
+    }
+    
+    private func enableProFeatures(_ enable: Bool) {
         if enable {
             tableView.reloadData()
         }
@@ -102,28 +106,28 @@ class SettingsVC: UITableViewController, PaywallDelegate {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 // Purchase FourSix Pro
-                if IAPManager.isUserPro() {
+                if IAPManager.shared.userIsPro() {
                     return 0
                 } else {
                     return UITableView.automaticDimension
                 }
             } else if indexPath.row == 1 {
                 // Restore Purchase
-                if IAPManager.isUserPro() {
+                if IAPManager.shared.userIsPro() {
                     return 0.25 // Keeps top border of section
                 } else {
                     return UITableView.automaticDimension
                 }
             } else if indexPath.row == 2 {
                 // Coffee:Water Ratio
-                if IAPManager.isUserPro() {
+                if IAPManager.shared.userIsPro() {
                     return UITableView.automaticDimension
                 } else {
                     return 0
                 }
             } else if indexPath.row == 3 {
                 // Timer Auto-Advance
-                if IAPManager.isUserPro() {
+                if IAPManager.shared.userIsPro() {
                     return UITableView.automaticDimension
                 } else {
                     return 0
@@ -143,25 +147,17 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                 let ac = UIAlertController(title: "Restore FourSix Pro", message: "Would you like to restore your previous purchase of FourSix Pro?", preferredStyle: .alert)
                 ac.addAction(cancelAction)
                 ac.addAction(UIAlertAction(title: "Restore", style: .default, handler: { _ in
-                    Purchases.shared.restoreTransactions { (purchaserInfo, error) in
-                        if let error = error {
-                            self.showAlert(title: "Error", message: error.localizedDescription)
+                    IAPManager.shared.restorePurchases { (success, error) in
+                        if error != nil {
+                            self.showAlert(title: "Error", message: error!)
                         } else {
-                            // No error, check if user has made prior purchase
-                            if let purchaserInfo = purchaserInfo {
-                                if purchaserInfo.entitlements.active.isEmpty {
-                                    self.showAlert(title: "Restore Unsuccessful", message: "No prior purchases found for your account.")
-                                } else {
-                                    self.showAlert(title: "Restore Successful", message: "...And we're back. Let's get brewing.") { [weak self] in
-                                        self?.enablePro(true)
-                                    }
-                                }
+                            self.showAlert(title: "Restore Successful", message: "...And we're back! Let's get brewing.") {
+                                self.purchaseRestored()
                             }
                         }
                     }
                 }))
                 present(ac, animated: true, completion: nil)
-            
             } else if indexPath.row == 2 {
                 // Coffee:Water Ratio
                 let ac = UIAlertController(title: "Coffee:Water Ratio", message: "Lower numbers = stronger coffee.", preferredStyle: .actionSheet)
@@ -220,6 +216,8 @@ class SettingsVC: UITableViewController, PaywallDelegate {
         }
     }
     
+    //MARK: IBActions
+    
     @IBAction func showTotalTimeSwitched(_ sender: UISwitch) {
         if showTotalTimeSwitch.isOn {
             UserDefaultsManager.totalTimeShown = true
@@ -238,7 +236,7 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                 } else {
                     self_.delegate.ratio = UserDefaultsManager.ratio
                 }
-                if IAPManager.isUserPro() {
+                if IAPManager.shared.userIsPro() {
                     self_.delegate.checkForPro()
                 }
             }

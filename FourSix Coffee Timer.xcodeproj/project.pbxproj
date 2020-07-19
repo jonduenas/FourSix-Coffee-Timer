@@ -45,22 +45,11 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
-		65D690C924C2570100E7E5AB /* FourSixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D690C824C2570100E7E5AB /* FourSixTests.swift */; };
 		65E86D9F24BA216700F0E203 /* StoreKitConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65E86D9E24BA216700F0E203 /* StoreKitConfiguration.storekit */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
 		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
 		7809654740865E175362B9C9 /* Pods_FourSix_Coffee_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		65D690CB24C2570100E7E5AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 652756372475B138004E067F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6527563E2475B138004E067F;
-			remoteInfo = "FourSix Coffee Timer";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,9 +93,6 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
-		65D690C624C2570100E7E5AB /* FourSixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		65D690C824C2570100E7E5AB /* FourSixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSixTests.swift; sourceTree = "<group>"; };
-		65D690CA24C2570100E7E5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E86D9E24BA216700F0E203 /* StoreKitConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfiguration.storekit; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -125,13 +111,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65D690C324C2570100E7E5AB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -139,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				652756412475B138004E067F /* FourSix Coffee Timer */,
-				65D690C724C2570100E7E5AB /* FourSixTests */,
 				652756402475B138004E067F /* Products */,
 				6572EE722492A0C5008AAD56 /* Frameworks */,
 				DB8B806FFE40500727875B03 /* Pods */,
@@ -150,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				6527563F2475B138004E067F /* FourSix.app */,
-				65D690C624C2570100E7E5AB /* FourSixTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,15 +198,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		65D690C724C2570100E7E5AB /* FourSixTests */ = {
-			isa = PBXGroup;
-			children = (
-				65D690C824C2570100E7E5AB /* FourSixTests.swift */,
-				65D690CA24C2570100E7E5AB /* Info.plist */,
-			);
-			path = FourSixTests;
-			sourceTree = "<group>";
-		};
 		65FB6547249C18A100ED732F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,24 +245,6 @@
 			productReference = 6527563F2475B138004E067F /* FourSix.app */;
 			productType = "com.apple.product-type.application";
 		};
-		65D690C524C2570100E7E5AB /* FourSixTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 65D690CF24C2570100E7E5AB /* Build configuration list for PBXNativeTarget "FourSixTests" */;
-			buildPhases = (
-				65D690C224C2570100E7E5AB /* Sources */,
-				65D690C324C2570100E7E5AB /* Frameworks */,
-				65D690C424C2570100E7E5AB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				65D690CC24C2570100E7E5AB /* PBXTargetDependency */,
-			);
-			name = FourSixTests;
-			productName = FourSixTests;
-			productReference = 65D690C624C2570100E7E5AB /* FourSixTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,10 +257,6 @@
 				TargetAttributes = {
 					6527563E2475B138004E067F = {
 						CreatedOnToolsVersion = 11.4.1;
-					};
-					65D690C524C2570100E7E5AB = {
-						CreatedOnToolsVersion = 12.0;
-						TestTargetID = 6527563E2475B138004E067F;
 					};
 				};
 			};
@@ -328,7 +274,6 @@
 			projectRoot = "";
 			targets = (
 				6527563E2475B138004E067F /* FourSix Coffee Timer */,
-				65D690C524C2570100E7E5AB /* FourSixTests */,
 			);
 		};
 /* End PBXProject section */
@@ -348,13 +293,6 @@
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
 				6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */,
 				652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65D690C424C2570100E7E5AB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,23 +395,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65D690C224C2570100E7E5AB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				65D690C924C2570100E7E5AB /* FourSixTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		65D690CC24C2570100E7E5AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6527563E2475B138004E067F /* FourSix Coffee Timer */;
-			targetProxy = 65D690CB24C2570100E7E5AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		652756482475B138004E067F /* Main.storyboard */ = {
@@ -669,50 +591,6 @@
 			};
 			name = Release;
 		};
-		65D690CD24C2570100E7E5AB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XWQQ29E97Q;
-				INFOPLIST_FILE = FourSixTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jonduenas.FourSixTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FourSix.app/FourSix";
-			};
-			name = Debug;
-		};
-		65D690CE24C2570100E7E5AB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XWQQ29E97Q;
-				INFOPLIST_FILE = FourSixTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jonduenas.FourSixTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FourSix.app/FourSix";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -730,15 +608,6 @@
 			buildConfigurations = (
 				652756542475B13B004E067F /* Debug */,
 				652756552475B13B004E067F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		65D690CF24C2570100E7E5AB /* Build configuration list for PBXNativeTarget "FourSixTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				65D690CD24C2570100E7E5AB /* Debug */,
-				65D690CE24C2570100E7E5AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

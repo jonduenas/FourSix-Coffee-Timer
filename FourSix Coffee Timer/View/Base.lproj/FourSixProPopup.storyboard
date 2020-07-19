@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B7I-HA-IVP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B7I-HA-IVP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="19" width="344" height="456"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FourSix Pro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8J-yl-bFJ">
-                                                <rect key="frame" x="125" y="0.0" width="94" height="20.5"/>
+                                                <rect key="frame" x="125" y="0.0" width="94.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -60,8 +57,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lUN-1N-4yk">
                                                 <rect key="frame" x="72" y="358" width="200" height="98"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNI-sE-0ZM">
-                                                        <rect key="frame" x="33" y="0.0" width="134" height="33"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNI-sE-0ZM">
+                                                        <rect key="frame" x="32.5" y="0.0" width="135" height="33"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="tintColor" name="Accent"/>
                                                         <state key="normal" title="Restore Purchase"/>
@@ -69,7 +66,7 @@
                                                             <action selector="restorePurchaseTapped:" destination="B7I-HA-IVP" eventType="touchUpInside" id="iSM-0s-ATE"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9B-Uz-27Z" customClass="LoadingButton" customModule="FourSix" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9B-Uz-27Z" customClass="LoadingButton" customModule="FourSix" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="48" width="200" height="50"/>
                                                         <color key="backgroundColor" name="Accent"/>
                                                         <constraints>
@@ -77,7 +74,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="wqk-CZ-6ua"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="tintColor" systemColor="linkColor"/>
+                                                        <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Get Pro for $1.99">
                                                             <color key="titleColor" name="Background"/>
                                                         </state>
@@ -107,8 +104,8 @@
                                             <constraint firstAttribute="width" constant="26" id="lhA-Ze-Jj5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                        <state key="normal" image="xmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                         </state>
                                         <connections>
                                             <action selector="closeTapped:" destination="B7I-HA-IVP" eventType="touchUpInside" id="Szb-gA-puF"/>
@@ -133,7 +130,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="PdB-bw-55J"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.66684503424657549" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PdB-bw-55J" firstAttribute="trailing" secondItem="dtf-Uk-hEO" secondAttribute="trailing" constant="35" id="1Gi-zU-sk0"/>
@@ -141,6 +137,7 @@
                             <constraint firstItem="dtf-Uk-hEO" firstAttribute="centerY" secondItem="A0D-2u-1tL" secondAttribute="centerY" id="sfd-ss-kEe"/>
                             <constraint firstItem="dtf-Uk-hEO" firstAttribute="leading" secondItem="PdB-bw-55J" secondAttribute="leading" constant="35" id="yIt-2O-tpe"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="PdB-bw-55J"/>
                     </view>
                     <navigationItem key="navigationItem" id="UqS-yU-A0u"/>
                     <connections>
@@ -157,12 +154,7 @@
             <point key="canvasLocation" x="3986.9565217391309" y="138.61607142857142"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="U9B-Uz-27Z">
-            <size key="intrinsicContentSize" width="130" height="33"/>
-        </designable>
-    </designables>
-    <color key="tintColor" systemColor="secondaryLabelColor"/>
+    <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="cup" width="200" height="296.5"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
@@ -172,11 +164,5 @@
         <namedColor name="Background">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
