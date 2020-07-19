@@ -45,7 +45,6 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
-		65E86D9F24BA216700F0E203 /* StoreKitConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65E86D9E24BA216700F0E203 /* StoreKitConfiguration.storekit */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
 		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
 		7809654740865E175362B9C9 /* Pods_FourSix_Coffee_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */; };
@@ -93,7 +92,6 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
-		65E86D9E24BA216700F0E203 /* StoreKitConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfiguration.storekit; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				6559A03324BD1B5A00AE4C14 /* IAPManager.swift */,
-				65E86D9E24BA216700F0E203 /* StoreKitConfiguration.storekit */,
 				6529E11C249FF2E30093FAE1 /* howto.rtf */,
 				6529E118249FECC60093FAE1 /* troubleshooting.rtf */,
 				651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */,
@@ -286,7 +283,6 @@
 				6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */,
 				6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */,
 				6529E119249FECC60093FAE1 /* troubleshooting.rtf in Resources */,
-				65E86D9F24BA216700F0E203 /* StoreKitConfiguration.storekit in Resources */,
 				6527564C2475B13B004E067F /* Assets.xcassets in Resources */,
 				6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */,
 				6527564A2475B138004E067F /* Main.storyboard in Resources */,

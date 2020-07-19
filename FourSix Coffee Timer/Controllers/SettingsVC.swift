@@ -210,7 +210,7 @@ class SettingsVC: UITableViewController, PaywallDelegate {
         if section == 2 {
             let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
             let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-            return "v\(appVersionString)-beta.\(buildNumber)"
+            return "v\(appVersionString) (\(buildNumber))"
         } else {
             return nil
         }

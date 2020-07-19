@@ -37,16 +37,14 @@ class PurchaseProVC: UIViewController {
     
     private func loadOfferings() {
         
-        self.setState(loading: true)
-        
         IAPManager.shared.loadOfferings { (succeeded, error) in
             
-            self.setState(loading: false)
-            
             if error != nil {
-                self.showAlert(title: "Error", message: "Error loading products: \(error!)") { [weak self] in
-                    self?.dismiss(animated: true, completion: nil)
-                }
+                self.titleLabel.text = "Error"
+                self.subtitleLabel.text = error
+                self.featureListLabel.text = ""
+                self.restoreButton.isEnabled = false
+                self.purchaseButton.isHidden = true
             } else {
                 self.productPrice = IAPManager.shared.productPrice
                 self.productName = IAPManager.shared.productName
