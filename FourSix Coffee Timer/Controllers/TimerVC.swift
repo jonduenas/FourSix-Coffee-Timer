@@ -11,6 +11,10 @@ import AVFoundation
 
 class TimerVC: UIViewController {
     
+    deinit {
+        print("vc cleared")
+    }
+    
     private enum Constants {
         static let timerInterval: TimeInterval = 0.25
     }
@@ -38,7 +42,7 @@ class TimerVC: UIViewController {
     var recipeIndex = 0
     var currentWater: Float = 0
     
-    var chimeNotification: AVAudioPlayer?
+    private var audioPlayer: AVAudioPlayer?
     
     init?(coder: NSCoder, recipe: Recipe) {
         self.recipe = recipe
@@ -64,20 +68,33 @@ class TimerVC: UIViewController {
         }
         
         updateWeightLabels()
+        
+        initializeSoundFile()
+    }
+    
+    private func initializeSoundFile() {
+        guard let sound = Bundle.main.path(forResource: "custom-notification", ofType: "mp3") else { return }
+        let url = URL(fileURLWithPath: sound)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     // MARK: Button methods
     
     @IBAction func xTapped(_ sender: Any) {
-        let ac = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
+        let alert = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
             self?.timer?.invalidate()
             self?.timer = nil
             UIApplication.shared.isIdleTimerDisabled = false
             self?.dismiss(animated: true)
         }))
-        present(ac, animated: true)        
+        present(alert, animated: true)        
     }
     
     @IBAction func playPauseTapped(_ sender: Any) {
@@ -123,7 +140,7 @@ class TimerVC: UIViewController {
     }
     
     private func nextStep() {
-        playAudioNotification()
+        audioPlayer?.play()
         stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
 
         coffeeTimer.nextStep()
@@ -138,11 +155,11 @@ class TimerVC: UIViewController {
     private func showEndAC() {
         let averageStepTime = stepsActualTime.reduce(0, +) / Double(stepsActualTime.count)
         
-        let ac = UIAlertController(title: "Done!", message: "Total time elapsed was \(coffeeTimer.totalElapsedTime.stringFromTimeInterval()).\nAverage time for each step was \(averageStepTime.stringFromTimeInterval()).", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+        let alert = UIAlertController(title: "Done!", message: "Total time elapsed was \(coffeeTimer.totalElapsedTime.stringFromTimeInterval()).\nAverage time for each step was \(averageStepTime.stringFromTimeInterval()).", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
             self?.dismiss(animated: true)
         }))
-        present(ac, animated: true)
+        present(alert, animated: true)
     }
     
     // MARK: Timer methods
@@ -168,7 +185,7 @@ class TimerVC: UIViewController {
                 self.nextButton.alpha = 1
             }
             
-            playAudioNotification()
+            audioPlayer?.play()
         } else {
             print("Attempting to start new timer when timer state is not new.")
         }
@@ -208,7 +225,6 @@ class TimerVC: UIViewController {
                 
                 updateProgress()
             }
-            
         }
     }
     
@@ -224,26 +240,13 @@ class TimerVC: UIViewController {
     }
     
     private func endTimer() {
-        playAudioNotification()
+        audioPlayer?.play()
         
         timer?.invalidate()
         timer = nil
         UIApplication.shared.isIdleTimerDisabled = false
         
         showEndAC()
-    }
-    
-    func playAudioNotification() {
-        let path = Bundle.main.path(forResource: "custom-notification.mp3", ofType: nil)!
-        let url = URL(fileURLWithPath: path)
-
-        do {
-            chimeNotification = try AVAudioPlayer(contentsOf: url)
-            chimeNotification?.play()
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     private func countdownStart() {
@@ -253,6 +256,8 @@ class TimerVC: UIViewController {
         playPauseButton.setTitleColor(UIColor.systemGray2, for: .normal)
         playPauseButton.contentHorizontalAlignment = .center
         playPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 38)
+        
+        audioPlayer?.prepareToPlay()
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }

@@ -52,7 +52,7 @@ class IAPManager: NSObject {
     func purchase(package: Purchases.Package, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
         if Purchases.canMakePayments() {
             
-            Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+            Purchases.shared.purchasePackage(package) { (_, purchaserInfo, error, userCancelled) in
                 if let error = error as NSError? {
                     if !userCancelled {
                         // Log error details
@@ -123,6 +123,4 @@ class IAPManager: NSObject {
         }
         return proUser
     }
-    
-
 }

@@ -337,7 +337,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-FK-Orn">
+                            <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-FK-Orn">
                                 <rect key="frame" x="0.0" y="5" width="414" height="250"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -678,6 +678,29 @@ Get in touch on Twitter - @jonduenas.</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Tp9-J4-xae">
+                                        <rect key="frame" x="0.0" y="158.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tp9-J4-xae" id="Ca8-XC-Dtl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgment 4" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9G-ib-IyB">
+                                                    <rect key="frame" x="20" y="11" width="374" height="23"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="s9G-ib-IyB" secondAttribute="trailing" id="3P0-VF-vaw"/>
+                                                <constraint firstAttribute="bottom" secondItem="s9G-ib-IyB" secondAttribute="bottom" constant="10" id="Fm2-a8-oky"/>
+                                                <constraint firstItem="s9G-ib-IyB" firstAttribute="top" secondItem="Ca8-XC-Dtl" secondAttribute="topMargin" id="len-AG-9w5"/>
+                                                <constraint firstItem="s9G-ib-IyB" firstAttribute="leading" secondItem="Ca8-XC-Dtl" secondAttribute="leadingMargin" id="yJL-Dz-QcU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -691,6 +714,7 @@ Get in touch on Twitter - @jonduenas.</string>
                         <outlet property="ackLabel1" destination="r43-6G-sOR" id="lxN-N9-YV3"/>
                         <outlet property="ackLabel2" destination="5M4-Oa-EDo" id="7Tn-az-wb0"/>
                         <outlet property="ackLabel3" destination="ja2-TI-xCi" id="QSo-OW-NYZ"/>
+                        <outlet property="ackLabel4" destination="s9G-ib-IyB" id="u9O-ik-bOL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Awi-2n-4aj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

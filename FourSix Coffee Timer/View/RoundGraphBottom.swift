@@ -40,4 +40,3 @@ class RoundGraphBottom: UIView {
         layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
 }
-

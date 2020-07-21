@@ -12,13 +12,14 @@ import Purchases
 
 class BrewVC: UIViewController, PaywallDelegate {
     
-    //MARK: Constants
+    // MARK: Constants
     let balanceDict: [Balance: Int] = [.sweet: 0, .neutral: 1, .bright: 2]
     let strengthDict: [Strength: Int] = [.light: 0, .medium: 1, .strong: 2]
     let coffeeMin: Float = 15
     let coffeeMax: Float = 30
+    let selectionFeedback = UISelectionFeedbackGenerator()
     
-    //MARK: Variables
+    // MARK: Variables
     var calculator = Calculator()
     var balance: Balance = .neutral
     var strength: Strength = .medium
@@ -40,7 +41,7 @@ class BrewVC: UIViewController, PaywallDelegate {
         }
     }
     
-    //MARK: IBOutlets
+    // MARK: IBOutlets
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
     
@@ -61,10 +62,8 @@ class BrewVC: UIViewController, PaywallDelegate {
         coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         
-        slider.setValue(coffeeMin, animated: false)
-        
+        initializeSlider()
         initializeSelectors()
-        
         checkForPro()
     }
     
@@ -88,6 +87,12 @@ class BrewVC: UIViewController, PaywallDelegate {
         } else {
             enableProFeatures(false)
         }
+    }
+    
+    private func initializeSlider() {
+        slider.minimum = coffeeMin
+        slider.maximum = coffeeMax
+        slider.setValue(coffeeMin, animated: false)
     }
     
     private func initializeSelectors() {
@@ -115,12 +120,11 @@ class BrewVC: UIViewController, PaywallDelegate {
         water = (coffee * Float(ratio)).rounded()
     }
     
-    //MARK: IBActions
+    // MARK: IBActions
     
     @IBAction func editTapped(_ sender: UIButton) {
         showProPopup(delegate: self)
     }
-    
     
     @IBAction func sliderChanged(_ sender: TactileSlider) {
         let currentValue = slider.value
@@ -130,8 +134,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     
     @IBAction func balanceChanged(_ sender: Any) {
         // Haptic feedback
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.impactOccurred()
+        selectionFeedback.selectionChanged()
         
         if balanceSelect.selectedSegmentIndex == 0 {
             print("Sweet")
@@ -152,8 +155,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     
     @IBAction func strengthChanged(_ sender: Any) {
         // Haptic feedback
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.impactOccurred()
+        selectionFeedback.selectionChanged()
         
         if strengthSelect.selectedSegmentIndex == 0 {
             print("Light")
@@ -177,7 +179,7 @@ class BrewVC: UIViewController, PaywallDelegate {
         calculator.calculate(balance, strength, with: coffee, water)
     }
     
-    //MARK: Navigation Methods
+    // MARK: Navigation Methods
     
     @IBSegueAction
     func makeRecipeViewController(coder: NSCoder) -> UIViewController? {
@@ -189,7 +191,7 @@ class BrewVC: UIViewController, PaywallDelegate {
         SettingsVC(coder: coder, delegate: self)
     }
     
-    //MARK: UserDefaults
+    // MARK: UserDefaults
     
     fileprivate func loadUserDefaults() {
         let rawBalance = UserDefaultsManager.previousSelectedBalance

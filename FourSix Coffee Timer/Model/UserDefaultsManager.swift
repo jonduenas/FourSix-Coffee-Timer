@@ -12,7 +12,7 @@ class UserDefaultsManager: NSObject {
     
     private static let userDefaults = UserDefaults.standard
     
-    //MARK: Key Values
+    // MARK: Key Values
     private static let didPurchaseProKey = "didPurchaseProKey"
     private static let totalTimeShownKey = "totalTimeShownKey"
     private static let timerStepAdvanceKey = "timerStepAdvanceKey"
@@ -22,7 +22,7 @@ class UserDefaultsManager: NSObject {
     private static let previousSelectedStrengthKey = "previousSelectedStrengthKey"
     private static let userHasSeenWalkthroughKey = "userHasSeenWalkthroughKey"
     
-    //MARK: Variables
+    // MARK: Variables
     
     static var didPurchasePro: Bool {
         get {

@@ -11,7 +11,7 @@ import Purchases
 
 extension UIViewController {
     
-    func showAlert(title: String = "", message: String, afterConfirm: (() -> ())? = nil) {
+    func showAlert(title: String = "", message: String, afterConfirm: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
             if let action = afterConfirm {
@@ -24,15 +24,15 @@ extension UIViewController {
     
     // Show FourSix Pro Popup
     func showProPopup(delegate: PaywallDelegate) {
-        let sb = UIStoryboard(name: IAPManager.shared.proPopUpSBName, bundle: nil)
-        let popup = sb.instantiateInitialViewController() as! PurchaseProVC
+        let storyboard = UIStoryboard(name: IAPManager.shared.proPopUpSBName, bundle: nil)
+        guard let popup = storyboard.instantiateInitialViewController() as? PurchaseProVC else { return }
         popup.delegate = delegate
         self.present(popup, animated: true)
     }
     
     // Makes navigation controller bar clear and removes the shadow
     func clearNavigationBar() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
     }

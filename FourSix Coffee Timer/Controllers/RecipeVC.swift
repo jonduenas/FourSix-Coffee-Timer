@@ -130,7 +130,6 @@ class RecipeVC: UIViewController {
         
     }
     
-    
     // MARK: - Navigation
 
     @IBSegueAction
@@ -141,6 +140,4 @@ class RecipeVC: UIViewController {
     @IBAction func closeTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
-    
-    
 }

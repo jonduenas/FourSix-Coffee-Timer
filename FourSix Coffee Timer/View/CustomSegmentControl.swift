@@ -17,7 +17,7 @@ extension UISegmentedControl {
     
     func setFontMedium() {
         let font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        
+    
         setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
     }
     

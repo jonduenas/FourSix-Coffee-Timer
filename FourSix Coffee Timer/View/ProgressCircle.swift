@@ -42,7 +42,7 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         layoutProgressBar()
     }
     
-    //MARK: Draw Circle Methods
+    // MARK: Draw Circle Methods
     
     private func createCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor, strokeEnd: CGFloat) -> CAShapeLayer {
         let layer = CAShapeLayer()
@@ -69,7 +69,8 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
     }
     
     private func layoutProgressBar() {
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: (self.frame.size.height / 2) - 10, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+        let radius = (self.frame.size.height / 2) - 10
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: radius, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
         
         trackLayer.path = circularPath.cgPath
         progressLayer.path = circularPath.cgPath
@@ -80,9 +81,9 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         trackLayer.position = center
     }
     
-    //MARK: Animation Methods
+    // MARK: Animation Methods
     
-    func animateProgress(from start: CGFloat, to end: CGFloat, duration: TimeInterval, completion: (() -> ())? = nil) {
+    func animateProgress(from start: CGFloat, to end: CGFloat, duration: TimeInterval, completion: (() -> Void)? = nil) {
         
         isAnimating = true
         let fromProgress = (0...1).clamp(value: start)
@@ -136,7 +137,7 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         }
     }
     
-    //MARK: Update colors on dark mode toggle
+    // MARK: Update colors on dark mode toggle
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
@@ -154,13 +155,13 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
 // MARK: Extensions
 
 extension Int {
-    var degreesToRadians : CGFloat {
+    var degreesToRadians: CGFloat {
         return CGFloat(self) * .pi / 180
     }
 }
 
 extension ClosedRange {
-    func clamp(value : Bound) -> Bound {
+    func clamp(value: Bound) -> Bound {
         return lowerBound > value ? lowerBound : (upperBound < value ? upperBound : value)
     }
 }

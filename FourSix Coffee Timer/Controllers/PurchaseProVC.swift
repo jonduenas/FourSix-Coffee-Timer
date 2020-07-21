@@ -16,7 +16,7 @@ import UIKit
 
 class PurchaseProVC: UIViewController {
     
-    var delegate: PaywallDelegate?
+    weak var delegate: PaywallDelegate?
     var productPrice: String?
     var productName: String?
     var productDescription: String?
@@ -37,7 +37,7 @@ class PurchaseProVC: UIViewController {
     
     private func loadOfferings() {
         
-        IAPManager.shared.loadOfferings { (succeeded, error) in
+        IAPManager.shared.loadOfferings { (_, error) in
             
             if error != nil {
                 self.titleLabel.text = "Error"
@@ -61,7 +61,7 @@ class PurchaseProVC: UIViewController {
         
         setState(loading: true)
         
-        IAPManager.shared.restorePurchases { (succeeded, error) in
+        IAPManager.shared.restorePurchases { (_, error) in
             
             self.setState(loading: false)
             

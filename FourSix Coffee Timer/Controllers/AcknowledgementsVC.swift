@@ -13,6 +13,7 @@ class AcknowledgementsVC: UITableViewController {
     @IBOutlet var ackLabel1: UILabel!
     @IBOutlet var ackLabel2: UILabel!
     @IBOutlet var ackLabel3: UILabel!
+    @IBOutlet var ackLabel4: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,8 @@ class AcknowledgementsVC: UITableViewController {
         
         ackLabel1.text = "4:6 Method invented by Tetsu Kasuya."
         ackLabel2.text = "Timer sound effect is \"Up Chime 2\" by FoolBoyMedia used under Creative Commons Attribution License 3.0."
-        ackLabel3.text = "TactileSlider Copyright (c) 2020 Dale Price <daprice@mac.com>, used under the MIT License, details of which can be found in System Settings."
+        ackLabel3.text = "TactileSlider Copyright (c) 2020 Dale Price <daprice@mac.com>, used under the MIT License, details of which can be found in System Settings > FourSix."
+        ackLabel4.text = "Purchases Copyright (c) 2017 Jacob Eiting, used under the MIT License, details of which can be found in System Settings > FourSix."
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
