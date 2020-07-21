@@ -11,10 +11,6 @@ import AVFoundation
 
 class TimerVC: UIViewController {
     
-    deinit {
-        print("vc cleared")
-    }
-    
     private enum Constants {
         static let timerInterval: TimeInterval = 0.25
     }
@@ -72,6 +68,11 @@ class TimerVC: UIViewController {
         initializeSoundFile()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
     private func initializeSoundFile() {
         guard let sound = Bundle.main.path(forResource: "custom-notification", ofType: "mp3") else { return }
         let url = URL(fileURLWithPath: sound)
@@ -82,16 +83,21 @@ class TimerVC: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    private func playSoundWithVibrate() {
+        guard let audioPlayer = audioPlayer else { return }
+        audioPlayer.play()
+        UIDevice.vibrate()
+    }
 
     // MARK: Button methods
     
-    @IBAction func xTapped(_ sender: Any) {
+    @IBAction func closeTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
             self?.timer?.invalidate()
             self?.timer = nil
-            UIApplication.shared.isIdleTimerDisabled = false
             self?.dismiss(animated: true)
         }))
         present(alert, animated: true)        
@@ -140,7 +146,7 @@ class TimerVC: UIViewController {
     }
     
     private func nextStep() {
-        audioPlayer?.play()
+        playSoundWithVibrate()
         stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
 
         coffeeTimer.nextStep()
@@ -185,7 +191,7 @@ class TimerVC: UIViewController {
                 self.nextButton.alpha = 1
             }
             
-            audioPlayer?.play()
+            playSoundWithVibrate()
         } else {
             print("Attempting to start new timer when timer state is not new.")
         }
@@ -240,7 +246,7 @@ class TimerVC: UIViewController {
     }
     
     private func endTimer() {
-        audioPlayer?.play()
+        playSoundWithVibrate()
         
         timer?.invalidate()
         timer = nil
@@ -276,5 +282,11 @@ class TimerVC: UIViewController {
                 startNewTimer()
             }
         }
+    }
+}
+
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
     }
 }

@@ -550,7 +550,7 @@
                     <navigationItem key="navigationItem" id="OqC-Ai-lHe">
                         <barButtonItem key="leftBarButtonItem" title="Close" image="xmark" catalog="system" id="Om7-G6-0si">
                             <connections>
-                                <action selector="xTapped:" destination="I6i-1q-bNY" id="FHW-vR-Sbb"/>
+                                <action selector="closeTapped:" destination="I6i-1q-bNY" id="FHW-vR-Sbb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
