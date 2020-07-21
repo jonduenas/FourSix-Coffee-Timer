@@ -25,7 +25,7 @@
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
 		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
 		652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652C95E424B28E3B00B471C8 /* Settings.storyboard */; };
-		65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Double+clean.swift */; };
+		65315ADE249ADB4D00994E28 /* Clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
 		6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6557571424A673C00071DDB8 /* ProgressCircle.swift */; };
@@ -73,7 +73,7 @@
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
 		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		65315ADD249ADB4D00994E28 /* Double+clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+clean.swift"; sourceTree = "<group>"; };
+		65315ADD249ADB4D00994E28 /* Clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.swift; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/View/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
@@ -136,18 +136,43 @@
 		652756412475B138004E067F /* FourSix Coffee Timer */ = {
 			isa = PBXGroup;
 			children = (
-				65315ADD249ADB4D00994E28 /* Double+clean.swift */,
+				654B2F3924C78C2600AA3A7C /* Assets */,
+				654B2F3B24C78C9C00AA3A7C /* Extensions */,
 				652756422475B138004E067F /* AppDelegate.swift */,
-				6522A40D24A955EB00583547 /* custom-notification.mp3 */,
 				652756442475B138004E067F /* SceneDelegate.swift */,
 				6518D13424B4FADE00F786C4 /* Settings.bundle */,
 				65FB6547249C18A100ED732F /* Model */,
 				65AFC1FB249D55A300576AFA /* View */,
 				65AFC1FC249D5A0800576AFA /* Controllers */,
-				6527564B2475B13B004E067F /* Assets.xcassets */,
 				652756502475B13B004E067F /* Info.plist */,
 			);
 			path = "FourSix Coffee Timer";
+			sourceTree = "<group>";
+		};
+		654B2F3924C78C2600AA3A7C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				654B2F3A24C78C4500AA3A7C /* Sounds */,
+				6527564B2475B13B004E067F /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		654B2F3A24C78C4500AA3A7C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				6522A40D24A955EB00583547 /* custom-notification.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		654B2F3B24C78C9C00AA3A7C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				65315ADD249ADB4D00994E28 /* Clean.swift */,
+				6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		6572EE722492A0C5008AAD56 /* Frameworks */ = {
@@ -168,7 +193,6 @@
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				652756482475B138004E067F /* Main.storyboard */,
 				652C95E424B28E3B00B471C8 /* Settings.storyboard */,
-				6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */,
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
 				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
@@ -378,7 +402,7 @@
 				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
-				65315ADE249ADB4D00994E28 /* Double+clean.swift in Sources */,
+				65315ADE249ADB4D00994E28 /* Clean.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
@@ -553,7 +577,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -575,7 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

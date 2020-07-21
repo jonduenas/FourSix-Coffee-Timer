@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Configure RevenueCat with public API key
-        Purchases.debugLogsEnabled = true
+        Purchases.debugLogsEnabled = false
         Purchases.configure(withAPIKey: "dDIhCeApJetzFIZVnXDjcLxLTPTjIoyr")
         
         //change appearance of page control
