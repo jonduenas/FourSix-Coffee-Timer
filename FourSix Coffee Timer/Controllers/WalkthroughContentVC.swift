@@ -12,6 +12,7 @@ class WalkthroughContentVC: UIViewController {
     
     @IBOutlet var walkthroughImage: UIImageView!
     @IBOutlet var endLabel: UILabel!
+    @IBOutlet var neededToolsStack: UIStackView!
     @IBOutlet var startButton: UIButton!
     
     var walkthroughImageName = ""
@@ -32,6 +33,7 @@ class WalkthroughContentVC: UIViewController {
     
     private func showLastPage(_ show: Bool) {
         walkthroughImage.isHidden = show
+        neededToolsStack.isHidden = !show
         endLabel.isHidden = !show
         startButton.isHidden = !show
     }

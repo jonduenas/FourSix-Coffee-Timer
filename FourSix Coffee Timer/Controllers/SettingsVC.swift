@@ -11,10 +11,6 @@ import Purchases
 
 class SettingsVC: UITableViewController, PaywallDelegate {
     
-    deinit {
-        print("vc cleared")
-    }
-    
     // MARK: Constants
     let defaultRatio = 15
     let ratioArray = [12, 13, 14, 15, 16, 17, 18]

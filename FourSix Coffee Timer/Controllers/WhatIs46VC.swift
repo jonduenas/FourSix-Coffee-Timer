@@ -10,10 +10,6 @@ import UIKit
 import WebKit
 
 class WhatIs46VC: UIViewController {
-    
-    deinit {
-        print("vc cleared")
-    }
 
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var contentLabel: UILabel!
