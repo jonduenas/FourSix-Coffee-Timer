@@ -92,17 +92,6 @@
                                                 </constraints>
                                                 <color key="tintColor" name="Accent"/>
                                                 <state key="normal" title="Edit"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="Accent"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="editTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="2pD-7t-J1I"/>
                                                 </connections>
