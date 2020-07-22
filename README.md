@@ -1,5 +1,5 @@
 # FourSix Coffee Timer
----
+
 FourSix is a coffee timer and calculator for iOS built using Swift and UIKit for iOS 13 and up.
 
 [App Store Link](https://apps.apple.com/us/app/id1519905670)
@@ -16,9 +16,7 @@ To use FourSix, you'll need a Hario V60 and a scale that measures in grams. Addi
 
 If you like FourSix, but want even more control over the recipe, you'll want FourSix Pro. A one-time, in-app purchase gives you extra settings so you can dial in your perfect brew exactly how you like. Plus, you'll be supporting future development and more new features to come.
 
----
-
-### Why I Built FourSix
+## Why I Built FourSix
 
 I built FourSix as my first ever app because I love coffee. As a coffee enthusiast, I've done a lot of experimenting with new equipment and recipes. And although coffee timers are not in short supply in the App Store, I couldn't find an app that worked how I wanted. Plus, many are outdated or poorly designed. The few that looked and worked well were usually "recipe" type apps. They had collections of a few specific, general recipes for certain types of brews and equipment, or they allowed you to create your own. But they all had this style of just having some stored recipes to choose from. There's nothing wrong with this, until I learned about the 4:6 method by Tetsu Kasuya.
 
@@ -28,9 +26,7 @@ My app, FourSix, is based on utilizing this method, and allow any user to quickl
 
 Already, you can see how the complexity can be a bit much to handle in the morning when you haven't even had your coffee yet. FourSix was designed to take all that complexity and put it behind a simple 2 questions - Do you want a sweet or bright flavor? And how strong do you want it?
 
----
-
-### Technologies
+## Technologies
 
 * Swift 5
 * UIKit
