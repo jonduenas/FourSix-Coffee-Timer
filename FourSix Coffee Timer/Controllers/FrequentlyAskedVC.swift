@@ -8,14 +8,16 @@
 
 import UIKit
 
-class TroubleshootingVC: UIViewController {
+class FrequentlyAskedVC: UIViewController {
 
     @IBOutlet var contentLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "FAQ"
 
-        if let url = Bundle.main.url(forResource: "troubleshooting", withExtension: "rtf") {
+        if let url = Bundle.main.url(forResource: "faq", withExtension: "rtf") {
             do {
                 let opts: [NSAttributedString.DocumentReadingOptionKey: Any] = [.documentType: NSAttributedString.DocumentType.rtf]
                 let string = try NSAttributedString(url: url, options: opts, documentAttributes: nil)

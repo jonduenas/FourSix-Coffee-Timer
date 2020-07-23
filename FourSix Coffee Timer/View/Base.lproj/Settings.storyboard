@@ -232,8 +232,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Troubleshooting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2m-NN-4Dq">
-                                                    <rect key="frame" x="20" y="11.5" width="124.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2m-NN-4Dq">
+                                                    <rect key="frame" x="20" y="11.5" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -464,7 +464,7 @@
         <!--Troubleshooting-->
         <scene sceneID="6pb-IZ-AVn">
             <objects>
-                <viewController title="Troubleshooting" automaticallyAdjustsScrollViewInsets="NO" id="SjP-RY-7Zq" customClass="TroubleshootingVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Troubleshooting" automaticallyAdjustsScrollViewInsets="NO" id="SjP-RY-7Zq" customClass="FrequentlyAskedVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ehD-r6-iaJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
