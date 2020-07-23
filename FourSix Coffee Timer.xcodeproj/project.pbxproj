@@ -46,6 +46,7 @@
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
+		65FB31AF24CA130E00781023 /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB31AD24CA130E00781023 /* Walkthrough.storyboard */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
 		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
 		7809654740865E175362B9C9 /* Pods_FourSix_Coffee_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */; };
@@ -94,6 +95,7 @@
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		65FB31AE24CA130E00781023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Walkthrough.storyboard; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 		65AFC1FB249D55A300576AFA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				65FB31AD24CA130E00781023 /* Walkthrough.storyboard */,
 				6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */,
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				652756482475B138004E067F /* Main.storyboard */,
@@ -315,6 +318,7 @@
 				6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */,
 				6527564A2475B138004E067F /* Main.storyboard in Resources */,
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
+				65FB31AF24CA130E00781023 /* Walkthrough.storyboard in Resources */,
 				6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */,
 				652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */,
 			);
@@ -454,6 +458,14 @@
 			name = FourSixProPopup.storyboard;
 			sourceTree = "<group>";
 		};
+		65FB31AD24CA130E00781023 /* Walkthrough.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65FB31AE24CA130E00781023 /* Base */,
+			);
+			name = Walkthrough.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -577,7 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -585,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
 				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;
@@ -599,7 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -607,7 +619,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
 				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;

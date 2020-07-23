@@ -163,7 +163,9 @@ class TimerVC: UIViewController {
         
         let alert = UIAlertController(title: "Done!", message: "Total time elapsed was \(coffeeTimer.totalElapsedTime.stringFromTimeInterval()).\nAverage time for each step was \(averageStepTime.stringFromTimeInterval()).", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            self?.dismiss(animated: true)
+            self?.dismiss(animated: true) {
+                AppStoreReviewManager.requestReviewIfAppropriate()
+            }
         }))
         present(alert, animated: true)
     }

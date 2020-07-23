@@ -9,6 +9,32 @@
 import Foundation
 import Purchases
 
+enum AppStoreReviewManager {
+    static let minimumReviewWorthyActionCount = 2
+    
+    static func requestReviewIfAppropriate() {
+        // Check how many actions the user has made
+        var actionCount = UserDefaultsManager.reviewWorthyActionCount
+        actionCount += 1
+        UserDefaultsManager.reviewWorthyActionCount = actionCount
+        
+        guard actionCount >= minimumReviewWorthyActionCount else { return }
+        
+        // Check if user has already been asked to review the current version
+        let bundleVersionKey = kCFBundleVersionKey as String
+        let currentVersion = Bundle.main.object(forInfoDictionaryKey: bundleVersionKey) as? String
+        let lastVersion = UserDefaultsManager.lastReviewRequestAppVersion
+        
+        guard lastVersion == nil || lastVersion != currentVersion else { return }
+        
+        // Request review
+        SKStoreReviewController.requestReview()
+        
+        UserDefaultsManager.reviewWorthyActionCount = 0
+        UserDefaultsManager.lastReviewRequestAppVersion = currentVersion
+    }
+}
+
 class IAPManager: NSObject {
     static let shared = IAPManager()
     

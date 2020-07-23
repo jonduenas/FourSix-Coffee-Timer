@@ -21,6 +21,8 @@ class UserDefaultsManager: NSObject {
     private static let previousSelectedBalanceKey = "previousSelectedBalanceKey"
     private static let previousSelectedStrengthKey = "previousSelectedStrengthKey"
     private static let userHasSeenWalkthroughKey = "userHasSeenWalkthroughKey"
+    private static let reviewWorthyActionCountKey = "reviewWorthyActionCountKey"
+    private static let lastReviewRequestAppVersionKey = "lastReviewRequestAppVersionKey"
     
     // MARK: Variables
     
@@ -93,6 +95,24 @@ class UserDefaultsManager: NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: userHasSeenWalkthroughKey)
+        }
+    }
+    
+    static var reviewWorthyActionCount: Int {
+        get {
+            return userDefaults.integer(forKey: reviewWorthyActionCountKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: reviewWorthyActionCountKey)
+        }
+    }
+    
+    static var lastReviewRequestAppVersion: String? {
+        get {
+            return userDefaults.string(forKey: lastReviewRequestAppVersionKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: lastReviewRequestAppVersionKey)
         }
     }
 }

@@ -12,12 +12,13 @@ import Purchases
 class SettingsVC: UITableViewController, PaywallDelegate {
     
     // MARK: Constants
-    let defaultRatio = 15
-    let ratioArray = [12, 13, 14, 15, 16, 17, 18]
-    let stepAdvanceArray = ["Auto", "Manual"]
+    private let defaultRatio = 15
+    private let ratioArray = [12, 13, 14, 15, 16, 17, 18]
+    private let stepAdvanceArray = ["Auto", "Manual"]
+    private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
+    private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+    private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
     
     // MARK: Variables
     weak var delegate: BrewVC?
@@ -202,6 +203,19 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                     }
                 }))
                 present(alert, animated: true)
+            } else if indexPath.row == 4 {
+                // Rate in the App Store
+                var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
+                components?.queryItems = [URLQueryItem(name: "action", value: "write-review")]
+                
+                guard let writeReviewURL = components?.url else { return }
+                
+                UIApplication.shared.open(writeReviewURL)
+            } else if indexPath.row == 5 {
+                // Share FourSix
+                let activityVC = UIActivityViewController(activityItems: [productURL], applicationActivities: nil)
+                
+                present(activityVC, animated: true)
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)

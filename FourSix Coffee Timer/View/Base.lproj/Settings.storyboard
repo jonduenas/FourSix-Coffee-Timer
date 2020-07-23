@@ -169,7 +169,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="About FourSix" footerTitle="v1.0.0 beta (build 7)" id="5Oa-k1-1cp">
+                            <tableViewSection headerTitle="About FourSix" footerTitle="v1.0.0 (12)" id="5Oa-k1-1cp">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="wIh-zO-Rza">
                                         <rect key="frame" x="0.0" y="392.5" width="414" height="43.5"/>
@@ -276,8 +276,56 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="FhT-3a-5iH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="cAN-UD-H31">
                                         <rect key="frame" x="0.0" y="566.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cAN-UD-H31" id="AaN-7H-ArS">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate in the App Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyt-q5-aX4">
+                                                    <rect key="frame" x="20" y="11.5" width="162.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oyt-q5-aX4" firstAttribute="leading" secondItem="AaN-7H-ArS" secondAttribute="leadingMargin" id="ADd-E9-x4y"/>
+                                                <constraint firstItem="oyt-q5-aX4" firstAttribute="top" secondItem="AaN-7H-ArS" secondAttribute="topMargin" constant="0.5" id="LwK-OT-gSi"/>
+                                                <constraint firstItem="oyt-q5-aX4" firstAttribute="centerY" secondItem="AaN-7H-ArS" secondAttribute="centerY" id="YI6-AQ-Wjx"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oyt-q5-aX4" secondAttribute="trailing" constant="20" symbolic="YES" id="lSA-7t-XGE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="oyt-q5-aX4" secondAttribute="bottom" constant="0.5" id="w3V-jN-Y7p"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="kdc-UH-S4X">
+                                        <rect key="frame" x="0.0" y="610" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kdc-UH-S4X" id="eAe-0Q-Msi">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share FourSix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A52-v6-cqW">
+                                                    <rect key="frame" x="20" y="11.5" width="106.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="A52-v6-cqW" firstAttribute="centerY" secondItem="eAe-0Q-Msi" secondAttribute="centerY" id="Lce-yX-qBA"/>
+                                                <constraint firstItem="A52-v6-cqW" firstAttribute="leading" secondItem="eAe-0Q-Msi" secondAttribute="leadingMargin" id="N1U-2Z-PJL"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A52-v6-cqW" secondAttribute="trailing" constant="20" symbolic="YES" id="OUw-xA-kZ7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="A52-v6-cqW" secondAttribute="bottom" constant="0.5" id="aaQ-it-G29"/>
+                                                <constraint firstItem="A52-v6-cqW" firstAttribute="top" secondItem="eAe-0Q-Msi" secondAttribute="topMargin" constant="0.5" id="mAL-h1-O3Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="FhT-3a-5iH">
+                                        <rect key="frame" x="0.0" y="653.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FhT-3a-5iH" id="Oix-t3-1fb">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
@@ -815,7 +863,7 @@ Get in touch on Twitter - @jonduenas.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aK3-3Z-O1T"/>
+        <segue reference="t5N-HG-LCt"/>
         <segue reference="jt5-DN-x9b"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
