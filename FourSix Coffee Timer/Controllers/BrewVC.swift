@@ -16,7 +16,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     let balanceDict: [Balance: Int] = [.sweet: 0, .neutral: 1, .bright: 2]
     let strengthDict: [Strength: Int] = [.light: 0, .medium: 1, .strong: 2]
     let coffeeMin: Float = 15
-    let coffeeMax: Float = 30
+    let coffeeMax: Float = 35
     let selectionFeedback = UISelectionFeedbackGenerator()
     
     // MARK: Variables
