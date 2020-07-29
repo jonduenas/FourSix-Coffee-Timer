@@ -17,6 +17,6 @@ extension Double {
 
 extension Float {
     var clean: String {
-        return String(format: "%.f", self)
+        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
 }

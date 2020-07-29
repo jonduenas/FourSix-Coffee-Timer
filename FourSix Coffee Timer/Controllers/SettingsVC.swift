@@ -12,19 +12,17 @@ import Purchases
 class SettingsVC: UITableViewController, PaywallDelegate {
     
     // MARK: Constants
-    private let defaultRatio = 15
-    private let ratioArray = [12, 13, 14, 15, 16, 17, 18]
+    private let defaultRatio: Float = 15.0
     private let stepAdvanceArray = ["Auto", "Manual"]
     private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
-    
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
     
     // MARK: Variables
     weak var delegate: BrewVC?
-    var ratio = 15 {
+    var ratio: Float = 15 {
         didSet {
-            ratioLabel.text = "1:\(ratio)"
+            ratioLabel.text = "1:" + ratio.clean
             UserDefaultsManager.ratio = ratio
         }
     }
@@ -101,6 +99,10 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     
     // MARK: TableView Methods
     
+    func updateRatio() {
+        tableView.reloadData()
+    }
+    
     // Hides cells when user is Pro or not
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -160,26 +162,7 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                     }
                 }))
                 present(alert, animated: true, completion: nil)
-            } else if indexPath.row == 2 {
-                // Coffee:Water Ratio
-                let actionSheet = UIAlertController(title: "Coffee:Water Ratio", message: "Lower numbers = stronger coffee.", preferredStyle: .actionSheet)
-                
-                for ratio in ratioArray {
-                    actionSheet.addAction(UIAlertAction(title: "1:\(ratio)", style: .default, handler: { [weak self] _ in
-                        self?.ratio = ratio
-                    }))
-                }
-                actionSheet.addAction(UIAlertAction(title: "Restore Default", style: .default, handler: { [weak self] _ in
-                    self?.ratio = self!.defaultRatio
-                }))
-                actionSheet.addAction(cancelAction)
-                // TODO: Add code for iPad compatibility
-//                let cellRect = tableView.rectForRow(at: indexPath)
-//                ac.popoverPresentationController?.sourceView = tableView
-//                ac.popoverPresentationController?.sourceRect = cellRect
-//                ac.popoverPresentationController?.canOverlapSourceViewRect = true
-                present(actionSheet, animated: true)
-            } else if indexPath.row == 3 {
+        } else if indexPath.row == 3 {
                 // Timer Step Advance
                 let actionSheet = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
                 
@@ -257,4 +240,10 @@ class SettingsVC: UITableViewController, PaywallDelegate {
             }
         }
     }
+    
+    @IBSegueAction
+    func makeRatioViewController(coder: NSCoder) -> UIViewController? {
+        RatioVC(coder: coder, delegate: self)
+    }
+    
 }

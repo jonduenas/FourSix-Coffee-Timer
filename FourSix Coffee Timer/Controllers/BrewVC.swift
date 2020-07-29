@@ -24,9 +24,9 @@ class BrewVC: UIViewController, PaywallDelegate {
     var balance: Balance = .neutral
     var strength: Strength = .medium
     
-    var ratio: Int = 15 {
+    var ratio: Float = 15 {
         didSet {
-            water = (coffee * Float(ratio)).rounded()
+            water = (coffee * ratio).rounded()
         }
     }
     var coffee: Float = 20.0 {

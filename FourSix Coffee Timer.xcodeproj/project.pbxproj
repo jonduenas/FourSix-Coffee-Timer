@@ -45,6 +45,8 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
+		65D352C224D1E5DB00DB3AA7 /* RatioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */; };
+		65D352C424D2033F00DB3AA7 /* CustomRatioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
 		65FB31AF24CA130E00781023 /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB31AD24CA130E00781023 /* Walkthrough.storyboard */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
@@ -94,6 +96,8 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
+		65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioVC.swift; sourceTree = "<group>"; };
+		65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRatioVC.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		65FB31AE24CA130E00781023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Walkthrough.storyboard; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				6531720924A6B06F00709062 /* RecipeVC.swift */,
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
 				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
+				65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */,
+				65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */,
 				6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */,
 				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
 				6529E11A249FEFFB0093FAE1 /* HowToVC.swift */,
@@ -400,6 +406,7 @@
 				6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */,
 				655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */,
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
+				65D352C424D2033F00DB3AA7 /* CustomRatioVC.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
@@ -417,6 +424,7 @@
 				6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */,
 				65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */,
 				656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */,
+				65D352C224D1E5DB00DB3AA7 /* RatioVC.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
 				65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */,
@@ -589,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -597,11 +605,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
 				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -611,7 +620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -619,11 +628,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
 				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
