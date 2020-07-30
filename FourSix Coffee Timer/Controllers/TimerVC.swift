@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class TimerVC: UIViewController {
+class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
     private enum Constants {
         static let timerInterval: TimeInterval = 0.25
@@ -71,23 +71,50 @@ class TimerVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         UIApplication.shared.isIdleTimerDisabled = false
+        audioPlayer = nil
     }
     
+    // MARK: AVAudioPlayer Methods
+    
     private func initializeSoundFile() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.ambient, options: .duckOthers)
+        } catch {
+            print(error.localizedDescription)
+        }
+    
         guard let sound = Bundle.main.path(forResource: "custom-notification", ofType: "mp3") else { return }
         let url = URL(fileURLWithPath: sound)
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.delegate = self
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func activateAudioSession(_ activate: Bool) {
+        do {
+            try AVAudioSession.sharedInstance().setActive(activate)
         } catch {
             print(error.localizedDescription)
         }
     }
     
     private func playSoundWithVibrate() {
-        guard let audioPlayer = audioPlayer else { return }
-        audioPlayer.play()
-        UIDevice.vibrate()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let audioPlayer = self?.audioPlayer else { return }
+            self?.activateAudioSession(true)
+            audioPlayer.play()
+            UIDevice.vibrate()
+        }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.activateAudioSession(false)
+        }
     }
 
     // MARK: Button methods
@@ -264,8 +291,6 @@ class TimerVC: UIViewController {
         playPauseButton.setTitleColor(UIColor.systemGray2, for: .normal)
         playPauseButton.contentHorizontalAlignment = .center
         playPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 38)
-        
-        audioPlayer?.prepareToPlay()
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
