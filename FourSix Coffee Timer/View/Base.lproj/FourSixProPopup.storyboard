@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B7I-HA-IVP">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="PurchasePro" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="B7I-HA-IVP" customClass="PurchaseProVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A0D-2u-1tL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtf-Uk-hEO" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
-                                <rect key="frame" x="35" y="198" width="344" height="500"/>
+                                <rect key="frame" x="233" y="290" width="344" height="500"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="72w-Me-V38">
                                         <rect key="frame" x="0.0" y="19" width="344" height="456"/>
@@ -132,12 +132,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.66684503424657549" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="PdB-bw-55J" firstAttribute="trailing" secondItem="dtf-Uk-hEO" secondAttribute="trailing" constant="35" id="1Gi-zU-sk0"/>
+                            <constraint firstItem="PdB-bw-55J" firstAttribute="trailing" secondItem="dtf-Uk-hEO" secondAttribute="trailing" constant="35" id="1Gi-zU-sk0">
+                                <variation key="heightClass=regular-widthClass=regular" constant="35"/>
+                            </constraint>
                             <constraint firstItem="dtf-Uk-hEO" firstAttribute="centerX" secondItem="A0D-2u-1tL" secondAttribute="centerX" id="nyR-cE-Yf5"/>
                             <constraint firstItem="dtf-Uk-hEO" firstAttribute="centerY" secondItem="A0D-2u-1tL" secondAttribute="centerY" id="sfd-ss-kEe"/>
                             <constraint firstItem="dtf-Uk-hEO" firstAttribute="leading" secondItem="PdB-bw-55J" secondAttribute="leading" constant="35" id="yIt-2O-tpe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PdB-bw-55J"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="1Gi-zU-sk0"/>
+                                <exclude reference="yIt-2O-tpe"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="UqS-yU-A0u"/>
                     <connections>
