@@ -419,7 +419,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehc-RI-yz1" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
-                                <rect key="frame" x="77" y="235.5" width="260" height="225"/>
+                                <rect key="frame" x="77" y="617" width="260" height="225"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Ratio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96W-A9-yVU">
                                         <rect key="frame" x="75" y="19" width="110.5" height="20.5"/>
@@ -497,12 +497,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.66684503419999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ehc-RI-yz1" firstAttribute="centerY" secondItem="E1h-iF-H8D" secondAttribute="centerY" constant="-100" id="mHg-HU-Zon"/>
+                            <constraint firstAttribute="bottom" secondItem="Ehc-RI-yz1" secondAttribute="bottom" constant="54" id="03l-95-qwu"/>
                             <constraint firstItem="Ehc-RI-yz1" firstAttribute="centerX" secondItem="E1h-iF-H8D" secondAttribute="centerX" id="owN-LL-QzD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aZL-pv-yoi"/>
                     </view>
                     <connections>
+                        <outlet property="popupViewBottomConstraint" destination="03l-95-qwu" id="HRG-F1-OeA"/>
+                        <outlet property="popupViewHeightConstraint" destination="eFP-Kw-hjE" id="FQ4-yF-48E"/>
                         <outlet property="ratioTextField" destination="nNY-nP-1rv" id="Xae-zn-Eb8"/>
                     </connections>
                 </viewController>

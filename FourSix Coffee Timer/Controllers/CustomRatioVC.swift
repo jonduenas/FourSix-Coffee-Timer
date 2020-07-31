@@ -9,14 +9,19 @@
 import UIKit
 
 class CustomRatioVC: UIViewController, UITextFieldDelegate {
-
+    
     var ratioValue: Float?
     weak var delegate: RatioVC?
     
     @IBOutlet var ratioTextField: UITextField!
+    @IBOutlet var popupViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var popupViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
         ratioTextField.delegate = self
         ratioTextField.placeholder = "\(ratioValue ?? 15.0)"
@@ -33,6 +38,17 @@ class CustomRatioVC: UIViewController, UITextFieldDelegate {
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
         return updatedText.count <= 4
+    }
+    
+    @objc private func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardHeight = keyboardScreenEndFrame.height
+        let viewHeight = self.view.frame.height
+        let constraintFromKeyboard = ((viewHeight - keyboardHeight) / 2) - (popupViewHeightConstraint.constant / 2)
+        
+        popupViewBottomConstraint.constant = keyboardHeight + constraintFromKeyboard
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
