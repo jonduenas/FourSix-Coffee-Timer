@@ -22,7 +22,12 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     weak var delegate: BrewVC?
     var ratio: Float = 15 {
         didSet {
-            ratioLabel.text = "1:" + ratio.clean
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            
+            if let ratioFormatted = formatter.string(for: ratio) {
+                ratioLabel.text = "1:" + ratioFormatted
+            }
             UserDefaultsManager.ratio = ratio
         }
     }
@@ -105,7 +110,6 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     
     // Hides cells when user is Pro or not
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 // Purchase FourSix Pro

@@ -8,7 +8,9 @@
 
 import UIKit
 
-class CustomRatioVC: UIViewController, UITextFieldDelegate {
+class CustomRatioVC: UIViewController {
+    
+    private let formatter = NumberFormatter()
     
     var ratioValue: Float?
     weak var delegate: RatioVC?
@@ -23,21 +25,27 @@ class CustomRatioVC: UIViewController, UITextFieldDelegate {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
-        ratioTextField.delegate = self
-        ratioTextField.placeholder = "\(ratioValue ?? 15.0)"
-        ratioTextField.becomeFirstResponder()
+        initializeNumberFormatter()
+        
+        initializeTextField()
     }
     
-    // Limits character count of textfield to 4
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let currentText = ratioTextField.text ?? ""
-        
-        guard let stringRange = Range(range, in: currentText) else { return false }
-        
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        
-        return updatedText.count <= 4
+    fileprivate func initializeNumberFormatter() {
+        formatter.numberStyle = .decimal
+        formatter.alwaysShowsDecimalSeparator = true
+        formatter.maximumFractionDigits = 1
+        formatter.minimumFractionDigits = 1
+        formatter.maximumIntegerDigits = 2
+    }
+    
+    fileprivate func initializeTextField() {
+        ratioTextField.delegate = self
+        if let ratio = formatter.string(for: ratioValue) {
+            ratioTextField.placeholder = ratio
+        } else {
+            ratioTextField.placeholder = "15" + formatter.decimalSeparator + "0"
+        }
+        ratioTextField.becomeFirstResponder()
     }
     
     @objc private func adjustForKeyboard(notification: Notification) {
@@ -56,7 +64,9 @@ class CustomRatioVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneTapped(_ sender: Any) {
-        guard let ratioFloat = Float(ratioTextField.text!) else { return }
+        guard let ratioString = ratioTextField.text else { return }
+        
+        guard let ratioFloat = formatter.number(from: ratioString)?.floatValue else { return }
         
         if 5...20 ~= ratioFloat {
             setRatio(ratioFloat)
@@ -77,5 +87,37 @@ class CustomRatioVC: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true) {
             delegate.navigationController?.popViewController(animated: true)
         }
+    }
+}
+
+extension CustomRatioVC: UITextFieldDelegate {
+    // Limits characters of textfield to 2 integers, 1 decimal seperator, and 1 fraction digit
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard ratioTextField.keyboardType == .decimalPad, let currentText = ratioTextField.text, let range = Range(range, in: currentText) else { return true }
+
+        let updatedText = currentText.replacingCharacters(in: range, with: string)
+        
+        let isNumeric = updatedText.isEmpty || (formatter.number(from: updatedText)?.floatValue != nil)
+        
+        let decimalSeperator = formatter.decimalSeparator ?? "."
+        let isDecimalInserted = updatedText.contains(Character(decimalSeperator))
+        
+        let characterLimit: Int
+        if isDecimalInserted {
+            characterLimit = 4
+        } else {
+            characterLimit = 2
+        }
+        
+        let numberOfDecimalSeparators = updatedText.components(separatedBy: decimalSeperator).count - 1
+
+        let numberOfDecimalDigits: Int
+        if let separatorIndex = updatedText.firstIndex(of: Character(decimalSeperator)) {
+            numberOfDecimalDigits = updatedText.distance(from: separatorIndex, to: updatedText.endIndex) - 1
+        } else {
+            numberOfDecimalDigits = 0
+        }
+        
+        return isNumeric && numberOfDecimalSeparators <= 1 && numberOfDecimalDigits <= 1 && updatedText.count <= characterLimit
     }
 }
