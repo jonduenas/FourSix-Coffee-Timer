@@ -71,7 +71,7 @@ class CustomRatioVC: UIViewController {
         if 5...20 ~= ratioFloat {
             setRatio(ratioFloat)
         } else {
-            let alert = UIAlertController(title: "Selected ratio is outside the normal range", message: "You're trying to set a ratio of 1:" + ratioFloat.clean + ". This is unusual for this method. Are you sure you want to continue?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Selected ratio is outside the normal range", message: "You're trying to set a ratio of 1:" + ratioString + ". This is unusual for this method. Are you sure you want to continue?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { [weak self] _ in
                 self?.setRatio(ratioFloat)
