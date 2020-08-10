@@ -145,6 +145,8 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
 
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else if coffeeTimer.timerState == .new {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
             countdownStart()
         } else {
             print("Error loading coffeeTimer.")
