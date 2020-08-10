@@ -28,10 +28,12 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet var progressView: ProgressCircle!
     
+    let summarySegueID = "ShowSummary"
     let coffeeTimer = CoffeeTimer()
     var timer: Timer?
     var stepsActualTime = [TimeInterval]()
     var startCountdown = 3
+    var isTimerEnd = false
     
     let recipe: Recipe
     
@@ -71,7 +73,9 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         UIApplication.shared.isIdleTimerDisabled = false
-        audioPlayer = nil
+        if isTimerEnd {
+            playSoundWithVibrate()
+        }
     }
     
     // MARK: AVAudioPlayer Methods
@@ -275,13 +279,14 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     private func endTimer() {
-        playSoundWithVibrate()
+        isTimerEnd = true
         
         timer?.invalidate()
         timer = nil
         UIApplication.shared.isIdleTimerDisabled = false
         
-        showEndAC()
+        performSegue(withIdentifier: summarySegueID, sender: self)
+        //showEndAC()
     }
     
     private func countdownStart() {
@@ -309,6 +314,13 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
                 startNewTimer()
             }
         }
+    }
+    
+    // MARK: Navigation Methods
+    
+    @IBSegueAction
+    func showSummaryVC(coder: NSCoder) -> UIViewController? {
+        BrewSummaryVC(coder: coder, recipe: recipe, drawdownTimes: stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
     }
 }
 
