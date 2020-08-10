@@ -31,6 +31,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     }
     var coffee: Float = 20.0 {
         didSet {
+            UserDefaultsManager.previousCoffee = coffee
             coffeeLabel.text = coffee.clean + "g"
             calculateWater()
         }
