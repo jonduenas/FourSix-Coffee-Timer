@@ -173,6 +173,15 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                     }))
                 }
                 actionSheet.addAction(cancelAction)
+                
+                if let popoverController = actionSheet.popoverPresentationController {
+                    guard let cellIndexPath = tableView.cellForRow(at: indexPath) else { return }
+                    popoverController.sourceView = cellIndexPath.contentView
+                    popoverController.permittedArrowDirections = UIPopoverArrowDirection.up
+                    
+                    popoverController.sourceRect = CGRect(x: cellIndexPath.bounds.maxX - 40, y: cellIndexPath.bounds.maxY, width: 0, height: 0)
+                }
+                
                 present(actionSheet, animated: true)
             }
         } else if indexPath.section == 2 {
