@@ -1,5 +1,5 @@
 PODS:
-  - Purchases (3.5.0)
+  - Purchases (3.5.2)
   - TactileSlider (1.3.0)
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ SPEC REPOS:
     - TactileSlider
 
 SPEC CHECKSUMS:
-  Purchases: 0b5b8c6c2c4e29b7d315b6cd06e4500530e9a079
+  Purchases: 25f8a9949c1a2a05ae15987c574d52726f0f1b2a
   TactileSlider: 1dc3a05df4bf0bc5ccfba4805c65111ddc308ecd
 
 PODFILE CHECKSUM: cf1aaf5f673956fa4f5eedd4733b560ade5f52ca
