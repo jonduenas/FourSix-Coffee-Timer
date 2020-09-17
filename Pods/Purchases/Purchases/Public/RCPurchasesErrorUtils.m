@@ -173,7 +173,8 @@ static RCPurchasesErrorCode RCPurchasesErrorCodeFromRCBackendErrorCode(RCBackend
 
 static RCPurchasesErrorCode RCPurchasesErrorCodeFromSKError(NSError *skError) {
     if ([[skError domain] isEqualToString:SKErrorDomain]) {
-        switch ((SKErrorCode) skError.code) {
+        NSInteger code = (SKErrorCode) skError.code;
+        switch (code) {
             case SKErrorUnknown:
             case CODE_IF_TARGET_IPHONE(SKErrorCloudServiceNetworkConnectionFailed, 7): // Available on iOS 9.3
             case CODE_IF_TARGET_IPHONE(SKErrorCloudServiceRevoked, 8): // Available on iOS 10.3
@@ -194,6 +195,18 @@ static RCPurchasesErrorCode RCPurchasesErrorCodeFromSKError(NSError *skError) {
                 return RCPurchaseInvalidError;
             case CODE_IF_TARGET_IPHONE(SKErrorStoreProductNotAvailable, 5):
                 return RCProductNotAvailableForPurchaseError;
+        #ifdef __IPHONE_14_0
+            case SKErrorOverlayCancelled:
+                return RCPurchaseCancelledError;
+            case SKErrorIneligibleForOffer:
+                return RCPurchaseNotAllowedError;
+            #if TARGET_OS_IOS
+            case SKErrorOverlayInvalidConfiguration:
+                return RCPurchaseNotAllowedError;
+            case SKErrorOverlayTimeout:
+                return RCStoreProblemError;
+            #endif
+        #endif
         }
     }
     return RCUnknownError;
@@ -209,7 +222,6 @@ static RCPurchasesErrorCode RCPurchasesErrorCodeFromSKError(NSError *skError) {
                    message:(nullable NSString *)message {
     return [self errorWithCode:code message:message underlyingError:nil];
 }
-
 
 + (NSError *)errorWithCode:(RCPurchasesErrorCode)code
            underlyingError:(nullable NSError *)underlyingError {
@@ -298,6 +310,15 @@ static RCPurchasesErrorCode RCPurchasesErrorCodeFromSKError(NSError *skError) {
 
 + (NSError *)missingAppUserIDError {
     return [self errorWithCode:RCInvalidAppUserIdError];
+}
+
++ (NSError *)paymentDeferredError {
+    return [self errorWithCode:RCPaymentPendingError
+                       message:@"The payment is deferred."];
+}
+
++ (NSError *)unknownError {
+    return [self errorWithCode:RCUnknownError];
 }
 
 + (NSError *)purchasesErrorWithSKError:(NSError *)skError {

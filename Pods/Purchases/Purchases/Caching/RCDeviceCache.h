@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)clearPurchaserInfoCacheTimestamp;
 
+- (void)clearPurchaserInfoCacheForAppUserID:(NSString *)appUserID;
+
 - (void)setPurchaserInfoCacheTimestampToNow;
 
 #pragma mark - offerings
@@ -69,6 +71,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary<NSString *, RCSubscriberAttributeDict> *)unsyncedAttributesForAllUsers;
 
 - (void)deleteAttributesIfSyncedForAppUserID:(NSString *)appUserID;
+
+#pragma mark - attribution
+
+- (nullable NSDictionary *)latestNetworkAndAdvertisingIdsSentForAppUserID:(NSString *)appUserID;
+
+- (void)setLatestNetworkAndAdvertisingIdsSent:(nullable NSDictionary *)latestNetworkAndAdvertisingIdsSent
+                                 forAppUserID:(nullable NSString *)appUserID;
+
+- (void)clearLatestNetworkAndAdvertisingIdsSentForAppUserID:(nullable NSString *)appUserID;
 
 @end
 

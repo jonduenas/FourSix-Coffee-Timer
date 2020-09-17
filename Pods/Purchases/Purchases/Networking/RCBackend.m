@@ -15,10 +15,8 @@
 #import "RCPurchasesErrorUtils.h"
 #import "RCPurchasesErrorUtils+Protected.h"
 #import "RCLogUtils.h"
-#import "RCPromotionalOffer.h"
 #import "RCSystemInfo.h"
 #import "RCHTTPStatusCodes.h"
-#import "RCProductInfo.h"
 
 #define RC_HAS_KEY(dictionary, key) (dictionary[key] == nil || dictionary[key] != [NSNull null])
 NSErrorUserInfoKey const RCSuccessfullySyncedKey = @"successfullySynced";
@@ -479,7 +477,9 @@ presentedOfferingIdentifier:(nullable NSString *)offeringIdentifier
 - (NSDictionary *)attributesUserInfoFromResponse:(NSDictionary *)response statusCode:(NSInteger)statusCode {
     NSMutableDictionary *resultDict = [[NSMutableDictionary alloc] init];
     BOOL isInternalServerError = statusCode >= RC_INTERNAL_SERVER_ERROR;
-    resultDict[RCSuccessfullySyncedKey] = @(!isInternalServerError);
+    BOOL isNotFoundError = statusCode == RC_NOT_FOUND_ERROR;
+    BOOL successfullySynced = !(isInternalServerError || isNotFoundError);
+    resultDict[RCSuccessfullySyncedKey] = @(successfullySynced);
 
     BOOL hasAttributesResponseContainerKey = (response[RCAttributeErrorsResponseKey] != nil);
     NSDictionary *attributesResponseDict = hasAttributesResponseContainerKey

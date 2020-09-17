@@ -11,6 +11,7 @@
 #endif
 
 #import "Purchases.h"
+#import "RCAttributionNetwork.h"
 #import "RCEntitlementInfo.h"
 #import "RCEntitlementInfos.h"
 #import "RCIntroEligibility.h"
@@ -21,6 +22,7 @@
 #import "RCPurchases.h"
 #import "RCPurchasesErrors.h"
 #import "RCPurchasesErrorUtils.h"
+#import "RCTransaction.h"
 
 FOUNDATION_EXPORT double PurchasesVersionNumber;
 FOUNDATION_EXPORT const unsigned char PurchasesVersionString[];
