@@ -10,7 +10,7 @@ import Foundation
 
 struct Calculator {
     
-    func calculate(_ balance: Balance, _ strength: Strength, with coffee: Float, _ water: Float) -> Recipe {
+    func calculateRecipe(balance: Balance, strength: Strength, coffee: Float, water: Float) -> Recipe {
         var waterPours = [Float]()
         
         let water40 = water * 0.4

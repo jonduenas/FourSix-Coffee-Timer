@@ -178,7 +178,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     
     @IBAction func calculateTapped(_ sender: Any) {
         //calculator.waterPours.removeAll()
-        recipe = calculator.calculate(balance, strength, with: coffee, water)
+        recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
     }
     
     // MARK: Navigation Methods

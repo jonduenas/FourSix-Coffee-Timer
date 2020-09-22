@@ -33,7 +33,7 @@ class FourSixTests: XCTestCase {
         let water: Float = 375
         
         // when
-        let recipe = sut.calculate(balance, strength, with: coffee, water)
+        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
         
         // then
         XCTAssertEqual(recipe.waterPours[0], 63, "First pour should be 50")
@@ -48,7 +48,7 @@ class FourSixTests: XCTestCase {
         let water: Float = 375
         
         // when
-        let recipe = sut.calculate(balance, strength, with: coffee, water)
+        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
         
         // then
         XCTAssertEqual(recipe.waterPours[3], 56, "Third pour should be 56")
@@ -63,7 +63,7 @@ class FourSixTests: XCTestCase {
         let water: Float = 375
         
         // when
-        let recipe = sut.calculate(balance, strength, with: coffee, water)
+        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
         
         // then
         let acceptableRange: ClosedRange<Float> = 374.0...376.0
