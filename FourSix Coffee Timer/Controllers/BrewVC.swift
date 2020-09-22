@@ -23,6 +23,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     var calculator = Calculator()
     var balance: Balance = .neutral
     var strength: Strength = .medium
+    var recipe: Recipe?
     
     var ratio: Float = 15 {
         didSet {
@@ -176,15 +177,16 @@ class BrewVC: UIViewController, PaywallDelegate {
     }
     
     @IBAction func calculateTapped(_ sender: Any) {
-        calculator.waterPours.removeAll()
-        calculator.calculate(balance, strength, with: coffee, water)
+        //calculator.waterPours.removeAll()
+        recipe = calculator.calculate(balance, strength, with: coffee, water)
     }
     
     // MARK: Navigation Methods
     
     @IBSegueAction
     func makeRecipeViewController(coder: NSCoder) -> UIViewController? {
-        RecipeVC(coder: coder, recipe: calculator.getRecipe())
+        guard let recipe = recipe else { return nil }
+        return RecipeVC(coder: coder, recipe: recipe)
     }
     
     @IBSegueAction

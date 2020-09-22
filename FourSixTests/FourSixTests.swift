@@ -33,11 +33,11 @@ class FourSixTests: XCTestCase {
         let water: Float = 375
         
         // when
-        sut.calculate(balance, strength, with: coffee, water)
+        let recipe = sut.calculate(balance, strength, with: coffee, water)
         
         // then
-        XCTAssertEqual(sut.recipe!.waterPours[0], 63, "First pour should be 50")
-        XCTAssertEqual(sut.recipe!.waterPours[1], 87, "Second pour should be 70")
+        XCTAssertEqual(recipe.waterPours[0], 63, "First pour should be 50")
+        XCTAssertEqual(recipe.waterPours[1], 87, "Second pour should be 70")
     }
 
     func testCalculator_60() {
@@ -48,11 +48,11 @@ class FourSixTests: XCTestCase {
         let water: Float = 375
         
         // when
-        sut.calculate(balance, strength, with: coffee, water)
+        let recipe = sut.calculate(balance, strength, with: coffee, water)
         
         // then
-        XCTAssertEqual(sut.recipe!.waterPours[3], 56, "Third pour should be 56")
-        XCTAssertEqual(sut.recipe!.waterPours.count, 6, "Total pour count should be 6")
+        XCTAssertEqual(recipe.waterPours[3], 56, "Third pour should be 56")
+        XCTAssertEqual(recipe.waterPours.count, 6, "Total pour count should be 6")
     }
     
     func testCalculator_TotalWater() {
@@ -63,10 +63,10 @@ class FourSixTests: XCTestCase {
         let water: Float = 375
         
         // when
-        sut.calculate(balance, strength, with: coffee, water)
+        let recipe = sut.calculate(balance, strength, with: coffee, water)
         
         // then
         let acceptableRange: ClosedRange<Float> = 374.0...376.0
-        XCTAssertTrue(acceptableRange.contains(sut.recipe!.waterPours.reduce(0, +)))
+        XCTAssertTrue(acceptableRange.contains(recipe.waterPours.reduce(0, +)))
     }
 }
