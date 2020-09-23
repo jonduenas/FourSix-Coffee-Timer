@@ -1,5 +1,5 @@
 //
-//  FourSixTests.swift
+//  CalculatorTests.swift
 //  FourSixTests
 //
 //  Created by Jon Duenas on 9/17/20.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import FourSix
 
-class FourSixTests: XCTestCase {
+class CalculatorTests: XCTestCase {
     
     var sut: Calculator!
     
