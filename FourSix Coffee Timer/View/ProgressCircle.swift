@@ -101,6 +101,7 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         basicAnimation.duration = duration
         basicAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
         basicAnimation.fillMode = .forwards
+        basicAnimation.isRemovedOnCompletion = false
         
         CATransaction.setCompletionBlock {
             self.progressAmount = toProgress

@@ -16,7 +16,8 @@ class CoffeeTimerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        coffeeTimer = CoffeeTimer()
+        let recipe = Recipe(coffee: 20, waterTotal: 300, waterPours: [50, 70, 60, 60, 60], balance: .sweet, strength: .medium)
+        coffeeTimer = CoffeeTimer(recipe: recipe)
     }
 
     override func tearDown() {
@@ -36,6 +37,10 @@ class CoffeeTimerTests: XCTestCase {
         coffeeTimer.start()
         
         XCTAssertEqual(coffeeTimer.timerState, .running, "Timer state should be running")
+        
+        coffeeTimer.start()
+        
+        XCTAssertEqual(coffeeTimer.timerState, .running, "Timer state should not change if currently running")
     }
     
     func testTimerPause() {

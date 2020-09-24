@@ -11,10 +11,6 @@ import AVFoundation
 
 class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
-    private enum Constants {
-        static let timerInterval: TimeInterval = 0.25
-    }
-
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
     @IBOutlet var currentStepWeightLabel: UILabel!
@@ -29,15 +25,15 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var progressView: ProgressCircle!
     
     let summarySegueID = "ShowSummary"
-    let coffeeTimer = CoffeeTimer()
-    var timer: Timer?
-    var stepsActualTime = [TimeInterval]()
-    var startCountdown = 3
+    var coffeeTimer: CoffeeTimer!
+    //var timer: Timer?
+    
+    
     var isTimerEnd = false
     
     let recipe: Recipe
     
-    var recipeIndex = 0
+    //var recipeIndex = 0
     var currentWater: Float = 0
     
     private var audioPlayer: AVAudioPlayer?
@@ -64,6 +60,8 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         if UserDefaultsManager.totalTimeShown {
             totalTimeStackView.isHidden = false
         }
+        
+        coffeeTimer = CoffeeTimer(recipe: recipe)
         
         updateWeightLabels()
         
@@ -127,8 +125,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         let alert = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
-            self?.timer?.invalidate()
-            self?.timer = nil
+            self?.coffeeTimer.cancelTimer()
             self?.dismiss(animated: true)
         }))
         present(alert, animated: true)        
@@ -136,17 +133,10 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func playPauseTapped(_ sender: Any) {
         if coffeeTimer.timerState == .running {
-            //pause timer
             coffeeTimer.pause()
-            timer?.invalidate()
-            timer = nil
-    
             playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         } else if coffeeTimer.timerState == .paused {
-            //resume paused timer
-            coffeeTimer.start()
             startTimer()
-
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else if coffeeTimer.timerState == .new {
             let generator = UINotificationFeedbackGenerator()
@@ -158,52 +148,48 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func forwardTapped(_ sender: Any) {
-        if recipeIndex < recipe.waterPours.count - 1 {
-            nextStep()
-        } else {
-            endTimer()
-        }
+        coffeeTimer.nextStep()
     }
     
     // MARK: Update UI methods
     
     private func updateWeightLabels() {
-        currentStepLabel.text = "Step \(recipeIndex + 1) of \(recipe.waterPours.count)"
-        currentStepWeightLabel.text = "Pour " + recipe.waterPours[recipeIndex].clean + "g"
+        currentStepLabel.text = "Step \(coffeeTimer.recipeIndex + 1) of \(recipe.waterPours.count)"
+        currentStepWeightLabel.text = "Pour " + recipe.waterPours[coffeeTimer.recipeIndex].clean + "g"
         currentTotalWeightLabel.text = currentWater.clean + "g"
     }
     
-    private func updateTimeLabels(_ currentInterval: TimeInterval, _ totalElapsedTime: TimeInterval) {
+    func updateTimeLabels(_ currentInterval: TimeInterval, _ totalElapsedTime: TimeInterval) {
         currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
         totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
     }
     
     private func nextStep() {
         playSoundWithVibrate()
-        stepsActualTime.append(coffeeTimer.currentStepElapsedTime)
-
-        coffeeTimer.nextStep()
+        
         progressView.setStrokeColor(for: progressView.progressLayer, to: progressView.progressStrokeColor, animated: true)
         
-        recipeIndex += 1
+        coffeeTimer.recipeIndex += 1
         
-        currentWater += recipe.waterPours[recipeIndex]
+        currentWater += recipe.waterPours[coffeeTimer.recipeIndex]
         updateWeightLabels()
     }
     
-    private func showEndAC() {
-        let averageStepTime = stepsActualTime.reduce(0, +) / Double(stepsActualTime.count)
-        
-        let alert = UIAlertController(title: "Done!", message: "Total time elapsed was \(coffeeTimer.totalElapsedTime.stringFromTimeInterval()).\nAverage time for each step was \(averageStepTime.stringFromTimeInterval()).", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-            self?.dismiss(animated: true) {
-                AppStoreReviewManager.requestReviewIfAppropriate()
-            }
-        }))
-        present(alert, animated: true)
-    }
-    
     // MARK: Timer methods
+    
+    private func startTimer() {
+        coffeeTimer.start { [weak self] timerUpdate in
+            switch timerUpdate {
+            case .tick(step: let stepTime, total: let totalTime):
+                self?.runTimer(currentStepElapsedTime: stepTime, totalElapsedTime: totalTime)
+            case .nextStep(step: let stepTime, total: let totalTime):
+                self?.nextStep()
+                self?.updateTimeLabels(stepTime, totalTime)
+            case .done:
+                self?.endTimer()
+            }
+        }
+    }
     
     private func startNewTimer() {
         if coffeeTimer.timerState == .new {
@@ -212,117 +198,98 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
             //disable screen from sleeping while timer being used
             UIApplication.shared.isIdleTimerDisabled = true
             
-            coffeeTimer.start()
             startTimer()
             
             playPauseButton.isEnabled = true
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             
-            currentWater += recipe.waterPours[recipeIndex]
+            currentWater += recipe.waterPours[coffeeTimer.recipeIndex]
             updateWeightLabels()
             nextButton.isHidden = false
             
             UIView.animate(withDuration: 0.2) {
                 self.nextButton.alpha = 1
             }
-            
             playSoundWithVibrate()
         } else {
             print("Attempting to start new timer when timer state is not new.")
         }
     }
     
-    private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: Constants.timerInterval, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-    }
-    
-    @objc private func runTimer() {
-        coffeeTimer.runCoffeeTimer()
+    private func runTimer(currentStepElapsedTime: TimeInterval, totalElapsedTime: TimeInterval) {
+        DispatchQueue.main.async {
+            self.updateTimeLabels(currentStepElapsedTime, totalElapsedTime)
+            self.updateProgress()
+        }
         
-        //Check if end of recipe's set interval
-        if coffeeTimer.currentStepElapsedTime < recipe.interval - Constants.timerInterval {
-            // Continue counting
-            updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
-            
-            updateProgress()
-        } else {
-            // End of interval - Check if user has set auto-advance on
-            if UserDefaultsManager.timerStepAdvance == 0 {
-                //Check if end of recipe
-                if recipeIndex < recipe.waterPours.count - 1 {
-                    //Move to next step
-                    totalTimeLabel.text = coffeeTimer.totalElapsedTime.stringFromTimeInterval()
-                    nextStep()
-                } else {
-                    //End timer
-                    updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
-                    endTimer()
-                }
-            } else {
-                //Set color of progress to red to warn user
-                progressView.setStrokeColor(for: progressView.progressLayer, to: progressView.progressOverStrokeColor, animated: true)
-                
-                updateTimeLabels(coffeeTimer.currentStepElapsedTime, coffeeTimer.totalElapsedTime)
-                
-                updateProgress()
+        if currentStepElapsedTime > recipe.interval - CoffeeTimer.Constants.timerInterval {
+            // User has auto-advance turned off - set color to red for warning
+            DispatchQueue.main.async {
+                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressOverStrokeColor, animated: true)
             }
         }
     }
     
-    private func updateProgress() {
+    func updateProgress() {
         let fromPercentage = coffeeTimer.fromPercentage
         let toPercentage = coffeeTimer.toPercentage
         
-        if fromPercentage >= 1 {
-            progressView.progressLayer.strokeEnd = 1
-        } else {
-            progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: Constants.timerInterval)
+        DispatchQueue.main.async {
+            if fromPercentage >= 1 {
+                self.progressView.progressLayer.strokeEnd = 1
+            } else {
+                self.progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: CoffeeTimer.Constants.timerInterval)
+            }
         }
     }
     
     private func endTimer() {
         isTimerEnd = true
         
-        timer?.invalidate()
-        timer = nil
         UIApplication.shared.isIdleTimerDisabled = false
         
         performSegue(withIdentifier: summarySegueID, sender: self)
-        //showEndAC()
     }
     
     private func countdownStart() {
         coffeeTimer.timerState = .countdown
         playPauseButton.setImage(nil, for: .normal)
-        playPauseButton.setTitle("\(startCountdown)", for: .normal)
+        playPauseButton.setTitle("\(coffeeTimer.startCountdown)", for: .normal)
         playPauseButton.setTitleColor(UIColor.systemGray2, for: .normal)
         playPauseButton.contentHorizontalAlignment = .center
         playPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 38)
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
-    }
-    
-    @objc private func countdown() {
-        if startCountdown > 1 {
-            startCountdown -= 1
-            playPauseButton.setTitle("\(startCountdown)", for: .normal)
-        } else {
-            if let timer = self.timer {
-                timer.invalidate()
-                self.timer = nil
-                playPauseButton.setTitle(nil, for: .normal)
-                playPauseButton.contentHorizontalAlignment = .fill
-                coffeeTimer.timerState = .new
-                startNewTimer()
-            }
+        coffeeTimer.startCountdownTimer {
+            self.playPauseButton.setTitle(nil, for: .normal)
+            self.playPauseButton.contentHorizontalAlignment = .fill
+            self.coffeeTimer.timerState = .new
+            self.startNewTimer()
+        } countdownInProgress: { (countdown) in
+            self.playPauseButton.setTitle("\(countdown)", for: .normal)
         }
     }
+    
+//    @objc private func countdown() {
+//        if startCountdown > 1 {
+//            startCountdown -= 1
+//            playPauseButton.setTitle("\(startCountdown)", for: .normal)
+//        } else {
+//            if let timer = self.timer {
+//                timer.invalidate()
+//                self.timer = nil
+//                playPauseButton.setTitle(nil, for: .normal)
+//                playPauseButton.contentHorizontalAlignment = .fill
+//                coffeeTimer.timerState = .new
+//                startNewTimer()
+//            }
+//        }
+//    }
     
     // MARK: Navigation Methods
     
     @IBSegueAction
     func showSummaryVC(coder: NSCoder) -> UIViewController? {
-        BrewSummaryVC(coder: coder, recipe: recipe, drawdownTimes: stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
+        BrewSummaryVC(coder: coder, recipe: recipe, drawdownTimes: coffeeTimer.stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
     }
 }
 
