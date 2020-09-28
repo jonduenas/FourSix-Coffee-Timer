@@ -254,17 +254,22 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
     private func countdownStart() {
         playPauseButton.setImage(nil, for: .normal)
-        playPauseButton.setTitle("\(coffeeTimer.startCountdown)", for: .normal)
+        playPauseButton.setTitle("\(coffeeTimer.countdownTime)", for: .normal)
         playPauseButton.setTitleColor(UIColor.systemGray2, for: .normal)
         playPauseButton.contentHorizontalAlignment = .center
         playPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 38)
         
-        coffeeTimer.startCountdownTimer {
-            self.playPauseButton.setTitle(nil, for: .normal)
-            self.playPauseButton.contentHorizontalAlignment = .fill
-            self.startNewTimer()
-        } countdownInProgress: { (countdown) in
-            self.playPauseButton.setTitle("\(countdown)", for: .normal)
+        coffeeTimer.startCountdownTimer { [weak self] countdownUpdate in
+            switch countdownUpdate {
+            case .countdown(let countdownTime):
+                self?.playPauseButton.setTitle("\(countdownTime)", for: .normal)
+            case .done:
+                self?.playPauseButton.setTitle(nil, for: .normal)
+                self?.playPauseButton.contentHorizontalAlignment = .fill
+                self?.startNewTimer()
+            default:
+                return
+            }
         }
     }
     

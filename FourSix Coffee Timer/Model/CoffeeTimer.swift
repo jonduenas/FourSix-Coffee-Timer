@@ -24,6 +24,7 @@ class CoffeeTimer {
     
     enum TimerUpdate {
         case tick(step: TimeInterval, total: TimeInterval)
+        case countdown(_: Int)
         case nextStep(step: TimeInterval, total: TimeInterval)
         case done
         case error
@@ -34,26 +35,25 @@ class CoffeeTimer {
     private var startTime: Date?
     private var currentStepStartTime: Date?
     
-    private var countdownTimer: Timer!
     private(set) var timerState: TimerState!
     private let recipeStepInterval: TimeInterval = 45
     private(set) var totalElapsedTime: TimeInterval = 0
     private(set) var currentStepElapsedTime: TimeInterval = 0
     var recipe: Recipe
     var timerUpdateCallback: ((TimerUpdate) -> Void)!
-    var countdownEndedCallback: (() -> Void)!
-    var countdownInProgressCallback: ((_ countdown: Int) -> Void)!
+    var countdownUpdateCallback: ((TimerUpdate) -> Void)!
     
     var fromPercentage: CGFloat = 0
     var toPercentage: CGFloat = 0
     private(set) var recipeIndex = 0
-    var startCountdown = 3
+    private(set) var countdownTime: Int
     var stepsActualTime = [TimeInterval]()
     
-    init(timerState: TimerState = .countdown, timerScheduler: TimerScheduling, recipe: Recipe) {
+    init(timerState: TimerState = .countdown, timerScheduler: TimerScheduling, recipe: Recipe, countdownTime: Int = 3) {
         self.timerScheduler = timerScheduler
         self.recipe = recipe
         self.timerState = timerState
+        self.countdownTime = countdownTime
     }
     
     func start(timerUpdate: @escaping ((TimerUpdate) -> Void)) {
@@ -104,13 +104,7 @@ class CoffeeTimer {
         }
     }
     
-    func startCountdownTimer(countdownTimerEnded: @escaping () -> Void, countdownInProgress: @escaping (_ countdown: Int) -> Void) {
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
-        countdownEndedCallback = countdownTimerEnded
-        countdownInProgressCallback = countdownInProgress
-    }
-    
-    @objc private func runCoffeeTimer() {
+    private func runCoffeeTimer() {
         let newCurrentStepElapsedTime = abs(currentStepStartTime?.timeIntervalSinceNow ?? 0)
         
         fromPercentage = CGFloat(currentStepElapsedTime) / CGFloat(recipeStepInterval)
@@ -140,14 +134,20 @@ class CoffeeTimer {
         }
     }
     
-    @objc func countdown() {
-        if startCountdown > 1 {
-            startCountdown -= 1
-            countdownInProgressCallback(startCountdown)
+    func startCountdownTimer(countdownUpdate: @escaping (TimerUpdate) -> Void) {
+        countdownUpdateCallback = countdownUpdate
+        timerScheduler.start(timeInterval: 1, repeats: true) { [weak self] _ in
+            self?.countdown()
+        }
+    }
+    
+    private func countdown() {
+        if countdownTime > 1 {
+            countdownTime -= 1
+            countdownUpdateCallback(.countdown(countdownTime))
         } else {
-            countdownEndedCallback()
-            countdownTimer.invalidate()
-            countdownTimer = nil
+            countdownUpdateCallback(.done)
+            timerScheduler.invalidate()
             timerState = .new
         }
     }

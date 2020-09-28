@@ -196,4 +196,39 @@ class CoffeeTimerTests: XCTestCase {
         
         XCTAssertEqual(self.sut.timerState, .done)
     }
+    
+    func testCountdown_Start() {
+        sut = CoffeeTimer(timerState: .countdown, timerScheduler: timerScheduler, recipe: recipe)
+        
+        let currentCountdownTime = sut.countdownTime
+        
+        sut.startCountdownTimer { countDownUpdate in
+            switch countDownUpdate {
+            case .countdown(let countdownTime):
+                XCTAssertEqual(currentCountdownTime - 1, countdownTime)
+            default:
+                XCTFail("Test should not reach this point.")
+            }
+        }
+    }
+    
+    func testCountdown_End() {
+        sut = CoffeeTimer(timerState: .countdown, timerScheduler: timerScheduler, recipe: recipe, countdownTime: 1)
+        
+        var didFinish: XCTestExpectation? = expectation(description: "countdownFinish")
+        
+        sut.startCountdownTimer { countdownUpdate in
+            switch countdownUpdate {
+            case .done:
+                didFinish?.fulfill()
+            default:
+                XCTFail("Test should not reach this point")
+            }
+        }
+        
+        wait(for: [didFinish!], timeout: 1)
+        didFinish = nil
+        
+        XCTAssertEqual(sut.timerState, .new)
+    }
 }
