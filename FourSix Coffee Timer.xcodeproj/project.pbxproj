@@ -39,11 +39,13 @@
 		656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */; };
 		656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */; };
 		656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */; };
+		656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D0D53251D586A001EE918 /* TimerScheduler.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
 		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
 		65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C04247D8DEC00A4CE76 /* BrewVC.swift */; };
 		65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C08247D95B700A4CE76 /* TimerVC.swift */; };
 		659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659785CF25141CB200DFB60A /* CalculatorTests.swift */; };
+		65A282A0251D3342001AD862 /* MockTimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2829F251D3342001AD862 /* MockTimerScheduler.swift */; };
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
@@ -103,6 +105,7 @@
 		656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphTop.swift; sourceTree = "<group>"; };
 		656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphBottom.swift; sourceTree = "<group>"; };
 		656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
+		656D0D53251D586A001EE918 /* TimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduler.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
 		65859C04247D8DEC00A4CE76 /* BrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewVC.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		659785CD25141CB200DFB60A /* FourSixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		659785CF25141CB200DFB60A /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		659785D125141CB200DFB60A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65A2829F251D3342001AD862 /* MockTimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimerScheduler.swift; sourceTree = "<group>"; };
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */,
+				65A2829F251D3342001AD862 /* MockTimerScheduler.swift */,
 				659785CF25141CB200DFB60A /* CalculatorTests.swift */,
 				659785D125141CB200DFB60A /* Info.plist */,
 			);
@@ -278,6 +283,7 @@
 				6529E11C249FF2E30093FAE1 /* howto.rtf */,
 				6529E118249FECC60093FAE1 /* faq.rtf */,
 				651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */,
+				656D0D53251D586A001EE918 /* TimerScheduler.swift */,
 				65FB6548249C18CC00ED732F /* Calculator.swift */,
 				65FB654A249C19F800ED732F /* Recipe.swift */,
 				65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */,
@@ -495,6 +501,7 @@
 				656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */,
 				65D352C224D1E5DB00DB3AA7 /* RatioVC.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
+				656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
 				65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */,
 			);
@@ -505,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */,
+				65A282A0251D3342001AD862 /* MockTimerScheduler.swift in Sources */,
 				65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

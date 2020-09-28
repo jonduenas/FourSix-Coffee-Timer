@@ -61,7 +61,8 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
             totalTimeStackView.isHidden = false
         }
         
-        coffeeTimer = CoffeeTimer(recipe: recipe)
+        let timerScheduler = TimerScheduler()
+        coffeeTimer = CoffeeTimer(timerScheduler: timerScheduler, recipe: recipe)
         
         updateWeightLabels()
         
@@ -169,8 +170,6 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         
         progressView.setStrokeColor(for: progressView.progressLayer, to: progressView.progressStrokeColor, animated: true)
         
-        coffeeTimer.recipeIndex += 1
-        
         currentWater += recipe.waterPours[coffeeTimer.recipeIndex]
         updateWeightLabels()
     }
@@ -187,6 +186,8 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
                 self?.updateTimeLabels(stepTime, totalTime)
             case .done:
                 self?.endTimer()
+            default:
+                return
             }
         }
     }
@@ -252,7 +253,6 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     private func countdownStart() {
-        coffeeTimer.timerState = .countdown
         playPauseButton.setImage(nil, for: .normal)
         playPauseButton.setTitle("\(coffeeTimer.startCountdown)", for: .normal)
         playPauseButton.setTitleColor(UIColor.systemGray2, for: .normal)
@@ -262,7 +262,6 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         coffeeTimer.startCountdownTimer {
             self.playPauseButton.setTitle(nil, for: .normal)
             self.playPauseButton.contentHorizontalAlignment = .fill
-            self.coffeeTimer.timerState = .new
             self.startNewTimer()
         } countdownInProgress: { (countdown) in
             self.playPauseButton.setTitle("\(countdown)", for: .normal)
