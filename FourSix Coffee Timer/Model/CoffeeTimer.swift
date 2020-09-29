@@ -39,7 +39,7 @@ class CoffeeTimer {
     private(set) var totalElapsedTime: TimeInterval = 0
     private(set) var currentStepElapsedTime: TimeInterval = 0
     
-    private var timerUpdateCallback: ((TimerUpdate) -> Void)!
+    private(set) var timerUpdateCallback: ((TimerUpdate) -> Void)!
     private var countdownUpdateCallback: ((TimerUpdate) -> Void)!
     private(set) var fromPercentage: CGFloat = 0
     private(set) var toPercentage: CGFloat = 0

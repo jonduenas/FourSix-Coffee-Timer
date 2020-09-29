@@ -179,9 +179,10 @@ class CoffeeTimerTests: XCTestCase {
         
         XCTAssertEqual(self.sut.timerState, .running)
         let currentStep = sut.recipeIndex
-        sut.nextStep(auto: true)
+        let currentStepTime = sut.currentStepElapsedTime
+        sut.nextStep(auto: false)
         
-        XCTAssertNotEqual(sut.stepsActualTime[0], sut.currentStepElapsedTime)
+        XCTAssertEqual(sut.stepsActualTime[0], currentStepTime)
         XCTAssertEqual(sut.currentStepElapsedTime, 0, "currentStepElapsedTime should be 0")
         XCTAssertEqual(currentStep + 1, sut.recipeIndex)
     }
