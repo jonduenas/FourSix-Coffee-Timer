@@ -26,14 +26,8 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
     let summarySegueID = "ShowSummary"
     var coffeeTimer: CoffeeTimer!
-    //var timer: Timer?
-    
-    
-    var isTimerEnd = false
     
     let recipe: Recipe
-    
-    //var recipeIndex = 0
     var currentWater: Float = 0
     
     private var audioPlayer: AVAudioPlayer?
@@ -53,7 +47,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         
         self.clearNavigationBar()
         
-        //make timer font monospaced
+        // Make timer font monospaced
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
         totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
         
@@ -71,10 +65,8 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        
         UIApplication.shared.isIdleTimerDisabled = false
-        if isTimerEnd {
-            playSoundWithVibrate()
-        }
     }
     
     // MARK: AVAudioPlayer Methods
@@ -139,7 +131,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         } else if coffeeTimer.timerState == .paused {
             startTimer()
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-        } else if coffeeTimer.timerState == .new {
+        } else if coffeeTimer.timerState == .countdown {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
             countdownStart()
@@ -149,29 +141,39 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func forwardTapped(_ sender: Any) {
-        coffeeTimer.nextStep()
+        coffeeTimer.nextStep(auto: false)
     }
     
     // MARK: Update UI methods
     
     private func updateWeightLabels() {
-        currentStepLabel.text = "Step \(coffeeTimer.recipeIndex + 1) of \(recipe.waterPours.count)"
-        currentStepWeightLabel.text = "Pour " + recipe.waterPours[coffeeTimer.recipeIndex].clean + "g"
-        currentTotalWeightLabel.text = currentWater.clean + "g"
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.currentStepLabel.text = "Step \(self.coffeeTimer.recipeIndex + 1) of \(self.recipe.waterPours.count)"
+            self.currentStepWeightLabel.text = "Pour " + self.recipe.waterPours[self.coffeeTimer.recipeIndex].clean + "g"
+            self.currentTotalWeightLabel.text = self.currentWater.clean + "g"
+        }
     }
     
     func updateTimeLabels(_ currentInterval: TimeInterval, _ totalElapsedTime: TimeInterval) {
-        currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
-        totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
+            self.totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
+        }
+        
     }
     
     private func nextStep() {
         playSoundWithVibrate()
         
-        progressView.setStrokeColor(for: progressView.progressLayer, to: progressView.progressStrokeColor, animated: true)
-        
         currentWater += recipe.waterPours[coffeeTimer.recipeIndex]
-        updateWeightLabels()
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressStrokeColor, animated: false)
+            self.updateWeightLabels()
+        }
     }
     
     // MARK: Timer methods
@@ -183,11 +185,11 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
                 self?.runTimer(currentStepElapsedTime: stepTime, totalElapsedTime: totalTime)
             case .nextStep(step: let stepTime, total: let totalTime):
                 self?.nextStep()
-                self?.updateTimeLabels(stepTime, totalTime)
+                self?.runTimer(currentStepElapsedTime: stepTime, totalElapsedTime: totalTime)
             case .done:
                 self?.endTimer()
             default:
-                return
+                print("Error with timer.")
             }
         }
     }
@@ -201,15 +203,19 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
             
             startTimer()
             
-            playPauseButton.isEnabled = true
-            playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            
-            currentWater += recipe.waterPours[coffeeTimer.recipeIndex]
-            updateWeightLabels()
-            nextButton.isHidden = false
-            
-            UIView.animate(withDuration: 0.2) {
-                self.nextButton.alpha = 1
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.playPauseButton.isEnabled = true
+                self.playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                
+                self.currentWater += self.recipe.waterPours[self.coffeeTimer.recipeIndex]
+                self.updateWeightLabels()
+                
+                self.nextButton.isHidden = false
+                
+                UIView.animate(withDuration: 0.2) {
+                    self.nextButton.alpha = 1
+                }
             }
             playSoundWithVibrate()
         } else {
@@ -223,7 +229,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
             self.updateProgress()
         }
         
-        if currentStepElapsedTime > recipe.interval - CoffeeTimer.Constants.timerInterval {
+        if currentStepElapsedTime > recipe.interval + CoffeeTimer.Constants.timerInterval {
             // User has auto-advance turned off - set color to red for warning
             DispatchQueue.main.async {
                 self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressOverStrokeColor, animated: true)
@@ -236,16 +242,12 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         let toPercentage = coffeeTimer.toPercentage
         
         DispatchQueue.main.async {
-            if fromPercentage >= 1 {
-                self.progressView.progressLayer.strokeEnd = 1
-            } else {
-                self.progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: CoffeeTimer.Constants.timerInterval)
-            }
+            self.progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: CoffeeTimer.Constants.timerInterval)
         }
     }
     
     private func endTimer() {
-        isTimerEnd = true
+        playSoundWithVibrate()
         
         UIApplication.shared.isIdleTimerDisabled = false
         
@@ -272,22 +274,6 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
             }
         }
     }
-    
-//    @objc private func countdown() {
-//        if startCountdown > 1 {
-//            startCountdown -= 1
-//            playPauseButton.setTitle("\(startCountdown)", for: .normal)
-//        } else {
-//            if let timer = self.timer {
-//                timer.invalidate()
-//                self.timer = nil
-//                playPauseButton.setTitle(nil, for: .normal)
-//                playPauseButton.contentHorizontalAlignment = .fill
-//                coffeeTimer.timerState = .new
-//                startNewTimer()
-//            }
-//        }
-//    }
     
     // MARK: Navigation Methods
     

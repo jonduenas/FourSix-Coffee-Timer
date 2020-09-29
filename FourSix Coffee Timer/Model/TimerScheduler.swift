@@ -15,7 +15,7 @@ public protocol TimerScheduling {
 
 class TimerScheduler: TimerScheduling {
     
-    private var timer: Timer?
+    private weak var timer: Timer?
     
     deinit {
         timer = nil

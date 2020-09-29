@@ -134,7 +134,7 @@ class CoffeeTimerTests: XCTestCase {
         XCTAssertEqual(sut.timerState, .paused, "Timer state should be paused")
     }
     
-    func testTimerNextStep() {
+    func testTimerNextStep_Auto() {
         sut = CoffeeTimer(timerState: .new, timerScheduler: timerScheduler, recipe: recipe)
         
         var didFinish: XCTestExpectation? = self.expectation(description: #function)
@@ -153,8 +153,35 @@ class CoffeeTimerTests: XCTestCase {
         
         XCTAssertEqual(self.sut.timerState, .running)
         let currentStep = sut.recipeIndex
-        sut.nextStep()
+        sut.nextStep(auto: true)
         
+        XCTAssertEqual(sut.stepsActualTime[0], sut.recipe.interval)
+        XCTAssertEqual(sut.currentStepElapsedTime, 0, "currentStepElapsedTime should be 0")
+        XCTAssertEqual(currentStep + 1, sut.recipeIndex)
+    }
+    
+    func testTimerNextStep_Manual() {
+        sut = CoffeeTimer(timerState: .new, timerScheduler: timerScheduler, recipe: recipe)
+        
+        var didFinish: XCTestExpectation? = self.expectation(description: #function)
+        
+        sut.start { _ in
+            didFinish?.fulfill()
+        }
+        
+        if let didFinishSafe = didFinish {
+            wait(for: [didFinishSafe], timeout: 1)
+        } else {
+            XCTFail()
+        }
+        
+        didFinish = nil
+        
+        XCTAssertEqual(self.sut.timerState, .running)
+        let currentStep = sut.recipeIndex
+        sut.nextStep(auto: true)
+        
+        XCTAssertNotEqual(sut.stepsActualTime[0], sut.currentStepElapsedTime)
         XCTAssertEqual(sut.currentStepElapsedTime, 0, "currentStepElapsedTime should be 0")
         XCTAssertEqual(currentStep + 1, sut.recipeIndex)
     }
@@ -185,7 +212,7 @@ class CoffeeTimerTests: XCTestCase {
             didStart = nil
         }
         
-        sut.nextStep()
+        sut.nextStep(auto: true)
         
         if let didFinishSafe = didFinish {
             wait(for: [didFinishSafe], timeout: 1)

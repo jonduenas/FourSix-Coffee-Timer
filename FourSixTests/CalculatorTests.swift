@@ -13,16 +13,16 @@ class CalculatorTests: XCTestCase {
     
     var sut: Calculator!
     
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
+        super.setUp()
         
         sut = Calculator()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         sut = nil
         
-        try super.tearDownWithError()
+        super.tearDown()
     }
 
     func testCalculator_40() {
