@@ -46,7 +46,7 @@ class CoffeeTimer {
     private(set) var recipeIndex = 0
     private(set) var countdownTime: Int
     private(set) var stepsActualTime = [TimeInterval]()
-    private var totalStepTime: TimeInterval = 0
+    private(set) var totalStepTime: TimeInterval = 0
     
     init(timerState: TimerState = .countdown, timerScheduler: TimerScheduling, recipe: Recipe, countdownTime: Int = 3) {
         self.timerScheduler = timerScheduler

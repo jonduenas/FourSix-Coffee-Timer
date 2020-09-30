@@ -38,6 +38,10 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         super.init(coder: coder)
     }
     
+    deinit {
+        print("TimerVC cleared")
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

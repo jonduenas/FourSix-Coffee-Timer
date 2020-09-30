@@ -156,6 +156,7 @@ class CoffeeTimerTests: XCTestCase {
         sut.nextStep(auto: true)
         
         XCTAssertEqual(sut.stepsActualTime[0], sut.recipe.interval)
+        XCTAssertEqual(sut.totalStepTime, sut.recipe.interval)
         XCTAssertEqual(sut.currentStepElapsedTime, 0, "currentStepElapsedTime should be 0")
         XCTAssertEqual(currentStep + 1, sut.recipeIndex)
     }

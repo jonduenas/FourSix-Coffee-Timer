@@ -54,6 +54,10 @@ class RecipeVC: UIViewController {
         super.init(coder: coder)
     }
     
+    deinit {
+        print("RecipeVC cleared.")
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
