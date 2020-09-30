@@ -191,7 +191,7 @@ class BrewVC: UIViewController, PaywallDelegate {
                 recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
                 performSegue(withIdentifier: showRecipeID, sender: self)
             } else {
-                showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee, your results will be more predictable. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
+                showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
                     guard let self = self else { return }
                     UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
                     self.recipe = self.calculator.calculateRecipe(balance: self.balance, strength: self.strength, coffee: self.coffee, water: self.water)
