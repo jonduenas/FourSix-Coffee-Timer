@@ -87,7 +87,7 @@
 		652756502475B13B004E067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedVC.swift; sourceTree = "<group>"; };
 		6529E118249FECC60093FAE1 /* faq.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = faq.rtf; sourceTree = "<group>"; };
-		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
+		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/Settings/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
 		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 			path = FourSixTests;
 			sourceTree = "<group>";
 		};
-		65AFC1FB249D55A300576AFA /* View */ = {
+		6599B4702524FF37005EA7DD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				65FB31AD24CA130E00781023 /* Walkthrough.storyboard */,
@@ -242,6 +242,38 @@
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				652756482475B138004E067F /* Main.storyboard */,
 				652C95E424B28E3B00B471C8 /* Settings.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		6599B4732524FF73005EA7DD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
+				65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */,
+				65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */,
+				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
+				6529E11A249FEFFB0093FAE1 /* HowToVC.swift */,
+				6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */,
+				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6599B4762524FF99005EA7DD /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */,
+				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
+				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
+			);
+			path = Walkthrough;
+			sourceTree = "<group>";
+		};
+		65AFC1FB249D55A300576AFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6599B4702524FF37005EA7DD /* Storyboards */,
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
 				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
@@ -261,17 +293,9 @@
 				6531720924A6B06F00709062 /* RecipeVC.swift */,
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
 				6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */,
-				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
-				65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */,
-				65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */,
+				6599B4732524FF73005EA7DD /* Settings */,
 				6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */,
-				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
-				6529E11A249FEFFB0093FAE1 /* HowToVC.swift */,
-				6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */,
-				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
-				65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */,
-				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
-				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
+				6599B4762524FF99005EA7DD /* Walkthrough */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

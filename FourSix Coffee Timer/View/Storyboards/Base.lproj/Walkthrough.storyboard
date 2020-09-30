@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +21,8 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="798"/>
                                 <color key="backgroundColor" name="Background"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTs-qS-q48">
-                                <rect key="frame" x="360" y="54" width="34" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTs-qS-q48">
+                                <rect key="frame" x="361" y="54" width="33" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" name="Accent"/>
                                 <state key="normal" title="Skip"/>
@@ -30,6 +31,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="lGL-Gr-hIl"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="yyP-I3-Duc" firstAttribute="leading" secondItem="lGL-Gr-hIl" secondAttribute="leading" id="2iv-2b-2cM"/>
@@ -40,7 +42,6 @@
                             <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="yyP-I3-Duc" secondAttribute="trailing" id="w3v-hP-SXZ"/>
                             <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="CTs-qS-q48" secondAttribute="trailing" constant="20" id="yn7-1p-6qK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="lGL-Gr-hIl"/>
                     </view>
                     <navigationItem key="navigationItem" id="dwT-0P-IM5">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="hCf-4g-wjN">
@@ -86,7 +87,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-4" translatesAutoresizingMaskIntoConstraints="NO" id="vx9-sE-Riq">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-ON-C1Y" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-ON-C1Y" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
                                 <rect key="frame" x="109" y="786" width="196" height="51"/>
                                 <color key="backgroundColor" name="Accent"/>
                                 <constraints>
@@ -107,16 +108,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="0Bx-WT-mfW">
-                                <rect key="frame" x="97.5" y="419.5" width="219.5" height="137"/>
+                                <rect key="frame" x="98" y="419.5" width="218.5" height="137"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start you'll need:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-3v-tQb">
-                                        <rect key="frame" x="0.0" y="0.0" width="219.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="218.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Hario V60 • Digital Scale • Pouring Kettle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-4n-jL8">
-                                        <rect key="frame" x="27" y="51" width="165.5" height="86"/>
+                                        <rect key="frame" x="26.5" y="51" width="165" height="86"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -124,12 +125,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your coffee!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-Vs-TH5">
-                                <rect key="frame" x="69" y="280" width="276.5" height="39.5"/>
+                                <rect key="frame" x="69.5" y="280" width="275.5" height="39.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="YWV-aN-WHc"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="YWV-aN-WHc" firstAttribute="bottom" secondItem="vx9-sE-Riq" secondAttribute="bottom" id="1SA-rH-XT0"/>
@@ -143,7 +145,6 @@
                             <constraint firstItem="vx9-sE-Riq" firstAttribute="top" secondItem="YWV-aN-WHc" secondAttribute="top" id="iwX-vs-OPo"/>
                             <constraint firstItem="YWV-aN-WHc" firstAttribute="bottom" secondItem="Tr6-ON-C1Y" secondAttribute="bottom" constant="25" id="zSf-zO-E71"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="YWV-aN-WHc"/>
                     </view>
                     <connections>
                         <outlet property="endLabel" destination="qYA-Vs-TH5" id="zWq-Cq-zHO"/>
@@ -157,7 +158,12 @@
             <point key="canvasLocation" x="3979.7101449275365" y="-1317.1875"/>
         </scene>
     </scenes>
-    <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+    <designables>
+        <designable name="Tr6-ON-C1Y">
+            <size key="intrinsicContentSize" width="92" height="36"/>
+        </designable>
+    </designables>
+    <color key="tintColor" systemColor="secondaryLabelColor"/>
     <resources>
         <image name="walkthrough-4" width="333" height="611"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
@@ -167,5 +173,8 @@
         <namedColor name="Background">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
