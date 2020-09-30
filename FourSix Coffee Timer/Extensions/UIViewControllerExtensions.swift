@@ -22,6 +22,19 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func showAlertWithCancel(title: String = "", message: String, afterConfirm: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
+            if let action = afterConfirm {
+                action()
+            }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     // Show FourSix Pro Popup
     func showProPopup(delegate: PaywallDelegate) {
         let storyboard = UIStoryboard(name: IAPManager.shared.proPopUpSBName, bundle: nil)

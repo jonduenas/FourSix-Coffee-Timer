@@ -24,6 +24,7 @@ class UserDefaultsManager: NSObject {
     private static let userHasSeenWalkthroughKey = "userHasSeenWalkthroughKey"
     private static let reviewWorthyActionCountKey = "reviewWorthyActionCountKey"
     private static let lastReviewRequestAppVersionKey = "lastReviewRequestAppVersionKey"
+    private static let userHasSeenCoffeeRangeWarningKey = "userHasSeenCoffeeRangeWarningKey"
     
     // MARK: Variables
     
@@ -123,6 +124,15 @@ class UserDefaultsManager: NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: lastReviewRequestAppVersionKey)
+        }
+    }
+    
+    static var userHasSeenCoffeeRangeWarning: Bool {
+        get {
+            return userDefaults.bool(forKey: userHasSeenCoffeeRangeWarningKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: userHasSeenCoffeeRangeWarningKey)
         }
     }
 }

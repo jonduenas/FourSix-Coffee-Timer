@@ -281,7 +281,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="calculateTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="JtO-0t-KWp"/>
-                                            <segue destination="nIU-F0-MSK" kind="presentation" identifier="showRecipe" modalPresentationStyle="fullScreen" id="4an-V3-Xap"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -330,6 +329,7 @@
                         <outlet property="sliderStackView" destination="UsE-qw-I3m" id="eVH-SM-7yZ"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
                         <outlet property="waterLabel" destination="ddD-7S-1A3" id="LKK-wy-fGX"/>
+                        <segue destination="nIU-F0-MSK" kind="presentation" identifier="ShowRecipe" modalPresentationStyle="fullScreen" id="1Mn-Fa-u40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgL-bu-rV2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1134,7 +1134,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="jpc-zZ-n2T" kind="relationship" relationship="rootViewController" destinationCreationSelector="makeRecipeViewControllerWithCoder:" id="h6P-WC-Bqo"/>
+                        <segue destination="jpc-zZ-n2T" kind="relationship" relationship="rootViewController" destinationCreationSelector="makeRecipeViewControllerWithCoder:" id="iEN-fP-K8y"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejy-7e-Fq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

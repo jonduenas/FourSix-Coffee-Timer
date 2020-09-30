@@ -13,10 +13,11 @@ import Purchases
 class BrewVC: UIViewController, PaywallDelegate {
     
     // MARK: Constants
+    let showRecipeID = "ShowRecipe"
     let balanceDict: [Balance: Int] = [.sweet: 0, .neutral: 1, .bright: 2]
     let strengthDict: [Strength: Int] = [.light: 0, .medium: 1, .strong: 2]
-    let coffeeMin: Float = 15
-    let coffeeMax: Float = 35
+    let coffeeMin: Float = 10
+    let coffeeMax: Float = 40
     let selectionFeedback = UISelectionFeedbackGenerator()
     
     // MARK: Variables
@@ -122,6 +123,11 @@ class BrewVC: UIViewController, PaywallDelegate {
         water = (coffee * Float(ratio)).rounded()
     }
     
+    private func isCoffeeAcceptableRange() -> Bool {
+        let acceptableRange: ClosedRange<Float> = 15...25
+        return acceptableRange.contains(coffee)
+    }
+    
     // MARK: IBActions
     
     @IBAction func editTapped(_ sender: UIButton) {
@@ -177,8 +183,22 @@ class BrewVC: UIViewController, PaywallDelegate {
     }
     
     @IBAction func calculateTapped(_ sender: Any) {
-        //calculator.waterPours.removeAll()
-        recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+        if isCoffeeAcceptableRange() {
+            recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+            performSegue(withIdentifier: showRecipeID, sender: self)
+        } else {
+            if UserDefaultsManager.userHasSeenCoffeeRangeWarning {
+                recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+                performSegue(withIdentifier: showRecipeID, sender: self)
+            } else {
+                showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee, your results will be more predictable. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
+                    guard let self = self else { return }
+                    UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
+                    self.recipe = self.calculator.calculateRecipe(balance: self.balance, strength: self.strength, coffee: self.coffee, water: self.water)
+                    self.performSegue(withIdentifier: self.showRecipeID, sender: self)
+                }
+            }
+        }
     }
     
     // MARK: Navigation Methods
