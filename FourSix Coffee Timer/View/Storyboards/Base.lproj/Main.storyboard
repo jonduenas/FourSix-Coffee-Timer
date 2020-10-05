@@ -1093,6 +1093,7 @@
                     <connections>
                         <outlet property="brace40Stack" destination="K1c-t2-djC" id="J2E-4l-z7C"/>
                         <outlet property="brace60Stack" destination="WPy-su-ZTU" id="hJ2-zr-7ek"/>
+                        <outlet property="footerLabel" destination="MIR-sT-gDJ" id="HSh-hX-3yM"/>
                         <outlet property="graphHiderHeight" destination="mkn-mB-gV8" id="7bM-1e-YU6"/>
                         <outlet property="graphHiderView" destination="wmc-SG-5au" id="KM5-hp-Evy"/>
                         <outlet property="graphView" destination="Tn0-dA-LJ4" id="gLF-E6-cOZ"/>

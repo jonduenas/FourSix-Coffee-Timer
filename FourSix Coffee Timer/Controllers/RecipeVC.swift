@@ -11,6 +11,7 @@ import UIKit
 class RecipeVC: UIViewController {
 
     @IBOutlet var totalCoffeeWaterLabel: UILabel!
+    @IBOutlet weak var footerLabel: UILabel!
     
     @IBOutlet var pour1View: UIStackView!
     @IBOutlet var pour2View: UIStackView!
@@ -66,6 +67,8 @@ class RecipeVC: UIViewController {
         super.viewDidLoad()
         
         self.clearNavigationBar()
+        
+        footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
 
         labelArray = [pour1Label, pour2Label, pour3Label, pour4Label, pour5Label, pour6Label]
         
