@@ -33,7 +33,7 @@ class CalculatorTests: XCTestCase {
         let water: Float = 375
         
         // when
-        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: 45)
         
         // then
         XCTAssertEqual(recipe.waterPours[0], 63, "First pour should be 50")
@@ -48,7 +48,7 @@ class CalculatorTests: XCTestCase {
         let water: Float = 375
         
         // when
-        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: 45)
         
         // then
         XCTAssertEqual(recipe.waterPours[3], 56, "Third pour should be 56")
@@ -63,7 +63,7 @@ class CalculatorTests: XCTestCase {
         let water: Float = 375
         
         // when
-        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+        let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: 45)
         
         // then
         let acceptableRange: ClosedRange<Float> = 374.0...376.0

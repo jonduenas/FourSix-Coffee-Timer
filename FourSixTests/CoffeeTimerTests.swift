@@ -18,7 +18,7 @@ class CoffeeTimerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        recipe = Recipe(coffee: 20, waterTotal: 300, waterPours: [50, 70, 60, 60, 60], balance: .sweet, strength: .medium)
+        recipe = Recipe(coffee: 20, waterTotal: 300, waterPours: [50, 70, 60, 60, 60], interval: 45, balance: .sweet, strength: .medium)
         timerScheduler = MockTimerScheduler()
     }
 
@@ -189,7 +189,7 @@ class CoffeeTimerTests: XCTestCase {
     }
     
     func testTimerNextStep_LastStep() {
-        recipe = Recipe(coffee: 20, waterTotal: 300, waterPours: [300], balance: .bright, strength: .medium)
+        recipe = Recipe(coffee: 20, waterTotal: 300, waterPours: [300], interval: 45, balance: .bright, strength: .medium)
         
         sut = CoffeeTimer(timerState: .new, timerScheduler: timerScheduler, recipe: recipe)
         
