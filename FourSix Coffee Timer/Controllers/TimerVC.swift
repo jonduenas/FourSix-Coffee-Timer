@@ -175,7 +175,6 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressStrokeColor, animated: false)
             self.updateWeightLabels()
         }
     }
@@ -233,10 +232,18 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
             self.updateProgress()
         }
         
-        if currentStepElapsedTime > recipe.interval + CoffeeTimer.Constants.timerInterval {
+        if currentStepElapsedTime > recipe.interval + CoffeeTimer.Constants.timerInterval && progressView.progressLayer.strokeColor == progressView.progressStrokeColor.cgColor {
             // User has auto-advance turned off - set color to red for warning
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                print("Red progress view")
                 self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressOverStrokeColor, animated: true)
+            }
+        } else if currentStepElapsedTime < recipe.interval + CoffeeTimer.Constants.timerInterval && progressView.progressLayer.strokeColor == progressView.progressOverStrokeColor.cgColor {
+            // Only sets to blue if currently red
+            DispatchQueue.main.async {
+                print("Blue progress view")
+                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressStrokeColor, animated: false)
             }
         }
     }
