@@ -471,7 +471,7 @@
                                             <constraint firstAttribute="width" constant="155" id="7rH-rI-m6S"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each interval begins from starting to pour and ends when water completely drains." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ki-va-fRO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each interval begins when you start to pour and ends when the water completely drains." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ki-va-fRO">
                                         <rect key="frame" x="30" y="49.5" width="200" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="49" id="igN-z6-cAg"/>
