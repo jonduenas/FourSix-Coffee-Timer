@@ -1,7 +1,7 @@
 PODS:
-  - Purchases (3.7.1):
-    - PurchasesCoreSwift (= 3.7.1)
-  - PurchasesCoreSwift (3.7.1)
+  - Purchases (3.7.3):
+    - PurchasesCoreSwift (= 3.7.3)
+  - PurchasesCoreSwift (3.7.3)
   - TactileSlider (1.3.0)
 
 DEPENDENCIES:
@@ -15,10 +15,10 @@ SPEC REPOS:
     - TactileSlider
 
 SPEC CHECKSUMS:
-  Purchases: 81efbd7dc9164247a0885ad12ddf6b043a58c1db
-  PurchasesCoreSwift: eca892b2a0eff34d55d70e7c3349c1eb4c7659f5
+  Purchases: ae790bb695c4d4f1c13f952067d2d2c3f0d0ca5e
+  PurchasesCoreSwift: 53956256a1ff84de8f0f212ea4b9b46a53a212dc
   TactileSlider: 1dc3a05df4bf0bc5ccfba4805c65111ddc308ecd
 
-PODFILE CHECKSUM: cf1aaf5f673956fa4f5eedd4733b560ade5f52ca
+PODFILE CHECKSUM: cebe314548d99ebc9327583161ba5d2e63101c6d
 
 COCOAPODS: 1.9.3

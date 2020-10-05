@@ -339,7 +339,7 @@
 				6527563C2475B138004E067F /* Frameworks */,
 				6527563D2475B138004E067F /* Resources */,
 				6518D13624B4FBBA00F786C4 /* Copy Acknowledgements */,
-				7CA184B1100C43C99921E8B4 /* [CP] Embed Pods Frameworks */,
+				6C236755B93D99DE5DF05CDA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -452,7 +452,7 @@
 			shellPath = /bin/sh;
 			shellScript = "cp \"${SRCROOT}/Pods/Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer-acknowledgements.plist\" \"${SRCROOT}/FourSix Coffee Timer/Settings.bundle/OpenSource.plist\"\n";
 		};
-		7CA184B1100C43C99921E8B4 /* [CP] Embed Pods Frameworks */ = {
+		6C236755B93D99DE5DF05CDA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

@@ -306,13 +306,9 @@ static BOOL _automaticAppleSearchAdsAttributionCollection = NO;
                 [self sendCachedPurchaserInfoIfAvailable];
             }
         }];
-
-        [self configureSubscriberAttributesManager];
-
         self.storeKitWrapper.delegate = self;
-        [self.notificationCenter addObserver:self
-                                    selector:@selector(applicationDidBecomeActive:)
-                                        name:APP_DID_BECOME_ACTIVE_NOTIFICATION_NAME object:nil];
+
+        [self subscribeToAppStateNotifications];
 
         [self.attributionFetcher postPostponedAttributionDataIfNeeded];
         if (_automaticAppleSearchAdsAttributionCollection) {
@@ -321,6 +317,16 @@ static BOOL _automaticAppleSearchAdsAttributionCollection = NO;
     }
 
     return self;
+}
+
+- (void)subscribeToAppStateNotifications {
+    [self.notificationCenter addObserver:self
+                                selector:@selector(applicationDidBecomeActive:)
+                                    name:APP_DID_BECOME_ACTIVE_NOTIFICATION_NAME object:nil];
+    [self.notificationCenter addObserver:self
+                                selector:@selector(applicationWillResignActive:)
+                                    name:APP_WILL_RESIGN_ACTIVE_NOTIFICATION_NAME
+                                  object:nil];
 }
 
 - (void)dealloc {
@@ -359,10 +365,10 @@ static BOOL _automaticAppleSearchAdsAttributionCollection = NO;
                fromNetwork:(RCAttributionNetwork)network
           forNetworkUserId:(nullable NSString *)networkUserId {
     if (_sharedPurchases) {
-        RCLog(@"There is an instance configured, posting attribution.");
+        RCLog(RCStrings.attribution.instance_configured_posting_attribution);
         [_sharedPurchases postAttributionData:data fromNetwork:network forNetworkUserId:networkUserId];
     } else {
-        RCLog(@"There is no instance configured, caching attribution.");
+        RCLog(RCStrings.attribution.no_instance_configured_caching_attribution);
         [RCAttributionFetcher storePostponedAttributionData:data
                                                 fromNetwork:network
                                            forNetworkUserId:networkUserId];
@@ -799,6 +805,11 @@ withPresentedOfferingIdentifier:(nullable NSString *)presentedOfferingIdentifier
 
 - (void)applicationDidBecomeActive:(__unused NSNotification *)notif {
     [self updateAllCachesIfNeeded];
+    [self syncSubscriberAttributesIfNeeded];
+}
+
+- (void)applicationWillResignActive:(__unused NSNotification *)notif {
+    [self syncSubscriberAttributesIfNeeded];
 }
 
 - (void)sendCachedPurchaserInfoIfAvailable {
@@ -849,10 +860,6 @@ withPresentedOfferingIdentifier:(nullable NSString *)presentedOfferingIdentifier
             }
         }];
     }
-}
-
-- (void)updateAllCaches {
-    [self updateAllCachesWithCompletionBlock:nil];
 }
 
 - (void)updateAllCachesWithCompletionBlock:(nullable RCReceivePurchaserInfoBlock)completion {

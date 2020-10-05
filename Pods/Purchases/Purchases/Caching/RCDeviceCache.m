@@ -9,7 +9,7 @@
 #import "RCDeviceCache.h"
 #import "RCDeviceCache+Protected.h"
 #import "RCLogUtils.h"
-
+#import "NSDictionary+RCExtensions.h"
 
 @interface RCDeviceCache ()
 
@@ -231,10 +231,6 @@ NSString *RCAttributionDataDefaultsKeyBase = RC_CACHE_KEY_PREFIX @".attribution.
             if (!attribute.isSynced) {
                 unsyncedAttributesByKey[attribute.key] = attribute;
             }
-        }
-        RCLog(@"found %lu unsynced attributes for appUserID: %@", unsyncedAttributesByKey.count, appUserID);
-        if (unsyncedAttributesByKey.count > 0) {
-            RCLog(@"unsynced attributes: %@", unsyncedAttributesByKey);
         }
         return unsyncedAttributesByKey;
     }

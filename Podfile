@@ -7,5 +7,5 @@ target 'FourSix Coffee Timer' do
 
   pod 'TactileSlider', '1.3.0'
   pod 'Purchases', '~> 3.4'
-  
+
 end

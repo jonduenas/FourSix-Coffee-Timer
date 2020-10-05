@@ -7,317 +7,324 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02236864EC7BFC11CC9ED297115BFE8B /* NSDate+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E477B102F0C4CF2982D266132E9450 /* NSDate+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		034478EAA3AF24F219B2CD8690C3B4EB /* TransactionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921DE1063121D0D4C61AB41DDE0BC7E /* TransactionsFactory.swift */; };
-		04DE14F445901DAC4187F8C3D25DFDAD /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26034ED287929DB0D9A233BCFEDAEBE1 /* ProductsManager.swift */; };
-		076EBE70B3E44269C733E5573028004C /* RCIdentityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A7DD8088570AC8224EED969BB142073 /* RCIdentityManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		081F32A4DE780BD735E5FB202C0002BA /* RCIdentityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA175F86384F07744E8A19C842363E03 /* RCIdentityManager.m */; };
-		09B83B7C995E8D2AF13DC550348664FA /* RCPromotionalOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BC3DABA719E1C6249F380C8C040402 /* RCPromotionalOffer.m */; };
-		0CE97C388F7052AA7C3A878A7793D734 /* NSError+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 95696B48B6E13D5084AA17DE5C480738 /* NSError+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1281582A6FD49A32159B63A46FEE1900 /* RCReceiptFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BB0524DA5F9F9553A376B1312989CF47 /* RCReceiptFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		15735EB1B0654921AF70A210530EBB38 /* RCPurchaserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D35A66C90832728BF7AF5E69BF32A9C1 /* RCPurchaserInfo.m */; };
-		18795443B233C600F768D1D9940D78CB /* RCSpecialSubscriberAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C98F06765F6197DDCA6C963C3C6123 /* RCSpecialSubscriberAttributes.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1DB91C8D5172D123352A14C79A4F69F7 /* RCEntitlementInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5876DEFABC0787C6036345D657291 /* RCEntitlementInfos.m */; };
-		1F54015D396F4EF3929123EAF158D56C /* RCPurchasesErrorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB3742A3B844DFE3A6D7EAB3C160CA0 /* RCPurchasesErrorUtils.m */; };
-		22A3F4A258A4384076D62CA08610D3FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5436E97C2F494FAB19E0B3BD7A73CBA /* Foundation.framework */; };
-		236271F424314EBAB6CE686E64A42DB0 /* RCCrossPlatformSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 76BAED701F28FCEAC82549B3D75E1D79 /* RCCrossPlatformSupport.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		24DCC049772902C27BEE525A6B1E31CF /* RCOfferings.h in Headers */ = {isa = PBXBuildFile; fileRef = FA34BCF8CC41593AC2E153DF854DF67A /* RCOfferings.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25419307FBF36434460959337082ACE4 /* RCReceiptFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DB0B8B200E5635A44F0C74251B1CD7 /* RCReceiptFetcher.m */; };
-		26D00424D80465AC0F62FE6E75446E90 /* RCEntitlementInfos.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D0633288B6D0C1D4DFF270508BAADE1 /* RCEntitlementInfos.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		272A8FE510F7C190D13E2C284C901752 /* NSLocale+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B300EBA071F8D6619EDF6FC3FF3E9162 /* NSLocale+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2AB9046B990570EAB1402428873D34E9 /* RCPackage+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = C3531430C3880F8A2B0A475820DD64C8 /* RCPackage+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2D2AC793A2601B5FC1FFB5B19E320C86 /* RCDeviceCache+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = E543105B1F7ABD89880C55E3A7EC2176 /* RCDeviceCache+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		30F0841CB14615815FAFAD07FD5612F5 /* TactileSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B32FE393FF23828BA27FB3CFF1BB45B7 /* TactileSlider-dummy.m */; };
-		32D5EDF2B6F5FE3C6DF1D152A379FC28 /* Purchases.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F35A360779627B426FB47F555A8ACF /* Purchases.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3C2AFF0DB846C845C39C9792FDDBE50B /* RCStoreKitRequestFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B6E34A76380D955ED80A1D4F7B91F8 /* RCStoreKitRequestFetcher.m */; };
-		439A831DB4F3C6A8C27AE22DA14C44B2 /* ReceiptParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F542817EDFA2AB2A0399959DD17BDFD /* ReceiptParsingError.swift */; };
-		4492F4FE17DF7AFE749E20B67D77D296 /* RCHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EF97FA4FB9D48807E5E08308C6A611 /* RCHTTPClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		44D01DE6B5389028F2496BEF985D9DBB /* RCHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B0A38587A30D8F732DB6EB5B0344F0 /* RCHTTPClient.m */; };
-		45004191FB7B8742B413C361F7319DB6 /* ASN1Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B58E651CEA1D846DC4F8238443D50F3 /* ASN1Container.swift */; };
-		49B9A24123AC18244B66CCDE9123B608 /* RCPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = F890B27AB2D70E11B7C363506C1C986A /* RCPackage.m */; };
-		4D81DD95F6001437C502490E7BB24CCB /* RCProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A5BBCB3AF3AA1253A9AC79F65B11BA /* RCProductInfo.m */; };
-		50FD6864C8B4EEB1824D503B5A4917AF /* ASN1ObjectIdentifierBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF46D88A5167F3E7CC0926BAA9209190 /* ASN1ObjectIdentifierBuilder.swift */; };
-		511B80F452810F8C840DEE2AA2FCE86A /* RCProductInfoExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = DABC141299B7D690E9FF212F9AE88A9F /* RCProductInfoExtractor.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		557F9BBB868CC47F8E3AF271850EB41B /* RCDateProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C539EE7A0C71547CF792908C73A8EC85 /* RCDateProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5590C54E8132E83FA91618C8AB08E3C7 /* RCHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A5DE094CF2181A18DC7233FBA9BE7FE /* RCHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		566F37A3F5E41B51E20FD74000C7DED1 /* RCOffering.h in Headers */ = {isa = PBXBuildFile; fileRef = 56DD5794168DBD9CD6DA9C76F76136D5 /* RCOffering.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A890DCC6F57E53DFA7A93D44637A663 /* AppleReceiptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF2E3BAEDFDFE4A23C7757286A7616 /* AppleReceiptBuilder.swift */; };
-		5B5D75E3BB38E6C7FF672D2D9E2E041E /* RCPurchases.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EB9A73912CBDE0E95D2557AFC937269 /* RCPurchases.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D00C1FD0C64B29E5079FB62AF05081B /* RCEntitlementInfo+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = BA465AFB1CB257B2E2DF2CC87C29FD42 /* RCEntitlementInfo+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5DE053819A4AA072A760C25CC356B8CC /* RCOfferings.m in Sources */ = {isa = PBXBuildFile; fileRef = 57066CFDB42EF77F45B2ECB695AA6357 /* RCOfferings.m */; };
-		5EBD4954FDAD34561C8FF36DE0CCA4C3 /* NSData+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B1ABDEA1798551E3673B031E5C55F642 /* NSData+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		62767B61A584230B5935E3EDFB8AD0C7 /* RCInMemoryCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A76F676AFA60031A36254F9DF8A0A794 /* RCInMemoryCachedObject.m */; };
-		64287E6449F31AC3FFEBEA1C95F487F0 /* RCDeviceCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F165437C599C5F93EC554EABFCE3026 /* RCDeviceCache.m */; };
-		685880587ED088FEC014A5E031F9D41C /* RCInMemoryCachedObject+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9396F4DD2337827F19F07D8610EB3E45 /* RCInMemoryCachedObject+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		68EF6365C13BC0EAD050DCCFFA9459BD /* NSDate+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45814D78FA25C905C92C6FFFB80AEDB3 /* NSDate+RCExtensions.m */; };
-		6C5BE6E59B1893BDCB4D5BCB83A31D77 /* RCEntitlementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B36E6114C5A75215F589A266538B5533 /* RCEntitlementInfo.m */; };
-		6D0376E23BEB0960F92B83D04EDC7197 /* RCSubscriberAttributesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C7217AD52C0E1DAEF7C0EEB063623 /* RCSubscriberAttributesManager.m */; };
-		6DE6E4C5FB419DCB4935D172CF2F7518 /* RCLogUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C18F98D082A84ABEA826CD230C12E7F7 /* RCLogUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		6F369EA8FFF2AD368558BC11179B0797 /* RCStoreKitWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EDC13EE247A462520F1CD3AD7E8F5E1 /* RCStoreKitWrapper.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		701FC0B10D39D9DBC01B118EB5C50147 /* RCOffering+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F677FE63ECAB66EFB4DB87B2B7D7A9 /* RCOffering+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		714AD59E48B7247063CD40EBAE4CD5F6 /* RCIntroEligibility.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FEEDACD6FB1C7C4B0EAA724F125486 /* RCIntroEligibility.m */; };
-		73A179EFA0F51719BE5EC218781A7759 /* NSError+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 34991D55AB5AF32DF1B86BEB5C3491D9 /* NSError+RCExtensions.m */; };
-		73F122EE41805E409F2CD01038380D3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5436E97C2F494FAB19E0B3BD7A73CBA /* Foundation.framework */; };
-		76363F27AFA61C6B2D3A75D376B593CA /* RCTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = DD92C3AD6AB6A587CA75257CF7A2957D /* RCTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		785CC69E7F42F8C9B8F99C61DC7B739C /* RCOffering.m in Sources */ = {isa = PBXBuildFile; fileRef = 813245FC6FDED3D739FCAEED719001E5 /* RCOffering.m */; };
-		786E1DA2CE47AB76B428DBEA1C8C46D5 /* RCSubscriberAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 093371AEA7DCB815DBCB5E2296620E4A /* RCSubscriberAttribute.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		78CBF7A5125FA9520FC55058F441D871 /* Purchases-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AC89EFDC64C17E1E66AA62A352B8669E /* Purchases-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78EF4C1E77984EE803F77FFC6752842B /* RCPurchaserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A2738989BE3C37B819251AF22FFD474 /* RCPurchaserInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7B3297142072074D67E45DD0B02159E3 /* RCPurchases+SubscriberAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E6852B8EC0A7E699A7AD8A516FC25EF /* RCPurchases+SubscriberAttributes.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7C376CB1922F990789C04FC4DF7DA8C6 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A62C6043C9911006AD83CE172C79AD2 /* DateExtensions.swift */; };
-		7DCA835AFA9B85B0C308EE4E456ACAFD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73322EEC90023E50B943446F69407016 /* StoreKit.framework */; };
-		7DF3CFA12F19023F4B4F0CC40AD84D1D /* ISO3601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B5C3B623E9436369BE9273E384E04 /* ISO3601DateFormatter.swift */; };
-		805066DB59A9FD2D89990EF2DCE750D5 /* PurchasesCoreSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 85E6AF1E3AFEE0D2B20874A4EE8FE40F /* PurchasesCoreSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		831861AA1059FFB59F2D62CA171D2473 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73322EEC90023E50B943446F69407016 /* StoreKit.framework */; };
-		857BA8DEBC07CF5505BE3653C8D8A09A /* RCISOPeriodFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0102D68D252395789CD6932CA8894E /* RCISOPeriodFormatter.m */; };
-		85AEB9AFAD11868C9BBB94FEAB6CE01B /* AppleReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96D6E2F7964A67493CDE22ACBBF3F9 /* AppleReceipt.swift */; };
-		8A2D6BBE787C28F27D0BE8E588EABAE4 /* RCAttributionNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F45A9078A984E0F76D409AC28A507A /* RCAttributionNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8AC300AECAD4330F2D4BF70F61A5619E /* RCPurchases+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 61AD98EE0B0ABDC85C86A53EA9842BCB /* RCPurchases+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8DA63E1AB6CACC734831182734388F50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244F690C5F57B051FCB37FEDA982FCB6 /* UIKit.framework */; };
-		8DB0CFD599E127B33E3F633709136A1B /* ASN1ObjectIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8321C1F7265F72AC9EEC3B34B8F66B40 /* ASN1ObjectIdentifier.swift */; };
-		913505D121480D717AFAF2B8064A38B2 /* RCBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = B13B9D472B19D2A1AA9A50EF7EE602F5 /* RCBackend.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		91DC2F5EE511373F6DEC406A8FB96084 /* RCIntroEligibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 7785FDF055F8C9A656C27FEBA0036EA5 /* RCIntroEligibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		923540873D9C54B099B1D72D4DA4D5D9 /* ASN1ContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8202AC26DDB6BFF2CBA8AEE2CB08E260 /* ASN1ContainerBuilder.swift */; };
-		96400FA6A6CA360611783E777B22CEC9 /* TactileSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EE00335FB861ECE068E6DD561DD117B9 /* TactileSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9666C592802B6DAAF887B042128A65EE /* RCEntitlementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CAE5D4388D7E70F467F9E9D353718A82 /* RCEntitlementInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		97F96A04C37BF833BE833D8DB2950C1B /* RCStoreKitWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 961DD50A5D5C81234DE50ED2673898ED /* RCStoreKitWrapper.m */; };
-		9842497B4346F0205E8474CFA7BF5C21 /* RCIntroEligibility+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 76127B688731D669789D86AEB5936ECE /* RCIntroEligibility+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9AA68AA8F0343EB18D72A1D0C7843383 /* RCDeviceCache.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7843A85F23B940D15163F547392656 /* RCDeviceCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9CC475045F54BCBAE393CE2EA9A80461 /* RCDateProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939E6FFEE3BA87CB76415AF9E919573 /* RCDateProvider.m */; };
-		9CE11BACF2AF2D93B8B743E1EDF9DE18 /* ArraySlice<UInt8>+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E9EC801E96F03212333E9318DA255 /* ArraySlice<UInt8>+Extensions.swift */; };
-		9D3B00E5E0C6C8AEBBC28867A682650B /* RCOfferings+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = E96917B070491873E7FA55BCD651B3FA /* RCOfferings+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9D683FD68B97C0F1A8A340B059103B9C /* RCProductInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DBE5E114F82CD30A89B60A3D289B81E9 /* RCProductInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9DBBD1BC45CD14919786B18B4E2A0004 /* RCAttributionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0B19654402C769C75CED1FBD596648 /* RCAttributionFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A0D5825D845AB7052CF4D7C76B2DB162 /* RCISOPeriodFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = E100F247EFE170125CE277F8C5E7C92E /* RCISOPeriodFormatter.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A14F1D4EC1D9C7BE034A41759FC6D60B /* RCSubscriberAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3781132196C0CFFCECEA10FC03EBEFF4 /* RCSubscriberAttribute.m */; };
-		A19FAF02A903C83DCEFCECAD94411253 /* TactileSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C563474DE9477EF7A1B119D72EF5D18C /* TactileSlider.swift */; };
-		A443A11E4B68F6BB9114F00A7C3715D4 /* RCAttributionFetcher+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C36EB01449D333F5E3AAB8EFAB860A8 /* RCAttributionFetcher+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A47CE9382FB7FF8CF9A8473BB993894F /* RCPromotionalOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A1411C6F5C2969CA9918AC3BE5668B /* RCPromotionalOffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A5F2356A2C437E35BC80F5AAB6713B9B /* NSLocale+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F30AA9E6E213B677AB6FB10D443B9F /* NSLocale+RCExtensions.m */; };
-		A61A6F05317D89CA707B83AB12C874C7 /* RCPurchasesErrorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B80E25E0732D0CBC9E9968C33748C4C /* RCPurchasesErrorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7ECDEF6B7045ED526A8461820AA3621 /* RCPurchaserInfo+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C86C8480858F735B20D90AE9EED9AB8 /* RCPurchaserInfo+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		AC0B919A8A5A4963511D99A2FBCE3B58 /* RCSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE361A8626354EE131A397FC9D69B65 /* RCSystemInfo.m */; };
-		AE86DDF2ECAD8FB891D0F9FF33848910 /* RCAttributionData.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78DBC2A242FBC3DD6F171CCA30738B /* RCAttributionData.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		AF4171587CCA46DC523F34599EC1AE65 /* RCProductInfoExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE2B4F6532167F7C4FEA4156AFF45B6 /* RCProductInfoExtractor.m */; };
-		B54B6A9FA5676C6010046714065A6DEF /* RCPurchases.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB0C0904BCD4F0D2482253C4638D54 /* RCPurchases.m */; };
-		B56EF70BD79594E8D31A7A812BAD6CF9 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49FC192779807DBA0AC2FF8693951F7 /* Transaction.swift */; };
-		BAA24067C242DD7E7F7FF18E022C1758 /* RCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = C5711EE432337630741F9DDF716E24E0 /* RCBackend.m */; };
-		BBBB6CA74C1A7A5DD07B85510FA6739F /* RCPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 06D63BFB793EAB0F0F567282E4AF56E1 /* RCPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBE6592152482E6967E3170E8CCE58D8 /* RCAttributionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 931651EF5237E0367BD2478716AC1F1C /* RCAttributionFetcher.m */; };
-		BC1B56D027B75C786C6E3A87B5F8D1CD /* RCSubscriberAttribute+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 210563BB5C6CD3913E34BF6A832B796C /* RCSubscriberAttribute+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BC9A7FAEB07956301ABCFD991AAB35B6 /* RCEntitlementInfos+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = AE14A90BB24E4531C2C2FD9D553CF19F /* RCEntitlementInfos+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C218479256DB2F41AF033E95AF723C00 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02244C0FA5CE2917934556329FC2BA /* InAppPurchase.swift */; };
-		C27A925919E1A67C1D607A51BA20419A /* RCPurchases+SubscriberAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A6990B06CF0F8383E6413BBBF6B5E0 /* RCPurchases+SubscriberAttributes.m */; };
-		C5095E355FB0EC3832B406CC0CD1BB37 /* RCInMemoryCachedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DB99C7B93747C19F9E65670319ED92C /* RCInMemoryCachedObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C74314CACF24BCBB2E5A4D485987DB0A /* OperationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A22DE3CC51B155FD09DF5D50960E4 /* OperationDispatcher.swift */; };
+		000977DA7789BC4F9C56CDC2B929DD12 /* NSData+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B533B4D0D0A8B220C35943B898A671A /* NSData+RCExtensions.m */; };
+		055F56B6191C21D60B8FF0A7C96D413C /* RCPromotionalOffer+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 64AE42B51368B017B58184872B66529D /* RCPromotionalOffer+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0652ABA6F11F1ACB9F747962FAEFBD34 /* NSLocale+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B101AC2767E1635D8A4B314D88D04FB /* NSLocale+RCExtensions.m */; };
+		066D9691979BE4FEC694361A8214E183 /* RCEntitlementInfos+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 6484E6E1E7144BB14B2718062F747F54 /* RCEntitlementInfos+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		08179BB861B3AB45BE5A06B35469FFC0 /* RCDateProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC7D35360F42820432AD29F61B50B4 /* RCDateProvider.m */; };
+		08824B8FEA906319585F4863CEA6F294 /* RCOffering+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = DB395AC81153E60F1A1827E4B944C4F8 /* RCOffering+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		091F53000243484829375F69DC0238B5 /* RCLogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CB38262962187F36B054D8EBC232EB05 /* RCLogUtils.m */; };
+		0E451895CF402EC450218C8E9F2ED634 /* ASN1ContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C37F1925E27105DCF08090BBB057F3D /* ASN1ContainerBuilder.swift */; };
+		0EF32E27DDAF4072F2B9FF3C5784C3E0 /* RCIdentityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 025BECCC99FF7161F3F71FC1007E18C1 /* RCIdentityManager.m */; };
+		15096281D5D42C800B5A415B2926608D /* NSDictionary+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E02CCB0E2043103FFA8E82C8BFEEE4 /* NSDictionary+RCExtensions.m */; };
+		165F6118BBE17F2A989A4EF7BD1F36D8 /* RCPurchases.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB1F76807E3A264921EE9E727B666B /* RCPurchases.m */; };
+		1D4A6545ACB31EA1A350CDA6DC1FE2EC /* OperationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97469AB4A4319EC6CE95C5B28F60FCDB /* OperationDispatcher.swift */; };
+		1D5F67BCFB56B85E1BA531CC951A2FD0 /* InAppPurchaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E95662A9DF3DEE98F487057E82C46 /* InAppPurchaseBuilder.swift */; };
+		1F27D77448AED236ABAB860976C78CFA /* RCAttributionData.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A23927306850A151385BF522AF34D3 /* RCAttributionData.m */; };
+		205896BEDD81CD3A5DC52566D5C52154 /* RCProductInfoExtractor.h in Headers */ = {isa = PBXBuildFile; fileRef = DB4E02054C291B9F29053B7BF24800E9 /* RCProductInfoExtractor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		22A3F4A258A4384076D62CA08610D3FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		235D39BE8F8CBB61E1FE1E9B2887B8C6 /* RCPackage+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = E83D32F5F5E9445E65FC32FEC310FE44 /* RCPackage+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2555F92CFDEF9A2FFFE03FE73DDD5F18 /* RCPromotionalOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 91A9A07FAA9623E56E065E0E5FC81DA8 /* RCPromotionalOffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		25F0E8F5E5AD65A5A47186AC0BAB6378 /* RCPurchasesErrorUtils+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E8947E8A0289A643C66176E028A171A /* RCPurchasesErrorUtils+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2996424A8574374EB1F517D38F02A878 /* ASN1Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = D312543E8588640A9E0D1C54751BE7AD /* ASN1Container.swift */; };
+		2FFA265CF32CC537D041C98F253A607D /* RCHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C4190C12282D2B6D4F71A5E648B9E86 /* RCHTTPClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		30654BD890531C5A314771C16A539D1B /* RCSystemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 184C81FD1092E47F8068971A9868B170 /* RCSystemInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		30F0841CB14615815FAFAD07FD5612F5 /* TactileSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CFAD6AF9229A3C3DFE9D0D69EBF18C /* TactileSlider-dummy.m */; };
+		32BA25E27C59F54965C88E9EAA1C9EE9 /* RCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF7954F92E21DAEA3F1CF4A7BE74C69 /* RCBackend.m */; };
+		32F0E94FC1E998235329D415D314986E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAE68B52F0FFB7D77515C0F51195F1 /* Strings.swift */; };
+		37BB2D4455219C16A4FF71F8DC1892EC /* RCSubscriberAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D54CBDEA5641261671329C2073D11D /* RCSubscriberAttribute.m */; };
+		3C5C5A97145D350A3258344C997C0E25 /* RCPurchaserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA76C7386B48B4EC58A00B7CA0ED1CE /* RCPurchaserInfo.m */; };
+		3D42162531F94712BC36BB7E9C7FEC86 /* RCStoreKitWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F22621F40F433BBA201019CEDCBDD42C /* RCStoreKitWrapper.m */; };
+		3EA4C2B2249F67740D86102FF00063A9 /* IntroEligibilityCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC30CCC56DC6DAB75A054D90046682F /* IntroEligibilityCalculator.swift */; };
+		3EB4F25E75CEB569DC8F944C23E3D9EA /* RCIdentityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E3FCACD0415103262B4FADBD7082A326 /* RCIdentityManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		41CA6755D1F7B784C05BFCBEBD1FACA1 /* RCInMemoryCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 155067DB63D70BC9D35735E9CB01B13A /* RCInMemoryCachedObject.m */; };
+		42B8930497A67690D8BECC27CFC976C5 /* NSDate+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = F7ED2A9726AA2ED7346F4D4707A83C54 /* NSDate+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		440F12EBCE67A38EE5386A079138DDAC /* RCDeviceCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8295EEBE88F1531B85A2DF22281C282C /* RCDeviceCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		47E79970135A078CE5122C6F83897FFF /* RCPurchasesErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BEFC97404233936B53F1EC88D44CF0 /* RCPurchasesErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B204D6120269209E2DA5DEBF36069DB /* RCPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 81BA5F8794D4F5C132EF3E9B945CADEF /* RCPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BBC3CB526672A0EA5E2E15295F3A058 /* Purchases-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 603F1AB49DC4EE87DFAD273EBC2494E3 /* Purchases-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D184EF656DB68186EFF6B061660C3BC /* RCISOPeriodFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 048E9C0055AD25BB8BBAC3314AACAE12 /* RCISOPeriodFormatter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5454D4BBD96BFCD7754989D38F8C8DA3 /* RCIntroEligibility+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = E22A73CDA4FDA1958F022BBD3CE195E7 /* RCIntroEligibility+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		583A67C32B69A193C3EA95D52B92DF56 /* ISO3601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22C1A177D309A7B39FC152EA6BF4049 /* ISO3601DateFormatter.swift */; };
+		5E1DDF13770B7D954046733BCB2C8195 /* PurchasesCoreSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 548282BC08B563744BD104146BC44995 /* PurchasesCoreSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60E111FABFFB1D446648DEE8E6F5DD20 /* RCOfferings.h in Headers */ = {isa = PBXBuildFile; fileRef = 58224803A4B1F62E2E965C7486D7450F /* RCOfferings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		629A68000A2775553808FC09D9DF99F5 /* NSDictionary+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 732A8E6B8EF9A9132AE2A2FA128DAC36 /* NSDictionary+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		688389E7F8A89B490076BB97201E4851 /* RCOfferings.m in Sources */ = {isa = PBXBuildFile; fileRef = 88254F479E8FC29E1289D936FD645A38 /* RCOfferings.m */; };
+		6978B02F60C9271F28F484D4F91B4F59 /* NSError+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5F315941C8C0EE0AE3232378AEABB6 /* NSError+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6C695E632A08EA7B981B05C09780B48C /* NSLocale+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 29C6B1ECB14880882220F27FEC75B89B /* NSLocale+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6F16FAFD8CDB95A1C120118773A3B606 /* RCSubscriberAttributesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CDA43FBE542DE20473EDB601EA99C8 /* RCSubscriberAttributesManager.m */; };
+		711935F93BDD5B083E55DC1DFDCA5C68 /* RCDeviceCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9163F0EDCA0949C830F60995304924 /* RCDeviceCache.m */; };
+		73144BB85420FA663F18CB99CB9F2009 /* RCStoreKitWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 523F5CFDC3E0DBA7A2B726F173CB586B /* RCStoreKitWrapper.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		772AD2CF57A2089E682630530500CF9E /* RCHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = FFA9CEB281534CADF4EE1D6433F61443 /* RCHTTPRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7741718E19B83CF5A02B4CD9A2DEFC07 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482DED0DFFC8634B8D35C41F38BD2EAB /* Transaction.swift */; };
+		78122073828C1FA3AAAB8C5994DAA53F /* RCDateProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FED64EB53321037CF965872A4A9222F /* RCDateProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7C601FD2B0CBA17BF27A3398D94E82CA /* PurchasesCoreSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 932859AE0C88F25AD9F06A32D9047E55 /* PurchasesCoreSwift-dummy.m */; };
+		7D162E51D6E5250CD377F7FE3F65868A /* RCAttributionNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 75073FDA21BF6F7FC82C34CB6328A17F /* RCAttributionNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DB517CDB7FEDA7D5933AE6E456DB5A1 /* RCPurchaserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6A8C75046779F83AADCDB0196246CD /* RCPurchaserInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EBFCDC97C76ED8C11522361824F0646 /* RCAttributionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 558FF05D7E4FB0417179B8FD43E40B9B /* RCAttributionFetcher.m */; };
+		7ECFAB9A16DCAB54680FBB85F8EDE0E5 /* Purchases-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3365BAF80E542C3320F87FCA4595D9AA /* Purchases-dummy.m */; };
+		8394CD505678477FB96864FB94400668 /* RCStoreKitRequestFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EE5706BF0E5613C9993B088521979DBF /* RCStoreKitRequestFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		839E9B343B5626DF94CE3E3E1D116E25 /* RCIntroEligibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 366880032FABF9AC4150D3DF7A1221B1 /* RCIntroEligibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84DD56555B65F5BE172860D45B8AAE31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		8C655D4DFD916090302DE35AD62EECAE /* RCSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E2C66348722988C19335377A832C08 /* RCSystemInfo.m */; };
+		8DA63E1AB6CACC734831182734388F50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		8EEA8548FFB9A2FE19D739C2651C6127 /* RCLogUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 057A6BE90F36105FE695543E14E89A50 /* RCLogUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		918E91506AF9EBD461CE0CB4B9CAE8D2 /* ReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB29A78BA199A14CA5CC4A966E2293 /* ReceiptParser.swift */; };
+		929DF5FF9F47F0337817DC95C9D8DC36 /* RCAttributionData.h in Headers */ = {isa = PBXBuildFile; fileRef = B90EDC91D4DBFC5150B5535B7375FCFA /* RCAttributionData.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		92D6560D2E10902B1633C4D43730A2BD /* RCPurchasesErrorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F92005C63A56F173E8988E7EDC231D8 /* RCPurchasesErrorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9409731821CFBCE5C9DBC1E1B1F7473F /* TransactionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE34F48E387DAB2E33CB3DD4396A1A /* TransactionsFactory.swift */; };
+		944BB4132E31077C50BC7F5B46E63DA3 /* RCHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BF6855FA88978CD35FD553B7B93D08 /* RCHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		953AC5266710625DCAF7BD85E491019C /* RCISOPeriodFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BF236986C968FC88A9F50D62FEB9E /* RCISOPeriodFormatter.m */; };
+		96400FA6A6CA360611783E777B22CEC9 /* TactileSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D255AF40A24D2EBBA19045C47B36936 /* TactileSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96AB3FD66027C9FAFCAF401CCA5D0EBF /* RCInMemoryCachedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 773555F6F34CBD55CA81C60F41929D8D /* RCInMemoryCachedObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9A1877BF2825B2F37B5677FABECEBAAB /* RCBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FE93F49986E8538039DA050D72D034 /* RCBackend.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9B1D3D35F7D6710A17DD59ECFA55BACA /* RCProductInfoExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 767C6016A2564C8D819416C5BD1817F3 /* RCProductInfoExtractor.m */; };
+		9DCBBB0A2BF6BDFCA6397E84B97F05D5 /* RCAttributionFetcher+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = ECA547D1F67E0535354D2167EC28845B /* RCAttributionFetcher+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A10C4CDD014CA40F0610856D30E4A0AE /* AppleReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C78E03E746F4AF6FB887BF58FCFA28E /* AppleReceipt.swift */; };
+		A141C2C31086039673D991458CB606A1 /* RCPromotionalOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = A32B06D242B99D310DA28360FF88ECFA /* RCPromotionalOffer.m */; };
+		A19FAF02A903C83DCEFCECAD94411253 /* TactileSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53D1265CEA0BE4132F969429F9BCB3 /* TactileSlider.swift */; };
+		A29B62D20E3C2A2B96AA216F03D65211 /* RCOfferingsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7E0DED318C7B63F9FFC63F6D7C8AFC /* RCOfferingsFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A2C0B633D4631FA9F7AB92652893B73B /* RCAttributionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = CF1085BC1897C4F29043DFC4254CF1B2 /* RCAttributionFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A3BF57ECF8E1A85679AA42378DBB1C13 /* RCSubscriberAttributesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D9433438D568AB5BECD57876777383B8 /* RCSubscriberAttributesManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A6C4C0CB3C978A9045C5FC7E974A4176 /* RCHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1749E2F00DF43562E32986A3D26E8BA0 /* RCHTTPRequest.m */; };
+		A744DA240017AFAFC710D2902D17FFAD /* RCOffering.h in Headers */ = {isa = PBXBuildFile; fileRef = CA9A2C95764DA95167E0DFF3ED58B0E3 /* RCOffering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD432817DC65F7EF34E4E5C4C9B3B4B0 /* RCEntitlementInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = B079A8DC8FA8D09B821601BB3948E19B /* RCEntitlementInfos.m */; };
+		ADEE1903C09DE7392C308682555E53DB /* RCInMemoryCachedObject+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DC0DFA9C9812CAE3E27C5C334251CD /* RCInMemoryCachedObject+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B2173B9E979F0DCE0F5018B2EE0E9B2D /* RCOfferings+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 3409AB8E257E25ADD430F0DCDC93EC7C /* RCOfferings+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B7C4318D83A814AE12048FA379B5349E /* RCReceiptFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DA728CD2386B6324BA28018A11A01F7 /* RCReceiptFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B9B6236231BF9515C5839E46C15AC249 /* RCEntitlementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A15584C6694A425293441720C381E0D /* RCEntitlementInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBDEDDE8E62EC34C066F3994F4F01BDD /* RCPurchases+SubscriberAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F9AE5FE5B94E05E29FC1A87CC8C1D02 /* RCPurchases+SubscriberAttributes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BC3724A587B3E3F0C26E372C70F56395 /* RCReceiptFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C1349A869BA63DB6862E2C5C46BE82 /* RCReceiptFetcher.m */; };
+		BCE43770483B39A9A864BEF841A9646A /* RCPurchases+SubscriberAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFAA540B7378D27026C8C3E680344 /* RCPurchases+SubscriberAttributes.m */; };
+		BD3E069659955A9FC50534743E71F3E0 /* RCPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0882C379ABEDF9AA05154006E77FC0 /* RCPackage.m */; };
+		BD59AC55050A1310221946DF6EC162D3 /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A025A98EFF0B873EC12A0A9582D075 /* InAppPurchase.swift */; };
+		C4884A92EAECDE41617506ABD7194118 /* NSData+RCExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A41764F77AE4EEF8F06754A62EB650 /* NSData+RCExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C51A63FFE04C90768A6BB422B556DCFD /* RCPurchases.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A4B829A4C9A109EECD4DA83E422CED /* RCPurchases.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C668BE093A990F6C0DF5F19E80E7CE72 /* RCPurchases+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = E5910C3BE1831F983153A443D061A2E0 /* RCPurchases+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C884522DBE7B2EC7B747A9827293AF56 /* Pods-FourSix Coffee Timer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7763285ED91F9B7CF9700F44E39BA789 /* Pods-FourSix Coffee Timer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C98BF7C94CCA6FD308CB2D7C863B9CC5 /* RCLogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC13411B1083080F5E3B0741F8BD75 /* RCLogUtils.m */; };
-		CA2C596B4DA72EE3E14CB2F82E23D1B2 /* InAppPurchaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95BEFF26A82D96C8DBE2096466AFBC /* InAppPurchaseBuilder.swift */; };
-		CB5C4B015F12D749EFE0780CD7209C67 /* RCPurchasesErrorUtils+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = D834EC77556C9354F3FC30E1B9B782C5 /* RCPurchasesErrorUtils+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D56304647DFF5410FE6AD0D05721599E /* ReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0625B1376ECE3FE3AAB3E6A42972FD /* ReceiptParser.swift */; };
+		C9CFE0DC16493F945E4A41B95B3EAF43 /* Purchases.h in Headers */ = {isa = PBXBuildFile; fileRef = 350C58B7BE6C8F961F7B5CFF37D6FF71 /* Purchases.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD6A70ACFEB568900DDB1C3460A0837D /* RCDeviceCache+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = B005A69728D2A116CA50429D8E262AD0 /* RCDeviceCache+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CE2A774B4CF326F1064F59FF9DB49F9D /* ProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B3F7BEE55670DD44A406A69CCAE5E3 /* ProductsRequestFactory.swift */; };
+		CE606100EE7DA52B2CCF955229246D90 /* RCEntitlementInfos.h in Headers */ = {isa = PBXBuildFile; fileRef = 35474F22D0F2530BCA82CD52B28E7AE6 /* RCEntitlementInfos.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D02C258B850B850D1B7683B5916ACF0F /* AttributionStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693B18451C0070BECE0143823CD55305 /* AttributionStrings.swift */; };
+		D12716A7150CF3107DB32AD56FF4429A /* NSDate+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD053C4CB2933AF745DD9E0BB474966 /* NSDate+RCExtensions.m */; };
+		D1EE7F415CE94697F5584973ABB9DAA1 /* NSError+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3EB9465DC84E73B90CCF68E507F9FF /* NSError+RCExtensions.m */; };
+		D21D679721DA1C8577EC31C7CE8698A7 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925C86DA12CB21AF3BD81E4C51E3D17 /* ProductsManager.swift */; };
+		D269E4C6E81203A468B1838176D83287 /* ASN1ObjectIdentifierBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136773C6F1179B5FD61C9D9AD9598A41 /* ASN1ObjectIdentifierBuilder.swift */; };
+		D29D74B4B8FF3B75EB43702BA7A959D2 /* RCEntitlementInfo+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D921F81BA3AB37ACD84DF4D0D507F44 /* RCEntitlementInfo+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D3BAA2B301A67EAE7243C902F9885A76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		D6C0D6242BAD60F65EA17EB4506E3893 /* Pods-FourSix Coffee Timer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF3F2B93F424FB1982FB1DD52BF85A0 /* Pods-FourSix Coffee Timer-dummy.m */; };
-		D6F7EBADE0ABCB7D667ACD3E4EBD89F1 /* TactileSliderLayerRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9123988BA275D9C61506FBABF2AD8CC /* TactileSliderLayerRenderer.swift */; };
-		D811AF6B34BD1A33C0D4E705E75E4222 /* RCOfferingsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A68B0736268CB7C25B5E19C0C9EEDC6 /* RCOfferingsFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DA04B0BF0D7DCE9EF7348B1BA6B79803 /* RCStoreKitRequestFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C79C670FBD56A722990EE8451F1CB9 /* RCStoreKitRequestFetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E07D79A5DE3D221B02B915F585583780 /* RCSystemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B17C3C565D93717A404D696899C34A6C /* RCSystemInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E16E08E2D4911A6FD3367CA2B3098B94 /* PurchasesCoreSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1FDC3BB45A0532E3AD3042937B55F0 /* PurchasesCoreSwift-dummy.m */; };
-		E18A5B9A1028913A36E66839501DE9E3 /* NSData+RCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F39C6198D61E44D185848275E60A8F1B /* NSData+RCExtensions.m */; };
-		E24F194F4771E556C78C268651B644A1 /* RCPurchasesErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 029B9F9774BA464941A55E5A31F2EC6E /* RCPurchasesErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E445B806ABB37241FFB6B11583BDCCCC /* IntroEligibilityCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8542DD26D31906D5DF578459C947E027 /* IntroEligibilityCalculator.swift */; };
-		E8EEE17A1809FF0DD2EA86485F6F65F8 /* ProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E026F0376C57E1C112CDA4AF3FF0B2 /* ProductsRequestFactory.swift */; };
-		E935DB12B64FA1E655110BA76C4C5BE6 /* PurchasesCoreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F95EC7ADD3764C61640E82ACFBC7A7 /* PurchasesCoreSwift.framework */; };
-		EB1F8ABE4AD4A5E6CC389EDE7157572D /* Purchases-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00EB2D33CCCE7BF5F2A321EBCBF6A1 /* Purchases-dummy.m */; };
-		EC937221A63B47CC900AE242074F65B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5436E97C2F494FAB19E0B3BD7A73CBA /* Foundation.framework */; };
-		EE72EB8348D763EC0B58CB6440E6AA1D /* UInt8+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E3E5A9E2F4E9DFD1B2B7D4B487CAA /* UInt8+Extensions.swift */; };
-		EE9CBDA4F543F63A71F690C2343D5E5F /* RCPromotionalOffer+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = DC468C616B21B99DFCB3AC9106656E9D /* RCPromotionalOffer+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F0E1D7A139506FC77722130F0C51BA1F /* RCSubscriberAttributesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 791525FF3829057081C7FB94764CB91C /* RCSubscriberAttributesManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F173573448AFF9045DB36BEA53FE1CC8 /* RCOfferingsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 793562AAF098BE748DC813A9D9F4E2AE /* RCOfferingsFactory.m */; };
-		F42BD655C2B50C12A5FE185F071D0472 /* RCAttributionData.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D1F0E342D65304002589DDCC6E4FC8 /* RCAttributionData.m */; };
-		F860FE4783F03E984BC92E153B9BE862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5436E97C2F494FAB19E0B3BD7A73CBA /* Foundation.framework */; };
+		D6F7EBADE0ABCB7D667ACD3E4EBD89F1 /* TactileSliderLayerRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A07CB4562F2A5D38D128E2B072113B0 /* TactileSliderLayerRenderer.swift */; };
+		D8304727B88DF550BB4E0A1503171FF6 /* RCSpecialSubscriberAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = FA4F1B815DC98C773C131D1E4605237A /* RCSpecialSubscriberAttributes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DC8E6AE58D8EE6A49E50FF276AFCAC96 /* RCProductInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FC5FE48FE27014296B1E7B3A973DE2D /* RCProductInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E122E2A9A25927199FF2A2660E2AC5D9 /* ReceiptParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CADE556EE1C6B7D9D7E0492E7F3F7C /* ReceiptParsingError.swift */; };
+		E473BFB5EFB549DD344D9DD8682218EA /* RCProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CA283A9777EF0110D9DB6A6AE02ED403 /* RCProductInfo.m */; };
+		E51679CEBDF531AF666594A00CB67FD8 /* RCEntitlementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 325C5B6A0FCE236B7C1D43DB2BB0DEF7 /* RCEntitlementInfo.m */; };
+		E5834E6C8FB68DD6F247DD39338F2996 /* RCIntroEligibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 564E11221F36E305000C35D3C2BCB637 /* RCIntroEligibility.m */; };
+		E60DF90DE76B6C436C70BC1EA42C635E /* RCPurchaserInfo+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = CE48BC59BDA654FB9DAB479BBE285CD2 /* RCPurchaserInfo+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E89735EB557A50AE801B849652C1048C /* RCOffering.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9A0F6F3181B22B109F702D24922E5C /* RCOffering.m */; };
+		EB1BEA29903E0626B2847AB49ED54719 /* AppleReceiptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C9AAB66709FA9A9C610287DD1EFDD1 /* AppleReceiptBuilder.swift */; };
+		EC731151B34BBE22D487BCAFBC0985B6 /* RCHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C69E81DCDDA32CD4C6ACFD6A5FD0CA /* RCHTTPClient.m */; };
+		EFFAF99A0D38ED543CEECD0E09E685D6 /* RCPurchasesErrorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AEA5EE0824EDCE1554FFD36FBB73EC /* RCPurchasesErrorUtils.m */; };
+		F026EBEB06463CBCEE7A92E1B1F2E663 /* RCStoreKitRequestFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA06D2D6F06E0D96DD4A8B6B78E5162 /* RCStoreKitRequestFetcher.m */; };
+		F270B70E0868206E9BDDF842D2771BB6 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652B92BA378F499E3A9C3093FAB706C2 /* DateExtensions.swift */; };
+		F36CC08824A28133B9C5939CB00326CA /* RCTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FB47A76665149C2963B60E99C8F59B /* RCTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F71C32F58E87BB75AFEC25F36A404E23 /* ArraySlice_UInt8+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1628CF9AA3CA9A21BC6CEA9F55C1D /* ArraySlice_UInt8+Extensions.swift */; };
+		F7F2E56CA496DB69C6E505E6670F34F3 /* ASN1ObjectIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51ED83E6FF90CAB8A5888742067CC75 /* ASN1ObjectIdentifier.swift */; };
+		F860FE4783F03E984BC92E153B9BE862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		FBBB4A6A60CDFE246E5D6B9FE26894C0 /* RCCrossPlatformSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = F45B69D70F808A411FC4381042715267 /* RCCrossPlatformSupport.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FC29CD418C6F0D964C8519DA6110ADB5 /* RCOfferingsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BF89BB9AF682D21AD0A4E94D92D10FEB /* RCOfferingsFactory.m */; };
+		FD6CDFC0E7D0E046B13D1B870A0BEFB3 /* RCSubscriberAttribute+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = F27876CADD8638E8356467F462928F2B /* RCSubscriberAttribute+Protected.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FDAA9E20836102FCCA710B70BE978E98 /* UInt8+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC3914F2D0A5CECF83FD5D5305B45A1 /* UInt8+Extensions.swift */; };
+		FE5C773FF72EF96301B031D9080D218F /* RCSubscriberAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = C058E74DE033C6467FEAA2E6EB1C7187 /* RCSubscriberAttribute.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4C93B9F3422C7B02FFF8EC7666A5F1FF /* PBXContainerItemProxy */ = {
+		2A4552889AD1E4EAEBB3068F5C0D433A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BC2CC6A5EB8F91429DC14E6BDC342DF;
+			remoteInfo = PurchasesCoreSwift;
+		};
+		5F1DF1F713AE23BB4245F858C4C121D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BC2CC6A5EB8F91429DC14E6BDC342DF;
+			remoteInfo = PurchasesCoreSwift;
+		};
+		A2C6E4ED6ACBB32F6955BF90FD299396 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 19EF5509BA60F0CD4916B9F24A2F7886;
 			remoteInfo = Purchases;
 		};
-		4D9170643D62FE5AFFE3ECE06A7F0F89 /* PBXContainerItemProxy */ = {
+		D26BD8E11D3B4812148ABED5270112A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 80DEE1020F4A777B4C5B940B77991565;
 			remoteInfo = TactileSlider;
 		};
-		70909CD7BBC3E3C96884B472BD45004E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BC2CC6A5EB8F91429DC14E6BDC342DF;
-			remoteInfo = PurchasesCoreSwift;
-		};
-		B7FB6C4020D42172690BC6A78E27050E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BC2CC6A5EB8F91429DC14E6BDC342DF;
-			remoteInfo = PurchasesCoreSwift;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		029B9F9774BA464941A55E5A31F2EC6E /* RCPurchasesErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchasesErrors.h; path = Purchases/Public/RCPurchasesErrors.h; sourceTree = "<group>"; };
-		06B0A38587A30D8F732DB6EB5B0344F0 /* RCHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCHTTPClient.m; path = Purchases/Networking/RCHTTPClient.m; sourceTree = "<group>"; };
-		06D63BFB793EAB0F0F567282E4AF56E1 /* RCPackage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPackage.h; path = Purchases/Public/RCPackage.h; sourceTree = "<group>"; };
-		06F95EC7ADD3764C61640E82ACFBC7A7 /* PurchasesCoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchasesCoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		093371AEA7DCB815DBCB5E2296620E4A /* RCSubscriberAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSubscriberAttribute.h; path = Purchases/SubscriberAttributes/RCSubscriberAttribute.h; sourceTree = "<group>"; };
-		0939E6FFEE3BA87CB76415AF9E919573 /* RCDateProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDateProvider.m; path = Purchases/Misc/RCDateProvider.m; sourceTree = "<group>"; };
-		0A68B0736268CB7C25B5E19C0C9EEDC6 /* RCOfferingsFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOfferingsFactory.h; path = Purchases/Purchasing/RCOfferingsFactory.h; sourceTree = "<group>"; };
-		0C0102D68D252395789CD6932CA8894E /* RCISOPeriodFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCISOPeriodFormatter.m; path = Purchases/Misc/RCISOPeriodFormatter.m; sourceTree = "<group>"; };
-		0D566F95F908DA247681BE7CA1323CBF /* PurchasesCoreSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PurchasesCoreSwift.release.xcconfig; sourceTree = "<group>"; };
-		13F677FE63ECAB66EFB4DB87B2B7D7A9 /* RCOffering+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCOffering+Protected.h"; path = "Purchases/ProtectedExtensions/RCOffering+Protected.h"; sourceTree = "<group>"; };
-		16F35A360779627B426FB47F555A8ACF /* Purchases.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Purchases.h; path = Purchases/Public/Purchases.h; sourceTree = "<group>"; };
-		16F45A9078A984E0F76D409AC28A507A /* RCAttributionNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionNetwork.h; path = Purchases/Public/RCAttributionNetwork.h; sourceTree = "<group>"; };
-		18AFCF24DE2E618C243AFA99576E14F6 /* Purchases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Purchases.debug.xcconfig; sourceTree = "<group>"; };
-		1A2738989BE3C37B819251AF22FFD474 /* RCPurchaserInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchaserInfo.h; path = Purchases/Public/RCPurchaserInfo.h; sourceTree = "<group>"; };
-		1A5DE094CF2181A18DC7233FBA9BE7FE /* RCHTTPStatusCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCHTTPStatusCodes.h; path = Purchases/Networking/RCHTTPStatusCodes.h; sourceTree = "<group>"; };
-		1A62C6043C9911006AD83CE172C79AD2 /* DateExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = PurchasesCoreSwift/Misc/DateExtensions.swift; sourceTree = "<group>"; };
-		1AAC13411B1083080F5E3B0741F8BD75 /* RCLogUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCLogUtils.m; path = Purchases/Misc/RCLogUtils.m; sourceTree = "<group>"; };
-		1B80E25E0732D0CBC9E9968C33748C4C /* RCPurchasesErrorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchasesErrorUtils.h; path = Purchases/Public/RCPurchasesErrorUtils.h; sourceTree = "<group>"; };
-		1FDB0C0904BCD4F0D2482253C4638D54 /* RCPurchases.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchases.m; path = Purchases/Public/RCPurchases.m; sourceTree = "<group>"; };
-		210563BB5C6CD3913E34BF6A832B796C /* RCSubscriberAttribute+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCSubscriberAttribute+Protected.h"; path = "Purchases/ProtectedExtensions/RCSubscriberAttribute+Protected.h"; sourceTree = "<group>"; };
-		237C2078685F3BED58CCDC20A354CDE9 /* TactileSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-prefix.pch"; sourceTree = "<group>"; };
-		244F690C5F57B051FCB37FEDA982FCB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		25A6990B06CF0F8383E6413BBBF6B5E0 /* RCPurchases+SubscriberAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "RCPurchases+SubscriberAttributes.m"; path = "Purchases/SubscriberAttributes/RCPurchases+SubscriberAttributes.m"; sourceTree = "<group>"; };
-		26034ED287929DB0D9A233BCFEDAEBE1 /* ProductsManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProductsManager.swift; path = PurchasesCoreSwift/Purchasing/ProductsManager.swift; sourceTree = "<group>"; };
+		025BECCC99FF7161F3F71FC1007E18C1 /* RCIdentityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIdentityManager.m; path = Purchases/Purchasing/RCIdentityManager.m; sourceTree = "<group>"; };
+		048E9C0055AD25BB8BBAC3314AACAE12 /* RCISOPeriodFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCISOPeriodFormatter.h; path = Purchases/Misc/RCISOPeriodFormatter.h; sourceTree = "<group>"; };
+		057A6BE90F36105FE695543E14E89A50 /* RCLogUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCLogUtils.h; path = Purchases/Misc/RCLogUtils.h; sourceTree = "<group>"; };
+		09C9AAB66709FA9A9C610287DD1EFDD1 /* AppleReceiptBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppleReceiptBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/AppleReceiptBuilder.swift; sourceTree = "<group>"; };
+		0BBE34F48E387DAB2E33CB3DD4396A1A /* TransactionsFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionsFactory.swift; path = PurchasesCoreSwift/Purchasing/TransactionsFactory.swift; sourceTree = "<group>"; };
+		0C37F1925E27105DCF08090BBB057F3D /* ASN1ContainerBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1ContainerBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/ASN1ContainerBuilder.swift; sourceTree = "<group>"; };
+		136773C6F1179B5FD61C9D9AD9598A41 /* ASN1ObjectIdentifierBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1ObjectIdentifierBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/ASN1ObjectIdentifierBuilder.swift; sourceTree = "<group>"; };
+		155067DB63D70BC9D35735E9CB01B13A /* RCInMemoryCachedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCInMemoryCachedObject.m; path = Purchases/Caching/RCInMemoryCachedObject.m; sourceTree = "<group>"; };
+		1749E2F00DF43562E32986A3D26E8BA0 /* RCHTTPRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCHTTPRequest.m; path = Purchases/Networking/RCHTTPRequest.m; sourceTree = "<group>"; };
+		184C81FD1092E47F8068971A9868B170 /* RCSystemInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSystemInfo.h; path = Purchases/Misc/RCSystemInfo.h; sourceTree = "<group>"; };
+		1A15584C6694A425293441720C381E0D /* RCEntitlementInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEntitlementInfo.h; path = Purchases/Public/RCEntitlementInfo.h; sourceTree = "<group>"; };
+		1C4190C12282D2B6D4F71A5E648B9E86 /* RCHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCHTTPClient.h; path = Purchases/Networking/RCHTTPClient.h; sourceTree = "<group>"; };
+		1F9AE5FE5B94E05E29FC1A87CC8C1D02 /* RCPurchases+SubscriberAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchases+SubscriberAttributes.h"; path = "Purchases/SubscriberAttributes/RCPurchases+SubscriberAttributes.h"; sourceTree = "<group>"; };
+		1FED64EB53321037CF965872A4A9222F /* RCDateProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDateProvider.h; path = Purchases/Misc/RCDateProvider.h; sourceTree = "<group>"; };
+		24C1349A869BA63DB6862E2C5C46BE82 /* RCReceiptFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCReceiptFetcher.m; path = Purchases/Purchasing/RCReceiptFetcher.m; sourceTree = "<group>"; };
 		27EA8CC5F2530AA237873A09C31C0BEB /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
-		2C86C8480858F735B20D90AE9EED9AB8 /* RCPurchaserInfo+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchaserInfo+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchaserInfo+Protected.h"; sourceTree = "<group>"; };
-		2E6852B8EC0A7E699A7AD8A516FC25EF /* RCPurchases+SubscriberAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchases+SubscriberAttributes.h"; path = "Purchases/SubscriberAttributes/RCPurchases+SubscriberAttributes.h"; sourceTree = "<group>"; };
-		2F3C7217AD52C0E1DAEF7C0EEB063623 /* RCSubscriberAttributesManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSubscriberAttributesManager.m; path = Purchases/SubscriberAttributes/RCSubscriberAttributesManager.m; sourceTree = "<group>"; };
-		34991D55AB5AF32DF1B86BEB5C3491D9 /* NSError+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSError+RCExtensions.m"; sourceTree = "<group>"; };
-		3781132196C0CFFCECEA10FC03EBEFF4 /* RCSubscriberAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSubscriberAttribute.m; path = Purchases/SubscriberAttributes/RCSubscriberAttribute.m; sourceTree = "<group>"; };
+		2925C86DA12CB21AF3BD81E4C51E3D17 /* ProductsManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProductsManager.swift; path = PurchasesCoreSwift/Purchasing/ProductsManager.swift; sourceTree = "<group>"; };
+		29C6B1ECB14880882220F27FEC75B89B /* NSLocale+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLocale+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSLocale+RCExtensions.h"; sourceTree = "<group>"; };
+		29D54CBDEA5641261671329C2073D11D /* RCSubscriberAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSubscriberAttribute.m; path = Purchases/SubscriberAttributes/RCSubscriberAttribute.m; sourceTree = "<group>"; };
+		2C7E0DED318C7B63F9FFC63F6D7C8AFC /* RCOfferingsFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOfferingsFactory.h; path = Purchases/Purchasing/RCOfferingsFactory.h; sourceTree = "<group>"; };
+		2CEB1F76807E3A264921EE9E727B666B /* RCPurchases.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchases.m; path = Purchases/Public/RCPurchases.m; sourceTree = "<group>"; };
+		2E0882C379ABEDF9AA05154006E77FC0 /* RCPackage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPackage.m; path = Purchases/Public/RCPackage.m; sourceTree = "<group>"; };
+		2FC5FE48FE27014296B1E7B3A973DE2D /* RCProductInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCProductInfo.h; path = Purchases/Purchasing/RCProductInfo.h; sourceTree = "<group>"; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		325C5B6A0FCE236B7C1D43DB2BB0DEF7 /* RCEntitlementInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEntitlementInfo.m; path = Purchases/Public/RCEntitlementInfo.m; sourceTree = "<group>"; };
+		3365BAF80E542C3320F87FCA4595D9AA /* Purchases-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Purchases-dummy.m"; sourceTree = "<group>"; };
+		3409AB8E257E25ADD430F0DCDC93EC7C /* RCOfferings+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCOfferings+Protected.h"; path = "Purchases/ProtectedExtensions/RCOfferings+Protected.h"; sourceTree = "<group>"; };
+		350C58B7BE6C8F961F7B5CFF37D6FF71 /* Purchases.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Purchases.h; path = Purchases/Public/Purchases.h; sourceTree = "<group>"; };
+		35474F22D0F2530BCA82CD52B28E7AE6 /* RCEntitlementInfos.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEntitlementInfos.h; path = Purchases/Public/RCEntitlementInfos.h; sourceTree = "<group>"; };
+		366880032FABF9AC4150D3DF7A1221B1 /* RCIntroEligibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIntroEligibility.h; path = Purchases/Public/RCIntroEligibility.h; sourceTree = "<group>"; };
 		3840B073C253014586D44E00FBA7896F /* Pods-FourSix Coffee Timer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FourSix Coffee Timer-acknowledgements.plist"; sourceTree = "<group>"; };
-		3921DE1063121D0D4C61AB41DDE0BC7E /* TransactionsFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionsFactory.swift; path = PurchasesCoreSwift/Purchasing/TransactionsFactory.swift; sourceTree = "<group>"; };
-		3A00EB2D33CCCE7BF5F2A321EBCBF6A1 /* Purchases-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Purchases-dummy.m"; sourceTree = "<group>"; };
-		3AE5876DEFABC0787C6036345D657291 /* RCEntitlementInfos.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEntitlementInfos.m; path = Purchases/Public/RCEntitlementInfos.m; sourceTree = "<group>"; };
-		3B6E3E5A9E2F4E9DFD1B2B7D4B487CAA /* UInt8+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt8+Extensions.swift"; path = "PurchasesCoreSwift/LocalReceiptParsing/DataConverters/UInt8+Extensions.swift"; sourceTree = "<group>"; };
-		40CFBA35398B6D3DA16B9422ECC90520 /* Purchases-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Purchases-Info.plist"; sourceTree = "<group>"; };
-		40EF97FA4FB9D48807E5E08308C6A611 /* RCHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCHTTPClient.h; path = Purchases/Networking/RCHTTPClient.h; sourceTree = "<group>"; };
+		3D5641DE3A5CAA4908895072CF894CBC /* Purchases-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Purchases-prefix.pch"; sourceTree = "<group>"; };
+		3DA728CD2386B6324BA28018A11A01F7 /* RCReceiptFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCReceiptFetcher.h; path = Purchases/Purchasing/RCReceiptFetcher.h; sourceTree = "<group>"; };
+		3EA76C7386B48B4EC58A00B7CA0ED1CE /* RCPurchaserInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchaserInfo.m; path = Purchases/Public/RCPurchaserInfo.m; sourceTree = "<group>"; };
+		3ECC7D35360F42820432AD29F61B50B4 /* RCDateProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDateProvider.m; path = Purchases/Misc/RCDateProvider.m; sourceTree = "<group>"; };
+		3F92005C63A56F173E8988E7EDC231D8 /* RCPurchasesErrorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchasesErrorUtils.h; path = Purchases/Public/RCPurchasesErrorUtils.h; sourceTree = "<group>"; };
+		40FB47A76665149C2963B60E99C8F59B /* RCTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCTransaction.h; path = Purchases/Public/RCTransaction.h; sourceTree = "<group>"; };
+		42CD240B5A79127C6481A28DF0626616 /* TactileSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TactileSlider-Info.plist"; sourceTree = "<group>"; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4500AEF802F0744A5E1AE38731CDF944 /* Pods-FourSix Coffee Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FourSix Coffee Timer.debug.xcconfig"; sourceTree = "<group>"; };
-		45814D78FA25C905C92C6FFFB80AEDB3 /* NSDate+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSDate+RCExtensions.m"; sourceTree = "<group>"; };
-		4D0633288B6D0C1D4DFF270508BAADE1 /* RCEntitlementInfos.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEntitlementInfos.h; path = Purchases/Public/RCEntitlementInfos.h; sourceTree = "<group>"; };
-		4F165437C599C5F93EC554EABFCE3026 /* RCDeviceCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDeviceCache.m; path = Purchases/Caching/RCDeviceCache.m; sourceTree = "<group>"; };
+		482DED0DFFC8634B8D35C41F38BD2EAB /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = PurchasesCoreSwift/Transaction.swift; sourceTree = "<group>"; };
+		48A4B829A4C9A109EECD4DA83E422CED /* RCPurchases.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchases.h; path = Purchases/Public/RCPurchases.h; sourceTree = "<group>"; };
+		48FE93F49986E8538039DA050D72D034 /* RCBackend.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCBackend.h; path = Purchases/Networking/RCBackend.h; sourceTree = "<group>"; };
+		523F5CFDC3E0DBA7A2B726F173CB586B /* RCStoreKitWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoreKitWrapper.h; path = Purchases/Purchasing/RCStoreKitWrapper.h; sourceTree = "<group>"; };
 		5346ADAEAEEED006DEC4C5F2003E31E9 /* Pods-FourSix Coffee Timer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FourSix Coffee Timer-acknowledgements.markdown"; sourceTree = "<group>"; };
-		56DD5794168DBD9CD6DA9C76F76136D5 /* RCOffering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOffering.h; path = Purchases/Public/RCOffering.h; sourceTree = "<group>"; };
-		57066CFDB42EF77F45B2ECB695AA6357 /* RCOfferings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOfferings.m; path = Purchases/Public/RCOfferings.m; sourceTree = "<group>"; };
-		5C36EB01449D333F5E3AAB8EFAB860A8 /* RCAttributionFetcher+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCAttributionFetcher+Protected.h"; path = "Purchases/ProtectedExtensions/RCAttributionFetcher+Protected.h"; sourceTree = "<group>"; };
-		5E1FDC3BB45A0532E3AD3042937B55F0 /* PurchasesCoreSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PurchasesCoreSwift-dummy.m"; sourceTree = "<group>"; };
-		60C98F06765F6197DDCA6C963C3C6123 /* RCSpecialSubscriberAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSpecialSubscriberAttributes.h; path = Purchases/SubscriberAttributes/RCSpecialSubscriberAttributes.h; sourceTree = "<group>"; };
-		61AD98EE0B0ABDC85C86A53EA9842BCB /* RCPurchases+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchases+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchases+Protected.h"; sourceTree = "<group>"; };
-		61BC3DABA719E1C6249F380C8C040402 /* RCPromotionalOffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPromotionalOffer.m; path = Purchases/Purchasing/RCPromotionalOffer.m; sourceTree = "<group>"; };
-		62E477B102F0C4CF2982D266132E9450 /* NSDate+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSDate+RCExtensions.h"; sourceTree = "<group>"; };
-		67A1411C6F5C2969CA9918AC3BE5668B /* RCPromotionalOffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPromotionalOffer.h; path = Purchases/Purchasing/RCPromotionalOffer.h; sourceTree = "<group>"; };
-		69D40322CA580EB94C5C3A02185703BB /* Purchases-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Purchases-prefix.pch"; sourceTree = "<group>"; };
-		6B58E651CEA1D846DC4F8238443D50F3 /* ASN1Container.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1Container.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/ASN1Container.swift; sourceTree = "<group>"; };
-		6D3B1EE1A44FDA813DA795B326F6121C /* Purchases.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Purchases.release.xcconfig; sourceTree = "<group>"; };
-		73322EEC90023E50B943446F69407016 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		76127B688731D669789D86AEB5936ECE /* RCIntroEligibility+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCIntroEligibility+Protected.h"; path = "Purchases/ProtectedExtensions/RCIntroEligibility+Protected.h"; sourceTree = "<group>"; };
-		76BAED701F28FCEAC82549B3D75E1D79 /* RCCrossPlatformSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCrossPlatformSupport.h; path = Purchases/Misc/RCCrossPlatformSupport.h; sourceTree = "<group>"; };
+		548282BC08B563744BD104146BC44995 /* PurchasesCoreSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PurchasesCoreSwift-umbrella.h"; sourceTree = "<group>"; };
+		54C69E81DCDDA32CD4C6ACFD6A5FD0CA /* RCHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCHTTPClient.m; path = Purchases/Networking/RCHTTPClient.m; sourceTree = "<group>"; };
+		558FF05D7E4FB0417179B8FD43E40B9B /* RCAttributionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCAttributionFetcher.m; path = Purchases/Purchasing/RCAttributionFetcher.m; sourceTree = "<group>"; };
+		564E11221F36E305000C35D3C2BCB637 /* RCIntroEligibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIntroEligibility.m; path = Purchases/Public/RCIntroEligibility.m; sourceTree = "<group>"; };
+		57B56B35BCE707AFD6D89B90CBA10C8F /* Purchases.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Purchases.release.xcconfig; sourceTree = "<group>"; };
+		58224803A4B1F62E2E965C7486D7450F /* RCOfferings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOfferings.h; path = Purchases/Public/RCOfferings.h; sourceTree = "<group>"; };
+		58B3F7BEE55670DD44A406A69CCAE5E3 /* ProductsRequestFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProductsRequestFactory.swift; path = PurchasesCoreSwift/Purchasing/ProductsRequestFactory.swift; sourceTree = "<group>"; };
+		59CDA43FBE542DE20473EDB601EA99C8 /* RCSubscriberAttributesManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSubscriberAttributesManager.m; path = Purchases/SubscriberAttributes/RCSubscriberAttributesManager.m; sourceTree = "<group>"; };
+		5A6AC200907CC53450BA751FEA2CCFE3 /* PurchasesCoreSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PurchasesCoreSwift.release.xcconfig; sourceTree = "<group>"; };
+		5D255AF40A24D2EBBA19045C47B36936 /* TactileSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-umbrella.h"; sourceTree = "<group>"; };
+		603F1AB49DC4EE87DFAD273EBC2494E3 /* Purchases-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Purchases-umbrella.h"; sourceTree = "<group>"; };
+		60EAE68B52F0FFB7D77515C0F51195F1 /* Strings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Strings.swift; path = PurchasesCoreSwift/Logging/Strings/Strings.swift; sourceTree = "<group>"; };
+		6484E6E1E7144BB14B2718062F747F54 /* RCEntitlementInfos+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCEntitlementInfos+Protected.h"; path = "Purchases/ProtectedExtensions/RCEntitlementInfos+Protected.h"; sourceTree = "<group>"; };
+		64AE42B51368B017B58184872B66529D /* RCPromotionalOffer+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPromotionalOffer+Protected.h"; path = "Purchases/ProtectedExtensions/RCPromotionalOffer+Protected.h"; sourceTree = "<group>"; };
+		650AC13D48A72FADE3ACDCC8ECDBAC5F /* TactileSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TactileSlider.modulemap; sourceTree = "<group>"; };
+		652B92BA378F499E3A9C3093FAB706C2 /* DateExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = PurchasesCoreSwift/Misc/DateExtensions.swift; sourceTree = "<group>"; };
+		66E2C66348722988C19335377A832C08 /* RCSystemInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSystemInfo.m; path = Purchases/Misc/RCSystemInfo.m; sourceTree = "<group>"; };
+		693B18451C0070BECE0143823CD55305 /* AttributionStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AttributionStrings.swift; path = PurchasesCoreSwift/Logging/Strings/AttributionStrings.swift; sourceTree = "<group>"; };
+		6A07CB4562F2A5D38D128E2B072113B0 /* TactileSliderLayerRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSliderLayerRenderer.swift; path = TactileSlider/Classes/TactileSliderLayerRenderer.swift; sourceTree = "<group>"; };
+		6AE1F55D6A6C2CFF65A2FDD3BCE02B70 /* Purchases-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Purchases-Info.plist"; sourceTree = "<group>"; };
+		6D921F81BA3AB37ACD84DF4D0D507F44 /* RCEntitlementInfo+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCEntitlementInfo+Protected.h"; path = "Purchases/ProtectedExtensions/RCEntitlementInfo+Protected.h"; sourceTree = "<group>"; };
+		732A8E6B8EF9A9132AE2A2FA128DAC36 /* NSDictionary+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSDictionary+RCExtensions.h"; sourceTree = "<group>"; };
+		75073FDA21BF6F7FC82C34CB6328A17F /* RCAttributionNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionNetwork.h; path = Purchases/Public/RCAttributionNetwork.h; sourceTree = "<group>"; };
+		767C6016A2564C8D819416C5BD1817F3 /* RCProductInfoExtractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCProductInfoExtractor.m; path = Purchases/Purchasing/RCProductInfoExtractor.m; sourceTree = "<group>"; };
+		773555F6F34CBD55CA81C60F41929D8D /* RCInMemoryCachedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCInMemoryCachedObject.h; path = Purchases/Caching/RCInMemoryCachedObject.h; sourceTree = "<group>"; };
 		7763285ED91F9B7CF9700F44E39BA789 /* Pods-FourSix Coffee Timer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FourSix Coffee Timer-umbrella.h"; sourceTree = "<group>"; };
-		7779C159E7299AB6043E944F29ABCE89 /* TactileSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TactileSlider-Info.plist"; sourceTree = "<group>"; };
-		7785FDF055F8C9A656C27FEBA0036EA5 /* RCIntroEligibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIntroEligibility.h; path = Purchases/Public/RCIntroEligibility.h; sourceTree = "<group>"; };
-		791525FF3829057081C7FB94764CB91C /* RCSubscriberAttributesManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSubscriberAttributesManager.h; path = Purchases/SubscriberAttributes/RCSubscriberAttributesManager.h; sourceTree = "<group>"; };
-		793562AAF098BE748DC813A9D9F4E2AE /* RCOfferingsFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOfferingsFactory.m; path = Purchases/Purchasing/RCOfferingsFactory.m; sourceTree = "<group>"; };
-		7B0B19654402C769C75CED1FBD596648 /* RCAttributionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionFetcher.h; path = Purchases/Purchasing/RCAttributionFetcher.h; sourceTree = "<group>"; };
-		7DB99C7B93747C19F9E65670319ED92C /* RCInMemoryCachedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCInMemoryCachedObject.h; path = Purchases/Caching/RCInMemoryCachedObject.h; sourceTree = "<group>"; };
-		813245FC6FDED3D739FCAEED719001E5 /* RCOffering.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOffering.m; path = Purchases/Public/RCOffering.m; sourceTree = "<group>"; };
-		8202AC26DDB6BFF2CBA8AEE2CB08E260 /* ASN1ContainerBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1ContainerBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/ASN1ContainerBuilder.swift; sourceTree = "<group>"; };
-		8321C1F7265F72AC9EEC3B34B8F66B40 /* ASN1ObjectIdentifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1ObjectIdentifier.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/ASN1ObjectIdentifier.swift; sourceTree = "<group>"; };
-		8542DD26D31906D5DF578459C947E027 /* IntroEligibilityCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntroEligibilityCalculator.swift; path = PurchasesCoreSwift/IntroEligibilityCalculator.swift; sourceTree = "<group>"; };
-		85E6AF1E3AFEE0D2B20874A4EE8FE40F /* PurchasesCoreSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PurchasesCoreSwift-umbrella.h"; sourceTree = "<group>"; };
-		85EF2E3BAEDFDFE4A23C7757286A7616 /* AppleReceiptBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppleReceiptBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/AppleReceiptBuilder.swift; sourceTree = "<group>"; };
-		86E026F0376C57E1C112CDA4AF3FF0B2 /* ProductsRequestFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProductsRequestFactory.swift; path = PurchasesCoreSwift/Purchasing/ProductsRequestFactory.swift; sourceTree = "<group>"; };
-		87F30AA9E6E213B677AB6FB10D443B9F /* NSLocale+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLocale+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSLocale+RCExtensions.m"; sourceTree = "<group>"; };
-		88B202C3D725F2C42A256A9B5A87C381 /* Purchases.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Purchases.modulemap; sourceTree = "<group>"; };
-		8B4E13C8702FE80DC0F40A027C8F5AF5 /* TactileSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.debug.xcconfig; sourceTree = "<group>"; };
-		8EDC13EE247A462520F1CD3AD7E8F5E1 /* RCStoreKitWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoreKitWrapper.h; path = Purchases/Purchasing/RCStoreKitWrapper.h; sourceTree = "<group>"; };
-		91E356917E1FF8E5C740290B97395A66 /* PurchasesCoreSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PurchasesCoreSwift.modulemap; sourceTree = "<group>"; };
-		931651EF5237E0367BD2478716AC1F1C /* RCAttributionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCAttributionFetcher.m; path = Purchases/Purchasing/RCAttributionFetcher.m; sourceTree = "<group>"; };
-		9396F4DD2337827F19F07D8610EB3E45 /* RCInMemoryCachedObject+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCInMemoryCachedObject+Protected.h"; path = "Purchases/ProtectedExtensions/RCInMemoryCachedObject+Protected.h"; sourceTree = "<group>"; };
-		95696B48B6E13D5084AA17DE5C480738 /* NSError+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSError+RCExtensions.h"; sourceTree = "<group>"; };
-		961DD50A5D5C81234DE50ED2673898ED /* RCStoreKitWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoreKitWrapper.m; path = Purchases/Purchasing/RCStoreKitWrapper.m; sourceTree = "<group>"; };
-		96DB0B8B200E5635A44F0C74251B1CD7 /* RCReceiptFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCReceiptFetcher.m; path = Purchases/Purchasing/RCReceiptFetcher.m; sourceTree = "<group>"; };
-		9A7DD8088570AC8224EED969BB142073 /* RCIdentityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIdentityManager.h; path = Purchases/Purchasing/RCIdentityManager.h; sourceTree = "<group>"; };
-		9AB3742A3B844DFE3A6D7EAB3C160CA0 /* RCPurchasesErrorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchasesErrorUtils.m; path = Purchases/Public/RCPurchasesErrorUtils.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9EB9A73912CBDE0E95D2557AFC937269 /* RCPurchases.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchases.h; path = Purchases/Public/RCPurchases.h; sourceTree = "<group>"; };
-		9EE2B4F6532167F7C4FEA4156AFF45B6 /* RCProductInfoExtractor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCProductInfoExtractor.m; path = Purchases/Purchasing/RCProductInfoExtractor.m; sourceTree = "<group>"; };
-		9F542817EDFA2AB2A0399959DD17BDFD /* ReceiptParsingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReceiptParsingError.swift; path = PurchasesCoreSwift/LocalReceiptParsing/ReceiptParsingError.swift; sourceTree = "<group>"; };
-		A3FEEDACD6FB1C7C4B0EAA724F125486 /* RCIntroEligibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIntroEligibility.m; path = Purchases/Public/RCIntroEligibility.m; sourceTree = "<group>"; };
-		A76F676AFA60031A36254F9DF8A0A794 /* RCInMemoryCachedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCInMemoryCachedObject.m; path = Purchases/Caching/RCInMemoryCachedObject.m; sourceTree = "<group>"; };
-		A8744BFCBA0EFF3EFCB22EF6E0408B42 /* PurchasesCoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchasesCoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A98B5C3B623E9436369BE9273E384E04 /* ISO3601DateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISO3601DateFormatter.swift; path = PurchasesCoreSwift/LocalReceiptParsing/DataConverters/ISO3601DateFormatter.swift; sourceTree = "<group>"; };
-		AC89EFDC64C17E1E66AA62A352B8669E /* Purchases-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Purchases-umbrella.h"; sourceTree = "<group>"; };
-		AE14A90BB24E4531C2C2FD9D553CF19F /* RCEntitlementInfos+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCEntitlementInfos+Protected.h"; path = "Purchases/ProtectedExtensions/RCEntitlementInfos+Protected.h"; sourceTree = "<group>"; };
-		AEE361A8626354EE131A397FC9D69B65 /* RCSystemInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCSystemInfo.m; path = Purchases/Misc/RCSystemInfo.m; sourceTree = "<group>"; };
-		B13B9D472B19D2A1AA9A50EF7EE602F5 /* RCBackend.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCBackend.h; path = Purchases/Networking/RCBackend.h; sourceTree = "<group>"; };
-		B17C3C565D93717A404D696899C34A6C /* RCSystemInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSystemInfo.h; path = Purchases/Misc/RCSystemInfo.h; sourceTree = "<group>"; };
-		B1ABDEA1798551E3673B031E5C55F642 /* NSData+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSData+RCExtensions.h"; sourceTree = "<group>"; };
-		B300EBA071F8D6619EDF6FC3FF3E9162 /* NSLocale+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLocale+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSLocale+RCExtensions.h"; sourceTree = "<group>"; };
-		B32FE393FF23828BA27FB3CFF1BB45B7 /* TactileSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TactileSlider-dummy.m"; sourceTree = "<group>"; };
-		B36E6114C5A75215F589A266538B5533 /* RCEntitlementInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEntitlementInfo.m; path = Purchases/Public/RCEntitlementInfo.m; sourceTree = "<group>"; };
-		B9123988BA275D9C61506FBABF2AD8CC /* TactileSliderLayerRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSliderLayerRenderer.swift; path = TactileSlider/Classes/TactileSliderLayerRenderer.swift; sourceTree = "<group>"; };
-		BA465AFB1CB257B2E2DF2CC87C29FD42 /* RCEntitlementInfo+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCEntitlementInfo+Protected.h"; path = "Purchases/ProtectedExtensions/RCEntitlementInfo+Protected.h"; sourceTree = "<group>"; };
-		BB0524DA5F9F9553A376B1312989CF47 /* RCReceiptFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCReceiptFetcher.h; path = Purchases/Purchasing/RCReceiptFetcher.h; sourceTree = "<group>"; };
-		BC02244C0FA5CE2917934556329FC2BA /* InAppPurchase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppPurchase.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/InAppPurchase.swift; sourceTree = "<group>"; };
-		BCFF7E048B251570A056DAC4C9AB68C8 /* PurchasesCoreSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PurchasesCoreSwift-Info.plist"; sourceTree = "<group>"; };
-		BED7B9D17BC6803ADCE3BC2DBC4C68E4 /* PurchasesCoreSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PurchasesCoreSwift.debug.xcconfig; sourceTree = "<group>"; };
-		BF7EDB194EA148A1558B71DA71E2B8B4 /* PurchasesCoreSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PurchasesCoreSwift-prefix.pch"; sourceTree = "<group>"; };
-		C12A2A94D5E55F715384D8BC63B14F3A /* TactileSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.release.xcconfig; sourceTree = "<group>"; };
-		C18F98D082A84ABEA826CD230C12E7F7 /* RCLogUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCLogUtils.h; path = Purchases/Misc/RCLogUtils.h; sourceTree = "<group>"; };
-		C3531430C3880F8A2B0A475820DD64C8 /* RCPackage+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPackage+Protected.h"; path = "Purchases/ProtectedExtensions/RCPackage+Protected.h"; sourceTree = "<group>"; };
-		C539EE7A0C71547CF792908C73A8EC85 /* RCDateProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDateProvider.h; path = Purchases/Misc/RCDateProvider.h; sourceTree = "<group>"; };
-		C563474DE9477EF7A1B119D72EF5D18C /* TactileSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSlider.swift; path = TactileSlider/Classes/TactileSlider.swift; sourceTree = "<group>"; };
-		C5711EE432337630741F9DDF716E24E0 /* RCBackend.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCBackend.m; path = Purchases/Networking/RCBackend.m; sourceTree = "<group>"; };
-		C92A22DE3CC51B155FD09DF5D50960E4 /* OperationDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationDispatcher.swift; path = PurchasesCoreSwift/Misc/OperationDispatcher.swift; sourceTree = "<group>"; };
-		CAE5D4388D7E70F467F9E9D353718A82 /* RCEntitlementInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCEntitlementInfo.h; path = Purchases/Public/RCEntitlementInfo.h; sourceTree = "<group>"; };
-		CF46D88A5167F3E7CC0926BAA9209190 /* ASN1ObjectIdentifierBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1ObjectIdentifierBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/ASN1ObjectIdentifierBuilder.swift; sourceTree = "<group>"; };
-		D35A66C90832728BF7AF5E69BF32A9C1 /* RCPurchaserInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchaserInfo.m; path = Purchases/Public/RCPurchaserInfo.m; sourceTree = "<group>"; };
-		D3D1F0E342D65304002589DDCC6E4FC8 /* RCAttributionData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCAttributionData.m; path = Purchases/Purchasing/RCAttributionData.m; sourceTree = "<group>"; };
+		789E95662A9DF3DEE98F487057E82C46 /* InAppPurchaseBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppPurchaseBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/InAppPurchaseBuilder.swift; sourceTree = "<group>"; };
+		7C78E03E746F4AF6FB887BF58FCFA28E /* AppleReceipt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppleReceipt.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/AppleReceipt.swift; sourceTree = "<group>"; };
+		7D05CF9399A339DBDAAD6904560B3EB7 /* PurchasesCoreSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PurchasesCoreSwift-Info.plist"; sourceTree = "<group>"; };
+		7E3EB9465DC84E73B90CCF68E507F9FF /* NSError+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSError+RCExtensions.m"; sourceTree = "<group>"; };
+		7FBB29A78BA199A14CA5CC4A966E2293 /* ReceiptParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReceiptParser.swift; path = PurchasesCoreSwift/LocalReceiptParsing/ReceiptParser.swift; sourceTree = "<group>"; };
+		7FBD01E813DAA76E152118B656D128DB /* TactileSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-prefix.pch"; sourceTree = "<group>"; };
+		81A025A98EFF0B873EC12A0A9582D075 /* InAppPurchase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppPurchase.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/InAppPurchase.swift; sourceTree = "<group>"; };
+		81BA5F8794D4F5C132EF3E9B945CADEF /* RCPackage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPackage.h; path = Purchases/Public/RCPackage.h; sourceTree = "<group>"; };
+		8295EEBE88F1531B85A2DF22281C282C /* RCDeviceCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDeviceCache.h; path = Purchases/Caching/RCDeviceCache.h; sourceTree = "<group>"; };
+		88254F479E8FC29E1289D936FD645A38 /* RCOfferings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOfferings.m; path = Purchases/Public/RCOfferings.m; sourceTree = "<group>"; };
+		88E02CCB0E2043103FFA8E82C8BFEEE4 /* NSDictionary+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSDictionary+RCExtensions.m"; sourceTree = "<group>"; };
+		8B533B4D0D0A8B220C35943B898A671A /* NSData+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSData+RCExtensions.m"; sourceTree = "<group>"; };
+		8D06E0E1B3D2C9E1A9099743DB872EF6 /* Purchases.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Purchases.modulemap; sourceTree = "<group>"; };
+		8D7BF236986C968FC88A9F50D62FEB9E /* RCISOPeriodFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCISOPeriodFormatter.m; path = Purchases/Misc/RCISOPeriodFormatter.m; sourceTree = "<group>"; };
+		8E8947E8A0289A643C66176E028A171A /* RCPurchasesErrorUtils+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchasesErrorUtils+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchasesErrorUtils+Protected.h"; sourceTree = "<group>"; };
+		8F5F315941C8C0EE0AE3232378AEABB6 /* NSError+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSError+RCExtensions.h"; sourceTree = "<group>"; };
+		91A9A07FAA9623E56E065E0E5FC81DA8 /* RCPromotionalOffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPromotionalOffer.h; path = Purchases/Purchasing/RCPromotionalOffer.h; sourceTree = "<group>"; };
+		932859AE0C88F25AD9F06A32D9047E55 /* PurchasesCoreSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PurchasesCoreSwift-dummy.m"; sourceTree = "<group>"; };
+		96EF07ABC457779397C681CA1AEF6C0C /* PurchasesCoreSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PurchasesCoreSwift.debug.xcconfig; sourceTree = "<group>"; };
+		97469AB4A4319EC6CE95C5B28F60FCDB /* OperationDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationDispatcher.swift; path = PurchasesCoreSwift/Misc/OperationDispatcher.swift; sourceTree = "<group>"; };
+		9B101AC2767E1635D8A4B314D88D04FB /* NSLocale+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLocale+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSLocale+RCExtensions.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A32B06D242B99D310DA28360FF88ECFA /* RCPromotionalOffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPromotionalOffer.m; path = Purchases/Purchasing/RCPromotionalOffer.m; sourceTree = "<group>"; };
+		A5BF6855FA88978CD35FD553B7B93D08 /* RCHTTPStatusCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCHTTPStatusCodes.h; path = Purchases/Networking/RCHTTPStatusCodes.h; sourceTree = "<group>"; };
+		A8744BFCBA0EFF3EFCB22EF6E0408B42 /* PurchasesCoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PurchasesCoreSwift.framework; path = PurchasesCoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8A23927306850A151385BF522AF34D3 /* RCAttributionData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCAttributionData.m; path = Purchases/Purchasing/RCAttributionData.m; sourceTree = "<group>"; };
+		A9CFAD6AF9229A3C3DFE9D0D69EBF18C /* TactileSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TactileSlider-dummy.m"; sourceTree = "<group>"; };
+		AEF7954F92E21DAEA3F1CF4A7BE74C69 /* RCBackend.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCBackend.m; path = Purchases/Networking/RCBackend.m; sourceTree = "<group>"; };
+		B005A69728D2A116CA50429D8E262AD0 /* RCDeviceCache+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCDeviceCache+Protected.h"; path = "Purchases/ProtectedExtensions/RCDeviceCache+Protected.h"; sourceTree = "<group>"; };
+		B079A8DC8FA8D09B821601BB3948E19B /* RCEntitlementInfos.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEntitlementInfos.m; path = Purchases/Public/RCEntitlementInfos.m; sourceTree = "<group>"; };
+		B4A41764F77AE4EEF8F06754A62EB650 /* NSData+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSData+RCExtensions.h"; sourceTree = "<group>"; };
+		B90EDC91D4DBFC5150B5535B7375FCFA /* RCAttributionData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionData.h; path = Purchases/Purchasing/RCAttributionData.h; sourceTree = "<group>"; };
+		BC2CACA5F017FCFA386F80CF6C4BAF8D /* PurchasesCoreSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PurchasesCoreSwift-prefix.pch"; sourceTree = "<group>"; };
+		BD9163F0EDCA0949C830F60995304924 /* RCDeviceCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDeviceCache.m; path = Purchases/Caching/RCDeviceCache.m; sourceTree = "<group>"; };
+		BDD053C4CB2933AF745DD9E0BB474966 /* NSDate+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSDate+RCExtensions.m"; sourceTree = "<group>"; };
+		BF89BB9AF682D21AD0A4E94D92D10FEB /* RCOfferingsFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOfferingsFactory.m; path = Purchases/Purchasing/RCOfferingsFactory.m; sourceTree = "<group>"; };
+		C058E74DE033C6467FEAA2E6EB1C7187 /* RCSubscriberAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSubscriberAttribute.h; path = Purchases/SubscriberAttributes/RCSubscriberAttribute.h; sourceTree = "<group>"; };
+		C22C1A177D309A7B39FC152EA6BF4049 /* ISO3601DateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISO3601DateFormatter.swift; path = PurchasesCoreSwift/LocalReceiptParsing/DataConverters/ISO3601DateFormatter.swift; sourceTree = "<group>"; };
+		C3AEA5EE0824EDCE1554FFD36FBB73EC /* RCPurchasesErrorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPurchasesErrorUtils.m; path = Purchases/Public/RCPurchasesErrorUtils.m; sourceTree = "<group>"; };
+		C6DC0DFA9C9812CAE3E27C5C334251CD /* RCInMemoryCachedObject+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCInMemoryCachedObject+Protected.h"; path = "Purchases/ProtectedExtensions/RCInMemoryCachedObject+Protected.h"; sourceTree = "<group>"; };
+		C8DF18455567A494F30724F10384E84A /* TactileSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.debug.xcconfig; sourceTree = "<group>"; };
+		CA283A9777EF0110D9DB6A6AE02ED403 /* RCProductInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCProductInfo.m; path = Purchases/Purchasing/RCProductInfo.m; sourceTree = "<group>"; };
+		CA3F9FC98AABA5DC00F821C9CA0EBCC2 /* TactileSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TactileSlider.release.xcconfig; sourceTree = "<group>"; };
+		CA9A2C95764DA95167E0DFF3ED58B0E3 /* RCOffering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOffering.h; path = Purchases/Public/RCOffering.h; sourceTree = "<group>"; };
+		CB38262962187F36B054D8EBC232EB05 /* RCLogUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCLogUtils.m; path = Purchases/Misc/RCLogUtils.m; sourceTree = "<group>"; };
+		CCC30CCC56DC6DAB75A054D90046682F /* IntroEligibilityCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntroEligibilityCalculator.swift; path = PurchasesCoreSwift/IntroEligibilityCalculator.swift; sourceTree = "<group>"; };
+		CE48BC59BDA654FB9DAB479BBE285CD2 /* RCPurchaserInfo+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchaserInfo+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchaserInfo+Protected.h"; sourceTree = "<group>"; };
+		CEA06D2D6F06E0D96DD4A8B6B78E5162 /* RCStoreKitRequestFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoreKitRequestFetcher.m; path = Purchases/Purchasing/RCStoreKitRequestFetcher.m; sourceTree = "<group>"; };
+		CF1085BC1897C4F29043DFC4254CF1B2 /* RCAttributionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionFetcher.h; path = Purchases/Purchasing/RCAttributionFetcher.h; sourceTree = "<group>"; };
+		D1BEFC97404233936B53F1EC88D44CF0 /* RCPurchasesErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchasesErrors.h; path = Purchases/Public/RCPurchasesErrors.h; sourceTree = "<group>"; };
+		D312543E8588640A9E0D1C54751BE7AD /* ASN1Container.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1Container.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/ASN1Container.swift; sourceTree = "<group>"; };
+		D5CADE556EE1C6B7D9D7E0492E7F3F7C /* ReceiptParsingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReceiptParsingError.swift; path = PurchasesCoreSwift/LocalReceiptParsing/ReceiptParsingError.swift; sourceTree = "<group>"; };
 		D6EDD21378CBBF23FB44EEAE2F805C19 /* Pods-FourSix Coffee Timer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FourSix Coffee Timer-frameworks.sh"; sourceTree = "<group>"; };
 		D6F946D2C22192BDB63523335EC5C857 /* Pods-FourSix Coffee Timer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FourSix Coffee Timer-Info.plist"; sourceTree = "<group>"; };
-		D834EC77556C9354F3FC30E1B9B782C5 /* RCPurchasesErrorUtils+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchasesErrorUtils+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchasesErrorUtils+Protected.h"; sourceTree = "<group>"; };
-		DA175F86384F07744E8A19C842363E03 /* RCIdentityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCIdentityManager.m; path = Purchases/Purchasing/RCIdentityManager.m; sourceTree = "<group>"; };
-		DABC141299B7D690E9FF212F9AE88A9F /* RCProductInfoExtractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCProductInfoExtractor.h; path = Purchases/Purchasing/RCProductInfoExtractor.h; sourceTree = "<group>"; };
-		DBE5E114F82CD30A89B60A3D289B81E9 /* RCProductInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCProductInfo.h; path = Purchases/Purchasing/RCProductInfo.h; sourceTree = "<group>"; };
-		DC0625B1376ECE3FE3AAB3E6A42972FD /* ReceiptParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReceiptParser.swift; path = PurchasesCoreSwift/LocalReceiptParsing/ReceiptParser.swift; sourceTree = "<group>"; };
-		DC468C616B21B99DFCB3AC9106656E9D /* RCPromotionalOffer+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPromotionalOffer+Protected.h"; path = "Purchases/ProtectedExtensions/RCPromotionalOffer+Protected.h"; sourceTree = "<group>"; };
-		DD92C3AD6AB6A587CA75257CF7A2957D /* RCTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCTransaction.h; path = Purchases/Public/RCTransaction.h; sourceTree = "<group>"; };
-		DD96D6E2F7964A67493CDE22ACBBF3F9 /* AppleReceipt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppleReceipt.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/AppleReceipt.swift; sourceTree = "<group>"; };
-		DE7843A85F23B940D15163F547392656 /* RCDeviceCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDeviceCache.h; path = Purchases/Caching/RCDeviceCache.h; sourceTree = "<group>"; };
+		D9433438D568AB5BECD57876777383B8 /* RCSubscriberAttributesManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSubscriberAttributesManager.h; path = Purchases/SubscriberAttributes/RCSubscriberAttributesManager.h; sourceTree = "<group>"; };
+		DAD1628CF9AA3CA9A21BC6CEA9F55C1D /* ArraySlice_UInt8+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArraySlice_UInt8+Extensions.swift"; path = "PurchasesCoreSwift/LocalReceiptParsing/DataConverters/ArraySlice_UInt8+Extensions.swift"; sourceTree = "<group>"; };
+		DB395AC81153E60F1A1827E4B944C4F8 /* RCOffering+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCOffering+Protected.h"; path = "Purchases/ProtectedExtensions/RCOffering+Protected.h"; sourceTree = "<group>"; };
+		DB4E02054C291B9F29053B7BF24800E9 /* RCProductInfoExtractor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCProductInfoExtractor.h; path = Purchases/Purchasing/RCProductInfoExtractor.h; sourceTree = "<group>"; };
+		DB944E8E9A8677CF8D18B93FFD70B8C3 /* PurchasesCoreSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PurchasesCoreSwift.modulemap; sourceTree = "<group>"; };
+		DD1DFAA540B7378D27026C8C3E680344 /* RCPurchases+SubscriberAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "RCPurchases+SubscriberAttributes.m"; path = "Purchases/SubscriberAttributes/RCPurchases+SubscriberAttributes.m"; sourceTree = "<group>"; };
 		DEF3F2B93F424FB1982FB1DD52BF85A0 /* Pods-FourSix Coffee Timer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FourSix Coffee Timer-dummy.m"; sourceTree = "<group>"; };
-		E100F247EFE170125CE277F8C5E7C92E /* RCISOPeriodFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCISOPeriodFormatter.h; path = Purchases/Misc/RCISOPeriodFormatter.h; sourceTree = "<group>"; };
-		E3A5BBCB3AF3AA1253A9AC79F65B11BA /* RCProductInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCProductInfo.m; path = Purchases/Purchasing/RCProductInfo.m; sourceTree = "<group>"; };
-		E543105B1F7ABD89880C55E3A7EC2176 /* RCDeviceCache+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCDeviceCache+Protected.h"; path = "Purchases/ProtectedExtensions/RCDeviceCache+Protected.h"; sourceTree = "<group>"; };
-		E5436E97C2F494FAB19E0B3BD7A73CBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E5C79C670FBD56A722990EE8451F1CB9 /* RCStoreKitRequestFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoreKitRequestFetcher.h; path = Purchases/Purchasing/RCStoreKitRequestFetcher.h; sourceTree = "<group>"; };
-		E96917B070491873E7FA55BCD651B3FA /* RCOfferings+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCOfferings+Protected.h"; path = "Purchases/ProtectedExtensions/RCOfferings+Protected.h"; sourceTree = "<group>"; };
-		EA9E9EC801E96F03212333E9318DA255 /* ArraySlice<UInt8>+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArraySlice<UInt8>+Extensions.swift"; path = "PurchasesCoreSwift/LocalReceiptParsing/DataConverters/ArraySlice<UInt8>+Extensions.swift"; sourceTree = "<group>"; };
-		EB95BEFF26A82D96C8DBE2096466AFBC /* InAppPurchaseBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppPurchaseBuilder.swift; path = PurchasesCoreSwift/LocalReceiptParsing/Builders/InAppPurchaseBuilder.swift; sourceTree = "<group>"; };
-		EC78DBC2A242FBC3DD6F171CCA30738B /* RCAttributionData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCAttributionData.h; path = Purchases/Purchasing/RCAttributionData.h; sourceTree = "<group>"; };
-		ECEFFF62E7F3C3166997EFA7F8C6DB29 /* TactileSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TactileSlider.modulemap; sourceTree = "<group>"; };
-		EE00335FB861ECE068E6DD561DD117B9 /* TactileSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-umbrella.h"; sourceTree = "<group>"; };
-		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22A73CDA4FDA1958F022BBD3CE195E7 /* RCIntroEligibility+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCIntroEligibility+Protected.h"; path = "Purchases/ProtectedExtensions/RCIntroEligibility+Protected.h"; sourceTree = "<group>"; };
+		E3FCACD0415103262B4FADBD7082A326 /* RCIdentityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCIdentityManager.h; path = Purchases/Purchasing/RCIdentityManager.h; sourceTree = "<group>"; };
+		E51ED83E6FF90CAB8A5888742067CC75 /* ASN1ObjectIdentifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1ObjectIdentifier.swift; path = PurchasesCoreSwift/LocalReceiptParsing/BasicTypes/ASN1ObjectIdentifier.swift; sourceTree = "<group>"; };
+		E5910C3BE1831F983153A443D061A2E0 /* RCPurchases+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchases+Protected.h"; path = "Purchases/ProtectedExtensions/RCPurchases+Protected.h"; sourceTree = "<group>"; };
+		E83D32F5F5E9445E65FC32FEC310FE44 /* RCPackage+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPackage+Protected.h"; path = "Purchases/ProtectedExtensions/RCPackage+Protected.h"; sourceTree = "<group>"; };
+		EA53D1265CEA0BE4132F969429F9BCB3 /* TactileSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TactileSlider.swift; path = TactileSlider/Classes/TactileSlider.swift; sourceTree = "<group>"; };
+		EC6A8C75046779F83AADCDB0196246CD /* RCPurchaserInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCPurchaserInfo.h; path = Purchases/Public/RCPurchaserInfo.h; sourceTree = "<group>"; };
+		ECA547D1F67E0535354D2167EC28845B /* RCAttributionFetcher+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCAttributionFetcher+Protected.h"; path = "Purchases/ProtectedExtensions/RCAttributionFetcher+Protected.h"; sourceTree = "<group>"; };
+		EE5706BF0E5613C9993B088521979DBF /* RCStoreKitRequestFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCStoreKitRequestFetcher.h; path = Purchases/Purchasing/RCStoreKitRequestFetcher.h; sourceTree = "<group>"; };
+		EE90A93EB5D16740C10F26E3B207B25C /* Purchases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Purchases.debug.xcconfig; sourceTree = "<group>"; };
+		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TactileSlider.framework; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF58BEBD942314D6881B02C59E6FCD8C /* Pods-FourSix Coffee Timer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FourSix Coffee Timer.modulemap"; sourceTree = "<group>"; };
-		F39C6198D61E44D185848275E60A8F1B /* NSData+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSData+RCExtensions.m"; sourceTree = "<group>"; };
-		F49FC192779807DBA0AC2FF8693951F7 /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = PurchasesCoreSwift/Transaction.swift; sourceTree = "<group>"; };
-		F4B6E34A76380D955ED80A1D4F7B91F8 /* RCStoreKitRequestFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoreKitRequestFetcher.m; path = Purchases/Purchasing/RCStoreKitRequestFetcher.m; sourceTree = "<group>"; };
-		F890B27AB2D70E11B7C363506C1C986A /* RCPackage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCPackage.m; path = Purchases/Public/RCPackage.m; sourceTree = "<group>"; };
-		FA34BCF8CC41593AC2E153DF854DF67A /* RCOfferings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCOfferings.h; path = Purchases/Public/RCOfferings.h; sourceTree = "<group>"; };
-		FBA7F9EF3FAEB0BC7D79BB1AFF265A06 /* Purchases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Purchases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC3914F2D0A5CECF83FD5D5305B45A1 /* UInt8+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt8+Extensions.swift"; path = "PurchasesCoreSwift/LocalReceiptParsing/DataConverters/UInt8+Extensions.swift"; sourceTree = "<group>"; };
+		F22621F40F433BBA201019CEDCBDD42C /* RCStoreKitWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCStoreKitWrapper.m; path = Purchases/Purchasing/RCStoreKitWrapper.m; sourceTree = "<group>"; };
+		F27876CADD8638E8356467F462928F2B /* RCSubscriberAttribute+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCSubscriberAttribute+Protected.h"; path = "Purchases/ProtectedExtensions/RCSubscriberAttribute+Protected.h"; sourceTree = "<group>"; };
+		F45B69D70F808A411FC4381042715267 /* RCCrossPlatformSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCrossPlatformSupport.h; path = Purchases/Misc/RCCrossPlatformSupport.h; sourceTree = "<group>"; };
+		F7ED2A9726AA2ED7346F4D4707A83C54 /* NSDate+RCExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+RCExtensions.h"; path = "Purchases/FoundationExtensions/NSDate+RCExtensions.h"; sourceTree = "<group>"; };
+		FA4F1B815DC98C773C131D1E4605237A /* RCSpecialSubscriberAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCSpecialSubscriberAttributes.h; path = Purchases/SubscriberAttributes/RCSpecialSubscriberAttributes.h; sourceTree = "<group>"; };
+		FBA7F9EF3FAEB0BC7D79BB1AFF265A06 /* Purchases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Purchases.framework; path = Purchases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE9A0F6F3181B22B109F702D24922E5C /* RCOffering.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCOffering.m; path = Purchases/Public/RCOffering.m; sourceTree = "<group>"; };
+		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FourSix_Coffee_Timer.framework; path = "Pods-FourSix Coffee Timer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFA9CEB281534CADF4EE1D6433F61443 /* RCHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCHTTPRequest.h; path = Purchases/Networking/RCHTTPRequest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,46 +345,54 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C14C9E54B885B21CECBFC6EB37609368 /* Frameworks */ = {
+		B4269C7EF223BF8ED24B33CF6781300A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73F122EE41805E409F2CD01038380D3A /* Foundation.framework in Frameworks */,
-				E935DB12B64FA1E655110BA76C4C5BE6 /* PurchasesCoreSwift.framework in Frameworks */,
-				831861AA1059FFB59F2D62CA171D2473 /* StoreKit.framework in Frameworks */,
+				84DD56555B65F5BE172860D45B8AAE31 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED05F6AEF470332F0AE211F4EE0F3FC4 /* Frameworks */ = {
+		CCD7D60B5713CF8757911450FE77ABAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC937221A63B47CC900AE242074F65B3 /* Foundation.framework in Frameworks */,
-				7DCA835AFA9B85B0C308EE4E456ACAFD /* StoreKit.framework in Frameworks */,
+				D3BAA2B301A67EAE7243C902F9885A76 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09ED4E3B0B92B9FF423345AD67F251D2 /* TactileSlider */ = {
+		013F57CA8D90613C711C17D70BC91A7E /* PurchasesCoreSwift */ = {
 			isa = PBXGroup;
 			children = (
-				C563474DE9477EF7A1B119D72EF5D18C /* TactileSlider.swift */,
-				B9123988BA275D9C61506FBABF2AD8CC /* TactileSliderLayerRenderer.swift */,
-				5B4DB234F416B763A37A2FF17BB98D35 /* Support Files */,
+				7C78E03E746F4AF6FB887BF58FCFA28E /* AppleReceipt.swift */,
+				09C9AAB66709FA9A9C610287DD1EFDD1 /* AppleReceiptBuilder.swift */,
+				DAD1628CF9AA3CA9A21BC6CEA9F55C1D /* ArraySlice_UInt8+Extensions.swift */,
+				D312543E8588640A9E0D1C54751BE7AD /* ASN1Container.swift */,
+				0C37F1925E27105DCF08090BBB057F3D /* ASN1ContainerBuilder.swift */,
+				E51ED83E6FF90CAB8A5888742067CC75 /* ASN1ObjectIdentifier.swift */,
+				136773C6F1179B5FD61C9D9AD9598A41 /* ASN1ObjectIdentifierBuilder.swift */,
+				693B18451C0070BECE0143823CD55305 /* AttributionStrings.swift */,
+				652B92BA378F499E3A9C3093FAB706C2 /* DateExtensions.swift */,
+				81A025A98EFF0B873EC12A0A9582D075 /* InAppPurchase.swift */,
+				789E95662A9DF3DEE98F487057E82C46 /* InAppPurchaseBuilder.swift */,
+				CCC30CCC56DC6DAB75A054D90046682F /* IntroEligibilityCalculator.swift */,
+				C22C1A177D309A7B39FC152EA6BF4049 /* ISO3601DateFormatter.swift */,
+				97469AB4A4319EC6CE95C5B28F60FCDB /* OperationDispatcher.swift */,
+				2925C86DA12CB21AF3BD81E4C51E3D17 /* ProductsManager.swift */,
+				58B3F7BEE55670DD44A406A69CCAE5E3 /* ProductsRequestFactory.swift */,
+				7FBB29A78BA199A14CA5CC4A966E2293 /* ReceiptParser.swift */,
+				D5CADE556EE1C6B7D9D7E0492E7F3F7C /* ReceiptParsingError.swift */,
+				60EAE68B52F0FFB7D77515C0F51195F1 /* Strings.swift */,
+				482DED0DFFC8634B8D35C41F38BD2EAB /* Transaction.swift */,
+				0BBE34F48E387DAB2E33CB3DD4396A1A /* TransactionsFactory.swift */,
+				EFC3914F2D0A5CECF83FD5D5305B45A1 /* UInt8+Extensions.swift */,
+				B87E926B9969B911A8B95BD61C5596A7 /* Support Files */,
 			);
-			path = TactileSlider;
-			sourceTree = "<group>";
-		};
-		0B5CB693E76B5E75FB230FD1F0EC0989 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E5436E97C2F494FAB19E0B3BD7A73CBA /* Foundation.framework */,
-				73322EEC90023E50B943446F69407016 /* StoreKit.framework */,
-				244F690C5F57B051FCB37FEDA982FCB6 /* UIKit.framework */,
-			);
-			name = iOS;
+			name = PurchasesCoreSwift;
+			path = PurchasesCoreSwift;
 			sourceTree = "<group>";
 		};
 		1264E823A482F4378A85EE9D08D26423 /* Products */ = {
@@ -391,14 +406,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13EF493D3A3C566714341B656D9CE2ED /* Pods */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5623D64AB67551BC037B6B6826956E6A /* Purchases */,
-				98854B9DC711394AC458B889B899C305 /* PurchasesCoreSwift */,
-				09ED4E3B0B92B9FF423345AD67F251D2 /* TactileSlider */,
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		345A2691B49CCD110B8C729F8E863B41 /* Targets Support Files */ = {
@@ -409,131 +422,34 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		46977AE0F117C76DB32E7197B49B7476 /* Support Files */ = {
+		407234A443F197D33275302761A9DEFF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				91E356917E1FF8E5C740290B97395A66 /* PurchasesCoreSwift.modulemap */,
-				5E1FDC3BB45A0532E3AD3042937B55F0 /* PurchasesCoreSwift-dummy.m */,
-				BCFF7E048B251570A056DAC4C9AB68C8 /* PurchasesCoreSwift-Info.plist */,
-				BF7EDB194EA148A1558B71DA71E2B8B4 /* PurchasesCoreSwift-prefix.pch */,
-				85E6AF1E3AFEE0D2B20874A4EE8FE40F /* PurchasesCoreSwift-umbrella.h */,
-				BED7B9D17BC6803ADCE3BC2DBC4C68E4 /* PurchasesCoreSwift.debug.xcconfig */,
-				0D566F95F908DA247681BE7CA1323CBF /* PurchasesCoreSwift.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/PurchasesCoreSwift";
-			sourceTree = "<group>";
-		};
-		5623D64AB67551BC037B6B6826956E6A /* Purchases */ = {
-			isa = PBXGroup;
-			children = (
-				B1ABDEA1798551E3673B031E5C55F642 /* NSData+RCExtensions.h */,
-				F39C6198D61E44D185848275E60A8F1B /* NSData+RCExtensions.m */,
-				62E477B102F0C4CF2982D266132E9450 /* NSDate+RCExtensions.h */,
-				45814D78FA25C905C92C6FFFB80AEDB3 /* NSDate+RCExtensions.m */,
-				95696B48B6E13D5084AA17DE5C480738 /* NSError+RCExtensions.h */,
-				34991D55AB5AF32DF1B86BEB5C3491D9 /* NSError+RCExtensions.m */,
-				B300EBA071F8D6619EDF6FC3FF3E9162 /* NSLocale+RCExtensions.h */,
-				87F30AA9E6E213B677AB6FB10D443B9F /* NSLocale+RCExtensions.m */,
-				16F35A360779627B426FB47F555A8ACF /* Purchases.h */,
-				EC78DBC2A242FBC3DD6F171CCA30738B /* RCAttributionData.h */,
-				D3D1F0E342D65304002589DDCC6E4FC8 /* RCAttributionData.m */,
-				7B0B19654402C769C75CED1FBD596648 /* RCAttributionFetcher.h */,
-				931651EF5237E0367BD2478716AC1F1C /* RCAttributionFetcher.m */,
-				5C36EB01449D333F5E3AAB8EFAB860A8 /* RCAttributionFetcher+Protected.h */,
-				16F45A9078A984E0F76D409AC28A507A /* RCAttributionNetwork.h */,
-				B13B9D472B19D2A1AA9A50EF7EE602F5 /* RCBackend.h */,
-				C5711EE432337630741F9DDF716E24E0 /* RCBackend.m */,
-				76BAED701F28FCEAC82549B3D75E1D79 /* RCCrossPlatformSupport.h */,
-				C539EE7A0C71547CF792908C73A8EC85 /* RCDateProvider.h */,
-				0939E6FFEE3BA87CB76415AF9E919573 /* RCDateProvider.m */,
-				DE7843A85F23B940D15163F547392656 /* RCDeviceCache.h */,
-				4F165437C599C5F93EC554EABFCE3026 /* RCDeviceCache.m */,
-				E543105B1F7ABD89880C55E3A7EC2176 /* RCDeviceCache+Protected.h */,
-				CAE5D4388D7E70F467F9E9D353718A82 /* RCEntitlementInfo.h */,
-				B36E6114C5A75215F589A266538B5533 /* RCEntitlementInfo.m */,
-				BA465AFB1CB257B2E2DF2CC87C29FD42 /* RCEntitlementInfo+Protected.h */,
-				4D0633288B6D0C1D4DFF270508BAADE1 /* RCEntitlementInfos.h */,
-				3AE5876DEFABC0787C6036345D657291 /* RCEntitlementInfos.m */,
-				AE14A90BB24E4531C2C2FD9D553CF19F /* RCEntitlementInfos+Protected.h */,
-				40EF97FA4FB9D48807E5E08308C6A611 /* RCHTTPClient.h */,
-				06B0A38587A30D8F732DB6EB5B0344F0 /* RCHTTPClient.m */,
-				1A5DE094CF2181A18DC7233FBA9BE7FE /* RCHTTPStatusCodes.h */,
-				9A7DD8088570AC8224EED969BB142073 /* RCIdentityManager.h */,
-				DA175F86384F07744E8A19C842363E03 /* RCIdentityManager.m */,
-				7DB99C7B93747C19F9E65670319ED92C /* RCInMemoryCachedObject.h */,
-				A76F676AFA60031A36254F9DF8A0A794 /* RCInMemoryCachedObject.m */,
-				9396F4DD2337827F19F07D8610EB3E45 /* RCInMemoryCachedObject+Protected.h */,
-				7785FDF055F8C9A656C27FEBA0036EA5 /* RCIntroEligibility.h */,
-				A3FEEDACD6FB1C7C4B0EAA724F125486 /* RCIntroEligibility.m */,
-				76127B688731D669789D86AEB5936ECE /* RCIntroEligibility+Protected.h */,
-				E100F247EFE170125CE277F8C5E7C92E /* RCISOPeriodFormatter.h */,
-				0C0102D68D252395789CD6932CA8894E /* RCISOPeriodFormatter.m */,
-				C18F98D082A84ABEA826CD230C12E7F7 /* RCLogUtils.h */,
-				1AAC13411B1083080F5E3B0741F8BD75 /* RCLogUtils.m */,
-				56DD5794168DBD9CD6DA9C76F76136D5 /* RCOffering.h */,
-				813245FC6FDED3D739FCAEED719001E5 /* RCOffering.m */,
-				13F677FE63ECAB66EFB4DB87B2B7D7A9 /* RCOffering+Protected.h */,
-				FA34BCF8CC41593AC2E153DF854DF67A /* RCOfferings.h */,
-				57066CFDB42EF77F45B2ECB695AA6357 /* RCOfferings.m */,
-				E96917B070491873E7FA55BCD651B3FA /* RCOfferings+Protected.h */,
-				0A68B0736268CB7C25B5E19C0C9EEDC6 /* RCOfferingsFactory.h */,
-				793562AAF098BE748DC813A9D9F4E2AE /* RCOfferingsFactory.m */,
-				06D63BFB793EAB0F0F567282E4AF56E1 /* RCPackage.h */,
-				F890B27AB2D70E11B7C363506C1C986A /* RCPackage.m */,
-				C3531430C3880F8A2B0A475820DD64C8 /* RCPackage+Protected.h */,
-				DBE5E114F82CD30A89B60A3D289B81E9 /* RCProductInfo.h */,
-				E3A5BBCB3AF3AA1253A9AC79F65B11BA /* RCProductInfo.m */,
-				DABC141299B7D690E9FF212F9AE88A9F /* RCProductInfoExtractor.h */,
-				9EE2B4F6532167F7C4FEA4156AFF45B6 /* RCProductInfoExtractor.m */,
-				67A1411C6F5C2969CA9918AC3BE5668B /* RCPromotionalOffer.h */,
-				61BC3DABA719E1C6249F380C8C040402 /* RCPromotionalOffer.m */,
-				DC468C616B21B99DFCB3AC9106656E9D /* RCPromotionalOffer+Protected.h */,
-				1A2738989BE3C37B819251AF22FFD474 /* RCPurchaserInfo.h */,
-				D35A66C90832728BF7AF5E69BF32A9C1 /* RCPurchaserInfo.m */,
-				2C86C8480858F735B20D90AE9EED9AB8 /* RCPurchaserInfo+Protected.h */,
-				9EB9A73912CBDE0E95D2557AFC937269 /* RCPurchases.h */,
-				1FDB0C0904BCD4F0D2482253C4638D54 /* RCPurchases.m */,
-				61AD98EE0B0ABDC85C86A53EA9842BCB /* RCPurchases+Protected.h */,
-				2E6852B8EC0A7E699A7AD8A516FC25EF /* RCPurchases+SubscriberAttributes.h */,
-				25A6990B06CF0F8383E6413BBBF6B5E0 /* RCPurchases+SubscriberAttributes.m */,
-				029B9F9774BA464941A55E5A31F2EC6E /* RCPurchasesErrors.h */,
-				1B80E25E0732D0CBC9E9968C33748C4C /* RCPurchasesErrorUtils.h */,
-				9AB3742A3B844DFE3A6D7EAB3C160CA0 /* RCPurchasesErrorUtils.m */,
-				D834EC77556C9354F3FC30E1B9B782C5 /* RCPurchasesErrorUtils+Protected.h */,
-				BB0524DA5F9F9553A376B1312989CF47 /* RCReceiptFetcher.h */,
-				96DB0B8B200E5635A44F0C74251B1CD7 /* RCReceiptFetcher.m */,
-				60C98F06765F6197DDCA6C963C3C6123 /* RCSpecialSubscriberAttributes.h */,
-				E5C79C670FBD56A722990EE8451F1CB9 /* RCStoreKitRequestFetcher.h */,
-				F4B6E34A76380D955ED80A1D4F7B91F8 /* RCStoreKitRequestFetcher.m */,
-				8EDC13EE247A462520F1CD3AD7E8F5E1 /* RCStoreKitWrapper.h */,
-				961DD50A5D5C81234DE50ED2673898ED /* RCStoreKitWrapper.m */,
-				093371AEA7DCB815DBCB5E2296620E4A /* RCSubscriberAttribute.h */,
-				3781132196C0CFFCECEA10FC03EBEFF4 /* RCSubscriberAttribute.m */,
-				210563BB5C6CD3913E34BF6A832B796C /* RCSubscriberAttribute+Protected.h */,
-				791525FF3829057081C7FB94764CB91C /* RCSubscriberAttributesManager.h */,
-				2F3C7217AD52C0E1DAEF7C0EEB063623 /* RCSubscriberAttributesManager.m */,
-				B17C3C565D93717A404D696899C34A6C /* RCSystemInfo.h */,
-				AEE361A8626354EE131A397FC9D69B65 /* RCSystemInfo.m */,
-				DD92C3AD6AB6A587CA75257CF7A2957D /* RCTransaction.h */,
-				CB00ECF23798BDE45F0BE71FABDCE5EE /* Support Files */,
-			);
-			path = Purchases;
-			sourceTree = "<group>";
-		};
-		5B4DB234F416B763A37A2FF17BB98D35 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				ECEFFF62E7F3C3166997EFA7F8C6DB29 /* TactileSlider.modulemap */,
-				B32FE393FF23828BA27FB3CFF1BB45B7 /* TactileSlider-dummy.m */,
-				7779C159E7299AB6043E944F29ABCE89 /* TactileSlider-Info.plist */,
-				237C2078685F3BED58CCDC20A354CDE9 /* TactileSlider-prefix.pch */,
-				EE00335FB861ECE068E6DD561DD117B9 /* TactileSlider-umbrella.h */,
-				8B4E13C8702FE80DC0F40A027C8F5AF5 /* TactileSlider.debug.xcconfig */,
-				C12A2A94D5E55F715384D8BC63B14F3A /* TactileSlider.release.xcconfig */,
+				650AC13D48A72FADE3ACDCC8ECDBAC5F /* TactileSlider.modulemap */,
+				A9CFAD6AF9229A3C3DFE9D0D69EBF18C /* TactileSlider-dummy.m */,
+				42CD240B5A79127C6481A28DF0626616 /* TactileSlider-Info.plist */,
+				7FBD01E813DAA76E152118B656D128DB /* TactileSlider-prefix.pch */,
+				5D255AF40A24D2EBBA19045C47B36936 /* TactileSlider-umbrella.h */,
+				C8DF18455567A494F30724F10384E84A /* TactileSlider.debug.xcconfig */,
+				CA3F9FC98AABA5DC00F821C9CA0EBCC2 /* TactileSlider.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/TactileSlider";
+			sourceTree = "<group>";
+		};
+		69B7AD1B10447418D18CC8C0893810BD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D06E0E1B3D2C9E1A9099743DB872EF6 /* Purchases.modulemap */,
+				3365BAF80E542C3320F87FCA4595D9AA /* Purchases-dummy.m */,
+				6AE1F55D6A6C2CFF65A2FDD3BCE02B70 /* Purchases-Info.plist */,
+				3D5641DE3A5CAA4908895072CF894CBC /* Purchases-prefix.pch */,
+				603F1AB49DC4EE87DFAD273EBC2494E3 /* Purchases-umbrella.h */,
+				EE90A93EB5D16740C10F26E3B207B25C /* Purchases.debug.xcconfig */,
+				57B56B35BCE707AFD6D89B90CBA10C8F /* Purchases.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Purchases";
 			sourceTree = "<group>";
 		};
 		6C90F8457566EA9BCE03933F1388048C /* Pods-FourSix Coffee Timer */ = {
@@ -553,77 +469,237 @@
 			path = "Target Support Files/Pods-FourSix Coffee Timer";
 			sourceTree = "<group>";
 		};
-		7310F000E0B1EB1C89741E75BB8F6994 /* Frameworks */ = {
+		98F5F4932754BDE0FAC99D0257E077FC /* TactileSlider */ = {
 			isa = PBXGroup;
 			children = (
-				06F95EC7ADD3764C61640E82ACFBC7A7 /* PurchasesCoreSwift.framework */,
-				0B5CB693E76B5E75FB230FD1F0EC0989 /* iOS */,
+				EA53D1265CEA0BE4132F969429F9BCB3 /* TactileSlider.swift */,
+				6A07CB4562F2A5D38D128E2B072113B0 /* TactileSliderLayerRenderer.swift */,
+				407234A443F197D33275302761A9DEFF /* Support Files */,
 			);
-			name = Frameworks;
+			name = TactileSlider;
+			path = TactileSlider;
 			sourceTree = "<group>";
 		};
-		98854B9DC711394AC458B889B899C305 /* PurchasesCoreSwift */ = {
+		B17AB4C3C0107A82C14931719FEE523F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DD96D6E2F7964A67493CDE22ACBBF3F9 /* AppleReceipt.swift */,
-				85EF2E3BAEDFDFE4A23C7757286A7616 /* AppleReceiptBuilder.swift */,
-				EA9E9EC801E96F03212333E9318DA255 /* ArraySlice<UInt8>+Extensions.swift */,
-				6B58E651CEA1D846DC4F8238443D50F3 /* ASN1Container.swift */,
-				8202AC26DDB6BFF2CBA8AEE2CB08E260 /* ASN1ContainerBuilder.swift */,
-				8321C1F7265F72AC9EEC3B34B8F66B40 /* ASN1ObjectIdentifier.swift */,
-				CF46D88A5167F3E7CC0926BAA9209190 /* ASN1ObjectIdentifierBuilder.swift */,
-				1A62C6043C9911006AD83CE172C79AD2 /* DateExtensions.swift */,
-				BC02244C0FA5CE2917934556329FC2BA /* InAppPurchase.swift */,
-				EB95BEFF26A82D96C8DBE2096466AFBC /* InAppPurchaseBuilder.swift */,
-				8542DD26D31906D5DF578459C947E027 /* IntroEligibilityCalculator.swift */,
-				A98B5C3B623E9436369BE9273E384E04 /* ISO3601DateFormatter.swift */,
-				C92A22DE3CC51B155FD09DF5D50960E4 /* OperationDispatcher.swift */,
-				26034ED287929DB0D9A233BCFEDAEBE1 /* ProductsManager.swift */,
-				86E026F0376C57E1C112CDA4AF3FF0B2 /* ProductsRequestFactory.swift */,
-				DC0625B1376ECE3FE3AAB3E6A42972FD /* ReceiptParser.swift */,
-				9F542817EDFA2AB2A0399959DD17BDFD /* ReceiptParsingError.swift */,
-				F49FC192779807DBA0AC2FF8693951F7 /* Transaction.swift */,
-				3921DE1063121D0D4C61AB41DDE0BC7E /* TransactionsFactory.swift */,
-				3B6E3E5A9E2F4E9DFD1B2B7D4B487CAA /* UInt8+Extensions.swift */,
-				46977AE0F117C76DB32E7197B49B7476 /* Support Files */,
+				E5379AA69E5A59340360235459304ADB /* Purchases */,
+				013F57CA8D90613C711C17D70BC91A7E /* PurchasesCoreSwift */,
+				98F5F4932754BDE0FAC99D0257E077FC /* TactileSlider */,
 			);
-			path = PurchasesCoreSwift;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		CB00ECF23798BDE45F0BE71FABDCE5EE /* Support Files */ = {
+		B87E926B9969B911A8B95BD61C5596A7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				88B202C3D725F2C42A256A9B5A87C381 /* Purchases.modulemap */,
-				3A00EB2D33CCCE7BF5F2A321EBCBF6A1 /* Purchases-dummy.m */,
-				40CFBA35398B6D3DA16B9422ECC90520 /* Purchases-Info.plist */,
-				69D40322CA580EB94C5C3A02185703BB /* Purchases-prefix.pch */,
-				AC89EFDC64C17E1E66AA62A352B8669E /* Purchases-umbrella.h */,
-				18AFCF24DE2E618C243AFA99576E14F6 /* Purchases.debug.xcconfig */,
-				6D3B1EE1A44FDA813DA795B326F6121C /* Purchases.release.xcconfig */,
+				DB944E8E9A8677CF8D18B93FFD70B8C3 /* PurchasesCoreSwift.modulemap */,
+				932859AE0C88F25AD9F06A32D9047E55 /* PurchasesCoreSwift-dummy.m */,
+				7D05CF9399A339DBDAAD6904560B3EB7 /* PurchasesCoreSwift-Info.plist */,
+				BC2CACA5F017FCFA386F80CF6C4BAF8D /* PurchasesCoreSwift-prefix.pch */,
+				548282BC08B563744BD104146BC44995 /* PurchasesCoreSwift-umbrella.h */,
+				96EF07ABC457779397C681CA1AEF6C0C /* PurchasesCoreSwift.debug.xcconfig */,
+				5A6AC200907CC53450BA751FEA2CCFE3 /* PurchasesCoreSwift.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Purchases";
+			path = "../Target Support Files/PurchasesCoreSwift";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				7310F000E0B1EB1C89741E75BB8F6994 /* Frameworks */,
-				13EF493D3A3C566714341B656D9CE2ED /* Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				B17AB4C3C0107A82C14931719FEE523F /* Pods */,
 				1264E823A482F4378A85EE9D08D26423 /* Products */,
 				345A2691B49CCD110B8C729F8E863B41 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E5379AA69E5A59340360235459304ADB /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				B4A41764F77AE4EEF8F06754A62EB650 /* NSData+RCExtensions.h */,
+				8B533B4D0D0A8B220C35943B898A671A /* NSData+RCExtensions.m */,
+				F7ED2A9726AA2ED7346F4D4707A83C54 /* NSDate+RCExtensions.h */,
+				BDD053C4CB2933AF745DD9E0BB474966 /* NSDate+RCExtensions.m */,
+				732A8E6B8EF9A9132AE2A2FA128DAC36 /* NSDictionary+RCExtensions.h */,
+				88E02CCB0E2043103FFA8E82C8BFEEE4 /* NSDictionary+RCExtensions.m */,
+				8F5F315941C8C0EE0AE3232378AEABB6 /* NSError+RCExtensions.h */,
+				7E3EB9465DC84E73B90CCF68E507F9FF /* NSError+RCExtensions.m */,
+				29C6B1ECB14880882220F27FEC75B89B /* NSLocale+RCExtensions.h */,
+				9B101AC2767E1635D8A4B314D88D04FB /* NSLocale+RCExtensions.m */,
+				350C58B7BE6C8F961F7B5CFF37D6FF71 /* Purchases.h */,
+				B90EDC91D4DBFC5150B5535B7375FCFA /* RCAttributionData.h */,
+				A8A23927306850A151385BF522AF34D3 /* RCAttributionData.m */,
+				CF1085BC1897C4F29043DFC4254CF1B2 /* RCAttributionFetcher.h */,
+				558FF05D7E4FB0417179B8FD43E40B9B /* RCAttributionFetcher.m */,
+				ECA547D1F67E0535354D2167EC28845B /* RCAttributionFetcher+Protected.h */,
+				75073FDA21BF6F7FC82C34CB6328A17F /* RCAttributionNetwork.h */,
+				48FE93F49986E8538039DA050D72D034 /* RCBackend.h */,
+				AEF7954F92E21DAEA3F1CF4A7BE74C69 /* RCBackend.m */,
+				F45B69D70F808A411FC4381042715267 /* RCCrossPlatformSupport.h */,
+				1FED64EB53321037CF965872A4A9222F /* RCDateProvider.h */,
+				3ECC7D35360F42820432AD29F61B50B4 /* RCDateProvider.m */,
+				8295EEBE88F1531B85A2DF22281C282C /* RCDeviceCache.h */,
+				BD9163F0EDCA0949C830F60995304924 /* RCDeviceCache.m */,
+				B005A69728D2A116CA50429D8E262AD0 /* RCDeviceCache+Protected.h */,
+				1A15584C6694A425293441720C381E0D /* RCEntitlementInfo.h */,
+				325C5B6A0FCE236B7C1D43DB2BB0DEF7 /* RCEntitlementInfo.m */,
+				6D921F81BA3AB37ACD84DF4D0D507F44 /* RCEntitlementInfo+Protected.h */,
+				35474F22D0F2530BCA82CD52B28E7AE6 /* RCEntitlementInfos.h */,
+				B079A8DC8FA8D09B821601BB3948E19B /* RCEntitlementInfos.m */,
+				6484E6E1E7144BB14B2718062F747F54 /* RCEntitlementInfos+Protected.h */,
+				1C4190C12282D2B6D4F71A5E648B9E86 /* RCHTTPClient.h */,
+				54C69E81DCDDA32CD4C6ACFD6A5FD0CA /* RCHTTPClient.m */,
+				FFA9CEB281534CADF4EE1D6433F61443 /* RCHTTPRequest.h */,
+				1749E2F00DF43562E32986A3D26E8BA0 /* RCHTTPRequest.m */,
+				A5BF6855FA88978CD35FD553B7B93D08 /* RCHTTPStatusCodes.h */,
+				E3FCACD0415103262B4FADBD7082A326 /* RCIdentityManager.h */,
+				025BECCC99FF7161F3F71FC1007E18C1 /* RCIdentityManager.m */,
+				773555F6F34CBD55CA81C60F41929D8D /* RCInMemoryCachedObject.h */,
+				155067DB63D70BC9D35735E9CB01B13A /* RCInMemoryCachedObject.m */,
+				C6DC0DFA9C9812CAE3E27C5C334251CD /* RCInMemoryCachedObject+Protected.h */,
+				366880032FABF9AC4150D3DF7A1221B1 /* RCIntroEligibility.h */,
+				564E11221F36E305000C35D3C2BCB637 /* RCIntroEligibility.m */,
+				E22A73CDA4FDA1958F022BBD3CE195E7 /* RCIntroEligibility+Protected.h */,
+				048E9C0055AD25BB8BBAC3314AACAE12 /* RCISOPeriodFormatter.h */,
+				8D7BF236986C968FC88A9F50D62FEB9E /* RCISOPeriodFormatter.m */,
+				057A6BE90F36105FE695543E14E89A50 /* RCLogUtils.h */,
+				CB38262962187F36B054D8EBC232EB05 /* RCLogUtils.m */,
+				CA9A2C95764DA95167E0DFF3ED58B0E3 /* RCOffering.h */,
+				FE9A0F6F3181B22B109F702D24922E5C /* RCOffering.m */,
+				DB395AC81153E60F1A1827E4B944C4F8 /* RCOffering+Protected.h */,
+				58224803A4B1F62E2E965C7486D7450F /* RCOfferings.h */,
+				88254F479E8FC29E1289D936FD645A38 /* RCOfferings.m */,
+				3409AB8E257E25ADD430F0DCDC93EC7C /* RCOfferings+Protected.h */,
+				2C7E0DED318C7B63F9FFC63F6D7C8AFC /* RCOfferingsFactory.h */,
+				BF89BB9AF682D21AD0A4E94D92D10FEB /* RCOfferingsFactory.m */,
+				81BA5F8794D4F5C132EF3E9B945CADEF /* RCPackage.h */,
+				2E0882C379ABEDF9AA05154006E77FC0 /* RCPackage.m */,
+				E83D32F5F5E9445E65FC32FEC310FE44 /* RCPackage+Protected.h */,
+				2FC5FE48FE27014296B1E7B3A973DE2D /* RCProductInfo.h */,
+				CA283A9777EF0110D9DB6A6AE02ED403 /* RCProductInfo.m */,
+				DB4E02054C291B9F29053B7BF24800E9 /* RCProductInfoExtractor.h */,
+				767C6016A2564C8D819416C5BD1817F3 /* RCProductInfoExtractor.m */,
+				91A9A07FAA9623E56E065E0E5FC81DA8 /* RCPromotionalOffer.h */,
+				A32B06D242B99D310DA28360FF88ECFA /* RCPromotionalOffer.m */,
+				64AE42B51368B017B58184872B66529D /* RCPromotionalOffer+Protected.h */,
+				EC6A8C75046779F83AADCDB0196246CD /* RCPurchaserInfo.h */,
+				3EA76C7386B48B4EC58A00B7CA0ED1CE /* RCPurchaserInfo.m */,
+				CE48BC59BDA654FB9DAB479BBE285CD2 /* RCPurchaserInfo+Protected.h */,
+				48A4B829A4C9A109EECD4DA83E422CED /* RCPurchases.h */,
+				2CEB1F76807E3A264921EE9E727B666B /* RCPurchases.m */,
+				E5910C3BE1831F983153A443D061A2E0 /* RCPurchases+Protected.h */,
+				1F9AE5FE5B94E05E29FC1A87CC8C1D02 /* RCPurchases+SubscriberAttributes.h */,
+				DD1DFAA540B7378D27026C8C3E680344 /* RCPurchases+SubscriberAttributes.m */,
+				D1BEFC97404233936B53F1EC88D44CF0 /* RCPurchasesErrors.h */,
+				3F92005C63A56F173E8988E7EDC231D8 /* RCPurchasesErrorUtils.h */,
+				C3AEA5EE0824EDCE1554FFD36FBB73EC /* RCPurchasesErrorUtils.m */,
+				8E8947E8A0289A643C66176E028A171A /* RCPurchasesErrorUtils+Protected.h */,
+				3DA728CD2386B6324BA28018A11A01F7 /* RCReceiptFetcher.h */,
+				24C1349A869BA63DB6862E2C5C46BE82 /* RCReceiptFetcher.m */,
+				FA4F1B815DC98C773C131D1E4605237A /* RCSpecialSubscriberAttributes.h */,
+				EE5706BF0E5613C9993B088521979DBF /* RCStoreKitRequestFetcher.h */,
+				CEA06D2D6F06E0D96DD4A8B6B78E5162 /* RCStoreKitRequestFetcher.m */,
+				523F5CFDC3E0DBA7A2B726F173CB586B /* RCStoreKitWrapper.h */,
+				F22621F40F433BBA201019CEDCBDD42C /* RCStoreKitWrapper.m */,
+				C058E74DE033C6467FEAA2E6EB1C7187 /* RCSubscriberAttribute.h */,
+				29D54CBDEA5641261671329C2073D11D /* RCSubscriberAttribute.m */,
+				F27876CADD8638E8356467F462928F2B /* RCSubscriberAttribute+Protected.h */,
+				D9433438D568AB5BECD57876777383B8 /* RCSubscriberAttributesManager.h */,
+				59CDA43FBE542DE20473EDB601EA99C8 /* RCSubscriberAttributesManager.m */,
+				184C81FD1092E47F8068971A9868B170 /* RCSystemInfo.h */,
+				66E2C66348722988C19335377A832C08 /* RCSystemInfo.m */,
+				40FB47A76665149C2963B60E99C8F59B /* RCTransaction.h */,
+				69B7AD1B10447418D18CC8C0893810BD /* Support Files */,
+			);
+			name = Purchases;
+			path = Purchases;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5625BC6A07BE9D064EF67C820ED9F11F /* Headers */ = {
+		0EA5573C859AE7E9F9398302636EC546 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				805066DB59A9FD2D89990EF2DCE750D5 /* PurchasesCoreSwift-umbrella.h in Headers */,
+				C4884A92EAECDE41617506ABD7194118 /* NSData+RCExtensions.h in Headers */,
+				42B8930497A67690D8BECC27CFC976C5 /* NSDate+RCExtensions.h in Headers */,
+				629A68000A2775553808FC09D9DF99F5 /* NSDictionary+RCExtensions.h in Headers */,
+				6978B02F60C9271F28F484D4F91B4F59 /* NSError+RCExtensions.h in Headers */,
+				6C695E632A08EA7B981B05C09780B48C /* NSLocale+RCExtensions.h in Headers */,
+				4BBC3CB526672A0EA5E2E15295F3A058 /* Purchases-umbrella.h in Headers */,
+				C9CFE0DC16493F945E4A41B95B3EAF43 /* Purchases.h in Headers */,
+				929DF5FF9F47F0337817DC95C9D8DC36 /* RCAttributionData.h in Headers */,
+				9DCBBB0A2BF6BDFCA6397E84B97F05D5 /* RCAttributionFetcher+Protected.h in Headers */,
+				A2C0B633D4631FA9F7AB92652893B73B /* RCAttributionFetcher.h in Headers */,
+				7D162E51D6E5250CD377F7FE3F65868A /* RCAttributionNetwork.h in Headers */,
+				9A1877BF2825B2F37B5677FABECEBAAB /* RCBackend.h in Headers */,
+				FBBB4A6A60CDFE246E5D6B9FE26894C0 /* RCCrossPlatformSupport.h in Headers */,
+				78122073828C1FA3AAAB8C5994DAA53F /* RCDateProvider.h in Headers */,
+				CD6A70ACFEB568900DDB1C3460A0837D /* RCDeviceCache+Protected.h in Headers */,
+				440F12EBCE67A38EE5386A079138DDAC /* RCDeviceCache.h in Headers */,
+				D29D74B4B8FF3B75EB43702BA7A959D2 /* RCEntitlementInfo+Protected.h in Headers */,
+				B9B6236231BF9515C5839E46C15AC249 /* RCEntitlementInfo.h in Headers */,
+				066D9691979BE4FEC694361A8214E183 /* RCEntitlementInfos+Protected.h in Headers */,
+				CE606100EE7DA52B2CCF955229246D90 /* RCEntitlementInfos.h in Headers */,
+				2FFA265CF32CC537D041C98F253A607D /* RCHTTPClient.h in Headers */,
+				772AD2CF57A2089E682630530500CF9E /* RCHTTPRequest.h in Headers */,
+				944BB4132E31077C50BC7F5B46E63DA3 /* RCHTTPStatusCodes.h in Headers */,
+				3EB4F25E75CEB569DC8F944C23E3D9EA /* RCIdentityManager.h in Headers */,
+				ADEE1903C09DE7392C308682555E53DB /* RCInMemoryCachedObject+Protected.h in Headers */,
+				96AB3FD66027C9FAFCAF401CCA5D0EBF /* RCInMemoryCachedObject.h in Headers */,
+				5454D4BBD96BFCD7754989D38F8C8DA3 /* RCIntroEligibility+Protected.h in Headers */,
+				839E9B343B5626DF94CE3E3E1D116E25 /* RCIntroEligibility.h in Headers */,
+				4D184EF656DB68186EFF6B061660C3BC /* RCISOPeriodFormatter.h in Headers */,
+				8EEA8548FFB9A2FE19D739C2651C6127 /* RCLogUtils.h in Headers */,
+				08824B8FEA906319585F4863CEA6F294 /* RCOffering+Protected.h in Headers */,
+				A744DA240017AFAFC710D2902D17FFAD /* RCOffering.h in Headers */,
+				B2173B9E979F0DCE0F5018B2EE0E9B2D /* RCOfferings+Protected.h in Headers */,
+				60E111FABFFB1D446648DEE8E6F5DD20 /* RCOfferings.h in Headers */,
+				A29B62D20E3C2A2B96AA216F03D65211 /* RCOfferingsFactory.h in Headers */,
+				235D39BE8F8CBB61E1FE1E9B2887B8C6 /* RCPackage+Protected.h in Headers */,
+				4B204D6120269209E2DA5DEBF36069DB /* RCPackage.h in Headers */,
+				DC8E6AE58D8EE6A49E50FF276AFCAC96 /* RCProductInfo.h in Headers */,
+				205896BEDD81CD3A5DC52566D5C52154 /* RCProductInfoExtractor.h in Headers */,
+				055F56B6191C21D60B8FF0A7C96D413C /* RCPromotionalOffer+Protected.h in Headers */,
+				2555F92CFDEF9A2FFFE03FE73DDD5F18 /* RCPromotionalOffer.h in Headers */,
+				E60DF90DE76B6C436C70BC1EA42C635E /* RCPurchaserInfo+Protected.h in Headers */,
+				7DB517CDB7FEDA7D5933AE6E456DB5A1 /* RCPurchaserInfo.h in Headers */,
+				C668BE093A990F6C0DF5F19E80E7CE72 /* RCPurchases+Protected.h in Headers */,
+				BBDEDDE8E62EC34C066F3994F4F01BDD /* RCPurchases+SubscriberAttributes.h in Headers */,
+				C51A63FFE04C90768A6BB422B556DCFD /* RCPurchases.h in Headers */,
+				47E79970135A078CE5122C6F83897FFF /* RCPurchasesErrors.h in Headers */,
+				25F0E8F5E5AD65A5A47186AC0BAB6378 /* RCPurchasesErrorUtils+Protected.h in Headers */,
+				92D6560D2E10902B1633C4D43730A2BD /* RCPurchasesErrorUtils.h in Headers */,
+				B7C4318D83A814AE12048FA379B5349E /* RCReceiptFetcher.h in Headers */,
+				D8304727B88DF550BB4E0A1503171FF6 /* RCSpecialSubscriberAttributes.h in Headers */,
+				8394CD505678477FB96864FB94400668 /* RCStoreKitRequestFetcher.h in Headers */,
+				73144BB85420FA663F18CB99CB9F2009 /* RCStoreKitWrapper.h in Headers */,
+				FD6CDFC0E7D0E046B13D1B870A0BEFB3 /* RCSubscriberAttribute+Protected.h in Headers */,
+				FE5C773FF72EF96301B031D9080D218F /* RCSubscriberAttribute.h in Headers */,
+				A3BF57ECF8E1A85679AA42378DBB1C13 /* RCSubscriberAttributesManager.h in Headers */,
+				30654BD890531C5A314771C16A539D1B /* RCSystemInfo.h in Headers */,
+				F36CC08824A28133B9C5939CB00326CA /* RCTransaction.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1075E71A51CFFCF72B79DAD8AE7714C0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E1DDF13770B7D954046733BCB2C8195 /* PurchasesCoreSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,69 +708,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C884522DBE7B2EC7B747A9827293AF56 /* Pods-FourSix Coffee Timer-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB8B102CCEEA00170979B0C6B30ED061 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5EBD4954FDAD34561C8FF36DE0CCA4C3 /* NSData+RCExtensions.h in Headers */,
-				02236864EC7BFC11CC9ED297115BFE8B /* NSDate+RCExtensions.h in Headers */,
-				0CE97C388F7052AA7C3A878A7793D734 /* NSError+RCExtensions.h in Headers */,
-				272A8FE510F7C190D13E2C284C901752 /* NSLocale+RCExtensions.h in Headers */,
-				78CBF7A5125FA9520FC55058F441D871 /* Purchases-umbrella.h in Headers */,
-				32D5EDF2B6F5FE3C6DF1D152A379FC28 /* Purchases.h in Headers */,
-				AE86DDF2ECAD8FB891D0F9FF33848910 /* RCAttributionData.h in Headers */,
-				A443A11E4B68F6BB9114F00A7C3715D4 /* RCAttributionFetcher+Protected.h in Headers */,
-				9DBBD1BC45CD14919786B18B4E2A0004 /* RCAttributionFetcher.h in Headers */,
-				8A2D6BBE787C28F27D0BE8E588EABAE4 /* RCAttributionNetwork.h in Headers */,
-				913505D121480D717AFAF2B8064A38B2 /* RCBackend.h in Headers */,
-				236271F424314EBAB6CE686E64A42DB0 /* RCCrossPlatformSupport.h in Headers */,
-				557F9BBB868CC47F8E3AF271850EB41B /* RCDateProvider.h in Headers */,
-				2D2AC793A2601B5FC1FFB5B19E320C86 /* RCDeviceCache+Protected.h in Headers */,
-				9AA68AA8F0343EB18D72A1D0C7843383 /* RCDeviceCache.h in Headers */,
-				5D00C1FD0C64B29E5079FB62AF05081B /* RCEntitlementInfo+Protected.h in Headers */,
-				9666C592802B6DAAF887B042128A65EE /* RCEntitlementInfo.h in Headers */,
-				BC9A7FAEB07956301ABCFD991AAB35B6 /* RCEntitlementInfos+Protected.h in Headers */,
-				26D00424D80465AC0F62FE6E75446E90 /* RCEntitlementInfos.h in Headers */,
-				4492F4FE17DF7AFE749E20B67D77D296 /* RCHTTPClient.h in Headers */,
-				5590C54E8132E83FA91618C8AB08E3C7 /* RCHTTPStatusCodes.h in Headers */,
-				076EBE70B3E44269C733E5573028004C /* RCIdentityManager.h in Headers */,
-				685880587ED088FEC014A5E031F9D41C /* RCInMemoryCachedObject+Protected.h in Headers */,
-				C5095E355FB0EC3832B406CC0CD1BB37 /* RCInMemoryCachedObject.h in Headers */,
-				9842497B4346F0205E8474CFA7BF5C21 /* RCIntroEligibility+Protected.h in Headers */,
-				91DC2F5EE511373F6DEC406A8FB96084 /* RCIntroEligibility.h in Headers */,
-				A0D5825D845AB7052CF4D7C76B2DB162 /* RCISOPeriodFormatter.h in Headers */,
-				6DE6E4C5FB419DCB4935D172CF2F7518 /* RCLogUtils.h in Headers */,
-				701FC0B10D39D9DBC01B118EB5C50147 /* RCOffering+Protected.h in Headers */,
-				566F37A3F5E41B51E20FD74000C7DED1 /* RCOffering.h in Headers */,
-				9D3B00E5E0C6C8AEBBC28867A682650B /* RCOfferings+Protected.h in Headers */,
-				24DCC049772902C27BEE525A6B1E31CF /* RCOfferings.h in Headers */,
-				D811AF6B34BD1A33C0D4E705E75E4222 /* RCOfferingsFactory.h in Headers */,
-				2AB9046B990570EAB1402428873D34E9 /* RCPackage+Protected.h in Headers */,
-				BBBB6CA74C1A7A5DD07B85510FA6739F /* RCPackage.h in Headers */,
-				9D683FD68B97C0F1A8A340B059103B9C /* RCProductInfo.h in Headers */,
-				511B80F452810F8C840DEE2AA2FCE86A /* RCProductInfoExtractor.h in Headers */,
-				EE9CBDA4F543F63A71F690C2343D5E5F /* RCPromotionalOffer+Protected.h in Headers */,
-				A47CE9382FB7FF8CF9A8473BB993894F /* RCPromotionalOffer.h in Headers */,
-				A7ECDEF6B7045ED526A8461820AA3621 /* RCPurchaserInfo+Protected.h in Headers */,
-				78EF4C1E77984EE803F77FFC6752842B /* RCPurchaserInfo.h in Headers */,
-				8AC300AECAD4330F2D4BF70F61A5619E /* RCPurchases+Protected.h in Headers */,
-				7B3297142072074D67E45DD0B02159E3 /* RCPurchases+SubscriberAttributes.h in Headers */,
-				5B5D75E3BB38E6C7FF672D2D9E2E041E /* RCPurchases.h in Headers */,
-				E24F194F4771E556C78C268651B644A1 /* RCPurchasesErrors.h in Headers */,
-				CB5C4B015F12D749EFE0780CD7209C67 /* RCPurchasesErrorUtils+Protected.h in Headers */,
-				A61A6F05317D89CA707B83AB12C874C7 /* RCPurchasesErrorUtils.h in Headers */,
-				1281582A6FD49A32159B63A46FEE1900 /* RCReceiptFetcher.h in Headers */,
-				18795443B233C600F768D1D9940D78CB /* RCSpecialSubscriberAttributes.h in Headers */,
-				DA04B0BF0D7DCE9EF7348B1BA6B79803 /* RCStoreKitRequestFetcher.h in Headers */,
-				6F369EA8FFF2AD368558BC11179B0797 /* RCStoreKitWrapper.h in Headers */,
-				BC1B56D027B75C786C6E3A87B5F8D1CD /* RCSubscriberAttribute+Protected.h in Headers */,
-				786E1DA2CE47AB76B428DBEA1C8C46D5 /* RCSubscriberAttribute.h in Headers */,
-				F0E1D7A139506FC77722130F0C51BA1F /* RCSubscriberAttributesManager.h in Headers */,
-				E07D79A5DE3D221B02B915F585583780 /* RCSystemInfo.h in Headers */,
-				76363F27AFA61C6B2D3A75D376B593CA /* RCTransaction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,17 +724,17 @@
 /* Begin PBXNativeTarget section */
 		19EF5509BA60F0CD4916B9F24A2F7886 /* Purchases */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B63C9D4501E18D1BB9B55A0F5474BD9D /* Build configuration list for PBXNativeTarget "Purchases" */;
+			buildConfigurationList = 49AE845AB2FD76800A874B2FC8C1DC6F /* Build configuration list for PBXNativeTarget "Purchases" */;
 			buildPhases = (
-				BB8B102CCEEA00170979B0C6B30ED061 /* Headers */,
-				9805EF8D7F1A5F1F402361EE1140CAD8 /* Sources */,
-				C14C9E54B885B21CECBFC6EB37609368 /* Frameworks */,
-				3714B64ADA42A4F3C22438331FCE04D4 /* Resources */,
+				0EA5573C859AE7E9F9398302636EC546 /* Headers */,
+				1826743946F7D8BBCD47BB884C08B70D /* Sources */,
+				CCD7D60B5713CF8757911450FE77ABAF /* Frameworks */,
+				6EAD8679EED814132188F0411F219782 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8489F0E208F6A45663B2C33ABC8EC61F /* PBXTargetDependency */,
+				7FA6CCCFCD5FDFF173C5F1FF78EA26A4 /* PBXTargetDependency */,
 			);
 			name = Purchases;
 			productName = Purchases;
@@ -730,12 +743,12 @@
 		};
 		2BC2CC6A5EB8F91429DC14E6BDC342DF /* PurchasesCoreSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50E2E780C026EE365B2453A25144EC5F /* Build configuration list for PBXNativeTarget "PurchasesCoreSwift" */;
+			buildConfigurationList = 11CF3330B939784F61B7056AC29A9A9B /* Build configuration list for PBXNativeTarget "PurchasesCoreSwift" */;
 			buildPhases = (
-				5625BC6A07BE9D064EF67C820ED9F11F /* Headers */,
-				FEEDC7248CB7F57ED8BF07ECE01E00A4 /* Sources */,
-				ED05F6AEF470332F0AE211F4EE0F3FC4 /* Frameworks */,
-				57CF65444BC7424CB85D21306DBE7A2C /* Resources */,
+				1075E71A51CFFCF72B79DAD8AE7714C0 /* Headers */,
+				939C02E9E56B34A332D03AED67618BEC /* Sources */,
+				B4269C7EF223BF8ED24B33CF6781300A /* Frameworks */,
+				3BFAB92504C8141D8F308146929A93E4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -758,9 +771,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				9C137E12C69354FBFC3B78DF89F6EF0E /* PBXTargetDependency */,
-				36F292C007136C7C9355732AF47B58CB /* PBXTargetDependency */,
-				35A0B77B0687F8FBA1759AAC2E075021 /* PBXTargetDependency */,
+				1666F9DE69935729D274E0ED7A99ECA3 /* PBXTargetDependency */,
+				6630EFDC67D1AF0AE68FCDAD28DA900B /* PBXTargetDependency */,
+				CDC2E89A101BF2D6D3C0BF77E23533AA /* PBXTargetDependency */,
 			);
 			name = "Pods-FourSix Coffee Timer";
 			productName = "Pods-FourSix Coffee Timer";
@@ -792,7 +805,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -816,14 +829,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3714B64ADA42A4F3C22438331FCE04D4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		57CF65444BC7424CB85D21306DBE7A2C /* Resources */ = {
+		3BFAB92504C8141D8F308146929A93E4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -831,6 +837,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5A34534C6080DBD5114B85A8FF52BEE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EAD8679EED814132188F0411F219782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -847,6 +860,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1826743946F7D8BBCD47BB884C08B70D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000977DA7789BC4F9C56CDC2B929DD12 /* NSData+RCExtensions.m in Sources */,
+				D12716A7150CF3107DB32AD56FF4429A /* NSDate+RCExtensions.m in Sources */,
+				15096281D5D42C800B5A415B2926608D /* NSDictionary+RCExtensions.m in Sources */,
+				D1EE7F415CE94697F5584973ABB9DAA1 /* NSError+RCExtensions.m in Sources */,
+				0652ABA6F11F1ACB9F747962FAEFBD34 /* NSLocale+RCExtensions.m in Sources */,
+				7ECFAB9A16DCAB54680FBB85F8EDE0E5 /* Purchases-dummy.m in Sources */,
+				1F27D77448AED236ABAB860976C78CFA /* RCAttributionData.m in Sources */,
+				7EBFCDC97C76ED8C11522361824F0646 /* RCAttributionFetcher.m in Sources */,
+				32BA25E27C59F54965C88E9EAA1C9EE9 /* RCBackend.m in Sources */,
+				08179BB861B3AB45BE5A06B35469FFC0 /* RCDateProvider.m in Sources */,
+				711935F93BDD5B083E55DC1DFDCA5C68 /* RCDeviceCache.m in Sources */,
+				E51679CEBDF531AF666594A00CB67FD8 /* RCEntitlementInfo.m in Sources */,
+				AD432817DC65F7EF34E4E5C4C9B3B4B0 /* RCEntitlementInfos.m in Sources */,
+				EC731151B34BBE22D487BCAFBC0985B6 /* RCHTTPClient.m in Sources */,
+				A6C4C0CB3C978A9045C5FC7E974A4176 /* RCHTTPRequest.m in Sources */,
+				0EF32E27DDAF4072F2B9FF3C5784C3E0 /* RCIdentityManager.m in Sources */,
+				41CA6755D1F7B784C05BFCBEBD1FACA1 /* RCInMemoryCachedObject.m in Sources */,
+				E5834E6C8FB68DD6F247DD39338F2996 /* RCIntroEligibility.m in Sources */,
+				953AC5266710625DCAF7BD85E491019C /* RCISOPeriodFormatter.m in Sources */,
+				091F53000243484829375F69DC0238B5 /* RCLogUtils.m in Sources */,
+				E89735EB557A50AE801B849652C1048C /* RCOffering.m in Sources */,
+				688389E7F8A89B490076BB97201E4851 /* RCOfferings.m in Sources */,
+				FC29CD418C6F0D964C8519DA6110ADB5 /* RCOfferingsFactory.m in Sources */,
+				BD3E069659955A9FC50534743E71F3E0 /* RCPackage.m in Sources */,
+				E473BFB5EFB549DD344D9DD8682218EA /* RCProductInfo.m in Sources */,
+				9B1D3D35F7D6710A17DD59ECFA55BACA /* RCProductInfoExtractor.m in Sources */,
+				A141C2C31086039673D991458CB606A1 /* RCPromotionalOffer.m in Sources */,
+				3C5C5A97145D350A3258344C997C0E25 /* RCPurchaserInfo.m in Sources */,
+				BCE43770483B39A9A864BEF841A9646A /* RCPurchases+SubscriberAttributes.m in Sources */,
+				165F6118BBE17F2A989A4EF7BD1F36D8 /* RCPurchases.m in Sources */,
+				EFFAF99A0D38ED543CEECD0E09E685D6 /* RCPurchasesErrorUtils.m in Sources */,
+				BC3724A587B3E3F0C26E372C70F56395 /* RCReceiptFetcher.m in Sources */,
+				F026EBEB06463CBCEE7A92E1B1F2E663 /* RCStoreKitRequestFetcher.m in Sources */,
+				3D42162531F94712BC36BB7E9C7FEC86 /* RCStoreKitWrapper.m in Sources */,
+				37BB2D4455219C16A4FF71F8DC1892EC /* RCSubscriberAttribute.m in Sources */,
+				6F16FAFD8CDB95A1C120118773A3B606 /* RCSubscriberAttributesManager.m in Sources */,
+				8C655D4DFD916090302DE35AD62EECAE /* RCSystemInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78C19A4BAB6B41246B1293B3FA92765A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -855,45 +912,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9805EF8D7F1A5F1F402361EE1140CAD8 /* Sources */ = {
+		939C02E9E56B34A332D03AED67618BEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18A5B9A1028913A36E66839501DE9E3 /* NSData+RCExtensions.m in Sources */,
-				68EF6365C13BC0EAD050DCCFFA9459BD /* NSDate+RCExtensions.m in Sources */,
-				73A179EFA0F51719BE5EC218781A7759 /* NSError+RCExtensions.m in Sources */,
-				A5F2356A2C437E35BC80F5AAB6713B9B /* NSLocale+RCExtensions.m in Sources */,
-				EB1F8ABE4AD4A5E6CC389EDE7157572D /* Purchases-dummy.m in Sources */,
-				F42BD655C2B50C12A5FE185F071D0472 /* RCAttributionData.m in Sources */,
-				BBE6592152482E6967E3170E8CCE58D8 /* RCAttributionFetcher.m in Sources */,
-				BAA24067C242DD7E7F7FF18E022C1758 /* RCBackend.m in Sources */,
-				9CC475045F54BCBAE393CE2EA9A80461 /* RCDateProvider.m in Sources */,
-				64287E6449F31AC3FFEBEA1C95F487F0 /* RCDeviceCache.m in Sources */,
-				6C5BE6E59B1893BDCB4D5BCB83A31D77 /* RCEntitlementInfo.m in Sources */,
-				1DB91C8D5172D123352A14C79A4F69F7 /* RCEntitlementInfos.m in Sources */,
-				44D01DE6B5389028F2496BEF985D9DBB /* RCHTTPClient.m in Sources */,
-				081F32A4DE780BD735E5FB202C0002BA /* RCIdentityManager.m in Sources */,
-				62767B61A584230B5935E3EDFB8AD0C7 /* RCInMemoryCachedObject.m in Sources */,
-				714AD59E48B7247063CD40EBAE4CD5F6 /* RCIntroEligibility.m in Sources */,
-				857BA8DEBC07CF5505BE3653C8D8A09A /* RCISOPeriodFormatter.m in Sources */,
-				C98BF7C94CCA6FD308CB2D7C863B9CC5 /* RCLogUtils.m in Sources */,
-				785CC69E7F42F8C9B8F99C61DC7B739C /* RCOffering.m in Sources */,
-				5DE053819A4AA072A760C25CC356B8CC /* RCOfferings.m in Sources */,
-				F173573448AFF9045DB36BEA53FE1CC8 /* RCOfferingsFactory.m in Sources */,
-				49B9A24123AC18244B66CCDE9123B608 /* RCPackage.m in Sources */,
-				4D81DD95F6001437C502490E7BB24CCB /* RCProductInfo.m in Sources */,
-				AF4171587CCA46DC523F34599EC1AE65 /* RCProductInfoExtractor.m in Sources */,
-				09B83B7C995E8D2AF13DC550348664FA /* RCPromotionalOffer.m in Sources */,
-				15735EB1B0654921AF70A210530EBB38 /* RCPurchaserInfo.m in Sources */,
-				C27A925919E1A67C1D607A51BA20419A /* RCPurchases+SubscriberAttributes.m in Sources */,
-				B54B6A9FA5676C6010046714065A6DEF /* RCPurchases.m in Sources */,
-				1F54015D396F4EF3929123EAF158D56C /* RCPurchasesErrorUtils.m in Sources */,
-				25419307FBF36434460959337082ACE4 /* RCReceiptFetcher.m in Sources */,
-				3C2AFF0DB846C845C39C9792FDDBE50B /* RCStoreKitRequestFetcher.m in Sources */,
-				97F96A04C37BF833BE833D8DB2950C1B /* RCStoreKitWrapper.m in Sources */,
-				A14F1D4EC1D9C7BE034A41759FC6D60B /* RCSubscriberAttribute.m in Sources */,
-				6D0376E23BEB0960F92B83D04EDC7197 /* RCSubscriberAttributesManager.m in Sources */,
-				AC0B919A8A5A4963511D99A2FBCE3B58 /* RCSystemInfo.m in Sources */,
+				A10C4CDD014CA40F0610856D30E4A0AE /* AppleReceipt.swift in Sources */,
+				EB1BEA29903E0626B2847AB49ED54719 /* AppleReceiptBuilder.swift in Sources */,
+				F71C32F58E87BB75AFEC25F36A404E23 /* ArraySlice_UInt8+Extensions.swift in Sources */,
+				2996424A8574374EB1F517D38F02A878 /* ASN1Container.swift in Sources */,
+				0E451895CF402EC450218C8E9F2ED634 /* ASN1ContainerBuilder.swift in Sources */,
+				F7F2E56CA496DB69C6E505E6670F34F3 /* ASN1ObjectIdentifier.swift in Sources */,
+				D269E4C6E81203A468B1838176D83287 /* ASN1ObjectIdentifierBuilder.swift in Sources */,
+				D02C258B850B850D1B7683B5916ACF0F /* AttributionStrings.swift in Sources */,
+				F270B70E0868206E9BDDF842D2771BB6 /* DateExtensions.swift in Sources */,
+				BD59AC55050A1310221946DF6EC162D3 /* InAppPurchase.swift in Sources */,
+				1D5F67BCFB56B85E1BA531CC951A2FD0 /* InAppPurchaseBuilder.swift in Sources */,
+				3EA4C2B2249F67740D86102FF00063A9 /* IntroEligibilityCalculator.swift in Sources */,
+				583A67C32B69A193C3EA95D52B92DF56 /* ISO3601DateFormatter.swift in Sources */,
+				1D4A6545ACB31EA1A350CDA6DC1FE2EC /* OperationDispatcher.swift in Sources */,
+				D21D679721DA1C8577EC31C7CE8698A7 /* ProductsManager.swift in Sources */,
+				CE2A774B4CF326F1064F59FF9DB49F9D /* ProductsRequestFactory.swift in Sources */,
+				7C601FD2B0CBA17BF27A3398D94E82CA /* PurchasesCoreSwift-dummy.m in Sources */,
+				918E91506AF9EBD461CE0CB4B9CAE8D2 /* ReceiptParser.swift in Sources */,
+				E122E2A9A25927199FF2A2660E2AC5D9 /* ReceiptParsingError.swift in Sources */,
+				32F0E94FC1E998235329D415D314986E /* Strings.swift in Sources */,
+				7741718E19B83CF5A02B4CD9A2DEFC07 /* Transaction.swift in Sources */,
+				9409731821CFBCE5C9DBC1E1B1F7473F /* TransactionsFactory.swift in Sources */,
+				FDAA9E20836102FCCA710B70BE978E98 /* UInt8+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,60 +952,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEEDC7248CB7F57ED8BF07ECE01E00A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				85AEB9AFAD11868C9BBB94FEAB6CE01B /* AppleReceipt.swift in Sources */,
-				5A890DCC6F57E53DFA7A93D44637A663 /* AppleReceiptBuilder.swift in Sources */,
-				9CE11BACF2AF2D93B8B743E1EDF9DE18 /* ArraySlice<UInt8>+Extensions.swift in Sources */,
-				45004191FB7B8742B413C361F7319DB6 /* ASN1Container.swift in Sources */,
-				923540873D9C54B099B1D72D4DA4D5D9 /* ASN1ContainerBuilder.swift in Sources */,
-				8DB0CFD599E127B33E3F633709136A1B /* ASN1ObjectIdentifier.swift in Sources */,
-				50FD6864C8B4EEB1824D503B5A4917AF /* ASN1ObjectIdentifierBuilder.swift in Sources */,
-				7C376CB1922F990789C04FC4DF7DA8C6 /* DateExtensions.swift in Sources */,
-				C218479256DB2F41AF033E95AF723C00 /* InAppPurchase.swift in Sources */,
-				CA2C596B4DA72EE3E14CB2F82E23D1B2 /* InAppPurchaseBuilder.swift in Sources */,
-				E445B806ABB37241FFB6B11583BDCCCC /* IntroEligibilityCalculator.swift in Sources */,
-				7DF3CFA12F19023F4B4F0CC40AD84D1D /* ISO3601DateFormatter.swift in Sources */,
-				C74314CACF24BCBB2E5A4D485987DB0A /* OperationDispatcher.swift in Sources */,
-				04DE14F445901DAC4187F8C3D25DFDAD /* ProductsManager.swift in Sources */,
-				E8EEE17A1809FF0DD2EA86485F6F65F8 /* ProductsRequestFactory.swift in Sources */,
-				E16E08E2D4911A6FD3367CA2B3098B94 /* PurchasesCoreSwift-dummy.m in Sources */,
-				D56304647DFF5410FE6AD0D05721599E /* ReceiptParser.swift in Sources */,
-				439A831DB4F3C6A8C27AE22DA14C44B2 /* ReceiptParsingError.swift in Sources */,
-				B56EF70BD79594E8D31A7A812BAD6CF9 /* Transaction.swift in Sources */,
-				034478EAA3AF24F219B2CD8690C3B4EB /* TransactionsFactory.swift in Sources */,
-				EE72EB8348D763EC0B58CB6440E6AA1D /* UInt8+Extensions.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		35A0B77B0687F8FBA1759AAC2E075021 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TactileSlider;
-			target = 80DEE1020F4A777B4C5B940B77991565 /* TactileSlider */;
-			targetProxy = 4D9170643D62FE5AFFE3ECE06A7F0F89 /* PBXContainerItemProxy */;
-		};
-		36F292C007136C7C9355732AF47B58CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PurchasesCoreSwift;
-			target = 2BC2CC6A5EB8F91429DC14E6BDC342DF /* PurchasesCoreSwift */;
-			targetProxy = B7FB6C4020D42172690BC6A78E27050E /* PBXContainerItemProxy */;
-		};
-		8489F0E208F6A45663B2C33ABC8EC61F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PurchasesCoreSwift;
-			target = 2BC2CC6A5EB8F91429DC14E6BDC342DF /* PurchasesCoreSwift */;
-			targetProxy = 70909CD7BBC3E3C96884B472BD45004E /* PBXContainerItemProxy */;
-		};
-		9C137E12C69354FBFC3B78DF89F6EF0E /* PBXTargetDependency */ = {
+		1666F9DE69935729D274E0ED7A99ECA3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Purchases;
 			target = 19EF5509BA60F0CD4916B9F24A2F7886 /* Purchases */;
-			targetProxy = 4C93B9F3422C7B02FFF8EC7666A5F1FF /* PBXContainerItemProxy */;
+			targetProxy = A2C6E4ED6ACBB32F6955BF90FD299396 /* PBXContainerItemProxy */;
+		};
+		6630EFDC67D1AF0AE68FCDAD28DA900B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PurchasesCoreSwift;
+			target = 2BC2CC6A5EB8F91429DC14E6BDC342DF /* PurchasesCoreSwift */;
+			targetProxy = 2A4552889AD1E4EAEBB3068F5C0D433A /* PBXContainerItemProxy */;
+		};
+		7FA6CCCFCD5FDFF173C5F1FF78EA26A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PurchasesCoreSwift;
+			target = 2BC2CC6A5EB8F91429DC14E6BDC342DF /* PurchasesCoreSwift */;
+			targetProxy = 5F1DF1F713AE23BB4245F858C4C121D0 /* PBXContainerItemProxy */;
+		};
+		CDC2E89A101BF2D6D3C0BF77E23533AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TactileSlider;
+			target = 80DEE1020F4A777B4C5B940B77991565 /* TactileSlider */;
+			targetProxy = D26BD8E11D3B4812148ABED5270112A5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -991,7 +1008,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1064,6 +1080,42 @@
 			};
 			name = Debug;
 		};
+		2DB785A79DE0DF9EBEADDC3F9400D405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57B56B35BCE707AFD6D89B90CBA10C8F /* Purchases.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Purchases/Purchases-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Purchases/Purchases-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Purchases/Purchases.modulemap";
+				PRODUCT_MODULE_NAME = Purchases;
+				PRODUCT_NAME = Purchases;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		382D742FE899BFFEBF64D07CD09EE059 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27EA8CC5F2530AA237873A09C31C0BEB /* Pods-FourSix Coffee Timer.release.xcconfig */;
@@ -1103,44 +1155,9 @@
 			};
 			name = Release;
 		};
-		54D4AEEA62657F72492E97924565A4F1 /* Release */ = {
+		4579FC449D1C780BE8D82AF7E319ED65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D566F95F908DA247681BE7CA1323CBF /* PurchasesCoreSwift.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift.modulemap";
-				PRODUCT_MODULE_NAME = PurchasesCoreSwift;
-				PRODUCT_NAME = PurchasesCoreSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		70370DDFEAE8806A7A33D23BE8EADCEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18AFCF24DE2E618C243AFA99576E14F6 /* Purchases.debug.xcconfig */;
+			baseConfigurationReference = EE90A93EB5D16740C10F26E3B207B25C /* Purchases.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1153,12 +1170,13 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Purchases/Purchases-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Purchases/Purchases-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Purchases/Purchases.modulemap";
 				PRODUCT_MODULE_NAME = Purchases;
 				PRODUCT_NAME = Purchases;
@@ -1172,44 +1190,9 @@
 			};
 			name = Debug;
 		};
-		77DF33483D210686191A7CFEAF93EFD3 /* Release */ = {
+		8F5CC524DB0E0D8E399CEF3879E49E6A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D3B1EE1A44FDA813DA795B326F6121C /* Purchases.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Purchases/Purchases-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Purchases/Purchases-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Purchases/Purchases.modulemap";
-				PRODUCT_MODULE_NAME = Purchases;
-				PRODUCT_NAME = Purchases;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		893B52625E20EF1C60CC6C575668537C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BED7B9D17BC6803ADCE3BC2DBC4C68E4 /* PurchasesCoreSwift.debug.xcconfig */;
+			baseConfigurationReference = 5A6AC200907CC53450BA751FEA2CCFE3 /* PurchasesCoreSwift.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1222,12 +1205,13 @@
 				GCC_PREFIX_HEADER = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift.modulemap";
 				PRODUCT_MODULE_NAME = PurchasesCoreSwift;
 				PRODUCT_NAME = PurchasesCoreSwift;
@@ -1236,14 +1220,15 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		CBCB85D4540FFEE628DC833DB0E0E90D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C12A2A94D5E55F715384D8BC63B14F3A /* TactileSlider.release.xcconfig */;
+			baseConfigurationReference = CA3F9FC98AABA5DC00F821C9CA0EBCC2 /* TactileSlider.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1257,7 +1242,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TactileSlider/TactileSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TactileSlider/TactileSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1277,9 +1262,44 @@
 			};
 			name = Release;
 		};
+		CF1FF67D4475112041D786F7F6AD1616 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96EF07ABC457779397C681CA1AEF6C0C /* PurchasesCoreSwift.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift.modulemap";
+				PRODUCT_MODULE_NAME = PurchasesCoreSwift;
+				PRODUCT_NAME = PurchasesCoreSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		E67F853542B2320BFA8D2A352F7BAA27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B4E13C8702FE80DC0F40A027C8F5AF5 /* TactileSlider.debug.xcconfig */;
+			baseConfigurationReference = C8DF18455567A494F30724F10384E84A /* TactileSlider.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1293,7 +1313,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TactileSlider/TactileSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TactileSlider/TactileSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1338,7 +1358,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1380,6 +1399,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		11CF3330B939784F61B7056AC29A9A9B /* Build configuration list for PBXNativeTarget "PurchasesCoreSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF1FF67D4475112041D786F7F6AD1616 /* Debug */,
+				8F5CC524DB0E0D8E399CEF3879E49E6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1389,11 +1417,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		50E2E780C026EE365B2453A25144EC5F /* Build configuration list for PBXNativeTarget "PurchasesCoreSwift" */ = {
+		49AE845AB2FD76800A874B2FC8C1DC6F /* Build configuration list for PBXNativeTarget "Purchases" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				893B52625E20EF1C60CC6C575668537C /* Debug */,
-				54D4AEEA62657F72492E97924565A4F1 /* Release */,
+				4579FC449D1C780BE8D82AF7E319ED65 /* Debug */,
+				2DB785A79DE0DF9EBEADDC3F9400D405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1412,15 +1440,6 @@
 			buildConfigurations = (
 				28643036C6C596EA9E2F873D6DA2B122 /* Debug */,
 				382D742FE899BFFEBF64D07CD09EE059 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B63C9D4501E18D1BB9B55A0F5474BD9D /* Build configuration list for PBXNativeTarget "Purchases" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70370DDFEAE8806A7A33D23BE8EADCEB /* Debug */,
-				77DF33483D210686191A7CFEAF93EFD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
