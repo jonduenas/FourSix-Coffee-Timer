@@ -36,6 +36,7 @@
 		6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */; };
 		6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA924BBDE5800C9F129 /* RoundedView.swift */; };
 		6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */; };
+		656AC71C252B9D490082C48E /* CustomIntervalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AC71B252B9D490082C48E /* CustomIntervalsVC.swift */; };
 		656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */; };
 		656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */; };
 		656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */; };
@@ -102,6 +103,7 @@
 		6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProVC.swift; sourceTree = "<group>"; };
 		6561ACA924BBDE5800C9F129 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		6561ACAC24BBE64300C9F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FourSixProPopup.storyboard; sourceTree = "<group>"; };
+		656AC71B252B9D490082C48E /* CustomIntervalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIntervalsVC.swift; sourceTree = "<group>"; };
 		656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphTop.swift; sourceTree = "<group>"; };
 		656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphBottom.swift; sourceTree = "<group>"; };
 		656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
 				65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */,
 				65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */,
+				656AC71B252B9D490082C48E /* CustomIntervalsVC.swift */,
 				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
 				6529E11A249FEFFB0093FAE1 /* HowToVC.swift */,
 				6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */,
@@ -515,6 +518,7 @@
 				65315ADE249ADB4D00994E28 /* Clean.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
+				656AC71C252B9D490082C48E /* CustomIntervalsVC.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,

@@ -24,7 +24,7 @@ struct Recipe {
     let coffee: Float
     let waterTotal: Float
     let waterPours: [Float]
-    let interval: TimeInterval = 45
+    let interval: TimeInterval
     let balance: Balance
     let strength: Strength
 }

@@ -10,7 +10,7 @@ import Foundation
 
 struct Calculator {
     
-    func calculateRecipe(balance: Balance, strength: Strength, coffee: Float, water: Float) -> Recipe {
+    func calculateRecipe(balance: Balance, strength: Strength, coffee: Float, water: Float, stepInterval: TimeInterval) -> Recipe {
         var waterPours = [Float]()
         
         let water40 = water * 0.4
@@ -26,7 +26,7 @@ struct Calculator {
         
         waterPours.append(contentsOf: repeatElement(water60Pour.rounded(), count: water60Count))
         
-        let recipe = Recipe(coffee: coffee, waterTotal: water, waterPours: waterPours, balance: balance, strength: strength)
+        let recipe = Recipe(coffee: coffee, waterTotal: water, waterPours: waterPours, interval: stepInterval, balance: balance, strength: strength)
         
         return recipe
     }

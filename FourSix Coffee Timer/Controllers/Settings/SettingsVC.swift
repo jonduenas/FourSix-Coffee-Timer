@@ -39,11 +39,25 @@ class SettingsVC: UITableViewController, PaywallDelegate {
         }
     }
     
+    var stepInterval = 45 {
+        didSet {
+            if stepInterval >= 60 {
+                let timeInterval = Double(stepInterval)
+                stepIntervalLabel.text = timeInterval.stringFromTimeInterval()
+            } else {
+                stepIntervalLabel.text = "\(stepInterval)s"
+            }
+            
+            UserDefaultsManager.timerStepInterval = stepInterval
+        }
+    }
+    
     // MARK: IBOutlets
     @IBOutlet var showTotalTimeSwitch: UISwitch!
     @IBOutlet var stepAdvanceLabel: UILabel!
     @IBOutlet var ratioLabel: UILabel!
     @IBOutlet var settingsTableView: UITableView!
+    @IBOutlet weak var stepIntervalLabel: UILabel!
     
     init?(coder: NSCoder, delegate: BrewVC) {
         self.delegate = delegate
@@ -77,6 +91,10 @@ class SettingsVC: UITableViewController, PaywallDelegate {
         
         if UserDefaultsManager.ratio != 0 {
             ratio = UserDefaultsManager.ratio
+        }
+        
+        if UserDefaultsManager.timerStepInterval != 0 {
+            stepInterval = UserDefaultsManager.timerStepInterval
         }
     }
     
@@ -139,6 +157,13 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                 } else {
                     return 0
                 }
+            } else if indexPath.row == 4 {
+                // Timer Step Interval
+                if IAPManager.shared.userIsPro() {
+                    return UITableView.automaticDimension
+                } else {
+                    return 0
+                }
             }
         }
         return UITableView.automaticDimension
@@ -166,7 +191,7 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                     }
                 }))
                 present(alert, animated: true, completion: nil)
-        } else if indexPath.row == 3 {
+            } else if indexPath.row == 3 {
                 // Timer Step Advance
                 let actionSheet = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
                 
@@ -187,6 +212,13 @@ class SettingsVC: UITableViewController, PaywallDelegate {
                 }
                 
                 present(actionSheet, animated: true)
+            } else if indexPath.row == 4 {
+                // Timer Step Interval
+                let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+                let popup = storyboard.instantiateViewController(identifier: "CustomInterval") as CustomIntervalsVC
+                popup.intervalValue = stepInterval
+                popup.delegate = self
+                self.present(popup, animated: true)
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 3 {
@@ -243,11 +275,19 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
+            
             if UserDefaultsManager.ratio == 0 {
                 UserDefaultsManager.ratio = self.defaultRatio
             } else {
                 self.delegate?.ratio = UserDefaultsManager.ratio
             }
+            
+            if UserDefaultsManager.timerStepInterval == 0 {
+                UserDefaultsManager.timerStepInterval = self.stepInterval
+            } else {
+                self.delegate?.timerStepInterval = UserDefaultsManager.timerStepInterval
+            }
+            
             if IAPManager.shared.userIsPro() {
                 self.delegate?.checkForPro()
             }

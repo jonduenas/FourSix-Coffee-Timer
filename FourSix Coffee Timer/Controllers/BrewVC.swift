@@ -25,6 +25,7 @@ class BrewVC: UIViewController, PaywallDelegate {
     var balance: Balance = .neutral
     var strength: Strength = .medium
     var recipe: Recipe?
+    var timerStepInterval: Int = 45
     
     var ratio: Float = 15 {
         didSet {
@@ -184,17 +185,17 @@ class BrewVC: UIViewController, PaywallDelegate {
     
     @IBAction func calculateTapped(_ sender: Any) {
         if isCoffeeAcceptableRange() {
-            recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+            recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
             performSegue(withIdentifier: showRecipeID, sender: self)
         } else {
             if UserDefaultsManager.userHasSeenCoffeeRangeWarning {
-                recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water)
+                recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
                 performSegue(withIdentifier: showRecipeID, sender: self)
             } else {
                 showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
                     guard let self = self else { return }
                     UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
-                    self.recipe = self.calculator.calculateRecipe(balance: self.balance, strength: self.strength, coffee: self.coffee, water: self.water)
+                    self.recipe = self.calculator.calculateRecipe(balance: self.balance, strength: self.strength, coffee: self.coffee, water: self.water, stepInterval: Double(self.timerStepInterval))
                     self.performSegue(withIdentifier: self.showRecipeID, sender: self)
                 }
             }
@@ -232,6 +233,10 @@ class BrewVC: UIViewController, PaywallDelegate {
         
         if UserDefaultsManager.previousCoffee != 0 {
             coffee = UserDefaultsManager.previousCoffee
+        }
+        
+        if UserDefaultsManager.timerStepInterval != 0 {
+            timerStepInterval = UserDefaultsManager.timerStepInterval
         }
     }
     

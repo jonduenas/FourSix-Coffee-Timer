@@ -18,6 +18,7 @@ class UserDefaultsManager: NSObject {
     private static let timerStepAdvanceKey = "timerStepAdvanceKey"
     private static let ratioKey = "ratioKey"
     private static let ratioSelectKey = "ratioSelectKey"
+    private static let timerStepIntervalKey = "timerStepIntervalKey"
     private static let previousCoffeeKey = "previousCoffeeKey"
     private static let previousSelectedBalanceKey = "previousSelectedBalanceKey"
     private static let previousSelectedStrengthKey = "previousSelectedStrengthKey"
@@ -70,6 +71,15 @@ class UserDefaultsManager: NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: ratioSelectKey)
+        }
+    }
+    
+    static var timerStepInterval: Int {
+        get {
+            return userDefaults.integer(forKey: timerStepIntervalKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: timerStepIntervalKey)
         }
     }
     
