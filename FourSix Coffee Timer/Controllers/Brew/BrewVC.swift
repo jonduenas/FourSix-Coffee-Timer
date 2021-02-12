@@ -10,7 +10,7 @@ import UIKit
 import TactileSlider
 import Purchases
 
-class BrewVC: UIViewController, PaywallDelegate {
+class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Constants
     let showRecipeID = "ShowRecipe"
