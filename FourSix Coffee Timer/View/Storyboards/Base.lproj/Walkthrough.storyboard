@@ -12,7 +12,7 @@
         <!--Walkthrough PageVC-->
         <scene sceneID="PXV-Da-PXh">
             <objects>
-                <viewController storyboardIdentifier="Walkthrough" modalPresentationStyle="formSheet" id="ubt-b4-YQe" customClass="WalkthroughPageVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalkthroughPageVC" modalPresentationStyle="formSheet" id="ubt-b4-YQe" customClass="WalkthroughPageVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="99x-ca-E1I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
