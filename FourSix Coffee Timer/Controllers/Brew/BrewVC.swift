@@ -75,7 +75,8 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         super.viewDidAppear(animated)
         
         if !UserDefaultsManager.userHasSeenWalkthrough {
-            if let pageViewController = storyboard?.instantiateViewController(identifier: "Walkthrough") as? WalkthroughPageVC {
+            let walkthroughSB = UIStoryboard(name: "Walkthrough", bundle: Bundle.main)
+            if let pageViewController = walkthroughSB.instantiateViewController(identifier: "WalkthroughPageVC") as? WalkthroughPageVC {
                 present(pageViewController, animated: true, completion: nil)
             }
         }

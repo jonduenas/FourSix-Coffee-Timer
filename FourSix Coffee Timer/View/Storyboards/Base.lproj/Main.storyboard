@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lt3-6G-qlc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -1161,30 +1161,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyy-tK-nHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2480" y="-571"/>
-        </scene>
-        <!--WalkthroughContentVC-->
-        <scene sceneID="C9w-4U-cpd">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="WalkthroughContentVC" storyboardName="Walkthrough" referencedIdentifier="WalkthroughContentVC" id="tAY-Ha-0hI" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fKW-TN-j5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3979.7101449275365" y="-1317.1875"/>
-        </scene>
-        <!--Walkthrough-->
-        <scene sceneID="lua-6y-kdH">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Walkthrough" storyboardName="Walkthrough" referencedIdentifier="Walkthrough" id="3d9-Yv-in6" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bxZ-SC-f5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3247" y="-1317"/>
-        </scene>
-        <!--CustomPageViewController-->
-        <scene sceneID="DJi-to-iE0">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="CustomPageViewController" storyboardName="Walkthrough" referencedIdentifier="CustomPageViewController" id="bxs-HT-JQ9" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oud-Y5-mgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2479" y="-1317"/>
         </scene>
     </scenes>
     <designables>
