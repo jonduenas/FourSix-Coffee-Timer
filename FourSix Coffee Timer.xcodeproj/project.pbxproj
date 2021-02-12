@@ -52,6 +52,7 @@
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
 		65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9225D71775007177B8 /* Coordinator.swift */; };
 		65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9825D717DA007177B8 /* Storyboarded.swift */; };
+		65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */; };
 		65D352C224D1E5DB00DB3AA7 /* RatioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */; };
 		65D352C424D2033F00DB3AA7 /* CustomRatioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
@@ -123,6 +124,7 @@
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
 		65BE8A9225D71775007177B8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65BE8A9825D717DA007177B8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCoordinator.swift; sourceTree = "<group>"; };
 		65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioVC.swift; sourceTree = "<group>"; };
 		65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRatioVC.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -321,6 +323,7 @@
 				6531720924A6B06F00709062 /* RecipeVC.swift */,
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
 				6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */,
+				65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */,
 			);
 			path = Brew;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */,
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,
 				6561ACA624BBBEA400C9F129 /* UIViewControllerExtensions.swift in Sources */,
+				65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */,
 				652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */,
 				6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */,
 				65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */,
