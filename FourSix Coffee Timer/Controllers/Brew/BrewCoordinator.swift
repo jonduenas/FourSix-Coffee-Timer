@@ -39,9 +39,21 @@ class BrewCoordinator: Coordinator {
     }
     
     func showSettings(delegate: BrewVC) {
-        let child = SettingsCoordinator(navigationController: UINavigationController(), settingsDelegate: delegate)
+        let settingsNav = SettingsNavigationController()
+        let child = SettingsCoordinator(navigationController: settingsNav, settingsDelegate: delegate)
+        settingsNav.coordinator = child
+        child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
         navigationController.present(child.navigationController, animated: true, completion: nil)
+    }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
 }

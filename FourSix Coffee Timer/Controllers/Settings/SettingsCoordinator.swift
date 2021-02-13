@@ -12,6 +12,7 @@ class SettingsCoordinator: Coordinator {
     let settingsStoryboardName = "Settings"
     
     var childCoordinators = [Coordinator]()
+    weak var parentCoordinator: BrewCoordinator?
     var navigationController: UINavigationController
     weak var delegate: BrewVC?
     
@@ -23,8 +24,12 @@ class SettingsCoordinator: Coordinator {
     func start() {
         let vc = SettingsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.delegate = delegate
-        
+
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func didFinishSettings() {
+        parentCoordinator?.childDidFinish(self)
     }
 }
