@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AcknowledgementsVC: UITableViewController {
+class AcknowledgementsVC: UITableViewController, Storyboarded {
     
     @IBOutlet var ackLabel1: UILabel!
     @IBOutlet var ackLabel2: UILabel!
