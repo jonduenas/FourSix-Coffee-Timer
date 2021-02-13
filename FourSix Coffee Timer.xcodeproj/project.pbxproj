@@ -53,6 +53,7 @@
 		65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9225D71775007177B8 /* Coordinator.swift */; };
 		65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9825D717DA007177B8 /* Storyboarded.swift */; };
 		65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */; };
+		65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF064925D759650075E082 /* BrewNavigationController.swift */; };
 		65D352C224D1E5DB00DB3AA7 /* RatioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */; };
 		65D352C424D2033F00DB3AA7 /* CustomRatioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
@@ -125,6 +126,7 @@
 		65BE8A9225D71775007177B8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65BE8A9825D717DA007177B8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCoordinator.swift; sourceTree = "<group>"; };
+		65BF064925D759650075E082 /* BrewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNavigationController.swift; sourceTree = "<group>"; };
 		65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioVC.swift; sourceTree = "<group>"; };
 		65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRatioVC.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -324,6 +326,7 @@
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
 				6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */,
 				65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */,
+				65BF064925D759650075E082 /* BrewNavigationController.swift */,
 			);
 			path = Brew;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				656AC71C252B9D490082C48E /* CustomIntervalsVC.swift in Sources */,
+				65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */,

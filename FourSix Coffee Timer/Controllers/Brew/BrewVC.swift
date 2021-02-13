@@ -59,9 +59,6 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.clearNavigationBar()
-        
         loadUserDefaults()
         
         coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)

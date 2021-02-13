@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
         
-        let navController = UINavigationController()
+        let navController = BrewNavigationController()
         coordinator = BrewCoordinator(navigationController: navController)
         coordinator?.start()
         
