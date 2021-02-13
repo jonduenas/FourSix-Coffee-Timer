@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomRatioVC: UIViewController {
+class CustomRatioVC: UIViewController, Storyboarded {
     
     private let formatter = NumberFormatter()
     

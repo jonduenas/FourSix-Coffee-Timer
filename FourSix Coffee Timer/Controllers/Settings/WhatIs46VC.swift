@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WhatIs46VC: UIViewController {
+class WhatIs46VC: UIViewController, Storyboarded {
 
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var contentLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HowToVC: UIViewController {
+class HowToVC: UIViewController, Storyboarded {
 
     @IBOutlet var contentLabel: UILabel!
     

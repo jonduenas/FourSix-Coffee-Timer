@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomIntervalsVC: UIViewController {
+class CustomIntervalsVC: UIViewController, Storyboarded {
 
     private let formatter = NumberFormatter()
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RatioVC: UITableViewController {
+class RatioVC: UITableViewController, Storyboarded {
     
     private let ratioCellID = "RatioCell"
     private let defaultRatio = 3
