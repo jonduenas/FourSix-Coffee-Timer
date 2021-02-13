@@ -15,7 +15,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="SettingsVC" id="6WR-Et-o1w" customClass="SettingsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dQs-0k-fED">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="SecondaryBackground"/>
                         <sections>
@@ -137,9 +137,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <segue destination="aY1-wE-ZvF" kind="show" destinationCreationSelector="makeRatioViewControllerWithCoder:" id="nId-PI-tkQ"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="yH8-IY-VmO">
                                         <rect key="frame" x="0.0" y="285.5" width="414" height="43.5"/>
@@ -229,9 +226,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <segue destination="dba-gI-lEk" kind="show" id="nmc-ph-YVA"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="Ygr-Yf-2nn">
                                         <rect key="frame" x="0.0" y="479.5" width="414" height="43.5"/>
@@ -256,9 +250,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <segue destination="u4w-pl-BN6" kind="show" id="t5N-HG-LCt"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="oEW-a2-zhj">
                                         <rect key="frame" x="0.0" y="523" width="414" height="43.5"/>
@@ -283,9 +274,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <segue destination="SjP-RY-7Zq" kind="show" id="jt5-DN-x9b"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="2oz-3h-Epa">
                                         <rect key="frame" x="0.0" y="566.5" width="414" height="43.5"/>
@@ -382,9 +370,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <segue destination="zhX-VZ-g69" kind="show" id="n0D-V8-HMc"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -411,12 +396,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6K-FG-aKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1640.5797101449277" y="527.67857142857144"/>
+            <point key="canvasLocation" x="725" y="1644"/>
         </scene>
         <!--Custom IntervalsVC-->
         <scene sceneID="Vou-n5-0vV">
             <objects>
-                <viewController storyboardIdentifier="CustomInterval" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="lWL-th-2jy" customClass="CustomIntervalsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomIntervalsVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="lWL-th-2jy" customClass="CustomIntervalsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBV-EB-f5X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -524,9 +509,9 @@
         <!--Coffee:Water Ratio-->
         <scene sceneID="GMo-fZ-Fwc">
             <objects>
-                <tableViewController id="aY1-wE-ZvF" customClass="RatioVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RatioVC" id="aY1-wE-ZvF" customClass="RatioVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="z1A-Y8-xAt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="SecondaryBackground"/>
                         <prototypes>
@@ -549,12 +534,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oum-h4-y5I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460.8695652173915" y="527.67857142857144"/>
+            <point key="canvasLocation" x="1641" y="528"/>
         </scene>
         <!--Custom RatioVC-->
         <scene sceneID="UTm-i9-fUM">
             <objects>
-                <viewController storyboardIdentifier="CustomRatio" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="A4A-7J-E92" customClass="CustomRatioVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomRatioVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="A4A-7J-E92" customClass="CustomRatioVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E1h-iF-H8D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -651,18 +636,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12X-qX-hQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3189.8550724637685" y="527.67857142857144"/>
+            <point key="canvasLocation" x="2370" y="528"/>
         </scene>
         <!--What Is FourSix?-->
         <scene sceneID="KBD-yv-Vgi">
             <objects>
-                <viewController id="dba-gI-lEk" customClass="WhatIs46VC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WhatIs46VC" id="dba-gI-lEk" customClass="WhatIs46VC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNX-WE-fzs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-FK-Orn">
-                                <rect key="frame" x="0.0" y="5" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="49" width="414" height="250"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="zuH-Nn-DGi"/>
@@ -673,13 +658,13 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="This app has no affiliation with HARIO Co, Ltd. or Tetsu Kasuya." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAv-Bu-mqw">
-                                <rect key="frame" x="28" y="270" width="358" height="14.5"/>
+                                <rect key="frame" x="28" y="314" width="358" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Description from the Hario Japan website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6S-MG-Q96">
-                                <rect key="frame" x="87" y="749" width="240" height="15"/>
+                                <rect key="frame" x="87" y="837" width="240" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="31G-8x-g9Q"/>
                                 </constraints>
@@ -688,7 +673,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-xo-UpV">
-                                <rect key="frame" x="57" y="309.5" width="300" height="374.5"/>
+                                <rect key="frame" x="57" y="353.5" width="300" height="418.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="cRo-bT-G98"/>
                                 </constraints>
@@ -698,16 +683,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dF-hf-ore">
-                                <rect key="frame" x="123" y="704" width="168" height="25"/>
+                                <rect key="frame" x="123" y="792" width="168" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="St5-fU-PCU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" name="Accent"/>
                                 <state key="normal" title="How do I use FourSix?"/>
-                                <connections>
-                                    <segue destination="u4w-pl-BN6" kind="show" id="aK3-3Z-O1T"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bsl-n0-rqs"/>
@@ -735,18 +717,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1J-iy-uVQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="1501"/>
+            <point key="canvasLocation" x="1641" y="1232"/>
         </scene>
         <!--Troubleshooting-->
         <scene sceneID="6pb-IZ-AVn">
             <objects>
-                <viewController title="Troubleshooting" automaticallyAdjustsScrollViewInsets="NO" id="SjP-RY-7Zq" customClass="FrequentlyAskedVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FrequentlyAskedVC" title="Troubleshooting" automaticallyAdjustsScrollViewInsets="NO" id="SjP-RY-7Zq" customClass="FrequentlyAskedVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ehD-r6-iaJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q3-6w-gTO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Po9-xz-9fQ" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1418.5"/>
@@ -919,14 +901,14 @@ Get in touch on Twitter - @jonduenas.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J39-Hk-f0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2399" y="1501"/>
+            <point key="canvasLocation" x="1641" y="2579"/>
         </scene>
         <!--Acknowledgements-->
         <scene sceneID="SY4-WY-fKY">
             <objects>
-                <tableViewController id="zhX-VZ-g69" customClass="AcknowledgementsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AcknowledgementsVC" id="zhX-VZ-g69" customClass="AcknowledgementsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r52-7S-7q1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <color key="sectionIndexBackgroundColor" name="Background"/>
@@ -1043,18 +1025,18 @@ Get in touch on Twitter - @jonduenas.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Awi-2n-4aj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3245" y="1501"/>
+            <point key="canvasLocation" x="1641" y="3277"/>
         </scene>
         <!--HowTo-->
         <scene sceneID="Img-oO-n7P">
             <objects>
                 <viewController storyboardIdentifier="HowToVC" title="HowTo" id="u4w-pl-BN6" customClass="HowToVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tBH-12-ZM4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xo-Wa-1Gh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FT2-ew-KXH" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="455.5"/>
@@ -1071,9 +1053,6 @@ Get in touch on Twitter - @jonduenas.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="tintColor" name="Accent"/>
                                                 <state key="normal" title="I've still got questions..."/>
-                                                <connections>
-                                                    <segue destination="SjP-RY-7Zq" kind="show" id="14D-h6-37g"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
@@ -1115,33 +1094,9 @@ Get in touch on Twitter - @jonduenas.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ML-nR-ywQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1592.8" y="1500.8995502248877"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="vHZ-SL-2lj">
-            <objects>
-                <navigationController storyboardIdentifier="SettingsNav" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="IMj-yo-NAX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="Ni9-Za-7c6"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="pjH-RO-aeA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6WR-Et-o1w" kind="relationship" relationship="rootViewController" destinationCreationSelector="makeSettingsViewControllerWithCoder:" id="S6w-Kg-byr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bxz-IG-HLw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="807" y="529"/>
+            <point key="canvasLocation" x="1641" y="1900"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="t5N-HG-LCt"/>
-        <segue reference="jt5-DN-x9b"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
     <resources>
         <image name="xmark" catalog="system" width="128" height="113"/>
