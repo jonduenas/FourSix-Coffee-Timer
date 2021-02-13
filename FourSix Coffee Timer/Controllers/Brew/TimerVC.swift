@@ -9,7 +9,14 @@
 import UIKit
 import AVFoundation
 
-class TimerVC: UIViewController, AVAudioPlayerDelegate {
+class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
+    let summarySegueID = "ShowSummary"
+    
+    var coffeeTimer: CoffeeTimer!
+    var currentWater: Float = 0
+    var recipe: Recipe!
+    private var audioPlayer: AVAudioPlayer?
+    weak var coordinator: BrewCoordinator?
     
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
@@ -24,26 +31,8 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet var progressView: ProgressCircle!
     
-    let summarySegueID = "ShowSummary"
-    var coffeeTimer: CoffeeTimer!
-    
-    let recipe: Recipe
-    var currentWater: Float = 0
-    
-    private var audioPlayer: AVAudioPlayer?
-    
-    init?(coder: NSCoder, recipe: Recipe) {
-        self.recipe = recipe
-        
-        super.init(coder: coder)
-    }
-    
     deinit {
         print("TimerVC cleared")
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

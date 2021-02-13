@@ -48,6 +48,13 @@ class BrewCoordinator: Coordinator {
         navigationController.present(child.navigationController, animated: true, completion: nil)
     }
     
+    func showTimer(for recipe: Recipe) {
+        let vc = TimerVC.instantiate(fromStoryboardNamed: mainStoryboardName)
+        vc.coordinator = self
+        vc.recipe = recipe
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in childCoordinators.enumerated() {
             if coordinator === child {

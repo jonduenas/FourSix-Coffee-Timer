@@ -10,10 +10,10 @@ import UIKit
 
 class RecipeVC: UIViewController, Storyboarded {
     let roundedCorner: CGFloat = 8
-    var recipe: Recipe!
     
-    weak var coordinator: BrewCoordinator?
+    var recipe: Recipe!
     var labelArray = [UILabel]()
+    weak var coordinator: BrewCoordinator?
     
     @IBOutlet var totalCoffeeWaterLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
@@ -123,15 +123,10 @@ class RecipeVC: UIViewController, Storyboarded {
     }
     
     @IBAction func startTapped(_ sender: Any) {
-        
+        coordinator?.showTimer(for: recipe)
     }
     
     // MARK: - Navigation
-
-    @IBSegueAction
-    func makeTimerViewController(coder: NSCoder) -> UIViewController? {
-        TimerVC(coder: coder, recipe: recipe)
-    }
     
     @IBAction func closeTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
