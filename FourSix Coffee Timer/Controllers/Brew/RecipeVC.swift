@@ -8,8 +8,13 @@
 
 import UIKit
 
-class RecipeVC: UIViewController {
-
+class RecipeVC: UIViewController, Storyboarded {
+    let roundedCorner: CGFloat = 8
+    var recipe: Recipe!
+    
+    weak var coordinator: BrewCoordinator?
+    var labelArray = [UILabel]()
+    
     @IBOutlet var totalCoffeeWaterLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
     
@@ -43,24 +48,8 @@ class RecipeVC: UIViewController {
     @IBOutlet var stack40: UIStackView!
     @IBOutlet var stack60: UIStackView!
     
-    var labelArray = [UILabel]()
-    
-    let roundedCorner: CGFloat = 8
-    
-    let recipe: Recipe
-    
-    init?(coder: NSCoder, recipe: Recipe) {
-        self.recipe = recipe
-        
-        super.init(coder: coder)
-    }
-    
     deinit {
         print("RecipeVC cleared.")
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

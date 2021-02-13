@@ -25,7 +25,6 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     var calculator = Calculator()
     var balance: Balance = .neutral
     var strength: Strength = .medium
-    var recipe: Recipe?
     var timerStepInterval: Int = 45
     
     var ratio: Float = 15 {
@@ -181,30 +180,24 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     
     @IBAction func calculateTapped(_ sender: Any) {
         if isCoffeeAcceptableRange() {
-            recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
-            performSegue(withIdentifier: showRecipeID, sender: self)
+            let recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
+            coordinator?.showRecipe(recipe: recipe)
         } else {
             if UserDefaultsManager.userHasSeenCoffeeRangeWarning {
-                recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
-                performSegue(withIdentifier: showRecipeID, sender: self)
+                let recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
+                coordinator?.showRecipe(recipe: recipe)
             } else {
                 showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
                     guard let self = self else { return }
                     UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
-                    self.recipe = self.calculator.calculateRecipe(balance: self.balance, strength: self.strength, coffee: self.coffee, water: self.water, stepInterval: Double(self.timerStepInterval))
-                    self.performSegue(withIdentifier: self.showRecipeID, sender: self)
+                    let recipe = self.calculator.calculateRecipe(balance: self.balance, strength: self.strength, coffee: self.coffee, water: self.water, stepInterval: Double(self.timerStepInterval))
+                    self.coordinator?.showRecipe(recipe: recipe)
                 }
             }
         }
     }
     
     // MARK: Navigation Methods
-    
-    @IBSegueAction
-    func makeRecipeViewController(coder: NSCoder) -> UIViewController? {
-        guard let recipe = recipe else { return nil }
-        return RecipeVC(coder: coder, recipe: recipe)
-    }
     
     @IBSegueAction
     func makeSettingsViewController(coder: NSCoder) -> UIViewController? {
