@@ -9,13 +9,12 @@
 import UIKit
 
 class RatioVC: UITableViewController, Storyboarded {
-    
     private let ratioCellID = "RatioCell"
     private let defaultRatio = 3
     private let ratioArray = [12, 13, 14, 15, 16, 17, 18]
     private let customRatioText = "Custom Ratio"
     
-    var selectedRatio: Int {
+    lazy var selectedRatio: Int = UserDefaultsManager.ratioSelect {
         didSet {
             UserDefaultsManager.ratioSelect = selectedRatio
             if selectedRatio < ratioArray.count {
@@ -24,7 +23,7 @@ class RatioVC: UITableViewController, Storyboarded {
         }
     }
     
-    var ratioValue: Float {
+    lazy var ratioValue: Float = UserDefaultsManager.ratio {
         didSet {
             UserDefaultsManager.ratio = ratioValue
             if let delegate = delegate {
@@ -35,18 +34,7 @@ class RatioVC: UITableViewController, Storyboarded {
     }
     
     weak var delegate: SettingsVC?
-    
-    init?(coder: NSCoder, delegate: SettingsVC) {
-        self.delegate = delegate
-        self.selectedRatio = UserDefaultsManager.ratioSelect
-        self.ratioValue = UserDefaultsManager.ratio
-        
-        super.init(coder: coder)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    weak var coordinator: SettingsCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,11 +85,7 @@ class RatioVC: UITableViewController, Storyboarded {
             self.navigationController?.popViewController(animated: true)
         } else {
             // Open custom ratio popup
-            let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-            let popup = storyboard.instantiateViewController(identifier: "CustomRatio") as CustomRatioVC
-            popup.ratioValue = ratioValue
-            popup.delegate = self
-            self.present(popup, animated: true)
+            coordinator?.showCustomRatioPopup(ratioValue: ratioValue, delegate: self)
         }
         tableView.reloadData()
     }

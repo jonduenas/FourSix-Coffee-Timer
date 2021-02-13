@@ -23,6 +23,7 @@ class SettingsCoordinator: Coordinator {
     
     func start() {
         let vc = SettingsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        vc.coordinator = self
         vc.delegate = delegate
 
         navigationController.modalPresentationStyle = .fullScreen
@@ -31,5 +32,19 @@ class SettingsCoordinator: Coordinator {
     
     func didFinishSettings() {
         parentCoordinator?.childDidFinish(self)
+    }
+    
+    func showRatioSetting(delegate: SettingsVC) {
+        let vc = RatioVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        vc.coordinator = self
+        vc.delegate = delegate
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showCustomRatioPopup(ratioValue: Float, delegate: RatioVC) {
+        let vc = CustomRatioVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        vc.ratioValue = ratioValue
+        vc.delegate = delegate
+        navigationController.present(vc, animated: true, completion: nil)
     }
 }

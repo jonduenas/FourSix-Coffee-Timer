@@ -240,12 +240,15 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         case (1, 1):
             // Restore Purchase of FourSix Pro
             showRestoreAlert()
+        case (1, 2):
+            // Coffee:Water Ratio
+            coordinator?.showRatioSetting(delegate: self)
         case (1, 3):
             // Timer Step Advance
             showStepAdvanceActionSheet(tableView, indexPath)
         case (1, 4):
             // Timer Step Interval
-            // TODO: - Change to coordinator
+            // TODO: Change to coordinator
             showCustomTimerStepIntervalPopup()
         case (2, 3):
             // Send Feedback
@@ -306,10 +309,4 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
             }
         }
     }
-    
-    @IBSegueAction
-    func makeRatioViewController(coder: NSCoder) -> UIViewController? {
-        RatioVC(coder: coder, delegate: self)
-    }
-    
 }
