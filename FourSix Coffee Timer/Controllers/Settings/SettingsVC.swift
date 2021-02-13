@@ -20,6 +20,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Variables
     weak var delegate: BrewVC?
+    weak var coordinator: SettingsCoordinator?
     var ratio: Float = 15 {
         didSet {
             let formatter = NumberFormatter()

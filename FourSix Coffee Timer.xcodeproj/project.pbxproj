@@ -28,6 +28,7 @@
 		65315ADE249ADB4D00994E28 /* Clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
+		6542DDF625D8512D0067C704 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */; };
 		6542EDCB24E20096009AA897 /* BrewSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */; };
 		6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6557571424A673C00071DDB8 /* ProgressCircle.swift */; };
 		6559A03424BD1B5B00AE4C14 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6559A03324BD1B5A00AE4C14 /* IAPManager.swift */; };
@@ -99,6 +100,7 @@
 		65315ADD249ADB4D00994E28 /* Clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.swift; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSummaryVC.swift; sourceTree = "<group>"; };
 		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/View/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
 		6559A03324BD1B5A00AE4C14 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				6529E11A249FEFFB0093FAE1 /* HowToVC.swift */,
 				6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */,
 				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
+				6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,
 				6561ACA624BBBEA400C9F129 /* UIViewControllerExtensions.swift in Sources */,
 				65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */,
+				6542DDF625D8512D0067C704 /* SettingsCoordinator.swift in Sources */,
 				652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */,
 				6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */,
 				65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */,
