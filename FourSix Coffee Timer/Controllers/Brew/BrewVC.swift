@@ -21,6 +21,7 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     let selectionFeedback = UISelectionFeedbackGenerator()
     
     // MARK: Variables
+    weak var coordinator: BrewCoordinator?
     var calculator = Calculator()
     var balance: Balance = .neutral
     var strength: Strength = .medium
@@ -75,10 +76,7 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         super.viewDidAppear(animated)
         
         if !UserDefaultsManager.userHasSeenWalkthrough {
-            let walkthroughSB = UIStoryboard(name: "Walkthrough", bundle: Bundle.main)
-            if let pageViewController = walkthroughSB.instantiateViewController(identifier: "WalkthroughPageVC") as? WalkthroughPageVC {
-                present(pageViewController, animated: true, completion: nil)
-            }
+            coordinator?.showWalkthrough()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

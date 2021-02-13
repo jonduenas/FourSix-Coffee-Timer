@@ -18,6 +18,13 @@ class BrewCoordinator: Coordinator {
     
     func start() {
         let vc = BrewVC.instantiate(fromStoryboardNamed: "Main")
+        vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func showWalkthrough() {
+        let vc = WalkthroughPageVC.instantiate(fromStoryboardNamed: "Walkthrough")
+        vc.coordinator = self
+        navigationController.present(vc, animated: true, completion: nil)
     }
 }

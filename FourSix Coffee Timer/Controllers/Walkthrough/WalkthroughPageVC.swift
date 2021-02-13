@@ -8,13 +8,13 @@
 
 import UIKit
 
-class WalkthroughPageVC: UIViewController {
-    
-    @IBOutlet weak var contentView: UIView!
-    
+class WalkthroughPageVC: UIViewController, Storyboarded {
     let walkthroughImageNames = ["walkthrough-1", "walkthrough-2", "walkthrough-3", "walkthrough-4", "walkthrough-4"]
     
     var currentViewControllerIndex = 0
+    weak var coordinator: BrewCoordinator?
+    
+    @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class WalkthroughPageVC: UIViewController {
     }
     
     func configurePageViewController() {
-
         guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: CustomPageViewController.self)) as? CustomPageViewController else { return }
 
         pageViewController.delegate = self
@@ -48,7 +47,6 @@ class WalkthroughPageVC: UIViewController {
     }
 
     func contentViewControllerAt(index: Int) -> WalkthroughContentVC? {
-
         if index >= walkthroughImageNames.count || walkthroughImageNames.count == 0 {
             return nil
         }
@@ -72,7 +70,6 @@ class WalkthroughPageVC: UIViewController {
 }
 
 extension WalkthroughPageVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-
     public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return currentViewControllerIndex
     }
