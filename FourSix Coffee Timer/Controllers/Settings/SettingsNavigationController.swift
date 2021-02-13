@@ -9,11 +9,12 @@
 import UIKit
 
 class SettingsNavigationController: UINavigationController {
+    let tintColor = UIColor.systemGray
     weak var coordinator: SettingsCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationBar.tintColor = tintColor
     }
     
     override func viewDidDisappear(_ animated: Bool) {
