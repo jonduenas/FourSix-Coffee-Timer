@@ -160,82 +160,104 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         return UITableView.automaticDimension
     }
     
-    // TODO: Fix cyclomattic complexity
+    fileprivate func showRestoreAlert() {
+        let alert = UIAlertController(title: "Restore FourSix Pro", message: "Would you like to restore your previous purchase of FourSix Pro?", preferredStyle: .alert)
+        alert.addAction(cancelAction)
+        alert.addAction(UIAlertAction(title: "Restore", style: .default, handler: { _ in
+            IAPManager.shared.restorePurchases { (_, error) in
+                if error != nil {
+                    self.showAlert(title: "Error", message: error!)
+                } else {
+                    self.showAlert(title: "Restore Successful", message: "...And we're back! Let's get brewing.") {
+                        self.purchaseRestored()
+                    }
+                }
+            }
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func showStepAdvanceActionSheet(_ tableView: UITableView, _ indexPath: IndexPath) {
+        let actionSheet = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
+        
+        for (index, option) in stepAdvanceArray.enumerated() {
+            actionSheet.addAction(UIAlertAction(title: option, style: .default, handler: { [weak self] _ in
+                self?.stepAdvance = index
+                print(index)
+            }))
+        }
+        actionSheet.addAction(cancelAction)
+        
+        // Sets where to show popover controller for iPad display
+        if let popoverController = actionSheet.popoverPresentationController {
+            guard let cellIndexPath = tableView.cellForRow(at: indexPath) else { return }
+            popoverController.sourceView = cellIndexPath.contentView
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection.up
+            
+            popoverController.sourceRect = CGRect(x: cellIndexPath.bounds.maxX - 40, y: cellIndexPath.bounds.maxY, width: 0, height: 0)
+        }
+        present(actionSheet, animated: true)
+    }
+    
+    fileprivate func showCustomTimerStepIntervalPopup() {
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        let popup = storyboard.instantiateViewController(identifier: "CustomInterval") as CustomIntervalsVC
+        popup.intervalValue = stepInterval
+        popup.delegate = self
+        self.present(popup, animated: true)
+    }
+    
+    fileprivate func sendFeedback() {
+        let alert = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
+        alert.addAction(cancelAction)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            if let url = URL(string: "https://www.twitter.com/foursixcoffee") {
+                UIApplication.shared.open(url)
+            }
+        }))
+        present(alert, animated: true)
+    }
+    
+    fileprivate func rateInAppStore() {
+        var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
+        components?.queryItems = [URLQueryItem(name: "action", value: "write-review")]
+        
+        guard let writeReviewURL = components?.url else { return }
+        
+        UIApplication.shared.open(writeReviewURL)
+    }
+    
+    fileprivate func shareFourSix() {
+        let activityVC = UIActivityViewController(activityItems: [productURL], applicationActivities: nil)
+        present(activityVC, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
-                // Purchase FourSix Pro
-                showProPopup(delegate: self)
-            } else if indexPath.row == 1 {
-                // Restore Purchase of FourSix Pro
-                let alert = UIAlertController(title: "Restore FourSix Pro", message: "Would you like to restore your previous purchase of FourSix Pro?", preferredStyle: .alert)
-                alert.addAction(cancelAction)
-                alert.addAction(UIAlertAction(title: "Restore", style: .default, handler: { _ in
-                    IAPManager.shared.restorePurchases { (_, error) in
-                        if error != nil {
-                            self.showAlert(title: "Error", message: error!)
-                        } else {
-                            self.showAlert(title: "Restore Successful", message: "...And we're back! Let's get brewing.") {
-                                self.purchaseRestored()
-                            }
-                        }
-                    }
-                }))
-                present(alert, animated: true, completion: nil)
-            } else if indexPath.row == 3 {
-                // Timer Step Advance
-                let actionSheet = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
-                
-                for (index, option) in stepAdvanceArray.enumerated() {
-                    actionSheet.addAction(UIAlertAction(title: option, style: .default, handler: { [weak self] _ in
-                        self?.stepAdvance = index
-                        print(index)
-                    }))
-                }
-                actionSheet.addAction(cancelAction)
-                
-                if let popoverController = actionSheet.popoverPresentationController {
-                    guard let cellIndexPath = tableView.cellForRow(at: indexPath) else { return }
-                    popoverController.sourceView = cellIndexPath.contentView
-                    popoverController.permittedArrowDirections = UIPopoverArrowDirection.up
-                    
-                    popoverController.sourceRect = CGRect(x: cellIndexPath.bounds.maxX - 40, y: cellIndexPath.bounds.maxY, width: 0, height: 0)
-                }
-                
-                present(actionSheet, animated: true)
-            } else if indexPath.row == 4 {
-                // Timer Step Interval
-                let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-                let popup = storyboard.instantiateViewController(identifier: "CustomInterval") as CustomIntervalsVC
-                popup.intervalValue = stepInterval
-                popup.delegate = self
-                self.present(popup, animated: true)
-            }
-        } else if indexPath.section == 2 {
-            if indexPath.row == 3 {
-                // Send Feedback
-                let alert = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
-                alert.addAction(cancelAction)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                    if let url = URL(string: "https://www.twitter.com/foursixcoffee") {
-                        UIApplication.shared.open(url)
-                    }
-                }))
-                present(alert, animated: true)
-            } else if indexPath.row == 4 {
-                // Rate in the App Store
-                var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
-                components?.queryItems = [URLQueryItem(name: "action", value: "write-review")]
-                
-                guard let writeReviewURL = components?.url else { return }
-                
-                UIApplication.shared.open(writeReviewURL)
-            } else if indexPath.row == 5 {
-                // Share FourSix
-                let activityVC = UIActivityViewController(activityItems: [productURL], applicationActivities: nil)
-                
-                present(activityVC, animated: true)
-            }
+        switch (indexPath.section, indexPath.row) {
+        case (1, 0):
+            // Purchase FourSix Pro
+            showProPopup(delegate: self)
+        case (1, 1):
+            // Restore Purchase of FourSix Pro
+            showRestoreAlert()
+        case (1, 3):
+            // Timer Step Advance
+            showStepAdvanceActionSheet(tableView, indexPath)
+        case (1, 4):
+            // Timer Step Interval
+            // TODO: - Change to coordinator
+            showCustomTimerStepIntervalPopup()
+        case (2, 3):
+            // Send Feedback
+            sendFeedback()
+        case (2, 4):
+            // Rate in the App Store
+            rateInAppStore()
+        case (2, 5):
+            // Share FourSix
+            shareFourSix()
+        default:
+            break
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
