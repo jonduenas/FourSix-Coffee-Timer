@@ -64,6 +64,13 @@ class BrewCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func returnToRoot(completion: (() -> Void)? = nil) {
+        navigationController.popToRootViewController(animated: true)
+        if let completion = completion {
+            completion()
+        }
+    }
+    
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in childCoordinators.enumerated() {
             if coordinator === child {

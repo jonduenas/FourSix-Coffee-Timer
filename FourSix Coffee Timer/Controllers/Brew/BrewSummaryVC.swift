@@ -64,8 +64,8 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
     
     @objc private func doneTapped() {
-        self.dismiss(animated: true) {
+        coordinator?.returnToRoot(completion: {
             AppStoreReviewManager.requestReviewIfAppropriate()
-        }
+        })
     }
 }
