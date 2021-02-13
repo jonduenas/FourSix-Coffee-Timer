@@ -60,6 +60,8 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         super.viewDidLoad()
         loadUserDefaults()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
+        
         coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
         
@@ -78,6 +80,10 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.slider.setValue(self.coffee, animated: true)
         }
+    }
+    
+    @objc func didTapSettings() {
+        coordinator?.showSettings(delegate: self)
     }
     
     func checkForPro() {
@@ -195,13 +201,6 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
                 }
             }
         }
-    }
-    
-    // MARK: Navigation Methods
-    
-    @IBSegueAction
-    func makeSettingsViewController(coder: NSCoder) -> UIViewController? {
-        SettingsVC(coder: coder, delegate: self)
     }
     
     // MARK: UserDefaults

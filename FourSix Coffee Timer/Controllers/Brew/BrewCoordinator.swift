@@ -11,6 +11,7 @@ import UIKit
 class BrewCoordinator: Coordinator {
     let mainStoryboardName = "Main"
     let walkthroughStoryboardName = "Walkthrough"
+    let settingsStoryboardName = "Settings"
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
@@ -36,5 +37,13 @@ class BrewCoordinator: Coordinator {
         vc.coordinator = self
         vc.recipe = recipe
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showSettings(delegate: BrewVC) {
+        let vc = SettingsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        vc.delegate = delegate
+        
+        vc.modalPresentationStyle = .fullScreen
+        navigationController.present(vc, animated: true, completion: nil)
     }
 }

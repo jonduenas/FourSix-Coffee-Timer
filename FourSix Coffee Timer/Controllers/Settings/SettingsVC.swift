@@ -9,7 +9,7 @@
 import UIKit
 import Purchases
 
-class SettingsVC: UITableViewController, PaywallDelegate {
+class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Constants
     private let defaultRatio: Float = 15.0
@@ -58,16 +58,6 @@ class SettingsVC: UITableViewController, PaywallDelegate {
     @IBOutlet var ratioLabel: UILabel!
     @IBOutlet var settingsTableView: UITableView!
     @IBOutlet weak var stepIntervalLabel: UILabel!
-    
-    init?(coder: NSCoder, delegate: BrewVC) {
-        self.delegate = delegate
-        
-        super.init(coder: coder)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
