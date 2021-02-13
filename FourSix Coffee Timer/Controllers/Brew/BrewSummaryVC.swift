@@ -8,13 +8,11 @@
 
 import UIKit
 
-class BrewSummaryVC: UIViewController {
-
-    // MARK: Constants
-    
-    let recipe: Recipe
-    let drawdownTimes: [TimeInterval]
-    let totalTime: TimeInterval
+class BrewSummaryVC: UIViewController, Storyboarded {
+    var recipe: Recipe!
+    var drawdownTimes = [TimeInterval]()
+    var totalTime: TimeInterval = 0
+    weak var coordinator: BrewCoordinator?
     
     // MARK: IBOutlets
     
@@ -23,18 +21,6 @@ class BrewSummaryVC: UIViewController {
     @IBOutlet var recipeBreakdownLabel: UILabel!
     @IBOutlet var drawdownLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
-    
-    init?(coder: NSCoder, recipe: Recipe, drawdownTimes: [TimeInterval], totalTime: TimeInterval) {
-        self.recipe = recipe
-        self.drawdownTimes = drawdownTimes
-        self.totalTime = totalTime
-        
-        super.init(coder: coder)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

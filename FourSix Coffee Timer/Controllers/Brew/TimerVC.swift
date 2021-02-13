@@ -10,8 +10,6 @@ import UIKit
 import AVFoundation
 
 class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
-    let summarySegueID = "ShowSummary"
-    
     var coffeeTimer: CoffeeTimer!
     var currentWater: Float = 0
     var recipe: Recipe!
@@ -251,7 +249,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
         
         UIApplication.shared.isIdleTimerDisabled = false
         
-        performSegue(withIdentifier: summarySegueID, sender: self)
+        coordinator?.showSummary(recipe: recipe, drawdownTimes: coffeeTimer.stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
     }
     
     private func countdownStart() {
@@ -273,13 +271,6 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
                 return
             }
         }
-    }
-    
-    // MARK: Navigation Methods
-    
-    @IBSegueAction
-    func showSummaryVC(coder: NSCoder) -> UIViewController? {
-        BrewSummaryVC(coder: coder, recipe: recipe, drawdownTimes: coffeeTimer.stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
     }
 }
 
