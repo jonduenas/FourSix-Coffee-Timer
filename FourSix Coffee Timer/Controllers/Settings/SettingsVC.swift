@@ -259,6 +259,9 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         case (2, 5):
             // Share FourSix
             shareFourSix()
+        case (2, 6):
+            // Acknowledgements
+            coordinator?.showAcknowledgements()
         default:
             break
         }

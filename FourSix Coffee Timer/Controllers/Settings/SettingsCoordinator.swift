@@ -56,18 +56,22 @@ class SettingsCoordinator: Coordinator {
     }
     
     func showWhatIs46() {
-        pushVCWithoutDependencies(viewController: WhatIs46VC())
+        pushVCWithNoDependencies(viewController: WhatIs46VC())
     }
     
     func showHowTo() {
-        pushVCWithoutDependencies(viewController: HowToVC())
+        pushVCWithNoDependencies(viewController: HowToVC())
     }
     
     func showFAQ() {
-        pushVCWithoutDependencies(viewController: FrequentlyAskedVC())
+        pushVCWithNoDependencies(viewController: FrequentlyAskedVC())
     }
     
-    private func pushVCWithoutDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
+    func showAcknowledgements() {
+        pushVCWithNoDependencies(viewController: AcknowledgementsVC())
+    }
+    
+    private func pushVCWithNoDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)
     }
