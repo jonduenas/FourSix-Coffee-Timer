@@ -47,4 +47,11 @@ class SettingsCoordinator: Coordinator {
         vc.delegate = delegate
         navigationController.present(vc, animated: true, completion: nil)
     }
+    
+    func showCustomIntervalPopup(stepInterval: Int, delegate: SettingsVC) {
+        let vc = CustomIntervalsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        vc.delegate = delegate
+        vc.intervalValue = stepInterval
+        navigationController.present(vc, animated: true, completion: nil)
+    }
 }

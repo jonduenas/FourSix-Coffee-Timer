@@ -199,14 +199,6 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         present(actionSheet, animated: true)
     }
     
-    fileprivate func showCustomTimerStepIntervalPopup() {
-        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-        let popup = storyboard.instantiateViewController(identifier: "CustomInterval") as CustomIntervalsVC
-        popup.intervalValue = stepInterval
-        popup.delegate = self
-        self.present(popup, animated: true)
-    }
-    
     fileprivate func sendFeedback() {
         let alert = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
         alert.addAction(cancelAction)
@@ -248,8 +240,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
             showStepAdvanceActionSheet(tableView, indexPath)
         case (1, 4):
             // Timer Step Interval
-            // TODO: Change to coordinator
-            showCustomTimerStepIntervalPopup()
+            coordinator?.showCustomIntervalPopup(stepInterval: stepInterval, delegate: self)
         case (2, 3):
             // Send Feedback
             sendFeedback()
