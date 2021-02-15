@@ -690,6 +690,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" name="Accent"/>
                                 <state key="normal" title="How do I use FourSix?"/>
+                                <connections>
+                                    <action selector="howToButtonTapped:" destination="dba-gI-lEk" eventType="touchUpInside" id="Y7v-UV-Sdf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bsl-n0-rqs"/>

@@ -10,7 +10,8 @@ import UIKit
 import WebKit
 
 class WhatIs46VC: UIViewController, Storyboarded {
-
+    weak var coordinator: SettingsCoordinator?
+    
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var contentLabel: UILabel!
     
@@ -25,5 +26,9 @@ class WhatIs46VC: UIViewController, Storyboarded {
     func loadYoutube(videoID: String) {
         guard let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoID)?rel=0&cc_load_policy=1") else { return }
         webView.load(URLRequest(url: youtubeURL) )
+    }
+    
+    @IBAction func howToButtonTapped(_ sender: Any) {
+        coordinator?.showHowTo()
     }
 }
