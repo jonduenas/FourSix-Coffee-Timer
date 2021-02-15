@@ -56,7 +56,9 @@ class SettingsCoordinator: Coordinator {
     }
     
     func showWhatIs46() {
-        pushVCWithNoDependencies(viewController: WhatIs46VC())
+        let vc = WhatIs46VC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func showHowTo() {
