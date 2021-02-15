@@ -9,6 +9,7 @@
 import UIKit
 
 class HowToVC: UIViewController, Storyboarded {
+    weak var coordinator: SettingsCoordinator?
 
     @IBOutlet var contentLabel: UILabel!
     
@@ -26,5 +27,9 @@ class HowToVC: UIViewController, Storyboarded {
         } else {
             print("File not found.")
         }
+    }
+    
+    @IBAction func faqButtonTapped(_ sender: Any) {
+        coordinator?.showFAQ()
     }
 }

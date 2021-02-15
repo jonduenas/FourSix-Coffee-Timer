@@ -62,7 +62,9 @@ class SettingsCoordinator: Coordinator {
     }
     
     func showHowTo() {
-        pushVCWithNoDependencies(viewController: HowToVC())
+        let vc = HowToVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func showFAQ() {

@@ -1056,6 +1056,9 @@ Get in touch on Twitter - @jonduenas.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="tintColor" name="Accent"/>
                                                 <state key="normal" title="I've still got questions..."/>
+                                                <connections>
+                                                    <action selector="faqButtonTapped:" destination="u4w-pl-BN6" eventType="touchUpInside" id="cYv-AF-CEC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
