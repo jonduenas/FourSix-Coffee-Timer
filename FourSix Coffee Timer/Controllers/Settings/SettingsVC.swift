@@ -241,6 +241,9 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         case (1, 4):
             // Timer Step Interval
             coordinator?.showCustomIntervalPopup(stepInterval: stepInterval, delegate: self)
+        case (2, 0):
+            // What Is FourSix?
+            coordinator?.showWhatIs46()
         case (2, 3):
             // Send Feedback
             sendFeedback()

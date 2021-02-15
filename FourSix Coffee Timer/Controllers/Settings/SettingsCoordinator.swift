@@ -54,4 +54,9 @@ class SettingsCoordinator: Coordinator {
         vc.intervalValue = stepInterval
         navigationController.present(vc, animated: true, completion: nil)
     }
+    
+    func showWhatIs46() {
+        let vc = WhatIs46VC.instantiate(fromStoryboardNamed: settingsStoryboardName)
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
