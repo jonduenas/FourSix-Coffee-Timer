@@ -63,6 +63,10 @@ class SettingsCoordinator: Coordinator {
         pushVCWithoutDependencies(viewController: HowToVC())
     }
     
+    func showFAQ() {
+        pushVCWithoutDependencies(viewController: FrequentlyAskedVC())
+    }
+    
     private func pushVCWithoutDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)

@@ -244,6 +244,12 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         case (2, 0):
             // What Is FourSix?
             coordinator?.showWhatIs46()
+        case (2, 1):
+            // How Do I Use This App?
+            coordinator?.showHowTo()
+        case (2, 2):
+            // FAQ
+            coordinator?.showFAQ()
         case (2, 3):
             // Send Feedback
             sendFeedback()
