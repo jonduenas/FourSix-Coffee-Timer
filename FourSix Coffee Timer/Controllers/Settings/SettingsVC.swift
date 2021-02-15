@@ -11,6 +11,18 @@ import Purchases
 
 class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
+    enum SettingsSection: Int {
+        case settings, fourSixPro, aboutFourSix
+    }
+    
+    enum ProSectionCell: Int {
+        case purchasePro, restorePro, ratio, stepAdvance, interval
+    }
+    
+    enum AboutSectionCell: Int {
+        case whatIsFourSix, howTo, faq, feedback, rate, share, acknowledgements
+    }
+    
     // MARK: Constants
     private let defaultRatio: Float = 15.0
     private let stepAdvanceArray = ["Auto", "Manual"]
@@ -225,44 +237,51 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch (indexPath.section, indexPath.row) {
-        case (1, 0):
-            // Purchase FourSix Pro
-            showProPopup(delegate: self)
-        case (1, 1):
-            // Restore Purchase of FourSix Pro
-            showRestoreAlert()
-        case (1, 2):
-            // Coffee:Water Ratio
-            coordinator?.showRatioSetting(delegate: self)
-        case (1, 3):
-            // Timer Step Advance
-            showStepAdvanceActionSheet(tableView, indexPath)
-        case (1, 4):
-            // Timer Step Interval
-            coordinator?.showCustomIntervalPopup(stepInterval: stepInterval, delegate: self)
-        case (2, 0):
-            // What Is FourSix?
-            coordinator?.showWhatIs46()
-        case (2, 1):
-            // How Do I Use This App?
-            coordinator?.showHowTo()
-        case (2, 2):
-            // FAQ
-            coordinator?.showFAQ()
-        case (2, 3):
-            // Send Feedback
-            sendFeedback()
-        case (2, 4):
-            // Rate in the App Store
-            rateInAppStore()
-        case (2, 5):
-            // Share FourSix
-            shareFourSix()
-        case (2, 6):
-            // Acknowledgements
-            coordinator?.showAcknowledgements()
+        let section = SettingsSection(rawValue: indexPath.section)
+        
+        switch section {
+        case .fourSixPro:
+            let row = ProSectionCell(rawValue: indexPath.row)
+            
+            switch row {
+            case .purchasePro:
+                showProPopup(delegate: self)
+            case .restorePro:
+                showRestoreAlert()
+            case .ratio:
+                coordinator?.showRatioSetting(delegate: self)
+            case .stepAdvance:
+                showStepAdvanceActionSheet(tableView, indexPath)
+            case .interval:
+                coordinator?.showCustomIntervalPopup(stepInterval: stepInterval, delegate: self)
+            default:
+                print("Undefined indexPath.row")
+                break
+            }
+        case .aboutFourSix:
+            let row = AboutSectionCell(rawValue: indexPath.row)
+            
+            switch row {
+            case .whatIsFourSix:
+                coordinator?.showWhatIs46()
+            case .howTo:
+                coordinator?.showHowTo()
+            case .faq:
+                coordinator?.showFAQ()
+            case .feedback:
+                sendFeedback()
+            case .rate:
+                rateInAppStore()
+            case .share:
+                shareFourSix()
+            case .acknowledgements:
+                coordinator?.showAcknowledgements()
+            default:
+                print("Undefined indexPath.row")
+                break
+            }
         default:
+            print("Undefined indexPath.section")
             break
         }
         tableView.deselectRow(at: indexPath, animated: true)
