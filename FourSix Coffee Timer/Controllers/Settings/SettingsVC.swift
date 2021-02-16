@@ -143,47 +143,30 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     // Hides cells when user is Pro or not
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // FIXME: Change to switch and enum
-        #warning("Change to switch and enum")
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
-                // Purchase FourSix Pro
-                if IAPManager.shared.userIsPro() {
-                    return 0
-                } else {
-                    return UITableView.automaticDimension
-                }
-            } else if indexPath.row == 1 {
-                // Restore Purchase
-                if IAPManager.shared.userIsPro() {
-                    return 0.25 // Keeps top border of section
-                } else {
-                    return UITableView.automaticDimension
-                }
-            } else if indexPath.row == 2 {
-                // Coffee:Water Ratio
-                if IAPManager.shared.userIsPro() {
-                    return UITableView.automaticDimension
-                } else {
-                    return 0
-                }
-            } else if indexPath.row == 3 {
-                // Timer Auto-Advance
-                if IAPManager.shared.userIsPro() {
-                    return UITableView.automaticDimension
-                } else {
-                    return 0
-                }
-            } else if indexPath.row == 4 {
-                // Timer Step Interval
-                if IAPManager.shared.userIsPro() {
-                    return UITableView.automaticDimension
-                } else {
-                    return 0
-                }
+        guard let section = SettingsSection(rawValue: indexPath.section), section == .fourSixPro else {
+            // Makes sure the section is defined and section is FourSix Pro - if not rest of the code doesn't run and just returns auto dimension
+            return UITableView.automaticDimension
+        }
+        
+        let row = ProSectionCell(rawValue: indexPath.row)
+        
+        if IAPManager.shared.userIsPro() {
+            switch row {
+            case .purchasePro:
+                return 0
+            case .restorePro:
+                return 0.25 // Keeps top border of section
+            default:
+                return UITableView.automaticDimension
+            }
+        } else {
+            switch row {
+            case .ratio, .stepAdvance, .interval:
+                return 0
+            default:
+                return UITableView.automaticDimension
             }
         }
-        return UITableView.automaticDimension
     }
     
     fileprivate func showRestoreAlert() {
