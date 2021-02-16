@@ -320,18 +320,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            // FIXME: Set these default settings in first load of app
-            #warning("Set these default settings in first load of app")
-            if UserDefaultsManager.ratio == 0 {
-                UserDefaultsManager.ratio = self.defaultRatio
-            }
-            
-            if UserDefaultsManager.timerStepInterval == 0 {
-                UserDefaultsManager.timerStepInterval = self.stepInterval
-            }
-            
-            self.coordinator?.didFinishSettings()
+            self?.coordinator?.didFinishSettings()
         }
     }
 }

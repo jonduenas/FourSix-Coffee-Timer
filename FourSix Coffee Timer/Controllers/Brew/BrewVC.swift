@@ -219,9 +219,10 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         strength = Strength(rawValue: rawStrength) ?? .medium
         
         if UserDefaultsManager.ratio != 0 {
+            // If it's not 0, it means the app has been used before, and ratio should be set to previous user setting
             ratio = UserDefaultsManager.ratio
-        } else { // Set default ratio value to 15
-            ratio = 15
+        } else {
+            // Only does this on first app launch - Set UserDefault ratio value to 15
             UserDefaultsManager.ratio = ratio
         }
         
@@ -229,10 +230,12 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
             coffee = UserDefaultsManager.previousCoffee
         }
         
-        // FIXME: Set default for this when first loaded
-        #warning("Set default for this on first load")
         if UserDefaultsManager.timerStepInterval != 0 {
+            // Same as ratio, if not 0, then load previous user setting
             timerStepInterval = UserDefaultsManager.timerStepInterval
+        } else {
+            // Only does this on first app launch - Set UserDefault to 45
+            UserDefaultsManager.timerStepInterval = timerStepInterval
         }
     }
     
