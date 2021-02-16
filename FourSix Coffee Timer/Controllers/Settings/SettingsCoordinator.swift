@@ -14,6 +14,7 @@ class SettingsCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     weak var parentCoordinator: BrewCoordinator?
     var navigationController: UINavigationController
+    weak var parentVC: SettingsVC?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -22,6 +23,7 @@ class SettingsCoordinator: Coordinator {
     func start() {
         let vc = SettingsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.coordinator = self
+        parentVC = vc
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(vc, animated: false)
     }
@@ -31,11 +33,14 @@ class SettingsCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func showRatioSetting(delegate: SettingsVC) {
+    func showRatioSetting() {
         let vc = RatioVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.coordinator = self
-        vc.delegate = delegate
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func didFinishSettingRatio() {
+        navigationController.popViewController(animated: true)
     }
     
     func showCustomRatioPopup(ratioValue: Float, delegate: RatioVC) {

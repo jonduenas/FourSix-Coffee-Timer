@@ -125,6 +125,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     // MARK: TableView Methods
     
     func updateRatio() {
+        ratio = UserDefaultsManager.ratio
         tableView.reloadData()
     }
     
@@ -250,7 +251,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
             case .restorePro:
                 showRestoreAlert()
             case .ratio:
-                coordinator?.showRatioSetting(delegate: self)
+                coordinator?.showRatioSetting()
             case .stepAdvance:
                 showStepAdvanceActionSheet(tableView, indexPath)
             case .interval:

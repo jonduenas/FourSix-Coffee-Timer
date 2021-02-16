@@ -11,7 +11,8 @@ import UIKit
 class RatioVC: UITableViewController, Storyboarded {
     private let ratioCellID = "RatioCell"
     private let defaultRatio = 3
-    private let ratioArray = [12, 13, 14, 15, 16, 17, 18]
+    #warning("Change to range")
+    private let ratioArray = [12, 13, 14, 15, 16, 17, 18] // FIXME: Change to range
     private let customRatioText = "Custom Ratio"
     
     lazy var selectedRatio: Int = UserDefaultsManager.ratioSelect {
@@ -79,10 +80,7 @@ class RatioVC: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < ratioArray.count {
             selectedRatio = indexPath.row
-            guard let delegate = delegate else { return }
-            delegate.ratio = ratioValue
-            delegate.updateRatio()
-            self.navigationController?.popViewController(animated: true)
+            coordinator?.didFinishSettingRatio()
         } else {
             // Open custom ratio popup
             coordinator?.showCustomRatioPopup(ratioValue: ratioValue, delegate: self)
