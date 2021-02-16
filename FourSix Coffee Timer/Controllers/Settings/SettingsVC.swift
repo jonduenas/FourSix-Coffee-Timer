@@ -23,10 +23,12 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         case whatIsFourSix, howTo, faq, feedback, rate, share, acknowledgements
     }
     
+    enum StepAdvance: String, CaseIterable {
+        case auto, manual
+    }
+    
     // MARK: Constants
     private let defaultRatio: Float = 15.0
-    #warning("Change to enum")
-    private let stepAdvanceArray = ["Auto", "Manual"] // FIXME: Change to enum
     private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
@@ -45,10 +47,10 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         }
     }
     
-    var stepAdvance = 0 {
+    var stepAdvance: StepAdvance = .auto {
         didSet {
-            stepAdvanceLabel.text = stepAdvanceArray[stepAdvance]
-            UserDefaultsManager.timerStepAdvance = stepAdvance
+            stepAdvanceLabel.text = stepAdvance.rawValue.capitalized
+            UserDefaultsManager.timerStepAdvanceSetting = stepAdvance.rawValue
         }
     }
     
@@ -90,7 +92,11 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
             showTotalTimeSwitch.isOn = false
         }
         
-        stepAdvance = UserDefaultsManager.timerStepAdvance
+        if UserDefaultsManager.timerStepAdvanceSetting != "" {
+            stepAdvance = StepAdvance(rawValue: UserDefaultsManager.timerStepAdvanceSetting) ?? .auto
+        } else {
+            UserDefaultsManager.timerStepAdvanceSetting = stepAdvance.rawValue
+        }
         
         if UserDefaultsManager.ratio != 0 {
             ratio = UserDefaultsManager.ratio
@@ -200,10 +206,11 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     fileprivate func showStepAdvanceActionSheet(_ tableView: UITableView, _ indexPath: IndexPath) {
         let actionSheet = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
         
-        for (index, option) in stepAdvanceArray.enumerated() {
-            actionSheet.addAction(UIAlertAction(title: option, style: .default, handler: { [weak self] _ in
-                self?.stepAdvance = index
-                print(index)
+        for option in StepAdvance.allCases {
+            actionSheet.addAction(UIAlertAction(title: option.rawValue.capitalized,
+                                                style: .default,
+                                                handler: { [weak self] _ in
+                self?.stepAdvance = option
             }))
         }
         actionSheet.addAction(cancelAction)
