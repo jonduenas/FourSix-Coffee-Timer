@@ -13,7 +13,7 @@ class CustomRatioVC: UIViewController, Storyboarded {
     private let formatter = NumberFormatter()
     
     var ratioValue: Float?
-    weak var delegate: RatioVC?
+    weak var coordinator: SettingsCoordinator?
     
     @IBOutlet var ratioTextField: UITextField!
     @IBOutlet var popupViewBottomConstraint: NSLayoutConstraint!
@@ -65,13 +65,15 @@ class CustomRatioVC: UIViewController, Storyboarded {
     
     @IBAction func doneTapped(_ sender: Any) {
         guard let ratioString = ratioTextField.text else { return }
-        
         guard let ratioFloat = formatter.number(from: ratioString)?.floatValue else { return }
         
         if 5...20 ~= ratioFloat {
             setRatio(ratioFloat)
         } else {
-            let alert = UIAlertController(title: "Selected ratio is outside the normal range", message: "You're trying to set a ratio of 1:" + ratioString + ". This is unusual for this method. Are you sure you want to continue?", preferredStyle: .alert)
+            let alert = UIAlertController(
+                title: "Selected ratio is outside the normal range",
+                message: "You're trying to set a ratio of 1:" + ratioString + ". This is unusual for this method. Are you sure you want to continue?",
+                preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { [weak self] _ in
                 self?.setRatio(ratioFloat)
@@ -81,12 +83,11 @@ class CustomRatioVC: UIViewController, Storyboarded {
     }
     
     func setRatio(_ ratio: Float) {
-        guard let delegate = delegate else { return }
-        delegate.ratioValue = ratio
-        delegate.updateCustomRatio()
-        self.dismiss(animated: true) {
-            delegate.navigationController?.popViewController(animated: true)
-        }
+        // FIXME: Selected Ratio isn't set to custom
+        #warning("Selected ratio isn't set to custom")
+        UserDefaultsManager.ratio = ratio
+        coordinator?.didFinishCustomRatio()
+        self.dismiss(animated: true)
     }
 }
 

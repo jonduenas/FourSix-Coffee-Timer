@@ -40,21 +40,30 @@ class SettingsCoordinator: Coordinator {
     }
     
     func didFinishSettingRatio() {
+        parentVC?.updateRatio()
         navigationController.popViewController(animated: true)
     }
     
-    func showCustomRatioPopup(ratioValue: Float, delegate: RatioVC) {
+    func showCustomRatioPopup(ratioValue: Float) {
         let vc = CustomRatioVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.ratioValue = ratioValue
-        vc.delegate = delegate
+        vc.coordinator = self
         navigationController.present(vc, animated: true, completion: nil)
     }
     
-    func showCustomIntervalPopup(stepInterval: Int, delegate: SettingsVC) {
+    func didFinishCustomRatio() {
+        didFinishSettingRatio()
+    }
+    
+    func showCustomIntervalPopup(stepInterval: Int) {
         let vc = CustomIntervalsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.delegate = delegate
+        vc.coordinator = self
         vc.intervalValue = stepInterval
         navigationController.present(vc, animated: true, completion: nil)
+    }
+    
+    func didFinishCustomInterval() {
+        parentVC?.updateCustomInterval()
     }
     
     func showWhatIs46() {

@@ -25,6 +25,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Constants
     private let defaultRatio: Float = 15.0
+    #warning("Change to enum")
     private let stepAdvanceArray = ["Auto", "Manual"] // FIXME: Change to enum
     private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -126,6 +127,11 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     func updateRatio() {
         ratio = UserDefaultsManager.ratio
+        tableView.reloadData()
+    }
+    
+    func updateCustomInterval() {
+        stepInterval = UserDefaultsManager.timerStepInterval
         tableView.reloadData()
     }
     
@@ -255,7 +261,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
             case .stepAdvance:
                 showStepAdvanceActionSheet(tableView, indexPath)
             case .interval:
-                coordinator?.showCustomIntervalPopup(stepInterval: stepInterval, delegate: self)
+                coordinator?.showCustomIntervalPopup(stepInterval: stepInterval)
             default:
                 print("Undefined indexPath.row")
                 break

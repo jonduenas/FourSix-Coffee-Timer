@@ -13,7 +13,7 @@ class CustomIntervalsVC: UIViewController, Storyboarded {
     private let formatter = NumberFormatter()
     
     var intervalValue: Int?
-    weak var delegate: SettingsVC?
+    weak var coordinator: SettingsCoordinator?
     
     @IBOutlet weak var intervalTextField: UITextField!
     @IBOutlet var popupViewBottomConstraint: NSLayoutConstraint!
@@ -52,9 +52,8 @@ class CustomIntervalsVC: UIViewController, Storyboarded {
         
         guard let intervalInt = formatter.number(from: intervalString)?.intValue else { return }
         
-        guard let delegate = delegate else { return }
-        delegate.stepInterval = intervalInt
-        delegate.tableView.reloadData()
+        UserDefaultsManager.timerStepInterval = intervalInt
+        coordinator?.didFinishCustomInterval()
         self.dismiss(animated: true)
     }
     
