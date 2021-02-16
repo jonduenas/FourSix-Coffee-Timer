@@ -25,13 +25,12 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Constants
     private let defaultRatio: Float = 15.0
-    private let stepAdvanceArray = ["Auto", "Manual"]
+    private let stepAdvanceArray = ["Auto", "Manual"] // FIXME: Change to enum
     private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
     
     // MARK: Variables
-    weak var delegate: BrewVC?
     weak var coordinator: SettingsCoordinator?
     var ratio: Float = 15 {
         didSet {
@@ -131,6 +130,8 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     // Hides cells when user is Pro or not
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // FIXME: Change to switch and enum
+        #warning("Change to switch and enum")
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 // Purchase FourSix Pro
@@ -313,22 +314,17 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
-            
+            // FIXME: Set these default settings in first load of app
+            #warning("Set these default settings in first load of app")
             if UserDefaultsManager.ratio == 0 {
                 UserDefaultsManager.ratio = self.defaultRatio
-            } else {
-                self.delegate?.ratio = UserDefaultsManager.ratio
             }
             
             if UserDefaultsManager.timerStepInterval == 0 {
                 UserDefaultsManager.timerStepInterval = self.stepInterval
-            } else {
-                self.delegate?.timerStepInterval = UserDefaultsManager.timerStepInterval
             }
             
-            if IAPManager.shared.userIsPro() {
-                self.delegate?.checkForPro()
-            }
+            self.coordinator?.didFinishSettings()
         }
     }
 }

@@ -14,6 +14,7 @@ class BrewCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    weak var parentVC: BrewVC?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -22,6 +23,7 @@ class BrewCoordinator: Coordinator {
     func start() {
         let vc = BrewVC.instantiate(fromStoryboardNamed: mainStoryboardName)
         vc.coordinator = self
+        parentVC = vc
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -38,14 +40,18 @@ class BrewCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showSettings(delegate: BrewVC) {
+    func showSettings() {
         let settingsNav = SettingsNavigationController()
-        let child = SettingsCoordinator(navigationController: settingsNav, settingsDelegate: delegate)
+        let child = SettingsCoordinator(navigationController: settingsNav)
         settingsNav.coordinator = child
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
         navigationController.present(child.navigationController, animated: true, completion: nil)
+    }
+    
+    func didFinishSettings() {
+        parentVC?.updateSettings()
     }
     
     func showTimer(for recipe: Recipe) {

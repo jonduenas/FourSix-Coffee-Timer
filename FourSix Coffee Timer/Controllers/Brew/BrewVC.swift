@@ -83,7 +83,7 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     }
     
     @objc func didTapSettings() {
-        coordinator?.showSettings(delegate: self)
+        coordinator?.showSettings()
     }
     
     func checkForPro() {
@@ -128,6 +128,12 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     private func isCoffeeAcceptableRange() -> Bool {
         let acceptableRange: ClosedRange<Float> = 15...25
         return acceptableRange.contains(coffee)
+    }
+    
+    func updateSettings() {
+        ratio = UserDefaultsManager.ratio
+        timerStepInterval = UserDefaultsManager.timerStepInterval
+        checkForPro()
     }
     
     // MARK: IBActions
@@ -223,6 +229,8 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
             coffee = UserDefaultsManager.previousCoffee
         }
         
+        // FIXME: Set default for this when first loaded
+        #warning("Set default for this on first load")
         if UserDefaultsManager.timerStepInterval != 0 {
             timerStepInterval = UserDefaultsManager.timerStepInterval
         }
