@@ -9,6 +9,10 @@
 import UIKit
 import Purchases
 
+enum StepAdvance: String, CaseIterable {
+    case auto, manual
+}
+
 class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     enum SettingsSection: Int {
@@ -21,10 +25,6 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     enum AboutSectionCell: Int {
         case whatIsFourSix, howTo, faq, feedback, rate, share, acknowledgements
-    }
-    
-    enum StepAdvance: String, CaseIterable {
-        case auto, manual
     }
     
     // MARK: Constants

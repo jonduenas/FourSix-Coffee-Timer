@@ -237,6 +237,14 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
             // Only does this on first app launch - Set UserDefault to 45
             UserDefaultsManager.timerStepInterval = timerStepInterval
         }
+        
+        // Migrates users from old UserDefault setting to new one
+        if !UserDefaultsManager.userHasMigratedStepAdvance {
+            if UserDefaultsManager.timerStepAdvance == 1 {
+                UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.manual.rawValue
+                UserDefaultsManager.userHasMigratedStepAdvance = true
+            }
+        }
     }
     
     private func enableProFeatures(_ enable: Bool) {
