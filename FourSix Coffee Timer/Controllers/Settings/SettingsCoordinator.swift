@@ -34,25 +34,15 @@ class SettingsCoordinator: Coordinator {
     }
     
     func showRatioSetting() {
-        let vc = RatioVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        let child = RatioCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
     }
     
     func didFinishSettingRatio() {
         parentVC?.updateRatio()
         navigationController.popViewController(animated: true)
-    }
-    
-    func showCustomRatioPopup(ratioValue: Float) {
-        let vc = CustomRatioVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.ratioValue = ratioValue
-        vc.coordinator = self
-        navigationController.present(vc, animated: true, completion: nil)
-    }
-    
-    func didFinishCustomRatio() {
-        didFinishSettingRatio()
     }
     
     func showCustomIntervalPopup(stepInterval: Int) {
@@ -89,5 +79,14 @@ class SettingsCoordinator: Coordinator {
     private func pushVCWithNoDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
 }

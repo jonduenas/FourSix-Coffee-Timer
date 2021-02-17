@@ -13,7 +13,7 @@ class CustomRatioVC: UIViewController, Storyboarded {
     private let formatter = NumberFormatter()
     
     var ratioValue: Float?
-    weak var coordinator: SettingsCoordinator?
+    weak var coordinator: RatioCoordinator?
     
     @IBOutlet var ratioTextField: UITextField!
     @IBOutlet var popupViewBottomConstraint: NSLayoutConstraint!
@@ -83,11 +83,10 @@ class CustomRatioVC: UIViewController, Storyboarded {
     }
     
     func setRatio(_ ratio: Float) {
-        // FIXME: Selected Ratio isn't set to custom
-        #warning("Selected ratio isn't set to custom")
         UserDefaultsManager.ratio = ratio
-        coordinator?.didFinishCustomRatio()
-        self.dismiss(animated: true)
+        self.dismiss(animated: true) { [weak self] in
+            self?.coordinator?.didFinishCustomRatio()
+        }
     }
 }
 

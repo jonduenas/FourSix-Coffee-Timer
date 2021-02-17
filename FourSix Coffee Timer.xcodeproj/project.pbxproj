@@ -60,6 +60,7 @@
 		65D352C424D2033F00DB3AA7 /* CustomRatioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
 		65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */; };
+		65F5182325DDB3B5006CF438 /* RatioCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182225DDB3B5006CF438 /* RatioCoordinator.swift */; };
 		65FB31AF24CA130E00781023 /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB31AD24CA130E00781023 /* Walkthrough.storyboard */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
 		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
@@ -135,6 +136,7 @@
 		65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRatioVC.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
+		65F5182225DDB3B5006CF438 /* RatioCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCoordinator.swift; sourceTree = "<group>"; };
 		65FB31AE24CA130E00781023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Walkthrough.storyboard; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */,
 				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
 				6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */,
+				65F5182225DDB3B5006CF438 /* RatioCoordinator.swift */,
 				6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */,
 			);
 			path = Settings;
@@ -550,6 +553,7 @@
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
 				65315ADE249ADB4D00994E28 /* Clean.swift in Sources */,
+				65F5182325DDB3B5006CF438 /* RatioCoordinator.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				656AC71C252B9D490082C48E /* CustomIntervalsVC.swift in Sources */,

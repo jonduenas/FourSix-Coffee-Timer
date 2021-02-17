@@ -35,7 +35,7 @@ class RatioVC: UITableViewController, Storyboarded {
     }
     
     weak var delegate: SettingsVC?
-    weak var coordinator: SettingsCoordinator?
+    weak var coordinator: RatioCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
