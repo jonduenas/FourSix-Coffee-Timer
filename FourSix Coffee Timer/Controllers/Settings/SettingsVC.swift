@@ -28,22 +28,16 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     }
     
     // MARK: Constants
-    private let defaultRatio: Float = 15.0
     private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
     
     // MARK: Variables
     weak var coordinator: SettingsCoordinator?
-    var ratio: Float = 15 {
+    var ratio: Ratio = Ratio.defaultRatio {
         didSet {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            
-            if let ratioFormatted = formatter.string(for: ratio) {
-                ratioLabel.text = "1:" + ratioFormatted
-            }
-            UserDefaultsManager.ratio = ratio
+            ratioLabel.text = ratio.stringValue
+            UserDefaultsManager.ratio = ratio.consequent
         }
     }
     
@@ -99,7 +93,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         }
         
         if UserDefaultsManager.ratio != 0 {
-            ratio = UserDefaultsManager.ratio
+            ratio = Ratio(consequent: UserDefaultsManager.ratio)
         }
         
         if UserDefaultsManager.timerStepInterval != 0 {
@@ -132,7 +126,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     // MARK: TableView Methods
     
     func updateRatio() {
-        ratio = UserDefaultsManager.ratio
+        ratio = Ratio(consequent: UserDefaultsManager.ratio)
         tableView.reloadData()
     }
     
