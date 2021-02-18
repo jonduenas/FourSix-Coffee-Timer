@@ -77,7 +77,7 @@ class RatioVC: UITableViewController, Storyboarded {
             coordinator?.didFinishSettingRatio()
         } else {
             // Open custom ratio popup
-            coordinator?.showCustomRatioPopup(ratioValue: ratioValue.consequent)
+            coordinator?.showCustomRatioPopup(ratioValue: ratioValue)
         }
         tableView.reloadData()
     }

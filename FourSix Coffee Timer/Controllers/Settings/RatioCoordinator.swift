@@ -32,7 +32,7 @@ class RatioCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func showCustomRatioPopup(ratioValue: Float) {
+    func showCustomRatioPopup(ratioValue: Ratio) {
         let vc = CustomRatioVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.ratioValue = ratioValue
         vc.coordinator = self

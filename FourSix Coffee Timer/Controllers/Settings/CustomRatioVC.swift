@@ -12,7 +12,7 @@ class CustomRatioVC: UIViewController, Storyboarded {
     
     private let formatter = NumberFormatter()
     
-    var ratioValue: Float?
+    var ratioValue: Ratio?
     weak var coordinator: RatioCoordinator?
     
     @IBOutlet var ratioTextField: UITextField!
@@ -40,7 +40,7 @@ class CustomRatioVC: UIViewController, Storyboarded {
     
     fileprivate func initializeTextField() {
         ratioTextField.delegate = self
-        if let ratio = formatter.string(for: ratioValue) {
+        if let ratio = formatter.string(for: ratioValue?.consequent) {
             ratioTextField.placeholder = ratio
         } else {
             ratioTextField.placeholder = "15" + formatter.decimalSeparator + "0"
@@ -65,25 +65,30 @@ class CustomRatioVC: UIViewController, Storyboarded {
     
     @IBAction func doneTapped(_ sender: Any) {
         guard let ratioString = ratioTextField.text else { return }
-        guard let ratioFloat = formatter.number(from: ratioString)?.floatValue else { return }
+        guard let ratioFloat = formatter.number(from: ratioString)?.floatValue else {
+            showAlert(message: "Error setting ratio value. Input value is not a valid number.")
+            return
+        }
         
-        if 5...20 ~= ratioFloat {
-            setRatio(ratioFloat)
+        let ratio = Ratio(consequent: ratioFloat)
+        
+        if 5...20 ~= ratio.consequent {
+            setRatio(ratio)
         } else {
             let alert = UIAlertController(
                 title: "Selected ratio is outside the normal range",
-                message: "You're trying to set a ratio of 1:" + ratioString + ". This is unusual for this method. Are you sure you want to continue?",
+                message: "You're trying to set a ratio of \(ratio.stringValue). This is unusual for this method, and may give undesireable results. Are you sure you want to continue?",
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { [weak self] _ in
-                self?.setRatio(ratioFloat)
+                self?.setRatio(ratio)
             }))
             present(alert, animated: true)
         }
     }
     
-    func setRatio(_ ratio: Float) {
-        UserDefaultsManager.ratio = ratio
+    func setRatio(_ ratio: Ratio) {
+        UserDefaultsManager.ratio = ratio.consequent
         self.dismiss(animated: true) { [weak self] in
             self?.coordinator?.didFinishCustomRatio()
         }
