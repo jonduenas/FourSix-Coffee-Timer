@@ -55,7 +55,7 @@ class RecipeVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.clearNavigationBar()
+        title = "Recipe"
         
         footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
 
@@ -124,11 +124,5 @@ class RecipeVC: UIViewController, Storyboarded {
     
     @IBAction func startTapped(_ sender: Any) {
         coordinator?.showTimer(for: recipe)
-    }
-    
-    // MARK: - Navigation
-    
-    @IBAction func closeTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
     }
 }

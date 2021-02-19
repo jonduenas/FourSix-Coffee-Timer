@@ -60,6 +60,10 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         super.viewDidLoad()
         loadUserDefaults()
         
+        title = "Let's Brew"
+        if #available(iOS 14.0, *) {
+            self.navigationItem.backButtonDisplayMode = .generic
+        }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
         
         coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)

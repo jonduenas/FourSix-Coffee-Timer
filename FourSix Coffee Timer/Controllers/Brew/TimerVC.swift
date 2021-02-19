@@ -14,7 +14,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
     var currentWater: Float = 0
     var recipe: Recipe!
     private var audioPlayer: AVAudioPlayer?
-    weak var coordinator: BrewCoordinator?
+    weak var coordinator: TimerCoordinator?
     
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
@@ -36,7 +36,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.clearNavigationBar()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeTapped))
         
         // Make timer font monospaced
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
@@ -90,8 +90,9 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
     
     private func playSoundWithVibrate() {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let audioPlayer = self?.audioPlayer else { return }
-            self?.activateAudioSession(true)
+            guard let self = self else { return }
+            guard let audioPlayer = self.audioPlayer else { return }
+            self.activateAudioSession(true)
             audioPlayer.play()
             UIDevice.vibrate()
         }
@@ -105,12 +106,14 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
 
     // MARK: Button methods
     
-    @IBAction func closeTapped(_ sender: Any) {
+    @objc func closeTapped() {
         let alert = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
             self?.coffeeTimer.cancelTimer()
-            self?.dismiss(animated: true)
+            self?.dismiss(animated: true, completion: {
+                self?.coordinator?.didCancelTimer()
+            })
         }))
         present(alert, animated: true)        
     }
@@ -249,7 +252,7 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
         
         UIApplication.shared.isIdleTimerDisabled = false
         
-        coordinator?.showSummary(recipe: recipe, drawdownTimes: coffeeTimer.stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
+        coordinator?.showSummary(recipe: self.recipe, drawdownTimes: self.coffeeTimer.stepsActualTime, totalTime: self.coffeeTimer.totalElapsedTime)
     }
     
     private func countdownStart() {

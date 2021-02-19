@@ -1,25 +1,21 @@
 //
-//  BrewNavigationController.swift
+//  TimerNavigationController.swift
 //  FourSix Coffee Timer
 //
-//  Created by Jon Duenas on 2/12/21.
+//  Created by Jon Duenas on 2/19/21.
 //  Copyright © 2021 Jon Duenas. All rights reserved.
 //
 
 import UIKit
 
-class BrewNavigationController: UINavigationController {
-    
+class TimerNavigationController: UINavigationController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupNavigationBarAppearance()
-    }
-    
-    func setupNavigationBarAppearance() {
+
         navigationBar.isTranslucent = false
-        navigationBar.tintColor = UIColor.systemGray
         navigationBar.barTintColor = UIColor(named: "Background")
+        navigationBar.tintColor = UIColor.systemGray
         navigationBar.shadowImage = UIImage()
         navigationBar.layoutIfNeeded()
     }

@@ -12,7 +12,7 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     var recipe: Recipe!
     var drawdownTimes = [TimeInterval]()
     var totalTime: TimeInterval = 0
-    weak var coordinator: BrewCoordinator?
+    weak var coordinator: TimerCoordinator?
     
     // MARK: IBOutlets
     
@@ -64,8 +64,8 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
     
     @objc private func doneTapped() {
-        coordinator?.returnToRoot(completion: {
-            AppStoreReviewManager.requestReviewIfAppropriate()
-        })
+        dismiss(animated: true) { [weak self] in
+            self?.coordinator?.didFinishSummary()
+        }
     }
 }

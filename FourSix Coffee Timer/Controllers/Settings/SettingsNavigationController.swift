@@ -15,6 +15,7 @@ class SettingsNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.tintColor = tintColor
+        navigationBar.isTranslucent = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {

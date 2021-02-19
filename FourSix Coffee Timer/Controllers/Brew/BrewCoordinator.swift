@@ -55,22 +55,21 @@ class BrewCoordinator: Coordinator {
     }
     
     func showTimer(for recipe: Recipe) {
-        let vc = TimerVC.instantiate(fromStoryboardNamed: mainStoryboardName)
-        vc.coordinator = self
-        vc.recipe = recipe
-        navigationController.pushViewController(vc, animated: true)
+        let timerNav = TimerNavigationController()
+        let childCoordinator = TimerCoordinator(navigationController: timerNav, recipe: recipe)
+        childCoordinators.append(childCoordinator)
+        childCoordinator.parentCoordinator = self
+        childCoordinator.start()
+        navigationController.present(childCoordinator.navigationController, animated: true, completion: nil)
     }
     
-    func showSummary(recipe: Recipe, drawdownTimes: [TimeInterval], totalTime: TimeInterval) {
-        let vc = BrewSummaryVC.instantiate(fromStoryboardNamed: mainStoryboardName)
-        vc.coordinator = self
-        vc.recipe = recipe
-        vc.drawdownTimes = drawdownTimes
-        vc.totalTime = totalTime
-        navigationController.pushViewController(vc, animated: true)
+    func didFinishSummary() {
+        returnToRoot {
+            AppStoreReviewManager.requestReviewIfAppropriate()
+        }
     }
     
-    func returnToRoot(completion: (() -> Void)? = nil) {
+    private func returnToRoot(completion: (() -> Void)? = nil) {
         navigationController.popToRootViewController(animated: true)
         if let completion = completion {
             completion()
