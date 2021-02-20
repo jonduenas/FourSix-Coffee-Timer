@@ -59,16 +59,8 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUserDefaults()
-        
-        title = "Let's Brew"
-        if #available(iOS 14.0, *) {
-            self.navigationItem.backButtonDisplayMode = .generic
-        }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
-        
-        coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
-        waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
-        
+        initializeNavBar()
+        initializeFonts()
         initializeSlider()
         initializeSelectors()
         checkForPro()
@@ -84,6 +76,19 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.slider.setValue(self.coffee, animated: true)
         }
+    }
+    
+    private func initializeNavBar() {
+        title = "Let's Brew"
+        if #available(iOS 14.0, *) {
+            self.navigationItem.backButtonDisplayMode = .minimal
+        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
+    }
+    
+    private func initializeFonts() {
+        coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
+        waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
     }
     
     @objc func didTapSettings() {
