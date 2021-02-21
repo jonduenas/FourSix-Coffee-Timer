@@ -11,6 +11,8 @@
 #import "RCHTTPStatusCodes.h"
 #import "RCSystemInfo.h"
 #import "RCHTTPRequest.h"
+#import "RCPurchasesErrorUtils.h"
+@import PurchasesCoreSwift;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -57,6 +59,23 @@ NS_ASSUME_NONNULL_BEGIN
                   body:(nullable NSDictionary *)requestBody
                headers:(nullable NSDictionary<NSString *, NSString *> *)headers
      completionHandler:(nullable RCHTTPClientResponseHandler)completionHandler {
+    [self assertIsValidRequestWithMethod:httpMethod body:requestBody];
+
+    NSMutableDictionary *defaultHeaders = self.defaultHeaders.mutableCopy;
+    [defaultHeaders addEntriesFromDictionary:headers];
+
+    NSMutableURLRequest * _Nullable urlRequest = [self createRequestWithMethod:httpMethod
+                                                                          path:path
+                                                                   requestBody:requestBody
+                                                                       headers:defaultHeaders];
+    if (!urlRequest) {
+        RCErrorLog(@"Could not create request to %@ with body %@", path, requestBody);
+        completionHandler(-1,
+                          nil,
+                          [RCPurchasesErrorUtils networkErrorWithUnderlyingError:RCPurchasesErrorUtils.unknownError]);
+        return;
+    }
+
     if (performSerially) {
         RCHTTPRequest *rcRequest = [[RCHTTPRequest alloc] initWithHTTPMethod:httpMethod
                                                                         path:path
@@ -65,28 +84,19 @@ NS_ASSUME_NONNULL_BEGIN
                                                            completionHandler:completionHandler];
         @synchronized (self) {
             if (self.currentSerialRequest) {
-                RCDebugLog(@"There's a request currently running and %ld requests left in the queue, queueing %@ %@",
-                           self.queuedRequests.count,
+                RCDebugLog(RCStrings.network.serial_request_queued,
+                           (unsigned long)self.queuedRequests.count,
                            httpMethod,
                            path);
                 [self.queuedRequests addObject:rcRequest];
                 return;
             } else {
-                RCDebugLog(@"there are no requests currently running, starting request %@ %@", httpMethod, path);
+                RCDebugLog(RCStrings.network.starting_request, httpMethod, path);
                 self.currentSerialRequest = rcRequest;
             }
         }
     }
 
-    [self assertIsValidRequestWithMethod:httpMethod body:requestBody];
-
-    NSMutableDictionary *defaultHeaders = self.defaultHeaders.mutableCopy;
-    [defaultHeaders addEntriesFromDictionary:headers];
-
-    NSMutableURLRequest *urlRequest = [self createRequestWithMethod:httpMethod
-                                                               path:path
-                                                        requestBody:requestBody
-                                                            headers:defaultHeaders];
 
     typedef void (^SessionCompletionBlock)(NSData *_Nullable, NSURLResponse *_Nullable, NSError *_Nullable);
 
@@ -101,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
 beginNextRequestWhenFinished:performSerially];
     };
 
-    RCDebugLog(@"%@ %@", urlRequest.HTTPMethod, urlRequest.URL.path);
+    RCDebugLog(RCStrings.network.api_request_started, urlRequest.HTTPMethod, urlRequest.URL.path);
     NSURLSessionTask *task = [self.session dataTaskWithRequest:urlRequest
                                              completionHandler:block];
     [task resume];
@@ -119,7 +129,7 @@ beginNextRequestWhenFinished:(BOOL)beginNextRequestWhenFinished {
     if (error == nil) {
         statusCode = ((NSHTTPURLResponse *) response).statusCode;
 
-        RCDebugLog(@"%@ %@ %d", request.HTTPMethod, request.URL.path, statusCode);
+        RCDebugLog(RCStrings.network.api_request_completed, request.HTTPMethod, request.URL.path, (long)statusCode);
 
         NSError *jsonError;
         responseObject = [NSJSONSerialization JSONObjectWithData:data
@@ -127,8 +137,8 @@ beginNextRequestWhenFinished:(BOOL)beginNextRequestWhenFinished {
                                                            error:&jsonError];
 
         if (jsonError) {
-            RCLog(@"Error parsing JSON %@", jsonError.localizedDescription);
-            RCLog(@"Data received: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+            RCErrorLog(RCStrings.network.parsing_json_error, jsonError.localizedDescription);
+            RCErrorLog(RCStrings.network.json_data_received, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
             error = jsonError;
         }
     }
@@ -139,8 +149,10 @@ beginNextRequestWhenFinished:(BOOL)beginNextRequestWhenFinished {
 
     if (beginNextRequestWhenFinished) {
         @synchronized (self) {
-            RCDebugLog(@"serial request done: %@ %@, %ld requests left in the queue",
-                       self.currentSerialRequest.httpMethod, self.currentSerialRequest.path, self.queuedRequests.count);
+            RCDebugLog(RCStrings.network.serial_request_done,
+                       self.currentSerialRequest.httpMethod,
+                       self.currentSerialRequest.path,
+                       (unsigned long)self.queuedRequests.count);
             RCHTTPRequest *nextRequest = nil;
             self.currentSerialRequest = nil;
             if (self.queuedRequests.count > 0) {
@@ -148,7 +160,7 @@ beginNextRequestWhenFinished:(BOOL)beginNextRequestWhenFinished {
                 [self.queuedRequests removeObjectAtIndex:0];
             }
             if (nextRequest) {
-                RCDebugLog(@"starting the next request in the queue, %@", nextRequest);
+                RCDebugLog(RCStrings.network.starting_next_request, nextRequest);
                 [self performRequest:nextRequest.httpMethod
                             serially:YES
                                 path:nextRequest.path
@@ -160,23 +172,28 @@ beginNextRequestWhenFinished:(BOOL)beginNextRequestWhenFinished {
     }
 }
 
-- (NSMutableURLRequest *)createRequestWithMethod:(NSString *)HTTPMethod
-                                            path:(NSString *)path
-                                     requestBody:(NSDictionary *)requestBody
-                                         headers:(NSMutableDictionary *)defaultHeaders {
+- (nullable NSMutableURLRequest *)createRequestWithMethod:(NSString *)httpMethod
+                                                     path:(NSString *)path
+                                              requestBody:(NSDictionary *)requestBody
+                                                  headers:(NSMutableDictionary *)defaultHeaders {
     NSString *relativeURLString = [NSString stringWithFormat:@"/v1%@", path];
     NSURL *requestURL = [NSURL URLWithString:relativeURLString relativeToURL:RCSystemInfo.serverHostURL];
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL];
 
-    request.HTTPMethod = HTTPMethod;
+    request.HTTPMethod = httpMethod;
     request.allHTTPHeaderFields = defaultHeaders;
 
-    if ([HTTPMethod isEqualToString:@"POST"]) {
-        NSError *JSONParseError;
-        NSData *body = [NSJSONSerialization dataWithJSONObject:requestBody options:0 error:&JSONParseError];
-        if (JSONParseError) {
-            RCLog(@"Error creating request JSON: %@", requestBody);
+    if ([httpMethod isEqualToString:@"POST"]) {
+        NSError *jsonParseError;
+        NSData *body;
+        BOOL isValidJSONObject = [NSJSONSerialization isValidJSONObject:requestBody];
+        if (isValidJSONObject) {
+            body = [NSJSONSerialization dataWithJSONObject:requestBody options:0 error:&jsonParseError];
+        }
+        if (!isValidJSONObject || jsonParseError) {
+            RCErrorLog(RCStrings.network.creating_json_error, requestBody);
+            return nil;
         }
         request.HTTPBody = body;
     }
@@ -184,8 +201,9 @@ beginNextRequestWhenFinished:(BOOL)beginNextRequestWhenFinished {
 }
 
 - (void)assertIsValidRequestWithMethod:(NSString *)HTTPMethod body:(NSDictionary *)requestBody {
-    NSParameterAssert(!([HTTPMethod isEqualToString:@"GET"] && requestBody));
     NSParameterAssert(([HTTPMethod isEqualToString:@"GET"] || [HTTPMethod isEqualToString:@"POST"]));
+    NSParameterAssert(!([HTTPMethod isEqualToString:@"GET"] && requestBody));
+    NSParameterAssert(!([HTTPMethod isEqualToString:@"POST"] && !requestBody));
 }
 
 - (NSDictionary *)defaultHeaders {
@@ -198,12 +216,18 @@ beginNextRequestWhenFinished:(BOOL)beginNextRequestWhenFinished {
         @"X-Platform-Version": RCSystemInfo.systemVersion,
         @"X-Platform-Flavor": self.systemInfo.platformFlavor,
         @"X-Client-Version": RCSystemInfo.appVersion,
+        @"X-Client-Build-Version": RCSystemInfo.buildVersion,
         @"X-Observer-Mode-Enabled": observerMode
     }];
 
     NSString * _Nullable platformFlavorVersion = self.systemInfo.platformFlavorVersion;
     if (platformFlavorVersion) {
         headers[@"X-Platform-Flavor-Version"] = platformFlavorVersion;
+    }
+
+    NSString * _Nullable idfv = RCSystemInfo.identifierForVendor;
+    if (idfv) {
+        headers[@"X-Apple-Device-Identifier"] = idfv;
     }
 
     return headers;

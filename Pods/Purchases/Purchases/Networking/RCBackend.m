@@ -17,6 +17,7 @@
 #import "RCLogUtils.h"
 #import "RCSystemInfo.h"
 #import "RCHTTPStatusCodes.h"
+@import PurchasesCoreSwift;
 
 #define RC_HAS_KEY(dictionary, key) (dictionary[key] == nil || dictionary[key] != [NSNull null])
 NSErrorUserInfoKey const RCSuccessfullySyncedKey = @"successfullySynced";
@@ -245,7 +246,7 @@ presentedOfferingIdentifier:(nullable NSString *)offeringIdentifier
     }
     if (receiptData.length == 0) {
         if (RCSystemInfo.isSandbox) {
-            RCLog(@"App running on sandbox without a receipt file. Unable to determine into eligibility unless you've purchased before and there is a receipt available.");
+            RCAppleWarningLog(@"%@", RCStrings.receipt.no_sandbox_receipt_intro_eligibility);
         }
         NSMutableDictionary *eligibilities = [NSMutableDictionary new];
         for (NSString *productID in productIdentifiers) {
@@ -295,6 +296,12 @@ presentedOfferingIdentifier:(nullable NSString *)offeringIdentifier
                       completion:(RCOfferingsResponseHandler)completion
 {
     NSString *escapedAppUserID = [self escapedAppUserID:appUserID];
+    if (!escapedAppUserID || [escapedAppUserID isEqualToString:@""]) {
+        RCWarnLog(@"called getOfferings with an empty appUserID!");
+        completion(nil, RCPurchasesErrorUtils.missingAppUserIDError);
+        return;
+    }
+
     NSString *path = [NSString stringWithFormat:@"/subscribers/%@/offerings", escapedAppUserID];
 
     if ([self addCallback:completion forKey:path]) {
@@ -427,7 +434,7 @@ presentedOfferingIdentifier:(nullable NSString *)offeringIdentifier
                        appUserID:(NSString *)appUserID
                       completion:(nullable void (^)(NSError *_Nullable error))completion {
     if (subscriberAttributes.count == 0) {
-        RCLog(@"called post subscriber attributes with an empty attributes dict!");
+        RCWarnLog(@"%@", RCStrings.attribution.empty_subscriber_attributes);
         return;
     }
     NSString *escapedAppUserID = [self escapedAppUserID:appUserID];

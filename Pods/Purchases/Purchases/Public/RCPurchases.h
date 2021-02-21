@@ -48,7 +48,7 @@ typedef void (^RCDeferredPromotionalPurchaseBlock)(RCPurchaseCompletedBlock);
 /**
  * Deferred block for `-[RCPurchases paymentDiscountForProductDiscount:product:completion:]`
  */
-API_AVAILABLE(ios(12.2), macos(10.14.4))
+API_AVAILABLE(ios(12.2), macos(10.14.4), watchos(6.2), macCatalyst(13.0), tvos(12.2))
 typedef void (^RCPaymentDiscountBlock)(SKPaymentDiscount * _Nullable, NSError * _Nullable) NS_SWIFT_NAME(Purchases.PaymentDiscountBlock);
 
 /**
@@ -79,6 +79,12 @@ NS_SWIFT_NAME(Purchases)
  into the Universal Store, and you've configured your RevenueCat app accordingly. Contact support before using this.
 */
 @property (class, nonatomic, assign) BOOL forceUniversalAppStore;
+
+/**
+ Set this property to true *only* when testing the ask-to-buy / SCA purchases flow. More information:
+ http://errors.rev.cat/ask-to-buy
+ */
+@property (class, nonatomic, assign) BOOL simulatesAskToBuyInSandbox API_AVAILABLE(ios(8.0), macos(10.14), watchos(6.2), macCatalyst(13.0), tvos(9.0));
 
 /**
  Configures an instance of the Purchases SDK with a specified API key. The instance will be set as a singleton. You should access the singleton instance using [RCPurchases sharedPurchases]
@@ -229,7 +235,7 @@ __attribute((deprecated("Use the set<NetworkId> functions instead.")));
 NS_SWIFT_NAME(purchaserInfo(_:));
 
 /**
- Fetch the configured offerings for this users. Offerings allows you to configure your in-app products vis RevenueCat and greatly simplifies management. See the guide (https://docs.revenuecat.com/entitlements) for more info.
+ Fetch the configured offerings for this users. Offerings allows you to configure your in-app products via RevenueCat and greatly simplifies management. See the guide (https://docs.revenuecat.com/entitlements) for more info.
  
  Offerings will be fetched and cached on instantiation so that, by the time they are needed, your prices are loaded for your purchase flow. Time is money.
  
@@ -283,15 +289,33 @@ NS_SWIFT_NAME(purchaseProduct(_:_:));
 NS_SWIFT_NAME(purchasePackage(_:_:));
 
 /**
- This method will post all purchases associated with the current App Store account to RevenueCat and become associated with the current `appUserID`. If the receipt is being used by an existing user, the current `appUserID` will be aliased together with the `appUserID` of the existing user. Going forward, either `appUserID` will be able to reference the same user.
+ This method will post all purchases associated with the current App Store account to RevenueCat and become associated with the current `appUserID`.
+ If the receipt is being used by an existing user, the current `appUserID` will be aliased together with the `appUserID` of the existing user.
+ Going forward, either `appUserID` will be able to reference the same user.
 
  You shouldn't use this method if you have your own account system. In that case "restoration" is provided by your app passing
  the same `appUserId` used to purchase originally.
 
- @note This may force your users to enter the App Store password so should only be performed on request of the user. Typically with a button in settings or near your purchase UI.
+ @note This may force your users to enter the App Store password so should only be performed on request of the user.
+ Typically with a button in settings or near your purchase UI. Use syncPurchasesWithCompletionBlock
+ if you need to restore transactions programmatically.
  */
 - (void)restoreTransactionsWithCompletionBlock:(nullable RCReceivePurchaserInfoBlock)completion
 NS_SWIFT_NAME(restoreTransactions(_:));
+
+/**
+ This method will post all purchases associated with the current App Store account to RevenueCat and become associated with the current `appUserID`.
+ If the receipt is being used by an existing user, the current `appUserID` will be aliased together with the `appUserID` of the existing user.
+ Going forward, either `appUserID` will be able to reference the same user.
+
+ @warning This function should only be called if you're not calling any purchase method.
+
+ @note This method will not trigger a login prompt from App Store. However, if the receipt currently on the device does not contain subscriptions,
+ but the user has made subscription purchases, this method won't be able to restore them. Use restoreTransactionsWithCompletionBlock to cover those cases.
+ */
+- (void)syncPurchasesWithCompletionBlock:(nullable RCReceivePurchaserInfoBlock)completion
+NS_SWIFT_NAME(syncPurchases(_:));
+
 
 /**
  Computes whether or not a user is eligible for the introductory pricing period of a given product. You should use this method to determine whether or not you show the user the normal product price or the introductory price. This also applies to trials (trials are considered a type of introductory pricing).
@@ -315,7 +339,7 @@ NS_SWIFT_NAME(restoreTransactions(_:));
 */
 - (void)paymentDiscountForProductDiscount:(SKProductDiscount *)discount
                                   product:(SKProduct *)product
-                               completion:(RCPaymentDiscountBlock)completion API_AVAILABLE(ios(12.2), macosx(10.14.4));
+                               completion:(RCPaymentDiscountBlock)completion API_AVAILABLE(ios(12.2), macos(10.14.4), watchos(6.2), macCatalyst(13.0), tvos(12.2));
 
 
 /**
@@ -335,7 +359,7 @@ NS_SWIFT_NAME(restoreTransactions(_:));
  */
 - (void)purchaseProduct:(SKProduct *)product
            withDiscount:(SKPaymentDiscount *)discount
-        completionBlock:(RCPurchaseCompletedBlock)completion NS_SWIFT_NAME(purchaseProduct(_:discount:_:)) API_AVAILABLE(ios(12.2), macosx(10.14.4));
+        completionBlock:(RCPurchaseCompletedBlock)completion NS_SWIFT_NAME(purchaseProduct(_:discount:_:)) API_AVAILABLE(ios(12.2), macos(10.14.4), watchos(6.2), macCatalyst(13.0), tvos(12.2));
 
 /**
  Purchase the passed `RCPackage`.
@@ -354,7 +378,7 @@ NS_SWIFT_NAME(restoreTransactions(_:));
  */
 - (void)purchasePackage:(RCPackage *)package
            withDiscount:(SKPaymentDiscount *)discount
-        completionBlock:(RCPurchaseCompletedBlock)completion NS_SWIFT_NAME(purchasePackage(_:discount:_:)) API_AVAILABLE(ios(12.2), macosx(10.14.4));
+        completionBlock:(RCPurchaseCompletedBlock)completion NS_SWIFT_NAME(purchasePackage(_:discount:_:)) API_AVAILABLE(ios(12.2), macos(10.14.4), watchos(6.2), macCatalyst(13.0), tvos(12.2));
 
 
 /**
@@ -368,6 +392,12 @@ NS_SWIFT_NAME(restoreTransactions(_:));
  promotional subscription is granted through the RevenueCat dashboard.
  */
 - (void)invalidatePurchaserInfoCache;
+
+/**
+ Displays a sheet that enables users to redeem subscription offer codes that you generated in App Store Connect.
+ */
+- (void)presentCodeRedemptionSheet API_AVAILABLE(ios(14.0)) API_UNAVAILABLE(tvos, macos, watchos);
+
 
 #pragma mark Subscriber Attributes
 

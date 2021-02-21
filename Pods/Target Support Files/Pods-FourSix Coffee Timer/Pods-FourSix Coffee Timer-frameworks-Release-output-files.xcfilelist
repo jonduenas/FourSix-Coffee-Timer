@@ -1,1 +1,4 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Purchases.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PurchasesCoreSwift.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TactileSlider.framework

@@ -8,6 +8,7 @@
 
 #import "RCReceiptFetcher.h"
 #import "RCLogUtils.h"
+@import PurchasesCoreSwift;
 #import "RCSystemInfo.h"
 
 @implementation RCReceiptFetcher : NSObject
@@ -32,7 +33,7 @@
 #endif
     
     NSData *data = [NSData dataWithContentsOfURL:receiptURL];
-    RCDebugLog(@"Loaded receipt from %@", receiptURL);
+    RCDebugLog(RCStrings.receipt.loaded_receipt, receiptURL);
     return data;
 }
 

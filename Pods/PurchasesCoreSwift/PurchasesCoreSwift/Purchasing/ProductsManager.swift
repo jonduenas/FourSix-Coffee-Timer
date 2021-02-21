@@ -26,18 +26,18 @@ internal class ProductsManager: NSObject {
             let productsAlreadyCached = self.cachedProductsByIdentifier.filter { key, _ in identifiers.contains(key) }
             if productsAlreadyCached.count == identifiers.count {
                 let productsAlreadyCachedSet = Set(productsAlreadyCached.values)
-                NSLog("skipping products request because products were already cached. products: \(identifiers)")
+                Logger.debug(String(format: Strings.offering.products_already_cached, identifiers))
                 completion(productsAlreadyCachedSet)
                 return
             }
 
             if let existingHandlers = self.completionHandlers[identifiers] {
-                NSLog("found an existing request for products: \(identifiers), appending to completion")
+                Logger.debug(String(format: Strings.offering.found_existing_product_request, identifiers))
                 self.completionHandlers[identifiers] = existingHandlers + [completion]
                 return
             }
 
-            NSLog("no existing requests and products not cached, starting SKProducts request for: \(identifiers)")
+            Logger.debug(String(format: Strings.offering.no_cached_requests_and_products_starting_skproduct_request, identifiers))
             let request = self.productsRequestFactory.request(productIdentifiers: identifiers)
             request.delegate = self
             self.completionHandlers[identifiers] = [completion]
@@ -51,7 +51,7 @@ extension ProductsManager: SKProductsRequestDelegate {
 
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         queue.async { [self] in
-            NSLog("products request received response")
+            Logger.rcSuccess(Strings.network.skproductsrequest_received_response)
             guard let requestProducts = self.productsByRequests[request] else { fatalError("couldn't find request") }
             guard let completionBlocks = self.completionHandlers[requestProducts] else {
                 fatalError("couldn't find completion")
@@ -67,12 +67,13 @@ extension ProductsManager: SKProductsRequestDelegate {
     }
 
     func requestDidFinish(_ request: SKRequest) {
-        NSLog("request did finish")
+        Logger.rcSuccess(Strings.network.skproductsrequest_finished)
+        request.cancel()
     }
 
     func request(_ request: SKRequest, didFailWithError error: Error) {
         queue.async { [self] in
-            NSLog("products request failed! error: \(error.localizedDescription)")
+            Logger.appleError(String(format:Strings.network.skproductsrequest_failed, error.localizedDescription))
             guard let products = self.productsByRequests[request] else { fatalError("couldn't find request") }
             guard let completionBlocks = self.completionHandlers[products] else {
                 fatalError("couldn't find completion")
@@ -84,6 +85,7 @@ extension ProductsManager: SKProductsRequestDelegate {
                 completion(Set())
             }
         }
+        request.cancel()
     }
 }
 
