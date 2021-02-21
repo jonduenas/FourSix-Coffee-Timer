@@ -25,10 +25,14 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initNavBar()
+        updateLabels()
+    }
+    
+    private func initNavBar() {
+        title = "Brew Summary"
         navigationItem.setHidesBackButton(true, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
-
-        updateLabels()
     }
     
     private func updateLabels() {
