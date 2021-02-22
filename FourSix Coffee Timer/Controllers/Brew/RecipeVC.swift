@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import Charts
 
 class RecipeVC: UIViewController, Storyboarded {
-    let roundedCorner: CGFloat = 8
-    
     var recipe: Recipe!
     var labelArray = [UILabel]()
     weak var coordinator: BrewCoordinator?
@@ -18,108 +17,33 @@ class RecipeVC: UIViewController, Storyboarded {
     @IBOutlet var totalCoffeeWaterLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
     
-    @IBOutlet var pour1View: UIStackView!
-    @IBOutlet var pour2View: UIStackView!
-    @IBOutlet var pour3View: UIStackView!
-    @IBOutlet var pour4View: UIStackView!
-    @IBOutlet var pour5View: UIStackView!
-    @IBOutlet var pour6View: UIStackView!
-    
-    @IBOutlet var pour1Height: NSLayoutConstraint!
-    @IBOutlet var pour2Height: NSLayoutConstraint!
-    @IBOutlet var graphView: UIStackView!
-    @IBOutlet var graphHiderHeight: NSLayoutConstraint!
-    @IBOutlet var graphHiderView: UIView!
-    
-    @IBOutlet var pour6Graph: RoundGraphTop!
-    @IBOutlet var pour5Graph: RoundGraphTop!
-    @IBOutlet var pour4Graph: RoundGraphTop!
-    
-    @IBOutlet var brace60Stack: UIStackView!
-    @IBOutlet var brace40Stack: UIStackView!
-    
-    @IBOutlet var pour1Label: UILabel!
-    @IBOutlet var pour2Label: UILabel!
-    @IBOutlet var pour3Label: UILabel!
-    @IBOutlet var pour4Label: UILabel!
-    @IBOutlet var pour5Label: UILabel!
-    @IBOutlet var pour6Label: UILabel!
-    
-    @IBOutlet var stack40: UIStackView!
-    @IBOutlet var stack60: UIStackView!
-    
-    deinit {
-        print("RecipeVC cleared.")
-    }
+    @IBOutlet weak var barChartView: RecipeBarChart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Recipe"
-        
-        footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
-
-        labelArray = [pour1Label, pour2Label, pour3Label, pour4Label, pour5Label, pour6Label]
-        
-        totalCoffeeWaterLabel.text = recipe.coffee.clean + "g coffee : " + recipe.waterTotal.clean + "g water"
-        
+        updateLabels()
         loadGraph()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        animateGraph()
+    private func updateLabels() {
+        footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
+        
+        totalCoffeeWaterLabel.text = recipe.coffee.clean + "g coffee : " + recipe.waterTotal.clean + "g water"
     }
     
-    func loadGraph() {
-        if recipe.balance == .sweet {
-            pour1Height.constant = 60
-            pour2Height.constant = 100
-            view.layoutIfNeeded()
-        } else if recipe.balance == .neutral {
-            pour1Height.constant = 80
-            pour2Height.constant = 80
-            view.layoutIfNeeded()
-        } else if recipe.balance == .bright {
-            pour1Height.constant = 100
-            pour2Height.constant = 60
-            view.layoutIfNeeded()
-        }
+    private func loadGraph() {
+        let entry = BarChartDataEntry(x: 1.0, yValues: recipe.waterPours.map { Double($0) })
         
-        if recipe.strength == .light {
-            pour5View.isHidden = true
-            pour6View.isHidden = true
-            pour4Graph.cornerRadius = roundedCorner
-            labelArray.removeLast(2)
-        } else if recipe.strength == .medium {
-            pour6View.isHidden = true
-            pour5Graph.cornerRadius = roundedCorner
-            pour4Graph.cornerRadius = 0
-            labelArray.removeLast()
-        } else {
-            pour5Graph.cornerRadius = 0
-            pour4Graph.cornerRadius = 0
-        }
-        
-        for (index, label) in labelArray.enumerated() {
-            label.text = recipe.waterPours[index].clean + "g"
-        }
-    }
-    
-    func animateGraph() {
-        view.layoutIfNeeded()
-        self.graphHiderHeight.constant = 0
-        
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: .calculationModeCubic, animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25) {
-                self.view.layoutIfNeeded()
-            }
-            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.33) {
-                self.brace40Stack.alpha = 1
-            }
-            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.33) {
-                self.brace60Stack.alpha = 1
-            }
-        })
+        let dataSet = BarChartDataSet(entries: [entry])
+        dataSet.setRecipeGraphPreferences()
+
+        let data = BarChartData(dataSets: [dataSet])
+        barChartView.data = data
+        barChartView.setBarDataPreferences()
+
+        barChartView.notifyDataSetChanged()
     }
     
     @IBAction func startTapped(_ sender: Any) {
