@@ -53,6 +53,8 @@
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
 		65BBE40125E470F700788156 /* RecipeBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40025E470F700788156 /* RecipeBarChart.swift */; };
+		65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40425E485F400788156 /* RecipeBarDetailView.swift */; };
+		65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */; };
 		65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9225D71775007177B8 /* Coordinator.swift */; };
 		65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9825D717DA007177B8 /* Storyboarded.swift */; };
 		65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */; };
@@ -134,6 +136,8 @@
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
 		65BBE40025E470F700788156 /* RecipeBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBarChart.swift; sourceTree = "<group>"; };
+		65BBE40425E485F400788156 /* RecipeBarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBarDetailView.swift; sourceTree = "<group>"; };
+		65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brace+UIBezierPath.swift"; sourceTree = "<group>"; };
 		65BE8A9225D71775007177B8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65BE8A9825D717DA007177B8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCoordinator.swift; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				65315ADD249ADB4D00994E28 /* Clean.swift */,
+				65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */,
 				6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
@@ -347,6 +352,7 @@
 				6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */,
 				65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */,
 				65F5182E25E06144006CF438 /* TimerCoordinator.swift */,
+				65BBE40425E485F400788156 /* RecipeBarDetailView.swift */,
 				65F5182A25E052FE006CF438 /* TimerNavigationController.swift */,
 				65BF064925D759650075E082 /* BrewNavigationController.swift */,
 			);
@@ -564,6 +570,7 @@
 				65D352C424D2033F00DB3AA7 /* CustomRatioVC.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */,
+				65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
@@ -574,6 +581,7 @@
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				656AC71C252B9D490082C48E /* CustomIntervalsVC.swift in Sources */,
 				65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */,
+				65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */,
