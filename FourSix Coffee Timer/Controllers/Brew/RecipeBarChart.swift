@@ -52,7 +52,7 @@ class RecipeBarChart: BarChartView {
     func setBarDataPreferences() {
         barData?.barWidth = 0.4
         barData?.setValueFont(.boldSystemFont(ofSize: 24))
-        barData?.setValueTextColor(UIColor(named: "Background") ?? UIColor.systemBackground)
+        barData?.setValueTextColor(UIColor(white: 0.9, alpha: 1))
         
         let valueFormatter = YAxisValueFormatter()
         barData?.setValueFormatter(valueFormatter)
