@@ -333,6 +333,34 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		65BBE40C25E5AFB500788156 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				6531720924A6B06F00709062 /* RecipeVC.swift */,
+				65BBE40025E470F700788156 /* RecipeBarChart.swift */,
+				65BBE40425E485F400788156 /* RecipeBarDetailView.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		65BBE40D25E5AFCE00788156 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				65859C08247D95B700A4CE76 /* TimerVC.swift */,
+				65F5182E25E06144006CF438 /* TimerCoordinator.swift */,
+				65F5182A25E052FE006CF438 /* TimerNavigationController.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		65BBE40E25E5AFFB00788156 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
 		65BE8A9125D7175A007177B8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,16 +373,12 @@
 		65BE8A9C25D71C9D007177B8 /* Brew */ = {
 			isa = PBXGroup;
 			children = (
-				65BBE40025E470F700788156 /* RecipeBarChart.swift */,
 				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
-				6531720924A6B06F00709062 /* RecipeVC.swift */,
-				65859C08247D95B700A4CE76 /* TimerVC.swift */,
-				6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */,
 				65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */,
-				65F5182E25E06144006CF438 /* TimerCoordinator.swift */,
-				65BBE40425E485F400788156 /* RecipeBarDetailView.swift */,
-				65F5182A25E052FE006CF438 /* TimerNavigationController.swift */,
 				65BF064925D759650075E082 /* BrewNavigationController.swift */,
+				65BBE40D25E5AFCE00788156 /* Timer */,
+				65BBE40C25E5AFB500788156 /* Recipe */,
+				65BBE40E25E5AFFB00788156 /* Summary */,
 			);
 			path = Brew;
 			sourceTree = "<group>";
