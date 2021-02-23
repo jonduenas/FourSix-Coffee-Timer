@@ -262,7 +262,7 @@
                                             <constraint firstAttribute="height" constant="51" id="0Pa-MW-75P"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="Q7M-Aa-XEt"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Calculate">
                                             <color key="titleColor" name="Background"/>
                                         </state>
@@ -687,15 +687,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cPK-uK-CVg">
-                                <rect key="frame" x="20" y="25" width="350" height="677"/>
+                                <rect key="frame" x="30" y="25" width="330" height="677"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20g coffee : 300g water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7d4-WN-kbB">
-                                        <rect key="frame" x="62.000000000000014" y="0.0" width="226.33333333333337" height="24"/>
+                                        <rect key="frame" x="52.000000000000014" y="0.0" width="226.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jX-sQ-75J">
-                                        <rect key="frame" x="115" y="81.333333333333371" width="120" height="400"/>
+                                        <rect key="frame" x="105" y="62.666666666666629" width="120" height="400"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atz-4V-Epi" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="400"/>
@@ -729,22 +729,19 @@
                                             <constraint firstItem="atz-4V-Epi" firstAttribute="top" secondItem="7jX-sQ-75J" secondAttribute="top" id="Umg-Vq-DMi"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour the amounts shown every 45 seconds, allowing the water to drain completely between each pour." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIR-sT-gDJ">
-                                        <rect key="frame" x="25" y="538.33333333333337" width="300" height="30.333333333333371"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="beG-XZ-5n3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour the amounts shown every 45 seconds, allowing the water to drain completely between each pour." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MIR-sT-gDJ">
+                                        <rect key="frame" x="26.333333333333343" y="500.99999999999994" width="277.66666666666663" height="86.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWb-J0-MUX" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                        <rect key="frame" x="77" y="626" width="196" height="51"/>
+                                        <rect key="frame" x="67" y="626" width="196" height="51"/>
                                         <color key="backgroundColor" name="Accent"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="lfx-0r-jbo"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="mPx-Vy-kCs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Start">
                                             <color key="titleColor" name="Background"/>
                                         </state>
@@ -759,6 +756,8 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="MIR-sT-gDJ" firstAttribute="width" secondItem="cPK-uK-CVg" secondAttribute="width" multiplier="0.841414" id="AXL-f0-7ei"/>
+                                    <constraint firstItem="MIR-sT-gDJ" firstAttribute="height" secondItem="cPK-uK-CVg" secondAttribute="height" multiplier="0.127523" id="GQG-ax-wLZ"/>
                                     <constraint firstItem="7jX-sQ-75J" firstAttribute="height" secondItem="cPK-uK-CVg" secondAttribute="height" multiplier="0.590842" id="gQM-uL-Rzp"/>
                                 </constraints>
                             </stackView>
@@ -766,9 +765,9 @@
                         <viewLayoutGuide key="safeArea" id="n15-Cb-A8M"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="cPK-uK-CVg" firstAttribute="leading" secondItem="n15-Cb-A8M" secondAttribute="leading" constant="20" id="6f0-Mu-oh7"/>
+                            <constraint firstItem="cPK-uK-CVg" firstAttribute="leading" secondItem="n15-Cb-A8M" secondAttribute="leading" constant="30" id="6f0-Mu-oh7"/>
                             <constraint firstItem="cPK-uK-CVg" firstAttribute="top" secondItem="n15-Cb-A8M" secondAttribute="top" constant="25" id="9fk-X1-hM7"/>
-                            <constraint firstItem="n15-Cb-A8M" firstAttribute="trailing" secondItem="cPK-uK-CVg" secondAttribute="trailing" constant="20" id="hpU-HY-wWo"/>
+                            <constraint firstItem="n15-Cb-A8M" firstAttribute="trailing" secondItem="cPK-uK-CVg" secondAttribute="trailing" constant="30" id="hpU-HY-wWo"/>
                             <constraint firstItem="n15-Cb-A8M" firstAttribute="bottom" secondItem="cPK-uK-CVg" secondAttribute="bottom" constant="20" id="stM-8o-DmT"/>
                         </constraints>
                     </view>
@@ -788,10 +787,10 @@
     </scenes>
     <designables>
         <designable name="pgi-ZW-LPo">
-            <size key="intrinsicContentSize" width="82" height="36"/>
+            <size key="intrinsicContentSize" width="87" height="36"/>
         </designable>
         <designable name="sWb-J0-MUX">
-            <size key="intrinsicContentSize" width="43" height="36"/>
+            <size key="intrinsicContentSize" width="46" height="36"/>
         </designable>
     </designables>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
