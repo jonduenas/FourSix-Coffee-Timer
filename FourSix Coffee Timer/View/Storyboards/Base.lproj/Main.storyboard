@@ -255,29 +255,56 @@
                                             <constraint firstItem="ijM-hd-SvQ" firstAttribute="leading" secondItem="xAw-LE-uJD" secondAttribute="leading" id="vAE-IL-hHN"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-ZW-LPo" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                        <rect key="frame" x="87" y="626" width="196" height="51"/>
-                                        <color key="backgroundColor" name="Accent"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="51" id="0Pa-MW-75P"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="Q7M-Aa-XEt"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <state key="normal" title="Calculate">
-                                            <color key="titleColor" name="Background"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="25"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="calculateTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="JtO-0t-KWp"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FUY-dS-iUv">
+                                        <rect key="frame" x="28.666666666666657" y="626" width="313" height="51"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4I2-aS-mxO" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="151.33333333333334" height="51"/>
+                                                <color key="backgroundColor" name="Background"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="51" id="ABv-so-cGh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Show Recipe">
+                                                    <color key="titleColor" name="Accent"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="Accent"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-ZW-LPo" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
+                                                <rect key="frame" x="161.33333333333337" y="0.0" width="151.66666666666663" height="51"/>
+                                                <color key="backgroundColor" name="Accent"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="51" id="0Pa-MW-75P"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <state key="normal" title="Start">
+                                                    <color key="titleColor" name="Background"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="calculateTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="JtO-0t-KWp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Q4X-hQ-KGE" secondAttribute="trailing" priority="750" id="HMl-Xt-fDc"/>
+                                    <constraint firstItem="FUY-dS-iUv" firstAttribute="width" secondItem="Q4X-hQ-KGE" secondAttribute="width" id="Pik-ij-Uxk"/>
                                     <constraint firstItem="Q4X-hQ-KGE" firstAttribute="leading" secondItem="OCw-yD-UST" secondAttribute="leading" priority="750" id="StJ-ih-HOP"/>
                                     <constraint firstItem="Q4X-hQ-KGE" firstAttribute="width" secondItem="uKE-sT-B5i" secondAttribute="width" id="fkK-e3-ro2"/>
                                     <constraint firstItem="Q4X-hQ-KGE" firstAttribute="width" secondItem="xAw-LE-uJD" secondAttribute="width" id="gf1-xD-2rT"/>
@@ -687,7 +714,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cPK-uK-CVg">
-                                <rect key="frame" x="30" y="25" width="330" height="677"/>
+                                <rect key="frame" x="30" y="25" width="330" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20g coffee : 300g water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7d4-WN-kbB">
                                         <rect key="frame" x="52.000000000000014" y="0.0" width="226.33333333333337" height="24"/>
@@ -695,13 +722,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jX-sQ-75J">
-                                        <rect key="frame" x="105" y="62.666666666666629" width="120" height="400"/>
+                                        <rect key="frame" x="105" y="81.333333333333343" width="120" height="443.33333333333326"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atz-4V-Epi" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="400"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="443.33333333333331"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-h8-wYQ" customClass="RecipeBarChart" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="400"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="443.33333333333331"/>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -718,7 +745,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4k-1I-4Cj" customClass="RecipeBarDetailView" customModule="FourSix" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="400"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="443.33333333333331"/>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -730,35 +757,15 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour the amounts shown every 45 seconds, allowing the water to drain completely between each pour." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MIR-sT-gDJ">
-                                        <rect key="frame" x="26.333333333333343" y="500.99999999999994" width="277.66666666666663" height="86.333333333333314"/>
+                                        <rect key="frame" x="26.333333333333343" y="582" width="277.66666666666663" height="85"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWb-J0-MUX" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                        <rect key="frame" x="67" y="626" width="196" height="51"/>
-                                        <color key="backgroundColor" name="Accent"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="51" id="lfx-0r-jbo"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="mPx-Vy-kCs"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleColor" name="Background"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="25"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="startTapped:" destination="jpc-zZ-n2T" eventType="touchUpInside" id="jYY-xY-lMS"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="MIR-sT-gDJ" firstAttribute="width" secondItem="cPK-uK-CVg" secondAttribute="width" multiplier="0.841414" id="AXL-f0-7ei"/>
                                     <constraint firstItem="MIR-sT-gDJ" firstAttribute="height" secondItem="cPK-uK-CVg" secondAttribute="height" multiplier="0.127523" id="GQG-ax-wLZ"/>
-                                    <constraint firstItem="7jX-sQ-75J" firstAttribute="height" secondItem="cPK-uK-CVg" secondAttribute="height" multiplier="0.590842" id="gQM-uL-Rzp"/>
+                                    <constraint firstItem="7jX-sQ-75J" firstAttribute="height" secondItem="cPK-uK-CVg" secondAttribute="height" multiplier="0.664697" id="Wpf-AN-Phf"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -768,7 +775,7 @@
                             <constraint firstItem="cPK-uK-CVg" firstAttribute="leading" secondItem="n15-Cb-A8M" secondAttribute="leading" constant="30" id="6f0-Mu-oh7"/>
                             <constraint firstItem="cPK-uK-CVg" firstAttribute="top" secondItem="n15-Cb-A8M" secondAttribute="top" constant="25" id="9fk-X1-hM7"/>
                             <constraint firstItem="n15-Cb-A8M" firstAttribute="trailing" secondItem="cPK-uK-CVg" secondAttribute="trailing" constant="30" id="hpU-HY-wWo"/>
-                            <constraint firstItem="n15-Cb-A8M" firstAttribute="bottom" secondItem="cPK-uK-CVg" secondAttribute="bottom" constant="20" id="stM-8o-DmT"/>
+                            <constraint firstItem="n15-Cb-A8M" firstAttribute="bottom" secondItem="cPK-uK-CVg" secondAttribute="bottom" constant="30" id="stM-8o-DmT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" id="S7k-Rk-w3g"/>
@@ -786,10 +793,10 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="pgi-ZW-LPo">
-            <size key="intrinsicContentSize" width="87" height="36"/>
+        <designable name="4I2-aS-mxO">
+            <size key="intrinsicContentSize" width="94" height="30"/>
         </designable>
-        <designable name="sWb-J0-MUX">
+        <designable name="pgi-ZW-LPo">
             <size key="intrinsicContentSize" width="46" height="36"/>
         </designable>
     </designables>
