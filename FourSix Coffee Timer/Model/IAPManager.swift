@@ -133,9 +133,6 @@ class IAPManager: NSObject {
     }
     
     func userIsPro() -> Bool {
-        #if targetEnvironment(simulator)
-        return true
-        #else
         var proUser = false
         // Get the latest purchaserInfo to see if user paid for Pro
         Purchases.shared.purchaserInfo { (purchaserInfo, error) in
@@ -151,6 +148,5 @@ class IAPManager: NSObject {
             }
         }
         return proUser
-        #endif
     }
 }

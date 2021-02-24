@@ -52,6 +52,8 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
+		65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
+		65B0D84025E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
 		65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9225D71775007177B8 /* Coordinator.swift */; };
 		65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9825D717DA007177B8 /* Storyboarded.swift */; };
 		65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */; };
@@ -127,6 +129,7 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
+		65B0D83E25E6D394002B4F34 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		65BE8A9225D71775007177B8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65BE8A9825D717DA007177B8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCoordinator.swift; sourceTree = "<group>"; };
@@ -187,6 +190,7 @@
 		652756412475B138004E067F /* FourSix Coffee Timer */ = {
 			isa = PBXGroup;
 			children = (
+				65B0D83E25E6D394002B4F34 /* Configuration.storekit */,
 				65BE8A9125D7175A007177B8 /* Protocols */,
 				654B2F3924C78C2600AA3A7C /* Assets */,
 				654B2F3B24C78C9C00AA3A7C /* Extensions */,
@@ -454,6 +458,7 @@
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
 				65FB31AF24CA130E00781023 /* Walkthrough.storyboard in Resources */,
 				6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */,
+				65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */,
 				652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B0D84025E6D394002B4F34 /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
