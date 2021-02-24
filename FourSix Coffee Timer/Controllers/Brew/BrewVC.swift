@@ -87,8 +87,8 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     }
     
     private func initializeFonts() {
-        coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
-        waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: .bold)
+        coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
+        waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
     }
     
     @objc func didTapSettings() {
