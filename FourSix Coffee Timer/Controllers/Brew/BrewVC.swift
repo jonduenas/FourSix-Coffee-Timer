@@ -27,9 +27,9 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     var strength: Strength = .medium
     var timerStepInterval: Int = 45
     
-    var ratio: Float = 15 {
+    var ratio: Ratio = Ratio.defaultRatio {
         didSet {
-            water = (coffee * ratio).rounded()
+            water = (coffee * ratio.consequent).rounded()
         }
     }
     var coffee: Float = 20.0 {
@@ -131,7 +131,7 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     }
     
     private func calculateWater() {
-        water = (coffee * Float(ratio)).rounded()
+        water = (coffee * ratio.consequent).rounded()
     }
     
     private func isCoffeeAcceptableRange() -> Bool {
@@ -140,7 +140,7 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     }
     
     func updateSettings() {
-        ratio = UserDefaultsManager.ratio
+        ratio = Ratio(consequent: UserDefaultsManager.ratio)
         timerStepInterval = UserDefaultsManager.timerStepInterval
         checkForPro()
     }
@@ -234,10 +234,10 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         
         if UserDefaultsManager.ratio != 0 {
             // If it's not 0, it means the app has been used before, and ratio should be set to previous user setting
-            ratio = UserDefaultsManager.ratio
+            ratio = Ratio(consequent: UserDefaultsManager.ratio)
         } else {
-            // Only does this on first app launch - Set UserDefault ratio value to 15
-            UserDefaultsManager.ratio = ratio
+            // Only does this on first app launch - Set UserDefault ratio value to default
+            UserDefaultsManager.ratio = Ratio.defaultRatio.consequent
         }
         
         if UserDefaultsManager.previousCoffee != 0 {
@@ -252,12 +252,16 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
             UserDefaultsManager.timerStepInterval = timerStepInterval
         }
         
-        // Migrates users from old UserDefault setting to new one
+        // Migrates users from old UserDefault setting to new one or sets default for new user
         if !UserDefaultsManager.userHasMigratedStepAdvance {
             if UserDefaultsManager.timerStepAdvance == 1 {
+                // This will only be true if user is current and has set their setting to manual
                 UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.manual.rawValue
-                UserDefaultsManager.userHasMigratedStepAdvance = true
+            } else {
+                // This catches current users set to auto or new users and sets this to default
+                UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.auto.rawValue
             }
+            UserDefaultsManager.userHasMigratedStepAdvance = true
         }
     }
     
