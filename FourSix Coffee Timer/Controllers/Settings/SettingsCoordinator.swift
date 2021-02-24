@@ -24,7 +24,7 @@ class SettingsCoordinator: Coordinator {
         let vc = SettingsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.coordinator = self
         parentVC = vc
-        navigationController.modalPresentationStyle = .fullScreen
+        //navigationController.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(vc, animated: false)
     }
     

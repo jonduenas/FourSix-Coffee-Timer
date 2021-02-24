@@ -37,7 +37,8 @@ class BrewCoordinator: Coordinator {
         let vc = RecipeVC.instantiate(fromStoryboardNamed: mainStoryboardName)
         vc.coordinator = self
         vc.recipe = recipe
-        navigationController.pushViewController(vc, animated: true)
+        let recipeNav = BrewNavigationController(rootViewController: vc)
+        navigationController.present(recipeNav, animated: true, completion: nil)
     }
     
     func showSettings() {
@@ -61,19 +62,6 @@ class BrewCoordinator: Coordinator {
         childCoordinator.parentCoordinator = self
         childCoordinator.start()
         navigationController.present(childCoordinator.navigationController, animated: true, completion: nil)
-    }
-    
-    func didFinishSummary() {
-        returnToRoot {
-            AppStoreReviewManager.requestReviewIfAppropriate()
-        }
-    }
-    
-    private func returnToRoot(completion: (() -> Void)? = nil) {
-        navigationController.popToRootViewController(animated: true)
-        if let completion = completion {
-            completion()
-        }
     }
     
     func childDidFinish(_ child: Coordinator?) {
