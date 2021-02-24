@@ -20,8 +20,19 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     // MARK: Variables
     weak var coordinator: BrewCoordinator?
     var calculator = Calculator()
-    var balance: Balance = .neutral
-    var strength: Strength = .medium
+    
+    var balance: Balance = .neutral {
+        didSet {
+            UserDefaultsManager.previousSelectedBalance = balance.rawValue
+        }
+    }
+    
+    var strength: Strength = .medium {
+        didSet {
+            UserDefaultsManager.previousSelectedStrength = strength.rawValue
+        }
+    }
+    
     var timerStepInterval: Int = 45
     
     var ratio: Ratio = Ratio.defaultRatio {
@@ -150,45 +161,13 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     }
     
     @IBAction func balanceChanged(_ sender: Any) {
-        // Haptic feedback
-        selectionFeedback.selectionChanged()
-        
-        if balanceSelect.selectedSegmentIndex == 0 {
-            print("Sweet")
-            balance = .sweet
-            UserDefaultsManager.previousSelectedBalance = balance.rawValue
-        } else if balanceSelect.selectedSegmentIndex == 1 {
-            print("Neutral")
-            balance = .neutral
-            UserDefaultsManager.previousSelectedBalance = balance.rawValue
-        } else if balanceSelect.selectedSegmentIndex == 2 {
-            print("Bright")
-            balance = .bright
-            UserDefaultsManager.previousSelectedBalance = balance.rawValue
-        } else {
-            return
-        }
+        selectionFeedback.selectionChanged() // Haptic feedback
+        balance = Balance.allCases[balanceSelect.selectedSegmentIndex]
     }
     
     @IBAction func strengthChanged(_ sender: Any) {
-        // Haptic feedback
-        selectionFeedback.selectionChanged()
-        
-        if strengthSelect.selectedSegmentIndex == 0 {
-            print("Light")
-            strength = .light
-            UserDefaultsManager.previousSelectedStrength = strength.rawValue
-        } else if strengthSelect.selectedSegmentIndex == 1 {
-            print("Medium")
-            strength = .medium
-            UserDefaultsManager.previousSelectedStrength = strength.rawValue
-        } else if strengthSelect.selectedSegmentIndex == 2 {
-            print("Strong")
-            strength = .strong
-            UserDefaultsManager.previousSelectedStrength = strength.rawValue
-        } else {
-            return
-        }
+        selectionFeedback.selectionChanged() // Haptic feedback
+        strength = Strength.allCases[strengthSelect.selectedSegmentIndex]
     }
 
     @IBAction func showRecipeTapped(_ sender: UIButton) {
