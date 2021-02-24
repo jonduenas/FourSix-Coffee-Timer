@@ -525,7 +525,7 @@
 		9A8BDD6A8BE0B7220E21B7494CD9A91B /* OperationDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationDispatcher.swift; path = PurchasesCoreSwift/Misc/OperationDispatcher.swift; sourceTree = "<group>"; };
 		9A9269649A6B18385B45BFD11A3D9B11 /* Platform+Graphics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Platform+Graphics.swift"; path = "Source/Charts/Utils/Platform+Graphics.swift"; sourceTree = "<group>"; };
 		9AEB72BCD722E601BBB1AEA3D6B42B4E /* ComponentBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ComponentBase.swift; path = Source/Charts/Components/ComponentBase.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DAEDD038BC30BA6D9117B608EAB2F7F /* PieChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartData.swift; path = Source/Charts/Data/Implementations/Standard/PieChartData.swift; sourceTree = "<group>"; };
 		9F1429FC12235CFF0171D4571EC3F087 /* XAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRenderer.swift; path = Source/Charts/Renderers/XAxisRenderer.swift; sourceTree = "<group>"; };
 		9F393F0730F32A032BAE48256550FF31 /* RCPurchases+SubscriberAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RCPurchases+SubscriberAttributes.h"; path = "Purchases/SubscriberAttributes/RCPurchases+SubscriberAttributes.h"; sourceTree = "<group>"; };
@@ -533,11 +533,11 @@
 		A03A38D626DC7E90423F070C5F47F3BF /* RCEntitlementInfos.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCEntitlementInfos.m; path = Purchases/Public/RCEntitlementInfos.m; sourceTree = "<group>"; };
 		A0E1A98A9EA22630AE549138F7072D1C /* IBubbleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IBubbleChartDataSet.swift; path = Source/Charts/Data/Interfaces/IBubbleChartDataSet.swift; sourceTree = "<group>"; };
 		A10521BA327A9AFF714A79742FDFEBFE /* CandleChartDataEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartDataEntry.swift; path = Source/Charts/Data/Implementations/Standard/CandleChartDataEntry.swift; sourceTree = "<group>"; };
-		A1C1B977ED8804E8AEEC884E7359EE58 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Charts.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1C1B977ED8804E8AEEC884E7359EE58 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29DEACA539098AE073EF865FCF5E43C /* IHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IHighlighter.swift; path = Source/Charts/Highlight/IHighlighter.swift; sourceTree = "<group>"; };
 		A2DB04EECEBB8AB0BABEEF1AF472B0F7 /* IBarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IBarChartDataSet.swift; path = Source/Charts/Data/Interfaces/IBarChartDataSet.swift; sourceTree = "<group>"; };
 		A6E04BE3111970E7A2F042104AEB016B /* BarLineScatterCandleBubbleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineScatterCandleBubbleChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/BarLineScatterCandleBubbleChartDataSet.swift; sourceTree = "<group>"; };
-		A8744BFCBA0EFF3EFCB22EF6E0408B42 /* PurchasesCoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PurchasesCoreSwift.framework; path = PurchasesCoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8744BFCBA0EFF3EFCB22EF6E0408B42 /* PurchasesCoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchasesCoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC096F6E9A046BF1891EE8C08B86480F /* ChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/ChartDataSet.swift; sourceTree = "<group>"; };
 		AC3BA08EA5BC363F3EAC4BD0EE4E76E7 /* BarChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChartDataProvider.swift; path = Source/Charts/Interfaces/BarChartDataProvider.swift; sourceTree = "<group>"; };
 		ACC127A63FBEEB41DFE28E085A272F03 /* ChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataProvider.swift; path = Source/Charts/Interfaces/ChartDataProvider.swift; sourceTree = "<group>"; };
@@ -625,7 +625,7 @@
 		EC1ABA7917CA2C6D2F68991D48D9ACF1 /* TactileSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TactileSlider-umbrella.h"; sourceTree = "<group>"; };
 		EC7AE0881E8F5B9D984A35E2A0C7ADF3 /* IAxisValueFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IAxisValueFormatter.swift; path = Source/Charts/Formatters/IAxisValueFormatter.swift; sourceTree = "<group>"; };
 		EDE0821390769F848648B5CAE00E415F /* IdentityStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IdentityStrings.swift; path = PurchasesCoreSwift/Logging/Strings/IdentityStrings.swift; sourceTree = "<group>"; };
-		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TactileSlider.framework; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF282BEAD4349BC18A56D8307C9DE7F6 /* TactileSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TactileSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF58BEBD942314D6881B02C59E6FCD8C /* Pods-FourSix Coffee Timer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FourSix Coffee Timer.modulemap"; sourceTree = "<group>"; };
 		EF9697A4994E89DC7234709AE7FACF60 /* RCCrossPlatformSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCCrossPlatformSupport.h; path = Purchases/Misc/RCCrossPlatformSupport.h; sourceTree = "<group>"; };
 		F094240934673E28A65D9B0115C1786F /* Purchases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Purchases.debug.xcconfig; sourceTree = "<group>"; };
@@ -644,11 +644,11 @@
 		F95989D934FD5B0A57BCB970401D4119 /* NSDate+RCExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+RCExtensions.m"; path = "Purchases/FoundationExtensions/NSDate+RCExtensions.m"; sourceTree = "<group>"; };
 		FADFAA10AD549F75B4F3DFDF285C0A00 /* CombinedHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombinedHighlighter.swift; path = Source/Charts/Highlight/CombinedHighlighter.swift; sourceTree = "<group>"; };
 		FB69B091D44A61365DF53638039FE82C /* IPieChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IPieChartDataSet.swift; path = Source/Charts/Data/Interfaces/IPieChartDataSet.swift; sourceTree = "<group>"; };
-		FBA7F9EF3FAEB0BC7D79BB1AFF265A06 /* Purchases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Purchases.framework; path = Purchases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBA7F9EF3FAEB0BC7D79BB1AFF265A06 /* Purchases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Purchases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC50CC4B3334968E536E6E07D73315AF /* TriangleShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriangleShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/TriangleShapeRenderer.swift; sourceTree = "<group>"; };
 		FC523F95448E8AFD15D00BB2C689DAD6 /* BarLineScatterCandleBubbleChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineScatterCandleBubbleChartDataProvider.swift; path = Source/Charts/Interfaces/BarLineScatterCandleBubbleChartDataProvider.swift; sourceTree = "<group>"; };
 		FF23057754C87C2E705FFA56A6E23C55 /* PieRadarChartViewBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieRadarChartViewBase.swift; path = Source/Charts/Charts/PieRadarChartViewBase.swift; sourceTree = "<group>"; };
-		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FourSix_Coffee_Timer.framework; path = "Pods-FourSix Coffee Timer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8ABE7E53F9884CE03EC807329FEF0D /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD6EB7F42D9621A2309D4A0AB1CE7D0 /* TactileSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TactileSlider-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -728,7 +728,6 @@
 				738669562B8B1A61AB38C3267BC02D93 /* TactileSliderLayerRenderer.swift */,
 				CFDCEC946B81F79334E05AF97C888A4E /* Support Files */,
 			);
-			name = TactileSlider;
 			path = TactileSlider;
 			sourceTree = "<group>";
 		};
@@ -851,7 +850,6 @@
 				4D27B9E0DBB060657876DE0E8E1F2D4D /* RCTransaction.h */,
 				C20AFC083AA9AA02478605A0B06CAC4A /* Support Files */,
 			);
-			name = Purchases;
 			path = Purchases;
 			sourceTree = "<group>";
 		};
@@ -892,7 +890,6 @@
 				F7A583728170347ED225DCC9B8CA0359 /* UInt8+Extensions.swift */,
 				7BF7285C3856DC113CDCD53C489F6FC3 /* Support Files */,
 			);
-			name = PurchasesCoreSwift;
 			path = PurchasesCoreSwift;
 			sourceTree = "<group>";
 		};
@@ -1146,7 +1143,6 @@
 				9C7C31C94BB7DA6541094FD3498FE2BF /* Core */,
 				B6FAB73B14D141AE9F02FB7A2CF25003 /* Support Files */,
 			);
-			name = Charts;
 			path = Charts;
 			sourceTree = "<group>";
 		};
@@ -1356,7 +1352,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -1731,6 +1727,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1781,7 +1778,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Charts/Charts-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Charts/Charts-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1854,7 +1851,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Purchases/Purchases-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Purchases/Purchases-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1889,7 +1886,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Purchases/Purchases-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Purchases/Purchases-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1962,7 +1959,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TactileSlider/TactileSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TactileSlider/TactileSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1997,7 +1994,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2032,7 +2029,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TactileSlider/TactileSlider-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TactileSlider/TactileSlider-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2077,6 +2074,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2130,7 +2128,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PurchasesCoreSwift/PurchasesCoreSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2166,7 +2164,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Charts/Charts-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Charts/Charts-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

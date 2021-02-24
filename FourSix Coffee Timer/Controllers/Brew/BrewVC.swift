@@ -13,9 +13,6 @@ import Purchases
 class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Constants
-    let showRecipeID = "ShowRecipe"
-    let balanceDict: [Balance: Int] = [.sweet: 0, .neutral: 1, .bright: 2]
-    let strengthDict: [Strength: Int] = [.light: 0, .medium: 1, .strong: 2]
     let coffeeMin: Float = 10
     let coffeeMax: Float = 40
     let selectionFeedback = UISelectionFeedbackGenerator()
@@ -113,13 +110,8 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         balanceSelect.setFontMedium()
         strengthSelect.setFontMedium()
         
-        if let balance = balanceDict[balance] {
-            balanceSelect.selectedSegmentIndex = balance
-        }
-        
-        if let strength = strengthDict[strength] {
-            strengthSelect.selectedSegmentIndex = strength
-        }
+        balanceSelect.selectedSegmentIndex = Balance.allCases.firstIndex(of: balance) ?? 1
+        strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
     }
     
     func purchaseCompleted() {

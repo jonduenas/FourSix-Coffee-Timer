@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum Balance: Float {
+enum Balance: Float, CaseIterable {
     case sweet = 0.42
     case neutral = 0.5
     case bright = 0.58
 }
 
-enum Strength: Int {
+enum Strength: Int, CaseIterable {
     case light = 2
     case medium = 3
     case strong = 4
