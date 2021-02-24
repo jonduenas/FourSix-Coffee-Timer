@@ -43,7 +43,6 @@ class TimerCoordinator: Coordinator {
     }
     
     func didFinishSummary() {
-        parentCoordinator?.didFinishSummary()
         parentCoordinator?.childDidFinish(self)
     }
 }

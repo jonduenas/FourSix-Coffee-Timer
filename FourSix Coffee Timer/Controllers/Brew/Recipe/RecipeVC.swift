@@ -23,7 +23,7 @@ class RecipeVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Recipe"
+        initNavBar()
         updateLabels()
         loadGraph()
     }
@@ -32,6 +32,11 @@ class RecipeVC: UIViewController, Storyboarded {
         super.viewDidAppear(animated)
         
         animateDetails()
+    }
+    
+    private func initNavBar() {
+        title = "Recipe"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(xButtonTapped))
     }
     
     private func updateLabels() {
@@ -53,8 +58,12 @@ class RecipeVC: UIViewController, Storyboarded {
         barChartView.notifyDataSetChanged()
     }
     
-    @IBAction func startTapped(_ sender: Any) {
-        coordinator?.showTimer(for: recipe)
+//    @IBAction func startTapped(_ sender: Any) {
+//        coordinator?.showTimer(for: recipe)
+//    }
+    
+    @objc private func xButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func animateDetails() {

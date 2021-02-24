@@ -70,6 +70,7 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     @objc private func doneTapped() {
         dismiss(animated: true) { [weak self] in
             self?.coordinator?.didFinishSummary()
+            AppStoreReviewManager.requestReviewIfAppropriate()
         }
     }
 }
