@@ -10,7 +10,7 @@ import UIKit
 import TactileSlider
 import Purchases
 
-class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
+class BrewVC: UIViewController, Storyboarded {
     weak var coordinator: BrewCoordinator?
     lazy var selectionFeedback = UISelectionFeedbackGenerator()
     lazy var calculator = Calculator()
@@ -97,14 +97,6 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         coordinator?.showSettings()
     }
     
-    func checkForPro() {
-        if IAPManager.shared.userIsPro() {
-            enableProFeatures(true)
-        } else {
-            enableProFeatures(false)
-        }
-    }
-    
     private func initializeSlider() {
         slider.minimum = Recipe.coffeeMin
         slider.maximum = Recipe.coffeeMax
@@ -117,14 +109,6 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         
         balanceSelect.selectedSegmentIndex = Balance.allCases.firstIndex(of: balance) ?? 1
         strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
-    }
-    
-    func purchaseCompleted() {
-        checkForPro()
-    }
-    
-    func purchaseRestored() {
-        checkForPro()
     }
     
     private func calculateWater() {
@@ -210,6 +194,24 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
             UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.auto.rawValue
             UserDefaultsManager.userHasMigratedStepAdvance = true
             UserDefaultsManager.launchedBefore = true
+        }
+    }
+}
+
+extension BrewVC: PaywallDelegate {
+    func purchaseCompleted() {
+        checkForPro()
+    }
+    
+    func purchaseRestored() {
+        checkForPro()
+    }
+    
+    func checkForPro() {
+        if IAPManager.shared.userIsPro() {
+            enableProFeatures(true)
+        } else {
+            enableProFeatures(false)
         }
     }
     
