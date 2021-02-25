@@ -141,6 +141,14 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
         checkForPro()
     }
     
+    private func createRecipe() -> Recipe {
+        if UserDefaultsManager.previousCoffee != coffee {
+            UserDefaultsManager.previousCoffee = coffee
+        }
+        
+        return calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: timerStepInterval)
+    }
+    
     // MARK: IBActions
     
     @IBAction func editTapped(_ sender: UIButton) {
@@ -164,25 +172,17 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     }
 
     @IBAction func showRecipeTapped(_ sender: UIButton) {
-        let recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
-        coordinator?.showRecipe(recipe: recipe)
+        coordinator?.showRecipe(recipe: createRecipe())
     }
     
     @IBAction func calculateTapped(_ sender: Any) {
-        if isCoffeeAcceptableRange() {
-            let recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
-            coordinator?.showTimer(for: recipe)
+        if isCoffeeAcceptableRange() || UserDefaultsManager.userHasSeenCoffeeRangeWarning {
+            coordinator?.showTimer(for: createRecipe())
         } else {
-            if UserDefaultsManager.userHasSeenCoffeeRangeWarning {
-                let recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: Double(timerStepInterval))
-                coordinator?.showTimer(for: recipe)
-            } else {
-                showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
-                    guard let self = self else { return }
-                    UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
-                    let recipe = self.calculator.calculateRecipe(balance: self.balance, strength: self.strength, coffee: self.coffee, water: self.water, stepInterval: Double(self.timerStepInterval))
-                    self.coordinator?.showTimer(for: recipe)
-                }
+            showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
+                guard let self = self else { return }
+                UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
+                self.coordinator?.showTimer(for: self.createRecipe())
             }
         }
     }
