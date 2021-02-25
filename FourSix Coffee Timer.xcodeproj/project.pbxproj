@@ -52,11 +52,11 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
+		65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
+		65B0D84025E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
 		65BBE40125E470F700788156 /* RecipeBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40025E470F700788156 /* RecipeBarChart.swift */; };
 		65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40425E485F400788156 /* RecipeBarDetailView.swift */; };
 		65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */; };
-		65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
-		65B0D84025E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
 		65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9225D71775007177B8 /* Coordinator.swift */; };
 		65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9825D717DA007177B8 /* Storyboarded.swift */; };
 		65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */; };
@@ -137,10 +137,10 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
+		65B0D83E25E6D394002B4F34 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		65BBE40025E470F700788156 /* RecipeBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBarChart.swift; sourceTree = "<group>"; };
 		65BBE40425E485F400788156 /* RecipeBarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBarDetailView.swift; sourceTree = "<group>"; };
 		65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brace+UIBezierPath.swift"; sourceTree = "<group>"; };
-		65B0D83E25E6D394002B4F34 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		65BE8A9225D71775007177B8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65BE8A9825D717DA007177B8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCoordinator.swift; sourceTree = "<group>"; };
