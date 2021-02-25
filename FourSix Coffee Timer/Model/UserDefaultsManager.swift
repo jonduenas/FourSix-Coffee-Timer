@@ -13,6 +13,7 @@ class UserDefaultsManager: NSObject {
     private static let userDefaults = UserDefaults.standard
     
     // MARK: Key Values
+    private static let launchedBeforeKey = "launchedBeforeKey"
     private static let didPurchaseProKey = "didPurchaseProKey"
     private static let totalTimeShownKey = "totalTimeShownKey"
     private static let timerStepAdvanceKey = "timerStepAdvanceKey"
@@ -30,6 +31,15 @@ class UserDefaultsManager: NSObject {
     private static let userHasMigratedStepAdvanceKey = "userHasMigratedStepAdvanceKey"
     
     // MARK: Variables
+    
+    static var launchedBefore: Bool {
+        get {
+            return userDefaults.bool(forKey: launchedBeforeKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: launchedBeforeKey)
+        }
+    }
     
     static var didPurchasePro: Bool {
         get {

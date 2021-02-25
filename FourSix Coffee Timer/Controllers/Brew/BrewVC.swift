@@ -20,20 +20,20 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     // MARK: Variables
     weak var coordinator: BrewCoordinator?
     var calculator = Calculator()
+    var timerStepInterval: Int = 45
+    var recipe = Recipe.defaultRecipe
     
     var balance: Balance = .neutral {
         didSet {
             UserDefaultsManager.previousSelectedBalance = balance.rawValue
         }
     }
-    
+
     var strength: Strength = .medium {
         didSet {
             UserDefaultsManager.previousSelectedStrength = strength.rawValue
         }
     }
-    
-    var timerStepInterval: Int = 45
     
     var ratio: Ratio = Ratio.defaultRatio {
         didSet {
@@ -88,9 +88,6 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     
     private func initializeNavBar() {
         title = "Let's Brew"
-        if #available(iOS 14.0, *) {
-            self.navigationItem.backButtonDisplayMode = .minimal
-        }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
     }
     
@@ -197,42 +194,27 @@ class BrewVC: UIViewController, PaywallDelegate, Storyboarded {
     // MARK: UserDefaults
     
     fileprivate func loadUserDefaults() {
-        let rawBalance = UserDefaultsManager.previousSelectedBalance
-        balance = Balance(rawValue: rawBalance) ?? .neutral
-        
-        let rawStrength = UserDefaultsManager.previousSelectedStrength
-        strength = Strength(rawValue: rawStrength) ?? .medium
-        
-        if UserDefaultsManager.ratio != 0 {
-            // If it's not 0, it means the app has been used before, and ratio should be set to previous user setting
-            ratio = Ratio(consequent: UserDefaultsManager.ratio)
-        } else {
-            // Only does this on first app launch - Set UserDefault ratio value to default
-            UserDefaultsManager.ratio = Ratio.defaultRatio.consequent
-        }
-        
-        if UserDefaultsManager.previousCoffee != 0 {
-            coffee = UserDefaultsManager.previousCoffee
-        }
-        
-        if UserDefaultsManager.timerStepInterval != 0 {
-            // Same as ratio, if not 0, then load previous user setting
+        if UserDefaultsManager.launchedBefore {
+            balance = Balance(rawValue: UserDefaultsManager.previousSelectedBalance) ?? .neutral
+            strength = Strength(rawValue: UserDefaultsManager.previousSelectedStrength) ?? .medium
             timerStepInterval = UserDefaultsManager.timerStepInterval
-        } else {
-            // Only does this on first app launch - Set UserDefault to 45
-            UserDefaultsManager.timerStepInterval = timerStepInterval
-        }
-        
-        // Migrates users from old UserDefault setting to new one or sets default for new user
-        if !UserDefaultsManager.userHasMigratedStepAdvance {
-            if UserDefaultsManager.timerStepAdvance == 1 {
-                // This will only be true if user is current and has set their setting to manual
-                UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.manual.rawValue
-            } else {
-                // This catches current users set to auto or new users and sets this to default
-                UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.auto.rawValue
+            coffee = UserDefaultsManager.previousCoffee
+            ratio = Ratio(consequent: UserDefaultsManager.ratio)
+            
+            recipe = calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: TimeInterval(timerStepInterval))
+            
+            if !UserDefaultsManager.userHasMigratedStepAdvance {
+                UserDefaultsManager.timerStepAdvanceSetting = UserDefaultsManager.timerStepAdvance == 1 ? StepAdvance.manual.rawValue : StepAdvance.auto.rawValue
+                UserDefaultsManager.userHasMigratedStepAdvance = true
             }
+        } else {
+            UserDefaultsManager.previousSelectedBalance = Balance.neutral.rawValue
+            UserDefaultsManager.previousSelectedStrength = Strength.medium.rawValue
+            UserDefaultsManager.timerStepInterval = timerStepInterval
+            UserDefaultsManager.ratio = Ratio.defaultRatio.consequent
+            UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.auto.rawValue
             UserDefaultsManager.userHasMigratedStepAdvance = true
+            UserDefaultsManager.launchedBefore = true
         }
     }
     
