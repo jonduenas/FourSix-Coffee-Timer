@@ -21,10 +21,20 @@ enum Strength: Int, CaseIterable {
 }
 
 struct Recipe {
-    let coffee: Float
-    let waterTotal: Float
-    let waterPours: [Float]
-    let interval: TimeInterval
-    let balance: Balance
-    let strength: Strength
+    static let coffeeMin: Float = 10.0
+    static let coffeeMax: Float = 40.0
+    static let acceptableCoffeeRange: ClosedRange<Float> = 15...25
+    static let defaultRecipe = Recipe(coffee: 20,
+                                      waterTotal: 300,
+                                      waterPours: [60, 60, 60, 60, 60],
+                                      interval: 45,
+                                      balance: .neutral,
+                                      strength: .medium)
+    
+    var coffee: Float
+    var waterTotal: Float
+    var waterPours: [Float]
+    var interval: TimeInterval
+    var balance: Balance
+    var strength: Strength
 }
