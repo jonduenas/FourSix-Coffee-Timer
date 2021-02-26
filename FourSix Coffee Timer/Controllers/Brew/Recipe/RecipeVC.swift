@@ -10,9 +10,8 @@ import UIKit
 import Charts
 
 class RecipeVC: UIViewController, Storyboarded {
-    var recipe: Recipe!
-    var labelArray = [UILabel]()
     weak var coordinator: BrewCoordinator?
+    var recipe: Recipe!
     
     @IBOutlet var totalCoffeeWaterLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
@@ -41,7 +40,6 @@ class RecipeVC: UIViewController, Storyboarded {
     
     private func updateLabels() {
         footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
-        
         totalCoffeeWaterLabel.text = recipe.coffee.clean + "g coffee : " + recipe.waterTotal.clean + "g water"
     }
     
@@ -58,24 +56,20 @@ class RecipeVC: UIViewController, Storyboarded {
         barChartView.notifyDataSetChanged()
     }
     
-//    @IBAction func startTapped(_ sender: Any) {
-//        coordinator?.showTimer(for: recipe)
-//    }
+    private func animateDetails() {
+        guard recipeBarDetailView.isHidden || recipeBarDetailView.alpha == 0 else { return }
+        
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: .calculationModeLinear) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) { [unowned self] in
+                self.recipeBarDetailView.isHidden = false
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1) { [unowned self] in
+                self.recipeBarDetailView.alpha = 1
+            }
+        }
+    }
     
     @objc private func xButtonTapped() {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    private func animateDetails() {
-        if recipeBarDetailView.isHidden {
-            UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: .calculationModeLinear) {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) { [unowned self] in
-                    self.recipeBarDetailView.isHidden = false
-                }
-                UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1) { [unowned self] in
-                    self.recipeBarDetailView.alpha = 1
-                }
-            }
-        }
     }
 }
