@@ -117,7 +117,6 @@ class TimerVC: UIViewController, Storyboarded {
             self.currentStepTimeLabel.text = currentInterval.stringFromTimeInterval()
             self.totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
         }
-        
     }
     
     private func nextStep() {
@@ -150,31 +149,30 @@ class TimerVC: UIViewController, Storyboarded {
     }
     
     private func startNewTimer() {
-        if coffeeTimer.timerState == .new {
-            //first run of brand new timer
-            
-            //disable screen from sleeping while timer being used
-            UIApplication.shared.isIdleTimerDisabled = true
-            
-            startTimer()
-            
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.playPauseButton.isEnabled = true
-                self.playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-                
-                self.currentWater += self.recipe.waterPours[self.coffeeTimer.recipeIndex]
-                self.updateWeightLabels()
-                
-                self.nextButton.isHidden = false
-                
-                UIView.animate(withDuration: 0.2) {
-                    self.nextButton.alpha = 1
-                }
-            }
-            playSoundWithVibrate()
-        } else {
+        // First run of brand new timer
+        guard coffeeTimer.timerState == .new else {
             print("Attempting to start new timer when timer state is not new.")
+            return
+        }
+        
+        // Disable screen from sleeping while timer being used
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        startTimer()
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.playPauseButton.isEnabled = true
+            self.playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            
+            self.currentWater += self.recipe.waterPours[self.coffeeTimer.recipeIndex]
+            self.updateWeightLabels()
+            
+            self.nextButton.isHidden = false
+            
+            UIView.animate(withDuration: 0.2) {
+                self.nextButton.alpha = 1
+            }
         }
     }
     
