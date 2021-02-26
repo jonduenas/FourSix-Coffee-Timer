@@ -9,12 +9,12 @@
 import UIKit
 import AVFoundation
 
-class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
+class TimerVC: UIViewController, Storyboarded {
     var coffeeTimer: CoffeeTimer!
-    var currentWater: Float = 0
     var recipe: Recipe!
     private var audioPlayer: AVAudioPlayer?
     weak var coordinator: TimerCoordinator?
+    private var currentWater: Float = 0
     
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
@@ -29,29 +29,15 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
     
     @IBOutlet var progressView: ProgressCircle!
     
-    deinit {
-        print("TimerVC cleared")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeTapped))
-        
-        // Make timer font monospaced
-        currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
-        totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
-        
-        if UserDefaultsManager.totalTimeShown {
-            totalTimeStackView.isHidden = false
-        }
-        
-        let timerScheduler = TimerScheduler()
-        coffeeTimer = CoffeeTimer(timerScheduler: timerScheduler, recipe: recipe)
-        
+        initNavBar()
+        initTimerFonts()
+        initTimerUserPreferences()
+        initCoffeeTimer()
         updateWeightLabels()
-        
-        initializeSoundFile()
+        initSoundFile()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,48 +46,23 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
         UIApplication.shared.isIdleTimerDisabled = false
     }
     
-    // MARK: AVAudioPlayer Methods
-    
-    private func initializeSoundFile() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.ambient, options: .duckOthers)
-        } catch {
-            print(error.localizedDescription)
-        }
-    
-        guard let sound = Bundle.main.path(forResource: "custom-notification", ofType: "mp3") else { return }
-        let url = URL(fileURLWithPath: sound)
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.delegate = self
-        } catch {
-            print(error.localizedDescription)
-        }
+    private func initNavBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeTapped))
     }
     
-    private func activateAudioSession(_ activate: Bool) {
-        do {
-            try AVAudioSession.sharedInstance().setActive(activate)
-        } catch {
-            print(error.localizedDescription)
-        }
+    private func initTimerFonts() {
+        // Make timer font monospaced
+        currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
+        totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
     }
     
-    private func playSoundWithVibrate() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let self = self else { return }
-            guard let audioPlayer = self.audioPlayer else { return }
-            self.activateAudioSession(true)
-            audioPlayer.play()
-            UIDevice.vibrate()
-        }
+    private func initTimerUserPreferences() {
+        totalTimeStackView.isHidden = !UserDefaultsManager.totalTimeShown
     }
     
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.activateAudioSession(false)
-        }
+    private func initCoffeeTimer() {
+        let timerScheduler = TimerScheduler()
+        coffeeTimer = CoffeeTimer(timerScheduler: timerScheduler, recipe: recipe)
     }
 
     // MARK: Button methods
@@ -273,6 +234,50 @@ class TimerVC: UIViewController, AVAudioPlayerDelegate, Storyboarded {
             default:
                 return
             }
+        }
+    }
+}
+
+extension TimerVC: AVAudioPlayerDelegate {
+    private func initSoundFile() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.ambient, options: .duckOthers)
+        } catch {
+            print(error.localizedDescription)
+        }
+    
+        guard let sound = Bundle.main.path(forResource: "custom-notification", ofType: "mp3") else { return }
+        let url = URL(fileURLWithPath: sound)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.delegate = self
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func activateAudioSession(_ activate: Bool) {
+        do {
+            try AVAudioSession.sharedInstance().setActive(activate)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func playSoundWithVibrate() {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            guard let audioPlayer = self.audioPlayer else { return }
+            self.activateAudioSession(true)
+            audioPlayer.play()
+            UIDevice.vibrate()
+        }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.activateAudioSession(false)
         }
     }
 }
