@@ -14,39 +14,43 @@ class BrewVC: UIViewController, Storyboarded {
     weak var coordinator: BrewCoordinator?
     lazy var selectionFeedback = UISelectionFeedbackGenerator()
     lazy var calculator = Calculator()
-    var timerStepInterval = Recipe.defaultRecipe.interval
     
-    var balance: Balance = Recipe.defaultRecipe.balance {
+    var timerStepInterval: TimeInterval = TimeInterval(UserDefaultsManager.timerStepInterval) {
+        didSet {
+            UserDefaultsManager.timerStepInterval = Int(timerStepInterval)
+        }
+    }
+    
+    var balance: Balance = Balance(rawValue: UserDefaultsManager.previousSelectedBalance) ?? Recipe.defaultRecipe.balance {
         didSet {
             UserDefaultsManager.previousSelectedBalance = balance.rawValue
         }
     }
 
-    var strength: Strength = Recipe.defaultRecipe.strength {
+    var strength: Strength = Strength(rawValue: UserDefaultsManager.previousSelectedStrength) ?? Recipe.defaultRecipe.strength {
         didSet {
             UserDefaultsManager.previousSelectedStrength = strength.rawValue
         }
     }
 
-    var ratio: Ratio = Ratio.defaultRatio {
+    var ratio: Ratio = Ratio(consequent: UserDefaultsManager.ratio) {
         didSet {
             if UserDefaultsManager.ratio != ratio.consequent {
                 UserDefaultsManager.ratio = ratio.consequent
             }
-            calculateWater()
+            water = calculateWater()
         }
     }
     
-    var coffee: Float = Recipe.defaultRecipe.coffee {
+    var coffee: Float = UserDefaultsManager.previousCoffee {
         didSet {
-            coffeeLabel.text = coffee.clean + "g"
-            calculateWater()
+            water = calculateWater()
         }
     }
     
-    var water: Float = Recipe.defaultRecipe.waterTotal {
+    lazy var water: Float = calculateWater() {
         didSet {
-            waterLabel.text = water.clean + "g"
+            updateValueLabels()
         }
     }
     
@@ -63,12 +67,13 @@ class BrewVC: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUserDefaults()
+        checkForStepAdvanceMigration()
         initializeNavBar()
         initializeFonts()
         initializeSlider()
         initializeSelectors()
         checkForPro()
+        updateValueLabels()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,8 +116,13 @@ class BrewVC: UIViewController, Storyboarded {
         strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
     }
     
-    private func calculateWater() {
-        water = (coffee * ratio.consequent).rounded()
+    private func updateValueLabels() {
+        coffeeLabel.text = coffee.clean + "g"
+        waterLabel.text = water.clean + "g"
+    }
+    
+    private func calculateWater() -> Float {
+        return (coffee * ratio.consequent).rounded()
     }
     
     private func isCoffeeAcceptableRange() -> Bool {
@@ -173,27 +183,10 @@ class BrewVC: UIViewController, Storyboarded {
     
     // MARK: UserDefaults
     
-    fileprivate func loadUserDefaults() {
-        if UserDefaultsManager.launchedBefore {
-            balance = Balance(rawValue: UserDefaultsManager.previousSelectedBalance) ?? .neutral
-            strength = Strength(rawValue: UserDefaultsManager.previousSelectedStrength) ?? .medium
-            timerStepInterval = TimeInterval(UserDefaultsManager.timerStepInterval)
-            coffee = UserDefaultsManager.previousCoffee
-            ratio = Ratio(consequent: UserDefaultsManager.ratio)
-            
-            if !UserDefaultsManager.userHasMigratedStepAdvance {
-                UserDefaultsManager.timerStepAdvanceSetting = UserDefaultsManager.timerStepAdvance == 1 ? StepAdvance.manual.rawValue : StepAdvance.auto.rawValue
-                UserDefaultsManager.userHasMigratedStepAdvance = true
-            }
-        } else {
-            let defaultRecipe = Recipe.defaultRecipe
-            UserDefaultsManager.previousSelectedBalance = defaultRecipe.balance.rawValue
-            UserDefaultsManager.previousSelectedStrength = defaultRecipe.strength.rawValue
-            UserDefaultsManager.timerStepInterval = Int(defaultRecipe.interval)
-            UserDefaultsManager.ratio = Ratio.defaultRatio.consequent
-            UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.auto.rawValue
+    private func checkForStepAdvanceMigration() {
+        if !UserDefaultsManager.userHasMigratedStepAdvance {
+            UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.allCases[UserDefaultsManager.timerStepAdvance].rawValue
             UserDefaultsManager.userHasMigratedStepAdvance = true
-            UserDefaultsManager.launchedBefore = true
         }
     }
 }

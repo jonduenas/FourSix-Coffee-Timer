@@ -39,8 +39,8 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20g" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="apM-sG-DyS">
-                                                                        <rect key="frame" x="41.999999999999993" y="48" width="75.333333333333314" height="48"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="??g" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="apM-sG-DyS">
+                                                                        <rect key="frame" x="45.999999999999993" y="48" width="67.333333333333314" height="48"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -62,8 +62,8 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300g" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-7S-1A3">
-                                                                        <rect key="frame" x="28" y="48" width="103" height="48"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???g" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-7S-1A3">
+                                                                        <rect key="frame" x="35" y="48" width="89" height="48"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
