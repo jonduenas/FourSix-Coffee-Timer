@@ -8,11 +8,6 @@
 
 import Foundation
 
-public protocol TimerScheduling {
-    func start(timeInterval: TimeInterval, repeats: Bool, block: @escaping (Timer) -> Void)
-    func invalidate()
-}
-
 class TimerScheduler: TimerScheduling {
     
     private weak var timer: Timer?

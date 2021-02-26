@@ -8,12 +8,6 @@
 
 import UIKit
 
-@objc protocol PaywallDelegate {
-    func purchaseCompleted()
-    @objc optional func purchaseRestored()
-    @objc optional func purchaseFailed()
-}
-
 class PurchaseProVC: UIViewController {
     
     weak var delegate: PaywallDelegate?
