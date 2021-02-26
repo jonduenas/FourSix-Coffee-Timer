@@ -11,7 +11,7 @@ import UIKit
 class ProgressCircle: UIControl, CAAnimationDelegate {
     
     let progressStrokeColor = UIColor(named: "Fill")!
-    let progressOverStrokeColor = UIColor.red
+    let progressWarningStrokeColor = UIColor.red
     private let trackStrokeColor = UIColor.systemGray4
     
     var progressLayer: CAShapeLayer!

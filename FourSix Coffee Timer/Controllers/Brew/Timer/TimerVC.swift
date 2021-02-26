@@ -182,17 +182,22 @@ class TimerVC: UIViewController, Storyboarded {
             self.updateProgress()
         }
         
-        if currentStepElapsedTime > recipe.interval + CoffeeTimer.Constants.timerInterval && progressView.progressLayer.strokeColor == progressView.progressStrokeColor.cgColor {
-            // User has auto-advance turned off - set color to red for warning
+        let isPastInterval = currentStepElapsedTime > recipe.interval + CoffeeTimer.Constants.timerInterval
+        let progressStrokeColorIsWarning = progressView.progressLayer.strokeColor == progressView.progressWarningStrokeColor.cgColor
+        
+        if isPastInterval {
+            guard !progressStrokeColorIsWarning else { return } // Makes sure color isn't already set for warning
+            
+            // User has auto-advance turned off - set color for warning
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                print("Red progress view")
-                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressOverStrokeColor, animated: true)
+
+                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressWarningStrokeColor, animated: true)
             }
-        } else if currentStepElapsedTime < recipe.interval + CoffeeTimer.Constants.timerInterval && progressView.progressLayer.strokeColor == progressView.progressOverStrokeColor.cgColor {
-            // Only sets to blue if currently red
+        } else {
+            guard progressStrokeColorIsWarning else { return } // Makes sure color is set to warning before changing it back
+            
             DispatchQueue.main.async {
-                print("Blue progress view")
                 self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressStrokeColor, animated: false)
             }
         }
