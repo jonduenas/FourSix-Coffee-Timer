@@ -80,17 +80,18 @@ class TimerVC: UIViewController, Storyboarded {
     }
     
     @IBAction func playPauseTapped(_ sender: Any) {
-        if coffeeTimer.timerState == .running {
+        switch coffeeTimer.timerState {
+        case .running:
             coffeeTimer.pause()
             playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        } else if coffeeTimer.timerState == .paused {
+        case .paused:
             startTimer()
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-        } else if coffeeTimer.timerState == .countdown {
+        case .countdown:
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
             countdownStart()
-        } else {
+        default:
             print("Error loading coffeeTimer.")
         }
     }
