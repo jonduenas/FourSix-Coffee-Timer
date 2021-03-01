@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Charts
 
 class RecipeVC: UIViewController, Storyboarded {
     weak var coordinator: BrewCoordinator?
@@ -24,7 +23,7 @@ class RecipeVC: UIViewController, Storyboarded {
         
         initNavBar()
         updateLabels()
-        loadGraph()
+        barChartView.createBarChart(for: recipe)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,19 +40,6 @@ class RecipeVC: UIViewController, Storyboarded {
     private func updateLabels() {
         footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
         totalCoffeeWaterLabel.text = recipe.coffee.clean + "g coffee : " + recipe.waterTotal.clean + "g water"
-    }
-    
-    private func loadGraph() {
-        let entry = BarChartDataEntry(x: 1.0, yValues: recipe.waterPours.map { Double($0) })
-        
-        let dataSet = BarChartDataSet(entries: [entry])
-        dataSet.setRecipeGraphPreferences()
-
-        let data = BarChartData(dataSets: [dataSet])
-        barChartView.data = data
-        barChartView.setBarDataPreferences()
-
-        barChartView.notifyDataSetChanged()
     }
     
     private func animateDetails() {

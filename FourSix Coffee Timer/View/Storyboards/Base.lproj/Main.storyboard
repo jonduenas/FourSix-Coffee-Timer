@@ -341,26 +341,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="722"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hzl-hg-dYP">
-                                        <rect key="frame" x="95" y="0.0" width="200" height="72.333333333333329"/>
+                                        <rect key="frame" x="95" y="0.0" width="200" height="36"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="njO-qd-MST">
-                                                <rect key="frame" x="44.666666666666657" y="0.0" width="111" height="72.333333333333329"/>
+                                                <rect key="frame" x="44.666666666666657" y="0.0" width="111" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1 of 5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-RM-jrQ">
-                                                        <rect key="frame" x="16.666666666666686" y="0.0" width="77.666666666666671" height="20.333333333333332"/>
+                                                        <rect key="frame" x="16.666666666666686" y="0.0" width="77.666666666666671" height="10"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMt-5Y-O2E">
-                                                        <rect key="frame" x="0.0" y="30.666666666666671" width="111" height="1"/>
+                                                        <rect key="frame" x="0.0" y="15" width="111" height="1"/>
                                                         <color key="backgroundColor" systemColor="separatorColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="MBL-Mp-2Z3"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour 120g" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-8I-gY6">
-                                                        <rect key="frame" x="0.33333333333334281" y="42.333333333333343" width="110.33333333333333" height="30"/>
+                                                        <rect key="frame" x="0.33333333333334281" y="21" width="110.33333333333333" height="15"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
@@ -379,25 +379,25 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sHI-cb-y8N">
-                                        <rect key="frame" x="91.333333333333329" y="113.66666666666666" width="207.66666666666669" height="95.666666666666657"/>
+                                        <rect key="frame" x="91.333333333333329" y="89.666666666666657" width="207.66666666666669" height="95.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="80"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Zz-tj-6lm" customClass="ProgressCircle" customModule="FourSix" customModuleProvider="target">
-                                        <rect key="frame" x="37.333333333333343" y="250.66666666666669" width="315.33333333333326" height="350.00000000000006"/>
+                                        <rect key="frame" x="37.333333333333343" y="238.66666666666669" width="315.33333333333326" height="350.00000000000006"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1ye-Pb-0p1">
-                                                <rect key="frame" x="90.666666666666657" y="132" width="134" height="86"/>
+                                                <rect key="frame" x="90.666666666666657" y="131.66666666666663" width="134" height="86.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Total Water" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="j0c-Vg-yHs">
-                                                        <rect key="frame" x="28" y="0.0" width="78" height="19"/>
+                                                        <rect key="frame" x="28" y="0.0" width="78" height="19.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0g" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nzI-Tp-WWg">
-                                                        <rect key="frame" x="5" y="19" width="124" height="67"/>
+                                                        <rect key="frame" x="5" y="19.333333333333371" width="124" height="67"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -436,7 +436,7 @@
                                         </variation>
                                     </view>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JCn-zF-Emk">
-                                        <rect key="frame" x="150" y="605.66666666666663" width="90.333333333333314" height="61"/>
+                                        <rect key="frame" x="150" y="593.66666666666663" width="90.333333333333314" height="61"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="rUG-aE-fiD">
                                                 <rect key="frame" x="5.6666666666666572" y="0.0" width="79" height="18.666666666666668"/>
@@ -704,25 +704,28 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jX-sQ-75J">
                                         <rect key="frame" x="105" y="81.333333333333343" width="120" height="443.33333333333326"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atz-4V-Epi" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atz-4V-Epi" customClass="RecipeBarChart" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="443.33333333333331"/>
                                                 <subviews>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-h8-wYQ" customClass="RecipeBarChart" customModule="FourSix" customModuleProvider="target">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="zcU-Hm-FlR">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="443.33333333333331"/>
-                                                    </view>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Oeh-h8-wYQ" firstAttribute="top" secondItem="atz-4V-Epi" secondAttribute="top" id="RJG-ks-Qnm"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Oeh-h8-wYQ" secondAttribute="bottom" id="aO3-FV-BdJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Oeh-h8-wYQ" secondAttribute="trailing" id="tLn-E1-c65"/>
-                                                    <constraint firstItem="Oeh-h8-wYQ" firstAttribute="leading" secondItem="atz-4V-Epi" secondAttribute="leading" id="wCw-tk-76q"/>
+                                                    <constraint firstItem="zcU-Hm-FlR" firstAttribute="top" secondItem="atz-4V-Epi" secondAttribute="top" id="93l-hC-7IT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zcU-Hm-FlR" secondAttribute="trailing" id="ByR-Q9-7QT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="zcU-Hm-FlR" secondAttribute="bottom" id="EB9-5v-vMR"/>
                                                     <constraint firstAttribute="width" constant="120" id="xo1-rZ-Yfb"/>
+                                                    <constraint firstItem="zcU-Hm-FlR" firstAttribute="leading" secondItem="atz-4V-Epi" secondAttribute="leading" id="y1c-of-Dsg"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="18"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="barChartStack" destination="zcU-Hm-FlR" id="7Wp-0o-tJm"/>
+                                                </connections>
                                             </view>
                                             <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4k-1I-4Cj" customClass="RecipeBarDetailView" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="443.33333333333331"/>
@@ -761,7 +764,7 @@
                     <navigationItem key="navigationItem" title="Recipe" id="S7k-Rk-w3g"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="barChartView" destination="Oeh-h8-wYQ" id="Vrj-8L-XeF"/>
+                        <outlet property="barChartView" destination="atz-4V-Epi" id="k18-Qo-IO8"/>
                         <outlet property="footerLabel" destination="MIR-sT-gDJ" id="HSh-hX-3yM"/>
                         <outlet property="recipeBarDetailView" destination="e4k-1I-4Cj" id="BNs-F2-IQa"/>
                         <outlet property="totalCoffeeWaterLabel" destination="7d4-WN-kbB" id="5ZO-5N-pAy"/>
