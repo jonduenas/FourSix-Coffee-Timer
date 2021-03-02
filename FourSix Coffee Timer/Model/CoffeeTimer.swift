@@ -59,7 +59,6 @@ class CoffeeTimer {
     func start(timerUpdate: @escaping ((TimerUpdate) -> Void)) {
         switch timerState {
         case .new:
-            print("start")
             startTime = Date()
             timerState = .running
             timerUpdateCallback = timerUpdate
@@ -67,7 +66,6 @@ class CoffeeTimer {
                 self?.runCoffeeTimer()
             }
         case .paused:
-            print("resume")
             startTime = Date().addingTimeInterval(-totalElapsedTime)
             timerState = .running
             timerUpdateCallback = timerUpdate
