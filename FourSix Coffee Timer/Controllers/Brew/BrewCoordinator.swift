@@ -9,9 +9,6 @@
 import UIKit
 
 class BrewCoordinator: Coordinator {
-    let mainStoryboardName = "Main"
-    let walkthroughStoryboardName = "Walkthrough"
-    
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     weak var parentVC: BrewVC?
@@ -21,20 +18,20 @@ class BrewCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = BrewVC.instantiate(fromStoryboardNamed: mainStoryboardName)
+        let vc = BrewVC.instantiate(fromStoryboardNamed: String(describing: BrewVC.self))
         vc.coordinator = self
         parentVC = vc
         navigationController.pushViewController(vc, animated: false)
     }
     
     func showWalkthrough() {
-        let vc = WalkthroughPageVC.instantiate(fromStoryboardNamed: walkthroughStoryboardName)
+        let vc = WalkthroughPageVC.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
         vc.coordinator = self
         navigationController.present(vc, animated: true, completion: nil)
     }
     
     func showRecipe(recipe: Recipe) {
-        let vc = RecipeVC.instantiate(fromStoryboardNamed: mainStoryboardName)
+        let vc = RecipeVC.instantiate(fromStoryboardNamed: String(describing: RecipeVC.self))
         vc.coordinator = self
         vc.recipe = recipe
         let recipeNav = BrewNavigationController(rootViewController: vc)

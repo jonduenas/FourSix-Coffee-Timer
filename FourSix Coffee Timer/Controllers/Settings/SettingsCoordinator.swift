@@ -9,12 +9,11 @@
 import UIKit
 
 class SettingsCoordinator: Coordinator {
-    let settingsStoryboardName = "Settings"
-    
     var childCoordinators = [Coordinator]()
     weak var parentCoordinator: BrewCoordinator?
     var navigationController: UINavigationController
     weak var parentVC: SettingsVC?
+    let settingsStoryboardName = String(describing: SettingsVC.self)
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -24,7 +23,6 @@ class SettingsCoordinator: Coordinator {
         let vc = SettingsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.coordinator = self
         parentVC = vc
-        //navigationController.modalPresentationStyle = .fullScreen
         navigationController.pushViewController(vc, animated: false)
     }
     

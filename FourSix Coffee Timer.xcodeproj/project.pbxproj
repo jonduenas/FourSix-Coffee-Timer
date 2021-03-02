@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */; };
+		650E81F525EDBAA000DF119B /* RecipeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650E81F425EDBA9400DF119B /* RecipeVC.storyboard */; };
+		650E81F925EDBAD800DF119B /* TimerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650E81F825EDBAD800DF119B /* TimerVC.storyboard */; };
+		650E81FD25EDBB0900DF119B /* BrewSummaryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650E81FC25EDBB0900DF119B /* BrewSummaryVC.storyboard */; };
 		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
 		65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65185B9324BF8CB200F47F30 /* LoadingButton.swift */; };
 		6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6518D13424B4FADE00F786C4 /* Settings.bundle */; };
@@ -16,7 +19,7 @@
 		6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6522A40D24A955EB00583547 /* custom-notification.mp3 */; };
 		652756432475B138004E067F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756422475B138004E067F /* AppDelegate.swift */; };
 		652756452475B138004E067F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652756442475B138004E067F /* SceneDelegate.swift */; };
-		6527564A2475B138004E067F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652756482475B138004E067F /* Main.storyboard */; };
+		6527564A2475B138004E067F /* BrewVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652756482475B138004E067F /* BrewVC.storyboard */; };
 		6527564C2475B13B004E067F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6527564B2475B13B004E067F /* Assets.xcassets */; };
 		6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6527564D2475B13B004E067F /* LaunchScreen.storyboard */; };
 		6529E117249FE66F0093FAE1 /* FrequentlyAskedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */; };
@@ -24,7 +27,7 @@
 		6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E11A249FEFFB0093FAE1 /* HowToVC.swift */; };
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
 		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
-		652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652C95E424B28E3B00B471C8 /* Settings.storyboard */; };
+		652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */; };
 		65315ADE249ADB4D00994E28 /* Clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
@@ -71,7 +74,7 @@
 		65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182625DDCD9A006CF438 /* Ratio.swift */; };
 		65F5182B25E052FE006CF438 /* TimerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182A25E052FE006CF438 /* TimerNavigationController.swift */; };
 		65F5182F25E06144006CF438 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182E25E06144006CF438 /* TimerCoordinator.swift */; };
-		65FB31AF24CA130E00781023 /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB31AD24CA130E00781023 /* Walkthrough.storyboard */; };
+		65FB31AF24CA130E00781023 /* WalkthroughPageVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB31AD24CA130E00781023 /* WalkthroughPageVC.storyboard */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
 		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
 		7809654740865E175362B9C9 /* Pods_FourSix_Coffee_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */; };
@@ -90,6 +93,9 @@
 /* Begin PBXFileReference section */
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
 		65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		650E81F425EDBA9400DF119B /* RecipeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = RecipeVC.storyboard; path = "/Users/jonduenas/Local Documents/46 Timer/FourSix Coffee Timer/FourSix Coffee Timer/Controllers/Brew/Recipe/RecipeVC.storyboard"; sourceTree = "<absolute>"; };
+		650E81F825EDBAD800DF119B /* TimerVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimerVC.storyboard; sourceTree = "<group>"; };
+		650E81FC25EDBB0900DF119B /* BrewSummaryVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BrewSummaryVC.storyboard; sourceTree = "<group>"; };
 		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		65185B9324BF8CB200F47F30 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		6518D13424B4FADE00F786C4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -99,7 +105,7 @@
 		6527563F2475B138004E067F /* FourSix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		652756422475B138004E067F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		652756442475B138004E067F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		652756492475B138004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		652756492475B138004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BrewVC.storyboard; sourceTree = "<group>"; };
 		6527564B2475B13B004E067F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6527564E2475B13B004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		652756502475B13B004E067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,7 +114,7 @@
 		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/Settings/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
-		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsVC.storyboard; sourceTree = "<group>"; };
 		65315ADD249ADB4D00994E28 /* Clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.swift; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -157,7 +163,7 @@
 		65F5182625DDCD9A006CF438 /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 		65F5182A25E052FE006CF438 /* TimerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNavigationController.swift; sourceTree = "<group>"; };
 		65F5182E25E06144006CF438 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
-		65FB31AE24CA130E00781023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Walkthrough.storyboard; sourceTree = "<group>"; };
+		65FB31AE24CA130E00781023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WalkthroughPageVC.storyboard; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +192,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		650E81EF25EDBA0500DF119B /* PurchasePro */ = {
+			isa = PBXGroup;
+			children = (
+				6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */,
+				6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */,
+			);
+			path = PurchasePro;
+			sourceTree = "<group>";
+		};
 		652756362475B138004E067F = {
 			isa = PBXGroup;
 			children = (
@@ -274,21 +289,10 @@
 			path = FourSixTests;
 			sourceTree = "<group>";
 		};
-		6599B4702524FF37005EA7DD /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				65FB31AD24CA130E00781023 /* Walkthrough.storyboard */,
-				6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */,
-				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
-				652756482475B138004E067F /* Main.storyboard */,
-				652C95E424B28E3B00B471C8 /* Settings.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		6599B4732524FF73005EA7DD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */,
 				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
 				65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */,
 				65D352C324D2033F00DB3AA7 /* CustomRatioVC.swift */,
@@ -307,6 +311,7 @@
 		6599B4762524FF99005EA7DD /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
+				65FB31AD24CA130E00781023 /* WalkthroughPageVC.storyboard */,
 				65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */,
 				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
 				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
@@ -317,7 +322,7 @@
 		65AFC1FB249D55A300576AFA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6599B4702524FF37005EA7DD /* Storyboards */,
+				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
 				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
@@ -335,7 +340,7 @@
 			children = (
 				65BE8A9C25D71C9D007177B8 /* Brew */,
 				6599B4732524FF73005EA7DD /* Settings */,
-				6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */,
+				650E81EF25EDBA0500DF119B /* PurchasePro */,
 				6599B4762524FF99005EA7DD /* Walkthrough */,
 			);
 			path = Controllers;
@@ -344,6 +349,7 @@
 		65BBE40C25E5AFB500788156 /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
+				650E81F425EDBA9400DF119B /* RecipeVC.storyboard */,
 				6531720924A6B06F00709062 /* RecipeVC.swift */,
 				65BBE40025E470F700788156 /* RecipeBarChart.swift */,
 				65BBE40425E485F400788156 /* RecipeBarDetailView.swift */,
@@ -354,6 +360,7 @@
 		65BBE40D25E5AFCE00788156 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				650E81F825EDBAD800DF119B /* TimerVC.storyboard */,
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
 				65F5182E25E06144006CF438 /* TimerCoordinator.swift */,
 				65F5182A25E052FE006CF438 /* TimerNavigationController.swift */,
@@ -364,6 +371,7 @@
 		65BBE40E25E5AFFB00788156 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
+				650E81FC25EDBB0900DF119B /* BrewSummaryVC.storyboard */,
 				6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */,
 			);
 			path = Summary;
@@ -383,6 +391,7 @@
 		65BE8A9C25D71C9D007177B8 /* Brew */ = {
 			isa = PBXGroup;
 			children = (
+				652756482475B138004E067F /* BrewVC.storyboard */,
 				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
 				65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */,
 				65BF064925D759650075E082 /* BrewNavigationController.swift */,
@@ -503,16 +512,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */,
+				650E81FD25EDBB0900DF119B /* BrewSummaryVC.storyboard in Resources */,
 				6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */,
 				6529E119249FECC60093FAE1 /* faq.rtf in Resources */,
 				6527564C2475B13B004E067F /* Assets.xcassets in Resources */,
+				650E81F525EDBAA000DF119B /* RecipeVC.storyboard in Resources */,
 				6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */,
-				6527564A2475B138004E067F /* Main.storyboard in Resources */,
+				6527564A2475B138004E067F /* BrewVC.storyboard in Resources */,
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
-				65FB31AF24CA130E00781023 /* Walkthrough.storyboard in Resources */,
+				65FB31AF24CA130E00781023 /* WalkthroughPageVC.storyboard in Resources */,
 				6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */,
+				650E81F925EDBAD800DF119B /* TimerVC.storyboard in Resources */,
 				65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */,
-				652C95E624B28E3B00B471C8 /* Settings.storyboard in Resources */,
+				652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,12 +676,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		652756482475B138004E067F /* Main.storyboard */ = {
+		652756482475B138004E067F /* BrewVC.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				652756492475B138004E067F /* Base */,
 			);
-			name = Main.storyboard;
+			name = BrewVC.storyboard;
 			sourceTree = "<group>";
 		};
 		6527564D2475B13B004E067F /* LaunchScreen.storyboard */ = {
@@ -680,12 +692,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		652C95E424B28E3B00B471C8 /* Settings.storyboard */ = {
+		652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				652C95E524B28E3B00B471C8 /* Base */,
 			);
-			name = Settings.storyboard;
+			name = SettingsVC.storyboard;
 			sourceTree = "<group>";
 		};
 		6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */ = {
@@ -696,12 +708,12 @@
 			name = FourSixProPopup.storyboard;
 			sourceTree = "<group>";
 		};
-		65FB31AD24CA130E00781023 /* Walkthrough.storyboard */ = {
+		65FB31AD24CA130E00781023 /* WalkthroughPageVC.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				65FB31AE24CA130E00781023 /* Base */,
 			);
-			name = Walkthrough.storyboard;
+			name = WalkthroughPageVC.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

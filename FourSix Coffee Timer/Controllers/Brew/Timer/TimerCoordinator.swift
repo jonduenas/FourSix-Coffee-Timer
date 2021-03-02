@@ -9,8 +9,6 @@
 import UIKit
 
 class TimerCoordinator: Coordinator {
-    let mainStoryboardName = "Main"
-    
     var childCoordinators: [Coordinator] = []
     weak var parentCoordinator: BrewCoordinator?
     var navigationController: UINavigationController
@@ -22,7 +20,7 @@ class TimerCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = TimerVC.instantiate(fromStoryboardNamed: mainStoryboardName)
+        let vc = TimerVC.instantiate(fromStoryboardNamed: String(describing: TimerVC.self))
         vc.coordinator = self
         vc.recipe = recipe
         navigationController.modalPresentationStyle = .fullScreen
@@ -30,7 +28,7 @@ class TimerCoordinator: Coordinator {
     }
     
     func showSummary(recipe: Recipe, drawdownTimes: [TimeInterval], totalTime: TimeInterval) {
-        let vc = BrewSummaryVC.instantiate(fromStoryboardNamed: mainStoryboardName)
+        let vc = BrewSummaryVC.instantiate(fromStoryboardNamed: String(describing: BrewSummaryVC.self))
         vc.coordinator = self
         vc.recipe = recipe
         vc.drawdownTimes = drawdownTimes
