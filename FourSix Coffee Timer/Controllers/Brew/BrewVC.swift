@@ -109,9 +109,6 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeSelectors() {
-        balanceSelect.setFontMedium()
-        strengthSelect.setFontMedium()
-        
         balanceSelect.selectedSegmentIndex = Balance.allCases.firstIndex(of: balance) ?? 1
         strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
     }

@@ -8,26 +8,6 @@
 
 import UIKit
 
-extension UISegmentedControl {
-    func setFontLarge() {
-        let font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        
-        setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-    }
-    
-    func setFontMedium() {
-        let font = UIFont.systemFont(ofSize: 16, weight: .medium)
-    
-        setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-    }
-    
-    func setFontLargeMonospaced() {
-        let font = UIFont.monospacedDigitSystemFont(ofSize: 24, weight: .semibold)
-        
-        setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-    }
-}
-
 class CustomSegmentControl: UISegmentedControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +20,16 @@ class CustomSegmentControl: UISegmentedControl {
     }
     
     func initializeSegmentControl() {
-        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        setTitleTextColor(UIColor.white)
+        setTitleTextFont(size: 16, weight: .medium)
+    }
+    
+    private func setTitleTextColor(_ color: UIColor) {
+        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: .selected)
+    }
+    
+    private func setTitleTextFont(size: CGFloat, weight: UIFont.Weight) {
+        let font = UIFont.systemFont(ofSize: size, weight: weight)
+        setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
     }
 }
