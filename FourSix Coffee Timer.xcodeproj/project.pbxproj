@@ -42,8 +42,6 @@
 		6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA924BBDE5800C9F129 /* RoundedView.swift */; };
 		6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */; };
 		656AC71C252B9D490082C48E /* CustomIntervalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AC71B252B9D490082C48E /* CustomIntervalsVC.swift */; };
-		656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */; };
-		656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */; };
 		656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */; };
 		656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D0D53251D586A001EE918 /* TimerScheduler.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
@@ -131,8 +129,6 @@
 		6561ACA924BBDE5800C9F129 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		6561ACAC24BBE64300C9F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FourSixProPopup.storyboard; sourceTree = "<group>"; };
 		656AC71B252B9D490082C48E /* CustomIntervalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIntervalsVC.swift; sourceTree = "<group>"; };
-		656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphTop.swift; sourceTree = "<group>"; };
-		656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundGraphBottom.swift; sourceTree = "<group>"; };
 		656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		656D0D53251D586A001EE918 /* TimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduler.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -334,8 +330,6 @@
 				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
 				6561ACA924BBDE5800C9F129 /* RoundedView.swift */,
 				6515EACE24B2563B004255EB /* Shadow.swift */,
-				656BE04924AE5EEC0024AB48 /* RoundGraphTop.swift */,
-				656BE04B24AE60520024AB48 /* RoundGraphBottom.swift */,
 				656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */,
 			);
 			path = View;
@@ -624,7 +618,6 @@
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65D352C424D2033F00DB3AA7 /* CustomRatioVC.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
-				656BE04A24AE5EEC0024AB48 /* RoundGraphTop.swift in Sources */,
 				65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
@@ -654,7 +647,6 @@
 				65BBE40125E470F700788156 /* RecipeBarChart.swift in Sources */,
 				65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */,
 				65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */,
-				656BE04C24AE60520024AB48 /* RoundGraphBottom.swift in Sources */,
 				65D352C224D1E5DB00DB3AA7 /* RatioVC.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */,
