@@ -9,13 +9,13 @@
 import UIKit
 
 enum AssetsColor: String {
-    case background
-    case accent
-    case fill
-    case highlight
-    case primary
-    case secondaryBackground
-    case sliderBackground
+    case background = "Background"
+    case accent = "Accent"
+    case fill = "Fill"
+    case highlight = "Highlight"
+    case primary = "Primary"
+    case secondaryBackground = "SecondaryBackground"
+    case sliderBackground = "SliderBackground"
     case fourSixBlue
     case fourSixWhite
 }

@@ -14,7 +14,7 @@ class TimerNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.isTranslucent = false
-        navigationBar.barTintColor = UIColor(named: "Background")
+        navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
         navigationBar.tintColor = UIColor.systemGray
         navigationBar.shadowImage = UIImage()
         navigationBar.layoutIfNeeded()

@@ -48,7 +48,6 @@ class RecipeBarChart: UIView {
             
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            
         }
     }
     

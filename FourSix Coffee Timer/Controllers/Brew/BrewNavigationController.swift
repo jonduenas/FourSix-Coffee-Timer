@@ -19,7 +19,7 @@ class BrewNavigationController: UINavigationController {
     func setupNavigationBarAppearance() {
         navigationBar.isTranslucent = false
         navigationBar.tintColor = UIColor.systemGray
-        navigationBar.barTintColor = UIColor(named: "Background")
+        navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
         navigationBar.shadowImage = UIImage()
         navigationBar.layoutIfNeeded()
     }

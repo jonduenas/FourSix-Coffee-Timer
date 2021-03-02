@@ -71,7 +71,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "Background")
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44

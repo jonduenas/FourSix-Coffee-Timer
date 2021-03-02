@@ -10,7 +10,7 @@ import UIKit
 
 class ProgressCircle: UIControl, CAAnimationDelegate {
     
-    let progressStrokeColor = UIColor(named: "Fill") ?? #colorLiteral(red: 0.4103244543, green: 0.5630832911, blue: 0.9429332614, alpha: 1)
+    let progressStrokeColor = UIColor(named: AssetsColor.fill.rawValue) ?? #colorLiteral(red: 0.4103244543, green: 0.5630832911, blue: 0.9429332614, alpha: 1)
     let progressWarningStrokeColor = UIColor.red
     private let trackStrokeColor = UIColor.systemGray4
     
