@@ -20,14 +20,7 @@ class RecipeBarChart: UIView {
     }
     
     func createBarChart(for recipe: Recipe) {
-        // TODO: Move color values to model
-        let color1 = UIColor(hue: 0.6, saturation: 0.5, brightness: 0.5, alpha: 1)
-        let color2 = UIColor(hue: 0.6, saturation: 0.5, brightness: 0.56, alpha: 1)
-        let color3 = UIColor(hue: 0.6, saturation: 0.5, brightness: 0.62, alpha: 1)
-        let color4 = UIColor(hue: 0.6, saturation: 0.5, brightness: 0.68, alpha: 1)
-        let color5 = UIColor(hue: 0.6, saturation: 0.5, brightness: 0.74, alpha: 1)
-        let color6 = UIColor(hue: 0.6, saturation: 0.5, brightness: 0.8, alpha: 1)
-        let colorArray = [color6,color5,color4,color3,color2,color1]
+        let colorArray = UIColor.barChartColors()
         
         for (index, pour) in recipe.waterPours.reversed().enumerated() {
             guard colorArray.count >= index else { return }
@@ -59,7 +52,7 @@ class RecipeBarChart: UIView {
         }
     }
     
-    private func createPourView(frame: CGRect, backgroundColor: UIColor) -> UIView {
+    private func createPourView(frame: CGRect, backgroundColor: UIColor?) -> UIView {
         let view = UIView(frame: frame)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = backgroundColor

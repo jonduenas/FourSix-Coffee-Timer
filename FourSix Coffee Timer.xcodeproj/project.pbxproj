@@ -51,6 +51,8 @@
 		65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C04247D8DEC00A4CE76 /* BrewVC.swift */; };
 		65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C08247D95B700A4CE76 /* TimerVC.swift */; };
 		659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659785CF25141CB200DFB60A /* CalculatorTests.swift */; };
+		6599310625EEC38600840005 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310525EEC38600840005 /* Style.swift */; };
+		6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310925EECAF400840005 /* Style+FourSix.swift */; };
 		65A282A0251D3342001AD862 /* MockTimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2829F251D3342001AD862 /* MockTimerScheduler.swift */; };
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
@@ -141,6 +143,8 @@
 		659785CD25141CB200DFB60A /* FourSixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		659785CF25141CB200DFB60A /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		659785D125141CB200DFB60A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6599310525EEC38600840005 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		6599310925EECAF400840005 /* Style+FourSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style+FourSix.swift"; sourceTree = "<group>"; };
 		65A2829F251D3342001AD862 /* MockTimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimerScheduler.swift; sourceTree = "<group>"; };
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +328,8 @@
 			children = (
 				6527564D2475B13B004E067F /* LaunchScreen.storyboard */,
 				6557571424A673C00071DDB8 /* ProgressCircle.swift */,
+				6599310525EEC38600840005 /* Style.swift */,
+				6599310925EECAF400840005 /* Style+FourSix.swift */,
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
 				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
 				6561ACA924BBDE5800C9F129 /* RoundedView.swift */,
@@ -632,7 +638,9 @@
 				656AC71C252B9D490082C48E /* CustomIntervalsVC.swift in Sources */,
 				65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */,
 				65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */,
+				6599310625EEC38600840005 /* Style.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
+				6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */,
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,
