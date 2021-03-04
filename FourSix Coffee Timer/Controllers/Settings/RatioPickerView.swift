@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol ToolBarPickerViewDelegate: class {
+    func didTapDone(_ picker: UIPickerView)
+    func didTapDefault(_ picker: UIPickerView)
+}
+
 class RatioPickerView: UIPickerView {
-    var pickerDataSource: PickerDataSource?
-    var antecedentLabel: UILabel!
-    var colonLabel: UILabel!
-    var decimalLabel: UILabel!
+    public private(set) var toolbar: UIToolbar?
+    public weak var toolbarDelegate: ToolBarPickerViewDelegate?
+    public private(set) var pickerDataSource: PickerDataSource?
+    private var antecedentLabel: UILabel!
+    private var colonLabel: UILabel!
+    private var decimalLabel: UILabel!
     
     init(frame: CGRect, dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate) {
         super.init(frame: frame)
@@ -40,30 +47,45 @@ class RatioPickerView: UIPickerView {
         tag = SettingsPicker.ratio.rawValue
         backgroundColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
         
-        let font = UIFont.systemFont(ofSize: 21.0)
-        
-        antecedentLabel = UILabel()
-        antecedentLabel.font = font
-        antecedentLabel.textAlignment = .left
-        antecedentLabel.text = "1"
-        antecedentLabel.textColor = UIColor.secondaryLabel
+        antecedentLabel = initLabel(text: "1")
         addSubview(antecedentLabel)
         
-        colonLabel = UILabel()
-        colonLabel.font = font
-        colonLabel.textAlignment = .left
-        colonLabel.text = ":"
-        colonLabel.textColor = UIColor.secondaryLabel
+        colonLabel = initLabel(text: ":")
         addSubview(colonLabel)
         
-        decimalLabel = UILabel()
-        decimalLabel.font = font
-        decimalLabel.textAlignment = .left
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = .current
-        decimalLabel.text = numberFormatter.decimalSeparator
-        decimalLabel.textColor = UIColor.secondaryLabel
+        decimalLabel = initLabel(text: numberFormatter.decimalSeparator)
         addSubview(decimalLabel)
+        
+        toolbar = initToolbar()
+    }
+    
+    private func initLabel(text: String) -> UILabel {
+        let font = UIFont.systemFont(ofSize: 21.0)
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = font
+        label.textAlignment = .left
+        label.text = text
+        label.textColor = UIColor.secondaryLabel
+        return label
+    }
+    
+    private func initToolbar() -> UIToolbar {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        toolbar.barStyle = .default
+        toolbar.isTranslucent = true
+        toolbar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
+        toolbar.barTintColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let defaultButton = UIBarButtonItem(title: "Default", style: .plain, target: self, action: #selector(defaultTapped))
+        
+        toolbar.setItems([defaultButton, spaceButton, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        return toolbar
     }
     
     private func layoutLabels() {
@@ -80,5 +102,13 @@ class RatioPickerView: UIPickerView {
         colonLabel.frame = CGRect(x: componentWidth * (colonComponentPosition + 0.5), y: y, width: componentWidth * 0.4, height: fontSize)
         
         decimalLabel.frame = CGRect(x: componentWidth * (decimalComponentPosition + 0.5), y: y, width: componentWidth * 0.4, height: fontSize)
+    }
+    
+    @objc func doneTapped() {
+        toolbarDelegate?.didTapDone(self)
+    }
+    
+    @objc func defaultTapped() {
+        toolbarDelegate?.didTapDefault(self)
     }
 }

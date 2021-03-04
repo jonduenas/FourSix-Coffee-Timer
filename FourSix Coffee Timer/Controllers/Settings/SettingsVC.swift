@@ -79,6 +79,8 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     private func initRatioPicker() {
         ratioPickerView = RatioPickerView(frame: .zero, dataSource: pickerDataSource, delegate: self)
         ratioTextField.inputView = ratioPickerView
+        ratioTextField.inputAccessoryView = ratioPickerView?.toolbar
+        ratioPickerView?.toolbarDelegate = self
         
         let currentRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(ratio)) ?? 14
         ratioPickerView?.selectRow(currentRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: false)
@@ -361,5 +363,17 @@ extension SettingsVC: UIPickerViewDelegate {
             let seconds = pickerDataSource.intervalSec[pickerView.selectedRow(inComponent: IntervalPickerComponent.secValue.rawValue)]
             stepInterval = (minutes * 60) + seconds
         }
+    }
+}
+
+extension SettingsVC: ToolBarPickerViewDelegate {
+    func didTapDone(_ picker: UIPickerView) {
+        if picker == ratioPickerView {
+            print("done tapped on picker \(picker)")
+        }
+    }
+    
+    func didTapDefault(_ picker: UIPickerView) {
+        print("default tapped on picker \(picker)")
     }
 }
