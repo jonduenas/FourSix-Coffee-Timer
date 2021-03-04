@@ -18,9 +18,7 @@ enum RatioPickerComponent: Int, CaseIterable {
 
 enum IntervalPickerComponent: Int, CaseIterable {
     case minValue
-    case min
     case secValue
-    case sec
 }
 
 enum IntervalPickerTitle: String {
@@ -72,12 +70,8 @@ class PickerDataSource: NSObject, UIPickerViewDataSource {
             let intervalComponent = IntervalPickerComponent(rawValue: component)
             
             switch intervalComponent {
-            case .min:
-                return 1
             case .minValue:
                 return intervalMin.count
-            case .sec:
-                return 1
             case .secValue:
                 return intervalSec.count
             default:
