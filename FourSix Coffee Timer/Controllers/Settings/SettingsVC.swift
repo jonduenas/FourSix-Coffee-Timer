@@ -377,19 +377,27 @@ extension SettingsVC: ToolBarPickerViewDelegate {
         if picker == ratioPickerView {
             ratioTextField.resignFirstResponder()
         } else {
+            if stepInterval == 0 {
+                stepInterval += 1
+                intervalPickerView?.selectRow(1, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
+            }
             stepIntervalTextField.resignFirstResponder()
         }
     }
     
     func didTapDefault(_ picker: UIPickerView) {
         if picker == ratioPickerView {
+            guard ratio != Ratio.defaultRatio.consequent else { return }
             guard let defaultRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(Ratio.defaultRatio.consequent)) else { return }
+            print("Set ratio to default")
             ratioPickerView?.selectRow(defaultRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: true)
             ratioPickerView?.selectRow(0, inComponent: RatioPickerComponent.decimalValue.rawValue, animated: true)
             ratio = Ratio.defaultRatio.consequent
         } else {
             let defaultInterval = Int(Recipe.defaultRecipe.interval)
+            guard defaultInterval != stepInterval else { return }
             guard let defaultIntervalIndex = pickerDataSource.intervalSec.firstIndex(of: defaultInterval) else { return }
+            print("Set interval to default")
             intervalPickerView?.selectRow(0, inComponent: IntervalPickerComponent.minValue.rawValue, animated: true)
             intervalPickerView?.selectRow(defaultIntervalIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
             stepInterval = defaultInterval
