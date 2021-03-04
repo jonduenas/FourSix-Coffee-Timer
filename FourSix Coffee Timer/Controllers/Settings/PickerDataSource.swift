@@ -9,11 +9,13 @@
 import UIKit
 
 enum RatioPickerComponent: Int, CaseIterable {
+    case emptySpaceLeft
     case antecedent
+    case colon
     case consequent
     case decimal
     case decimalValue
-    case emptySpace
+    case emptySpaceRight
 }
 
 enum IntervalPickerComponent: Int, CaseIterable {
