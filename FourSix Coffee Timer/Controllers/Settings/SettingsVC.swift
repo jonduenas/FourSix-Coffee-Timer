@@ -375,11 +375,24 @@ extension SettingsVC: UIPickerViewDelegate {
 extension SettingsVC: ToolBarPickerViewDelegate {
     func didTapDone(_ picker: UIPickerView) {
         if picker == ratioPickerView {
-            print("done tapped on picker \(picker)")
+            ratioTextField.resignFirstResponder()
+        } else {
+            stepIntervalTextField.resignFirstResponder()
         }
     }
     
     func didTapDefault(_ picker: UIPickerView) {
-        print("default tapped on picker \(picker)")
+        if picker == ratioPickerView {
+            guard let defaultRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(Ratio.defaultRatio.consequent)) else { return }
+            ratioPickerView?.selectRow(defaultRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: true)
+            ratioPickerView?.selectRow(0, inComponent: RatioPickerComponent.decimalValue.rawValue, animated: true)
+            ratio = Ratio.defaultRatio.consequent
+        } else {
+            let defaultInterval = Int(Recipe.defaultRecipe.interval)
+            guard let defaultIntervalIndex = pickerDataSource.intervalSec.firstIndex(of: defaultInterval) else { return }
+            intervalPickerView?.selectRow(0, inComponent: IntervalPickerComponent.minValue.rawValue, animated: true)
+            intervalPickerView?.selectRow(defaultIntervalIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
+            stepInterval = defaultInterval
+        }
     }
 }
