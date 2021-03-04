@@ -122,14 +122,14 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         let componentWidth: CGFloat = self.view.frame.width / CGFloat(intervalPickerView.numberOfComponents)
         let y = (intervalPickerView.frame.size.height / 2) - (fontSize / 2)
 
-        let label1 = UILabel(frame: CGRect(x: componentWidth * 0.65, y: y, width: componentWidth * 0.4, height: fontSize))
+        let label1 = UILabel(frame: CGRect(x: componentWidth * 1.7, y: y, width: componentWidth * 0.4, height: fontSize))
         label1.font = font
         label1.textAlignment = .left
         label1.text = "min"
         label1.textColor = UIColor.secondaryLabel
         intervalPickerView.addSubview(label1)
         
-        let label2 = UILabel(frame: CGRect(x: componentWidth * 1.65, y: y, width: componentWidth * 0.4, height: fontSize))
+        let label2 = UILabel(frame: CGRect(x: componentWidth * 2.75, y: y, width: componentWidth * 0.4, height: fontSize))
         label2.font = font
         label2.textAlignment = .left
         label2.text = "sec"

@@ -17,17 +17,10 @@ enum RatioPickerComponent: Int, CaseIterable {
 }
 
 enum IntervalPickerComponent: Int, CaseIterable {
+    case emptySpaceLeft
     case minValue
     case secValue
-}
-
-enum IntervalPickerTitle: String {
-    case sec, min
-}
-
-enum RatioPickerTitle: String {
-    case antecedent = "1"
-    case colon = ":"
+    case emptySpaceRight
 }
 
 enum SettingsPicker: Int {
