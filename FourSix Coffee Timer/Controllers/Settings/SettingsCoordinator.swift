@@ -31,23 +31,9 @@ class SettingsCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func showRatioSetting() {
-        let child = RatioCoordinator(navigationController: navigationController)
-        child.parentCoordinator = self
-        childCoordinators.append(child)
-        child.start()
-    }
-    
     func didFinishSettingRatio() {
         parentVC?.updateRatio()
         navigationController.popViewController(animated: true)
-    }
-    
-    func showCustomIntervalPopup(stepInterval: Int) {
-        let vc = CustomIntervalsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.coordinator = self
-        vc.intervalValue = stepInterval
-        navigationController.present(vc, animated: true, completion: nil)
     }
     
     func didFinishCustomInterval() {
