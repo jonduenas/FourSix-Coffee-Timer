@@ -14,17 +14,17 @@ protocol ToolBarPickerViewDelegate: class {
 }
 
 class RatioPickerView: UIPickerView {
-    public private(set) var toolbar: UIToolbar?
+    public private(set) var toolbar: PickerToolbar?
     public weak var toolbarDelegate: ToolBarPickerViewDelegate?
-    public private(set) var pickerDataSource: PickerDataSource?
     private var antecedentLabel: UILabel!
     private var colonLabel: UILabel!
     private var decimalLabel: UILabel!
     
-    init(frame: CGRect, dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate) {
+    init(frame: CGRect, dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate, toolbarDelegate: ToolBarPickerViewDelegate) {
         super.init(frame: frame)
         self.dataSource = dataSource
         self.delegate = delegate
+        self.toolbarDelegate = toolbarDelegate
         commonInit()
     }
     
@@ -72,19 +72,10 @@ class RatioPickerView: UIPickerView {
         return label
     }
     
-    private func initToolbar() -> UIToolbar {
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
-        toolbar.barStyle = .default
-        toolbar.isTranslucent = true
-        toolbar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
-        toolbar.barTintColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let defaultButton = UIBarButtonItem(title: "Default", style: .plain, target: self, action: #selector(defaultTapped))
-        
-        toolbar.setItems([defaultButton, spaceButton, doneButton], animated: false)
-        toolbar.isUserInteractionEnabled = true
+    private func initToolbar() -> PickerToolbar {
+        let toolbar = PickerToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44),
+                                    pickerView: self,
+                                    delegate: toolbarDelegate)
         return toolbar
     }
     

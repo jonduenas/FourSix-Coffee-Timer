@@ -77,10 +77,12 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     }
     
     private func initRatioPicker() {
-        ratioPickerView = RatioPickerView(frame: .zero, dataSource: pickerDataSource, delegate: self)
+        ratioPickerView = RatioPickerView(frame: .zero,
+                                          dataSource: pickerDataSource,
+                                          delegate: self,
+                                          toolbarDelegate: self)
         ratioTextField.inputView = ratioPickerView
         ratioTextField.inputAccessoryView = ratioPickerView?.toolbar
-        ratioPickerView?.toolbarDelegate = self
         
         let currentRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(ratio)) ?? 14
         ratioPickerView?.selectRow(currentRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: false)
