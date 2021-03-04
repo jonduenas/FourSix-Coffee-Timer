@@ -81,6 +81,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         ratioPickerView.delegate = self
         ratioPickerView.dataSource = pickerDataSource
         ratioPickerView.tag = SettingsPicker.ratio.rawValue
+        ratioPickerView.backgroundColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
         
         let font = UIFont.systemFont(ofSize: 21.0)
         let fontSize: CGFloat = font.pointSize
@@ -116,8 +117,9 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         intervalPickerView.delegate = self
         intervalPickerView.dataSource = pickerDataSource
         intervalPickerView.tag = SettingsPicker.interval.rawValue
+        intervalPickerView.backgroundColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
         
-        let font = UIFont.systemFont(ofSize: 20.0)
+        let font = UIFont.systemFont(ofSize: 21.0)
         let fontSize: CGFloat = font.pointSize
         let componentWidth: CGFloat = self.view.frame.width / CGFloat(intervalPickerView.numberOfComponents)
         let y = (intervalPickerView.frame.size.height / 2) - (fontSize / 2)
