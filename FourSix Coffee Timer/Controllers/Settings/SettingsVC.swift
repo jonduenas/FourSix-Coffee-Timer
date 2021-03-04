@@ -14,7 +14,6 @@ enum StepAdvance: String, CaseIterable {
 }
 
 class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
-    
     enum SettingsSection: Int {
         case settings, fourSixPro, aboutFourSix
     }
@@ -31,74 +30,93 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
+    private let ratioPickerView = UIPickerView()
+    private let intervalPickerView = UIPickerView()
     
     // MARK: Variables
     weak var coordinator: SettingsCoordinator?
-    var ratio: Ratio = Ratio.defaultRatio {
+    var pickerDataSource = PickerDataSource()
+    var ratio: Float = UserDefaultsManager.ratio {
         didSet {
-            ratioLabel.text = ratio.stringValue
-            UserDefaultsManager.ratio = ratio.consequent
+            updateRatioText()
+            UserDefaultsManager.ratio = ratio
         }
     }
     
-    var stepAdvance: StepAdvance = .auto {
+    var stepAdvance: StepAdvance = StepAdvance(rawValue: UserDefaultsManager.timerStepAdvanceSetting) ?? .auto {
         didSet {
             stepAdvanceLabel.text = stepAdvance.rawValue.capitalized
             UserDefaultsManager.timerStepAdvanceSetting = stepAdvance.rawValue
         }
     }
     
-    var stepInterval = 45 {
+    var stepInterval = UserDefaultsManager.timerStepInterval {
         didSet {
-            if stepInterval >= 60 {
-                let timeInterval = Double(stepInterval)
-                stepIntervalLabel.text = timeInterval.stringFromTimeInterval()
-            } else {
-                stepIntervalLabel.text = "\(stepInterval)s"
-            }
-            
+            updateIntervalText()
             UserDefaultsManager.timerStepInterval = stepInterval
         }
     }
     
     // MARK: IBOutlets
-    @IBOutlet var showTotalTimeSwitch: UISwitch!
-    @IBOutlet var stepAdvanceLabel: UILabel!
-    @IBOutlet var ratioLabel: UILabel!
-    @IBOutlet var settingsTableView: UITableView!
-    @IBOutlet weak var stepIntervalLabel: UILabel!
+    @IBOutlet weak var showTotalTimeSwitch: UISwitch!
+    @IBOutlet weak var stepAdvanceLabel: UILabel!
+    @IBOutlet weak var ratioTextField: UITextField!
+    @IBOutlet weak var settingsTableView: UITableView!
+    @IBOutlet weak var stepIntervalTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44
-        
-        loadUserDefaults()
+        showTotalTimeSwitch.isOn = UserDefaultsManager.totalTimeShown
+        initIntervalPicker()
+        initRatioPicker()
+        updateRatioText()
+        updateIntervalText()
     }
     
-    fileprivate func loadUserDefaults() {
-        if UserDefaultsManager.totalTimeShown {
-            showTotalTimeSwitch.isOn = true
+    private func initRatioPicker() {
+        ratioTextField.inputView = ratioPickerView
+        ratioPickerView.delegate = self
+        ratioPickerView.dataSource = pickerDataSource
+        ratioPickerView.tag = SettingsPicker.ratio.rawValue
+        
+        let currentRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(ratio)) ?? 14
+        ratioPickerView.selectRow(currentRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: false)
+        
+        let currentRatioDecimal = ratio.truncatingRemainder(dividingBy: 1) * 10
+        let decimalIndex = pickerDataSource.ratioDecimalValueArray.firstIndex(of: Int(currentRatioDecimal)) ?? 0
+        ratioPickerView.selectRow(decimalIndex, inComponent: RatioPickerComponent.decimalValue.rawValue, animated: false)
+    }
+    
+    private func initIntervalPicker() {
+        stepIntervalTextField.inputView = intervalPickerView
+        intervalPickerView.delegate = self
+        intervalPickerView.dataSource = pickerDataSource
+        intervalPickerView.tag = SettingsPicker.interval.rawValue
+        
+        let (minutes, seconds) = stepInterval.convertToMinAndSec()
+        let currentMinIndex = pickerDataSource.intervalMin.firstIndex(of: minutes) ?? 0
+        let currentSecIndex = pickerDataSource.intervalSec.firstIndex(of: seconds) ?? 0
+        intervalPickerView.selectRow(currentMinIndex, inComponent: IntervalPickerComponent.minValue.rawValue, animated: false)
+        intervalPickerView.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)
+    }
+    
+    func updateIntervalText() {
+        let (minutes, seconds) = stepInterval.convertToMinAndSec()
+        
+        if minutes == 0 {
+            stepIntervalTextField.text = "\(seconds)sec"
+        } else if seconds == 0 {
+            stepIntervalTextField.text = "\(minutes)min"
         } else {
-            showTotalTimeSwitch.isOn = false
+            stepIntervalTextField.text = "\(minutes)min \(seconds)sec"
         }
-        
-        if UserDefaultsManager.timerStepAdvanceSetting != "" {
-            stepAdvance = StepAdvance(rawValue: UserDefaultsManager.timerStepAdvanceSetting) ?? .auto
-        } else {
-            UserDefaultsManager.timerStepAdvanceSetting = stepAdvance.rawValue
-        }
-        
-        if UserDefaultsManager.ratio != 0 {
-            ratio = Ratio(consequent: UserDefaultsManager.ratio)
-        }
-        
-        if UserDefaultsManager.timerStepInterval != 0 {
-            stepInterval = UserDefaultsManager.timerStepInterval
-        }
+    }
+    
+    func updateRatioText() {
+        ratioTextField.text = "1:\(ratio.clean)"
     }
     
     func checkForPro() {
@@ -126,7 +144,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     // MARK: TableView Methods
     
     func updateRatio() {
-        ratio = Ratio(consequent: UserDefaultsManager.ratio)
+        //ratio = Ratio(consequent: UserDefaultsManager.ratio)
         tableView.reloadData()
     }
     
@@ -241,11 +259,11 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
             case .restorePro:
                 showRestoreAlert()
             case .ratio:
-                coordinator?.showRatioSetting()
+                ratioTextField.becomeFirstResponder()
             case .stepAdvance:
                 showStepAdvanceActionSheet(tableView, indexPath)
             case .interval:
-                coordinator?.showCustomIntervalPopup(stepInterval: stepInterval)
+                stepIntervalTextField.becomeFirstResponder()
             default:
                 print("Undefined indexPath.row")
                 break
@@ -305,6 +323,58 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             self?.coordinator?.didFinishSettings()
+        }
+    }
+}
+
+extension SettingsVC: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView.tag == SettingsPicker.ratio.rawValue {
+            let ratioComponent = RatioPickerComponent(rawValue: component)
+            
+            switch ratioComponent {
+            case .antecedent:
+                return RatioPickerTitle.antecedent.rawValue
+            case .colon:
+                return RatioPickerTitle.colon.rawValue
+            case .consequent:
+                return String(pickerDataSource.ratioValueArray[row])
+            case .decimal:
+                let numberFormatter = NumberFormatter()
+                numberFormatter.locale = .current
+                return numberFormatter.decimalSeparator
+            case .decimalValue:
+                return String(pickerDataSource.ratioDecimalValueArray[row])
+            default:
+                return nil
+            }
+        } else {
+            let intervalComponent = IntervalPickerComponent(rawValue: component)
+            
+            switch intervalComponent {
+            case .min:
+                return IntervalPickerTitle.min.rawValue
+            case .minValue:
+                return String(pickerDataSource.intervalMin[row])
+            case .sec:
+                return IntervalPickerTitle.sec.rawValue
+            case .secValue:
+                return String(pickerDataSource.intervalSec[row])
+            default:
+                return nil
+            }
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == SettingsPicker.ratio.rawValue {
+            let newRatioValue = Float(pickerDataSource.ratioValueArray[pickerView.selectedRow(inComponent: RatioPickerComponent.consequent.rawValue)])
+            let newRatioDecimal = Float(pickerDataSource.ratioDecimalValueArray[pickerView.selectedRow(inComponent: RatioPickerComponent.decimalValue.rawValue)]) * 0.1
+            ratio = newRatioValue + newRatioDecimal
+        } else {
+            let minutes = pickerDataSource.intervalMin[pickerView.selectedRow(inComponent: IntervalPickerComponent.minValue.rawValue)]
+            let seconds = pickerDataSource.intervalSec[pickerView.selectedRow(inComponent: IntervalPickerComponent.secValue.rawValue)]
+            stepInterval = (minutes * 60) + seconds
         }
     }
 }
