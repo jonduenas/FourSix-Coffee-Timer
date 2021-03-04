@@ -104,11 +104,11 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         let (minutes, seconds) = stepInterval.convertToMinAndSec()
         
         if minutes == 0 {
-            stepIntervalTextField.text = "\(seconds)sec"
+            stepIntervalTextField.text = "\(seconds) sec"
         } else if seconds == 0 {
-            stepIntervalTextField.text = "\(minutes)min"
+            stepIntervalTextField.text = "\(minutes) min"
         } else {
-            stepIntervalTextField.text = "\(minutes)min \(seconds)sec"
+            stepIntervalTextField.text = "\(minutes) min \(seconds) sec"
         }
     }
     
