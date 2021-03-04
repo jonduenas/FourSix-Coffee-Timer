@@ -93,8 +93,12 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     }
     
     private func initIntervalPicker() {
-        intervalPickerView = IntervalPickerView(frame: .zero, dataSource: pickerDataSource, delegate: self)
+        intervalPickerView = IntervalPickerView(frame: .zero,
+                                                dataSource: pickerDataSource,
+                                                delegate: self,
+                                                toolbarDelegate: self)
         stepIntervalTextField.inputView = intervalPickerView
+        stepIntervalTextField.inputAccessoryView = intervalPickerView?.toolbar
         
         let (minutes, seconds) = stepInterval.convertToMinAndSec()
         let currentMinIndex = pickerDataSource.intervalMin.firstIndex(of: minutes) ?? 0

@@ -58,7 +58,9 @@ class RatioPickerView: UIPickerView {
         decimalLabel = initLabel(text: numberFormatter.decimalSeparator)
         addSubview(decimalLabel)
         
-        toolbar = initToolbar()
+        toolbar = PickerToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44),
+                                pickerView: self,
+                                delegate: toolbarDelegate)
     }
     
     private func initLabel(text: String) -> UILabel {
@@ -70,13 +72,6 @@ class RatioPickerView: UIPickerView {
         label.text = text
         label.textColor = UIColor.secondaryLabel
         return label
-    }
-    
-    private func initToolbar() -> PickerToolbar {
-        let toolbar = PickerToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44),
-                                    pickerView: self,
-                                    delegate: toolbarDelegate)
-        return toolbar
     }
     
     private func layoutLabels() {
@@ -93,13 +88,5 @@ class RatioPickerView: UIPickerView {
         colonLabel.frame = CGRect(x: componentWidth * (colonComponentPosition + 0.5), y: y, width: componentWidth * 0.4, height: fontSize)
         
         decimalLabel.frame = CGRect(x: componentWidth * (decimalComponentPosition + 0.5), y: y, width: componentWidth * 0.4, height: fontSize)
-    }
-    
-    @objc func doneTapped() {
-        toolbarDelegate?.didTapDone(self)
-    }
-    
-    @objc func defaultTapped() {
-        toolbarDelegate?.didTapDefault(self)
     }
 }

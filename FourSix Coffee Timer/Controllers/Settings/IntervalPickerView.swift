@@ -9,14 +9,16 @@
 import UIKit
 
 class IntervalPickerView: UIPickerView {
-    var pickerDataSource: PickerDataSource?
+    public private(set) var toolbar: PickerToolbar?
+    public weak var toolbarDelegate: ToolBarPickerViewDelegate?
     var minuteLabel: UILabel!
     var secondLabel: UILabel!
     
-    init(frame: CGRect, dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate) {
+    init(frame: CGRect, dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate, toolbarDelegate: ToolBarPickerViewDelegate) {
         super.init(frame: frame)
         self.dataSource = dataSource
         self.delegate = delegate
+        self.toolbarDelegate = toolbarDelegate
         commonInit()
     }
     
@@ -39,21 +41,25 @@ class IntervalPickerView: UIPickerView {
         tag = SettingsPicker.interval.rawValue
         backgroundColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
         
-        let font = UIFont.systemFont(ofSize: 21.0)
-        
-        minuteLabel = UILabel()
-        minuteLabel.font = font
-        minuteLabel.textAlignment = .left
-        minuteLabel.text = "min"
-        minuteLabel.textColor = UIColor.secondaryLabel
+        minuteLabel = initLabel(text: "min")
         addSubview(minuteLabel)
         
-        secondLabel = UILabel()
-        secondLabel.font = font
-        secondLabel.textAlignment = .left
-        secondLabel.text = "sec"
-        secondLabel.textColor = UIColor.secondaryLabel
+        secondLabel = initLabel(text: "sec")
         addSubview(secondLabel)
+        
+        toolbar = PickerToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 44),
+                                pickerView: self,
+                                delegate: toolbarDelegate)
+    }
+    
+    private func initLabel(text: String) -> UILabel {
+        let label = UILabel()
+        let font = UIFont.systemFont(ofSize: 21.0)
+        label.font = font
+        label.textAlignment = .left
+        label.text = text
+        label.textColor = UIColor.secondaryLabel
+        return label
     }
     
     private func layoutLabels() {
