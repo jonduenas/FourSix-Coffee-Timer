@@ -82,6 +82,27 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         ratioPickerView.dataSource = pickerDataSource
         ratioPickerView.tag = SettingsPicker.ratio.rawValue
         
+        let font = UIFont.systemFont(ofSize: 21.0)
+        let fontSize: CGFloat = font.pointSize
+        let componentWidth: CGFloat = self.view.frame.width / CGFloat(ratioPickerView.numberOfComponents)
+        let y = (ratioPickerView.frame.size.height / 2) - (fontSize / 2)
+
+        let label1 = UILabel(frame: CGRect(x: componentWidth * 0.5, y: y, width: componentWidth * 0.4, height: fontSize))
+        label1.font = font
+        label1.textAlignment = .right
+        label1.text = "1  :"
+        label1.textColor = UIColor.secondaryLabel
+        ratioPickerView.addSubview(label1)
+        
+        let label2 = UILabel(frame: CGRect(x: componentWidth * 2.5, y: y, width: componentWidth * 0.4, height: fontSize))
+        label2.font = font
+        label2.textAlignment = .left
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = .current
+        label2.text = numberFormatter.decimalSeparator
+        label2.textColor = UIColor.secondaryLabel
+        ratioPickerView.addSubview(label2)
+        
         let currentRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(ratio)) ?? 14
         ratioPickerView.selectRow(currentRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: false)
         
@@ -352,16 +373,8 @@ extension SettingsVC: UIPickerViewDelegate {
             let ratioComponent = RatioPickerComponent(rawValue: component)
             
             switch ratioComponent {
-            case .antecedent:
-                return RatioPickerTitle.antecedent.rawValue
-            case .colon:
-                return RatioPickerTitle.colon.rawValue
             case .consequent:
                 return String(pickerDataSource.ratioValueArray[row])
-            case .decimal:
-                let numberFormatter = NumberFormatter()
-                numberFormatter.locale = .current
-                return numberFormatter.decimalSeparator
             case .decimalValue:
                 return String(pickerDataSource.ratioDecimalValueArray[row])
             default:

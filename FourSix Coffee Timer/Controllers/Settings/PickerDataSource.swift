@@ -10,10 +10,10 @@ import UIKit
 
 enum RatioPickerComponent: Int, CaseIterable {
     case antecedent
-    case colon
     case consequent
     case decimal
     case decimalValue
+    case emptySpace
 }
 
 enum IntervalPickerComponent: Int, CaseIterable {
@@ -53,14 +53,8 @@ class PickerDataSource: NSObject, UIPickerViewDataSource {
             let ratioComponent = RatioPickerComponent(rawValue: component)
             
             switch ratioComponent {
-            case .antecedent:
-                return 1
-            case .colon:
-                return 1
             case .consequent:
                 return ratioValueArray.count
-            case .decimal:
-                return 1
             case .decimalValue:
                 return ratioDecimalValueArray.count
             default:
