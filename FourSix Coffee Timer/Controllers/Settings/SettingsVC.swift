@@ -31,7 +31,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
     private var ratioPickerView: RatioPickerView?
-    private let intervalPickerView = UIPickerView()
+    private var intervalPickerView: IntervalPickerView?
     
     // MARK: Variables
     weak var coordinator: SettingsCoordinator?
@@ -89,36 +89,15 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     }
     
     private func initIntervalPicker() {
+        intervalPickerView = IntervalPickerView(frame: .zero, dataSource: pickerDataSource, delegate: self)
         stepIntervalTextField.inputView = intervalPickerView
-        intervalPickerView.delegate = self
-        intervalPickerView.dataSource = pickerDataSource
-        intervalPickerView.tag = SettingsPicker.interval.rawValue
-        intervalPickerView.backgroundColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
-        
-        let font = UIFont.systemFont(ofSize: 21.0)
-        let fontSize: CGFloat = font.pointSize
-        let componentWidth: CGFloat = self.view.frame.width / CGFloat(intervalPickerView.numberOfComponents)
-        let y = (intervalPickerView.frame.size.height / 2) - (fontSize / 2)
-
-        let label1 = UILabel(frame: CGRect(x: componentWidth * 1.7, y: y, width: componentWidth * 0.4, height: fontSize))
-        label1.font = font
-        label1.textAlignment = .left
-        label1.text = "min"
-        label1.textColor = UIColor.secondaryLabel
-        intervalPickerView.addSubview(label1)
-        
-        let label2 = UILabel(frame: CGRect(x: componentWidth * 2.75, y: y, width: componentWidth * 0.4, height: fontSize))
-        label2.font = font
-        label2.textAlignment = .left
-        label2.text = "sec"
-        label2.textColor = UIColor.secondaryLabel
-        intervalPickerView.addSubview(label2)
         
         let (minutes, seconds) = stepInterval.convertToMinAndSec()
         let currentMinIndex = pickerDataSource.intervalMin.firstIndex(of: minutes) ?? 0
         let currentSecIndex = pickerDataSource.intervalSec.firstIndex(of: seconds) ?? 0
-        intervalPickerView.selectRow(currentMinIndex, inComponent: IntervalPickerComponent.minValue.rawValue, animated: false)
-        intervalPickerView.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)
+        
+        intervalPickerView?.selectRow(currentMinIndex, inComponent: IntervalPickerComponent.minValue.rawValue, animated: false)
+        intervalPickerView?.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)
     }
     
     func updateIntervalText() {

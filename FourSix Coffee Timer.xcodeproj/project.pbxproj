@@ -32,6 +32,7 @@
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
 		6537159D25F16AE800F162DD /* RatioPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6537159C25F16AE800F162DD /* RatioPickerView.swift */; };
+		653715A125F177B200F162DD /* IntervalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653715A025F177B200F162DD /* IntervalPickerView.swift */; };
 		6542DDF625D8512D0067C704 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */; };
 		6542DDFA25D858AB0067C704 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */; };
 		6542EDCB24E20096009AA897 /* BrewSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */; };
@@ -122,6 +123,7 @@
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		6537159C25F16AE800F162DD /* RatioPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioPickerView.swift; sourceTree = "<group>"; };
+		653715A025F177B200F162DD /* IntervalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPickerView.swift; sourceTree = "<group>"; };
 		6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSummaryVC.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			children = (
 				652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */,
 				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
+				653715A025F177B200F162DD /* IntervalPickerView.swift */,
 				6537159C25F16AE800F162DD /* RatioPickerView.swift */,
 				6543841525F0541700AB71F7 /* PickerDataSource.swift */,
 				65D352C124D1E5DB00DB3AA7 /* RatioVC.swift */,
@@ -660,6 +663,7 @@
 				65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */,
 				65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */,
 				65D352C224D1E5DB00DB3AA7 /* RatioVC.swift in Sources */,
+				653715A125F177B200F162DD /* IntervalPickerView.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
