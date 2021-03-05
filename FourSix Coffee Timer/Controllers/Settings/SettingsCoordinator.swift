@@ -31,15 +31,6 @@ class SettingsCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func didFinishSettingRatio() {
-        parentVC?.updateRatio()
-        navigationController.popViewController(animated: true)
-    }
-    
-    func didFinishCustomInterval() {
-        parentVC?.updateCustomInterval()
-    }
-    
     func showWhatIs46() {
         let vc = WhatIs46VC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.coordinator = self
