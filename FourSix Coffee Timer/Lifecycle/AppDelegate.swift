@@ -13,16 +13,10 @@ import Purchases
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         // Configure RevenueCat with public API key
         Purchases.debugLogsEnabled = false
-        Purchases.configure(withAPIKey: "dDIhCeApJetzFIZVnXDjcLxLTPTjIoyr")
-        
-        //change appearance of page control
-        let pageControl = UIPageControl.appearance()
-        pageControl.currentPageIndicatorTintColor = .systemGray
-        pageControl.pageIndicatorTintColor = .systemGray4
+        Purchases.configure(withAPIKey: Constants.revenueCatAPIKey)
         
         return true
     }
