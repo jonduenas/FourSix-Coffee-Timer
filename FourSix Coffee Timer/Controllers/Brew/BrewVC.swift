@@ -72,7 +72,7 @@ class BrewVC: UIViewController, Storyboarded {
         initializeFonts()
         initializeSlider()
         initializeSelectors()
-        checkForPro()
+        checkForProStatus()
         updateValueLabels()
     }
     
@@ -129,7 +129,7 @@ class BrewVC: UIViewController, Storyboarded {
     func updateSettings() {
         ratio = Ratio(consequent: UserDefaultsManager.ratio)
         timerStepInterval = TimeInterval(UserDefaultsManager.timerStepInterval)
-        checkForPro()
+        checkForProStatus()
     }
     
     private func createRecipe() -> Recipe {
@@ -170,7 +170,9 @@ class BrewVC: UIViewController, Storyboarded {
         if isCoffeeAcceptableRange() || UserDefaultsManager.userHasSeenCoffeeRangeWarning {
             coordinator?.showTimer(for: createRecipe())
         } else {
-            showAlertWithCancel(title: "Warning", message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.") { [weak self] in
+            showAlertWithCancel(title: "Warning",
+                                message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.")
+            { [weak self] in
                 guard let self = self else { return }
                 UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
                 self.coordinator?.showTimer(for: self.createRecipe())
@@ -190,23 +192,26 @@ class BrewVC: UIViewController, Storyboarded {
 
 extension BrewVC: PaywallDelegate {
     func purchaseCompleted() {
-        checkForPro()
+        enableProFeatures(true)
     }
     
     func purchaseRestored() {
-        checkForPro()
+        enableProFeatures(true)
     }
     
-    func checkForPro() {
-        if IAPManager.shared.userIsPro() {
-            enableProFeatures(true)
-        } else {
-            enableProFeatures(false)
+    private func checkForProStatus() {
+        IAPManager.shared.userIsPro { [weak self] (userIsPro, error) in
+            if let err = error {
+                self?.showAlert(message: "Error checking for Pro status: \(err.localizedDescription)")
+                self?.enableProFeatures(userIsPro)
+            } else {
+                self?.enableProFeatures(userIsPro)
+            }
         }
     }
     
-    private func enableProFeatures(_ enable: Bool) {
-        if enable {
+    private func enableProFeatures(_ userIsPro: Bool) {
+        if userIsPro {
             editButton.isHidden = true
             UIView.animate(withDuration: 0.25) {
                 self.sliderStackView.isHidden = false

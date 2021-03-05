@@ -57,6 +57,8 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         }
     }
     
+    var userIsPro: Bool = false
+    
     // MARK: IBOutlets
     @IBOutlet weak var showTotalTimeSwitch: UISwitch!
     @IBOutlet weak var stepAdvanceLabel: UILabel!
@@ -70,6 +72,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         self.navigationController?.navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
         
         showTotalTimeSwitch.isOn = UserDefaultsManager.totalTimeShown
+        checkForProStatus()
         initIntervalPicker()
         initRatioPicker()
         updateRatioText()
@@ -108,7 +111,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         intervalPickerView?.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)
     }
     
-    func updateIntervalText() {
+    private func updateIntervalText() {
         let (minutes, seconds) = stepInterval.convertToMinAndSec()
         
         if minutes == 0 {
@@ -120,43 +123,38 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         }
     }
     
-    func updateRatioText() {
+    private func updateRatioText() {
         ratioTextField.text = "1:\(ratio.clean)"
     }
     
-    func checkForPro() {
-        if IAPManager.shared.userIsPro() {
-            enableProFeatures(true)
-        } else {
-            enableProFeatures(false)
+    private func checkForProStatus() {
+        IAPManager.shared.userIsPro { [weak self] (userIsPro, error) in
+            if let err = error {
+                self?.showAlert(message: "Error checking for Pro status: \(err.localizedDescription)")
+                self?.userIsPro = userIsPro
+                self?.enableProFeatures(userIsPro)
+            } else {
+                self?.userIsPro = userIsPro
+                self?.enableProFeatures(userIsPro)
+            }
         }
     }
     
     func purchaseCompleted() {
-        checkForPro()
+        userIsPro = true
+        tableView.reloadData()
     }
     
     func purchaseRestored() {
-        checkForPro()
+        userIsPro = true
+        tableView.reloadData()
     }
     
-    private func enableProFeatures(_ enable: Bool) {
-        if enable {
-            tableView.reloadData()
-        }
+    private func enableProFeatures(_ userIsPro: Bool) {
+        tableView.reloadData()
     }
     
     // MARK: TableView Methods
-    
-    func updateRatio() {
-        //ratio = Ratio(consequent: UserDefaultsManager.ratio)
-        tableView.reloadData()
-    }
-    
-    func updateCustomInterval() {
-        stepInterval = UserDefaultsManager.timerStepInterval
-        tableView.reloadData()
-    }
     
     // Hides cells when user is Pro or not
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -167,7 +165,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         
         let row = ProSectionCell(rawValue: indexPath.row)
         
-        if IAPManager.shared.userIsPro() {
+        if userIsPro {
             switch row {
             case .purchasePro:
                 return 0

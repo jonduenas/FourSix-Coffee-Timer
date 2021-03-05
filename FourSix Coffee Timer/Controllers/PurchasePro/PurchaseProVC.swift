@@ -9,7 +9,6 @@
 import UIKit
 
 class PurchaseProVC: UIViewController {
-    
     weak var delegate: PaywallDelegate?
     var productPrice: String?
     var productName: String?
@@ -30,8 +29,8 @@ class PurchaseProVC: UIViewController {
     }
     
     private func loadOfferings() {
-        
-        IAPManager.shared.loadOfferings { (_, error) in
+        IAPManager.shared.loadOfferings { [weak self] (_, error) in
+            guard let self = self else { return }
             
             if error != nil {
                 self.titleLabel.text = "Error"
@@ -52,11 +51,9 @@ class PurchaseProVC: UIViewController {
     }
     
     @IBAction func restorePurchaseTapped(_ sender: Any) {
-        
         setState(loading: true)
         
         IAPManager.shared.restorePurchases { (_, error) in
-            
             self.setState(loading: false)
             
             if error != nil {
@@ -75,19 +72,17 @@ class PurchaseProVC: UIViewController {
     }
     
     @IBAction func getProTapped(_ sender: Any) {
-        
         self.setState(loading: true)
         
         if let package = IAPManager.shared.package {
-            IAPManager.shared.purchase(package: package) { (succeeded, error) in
-                
-                self.setState(loading: false)
+            IAPManager.shared.purchase(package: package) { [weak self] (succeeded, error) in
+                self?.setState(loading: false)
                 
                 if succeeded {
                     print("successful purchase")
-                    self.showAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Time to take your brew to the next level.") {
-                        self.dismiss(animated: true) {
-                            if let purchaseCompleteHandler = self.delegate?.purchaseCompleted {
+                    self?.showAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Time to take your brew to the next level.") {
+                        self?.dismiss(animated: true) {
+                            if let purchaseCompleteHandler = self?.delegate?.purchaseCompleted {
                                 purchaseCompleteHandler()
                             }
                         }
@@ -95,7 +90,7 @@ class PurchaseProVC: UIViewController {
                 } else {
                     if let error = error {
                         print(error)
-                        self.showAlert(title: "Error", message: error, afterConfirm: nil)
+                        self?.showAlert(title: "Error", message: error, afterConfirm: nil)
                     }
                 }
             }

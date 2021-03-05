@@ -51,23 +51,23 @@ class IAPManager: NSObject {
     
     func loadOfferings(loadSucceeded: @escaping (Bool, String?) -> Void) {
         
-        Purchases.shared.offerings { (offerings, error) in
+        Purchases.shared.offerings { [weak self] (offerings, error) in
             if error != nil {
                 loadSucceeded(false, error!.localizedDescription)
             } else {
-                if let offeringID = self.offeringID {
-                    self.offering = offerings?.offering(identifier: offeringID)
+                if let offeringID = self?.offeringID {
+                    self?.offering = offerings?.offering(identifier: offeringID)
                 } else {
-                    self.offering = offerings?.current
+                    self?.offering = offerings?.current
                 }
                 
-                if self.offering == nil {
+                if self?.offering == nil {
                     loadSucceeded(false, "No offerings found.")
                 } else {
-                    self.package = self.offering?.availablePackages.first
-                    self.productPrice = self.package?.localizedPriceString
-                    self.productName = self.package?.product.localizedTitle
-                    self.productDescription = self.package?.product.localizedDescription
+                    self?.package = self?.offering?.availablePackages.first
+                    self?.productPrice = self?.package?.localizedPriceString
+                    self?.productName = self?.package?.product.localizedTitle
+                    self?.productDescription = self?.package?.product.localizedDescription
                     
                     loadSucceeded(true, nil)
                 }
@@ -78,7 +78,8 @@ class IAPManager: NSObject {
     func purchase(package: Purchases.Package, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
         if Purchases.canMakePayments() {
             
-            Purchases.shared.purchasePackage(package) { (_, purchaserInfo, error, userCancelled) in
+            Purchases.shared.purchasePackage(package) { [weak self] (_, purchaserInfo, error, userCancelled) in
+                guard let self = self else { return }
                 if let error = error as NSError? {
                     if !userCancelled {
                         // Log error details
@@ -106,7 +107,7 @@ class IAPManager: NSObject {
                     }
                 } else {
                     // Successful purchase
-                    if purchaserInfo?.entitlements["pro"]?.isActive == true {
+                    if purchaserInfo?.entitlements[self.entitlementID]?.isActive == true {
                         purchaseSucceeded(true, nil)
                     }
                 }
@@ -132,21 +133,21 @@ class IAPManager: NSObject {
         }
     }
     
-    func userIsPro() -> Bool {
-        var proUser = false
+    func userIsPro(proStatus: @escaping (Bool, Error?) -> Void) {
         // Get the latest purchaserInfo to see if user paid for Pro
-        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+        Purchases.shared.purchaserInfo { [weak self] (purchaserInfo, error) in
+            guard let self = self else { return }
+            
             if let err = error {
-                print(err.localizedDescription)
+                print("Error checking user Pro status: \(err)")
+                proStatus(false, err)
             }
 
-            // Route the view depending if user is Pro or not
             if purchaserInfo?.entitlements[self.entitlementID]?.isActive == true {
-                proUser = true
+                proStatus(true, nil)
             } else {
-                proUser = false
+                proStatus(false, nil)
             }
         }
-        return proUser
     }
 }
