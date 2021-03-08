@@ -22,7 +22,7 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     weak var coordinator: SettingsCoordinator?
     var pickerDataSource = PickerDataSource()
     var settingsDataSource = SettingsDataSource()
-    var settingsDelegate = SettingsDelegate()
+    //var settingsDelegate = SettingsDelegate()
     var ratio: Float = UserDefaultsManager.ratio {
         didSet {
             //updateRatioText()
@@ -45,8 +45,7 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
         super.viewDidLoad()
 
         initNavBar()
-        tableView.delegate = settingsDelegate
-        settingsDelegate.parentController = self
+        tableView.delegate = self
         tableView.dataSource = settingsDataSource
         settingsDataSource.userIsPro = true
         //showTotalTimeSwitch.isOn = UserDefaultsManager.totalTimeShown
@@ -204,11 +203,11 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     }
 }
 
-extension SettingsVC: SettingsPresenting {
-    func selectedCell(row: Int) {
-        print("Selected cell: \(row)")
-    }
-}
+//extension SettingsVC: SettingsPresenting {
+//    func selectedCell(row: Int) {
+//        print("Selected cell: \(row)")
+//    }
+//}
 
 extension SettingsVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -283,53 +282,64 @@ extension SettingsVC: ToolBarPickerViewDelegate {
     }
 }
 
-//func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    let section = TableSection(rawValue: indexPath.section)
-//
-//    switch section {
-//    case .fourSixPro:
-//        let row = ProSectionCell(rawValue: indexPath.row)
-//
-//        switch row {
-//        case .purchasePro:
-//            showProPopup(delegate: self)
-//        case .restorePro:
-//            showRestoreAlert()
-//        case .ratio:
-//            ratioTextField.becomeFirstResponder()
-//        case .stepAdvance:
-//            showStepAdvanceActionSheet(tableView, indexPath)
-//        case .interval:
-//            stepIntervalTextField.becomeFirstResponder()
-//        default:
-//            print("Undefined indexPath.row")
-//            break
-//        }
-//    case .aboutFourSix:
-//        let row = AboutSectionCell(rawValue: indexPath.row)
-//
-//        switch row {
-//        case .whatIsFourSix:
-//            coordinator?.showWhatIs46()
-//        case .howTo:
-//            coordinator?.showHowTo()
-//        case .faq:
-//            coordinator?.showFAQ()
-//        case .feedback:
-//            sendFeedback()
-//        case .rate:
-//            rateInAppStore()
-//        case .share:
-//            shareFourSix()
-//        case .acknowledgements:
-//            coordinator?.showAcknowledgements()
-//        default:
-//            print("Undefined indexPath.row")
-//            break
-//        }
-//    default:
-//        print("Undefined indexPath.section")
-//        break
-//    }
-//    tableView.deselectRow(at: indexPath, animated: true)
-//}
+extension SettingsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch settingsDataSource.shownSections[indexPath.section] {
+        case .fourSixProEnabled:
+            let row = ProSectionEnabledCell(rawValue: indexPath.row)
+            
+            switch row {
+            case .ratio:
+                let cell = tableView.cellForRow(at: indexPath) as! TextFieldTableCell
+                cell.cellTextField.becomeFirstResponder()
+            case .stepAdvance:
+                print(row)
+                //showStepAdvanceActionSheet(tableView, indexPath)
+            case .interval:
+                print(row)
+                //stepIntervalTextField.becomeFirstResponder()
+            default:
+                print("Undefined indexPath.row")
+                break
+            }
+        case .fourSixProDisabled:
+            let row = ProSectionDisabledCell(rawValue: indexPath.row)
+            
+            switch row {
+            case .purchasePro:
+                showProPopup(delegate: self)
+            case .restorePro:
+                print("restore pro")
+            default:
+                print("Undefined indexPath.row")
+                break
+            }
+        case .aboutFourSix:
+            let row = AboutSectionCell(rawValue: indexPath.row)
+            
+            switch row {
+            case .whatIsFourSix:
+                coordinator?.showWhatIs46()
+            case .howTo:
+                coordinator?.showHowTo()
+            case .faq:
+                coordinator?.showFAQ()
+            case .feedback:
+                sendFeedback()
+            case .rate:
+                rateInAppStore()
+            case .share:
+                shareFourSix()
+            case .acknowledgements:
+                coordinator?.showAcknowledgements()
+            default:
+                print("Undefined indexPath.row")
+                break
+            }
+        default:
+            print("Undefined indexPath.section")
+            break
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}

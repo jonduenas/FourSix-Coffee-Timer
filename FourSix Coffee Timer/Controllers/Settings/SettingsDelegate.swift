@@ -8,14 +8,16 @@
 
 import UIKit
 
-protocol SettingsPresenting {
-    func selectedCell(row: Int)
-}
+//protocol SettingsPresenting {
+//    func selectedCell(section: Int, row: Int)
+//}
+//
+//class SettingsDelegate: NSObject, UITableViewDelegate {
+//    var parentController: SettingsPresenting?
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        parentController?.selectedCell(section: indexPath.section, row: indexPath.row)
+//    }
+//}
 
-class SettingsDelegate: NSObject, UITableViewDelegate {
-    var parentController: SettingsPresenting?
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        parentController?.selectedCell(row: indexPath.row)
-    }
-}
+
