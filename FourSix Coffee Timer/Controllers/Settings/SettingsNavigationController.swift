@@ -9,12 +9,12 @@
 import UIKit
 
 class SettingsNavigationController: UINavigationController {
-    let tintColor = UIColor.systemGray
     weak var coordinator: SettingsCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.tintColor = tintColor
+        navigationBar.tintColor = UIColor.systemGray
+        navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
         navigationBar.isTranslucent = false
     }
     

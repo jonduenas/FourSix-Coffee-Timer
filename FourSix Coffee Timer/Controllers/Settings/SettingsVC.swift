@@ -9,22 +9,7 @@
 import UIKit
 import Purchases
 
-enum StepAdvance: String, CaseIterable {
-    case auto, manual
-}
-
-class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
-    enum SettingsSection: Int {
-        case settings, fourSixPro, aboutFourSix
-    }
-    
-    enum ProSectionCell: Int {
-        case purchasePro, restorePro, ratio, stepAdvance, interval
-    }
-    
-    enum AboutSectionCell: Int {
-        case whatIsFourSix, howTo, faq, feedback, rate, share, acknowledgements
-    }
+class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Constants
     private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
@@ -36,47 +21,45 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     // MARK: Variables
     weak var coordinator: SettingsCoordinator?
     var pickerDataSource = PickerDataSource()
+    var settingsDataSource = SettingsDataSource()
+    var settingsDelegate = SettingsDelegate()
     var ratio: Float = UserDefaultsManager.ratio {
         didSet {
-            updateRatioText()
+            //updateRatioText()
             UserDefaultsManager.ratio = ratio
         }
     }
-    
-    var stepAdvance: StepAdvance = StepAdvance(rawValue: UserDefaultsManager.timerStepAdvanceSetting) ?? .auto {
-        didSet {
-            stepAdvanceLabel.text = stepAdvance.rawValue.capitalized
-            UserDefaultsManager.timerStepAdvanceSetting = stepAdvance.rawValue
-        }
-    }
-    
-    var stepInterval = UserDefaultsManager.timerStepInterval {
-        didSet {
-            updateIntervalText()
-            UserDefaultsManager.timerStepInterval = stepInterval
-        }
-    }
-    
+
     var userIsPro: Bool = false
     
     // MARK: IBOutlets
-    @IBOutlet weak var showTotalTimeSwitch: UISwitch!
-    @IBOutlet weak var stepAdvanceLabel: UILabel!
-    @IBOutlet weak var ratioTextField: UITextField!
-    @IBOutlet weak var settingsTableView: UITableView!
-    @IBOutlet weak var stepIntervalTextField: UITextField!
+//    @IBOutlet weak var showTotalTimeSwitch: UISwitch!
+//    @IBOutlet weak var stepAdvanceLabel: UILabel!
+//    @IBOutlet weak var ratioTextField: UITextField!
+//    @IBOutlet weak var settingsTableView: UITableView!
+//    @IBOutlet weak var stepIntervalTextField: UITextField!
+//
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
-        
-        showTotalTimeSwitch.isOn = UserDefaultsManager.totalTimeShown
+        initNavBar()
+        tableView.delegate = settingsDelegate
+        settingsDelegate.parentController = self
+        tableView.dataSource = settingsDataSource
+        settingsDataSource.userIsPro = true
+        //showTotalTimeSwitch.isOn = UserDefaultsManager.totalTimeShown
         checkForProStatus()
         initIntervalPicker()
         initRatioPicker()
-        updateRatioText()
-        updateIntervalText()
+        //updateRatioText()
+        //updateIntervalText()
+    }
+    
+    private func initNavBar() {
+        title = "Settings"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(closeTapped(_:)))
     }
     
     private func initRatioPicker() {
@@ -84,8 +67,8 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
                                           dataSource: pickerDataSource,
                                           delegate: self,
                                           toolbarDelegate: self)
-        ratioTextField.inputView = ratioPickerView
-        ratioTextField.inputAccessoryView = ratioPickerView?.toolbar
+        //ratioTextField.inputView = ratioPickerView
+        //ratioTextField.inputAccessoryView = ratioPickerView?.toolbar
         
         let currentRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(ratio)) ?? 14
         ratioPickerView?.selectRow(currentRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: false)
@@ -100,10 +83,10 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
                                                 dataSource: pickerDataSource,
                                                 delegate: self,
                                                 toolbarDelegate: self)
-        stepIntervalTextField.inputView = intervalPickerView
-        stepIntervalTextField.inputAccessoryView = intervalPickerView?.toolbar
+        //stepIntervalTextField.inputView = intervalPickerView
+        //stepIntervalTextField.inputAccessoryView = intervalPickerView?.toolbar
         
-        let (minutes, seconds) = stepInterval.convertToMinAndSec()
+        let (minutes, seconds) = settingsDataSource.stepInterval.convertToMinAndSec()
         let currentMinIndex = pickerDataSource.intervalMin.firstIndex(of: minutes) ?? 0
         let currentSecIndex = pickerDataSource.intervalSec.firstIndex(of: seconds) ?? 0
         
@@ -111,21 +94,21 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         intervalPickerView?.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)
     }
     
-    private func updateIntervalText() {
-        let (minutes, seconds) = stepInterval.convertToMinAndSec()
-        
-        if minutes == 0 {
-            stepIntervalTextField.text = "\(seconds) sec"
-        } else if seconds == 0 {
-            stepIntervalTextField.text = "\(minutes) min"
-        } else {
-            stepIntervalTextField.text = "\(minutes) min \(seconds) sec"
-        }
-    }
+//    private func updateIntervalText() {
+//        let (minutes, seconds) = stepInterval.convertToMinAndSec()
+//
+//        if minutes == 0 {
+//            stepIntervalTextField.text = "\(seconds) sec"
+//        } else if seconds == 0 {
+//            stepIntervalTextField.text = "\(minutes) min"
+//        } else {
+//            stepIntervalTextField.text = "\(minutes) min \(seconds) sec"
+//        }
+//    }
     
-    private func updateRatioText() {
-        ratioTextField.text = "1:\(ratio.clean)"
-    }
+//    private func updateRatioText() {
+//        ratioTextField.text = "1:\(ratio.clean)"
+//    }
     
     private func checkForProStatus() {
         IAPManager.shared.userIsPro { [weak self] (userIsPro, error) in
@@ -156,33 +139,7 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
     
     // MARK: TableView Methods
     
-    // Hides cells when user is Pro or not
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let section = SettingsSection(rawValue: indexPath.section), section == .fourSixPro else {
-            // Makes sure the section is defined and section is FourSix Pro - if not rest of the code doesn't run and just returns auto dimension
-            return UITableView.automaticDimension
-        }
-        
-        let row = ProSectionCell(rawValue: indexPath.row)
-        
-        if userIsPro {
-            switch row {
-            case .purchasePro:
-                return 0
-            case .restorePro:
-                return 0.25 // Keeps top border of section
-            default:
-                return UITableView.automaticDimension
-            }
-        } else {
-            switch row {
-            case .ratio, .stepAdvance, .interval:
-                return 0
-            default:
-                return UITableView.automaticDimension
-            }
-        }
-    }
+    
     
     fileprivate func showRestoreAlert() {
         let alert = UIAlertController(title: "Restore FourSix Pro", message: "Would you like to restore your previous purchase of FourSix Pro?", preferredStyle: .alert)
@@ -199,29 +156,6 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
             }
         }))
         present(alert, animated: true, completion: nil)
-    }
-    
-    fileprivate func showStepAdvanceActionSheet(_ tableView: UITableView, _ indexPath: IndexPath) {
-        let actionSheet = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
-        
-        for option in StepAdvance.allCases {
-            actionSheet.addAction(UIAlertAction(title: option.rawValue.capitalized,
-                                                style: .default,
-                                                handler: { [weak self] _ in
-                self?.stepAdvance = option
-            }))
-        }
-        actionSheet.addAction(cancelAction)
-        
-        // Sets where to show popover controller for iPad display
-        if let popoverController = actionSheet.popoverPresentationController {
-            guard let cellIndexPath = tableView.cellForRow(at: indexPath) else { return }
-            popoverController.sourceView = cellIndexPath.contentView
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection.up
-            
-            popoverController.sourceRect = CGRect(x: cellIndexPath.bounds.maxX - 40, y: cellIndexPath.bounds.maxY, width: 0, height: 0)
-        }
-        present(actionSheet, animated: true)
     }
     
     fileprivate func sendFeedback() {
@@ -249,77 +183,17 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         present(activityVC, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let section = SettingsSection(rawValue: indexPath.section)
-        
-        switch section {
-        case .fourSixPro:
-            let row = ProSectionCell(rawValue: indexPath.row)
-            
-            switch row {
-            case .purchasePro:
-                showProPopup(delegate: self)
-            case .restorePro:
-                showRestoreAlert()
-            case .ratio:
-                ratioTextField.becomeFirstResponder()
-            case .stepAdvance:
-                showStepAdvanceActionSheet(tableView, indexPath)
-            case .interval:
-                stepIntervalTextField.becomeFirstResponder()
-            default:
-                print("Undefined indexPath.row")
-                break
-            }
-        case .aboutFourSix:
-            let row = AboutSectionCell(rawValue: indexPath.row)
-            
-            switch row {
-            case .whatIsFourSix:
-                coordinator?.showWhatIs46()
-            case .howTo:
-                coordinator?.showHowTo()
-            case .faq:
-                coordinator?.showFAQ()
-            case .feedback:
-                sendFeedback()
-            case .rate:
-                rateInAppStore()
-            case .share:
-                shareFourSix()
-            case .acknowledgements:
-                coordinator?.showAcknowledgements()
-            default:
-                print("Undefined indexPath.row")
-                break
-            }
-        default:
-            print("Undefined indexPath.section")
-            break
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
     
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 2 {
-            guard let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else { return nil }
-            guard let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else { return nil }
-            let versionWithBuild = "v\(appVersionString) (\(buildNumber))"
-            return versionWithBuild
-        } else {
-            return nil
-        }
-    }
     
     // MARK: IBActions
     
-    @IBAction func showTotalTimeSwitched(_ sender: UISwitch) {
-        if showTotalTimeSwitch.isOn {
-            UserDefaultsManager.totalTimeShown = true
-        } else {
-            UserDefaultsManager.totalTimeShown = false
-        }
-    }
+//    @IBAction func showTotalTimeSwitched(_ sender: UISwitch) {
+//        if showTotalTimeSwitch.isOn {
+//            UserDefaultsManager.totalTimeShown = true
+//        } else {
+//            UserDefaultsManager.totalTimeShown = false
+//        }
+//    }
 
     // MARK: Navigation Methods
     
@@ -327,6 +201,12 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
         dismiss(animated: true) { [weak self] in
             self?.coordinator?.didFinishSettings()
         }
+    }
+}
+
+extension SettingsVC: SettingsPresenting {
+    func selectedCell(row: Int) {
+        print("Selected cell: \(row)")
     }
 }
 
@@ -365,7 +245,7 @@ extension SettingsVC: UIPickerViewDelegate {
         } else {
             let minutes = pickerDataSource.intervalMin[pickerView.selectedRow(inComponent: IntervalPickerComponent.minValue.rawValue)]
             let seconds = pickerDataSource.intervalSec[pickerView.selectedRow(inComponent: IntervalPickerComponent.secValue.rawValue)]
-            stepInterval = (minutes * 60) + seconds
+            settingsDataSource.stepInterval = (minutes * 60) + seconds
         }
     }
 }
@@ -373,13 +253,13 @@ extension SettingsVC: UIPickerViewDelegate {
 extension SettingsVC: ToolBarPickerViewDelegate {
     func didTapDone(_ picker: UIPickerView) {
         if picker == ratioPickerView {
-            ratioTextField.resignFirstResponder()
+            //ratioTextField.resignFirstResponder()
         } else {
-            if stepInterval == 0 {
-                stepInterval += 1
+            if settingsDataSource.stepInterval == 0 {
+                settingsDataSource.stepInterval += 1
                 intervalPickerView?.selectRow(1, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
             }
-            stepIntervalTextField.resignFirstResponder()
+            //stepIntervalTextField.resignFirstResponder()
         }
     }
     
@@ -393,12 +273,63 @@ extension SettingsVC: ToolBarPickerViewDelegate {
             ratio = Ratio.defaultRatio.consequent
         } else {
             let defaultInterval = Int(Recipe.defaultRecipe.interval)
-            guard defaultInterval != stepInterval else { return }
+            guard defaultInterval != settingsDataSource.stepInterval else { return }
             guard let defaultIntervalIndex = pickerDataSource.intervalSec.firstIndex(of: defaultInterval) else { return }
             print("Set interval to default")
             intervalPickerView?.selectRow(0, inComponent: IntervalPickerComponent.minValue.rawValue, animated: true)
             intervalPickerView?.selectRow(defaultIntervalIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
-            stepInterval = defaultInterval
+            settingsDataSource.stepInterval = defaultInterval
         }
     }
 }
+
+//func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    let section = TableSection(rawValue: indexPath.section)
+//
+//    switch section {
+//    case .fourSixPro:
+//        let row = ProSectionCell(rawValue: indexPath.row)
+//
+//        switch row {
+//        case .purchasePro:
+//            showProPopup(delegate: self)
+//        case .restorePro:
+//            showRestoreAlert()
+//        case .ratio:
+//            ratioTextField.becomeFirstResponder()
+//        case .stepAdvance:
+//            showStepAdvanceActionSheet(tableView, indexPath)
+//        case .interval:
+//            stepIntervalTextField.becomeFirstResponder()
+//        default:
+//            print("Undefined indexPath.row")
+//            break
+//        }
+//    case .aboutFourSix:
+//        let row = AboutSectionCell(rawValue: indexPath.row)
+//
+//        switch row {
+//        case .whatIsFourSix:
+//            coordinator?.showWhatIs46()
+//        case .howTo:
+//            coordinator?.showHowTo()
+//        case .faq:
+//            coordinator?.showFAQ()
+//        case .feedback:
+//            sendFeedback()
+//        case .rate:
+//            rateInAppStore()
+//        case .share:
+//            shareFourSix()
+//        case .acknowledgements:
+//            coordinator?.showAcknowledgements()
+//        default:
+//            print("Undefined indexPath.row")
+//            break
+//        }
+//    default:
+//        print("Undefined indexPath.section")
+//        break
+//    }
+//    tableView.deselectRow(at: indexPath, animated: true)
+//}
