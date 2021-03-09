@@ -99,7 +99,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldCell" id="xup-SU-gkf" customClass="TextFieldTableCell" customModule="FourSix" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RatioCell" id="xup-SU-gkf" customClass="RatioCell" customModule="FourSix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xup-SU-gkf" id="Fdy-bL-ism">
@@ -135,6 +135,44 @@
                                         <connections>
                                             <outlet property="cellLabel" destination="GfZ-Az-czR" id="YOL-IO-HO8"/>
                                             <outlet property="cellTextField" destination="bHR-8A-5Tb" id="Cyd-UG-NS8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IntervalCell" id="tga-2I-sH4" customClass="IntervalCell" customModule="FourSix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="231.66666793823242" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tga-2I-sH4" id="B1b-pf-Wbq">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bo-jy-6ux">
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="33" height="21.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="45 sec" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-95-MGf">
+                                                    <rect key="frame" x="273" y="5" width="97" height="33.666666666666664"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="97" id="usa-Hw-EDo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Ic-95-MGf" firstAttribute="top" secondItem="B1b-pf-Wbq" secondAttribute="topMargin" constant="-6" id="OEs-rO-Sah"/>
+                                                <constraint firstItem="6Bo-jy-6ux" firstAttribute="centerY" secondItem="4Ic-95-MGf" secondAttribute="centerY" id="RiV-3s-SU8"/>
+                                                <constraint firstItem="6Bo-jy-6ux" firstAttribute="centerY" secondItem="B1b-pf-Wbq" secondAttribute="centerY" id="WSL-Eb-oFl"/>
+                                                <constraint firstItem="6Bo-jy-6ux" firstAttribute="leading" secondItem="B1b-pf-Wbq" secondAttribute="leadingMargin" id="aCc-og-rOu"/>
+                                                <constraint firstItem="6Bo-jy-6ux" firstAttribute="top" secondItem="B1b-pf-Wbq" secondAttribute="topMargin" id="dwq-1Y-218"/>
+                                                <constraint firstItem="4Ic-95-MGf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Bo-jy-6ux" secondAttribute="trailing" constant="8" symbolic="YES" id="k45-wp-X3d"/>
+                                                <constraint firstItem="4Ic-95-MGf" firstAttribute="trailing" secondItem="B1b-pf-Wbq" secondAttribute="trailingMargin" id="sEh-z2-Lna"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
+                                        <connections>
+                                            <outlet property="cellLabel" destination="6Bo-jy-6ux" id="n2Q-gO-4BT"/>
+                                            <outlet property="cellTextField" destination="4Ic-95-MGf" id="YnB-6f-jVM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

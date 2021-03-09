@@ -37,10 +37,13 @@ enum TableCellIdentifier: String {
     case switchCell = "SwitchCell"
     case detailCell = "DetailCell"
     case basicCell = "BasicCell"
-    case textFieldCell = "TextFieldCell"
+    case ratioCell = "RatioCell"
+    case intervalCell = "IntervalCell"
 }
 
 class SettingsDataSource: NSObject, UITableViewDataSource {
+    private let settingsModel: Settings
+    
     let sectionHeaderStrings: [TableSection: String] = [
         .settings: "Settings",
         .fourSixProDisabled: "FourSix Pro",
@@ -84,18 +87,37 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    var ratio: Float = UserDefaultsManager.ratio {
+    var ratio: Float {
         didSet {
-            updateRatioText()
-            UserDefaultsManager.ratio = ratio
+            settingsModel.ratio = ratio
         }
     }
     
-    var stepInterval = UserDefaultsManager.timerStepInterval {
+    var stepInterval: Int {
         didSet {
-            //updateIntervalText()
-            UserDefaultsManager.timerStepInterval = stepInterval
+            settingsModel.stepInterval = stepInterval
         }
+    }
+    
+    var showTotalTime: Bool {
+        didSet {
+            settingsModel.showTotalTime = showTotalTime
+        }
+    }
+    
+    var autoAdvanceTimer: Bool {
+        didSet {
+            settingsModel.autoAdvanceTimer = autoAdvanceTimer
+        }
+    }
+    
+    override init() {
+        self.settingsModel = Settings()
+        self.ratio = settingsModel.ratio
+        self.stepInterval = settingsModel.stepInterval
+        self.showTotalTime = settingsModel.showTotalTime
+        self.autoAdvanceTimer = settingsModel.autoAdvanceTimer
+        super.init()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -177,9 +199,9 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
     
     private func createRatioCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.textFieldCell.rawValue, for: indexPath) as? TextFieldTableCell else { fatalError("Unable to create TextFieldTableCell") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.ratioCell.rawValue, for: indexPath) as? RatioCell else { fatalError("Unable to create TextFieldTableCell") }
         cell.cellLabel.text = proSectionEnabledStrings[.ratio]
-        cell.cellTextField.text = "1:\(ratio.clean)"
+        cell.cellTextField.text = "1:\(settingsModel.ratio.clean)"
         return cell
     }
     
@@ -191,7 +213,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
     
     private func createIntervalCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.textFieldCell.rawValue, for: indexPath) as? TextFieldTableCell else { fatalError("Unable to create TextFieldTableCell") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.intervalCell.rawValue, for: indexPath) as? IntervalCell else { fatalError("Unable to create TextFieldTableCell") }
         cell.cellLabel.text = proSectionEnabledStrings[.interval]
         
         let (minutes, seconds) = UserDefaultsManager.timerStepInterval.convertToMinAndSec()

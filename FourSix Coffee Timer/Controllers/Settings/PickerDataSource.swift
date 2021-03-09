@@ -30,10 +30,31 @@ enum SettingsPicker: Int {
 }
 
 class PickerDataSource: NSObject, UIPickerViewDataSource {
+    private let settingsModel: Settings
     let ratioValueArray = Array(1...50)
+    let defaultRatioIndex = 14
     let ratioDecimalValueArray = Array(0...9)
     let intervalSec = Array(0...59)
+    let defaultIntervalIndex = 44
     let intervalMin = Array(0...9)
+    
+    var selectedRatio: Float {
+        didSet {
+            settingsModel.ratio = selectedRatio
+        }
+    }
+    
+    var selectedInterval: Int {
+        didSet {
+            settingsModel.stepInterval = selectedInterval
+        }
+    }
+    
+    override init() {
+        self.settingsModel = Settings()
+        self.selectedRatio = settingsModel.ratio
+        self.selectedInterval = settingsModel.stepInterval
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerView.tag == SettingsPicker.ratio.rawValue {

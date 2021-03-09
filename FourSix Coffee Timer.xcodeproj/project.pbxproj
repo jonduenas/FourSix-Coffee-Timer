@@ -51,6 +51,9 @@
 		656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D0D53251D586A001EE918 /* TimerScheduler.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
 		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
+		6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B525F6D2110019D8D1 /* RatioCell.swift */; };
+		6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */; };
+		6584A9BE25F6F3690019D8D1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9BD25F6F3690019D8D1 /* Settings.swift */; };
 		65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C04247D8DEC00A4CE76 /* BrewVC.swift */; };
 		65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C08247D95B700A4CE76 /* TimerVC.swift */; };
 		659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659785CF25141CB200DFB60A /* CalculatorTests.swift */; };
@@ -145,6 +148,9 @@
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
 		6579557F25E32FE500BC244E /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6584A9B525F6D2110019D8D1 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
+		6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
+		6584A9BD25F6F3690019D8D1 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		65859C04247D8DEC00A4CE76 /* BrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewVC.swift; sourceTree = "<group>"; };
 		65859C08247D95B700A4CE76 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		659785CD25141CB200DFB60A /* FourSixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +326,8 @@
 				65B3141825F45783004D9758 /* SettingsDelegate.swift */,
 				65B3140825F41BB4004D9758 /* SwitchTableCell.swift */,
 				65B3140C25F422BD004D9758 /* TextFieldTableCell.swift */,
+				6584A9B525F6D2110019D8D1 /* RatioCell.swift */,
+				6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */,
 				653715A025F177B200F162DD /* IntervalPickerView.swift */,
 				653715AA25F1874200F162DD /* PickerToolbar.swift */,
 				6537159C25F16AE800F162DD /* RatioPickerView.swift */,
@@ -437,6 +445,7 @@
 				651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */,
 				656D0D53251D586A001EE918 /* TimerScheduler.swift */,
 				65FB6548249C18CC00ED732F /* Calculator.swift */,
+				6584A9BD25F6F3690019D8D1 /* Settings.swift */,
 				65FB654A249C19F800ED732F /* Recipe.swift */,
 				65F5182625DDCD9A006CF438 /* Ratio.swift */,
 				65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */,
@@ -629,12 +638,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6584A9BE25F6F3690019D8D1 /* Settings.swift in Sources */,
 				6559A03424BD1B5B00AE4C14 /* IAPManager.swift in Sources */,
 				6515EACF24B2563B004255EB /* Shadow.swift in Sources */,
 				65F5182F25E06144006CF438 /* TimerCoordinator.swift in Sources */,
 				6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */,
 				65B3140525F40291004D9758 /* SettingsDataSource.swift in Sources */,
 				6529E117249FE66F0093FAE1 /* FrequentlyAskedVC.swift in Sources */,
+				6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */,
 				65F5182B25E052FE006CF438 /* TimerNavigationController.swift in Sources */,
 				6543841A25F063CC00AB71F7 /* Int.swift in Sources */,
 				6543841625F0541700AB71F7 /* PickerDataSource.swift in Sources */,
@@ -662,6 +673,7 @@
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
 				6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */,
 				65B3140925F41BB4004D9758 /* SwitchTableCell.swift in Sources */,
+				6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */,
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,

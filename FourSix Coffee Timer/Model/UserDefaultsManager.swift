@@ -28,6 +28,7 @@ class UserDefaultsManager: NSObject {
     private static let lastReviewRequestAppVersionKey = "lastReviewRequestAppVersionKey"
     private static let userHasSeenCoffeeRangeWarningKey = "userHasSeenCoffeeRangeWarningKey"
     private static let userHasMigratedStepAdvanceKey = "userHasMigratedStepAdvanceKey"
+    private static let autoAdvanceTimerKey = "autoAdvanceTimerKey"
     
     // MARK: Variables
     
@@ -163,6 +164,15 @@ class UserDefaultsManager: NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: userHasMigratedStepAdvanceKey)
+        }
+    }
+    
+    static var autoAdvanceTimer: Bool {
+        get {
+            return userDefaults.object(forKey: autoAdvanceTimerKey) as? Bool ?? true
+        }
+        set {
+            userDefaults.set(newValue, forKey: autoAdvanceTimerKey)
         }
     }
 }

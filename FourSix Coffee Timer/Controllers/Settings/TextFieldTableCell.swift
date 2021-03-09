@@ -8,8 +8,12 @@
 
 import UIKit
 
-class TextFieldTableCell: UITableViewCell {
+protocol TextFieldCellDelegate: class {
+    func textField(_ textField: UITextField, didUpdateTo string: String)
+}
 
+class TextFieldTableCell: UITableViewCell {
+    
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellTextField: UITextField!
     
