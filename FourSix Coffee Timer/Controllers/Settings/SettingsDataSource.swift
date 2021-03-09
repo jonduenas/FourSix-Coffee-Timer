@@ -182,18 +182,17 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
     
     @objc func didSwitchTotalTime(_ sender: UISwitch) {
-        print(sender.isOn)
-        UserDefaultsManager.totalTimeShown = sender.isOn
+        settingsModel.showTotalTime = sender.isOn
     }
     
-    private func updateRatioText() {
-        
+    @objc func didSwitchAutoAdvance(_ sender: UISwitch) {
+        settingsModel.autoAdvanceTimer = sender.isOn
     }
     
     private func createTotalTimeCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
         cell.cellLabel.text = text
-        cell.settingSwitch.isOn = UserDefaultsManager.totalTimeShown
+        cell.settingSwitch.isOn = settingsModel.showTotalTime
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchTotalTime(_:)), for: .valueChanged)
         return cell
     }
@@ -209,6 +208,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
         cell.cellLabel.text = proSectionEnabledStrings[.stepAdvance]
         cell.settingSwitch.isOn = UserDefaultsManager.timerStepAdvanceSetting == StepAdvance.auto.rawValue
+        cell.settingSwitch.addTarget(self, action: #selector(didSwitchAutoAdvance(_:)), for: .valueChanged)
         return cell
     }
     
