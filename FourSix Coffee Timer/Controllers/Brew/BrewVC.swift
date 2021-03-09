@@ -184,7 +184,7 @@ class BrewVC: UIViewController, Storyboarded {
     
     private func checkForStepAdvanceMigration() {
         if !UserDefaultsManager.userHasMigratedStepAdvance {
-            UserDefaultsManager.timerStepAdvanceSetting = StepAdvance.allCases[UserDefaultsManager.timerStepAdvance].rawValue
+            UserDefaultsManager.autoAdvanceTimer = UserDefaultsManager.timerStepAdvance == 0
             UserDefaultsManager.userHasMigratedStepAdvance = true
         }
     }

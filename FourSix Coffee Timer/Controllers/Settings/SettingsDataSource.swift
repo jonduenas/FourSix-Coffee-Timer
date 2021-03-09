@@ -8,11 +8,6 @@
 
 import UIKit
 
-#warning("Change this to simple boolean")
-enum StepAdvance: String, CaseIterable {
-    case auto, manual
-}
-
 enum TableSection: Int, CaseIterable {
     case settings, fourSixProEnabled, fourSixProDisabled, aboutFourSix
 }
@@ -207,7 +202,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     private func createStepAdvanceCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
         cell.cellLabel.text = proSectionEnabledStrings[.stepAdvance]
-        cell.settingSwitch.isOn = UserDefaultsManager.timerStepAdvanceSetting == StepAdvance.auto.rawValue
+        cell.settingSwitch.isOn = settingsModel.autoAdvanceTimer
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchAutoAdvance(_:)), for: .valueChanged)
         return cell
     }
@@ -216,7 +211,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.intervalCell.rawValue, for: indexPath) as? IntervalCell else { fatalError("Unable to create TextFieldTableCell") }
         cell.cellLabel.text = proSectionEnabledStrings[.interval]
         
-        let (minutes, seconds) = UserDefaultsManager.timerStepInterval.convertToMinAndSec()
+        let (minutes, seconds) = settingsModel.stepInterval.convertToMinAndSec()
         
         if minutes == 0 {
             cell.cellTextField.text = "\(seconds) sec"

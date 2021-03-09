@@ -16,7 +16,6 @@ class UserDefaultsManager: NSObject {
     private static let launchedBeforeKey = "launchedBeforeKey"
     private static let totalTimeShownKey = "totalTimeShownKey"
     private static let timerStepAdvanceKey = "timerStepAdvanceKey"
-    private static let timerStepAdvanceSettingKey = "timerStepAdvanceSettingKey"
     private static let ratioKey = "ratioKey"
     private static let ratioSelectKey = "ratioSelectKey"
     private static let timerStepIntervalKey = "timerStepIntervalKey"
@@ -56,15 +55,6 @@ class UserDefaultsManager: NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: timerStepAdvanceKey)
-        }
-    }
-    
-    static var timerStepAdvanceSetting: String {
-        get {
-            return userDefaults.object(forKey: timerStepAdvanceSettingKey) as? String ?? StepAdvance.auto.rawValue
-        }
-        set {
-            userDefaults.set(newValue, forKey: timerStepAdvanceSettingKey)
         }
     }
     

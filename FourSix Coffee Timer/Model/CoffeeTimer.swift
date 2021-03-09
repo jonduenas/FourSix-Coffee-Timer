@@ -113,7 +113,7 @@ class CoffeeTimer {
             timerUpdateCallback(.tick(step: currentStepElapsedTime, total: totalElapsedTime))
         } else {
             // End of interval - Check if user has set auto-advance on
-            if UserDefaultsManager.timerStepAdvanceSetting == StepAdvance.auto.rawValue {
+            if UserDefaultsManager.autoAdvanceTimer {
                 nextStep(auto: true)
             } else {
                 // User has step advance set to manual - send elapsed time to closure
