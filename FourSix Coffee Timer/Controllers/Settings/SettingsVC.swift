@@ -12,11 +12,8 @@ import Purchases
 class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     
     // MARK: Constants
-    private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
-    private var ratioPickerView: RatioPickerView?
-    private var intervalPickerView: IntervalPickerView?
     
     // MARK: Variables
     weak var coordinator: SettingsCoordinator?
@@ -30,8 +27,6 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
         initNavBar()
         tableView.delegate = self
         tableView.dataSource = settingsDataSource
-        
-        settingsDataSource.userIsPro = true
         checkForProStatus()
     }
     
@@ -95,16 +90,12 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     }
     
     fileprivate func rateInAppStore() {
-        var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
-        components?.queryItems = [URLQueryItem(name: "action", value: "write-review")]
-        
-        guard let writeReviewURL = components?.url else { return }
-        
+        guard let writeReviewURL = Constants.reviewProductURL else { return }
         UIApplication.shared.open(writeReviewURL)
     }
     
     fileprivate func shareFourSix() {
-        let activityVC = UIActivityViewController(activityItems: [productURL], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [Constants.productURL], applicationActivities: nil)
         present(activityVC, animated: true)
     }
 
@@ -140,7 +131,7 @@ extension SettingsVC: UITableViewDelegate {
             case .purchasePro:
                 showProPopup(delegate: self)
             case .restorePro:
-                print("restore pro")
+                showRestoreAlert()
             default:
                 print("Undefined indexPath.row")
                 break
