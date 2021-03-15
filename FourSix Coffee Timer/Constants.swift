@@ -10,4 +10,10 @@ import Foundation
 
 struct Constants {
     static let revenueCatAPIKey = "dDIhCeApJetzFIZVnXDjcLxLTPTjIoyr"
+    static let appVersion: String = {
+        guard let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else { return "" }
+        guard let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else { return "" }
+        let versionWithBuild = "v\(appVersionString) (\(buildNumber))"
+        return versionWithBuild
+    }()
 }

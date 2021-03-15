@@ -167,10 +167,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == shownSections.count - 1 {
-            guard let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else { return nil }
-            guard let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else { return nil }
-            let versionWithBuild = "v\(appVersionString) (\(buildNumber))"
-            return versionWithBuild
+            return Constants.appVersion
         } else {
             return nil
         }
