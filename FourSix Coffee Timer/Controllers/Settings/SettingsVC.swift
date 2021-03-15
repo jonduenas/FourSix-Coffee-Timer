@@ -10,16 +10,11 @@ import UIKit
 import Purchases
 
 class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
-    
-    // MARK: Constants
-    private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
-    
-    // MARK: Variables
+
+    @IBOutlet weak var tableView: UITableView!
+
     weak var coordinator: SettingsCoordinator?
     var settingsDataSource = SettingsDataSource()
-    
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +27,23 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     
     private func initNavBar() {
         title = "Settings"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(closeTapped(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"),
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(closeTapped(_:)))
     }
     
     private func checkForProStatus() {
         IAPManager.shared.userIsPro { [weak self] (userIsPro, error) in
+            guard let self = self else { return }
+            
             if let err = error {
-                self?.showAlert(message: "Error checking for Pro status: \(err.localizedDescription)")
+                AlertHelper.showAlert(title: "Unexpected Error",
+                                      message: "Error checking for Pro status: \(err.localizedDescription)",
+                                      on: self)
             }
-            self?.enableProFeatures(userIsPro)
+            
+            self.enableProFeatures(userIsPro)
         }
     }
     
@@ -62,31 +65,34 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     // MARK: TableView Methods
     
     fileprivate func showRestoreAlert() {
-        let alert = UIAlertController(title: "Restore FourSix Pro", message: "Would you like to restore your previous purchase of FourSix Pro?", preferredStyle: .alert)
-        alert.addAction(cancelAction)
-        alert.addAction(UIAlertAction(title: "Restore", style: .default, handler: { _ in
+        AlertHelper.showCancellableAlert(title: "Restore FourSix Pro",
+                                         message: "Would you like to restore your previous purchase of FourSix Pro?",
+                                         confirmButtonTitle: "Restore",
+                                         dismissButtonTitle: "Cancel",
+                                         on: self) { _ in
             IAPManager.shared.restorePurchases { (_, error) in
-                if error != nil {
-                    self.showAlert(title: "Error", message: error!)
-                } else {
-                    self.showAlert(title: "Restore Successful", message: "...And we're back! Let's get brewing.") {
-                        self.purchaseRestored()
-                    }
+                if let err = error {
+                    AlertHelper.showAlert(title: "Unexpected Error", message: err, on: self)
+                    return
                 }
+                
+                AlertHelper.showConfirmationAlert(title: "Restore Successful",
+                                                  message: "...And we're back! Thanks for being a pro user. Time to brew some coffee.",
+                                                  confirmButtonTitle: "Let's Go",
+                                                  on: self)
+                self.purchaseRestored()
             }
-        }))
-        present(alert, animated: true, completion: nil)
+        }
     }
     
     fileprivate func sendFeedback() {
-        let alert = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
-        alert.addAction(cancelAction)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            if let url = URL(string: "https://www.twitter.com/foursixcoffee") {
-                UIApplication.shared.open(url)
-            }
-        }))
-        present(alert, animated: true)
+        AlertHelper.showCancellableAlert(title: "Opening...",
+                                         message: "Sending you to Twitter to give feedback.",
+                                         confirmButtonTitle: "Open Twitter",
+                                         dismissButtonTitle: "Cancel",
+                                         on: self) { _ in
+            UIApplication.shared.open(Constants.twitterURL)
+        }
     }
     
     fileprivate func rateInAppStore() {

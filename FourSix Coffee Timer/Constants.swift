@@ -11,6 +11,7 @@ import Foundation
 struct Constants {
     static let revenueCatAPIKey = "dDIhCeApJetzFIZVnXDjcLxLTPTjIoyr"
     static let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
+    static let twitterURL = URL(string: "https://www.twitter.com/foursixcoffee")!
     
     static let reviewProductURL: URL? = {
         var components = URLComponents(url: Constants.productURL, resolvingAgainstBaseURL: false)

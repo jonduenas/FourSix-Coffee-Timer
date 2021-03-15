@@ -21,7 +21,7 @@ class AlertHelper {
         controller.present(alert, animated: true)
     }
     
-    static func showAlertWithHandler(title: String?, message: String?, confirmButtonTitle: String, dismissButtonTitle: String, on controller: UIViewController, handler: AlertHandler?) {
+    static func showCancellableAlert(title: String?, message: String?, confirmButtonTitle: String, dismissButtonTitle: String, on controller: UIViewController, handler: AlertHandler? = nil) {
         assert((title ?? message) != nil, "Title OR message must be passed in")
         
         let alert = UIAlertController(title: title,
@@ -33,6 +33,18 @@ class AlertHelper {
         alert.addAction(UIAlertAction(title: dismissButtonTitle,
                                       style: .cancel,
                                       handler: nil))
+        controller.present(alert, animated: true, completion: nil)
+    }
+    
+    static func showConfirmationAlert(title: String?, message: String?, confirmButtonTitle: String, on controller: UIViewController, handler: AlertHandler? = nil) {
+        assert((title ?? message) != nil, "Title OR message must be passed in")
+        
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: confirmButtonTitle,
+                                      style: .default,
+                                      handler: handler))
         controller.present(alert, animated: true, completion: nil)
     }
 }
