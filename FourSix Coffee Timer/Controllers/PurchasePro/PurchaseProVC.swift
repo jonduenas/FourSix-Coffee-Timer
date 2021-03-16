@@ -53,22 +53,18 @@ class PurchaseProVC: UIViewController {
     @IBAction func restorePurchaseTapped(_ sender: Any) {
         setState(loading: true)
         
-        IAPManager.shared.restorePurchases { (_, error) in
-            self.setState(loading: false)
-            
-            if error != nil {
-                self.showAlert(title: "Error", message: error!, afterConfirm: nil)
-            } else {
-                print("restore successful")
-                self.showAlert(title: "Restore Successful", message: "...And we're back! Let's get brewing.") {
-                    self.dismiss(animated: true) {
-                        if let purchaseRestoreHandler = self.delegate?.purchaseRestored {
-                            purchaseRestoreHandler()
-                        }
-                    }
-                }
-            }
-        }
+        AlertHelper.showRestorePurchaseAlert(on: self,
+                                             cancelHandler: { [weak self] _ in
+                                                self?.setState(loading: false)
+                                             },
+                                             completion: { [weak self] in
+                                                self?.setState(loading: false)
+                                                self?.dismiss(animated: true) {
+                                                    if let purchaseRestoreHandler = self?.delegate?.purchaseRestored {
+                                                        purchaseRestoreHandler()
+                                                    }
+                                                }
+                                             })
     }
     
     @IBAction func getProTapped(_ sender: Any) {

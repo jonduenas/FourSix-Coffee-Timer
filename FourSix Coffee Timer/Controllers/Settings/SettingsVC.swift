@@ -69,9 +69,10 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
                                          message: "Sending you to Twitter to give feedback.",
                                          confirmButtonTitle: "Open Twitter",
                                          dismissButtonTitle: "Cancel",
-                                         on: self) { _ in
-            UIApplication.shared.open(Constants.twitterURL)
-        }
+                                         on: self,
+                                         confirmHandler:  { _ in
+                                            UIApplication.shared.open(Constants.twitterURL)
+                                         })
     }
     
     fileprivate func rateInAppStore() {

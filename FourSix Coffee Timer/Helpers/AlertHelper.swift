@@ -21,7 +21,7 @@ class AlertHelper {
         controller.present(alert, animated: true)
     }
     
-    static func showCancellableAlert(title: String?, message: String?, confirmButtonTitle: String, dismissButtonTitle: String, on controller: UIViewController, handler: AlertHandler? = nil) {
+    static func showCancellableAlert(title: String?, message: String?, confirmButtonTitle: String, dismissButtonTitle: String, on controller: UIViewController, cancelHandler: AlertHandler? = nil, confirmHandler: AlertHandler? = nil) {
         assert((title ?? message) != nil, "Title OR message must be passed in")
         
         let alert = UIAlertController(title: title,
@@ -29,10 +29,10 @@ class AlertHelper {
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: confirmButtonTitle,
                                       style: .default,
-                                      handler: handler))
+                                      handler: confirmHandler))
         alert.addAction(UIAlertAction(title: dismissButtonTitle,
                                       style: .cancel,
-                                      handler: nil))
+                                      handler: cancelHandler))
         controller.present(alert, animated: true, completion: nil)
     }
     
@@ -48,27 +48,27 @@ class AlertHelper {
         controller.present(alert, animated: true, completion: nil)
     }
     
-    static func showRestorePurchaseAlert(on controller: UIViewController, completion: (() -> Void)?) {
+    static func showRestorePurchaseAlert(on controller: UIViewController, cancelHandler: AlertHandler? = nil, completion: (() -> Void)?) {
         AlertHelper.showCancellableAlert(title: "Restore FourSix Pro",
                                          message: "Would you like to restore your previous purchase of FourSix Pro?",
                                          confirmButtonTitle: "Restore",
                                          dismissButtonTitle: "Cancel",
-                                         on: controller) { _ in
-            IAPManager.shared.restorePurchases { (_, error) in
-                if let err = error {
-                    AlertHelper.showAlert(title: "Unexpected Error", message: err, on: controller)
-                    return
-                }
-                
-                AlertHelper.showConfirmationAlert(title: "Restore Successful",
-                                                  message: "...And we're back! Thanks for being a pro user. Time to brew some coffee.",
-                                                  confirmButtonTitle: "Let's Go",
-                                                  on: controller)
-                if let completion = completion {
-                    completion()
-                }
-            }
-        }
+                                         on: controller,
+                                         cancelHandler: cancelHandler,
+                                         confirmHandler:  { _ in
+                                            IAPManager.shared.restorePurchases { (_, error) in
+                                                if let err = error {
+                                                    AlertHelper.showConfirmationAlert(title: "Unexpected Error", message: err, confirmButtonTitle: "OK", on: controller, handler: cancelHandler)
+                                                    return
+                                                }
+                                                
+                                                AlertHelper.showConfirmationAlert(title: "Restore Successful", message: "...And we're back! Thanks for being a pro user. Time to brew some coffee.", confirmButtonTitle: "Let's Go", on: controller, handler: { _ in
+                                                    if let completion = completion {
+                                                        completion()
+                                                    }
+                                                })
+                                            }
+                                         })
     }
 }
 
