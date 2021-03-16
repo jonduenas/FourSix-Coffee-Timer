@@ -47,6 +47,29 @@ class AlertHelper {
                                       handler: handler))
         controller.present(alert, animated: true, completion: nil)
     }
+    
+    static func showRestorePurchaseAlert(on controller: UIViewController, completion: (() -> Void)?) {
+        AlertHelper.showCancellableAlert(title: "Restore FourSix Pro",
+                                         message: "Would you like to restore your previous purchase of FourSix Pro?",
+                                         confirmButtonTitle: "Restore",
+                                         dismissButtonTitle: "Cancel",
+                                         on: controller) { _ in
+            IAPManager.shared.restorePurchases { (_, error) in
+                if let err = error {
+                    AlertHelper.showAlert(title: "Unexpected Error", message: err, on: controller)
+                    return
+                }
+                
+                AlertHelper.showConfirmationAlert(title: "Restore Successful",
+                                                  message: "...And we're back! Thanks for being a pro user. Time to brew some coffee.",
+                                                  confirmButtonTitle: "Let's Go",
+                                                  on: controller)
+                if let completion = completion {
+                    completion()
+                }
+            }
+        }
+    }
 }
 
 extension UIAlertAction {

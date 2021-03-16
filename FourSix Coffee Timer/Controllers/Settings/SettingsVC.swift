@@ -64,27 +64,6 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
     
     // MARK: TableView Methods
     
-    fileprivate func showRestoreAlert() {
-        AlertHelper.showCancellableAlert(title: "Restore FourSix Pro",
-                                         message: "Would you like to restore your previous purchase of FourSix Pro?",
-                                         confirmButtonTitle: "Restore",
-                                         dismissButtonTitle: "Cancel",
-                                         on: self) { _ in
-            IAPManager.shared.restorePurchases { (_, error) in
-                if let err = error {
-                    AlertHelper.showAlert(title: "Unexpected Error", message: err, on: self)
-                    return
-                }
-                
-                AlertHelper.showConfirmationAlert(title: "Restore Successful",
-                                                  message: "...And we're back! Thanks for being a pro user. Time to brew some coffee.",
-                                                  confirmButtonTitle: "Let's Go",
-                                                  on: self)
-                self.purchaseRestored()
-            }
-        }
-    }
-    
     fileprivate func sendFeedback() {
         AlertHelper.showCancellableAlert(title: "Opening...",
                                          message: "Sending you to Twitter to give feedback.",
@@ -137,7 +116,9 @@ extension SettingsVC: UITableViewDelegate {
             case .purchasePro:
                 showProPopup(delegate: self)
             case .restorePro:
-                showRestoreAlert()
+                AlertHelper.showRestorePurchaseAlert(on: self) { [weak self] in
+                    self?.purchaseRestored()
+                }
             default:
                 print("Undefined indexPath.row")
                 break
