@@ -28,7 +28,7 @@
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
 		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
 		652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */; };
-		65315ADE249ADB4D00994E28 /* Clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean.swift */; };
+		65315ADE249ADB4D00994E28 /* Clean+DoubleFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
 		6537159D25F16AE800F162DD /* RatioPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6537159C25F16AE800F162DD /* RatioPickerView.swift */; };
@@ -39,7 +39,7 @@
 		6542DDFA25D858AB0067C704 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */; };
 		6542EDCB24E20096009AA897 /* BrewSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */; };
 		6543841625F0541700AB71F7 /* PickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6543841525F0541700AB71F7 /* PickerDataSource.swift */; };
-		6543841A25F063CC00AB71F7 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6543841925F063CC00AB71F7 /* Int.swift */; };
+		6543841A25F063CC00AB71F7 /* ConvertToMinAndSec+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6543841925F063CC00AB71F7 /* ConvertToMinAndSec+Int.swift */; };
 		6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6557571424A673C00071DDB8 /* ProgressCircle.swift */; };
 		6559A03424BD1B5B00AE4C14 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6559A03324BD1B5A00AE4C14 /* IAPManager.swift */; };
 		655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BB6B224916B3900ED5575 /* SettingsVC.swift */; };
@@ -123,7 +123,7 @@
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
 		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsVC.storyboard; sourceTree = "<group>"; };
-		65315ADD249ADB4D00994E28 /* Clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.swift; sourceTree = "<group>"; };
+		65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clean+DoubleFloat.swift"; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		6537159C25F16AE800F162DD /* RatioPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioPickerView.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSummaryVC.swift; sourceTree = "<group>"; };
 		6543841525F0541700AB71F7 /* PickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDataSource.swift; sourceTree = "<group>"; };
-		6543841925F063CC00AB71F7 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		6543841925F063CC00AB71F7 /* ConvertToMinAndSec+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConvertToMinAndSec+Int.swift"; sourceTree = "<group>"; };
 		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/View/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
 		6559A03324BD1B5A00AE4C14 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		655BB6B224916B3900ED5575 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -285,8 +285,8 @@
 		654B2F3B24C78C9C00AA3A7C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				65315ADD249ADB4D00994E28 /* Clean.swift */,
-				6543841925F063CC00AB71F7 /* Int.swift */,
+				65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */,
+				6543841925F063CC00AB71F7 /* ConvertToMinAndSec+Int.swift */,
 				65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */,
 			);
 			path = Extensions;
@@ -676,7 +676,7 @@
 				6529E117249FE66F0093FAE1 /* FrequentlyAskedVC.swift in Sources */,
 				6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */,
 				65F5182B25E052FE006CF438 /* TimerNavigationController.swift in Sources */,
-				6543841A25F063CC00AB71F7 /* Int.swift in Sources */,
+				6543841A25F063CC00AB71F7 /* ConvertToMinAndSec+Int.swift in Sources */,
 				6543841625F0541700AB71F7 /* PickerDataSource.swift in Sources */,
 				65FB6549249C18CC00ED732F /* Calculator.swift in Sources */,
 				6542EDCB24E20096009AA897 /* BrewSummaryVC.swift in Sources */,
@@ -691,7 +691,7 @@
 				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
-				65315ADE249ADB4D00994E28 /* Clean.swift in Sources */,
+				65315ADE249ADB4D00994E28 /* Clean+DoubleFloat.swift in Sources */,
 				65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
