@@ -170,9 +170,10 @@ class BrewVC: UIViewController, Storyboarded {
         if isCoffeeAcceptableRange() || UserDefaultsManager.userHasSeenCoffeeRangeWarning {
             coordinator?.showTimer(for: createRecipe())
         } else {
-            showAlertWithCancel(title: "Warning",
-                                message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup, and the given preset times may not work well.")
-            { [weak self] in
+            AlertHelper.showConfirmationAlert(title: "Warning",
+                                              message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup. Consider adjusting the step interval time.",
+                                              confirmButtonTitle: "Continue",
+                                              on: self) { [weak self] _ in
                 guard let self = self else { return }
                 UserDefaultsManager.userHasSeenCoffeeRangeWarning = true
                 self.coordinator?.showTimer(for: self.createRecipe())
@@ -201,11 +202,13 @@ extension BrewVC: PaywallDelegate {
     
     private func checkForProStatus() {
         IAPManager.shared.userIsPro { [weak self] (userIsPro, error) in
+            guard let self = self else { return }
+            
             if let err = error {
-                self?.showAlert(message: "Error checking for Pro status: \(err.localizedDescription)")
-                self?.enableProFeatures(userIsPro)
+                AlertHelper.showAlert(title: "Unexpected Error", message: "Error checking for Pro status: \(err.localizedDescription)", on: self)
+                self.enableProFeatures(userIsPro)
             } else {
-                self?.enableProFeatures(userIsPro)
+                self.enableProFeatures(userIsPro)
             }
         }
     }
