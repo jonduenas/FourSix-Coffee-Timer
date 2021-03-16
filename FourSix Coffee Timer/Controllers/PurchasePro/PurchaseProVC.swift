@@ -72,11 +72,13 @@ class PurchaseProVC: UIViewController {
         
         if let package = IAPManager.shared.package {
             IAPManager.shared.purchase(package: package) { [weak self] (succeeded, error) in
-                self?.setState(loading: false)
+                guard let self = self else { return }
+                
+                self.setState(loading: false)
                 
                 if succeeded {
                     print("successful purchase")
-                    self?.showAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Time to take your brew to the next level.") {
+                    AlertHelper.showConfirmationAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Time to take your coffee to the next level.", confirmButtonTitle: "Let's Go", on: self) { [weak self] _ in
                         self?.dismiss(animated: true) {
                             if let purchaseCompleteHandler = self?.delegate?.purchaseCompleted {
                                 purchaseCompleteHandler()
@@ -86,7 +88,9 @@ class PurchaseProVC: UIViewController {
                 } else {
                     if let error = error {
                         print(error)
-                        self?.showAlert(title: "Error", message: error, afterConfirm: nil)
+                        AlertHelper.showAlert(title: "Purchase Failed", message: error, on: self)
+                    } else {
+                        AlertHelper.showAlert(title: "Purchase Failed", message: "Unknown error. Please try again or contact the developer if the error persists.", on: self)
                     }
                 }
             }

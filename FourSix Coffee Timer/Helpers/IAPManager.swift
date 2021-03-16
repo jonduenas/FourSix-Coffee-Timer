@@ -77,7 +77,6 @@ class IAPManager: NSObject {
     
     func purchase(package: Purchases.Package, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
         if Purchases.canMakePayments() {
-            
             Purchases.shared.purchasePackage(package) { [weak self] (_, purchaserInfo, error, userCancelled) in
                 guard let self = self else { return }
                 if let error = error as NSError? {
@@ -91,8 +90,6 @@ class IAPManager: NSObject {
                         print("Message: \(errMessage)")
                         print("Underlying Error: \(String(describing: errUnderlying))")
                         
-                        purchaseSucceeded(false, errMessage)
-                        
                         // Handle specific errors
                         switch Purchases.ErrorCode(_nsError: error).code {
                         case .purchaseNotAllowedError:
@@ -100,7 +97,7 @@ class IAPManager: NSObject {
                         case .purchaseInvalidError:
                             purchaseSucceeded(false, "Purchase invalid, check payment source.")
                         default:
-                            break
+                            purchaseSucceeded(false, errMessage)
                         }
                     } else {
                         purchaseSucceeded(false, nil)
@@ -109,6 +106,8 @@ class IAPManager: NSObject {
                     // Successful purchase
                     if purchaserInfo?.entitlements[self.entitlementID]?.isActive == true {
                         purchaseSucceeded(true, nil)
+                    } else {
+                        purchaseSucceeded(false, nil)
                     }
                 }
             }
