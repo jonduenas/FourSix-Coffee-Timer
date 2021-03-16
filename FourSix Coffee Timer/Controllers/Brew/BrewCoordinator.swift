@@ -61,6 +61,14 @@ class BrewCoordinator: Coordinator {
         navigationController.present(childCoordinator.navigationController, animated: true, completion: nil)
     }
     
+    func showProPaywall(delegate: PaywallDelegate) {
+        let vc = PurchaseProVC.instantiate(fromStoryboardNamed: String(describing: PurchaseProVC.self))
+        vc.delegate = delegate
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController.present(vc, animated: true, completion: nil)
+    }
+    
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in childCoordinators.enumerated() {
             if coordinator === child {

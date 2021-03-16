@@ -143,7 +143,7 @@ class BrewVC: UIViewController, Storyboarded {
     // MARK: IBActions
     
     @IBAction func editTapped(_ sender: UIButton) {
-        showProPopup(delegate: self)
+        coordinator?.showProPaywall(delegate: self)
     }
     
     @IBAction func sliderChanged(_ sender: TactileSlider) {

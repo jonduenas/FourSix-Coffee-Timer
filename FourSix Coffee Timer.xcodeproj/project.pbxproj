@@ -46,7 +46,7 @@
 		6561ACA624BBBEA400C9F129 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */; };
 		6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */; };
 		6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA924BBDE5800C9F129 /* RoundedView.swift */; };
-		6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */; };
+		6561ACAD24BBE64300C9F129 /* PurchaseProVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6561ACAB24BBE64300C9F129 /* PurchaseProVC.storyboard */; };
 		656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */; };
 		656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D0D53251D586A001EE918 /* TimerScheduler.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
@@ -142,7 +142,7 @@
 		6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProVC.swift; sourceTree = "<group>"; };
 		6561ACA924BBDE5800C9F129 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
-		6561ACAC24BBE64300C9F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FourSixProPopup.storyboard; sourceTree = "<group>"; };
+		6561ACAC24BBE64300C9F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PurchaseProVC.storyboard; sourceTree = "<group>"; };
 		656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		656D0D53251D586A001EE918 /* TimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduler.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -213,7 +213,7 @@
 		650E81EF25EDBA0500DF119B /* PurchasePro */ = {
 			isa = PBXGroup;
 			children = (
-				6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */,
+				6561ACAB24BBE64300C9F129 /* PurchaseProVC.storyboard */,
 				6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */,
 			);
 			path = PurchasePro;
@@ -588,7 +588,7 @@
 				6527564A2475B138004E067F /* BrewVC.storyboard in Resources */,
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
 				65FB31AF24CA130E00781023 /* WalkthroughPageVC.storyboard in Resources */,
-				6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */,
+				6561ACAD24BBE64300C9F129 /* PurchaseProVC.storyboard in Resources */,
 				650E81F925EDBAD800DF119B /* TimerVC.storyboard in Resources */,
 				65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */,
 				652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */,
@@ -776,12 +776,12 @@
 			name = SettingsVC.storyboard;
 			sourceTree = "<group>";
 		};
-		6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */ = {
+		6561ACAB24BBE64300C9F129 /* PurchaseProVC.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6561ACAC24BBE64300C9F129 /* Base */,
 			);
-			name = FourSixProPopup.storyboard;
+			name = PurchaseProVC.storyboard;
 			sourceTree = "<group>";
 		};
 		65FB31AD24CA130E00781023 /* WalkthroughPageVC.storyboard */ = {

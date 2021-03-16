@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PurchaseProVC: UIViewController {
+class PurchaseProVC: UIViewController, Storyboarded {
     weak var delegate: PaywallDelegate?
     var productPrice: String?
     var productName: String?
