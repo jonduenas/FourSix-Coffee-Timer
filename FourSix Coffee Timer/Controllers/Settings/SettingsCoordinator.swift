@@ -31,6 +31,14 @@ class SettingsCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
+    func showProPaywall(delegate: PaywallDelegate) {
+        let vc = PurchaseProVC.instantiate(fromStoryboardNamed: String(describing: PurchaseProVC.self))
+        vc.delegate = delegate
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController.present(vc, animated: true, completion: nil)
+    }
+    
     func showWhatIs46() {
         let vc = WhatIs46VC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.coordinator = self

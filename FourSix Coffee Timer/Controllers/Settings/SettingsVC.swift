@@ -115,7 +115,7 @@ extension SettingsVC: UITableViewDelegate {
             
             switch row {
             case .purchasePro:
-                showProPopup(delegate: self)
+                coordinator?.showProPaywall(delegate: self)
             case .restorePro:
                 AlertHelper.showRestorePurchaseAlert(on: self) { [weak self] in
                     self?.purchaseRestored()
