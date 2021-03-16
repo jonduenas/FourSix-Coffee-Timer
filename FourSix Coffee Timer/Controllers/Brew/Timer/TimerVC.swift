@@ -68,15 +68,17 @@ class TimerVC: UIViewController, Storyboarded {
     // MARK: Button methods
     
     @objc func closeTapped() {
-        let alert = UIAlertController(title: "Do you want to exit the timer?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [weak self] _ in
-            self?.coffeeTimer.cancelTimer()
-            self?.dismiss(animated: true, completion: {
-                self?.coordinator?.didCancelTimer()
-            })
-        }))
-        present(alert, animated: true)        
+        AlertHelper.showCancellableAlert(title: "Do you want to exit the timer?",
+                                         message: nil,
+                                         confirmButtonTitle: "Exit",
+                                         dismissButtonTitle: "Cancel",
+                                         on: self,
+                                         confirmHandler: { [weak self] _ in
+                                            self?.coffeeTimer.cancelTimer()
+                                            self?.dismiss(animated: true, completion: {
+                                                self?.coordinator?.didCancelTimer()
+                                            })
+                                         })
     }
     
     @IBAction func playPauseTapped(_ sender: Any) {
