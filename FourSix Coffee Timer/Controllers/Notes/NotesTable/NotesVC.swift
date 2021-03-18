@@ -9,10 +9,10 @@
 import UIKit
 
 class NotesVC: UIViewController, Storyboarded {
-
+    weak var coordinator: NotesCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
 }
