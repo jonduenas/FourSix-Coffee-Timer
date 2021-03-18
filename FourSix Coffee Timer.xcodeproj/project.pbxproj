@@ -83,7 +83,7 @@
 		65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9225D71775007177B8 /* Coordinator.swift */; };
 		65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9825D717DA007177B8 /* Storyboarded.swift */; };
 		65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */; };
-		65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF064925D759650075E082 /* BrewNavigationController.swift */; };
+		65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF064925D759650075E082 /* MainNavigationController.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
 		65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */; };
 		65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182625DDCD9A006CF438 /* Ratio.swift */; };
@@ -187,7 +187,7 @@
 		65BE8A9225D71775007177B8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65BE8A9825D717DA007177B8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCoordinator.swift; sourceTree = "<group>"; };
-		65BF064925D759650075E082 /* BrewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNavigationController.swift; sourceTree = "<group>"; };
+		65BF064925D759650075E082 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
 		65F5182625DDCD9A006CF438 /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
@@ -273,9 +273,9 @@
 		6536F2662602931D00E2DF28 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				6577F2A32603D03E0029E396 /* NotesCoordinator.swift */,
 				6536F2732602BE6000E2DF28 /* NotesTable */,
 				6536F2762602BE7000E2DF28 /* NoteDetails */,
-				6577F2A32603D03E0029E396 /* NotesCoordinator.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -447,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				6577F2A72603D24F0029E396 /* MainTabBarController.swift */,
+				65BF064925D759650075E082 /* MainNavigationController.swift */,
 				6536F2662602931D00E2DF28 /* Notes */,
 				65BE8A9C25D71C9D007177B8 /* Brew */,
 				6599B4732524FF73005EA7DD /* Settings */,
@@ -504,7 +505,6 @@
 				652756482475B138004E067F /* BrewVC.storyboard */,
 				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
 				65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */,
-				65BF064925D759650075E082 /* BrewNavigationController.swift */,
 				65BBE40C25E5AFB500788156 /* Recipe */,
 				65BBE40D25E5AFCE00788156 /* Timer */,
 				65BBE40E25E5AFFB00788156 /* Summary */,
@@ -746,7 +746,7 @@
 				65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
-				65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */,
+				65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */,
 				65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */,
 				65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */,
 				6599310625EEC38600840005 /* Style.swift in Sources */,

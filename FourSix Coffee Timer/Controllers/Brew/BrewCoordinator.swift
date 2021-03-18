@@ -35,7 +35,7 @@ class BrewCoordinator: Coordinator {
         let vc = RecipeVC.instantiate(fromStoryboardNamed: String(describing: RecipeVC.self))
         vc.coordinator = self
         vc.recipe = recipe
-        let recipeNav = BrewNavigationController(rootViewController: vc)
+        let recipeNav = MainNavigationController(rootViewController: vc)
         navigationController.present(recipeNav, animated: true, completion: nil)
     }
     

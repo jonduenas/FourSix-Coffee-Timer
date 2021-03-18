@@ -9,8 +9,8 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    let brewCoordinator = BrewCoordinator(navigationController: BrewNavigationController())
-    let notesCoordinator = NotesCoordinator(navigationController: UINavigationController())
+    let brewCoordinator = BrewCoordinator(navigationController: MainNavigationController())
+    let notesCoordinator = NotesCoordinator(navigationController: MainNavigationController())
     
     override func viewDidLoad() {
         super.viewDidLoad()

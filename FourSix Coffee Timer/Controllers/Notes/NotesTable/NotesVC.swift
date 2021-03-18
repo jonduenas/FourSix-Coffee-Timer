@@ -14,5 +14,6 @@ class NotesVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.shadowImage = nil
     }
 }

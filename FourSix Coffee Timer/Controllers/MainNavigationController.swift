@@ -1,5 +1,5 @@
 //
-//  BrewNavigationController.swift
+//  MainNavigationController.swift
 //  FourSix Coffee Timer
 //
 //  Created by Jon Duenas on 2/12/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BrewNavigationController: UINavigationController {
+class MainNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
