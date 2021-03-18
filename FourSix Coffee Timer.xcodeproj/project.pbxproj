@@ -56,6 +56,7 @@
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
 		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
 		6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A32603D03E0029E396 /* NotesCoordinator.swift */; };
+		6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A72603D24F0029E396 /* MainTabBarController.swift */; };
 		6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B525F6D2110019D8D1 /* RatioCell.swift */; };
 		6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */; };
 		6584A9BE25F6F3690019D8D1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9BD25F6F3690019D8D1 /* Settings.swift */; };
@@ -157,6 +158,7 @@
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
 		6577F2A32603D03E0029E396 /* NotesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCoordinator.swift; sourceTree = "<group>"; };
+		6577F2A72603D24F0029E396 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		6579557F25E32FE500BC244E /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6584A9B525F6D2110019D8D1 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
 		6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 		65AFC1FC249D5A0800576AFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6577F2A72603D24F0029E396 /* MainTabBarController.swift */,
 				6536F2662602931D00E2DF28 /* Notes */,
 				65BE8A9C25D71C9D007177B8 /* Brew */,
 				6599B4732524FF73005EA7DD /* Settings */,
@@ -739,6 +742,7 @@
 				6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
 				65315ADE249ADB4D00994E28 /* Clean+DoubleFloat.swift in Sources */,
+				6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */,
 				65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,

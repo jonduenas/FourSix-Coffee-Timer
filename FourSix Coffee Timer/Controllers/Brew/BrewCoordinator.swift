@@ -21,6 +21,7 @@ class BrewCoordinator: Coordinator {
         let vc = BrewVC.instantiate(fromStoryboardNamed: String(describing: BrewVC.self))
         vc.coordinator = self
         parentVC = vc
+        vc.tabBarItem = UITabBarItem(title: "Let's Brew", image: UIImage(systemName: "timer"), tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }
     

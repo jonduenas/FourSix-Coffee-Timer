@@ -89,7 +89,7 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeNavBar() {
-        title = "Let's Brew"
+        navigationItem.title = "Let's Brew"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
     }
     
