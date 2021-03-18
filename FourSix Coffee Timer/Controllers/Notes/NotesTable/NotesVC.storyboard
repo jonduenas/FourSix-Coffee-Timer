@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YEE-RY-QbS">
-                                                    <rect key="frame" x="20" y="11" width="225" height="51.5"/>
+                                                    <rect key="frame" x="20" y="11" width="215" height="51.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhm-iR-BAa">
                                                             <rect key="frame" x="0.0" y="0.0" width="52.5" height="25.5"/>
@@ -61,7 +61,7 @@
                                                             <rect key="frame" x="54" y="-0.5" width="22" height="20"/>
                                                             <color key="tintColor" systemColor="labelColor"/>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SBB-nf-pbd">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SBB-nf-pbd">
                                                             <rect key="frame" x="81" y="-0.5" width="22" height="20"/>
                                                             <color key="tintColor" systemColor="labelColor"/>
                                                         </imageView>
@@ -78,12 +78,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="xEl-Ty-q72" secondAttribute="trailing" id="B6t-aw-Ylu"/>
                                                 <constraint firstItem="YEE-RY-QbS" firstAttribute="top" secondItem="Br7-Cn-ter" secondAttribute="topMargin" id="E7a-Hr-bBK"/>
-                                                <constraint firstItem="xEl-Ty-q72" firstAttribute="leading" secondItem="YEE-RY-QbS" secondAttribute="trailing" id="N5K-j2-8tv"/>
+                                                <constraint firstItem="xEl-Ty-q72" firstAttribute="leading" secondItem="YEE-RY-QbS" secondAttribute="trailing" constant="10" id="N5K-j2-8tv"/>
                                                 <constraint firstItem="xEl-Ty-q72" firstAttribute="centerY" secondItem="Br7-Cn-ter" secondAttribute="centerY" id="mWI-oM-DtD"/>
                                                 <constraint firstItem="YEE-RY-QbS" firstAttribute="leading" secondItem="Br7-Cn-ter" secondAttribute="leadingMargin" id="sLv-4q-aoE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="YEE-RY-QbS" secondAttribute="bottom" id="taz-ZZ-eC5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="Background"/>
                                         <connections>
                                             <outlet property="headerLabel" destination="Jhm-iR-BAa" id="KT4-UU-Pv5"/>
                                             <outlet property="ratingStackView" destination="xEl-Ty-q72" id="b4R-ff-Jlq"/>
@@ -102,6 +103,9 @@
                             <constraint firstItem="aAp-2q-tXh" firstAttribute="bottom" secondItem="5dg-5l-FRc" secondAttribute="bottom" id="ycg-gm-Dyt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="5dg-5l-FRc" id="0mV-GQ-qrD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VK-9I-GbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,7 +115,6 @@
     <resources>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <image name="star.leadinghalf.fill" catalog="system" width="128" height="116"/>
         <namedColor name="Background">
             <color red="0.92500001192092896" green="0.92500001192092896" blue="0.92500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
