@@ -33,7 +33,7 @@ struct CoffeeDetails: Hashable {
 }
 
 extension Note {
-    static let testNote1 = Note(recipe: Recipe.defaultRecipe,
+    static let testNote1 = Note(recipe: Recipe(coffee: 25, waterTotal: 350, waterPours: [50, 80, 120, 120], interval: 40, balance: .bright, strength: .strong),
                                 session: Session(averageDrawdown: 45, totalTime: 240),
                                 date: "3/15/2021 - 1:15 PM",
                                 rating: 5,
