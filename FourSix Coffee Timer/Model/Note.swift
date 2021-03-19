@@ -9,16 +9,19 @@
 import Foundation
 
 struct Note: Hashable {
-    let id: Int
     let recipe: Recipe
-    let averageDrawdown: TimeInterval
-    let totalTime: TimeInterval
+    let session: Session
     let date: String
     var rating: Int
     var noteText: String
     var coffeeDetails: CoffeeDetails
     var grindSetting: String
     var waterTemp: Double
+}
+
+struct Session: Hashable {
+    let averageDrawdown: TimeInterval
+    let totalTime: TimeInterval
 }
 
 struct CoffeeDetails: Hashable {
@@ -30,20 +33,16 @@ struct CoffeeDetails: Hashable {
 }
 
 extension Note {
-    static let testNote1 = Note(id: 1,
-                                recipe: Recipe.defaultRecipe,
-                                averageDrawdown: 45,
-                                totalTime: 240,
+    static let testNote1 = Note(recipe: Recipe.defaultRecipe,
+                                session: Session(averageDrawdown: 45, totalTime: 240),
                                 date: "3/15/2021 - 1:15 PM",
                                 rating: 5,
                                 noteText: "This cup was perfect.",
                                 coffeeDetails: CoffeeDetails.testDetails,
                                 grindSetting: "12",
                                 waterTemp: 100)
-    static let testNote2 = Note(id: 2,
-                                recipe: Recipe.defaultRecipe,
-                                averageDrawdown: 42,
-                                totalTime: 246,
+    static let testNote2 = Note(recipe: Recipe.defaultRecipe,
+                                session: Session(averageDrawdown: 47, totalTime: 485),
                                 date: "3/16/2021 - 11:10 AM",
                                 rating: 3,
                                 noteText: "Grind finer.",

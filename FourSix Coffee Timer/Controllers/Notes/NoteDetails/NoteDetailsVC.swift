@@ -9,12 +9,84 @@
 import UIKit
 
 class NoteDetailsVC: UIViewController, Storyboarded {
+    
+    // Session
+    @IBOutlet weak var drawdownLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    
+    // Recipe
+    @IBOutlet weak var flavorProfileLabel: UILabel!
+    @IBOutlet weak var coffeeAmountLabel: UILabel!
+    @IBOutlet weak var waterAmountLabel: UILabel!
+    @IBOutlet weak var poursLabel: UILabel!
+    @IBOutlet weak var pourIntervalLabel: UILabel!
+    @IBOutlet weak var grindSettingTextField: UITextField!
+    @IBOutlet weak var waterTempTextField: UITextField!
+    
+    // Coffee Details
+    @IBOutlet weak var roasterNameTextField: UITextField!
+    @IBOutlet weak var coffeeNameTextField: UITextField!
+    @IBOutlet weak var originTextField: UITextField!
+    @IBOutlet weak var roastDateTextField: UITextField!
+    @IBOutlet weak var roastLevelTextField: UITextField!
+    
+    // Notes
+    @IBOutlet weak var notesTextView: UITextView!
+    
     weak var coordinator: NotesCoordinator?
     var note: Note?
+    var recipe: Recipe?
+    var session: Session?
+    var coffeeDetails: CoffeeDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(note?.date)
+        if let note = note {
+            updateLabels(with: note)
+        } else {
+            guard let recipe = recipe, let session = session else { return }
+            let newNote = Note(recipe: recipe, session: session, date: "\(Date())", rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
+            updateLabels(with: newNote)
+        }
+    }
+    
+    private func updateLabels(with note: Note) {
+        // Session
+        drawdownLabel.text = note.session.averageDrawdown.stringFromTimeInterval()
+        totalTimeLabel.text = note.session.totalTime.stringFromTimeInterval()
+        
+        // Recipe
+        flavorProfileLabel.text = flavorProfileText(from: note.recipe)
+        coffeeAmountLabel.text = note.recipe.coffee.clean
+        waterAmountLabel.text = note.recipe.waterTotal.clean
+        poursLabel.text = poursLabelText(from: note.recipe)
+        pourIntervalLabel.text = note.recipe.interval.stringFromTimeInterval()
+        grindSettingTextField.text = note.grindSetting
+        waterTempTextField.text = note.waterTemp.clean + "º C" // TODO: Show C or F based on user setting
+        
+        // Coffee Details
+        roasterNameTextField.text = note.coffeeDetails.roaster
+        coffeeNameTextField.text = note.coffeeDetails.coffeeName
+        originTextField.text = note.coffeeDetails.origin
+        roastDateTextField.text = "\(note.coffeeDetails.roastDate)"
+        roastLevelTextField.text = note.coffeeDetails.roastLevel
+        
+        // Notes
+        notesTextView.text = note.noteText
+    }
+    
+    private func flavorProfileText(from recipe: Recipe) -> String {
+        let recipeBalance = "\(recipe.balance)"
+        let recipeStrength = "\(recipe.strength)"
+        
+        return "\(recipeBalance.capitalized) & \(recipeStrength.capitalized)"
+    }
+    
+    private func poursLabelText(from recipe: Recipe) -> String {
+        let recipePours = recipe.waterPours
+        let recipePoursStrings = recipePours.map { $0.clean + "g" }
+        
+        return recipePoursStrings.joined(separator: " | ")
     }
 }
