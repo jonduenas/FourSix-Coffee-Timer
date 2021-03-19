@@ -22,4 +22,11 @@ class NotesCoordinator: Coordinator {
         vc.tabBarItem = UITabBarItem(title: "Notes", image: UIImage(systemName: "note.text"), tag: 1)
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func showDetails(for note: Note) {
+        let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
+        vc.coordinator = self
+        vc.note = note
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

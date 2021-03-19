@@ -20,6 +20,7 @@ class NotesVC: UIViewController, Storyboarded {
         // Resets shadow image so default border is shown
         navigationController?.navigationBar.shadowImage = nil
         
+        tableView.delegate = self
         configureDataSource()
         configureSnapshots()
     }
@@ -28,7 +29,10 @@ class NotesVC: UIViewController, Storyboarded {
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { (tableView, indexPath, note) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NoteCell.self), for: indexPath) as! NoteCell
             
-            cell.headerLabel.text = note.noteText
+            let recipeBalance = "\(note.recipe.balance)"
+            let recipeStrength = "\(note.recipe.strength)"
+            
+            cell.headerLabel.text = "\(recipeBalance.capitalized) & \(recipeStrength.capitalized)"
             cell.subheaderLabel.text = note.date
             
             return cell
@@ -41,10 +45,16 @@ class NotesVC: UIViewController, Storyboarded {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Note>()
         
         snapshot.appendSections([0])
-        snapshot.appendItems([Note(id: 1, date: "3/15/2021 - 1:15 PM", rating: 5, noteText: "Sweet & Light"),
-                              Note(id: 2, date: "3/16/2021 - 11:15 PM", rating: 3, noteText: "Bright & Neutral")
-        ])
+        snapshot.appendItems([Note.testNote1, Note.testNote2])
         
         dataSource.apply(snapshot, animatingDifferences: false)
+    }
+}
+
+extension NotesVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let note = dataSource.itemIdentifier(for: indexPath) else { return }
+        coordinator?.showDetails(for: note)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

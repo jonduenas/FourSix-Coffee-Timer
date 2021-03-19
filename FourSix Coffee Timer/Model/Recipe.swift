@@ -20,7 +20,7 @@ enum Strength: Int, CaseIterable {
     case strong = 4
 }
 
-struct Recipe {
+struct Recipe: Hashable {
     static let coffeeMin: Float = 10.0
     static let coffeeMax: Float = 40.0
     static let acceptableCoffeeRange: ClosedRange<Float> = 15...25
