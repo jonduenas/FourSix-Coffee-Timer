@@ -38,7 +38,6 @@ enum AppStoreReviewManager {
 class IAPManager: NSObject {
     static let shared = IAPManager()
     
-    let proPopUpSBName = "FourSixProPopup"
     let entitlementID = "pro"
     let packageID = "Lifetime"
     
@@ -50,24 +49,23 @@ class IAPManager: NSObject {
     var productDescription: String?
     
     func loadOfferings(loadSucceeded: @escaping (Bool, String?) -> Void) {
-        
-        Purchases.shared.offerings { [weak self] (offerings, error) in
+        Purchases.shared.offerings { (offerings, error) in
             if error != nil {
                 loadSucceeded(false, error!.localizedDescription)
             } else {
-                if let offeringID = self?.offeringID {
-                    self?.offering = offerings?.offering(identifier: offeringID)
+                if let offeringID = self.offeringID {
+                    self.offering = offerings?.offering(identifier: offeringID)
                 } else {
-                    self?.offering = offerings?.current
+                    self.offering = offerings?.current
                 }
                 
-                if self?.offering == nil {
+                if self.offering == nil {
                     loadSucceeded(false, "No offerings found.")
                 } else {
-                    self?.package = self?.offering?.availablePackages.first
-                    self?.productPrice = self?.package?.localizedPriceString
-                    self?.productName = self?.package?.product.localizedTitle
-                    self?.productDescription = self?.package?.product.localizedDescription
+                    self.package = self.offering?.availablePackages.first
+                    self.productPrice = self.package?.localizedPriceString
+                    self.productName = self.package?.product.localizedTitle
+                    self.productDescription = self.package?.product.localizedDescription
                     
                     loadSucceeded(true, nil)
                 }
@@ -77,8 +75,7 @@ class IAPManager: NSObject {
     
     func purchase(package: Purchases.Package, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
         if Purchases.canMakePayments() {
-            Purchases.shared.purchasePackage(package) { [weak self] (_, purchaserInfo, error, userCancelled) in
-                guard let self = self else { return }
+            Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
                 if let error = error as NSError? {
                     if !userCancelled {
                         // Log error details
@@ -107,6 +104,8 @@ class IAPManager: NSObject {
                     if purchaserInfo?.entitlements[self.entitlementID]?.isActive == true {
                         purchaseSucceeded(true, nil)
                     } else {
+                        print("Purchaser Info Entitlements: \(purchaserInfo?.entitlements)")
+                        print("Entitlement is active: \(purchaserInfo?.entitlements[self.entitlementID]?.isActive)")
                         purchaseSucceeded(false, nil)
                     }
                 }
@@ -134,9 +133,7 @@ class IAPManager: NSObject {
     
     func userIsPro(proStatus: @escaping (Bool, Error?) -> Void) {
         // Get the latest purchaserInfo to see if user paid for Pro
-        Purchases.shared.purchaserInfo { [weak self] (purchaserInfo, error) in
-            guard let self = self else { return }
-            
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
             if let err = error {
                 print("Error checking user Pro status: \(err)")
                 proStatus(false, err)
@@ -145,6 +142,8 @@ class IAPManager: NSObject {
             if purchaserInfo?.entitlements[self.entitlementID]?.isActive == true {
                 proStatus(true, nil)
             } else {
+                print("Purchaser Info Entitlements: \(purchaserInfo)")
+                print("Entitlement is active: \(purchaserInfo?.entitlements[self.entitlementID]?.isActive)")
                 proStatus(false, nil)
             }
         }
