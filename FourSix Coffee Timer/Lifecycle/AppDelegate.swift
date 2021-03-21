@@ -15,8 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Configure RevenueCat with public API key
-        Purchases.debugLogsEnabled = false
+        Purchases.debugLogsEnabled = true
         Purchases.configure(withAPIKey: Constants.revenueCatAPIKey)
+        Purchases.shared.syncPurchases { (purchaserInfo, error) in
+            print(purchaserInfo?.entitlements.active)
+            print(error)
+        }
         
         return true
     }
