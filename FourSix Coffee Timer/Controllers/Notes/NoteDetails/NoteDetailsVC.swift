@@ -87,6 +87,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         let recipePours = recipe.waterPours
         let recipePoursStrings = recipePours.map { $0.clean + "g" }
         
-        return recipePoursStrings.joined(separator: " | ")
+        return recipePoursStrings.joined(separator: " → ")
     }
 }
