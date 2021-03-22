@@ -9,6 +9,7 @@
 import UIKit
 
 class NoteDetailsVC: UIViewController, Storyboarded {
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // Session
     @IBOutlet weak var drawdownLabel: UILabel!
@@ -42,6 +43,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerKeyboardNotifications()
+        
         if let note = note {
             updateLabels(with: note)
         } else {
@@ -49,6 +52,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             let newNote = Note(recipe: recipe, session: session, date: "\(Date())", rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
             updateLabels(with: newNote)
         }
+    }
+    
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     private func updateLabels(with note: Note) {
@@ -88,5 +96,27 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         let recipePoursStrings = recipePours.map { $0.clean + "g" }
         
         return recipePoursStrings.joined(separator: " → ")
+    }
+    
+    @objc private func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: 0,
+                                                   bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (tabBarController?.tabBar.frame.height ?? 0) + 10,
+                                                   right: 0)
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+        
+        if notesTextView.isFirstResponder {
+            scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
+        }
     }
 }

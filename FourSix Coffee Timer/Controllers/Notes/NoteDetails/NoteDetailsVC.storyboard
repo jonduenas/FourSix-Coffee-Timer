@@ -534,6 +534,7 @@
                         <outlet property="roastDateTextField" destination="7aB-1N-u73" id="QtR-qr-sal"/>
                         <outlet property="roastLevelTextField" destination="7YP-gu-ktf" id="Fbg-Hg-aAz"/>
                         <outlet property="roasterNameTextField" destination="ULD-1a-48k" id="CZw-Ro-aK7"/>
+                        <outlet property="scrollView" destination="aBg-dc-E8K" id="y5X-lM-6qv"/>
                         <outlet property="totalTimeLabel" destination="nWC-pA-jVW" id="lOI-I4-4PP"/>
                         <outlet property="waterAmountLabel" destination="uQR-9c-GzU" id="q5K-bx-zIl"/>
                         <outlet property="waterTempTextField" destination="Eey-MR-GHl" id="lIB-HF-sKF"/>
