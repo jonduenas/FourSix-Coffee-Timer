@@ -32,7 +32,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var roastLevelTextField: UITextField!
     
     // Notes
-    @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var notesTextView: NotesTextView!
     
     weak var coordinator: NotesCoordinator?
     var note: Note?
@@ -71,7 +71,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         poursLabel.text = poursLabelText(from: note.recipe)
         pourIntervalLabel.text = note.recipe.interval.minAndSecString
         grindSettingTextField.text = note.grindSetting
-        waterTempTextField.text = note.waterTemp.clean + "º C" // TODO: Show C or F based on user setting
+        waterTempTextField.text = note.waterTemp.clean
         
         // Coffee Details
         roasterNameTextField.text = note.coffeeDetails.roaster
