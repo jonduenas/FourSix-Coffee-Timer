@@ -206,17 +206,9 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     
     private func createIntervalCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.intervalCell.rawValue, for: indexPath) as? IntervalCell else { fatalError("Unable to create TextFieldTableCell") }
+        
         cell.cellLabel.text = proSectionEnabledStrings[.interval]
-        
-        let (minutes, seconds) = settingsModel.stepInterval.convertToMinAndSec()
-        
-        if minutes == 0 {
-            cell.cellTextField.text = "\(seconds) sec"
-        } else if seconds == 0 {
-            cell.cellTextField.text = "\(minutes) min"
-        } else {
-            cell.cellTextField.text = "\(minutes) min \(seconds) sec"
-        }
+        cell.cellTextField.text = TimeInterval(settingsModel.stepInterval).minAndSecString
         
         return cell
     }

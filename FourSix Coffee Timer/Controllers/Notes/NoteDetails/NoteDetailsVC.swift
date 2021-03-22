@@ -53,15 +53,15 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     private func updateLabels(with note: Note) {
         // Session
-        drawdownLabel.text = note.session.averageDrawdown.convertToMinAndSecString()
-        totalTimeLabel.text = note.session.totalTime.convertToMinAndSecString()
+        drawdownLabel.text = note.session.averageDrawdown.minAndSecString
+        totalTimeLabel.text = note.session.totalTime.minAndSecString
         
         // Recipe
         flavorProfileLabel.text = flavorProfileText(from: note.recipe)
         coffeeAmountLabel.text = note.recipe.coffee.clean + "g"
         waterAmountLabel.text = note.recipe.waterTotal.clean + "g"
         poursLabel.text = poursLabelText(from: note.recipe)
-        pourIntervalLabel.text = note.recipe.interval.convertToMinAndSecString()
+        pourIntervalLabel.text = note.recipe.interval.minAndSecString
         grindSettingTextField.text = note.grindSetting
         waterTempTextField.text = note.waterTemp.clean + "º C" // TODO: Show C or F based on user setting
         
