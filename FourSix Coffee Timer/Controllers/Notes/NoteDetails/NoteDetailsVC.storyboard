@@ -30,50 +30,29 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2J5-lp-iQX" userLabel="RatingStack">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2J5-lp-iQX" userLabel="RatingStack" customClass="RatingStackView" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="122" y="79" width="170" height="30"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FV2-Bx-ds2">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qvU-aw-8Ic">
                                                         <rect key="frame" x="0.0" y="-0.5" width="30" height="30"/>
-                                                        <color key="tintColor" systemColor="labelColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="09E-8c-xbG"/>
-                                                            <constraint firstAttribute="width" constant="30" id="4jm-eE-De0"/>
-                                                        </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mlz-PD-iyP">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="X2V-be-Bkj">
                                                         <rect key="frame" x="35" y="-0.5" width="30" height="30"/>
-                                                        <color key="tintColor" systemColor="labelColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="RvA-0L-6fD"/>
-                                                            <constraint firstAttribute="width" constant="30" id="tq4-zc-kPt"/>
-                                                        </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pFG-gd-dwy">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EEO-pH-Sdu">
                                                         <rect key="frame" x="70" y="-0.5" width="30" height="30"/>
-                                                        <color key="tintColor" systemColor="labelColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="RWf-yC-a6S"/>
-                                                            <constraint firstAttribute="height" constant="30" id="fTX-HX-1u1"/>
-                                                        </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="X9p-7O-FtX">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IJy-DP-I5b">
                                                         <rect key="frame" x="105" y="-0.5" width="30" height="30"/>
-                                                        <color key="tintColor" systemColor="labelColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="BDE-Ep-S7W"/>
-                                                            <constraint firstAttribute="height" constant="30" id="MEp-J1-yD4"/>
-                                                        </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lvq-Eh-R44">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cpC-Qa-QV4">
                                                         <rect key="frame" x="140" y="-0.5" width="30" height="30"/>
-                                                        <color key="tintColor" systemColor="labelColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="0lq-XR-zHP"/>
-                                                            <constraint firstAttribute="width" constant="30" id="69P-tp-KBF"/>
-                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="170" id="QZu-Nm-c9l"/>
+                                                    <constraint firstAttribute="height" constant="30" id="UlS-D6-JNI"/>
+                                                </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-4M-KTr">
                                                 <rect key="frame" x="163" y="149" width="88.5" height="29"/>
@@ -531,6 +510,7 @@
                         <outlet property="originTextField" destination="Dsn-WV-lun" id="S6d-mI-Fcd"/>
                         <outlet property="pourIntervalLabel" destination="Z0D-hJ-Fks" id="w9i-xn-foz"/>
                         <outlet property="poursLabel" destination="EEr-0a-AO8" id="bJd-wx-hy4"/>
+                        <outlet property="ratingStackView" destination="2J5-lp-iQX" id="eGd-6f-cqF"/>
                         <outlet property="roastDateTextField" destination="7aB-1N-u73" id="QtR-qr-sal"/>
                         <outlet property="roastLevelTextField" destination="7YP-gu-ktf" id="Fbg-Hg-aAz"/>
                         <outlet property="roasterNameTextField" destination="ULD-1a-48k" id="CZw-Ro-aK7"/>

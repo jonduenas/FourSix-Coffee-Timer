@@ -10,6 +10,7 @@ import UIKit
 
 class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var ratingStackView: RatingStackView!
     
     // Session
     @IBOutlet weak var drawdownLabel: UILabel!
@@ -44,7 +45,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         registerKeyboardNotifications()
-        
+        ratingStackView.rating = 4
         if let note = note {
             updateLabels(with: note)
         } else {
