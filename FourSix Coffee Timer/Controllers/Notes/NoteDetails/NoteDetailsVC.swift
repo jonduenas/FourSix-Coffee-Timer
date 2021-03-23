@@ -10,7 +10,7 @@ import UIKit
 
 class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var ratingStackView: RatingStackView!
+    @IBOutlet weak var ratingStackView: RatingControl!
     
     // Session
     @IBOutlet weak var drawdownLabel: UILabel!
