@@ -59,7 +59,9 @@ class RatingControl: UIStackView {
             
             button.setImage(offImage, for: .normal)
             button.setImage(onImage, for: .selected)
+            button.setImage(onImage, for: .highlighted)
             button.tintColor = onColor
+            button.adjustsImageWhenHighlighted = false
             
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
             
