@@ -48,6 +48,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         if let note = note {
             updateLabels(with: note)
+            ratingControl.rating = note.rating
         } else {
             guard let recipe = recipe, let session = session else { return }
             let newNote = Note(recipe: recipe, session: session, date: "\(Date())", rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
