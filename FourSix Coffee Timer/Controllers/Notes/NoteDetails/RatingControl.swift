@@ -54,15 +54,21 @@ class RatingControl: UIStackView {
         ratingButtons.removeAll()
         
         // Creates new buttons
-        for _ in 0..<starCount {
+        for index in 0..<starCount {
             let button = UIButton()
+            
             button.setImage(offImage, for: .normal)
             button.setImage(onImage, for: .selected)
             button.tintColor = onColor
+            
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+            
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
+            
+            button.accessibilityLabel = "Set \(index + 1) star rating"
+            
             addArrangedSubview(button)
             ratingButtons.append(button)
         }
@@ -91,6 +97,26 @@ class RatingControl: UIStackView {
         for (index, button) in ratingButtons.enumerated() {
             // If the index of a button is less than the rating, that button should be selected
             button.isSelected = index < rating
+            
+            let hintString: String?
+            if rating == index + 1 {
+                hintString = "Tap to reset the rating to zero."
+            } else {
+                hintString = nil
+            }
+            
+            let valueString: String
+            switch rating {
+            case 0:
+                valueString = "No rating set."
+            case 1:
+                valueString = "1 star set."
+            default:
+                valueString = "\(rating) stars set."
+            }
+            
+            button.accessibilityHint = hintString
+            button.accessibilityValue = valueString
         }
     }
 }
