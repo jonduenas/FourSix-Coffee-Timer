@@ -22,7 +22,11 @@ class RatingControl: UIStackView {
         }
     }
     
-    var rating: Int = 0
+    var rating: Int = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
     
     private var ratingButtons: [UIButton] = []
     private var offImage: UIImage? = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
@@ -62,11 +66,31 @@ class RatingControl: UIStackView {
             addArrangedSubview(button)
             ratingButtons.append(button)
         }
+        
+        updateButtonSelectionStates()
     }
     
     // MARK: Button Action
     
     @objc func ratingButtonTapped(button: UIButton) {
-        print("Rating button tapped")
+        guard let index = ratingButtons.firstIndex(of: button) else {
+            fatalError("The button, \(button), is not in the ratingButtons array: \(ratingButtons)")
+        }
+        
+        let selectedRating = index + 1
+        
+        if selectedRating == rating {
+            // Reset rating to 0  if user selects current rating
+            rating = 0
+        } else {
+            rating = selectedRating
+        }
+    }
+    
+    private func updateButtonSelectionStates() {
+        for (index, button) in ratingButtons.enumerated() {
+            // If the index of a button is less than the rating, that button should be selected
+            button.isSelected = index < rating
+        }
     }
 }
