@@ -9,9 +9,16 @@
 import Foundation
 
 extension Date {
-    func stringFromDate(dateStyle: DateFormatter.Style = .medium) -> String {
+    func stringFromDate(dateStyle: DateFormatter.Style? = .medium, timeStyle: DateFormatter.Style? = nil) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = dateStyle
+        
+        if let dateStyle = dateStyle {
+            dateFormatter.dateStyle = dateStyle
+        }
+        
+        if let timeStyle = timeStyle {
+            dateFormatter.timeStyle = timeStyle
+        }
         
         return dateFormatter.string(from: self)
     }

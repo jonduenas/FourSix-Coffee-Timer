@@ -11,7 +11,7 @@ import Foundation
 struct Note: Hashable {
     let recipe: Recipe
     let session: Session
-    let date: String
+    let date: Date
     var rating: Int
     var noteText: String
     var coffeeDetails: CoffeeDetails
@@ -35,7 +35,7 @@ struct CoffeeDetails: Hashable {
 extension Note {
     static let testNote1 = Note(recipe: Recipe(coffee: 25, waterTotal: 350, waterPours: [50, 80, 120, 120], interval: 40, balance: .bright, strength: .strong),
                                 session: Session(averageDrawdown: 45, totalTime: 240),
-                                date: "3/15/2021 - 1:15 PM",
+                                date: Date().addingTimeInterval(-108000),
                                 rating: 5,
                                 noteText: "This cup was perfect.",
                                 coffeeDetails: CoffeeDetails.testDetails1,
@@ -43,7 +43,7 @@ extension Note {
                                 waterTemp: 100)
     static let testNote2 = Note(recipe: Recipe.defaultRecipe,
                                 session: Session(averageDrawdown: 47, totalTime: 485),
-                                date: "3/16/2021 - 11:10 AM",
+                                date: Date().addingTimeInterval(-250568),
                                 rating: 3,
                                 noteText: "Grind finer.",
                                 coffeeDetails: CoffeeDetails.testDetails2,
@@ -52,7 +52,7 @@ extension Note {
 }
 
 extension CoffeeDetails {
-    static let testDetails1 = CoffeeDetails(roaster: "Coava", coffeeName: "Meaza", origin: "Ethiopia", roastDate: Date(timeIntervalSince1970: 827382), roastLevel: "Light")
+    static let testDetails1 = CoffeeDetails(roaster: "Coava", coffeeName: "Meaza", origin: "Ethiopia", roastDate: Date().addingTimeInterval(-965998), roastLevel: "Light")
     
     static let testDetails2 = CoffeeDetails(roaster: "Stumptown", coffeeName: "Hair Bender", origin: "Africa and Latin America", roastDate: Date(), roastLevel: "Medium")
 }

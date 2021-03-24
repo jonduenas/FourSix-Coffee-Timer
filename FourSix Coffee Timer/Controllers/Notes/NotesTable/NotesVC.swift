@@ -33,7 +33,7 @@ class NotesVC: UIViewController, Storyboarded {
             let recipeStrength = "\(note.recipe.strength)"
             
             cell.headerLabel.text = "\(recipeBalance.capitalized) & \(recipeStrength.capitalized)"
-            cell.subheaderLabel.text = note.date
+            cell.subheaderLabel.text = note.date.stringFromDate(dateStyle: .short)
             
             return cell
         })

@@ -50,7 +50,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             configureView(with: note)
         } else {
             guard let recipe = recipe, let session = session else { return }
-            let newNote = Note(recipe: recipe, session: session, date: "\(Date())", rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
+            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
             configureView(with: newNote)
         }
     }
@@ -61,6 +61,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func configureView(with note: Note) {
+        title = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
         updateLabels(with: note)
         initializeDatePicker(with: note)
         ratingControl.rating = note.rating
