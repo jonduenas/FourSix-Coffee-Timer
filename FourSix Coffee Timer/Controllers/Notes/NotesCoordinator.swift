@@ -19,7 +19,14 @@ class NotesCoordinator: Coordinator {
     func start() {
         let vc = NotesVC.instantiate(fromStoryboardNamed: String(describing: NotesVC.self))
         vc.coordinator = self
-        vc.tabBarItem = UITabBarItem(title: "Notes", image: UIImage(systemName: "note.text"), tag: 1)
+        
+        let tabImage: UIImage?
+        if #available(iOS 14.0, *) {
+            tabImage = UIImage(systemName: "note.text")
+        } else {
+            tabImage = UIImage(systemName: "square.and.pencil")
+        }
+        vc.tabBarItem = UITabBarItem(title: "Notes", image: tabImage, tag: 1)
         navigationController.pushViewController(vc, animated: false)
     }
     
