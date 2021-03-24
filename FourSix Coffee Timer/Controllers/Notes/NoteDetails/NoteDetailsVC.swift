@@ -24,6 +24,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var pourIntervalLabel: UILabel!
     @IBOutlet weak var grindSettingTextField: UITextField!
     @IBOutlet weak var waterTempTextField: UITextField!
+    @IBOutlet weak var waterTempUnitControl: UISegmentedControl!
     
     // Coffee Details
     @IBOutlet weak var roasterNameTextField: UITextField!
@@ -34,6 +35,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
+    
+    enum TempControl: Int {
+        case celsius, fahrenheit
+    }
     
     weak var coordinator: NotesCoordinator?
     var note: Note?
@@ -46,17 +51,14 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         registerKeyboardNotifications()
         
-        guard let recipe = recipe, let session = session else { return }
-        let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: nil, roastLevel: ""), grindSetting: "", waterTemp: 0)
-        configureView(with: newNote)
-        
-//        if let note = note {
-//            configureView(with: note)
-//        } else {
-//            guard let recipe = recipe, let session = session else { return }
-//            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
-//            configureView(with: newNote)
-//        }
+        if let note = note {
+            configureView(with: note)
+        } else {
+            guard let recipe = recipe, let session = session else { return }
+            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0, waterTempUnit: .celsius)
+            note = newNote
+            configureView(with: newNote)
+        }
     }
     
     private func registerKeyboardNotifications() {
@@ -69,6 +71,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         updateLabels(with: note)
         initializeDatePicker(with: note)
         ratingControl.rating = note.rating
+        initializeTempUnitControl(with: note)
     }
     
     private func initializeDatePicker(with note: Note) {
@@ -76,6 +79,19 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                       selectedDate: note.coffeeDetails.roastDate,
                                       datePickerMode: .date,
                                       valueChangedSelector: #selector(didChangeDateValue(_:)))
+    }
+    
+    private func initializeTempUnitControl(with note: Note) {
+        switch note.waterTempUnit {
+        case .celsius:
+            waterTempUnitControl.selectedSegmentIndex = TempControl.celsius.rawValue
+        case .fahrenheit:
+            waterTempUnitControl.selectedSegmentIndex = TempControl.fahrenheit.rawValue
+        case .kelvin:
+            fatalError("Unit should never be Kelvin.")
+        default:
+            waterTempUnitControl.selectedSegmentIndex = 0
+        }
     }
     
     private func updateLabels(with note: Note) {
@@ -141,6 +157,19 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @objc func didChangeDateValue(_ sender: UIDatePicker) {
         roastDateTextField.text = sender.date.stringFromDate()
+    }
+    
+    @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case TempControl.celsius.rawValue:
+            note?.waterTempUnit = .celsius
+            print(note?.waterTempUnit)
+        case TempControl.fahrenheit.rawValue:
+            note?.waterTempUnit = .fahrenheit
+            print(note?.waterTempUnit)
+        default:
+            fatalError("There should only be 2 segments for this control.")
+        }
     }
 }
 
