@@ -28,7 +28,7 @@ struct CoffeeDetails: Hashable {
     var roaster: String
     var coffeeName: String
     var origin: String
-    var roastDate: Date
+    var roastDate: Date?
     var roastLevel: String
 }
 

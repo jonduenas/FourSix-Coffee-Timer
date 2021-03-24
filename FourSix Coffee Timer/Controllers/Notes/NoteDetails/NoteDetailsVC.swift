@@ -37,8 +37,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     weak var coordinator: NotesCoordinator?
     var note: Note?
-    var recipe: Recipe?
-    var session: Session?
+    var recipe: Recipe? = Recipe.defaultRecipe
+    var session: Session? = Session(averageDrawdown: 47, totalTime: 3600)
     var coffeeDetails: CoffeeDetails?
     
     override func viewDidLoad() {
@@ -46,13 +46,17 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         registerKeyboardNotifications()
         
-        if let note = note {
-            configureView(with: note)
-        } else {
-            guard let recipe = recipe, let session = session else { return }
-            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
-            configureView(with: newNote)
-        }
+        guard let recipe = recipe, let session = session else { return }
+        let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: nil, roastLevel: ""), grindSetting: "", waterTemp: 0)
+        configureView(with: newNote)
+        
+//        if let note = note {
+//            configureView(with: note)
+//        } else {
+//            guard let recipe = recipe, let session = session else { return }
+//            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
+//            configureView(with: newNote)
+//        }
     }
     
     private func registerKeyboardNotifications() {
@@ -86,13 +90,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         poursLabel.text = poursLabelText(from: note.recipe)
         pourIntervalLabel.text = note.recipe.interval.minAndSecString
         grindSettingTextField.text = note.grindSetting
-        waterTempTextField.text = note.waterTemp.clean
+        waterTempTextField.text = note.waterTemp != 0 ? note.waterTemp.clean : ""
         
         // Coffee Details
         roasterNameTextField.text = note.coffeeDetails.roaster
         coffeeNameTextField.text = note.coffeeDetails.coffeeName
         originTextField.text = note.coffeeDetails.origin
-        roastDateTextField.text = note.coffeeDetails.roastDate.stringFromDate()
+        roastDateTextField.text = note.coffeeDetails.roastDate != nil ? note.coffeeDetails.roastDate!.stringFromDate() : ""
         roastLevelTextField.text = note.coffeeDetails.roastLevel
         
         // Notes
