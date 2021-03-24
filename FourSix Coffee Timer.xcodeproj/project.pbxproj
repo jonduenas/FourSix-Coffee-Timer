@@ -61,6 +61,8 @@
 		6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A32603D03E0029E396 /* NotesCoordinator.swift */; };
 		6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A72603D24F0029E396 /* MainTabBarController.swift */; };
 		657A2631260A85A20009CD9A /* DoneToolBar+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */; };
+		657A2635260A8C4C0009CD9A /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A2634260A8C4C0009CD9A /* DatePicker.swift */; };
+		657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */; };
 		6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B525F6D2110019D8D1 /* RatioCell.swift */; };
 		6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */; };
 		6584A9BE25F6F3690019D8D1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9BD25F6F3690019D8D1 /* Settings.swift */; };
@@ -168,6 +170,8 @@
 		6577F2A72603D24F0029E396 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		6579557F25E32FE500BC244E /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoneToolBar+UITextField.swift"; sourceTree = "<group>"; };
+		657A2634260A8C4C0009CD9A /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringFromDate+Date.swift"; sourceTree = "<group>"; };
 		6584A9B525F6D2110019D8D1 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
 		6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
 		6584A9BD25F6F3690019D8D1 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -303,6 +307,7 @@
 			children = (
 				6536F27B2602BED600E2DF28 /* NoteDetailsVC.storyboard */,
 				6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */,
+				657A2634260A8C4C0009CD9A /* DatePicker.swift */,
 				653E631A26095B6E00BA32BF /* RatingControl.swift */,
 				653E6316260957AE00BA32BF /* NotesTextView.swift */,
 			);
@@ -339,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */,
+				657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */,
 				6543841925F063CC00AB71F7 /* MinAndSec+Double.swift */,
 				65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */,
 				657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */,
@@ -758,6 +764,7 @@
 				65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
+				657A2635260A8C4C0009CD9A /* DatePicker.swift in Sources */,
 				65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */,
 				65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */,
 				65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */,
@@ -791,6 +798,7 @@
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
 				656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
+				657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */,
 				65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -984,7 +992,7 @@
 				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1007,7 +1015,7 @@
 				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

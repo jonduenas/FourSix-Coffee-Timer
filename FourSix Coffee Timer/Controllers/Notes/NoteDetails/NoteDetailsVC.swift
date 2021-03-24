@@ -47,18 +47,30 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         registerKeyboardNotifications()
         
         if let note = note {
-            updateLabels(with: note)
-            ratingControl.rating = note.rating
+            configureView(with: note)
         } else {
             guard let recipe = recipe, let session = session else { return }
             let newNote = Note(recipe: recipe, session: session, date: "\(Date())", rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0)
-            updateLabels(with: newNote)
+            configureView(with: newNote)
         }
     }
     
     private func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    private func configureView(with note: Note) {
+        updateLabels(with: note)
+        initializeDatePicker(with: note)
+        ratingControl.rating = note.rating
+    }
+    
+    private func initializeDatePicker(with note: Note) {
+        roastDateTextField.datePicker(target: self,
+                                      selectedDate: note.coffeeDetails.roastDate,
+                                      datePickerMode: .date,
+                                      valueChangedSelector: #selector(didChangeDateValue(_:)))
     }
     
     private func updateLabels(with note: Note) {
@@ -79,7 +91,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         roasterNameTextField.text = note.coffeeDetails.roaster
         coffeeNameTextField.text = note.coffeeDetails.coffeeName
         originTextField.text = note.coffeeDetails.origin
-        roastDateTextField.text = "\(note.coffeeDetails.roastDate)"
+        roastDateTextField.text = note.coffeeDetails.roastDate.stringFromDate()
         roastLevelTextField.text = note.coffeeDetails.roastLevel
         
         // Notes
@@ -120,6 +132,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         if notesTextView.isFirstResponder {
             scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
         }
+    }
+    
+    @objc func didChangeDateValue(_ sender: UIDatePicker) {
+        roastDateTextField.text = sender.date.stringFromDate()
     }
 }
 
