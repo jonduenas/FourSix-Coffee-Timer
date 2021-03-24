@@ -38,7 +38,7 @@ extension Note {
                                 date: "3/15/2021 - 1:15 PM",
                                 rating: 5,
                                 noteText: "This cup was perfect.",
-                                coffeeDetails: CoffeeDetails.testDetails,
+                                coffeeDetails: CoffeeDetails.testDetails1,
                                 grindSetting: "12",
                                 waterTemp: 100)
     static let testNote2 = Note(recipe: Recipe.defaultRecipe,
@@ -46,11 +46,13 @@ extension Note {
                                 date: "3/16/2021 - 11:10 AM",
                                 rating: 3,
                                 noteText: "Grind finer.",
-                                coffeeDetails: CoffeeDetails.testDetails,
+                                coffeeDetails: CoffeeDetails.testDetails2,
                                 grindSetting: "18",
                                 waterTemp: 95)
 }
 
 extension CoffeeDetails {
-    static let testDetails = CoffeeDetails(roaster: "Coava", coffeeName: "Meaza", origin: "Ethiopia", roastDate: Date(timeIntervalSince1970: 827382), roastLevel: "Light")
+    static let testDetails1 = CoffeeDetails(roaster: "Coava", coffeeName: "Meaza", origin: "Ethiopia", roastDate: Date(timeIntervalSince1970: 827382), roastLevel: "Light")
+    
+    static let testDetails2 = CoffeeDetails(roaster: "Stumptown", coffeeName: "Hair Bender", origin: "Africa and Latin America", roastDate: Date(), roastLevel: "Medium")
 }
