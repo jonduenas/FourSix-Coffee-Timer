@@ -238,13 +238,13 @@
                                                         <rect key="frame" x="0.0" y="225" width="334" height="45"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water Temp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tda-bu-Jt0">
-                                                                <rect key="frame" x="0.0" y="12.5" width="152" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="12.5" width="92" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter temp" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Eey-MR-GHl">
-                                                                <rect key="frame" x="167" y="5.5" width="167" height="34"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Temp" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Eey-MR-GHl">
+                                                                <rect key="frame" x="167" y="5.5" width="97" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -254,13 +254,24 @@
                                                                     <outlet property="delegate" destination="21v-4u-HzI" id="VAM-0p-i22"/>
                                                                 </connections>
                                                             </textField>
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="41t-nD-2Sp">
+                                                                <rect key="frame" x="269" y="7" width="65" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="65" id="M75-6e-zkZ"/>
+                                                                </constraints>
+                                                                <segments>
+                                                                    <segment title="C"/>
+                                                                    <segment title="F"/>
+                                                                </segments>
+                                                            </segmentedControl>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="Eey-MR-GHl" firstAttribute="centerY" secondItem="sQT-B2-5GL" secondAttribute="centerY" id="DP2-bB-nyf"/>
                                                             <constraint firstItem="Tda-bu-Jt0" firstAttribute="centerY" secondItem="sQT-B2-5GL" secondAttribute="centerY" id="Lig-rH-L3i"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Eey-MR-GHl" secondAttribute="trailing" id="cAd-dh-ZT9"/>
+                                                            <constraint firstItem="41t-nD-2Sp" firstAttribute="leading" secondItem="Eey-MR-GHl" secondAttribute="trailing" constant="5" id="Sf1-yW-xxs"/>
+                                                            <constraint firstAttribute="trailing" secondItem="41t-nD-2Sp" secondAttribute="trailing" id="aza-la-bYx"/>
+                                                            <constraint firstItem="41t-nD-2Sp" firstAttribute="centerY" secondItem="sQT-B2-5GL" secondAttribute="centerY" id="lGh-q3-Xpd"/>
                                                             <constraint firstItem="Tda-bu-Jt0" firstAttribute="leading" secondItem="sQT-B2-5GL" secondAttribute="leading" id="llW-Ug-dpE"/>
-                                                            <constraint firstItem="Eey-MR-GHl" firstAttribute="leading" secondItem="Tda-bu-Jt0" secondAttribute="trailing" constant="15" id="ssa-c8-mFu"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -273,7 +284,7 @@
                                                     <constraint firstItem="IzI-89-RuU" firstAttribute="height" secondItem="fPV-z9-gH7" secondAttribute="height" id="bQ3-mv-MGc"/>
                                                     <constraint firstItem="Nbk-hK-HN3" firstAttribute="height" secondItem="fPV-z9-gH7" secondAttribute="height" id="dOy-vh-6vE"/>
                                                     <constraint firstItem="rb7-ut-1ac" firstAttribute="width" secondItem="uQR-9c-GzU" secondAttribute="width" id="hj2-Xz-Yu5"/>
-                                                    <constraint firstItem="Eey-MR-GHl" firstAttribute="width" secondItem="w6P-kr-NAj" secondAttribute="width" id="nh1-D9-G5Q"/>
+                                                    <constraint firstItem="Eey-MR-GHl" firstAttribute="leading" secondItem="w6P-kr-NAj" secondAttribute="leading" id="o2F-Ha-bqP"/>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-Oe-ftg">
