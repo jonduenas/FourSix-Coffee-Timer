@@ -17,6 +17,7 @@ struct Note: Hashable {
     var coffeeDetails: CoffeeDetails
     var grindSetting: String
     var waterTemp: Double
+    var waterTempUnit: UnitTemperature
 }
 
 struct Session: Hashable {
@@ -40,7 +41,8 @@ extension Note {
                                 noteText: "This cup was perfect.",
                                 coffeeDetails: CoffeeDetails.testDetails1,
                                 grindSetting: "12",
-                                waterTemp: 100)
+                                waterTemp: 100.0,
+                                waterTempUnit: .celsius)
     static let testNote2 = Note(recipe: Recipe.defaultRecipe,
                                 session: Session(averageDrawdown: 47, totalTime: 485),
                                 date: Date().addingTimeInterval(-250568),
@@ -48,7 +50,8 @@ extension Note {
                                 noteText: "Grind finer.",
                                 coffeeDetails: CoffeeDetails.testDetails2,
                                 grindSetting: "18",
-                                waterTemp: 95)
+                                waterTemp: 250.0,
+                                waterTempUnit: .fahrenheit)
 }
 
 extension CoffeeDetails {
