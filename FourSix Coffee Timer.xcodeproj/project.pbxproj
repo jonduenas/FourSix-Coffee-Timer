@@ -260,7 +260,6 @@
 		65127BD3260D0C810014A9E7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				65B0D83E25E6D394002B4F34 /* Configuration.storekit */,
 				6518D13424B4FADE00F786C4 /* Settings.bundle */,
 				652756502475B13B004E067F /* Info.plist */,
 			);
@@ -290,6 +289,7 @@
 		652756412475B138004E067F /* FourSix Coffee Timer */ = {
 			isa = PBXGroup;
 			children = (
+				65B0D83E25E6D394002B4F34 /* Configuration.storekit */,
 				653DBF6525F2F31A00AE7D9E /* Constants.swift */,
 				653DBF6925F2F5A700AE7D9E /* Lifecycle */,
 				654B2F3924C78C2600AA3A7C /* Assets */,
