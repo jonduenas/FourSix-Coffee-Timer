@@ -163,10 +163,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         switch sender.selectedSegmentIndex {
         case TempControl.celsius.rawValue:
             note?.waterTempUnit = .celsius
-            print(note?.waterTempUnit)
         case TempControl.fahrenheit.rawValue:
             note?.waterTempUnit = .fahrenheit
-            print(note?.waterTempUnit)
         default:
             fatalError("There should only be 2 segments for this control.")
         }
