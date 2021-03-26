@@ -13,7 +13,7 @@ enum TableSection: Int, CaseIterable {
 }
 
 enum SettingsSectionCell: Int, CaseIterable {
-    case showTotalTime
+    case showTotalTime, tempUnit
 }
 
 enum ProSectionEnabledCell: Int, CaseIterable {
@@ -34,6 +34,7 @@ enum TableCellIdentifier: String {
     case basicCell = "BasicCell"
     case ratioCell = "RatioCell"
     case intervalCell = "IntervalCell"
+    case segmentControlCell = "SegmentControlCell"
 }
 
 class SettingsDataSource: NSObject, UITableViewDataSource {
@@ -46,7 +47,8 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         .aboutFourSix: "About FourSix"
     ]
     let settingsSectionStrings: [SettingsSectionCell: String] = [
-        .showTotalTime: "Show Total Time Elapsed"
+        .showTotalTime: "Show Total Time Elapsed",
+        .tempUnit: "Temperature Unit"
     ]
     
     let proSectionEnabledStrings: [ProSectionEnabledCell: String] = [
@@ -144,6 +146,8 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
             switch settingsIndex {
             case .showTotalTime:
                 return createTotalTimeCell(for: tableView, indexPath, text: settingsSectionStrings[.showTotalTime])
+            case .tempUnit:
+                return createTempUnitCell(for: tableView, indexPath, text: settingsSectionStrings[.tempUnit])
             }
         case .fourSixProEnabled:
             guard let proIndex = ProSectionEnabledCell(rawValue: indexPath.row) else { fatalError("Undefined cell in Pro section") }
@@ -181,11 +185,32 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         settingsModel.autoAdvanceTimer = sender.isOn
     }
     
+    @objc func didSelectTempUnit(_ sender: UISegmentedControl) {
+        guard let selectedUnit = TempUnit(rawValue: sender.selectedSegmentIndex) else {
+            print("Selected Temp Unit is undefined")
+            return
+        }
+        settingsModel.tempUnit = selectedUnit
+    }
+    
     private func createTotalTimeCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
         cell.cellLabel.text = text
         cell.settingSwitch.isOn = settingsModel.showTotalTime
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchTotalTime(_:)), for: .valueChanged)
+        return cell
+    }
+    
+    private func createTempUnitCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.segmentControlCell.rawValue, for: indexPath) as? SegmentControlCell else { fatalError("Unable to create SegmentControlCell") }
+        
+        cell.cellLabel.text = text
+        
+        let segments = ["ºC", "ºF"]
+        cell.configureSegmentControl(options: segments)
+        cell.cellSegmentedControl.selectedSegmentIndex = settingsModel.tempUnit.rawValue
+        cell.cellSegmentedControl.addTarget(self, action: #selector(didSelectTempUnit(_:)), for: .valueChanged)
+        
         return cell
     }
     
