@@ -24,3 +24,9 @@ class MainNavigationController: UINavigationController {
         navigationBar.layoutIfNeeded()
     }
 }
+
+extension UINavigationController {
+    func hideBarShadow(_ shouldHide: Bool) {
+        navigationBar.shadowImage = shouldHide ? UIImage() : nil
+    }
+}

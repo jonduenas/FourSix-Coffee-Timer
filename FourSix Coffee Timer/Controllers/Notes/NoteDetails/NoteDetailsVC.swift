@@ -50,6 +50,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         registerKeyboardNotifications()
         
+        navigationController?.hideBarShadow(true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveNote))
         
         if let noteID = note {

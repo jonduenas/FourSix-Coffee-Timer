@@ -19,9 +19,6 @@ class NotesVC: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Resets shadow image so default border is shown
-        navigationController?.navigationBar.shadowImage = nil
         
         //createNewNote()
         
@@ -29,6 +26,11 @@ class NotesVC: UIViewController, Storyboarded {
         configureDataSource()
         configureFetchedResultsController()
         fetchNotes()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hideBarShadow(false)
     }
     
     private func configureDataSource() {
