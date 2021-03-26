@@ -14,6 +14,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var ratingControl: RatingControl!
     
     // Session
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var drawdownLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
     
@@ -89,7 +90,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     private func configureView(with note: NoteMO) {
         note.managedObjectContext?.perform {
-            self.title = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
+            self.dateLabel.text = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
             self.updateLabels(with: note)
             self.initializeDatePicker(with: note)
             self.ratingControl.rating = Int(note.rating)
