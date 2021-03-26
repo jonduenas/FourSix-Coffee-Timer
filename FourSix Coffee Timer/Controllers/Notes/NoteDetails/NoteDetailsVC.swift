@@ -37,10 +37,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
     
-    enum TempControl: Int {
-        case celsius, fahrenheit
-    }
-    
     let coreDataStack = CoreDataStack()
     weak var coordinator: NotesCoordinator?
     var note: NSManagedObjectID?
@@ -73,7 +69,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             testNote.date = Date()
             testNote.grindSetting = grindSettingTextField.text ?? ""
             testNote.rating = Int64(ratingControl.rating)
-            testNote.waterTemp = Double(waterTempTextField.text!) ?? 0
+            testNote.waterTempC = Double(waterTempTextField.text!) ?? 0
             
             testNote.coffee.roaster = roasterNameTextField.text ?? ""
             testNote.coffee.name = coffeeNameTextField.text ?? ""
@@ -97,7 +93,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             self.updateLabels(with: note)
             self.initializeDatePicker(with: note)
             self.ratingControl.rating = Int(note.rating)
-            self.initializeTempUnitControl(with: note)
+            self.waterTempUnitControl.selectedSegmentIndex = UserDefaultsManager.tempUnitRawValue
         }
     }
     
@@ -106,20 +102,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                       selectedDate: note.roastDate,
                                       datePickerMode: .date,
                                       valueChangedSelector: #selector(didChangeDateValue(_:)))
-    }
-    
-    private func initializeTempUnitControl(with note: NoteMO) {
-        guard let tempUnit = note.waterTempUnit else { return }
-        switch tempUnit {
-        case .celsius:
-            waterTempUnitControl.selectedSegmentIndex = TempControl.celsius.rawValue
-        case .fahrenheit:
-            waterTempUnitControl.selectedSegmentIndex = TempControl.fahrenheit.rawValue
-        case .kelvin:
-            fatalError("Unit should never be Kelvin.")
-        default:
-            waterTempUnitControl.selectedSegmentIndex = 0
-        }
     }
     
     private func updateLabels(with note: NoteMO) {
@@ -134,7 +116,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         poursLabel.text = poursLabelText(from: note.recipe)
         pourIntervalLabel.text = note.recipe.interval.minAndSecString
         grindSettingTextField.text = note.grindSetting
-        waterTempTextField.text = note.waterTemp != 0 ? note.waterTemp.clean : ""
+        waterTempTextField.text = note.waterTempC != 0 ? note.waterTempC.clean : ""
         
         // Coffee Details
         roasterNameTextField.text = note.coffee.roaster
@@ -192,11 +174,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case TempControl.celsius.rawValue:
-            print("Switched to \(TempControl.celsius)")
+        case TempUnit.celsius.rawValue:
+            print("Switched to \(TempUnit.celsius)")
             //note?.waterTempUnit = .celsius
-        case TempControl.fahrenheit.rawValue:
-            print("Switched to \(TempControl.fahrenheit)")
+        case TempUnit.fahrenheit.rawValue:
+            print("Switched to \(TempUnit.fahrenheit)")
             //note?.waterTempUnit = .fahrenheit
         default:
             fatalError("There should only be 2 segments for this control.")

@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum TempUnit: Int {
+    case celsius, fahrenheit
+}
+
 class Settings {
     var ratio: Float = UserDefaultsManager.ratio {
         didSet {
@@ -34,6 +38,12 @@ class Settings {
     var autoAdvanceTimer: Bool = UserDefaultsManager.autoAdvanceTimer {
         didSet {
             UserDefaultsManager.autoAdvanceTimer = autoAdvanceTimer
+        }
+    }
+    
+    var tempUnit: TempUnit = TempUnit(rawValue: UserDefaultsManager.tempUnitRawValue) ?? .celsius {
+        didSet {
+            UserDefaultsManager.tempUnitRawValue = tempUnit.rawValue
         }
     }
 }

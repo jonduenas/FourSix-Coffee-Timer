@@ -95,7 +95,7 @@ class NotesVC: UIViewController, Storyboarded {
         note.rating = 1
         note.roastDate = nil
         note.text = ""
-        note.waterTemp = 0
+        note.waterTempC = 0
         
         coreDataStack.saveContext()
     }

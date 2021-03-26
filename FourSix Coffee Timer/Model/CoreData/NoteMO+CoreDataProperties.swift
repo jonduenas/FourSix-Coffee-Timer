@@ -2,7 +2,7 @@
 //  NoteMO+CoreDataProperties.swift
 //  FourSix Coffee Timer
 //
-//  Created by Jon Duenas on 3/25/21.
+//  Created by Jon Duenas on 3/26/21.
 //  Copyright © 2021 Jon Duenas. All rights reserved.
 //
 //
@@ -22,11 +22,10 @@ extension NoteMO {
     @NSManaged public var rating: Int64
     @NSManaged public var roastDate: Date?
     @NSManaged public var text: String
-    @NSManaged public var waterTemp: Double
-    @NSManaged public var waterTempUnit: UnitTemperature?
+    @NSManaged public var waterTempC: Double
     @NSManaged public var coffee: CoffeeMO
-    @NSManaged public var session: SessionMO
     @NSManaged public var recipe: RecipeMO
+    @NSManaged public var session: SessionMO
 
 }
 
