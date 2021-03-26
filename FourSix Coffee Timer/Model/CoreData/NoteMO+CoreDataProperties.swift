@@ -23,6 +23,7 @@ extension NoteMO {
     @NSManaged public var roastDate: Date?
     @NSManaged public var text: String
     @NSManaged public var waterTempC: Double
+    @NSManaged public var tempUnitRawValue: Int64
     @NSManaged public var coffee: CoffeeMO
     @NSManaged public var recipe: RecipeMO
     @NSManaged public var session: SessionMO
