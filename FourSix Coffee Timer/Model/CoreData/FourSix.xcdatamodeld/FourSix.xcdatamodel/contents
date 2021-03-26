@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Coffee" representedClassName="CoffeeMO" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="origin" attributeType="String" defaultValueString=""/>
+        <attribute name="roaster" attributeType="String" defaultValueString=""/>
+        <attribute name="roastLevel" attributeType="String" defaultValueString=""/>
+        <relationship name="note" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="coffee" inverseEntity="Note"/>
+    </entity>
+    <entity name="Note" representedClassName="NoteMO" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="grindSetting" attributeType="String" defaultValueString=""/>
+        <attribute name="rating" attributeType="Integer 64" minValueString="0" maxValueString="5" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="roastDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="text" attributeType="String" defaultValueString=""/>
+        <attribute name="waterTemp" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="waterTempUnit" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="UnitTemperature"/>
+        <relationship name="coffee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Coffee" inverseName="note" inverseEntity="Coffee"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="note" inverseEntity="Recipe"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="note" inverseEntity="Session"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="date"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Recipe" representedClassName="RecipeMO" syncable="YES">
+        <attribute name="balanceRaw" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="coffee" attributeType="Double" minValueString="0" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="interval" attributeType="Double" minValueString="0" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="strengthRaw" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="recipe" inverseEntity="Note"/>
+        <relationship name="waterPours" toMany="YES" minCount="1" deletionRule="Cascade" ordered="YES" destinationEntity="Water" inverseName="recipePours" inverseEntity="Water"/>
+        <relationship name="waterTotal" maxCount="1" deletionRule="Cascade" destinationEntity="Water" inverseName="recipeTotal" inverseEntity="Water"/>
+    </entity>
+    <entity name="Session" representedClassName="SessionMO" syncable="YES">
+        <attribute name="averageDrawdown" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="session" inverseEntity="Note"/>
+    </entity>
+    <entity name="Water" representedClassName="WaterMO" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="recipePours" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="waterPours" inverseEntity="Recipe"/>
+        <relationship name="recipeTotal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="waterTotal" inverseEntity="Recipe"/>
+    </entity>
+    <elements>
+        <element name="Coffee" positionX="219.740234375" positionY="278.58203125" width="128" height="119"/>
+        <element name="Note" positionX="203.6853637695312" positionY="5.0843505859375" width="128" height="179"/>
+        <element name="Session" positionX="-57.89324951171875" positionY="79.94985961914065" width="128" height="74"/>
+        <element name="Recipe" positionX="81" positionY="162" width="128" height="134"/>
+        <element name="Water" positionX="90" positionY="171" width="128" height="74"/>
+    </elements>
+</model>

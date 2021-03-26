@@ -90,9 +90,7 @@ open class CoreDataStack {
                 print("Attempted to clear persistent store: " + error.localizedDescription)
             }
             
-            self.persistentContainer.loadPersistentStores { [weak self] (storeDescription, error) in
-                guard let self = self else { return }
-                
+            self.persistentContainer.loadPersistentStores { (storeDescription, error) in
                 if let error = error as NSError? {
                     fatalError("Unresolved error \(error), \(error.userInfo)")
                 } else {

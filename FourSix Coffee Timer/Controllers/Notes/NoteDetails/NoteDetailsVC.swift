@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var scrollView: UIScrollView!
@@ -40,24 +41,48 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         case celsius, fahrenheit
     }
     
+    let coreDataStack = CoreDataStack()
     weak var coordinator: NotesCoordinator?
-    var note: Note?
+    var note: NSManagedObjectID?
     var recipe: Recipe? = Recipe.defaultRecipe
-    var session: Session? = Session(averageDrawdown: 47, totalTime: 3600)
-    var coffeeDetails: CoffeeDetails?
+    var session: SessionMO?
+    var coffeeDetails: CoffeeMO?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerKeyboardNotifications()
         
-        if let note = note {
-            configureView(with: note)
-        } else {
-            guard let recipe = recipe, let session = session else { return }
-            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0, waterTempUnit: .celsius)
-            note = newNote
-            configureView(with: newNote)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveNote))
+        
+        if let noteID = note {
+            let noteObject = coreDataStack.mainContext.object(with: noteID) as! NoteMO
+            configureView(with: noteObject)
+        }
+//        else {
+//            guard let recipe = recipe, let session = session else { return }
+//            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0, waterTempUnit: .celsius)
+//            note = newNote
+//            configureView(with: newNote)
+//        }
+    }
+    
+    @objc func saveNote() {
+        if let noteID = note {
+            let testNote = coreDataStack.mainContext.object(with: noteID) as! NoteMO
+            testNote.date = Date()
+            testNote.grindSetting = grindSettingTextField.text ?? ""
+            testNote.rating = Int64(ratingControl.rating)
+            testNote.waterTemp = Double(waterTempTextField.text!) ?? 0
+            
+            testNote.coffee.roaster = roasterNameTextField.text ?? ""
+            testNote.coffee.name = coffeeNameTextField.text ?? ""
+            testNote.coffee.origin = originTextField.text ?? ""
+            testNote.coffee.roastLevel = roastLevelTextField.text ?? ""
+            
+            testNote.text = notesTextView.text ?? ""
+            
+            coreDataStack.saveContext(testNote.managedObjectContext!)
         }
     }
     
@@ -66,23 +91,26 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    private func configureView(with note: Note) {
-        title = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
-        updateLabels(with: note)
-        initializeDatePicker(with: note)
-        ratingControl.rating = note.rating
-        initializeTempUnitControl(with: note)
+    private func configureView(with note: NoteMO) {
+        note.managedObjectContext?.perform {
+            self.title = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
+            self.updateLabels(with: note)
+            self.initializeDatePicker(with: note)
+            self.ratingControl.rating = Int(note.rating)
+            self.initializeTempUnitControl(with: note)
+        }
     }
     
-    private func initializeDatePicker(with note: Note) {
+    private func initializeDatePicker(with note: NoteMO) {
         roastDateTextField.datePicker(target: self,
-                                      selectedDate: note.coffeeDetails.roastDate,
+                                      selectedDate: note.roastDate,
                                       datePickerMode: .date,
                                       valueChangedSelector: #selector(didChangeDateValue(_:)))
     }
     
-    private func initializeTempUnitControl(with note: Note) {
-        switch note.waterTempUnit {
+    private func initializeTempUnitControl(with note: NoteMO) {
+        guard let tempUnit = note.waterTempUnit else { return }
+        switch tempUnit {
         case .celsius:
             waterTempUnitControl.selectedSegmentIndex = TempControl.celsius.rawValue
         case .fahrenheit:
@@ -94,7 +122,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         }
     }
     
-    private func updateLabels(with note: Note) {
+    private func updateLabels(with note: NoteMO) {
         // Session
         drawdownLabel.text = note.session.averageDrawdown.minAndSecString
         totalTimeLabel.text = note.session.totalTime.minAndSecString
@@ -102,33 +130,36 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         // Recipe
         flavorProfileLabel.text = flavorProfileText(from: note.recipe)
         coffeeAmountLabel.text = note.recipe.coffee.clean + "g"
-        waterAmountLabel.text = note.recipe.waterTotal.clean + "g"
+        waterAmountLabel.text = note.recipe.waterTotal.amount.clean + "g"
         poursLabel.text = poursLabelText(from: note.recipe)
         pourIntervalLabel.text = note.recipe.interval.minAndSecString
         grindSettingTextField.text = note.grindSetting
         waterTempTextField.text = note.waterTemp != 0 ? note.waterTemp.clean : ""
         
         // Coffee Details
-        roasterNameTextField.text = note.coffeeDetails.roaster
-        coffeeNameTextField.text = note.coffeeDetails.coffeeName
-        originTextField.text = note.coffeeDetails.origin
-        roastDateTextField.text = note.coffeeDetails.roastDate != nil ? note.coffeeDetails.roastDate!.stringFromDate() : ""
-        roastLevelTextField.text = note.coffeeDetails.roastLevel
+        roasterNameTextField.text = note.coffee.roaster
+        coffeeNameTextField.text = note.coffee.name
+        originTextField.text = note.coffee.origin
+        roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate() : ""
+        roastLevelTextField.text = note.coffee.roastLevel
         
         // Notes
-        notesTextView.text = note.noteText
+        notesTextView.text = note.text
     }
     
-    private func flavorProfileText(from recipe: Recipe) -> String {
-        let recipeBalance = "\(recipe.balance)"
-        let recipeStrength = "\(recipe.strength)"
+    private func flavorProfileText(from recipe: RecipeMO) -> String {
+        guard let balance = Balance(rawValue: Float(recipe.balanceRaw)) else { return "" }
+        guard let strength = Strength(rawValue: Int(recipe.strengthRaw)) else { return "" }
         
-        return "\(recipeBalance.capitalized) & \(recipeStrength.capitalized)"
+        let balanceString = String(describing: balance).capitalized
+        let strengthString = String(describing: strength).capitalized
+        
+        return balanceString + " & " + strengthString
     }
     
-    private func poursLabelText(from recipe: Recipe) -> String {
-        let recipePours = recipe.waterPours
-        let recipePoursStrings = recipePours.map { $0.clean + "g" }
+    private func poursLabelText(from recipe: RecipeMO) -> String {
+        let recipePours = recipe.waterPours?.array as! [WaterMO]
+        let recipePoursStrings = recipePours.map { $0.amount.clean + "g" }
         
         return recipePoursStrings.joined(separator: " → ")
     }
@@ -162,9 +193,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case TempControl.celsius.rawValue:
-            note?.waterTempUnit = .celsius
+            print("Switched to \(TempControl.celsius)")
+            //note?.waterTempUnit = .celsius
         case TempControl.fahrenheit.rawValue:
-            note?.waterTempUnit = .fahrenheit
+            print("Switched to \(TempControl.fahrenheit)")
+            //note?.waterTempUnit = .fahrenheit
         default:
             fatalError("There should only be 2 segments for this control.")
         }

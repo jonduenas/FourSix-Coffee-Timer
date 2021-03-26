@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NotesCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
@@ -30,7 +31,7 @@ class NotesCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showDetails(for note: Note) {
+    func showDetails(for note: NSManagedObjectID) {
         let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
         vc.coordinator = self
         vc.note = note
