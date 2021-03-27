@@ -52,28 +52,30 @@ open class CoreDataStack {
             return
         }
         
-        context.perform {
-            do {
-                try context.save()
-                print("Core Data main context saved.")
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+        guard context.hasChanges else { return }
+        
+        do {
+            try context.save()
+            print("Core Data main context saved.")
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
+        
     }
     
     public func saveDerivedContext(_ context: NSManagedObjectContext) {
-        context.perform {
-            do {
-                try context.save()
-                print("Core Data derived context saved.")
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-            self.saveContext(self.mainContext)
+        guard context.hasChanges else { return }
+        
+        do {
+            try context.save()
+            print("Core Data derived context saved.")
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
+        
+        self.saveContext(self.mainContext)
     }
     
     public func deletePersistentStore() {
