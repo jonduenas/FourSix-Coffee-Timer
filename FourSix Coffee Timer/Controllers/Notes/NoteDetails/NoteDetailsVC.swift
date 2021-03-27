@@ -38,9 +38,9 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
     
-    let coreDataStack = CoreDataStack()
+    var coreDataStack: CoreDataStack!
     weak var coordinator: NotesCoordinator?
-    var note: NSManagedObjectID?
+    var noteID: NSManagedObjectID?
     var recipe: Recipe? = Recipe.defaultRecipe
     var session: SessionMO?
     var coffeeDetails: CoffeeMO?
@@ -53,7 +53,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         navigationController?.hideBarShadow(true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveNote))
         
-        if let noteID = note {
+        if let noteID = noteID {
             let noteObject = coreDataStack.mainContext.object(with: noteID) as! NoteMO
             configureView(with: noteObject)
         }
@@ -66,9 +66,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     @objc func saveNote() {
-        if let noteID = note {
-            let testNote = coreDataStack.mainContext.object(with: noteID) as! NoteMO
-            testNote.date = Date()
+        if let noteID = noteID {
+            let derivedContext = coreDataStack.newDerivedContext()
+            let testNote = derivedContext.object(with: noteID) as! NoteMO
+            
             testNote.grindSetting = grindSettingTextField.text ?? ""
             testNote.rating = Int64(ratingControl.rating)
             testNote.waterTempC = Double(waterTempTextField.text!) ?? 0
