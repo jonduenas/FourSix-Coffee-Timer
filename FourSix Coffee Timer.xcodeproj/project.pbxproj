@@ -105,6 +105,9 @@
 		65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */; };
 		65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1205A260E6F060059465B /* SegmentControlCell.swift */; };
 		65E12065261104A90059465B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12064261104A90059465B /* DataManager.swift */; };
+		65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E120682611209D0059465B /* MangedObjectInitializable.swift */; };
+		65E1206D261129830059465B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1206C261129830059465B /* Session.swift */; };
+		65E12071261129B30059465B /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12070261129B30059465B /* Coffee.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
 		65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */; };
 		65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182625DDCD9A006CF438 /* Ratio.swift */; };
@@ -230,6 +233,9 @@
 		65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65E1205A260E6F060059465B /* SegmentControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
 		65E12064261104A90059465B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		65E120682611209D0059465B /* MangedObjectInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangedObjectInitializable.swift; sourceTree = "<group>"; };
+		65E1206C261129830059465B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		65E12070261129B30059465B /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
 		65F5182625DDCD9A006CF438 /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
@@ -562,6 +568,7 @@
 				65BE8A9825D717DA007177B8 /* Storyboarded.swift */,
 				65BBA6C425E99979003BC3C7 /* PaywallDelegate.swift */,
 				65BBA6C825E999DD003BC3C7 /* TimerScheduling.swift */,
+				65E120682611209D0059465B /* MangedObjectInitializable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -610,6 +617,8 @@
 				65FB654A249C19F800ED732F /* Recipe.swift */,
 				65F5182625DDCD9A006CF438 /* Ratio.swift */,
 				6512EA872603E0C1002DC1CF /* Note.swift */,
+				65E12070261129B30059465B /* Coffee.swift */,
+				65E1206C261129830059465B /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -830,6 +839,7 @@
 				65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */,
+				65E12071261129B30059465B /* Coffee.swift in Sources */,
 				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
 				65127BBD260D09CA0014A9E7 /* CoreDataStack.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
@@ -843,6 +853,7 @@
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */,
 				657A2635260A8C4C0009CD9A /* DatePicker.swift in Sources */,
+				65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */,
 				65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */,
 				65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */,
 				65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */,
@@ -856,6 +867,7 @@
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */,
 				6536F26C2602936000E2DF28 /* NotesVC.swift in Sources */,
+				65E1206D261129830059465B /* Session.swift in Sources */,
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,
 				6537159D25F16AE800F162DD /* RatioPickerView.swift in Sources */,
 				6542DDFA25D858AB0067C704 /* SettingsNavigationController.swift in Sources */,
