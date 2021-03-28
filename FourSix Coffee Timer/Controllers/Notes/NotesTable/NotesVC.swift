@@ -12,7 +12,7 @@ import CoreData
 class NotesVC: UIViewController, Storyboarded {
     @IBOutlet weak var tableView: UITableView!
 
-    var coreDataStack: CoreDataStack!
+    var dataManager: DataManager!
     weak var coordinator: NotesCoordinator?
     var dataSource: UITableViewDiffableDataSource<Int, NSManagedObjectID>!
     var fetchedResultsController: NSFetchedResultsController<NoteMO>! = nil
@@ -48,7 +48,7 @@ class NotesVC: UIViewController, Storyboarded {
         let dataSource = UITableViewDiffableDataSource<Int, NSManagedObjectID>(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NoteCell.self), for: indexPath) as! NoteCell
             
-            guard let note = try? self.coreDataStack.mainContext.existingObject(with: noteID) as? NoteMO else { fatalError("Managed object should be available") }
+            guard let note = try? self.dataManager.mainContext.existingObject(with: noteID) as? NoteMO else { fatalError("Managed object should be available") }
             
             guard let balance = Balance(rawValue: Float(note.recipe.balanceRaw)) else { return cell }
             guard let strength = Strength(rawValue: Int(note.recipe.strengthRaw)) else { return cell }
@@ -64,9 +64,9 @@ class NotesVC: UIViewController, Storyboarded {
     }
     
     @objc func createNewNote() {
-        let backgroundMOC = coreDataStack.newDerivedContext()
-        
         DispatchQueue.global(qos: .background).async {
+            let backgroundMOC = self.dataManager.backgroundContext
+            
             let note = NoteMO(context: backgroundMOC)
             
             let recipe = RecipeMO(context: backgroundMOC)
@@ -103,7 +103,7 @@ class NotesVC: UIViewController, Storyboarded {
             note.text = ""
             note.waterTempC = 0
             
-            self.coreDataStack.saveContext(backgroundMOC)
+            self.dataManager.save(note)
         }
     }
 }
@@ -112,7 +112,7 @@ extension NotesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let noteID = dataSource.itemIdentifier(for: indexPath) else { return }
         
-        coordinator?.showDetails(for: noteID, coreDataStack: coreDataStack)
+        coordinator?.showDetails(for: noteID, dataManager: dataManager)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -123,7 +123,7 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
         let sort = NSSortDescriptor(key: #keyPath(NoteMO.date), ascending: false)
         request.sortDescriptors = [sort]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: coreDataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataManager.mainContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
     }
     

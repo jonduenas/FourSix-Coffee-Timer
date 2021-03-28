@@ -38,7 +38,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
     
-    var coreDataStack: CoreDataStack!
+    var dataManager: DataManager!
     weak var coordinator: NotesCoordinator?
     var noteID: NSManagedObjectID?
     var recipe: Recipe? = Recipe.defaultRecipe
@@ -54,7 +54,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveNote))
         
         if let noteID = noteID {
-            let noteObject = coreDataStack.mainContext.object(with: noteID) as! NoteMO
+            let noteObject = dataManager.mainContext.object(with: noteID) as! NoteMO
             configureView(with: noteObject)
         }
 //        else {
@@ -67,7 +67,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @objc func saveNote() {
         if let noteID = noteID {
-            let derivedContext = coreDataStack.newDerivedContext()
+            let derivedContext = dataManager.backgroundContext
             let testNote = derivedContext.object(with: noteID) as! NoteMO
             
             testNote.grindSetting = grindSettingTextField.text ?? ""
@@ -81,7 +81,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             
             testNote.text = notesTextView.text ?? ""
             
-            coreDataStack.saveContext(testNote.managedObjectContext!)
+            dataManager.save(testNote)
         }
     }
     

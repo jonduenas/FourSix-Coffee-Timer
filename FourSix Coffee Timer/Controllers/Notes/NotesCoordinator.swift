@@ -20,7 +20,9 @@ class NotesCoordinator: Coordinator {
     func start() {
         let vc = NotesVC.instantiate(fromStoryboardNamed: String(describing: NotesVC.self))
         vc.coordinator = self
-        vc.coreDataStack = CoreDataStack()
+        
+        let app = UIApplication.shared.delegate as! AppDelegate
+        vc.dataManager = DataManager(mainContext: app.coreDataStack.mainContext, backgroundContext: app.coreDataStack.newDerivedContext())
         
         let tabImage: UIImage?
         if #available(iOS 14.0, *) {
@@ -32,11 +34,11 @@ class NotesCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showDetails(for noteID: NSManagedObjectID, coreDataStack: CoreDataStack) {
+    func showDetails(for noteID: NSManagedObjectID, dataManager: DataManager) {
         let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
         vc.coordinator = self
         vc.noteID = noteID
-        vc.coreDataStack = coreDataStack
+        vc.dataManager = dataManager
         navigationController.pushViewController(vc, animated: true)
     }
 }

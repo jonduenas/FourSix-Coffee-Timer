@@ -10,20 +10,54 @@ import Foundation
 import CoreData
 
 public final class DataManager {
-    private let coreDataStack: CoreDataStack
-    let managedObjectContext: NSManagedObjectContext
+    let mainContext: NSManagedObjectContext
     let backgroundContext: NSManagedObjectContext
     
-    public init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
-        self.managedObjectContext = managedObjectContext
-        self.coreDataStack = coreDataStack
-        self.backgroundContext = coreDataStack.newDerivedContext()
+    public init(mainContext: NSManagedObjectContext, backgroundContext: NSManagedObjectContext) {
+        self.mainContext = mainContext
+        self.backgroundContext = backgroundContext
     }
 }
 
 extension DataManager {
     func save(_ object: NSManagedObject) {
         guard let context = object.managedObjectContext else { return }
-        coreDataStack.saveContext(context)
+        saveContext(context)
+    }
+    
+    public func saveContext() {
+        saveContext(mainContext)
+    }
+    
+    public func saveContext(_ context: NSManagedObjectContext) {
+        if context != mainContext {
+            saveDerivedContext(context)
+            return
+        }
+        
+        guard context.hasChanges else { return }
+        
+        do {
+            try context.save()
+            print("Core Data main context saved.")
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+    }
+    
+    public func saveDerivedContext(_ context: NSManagedObjectContext) {
+        guard context.hasChanges else { return }
+        
+        do {
+            try context.save()
+            print("Core Data derived context saved.")
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+        self.saveContext(self.mainContext)
     }
 }
