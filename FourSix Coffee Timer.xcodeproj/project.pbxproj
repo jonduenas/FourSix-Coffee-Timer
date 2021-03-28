@@ -104,6 +104,7 @@
 		65D5DE8D260D38B800353385 /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE83260D38B800353385 /* NoteMO+CoreDataClass.swift */; };
 		65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */; };
 		65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1205A260E6F060059465B /* SegmentControlCell.swift */; };
+		65E12065261104A90059465B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12064261104A90059465B /* DataManager.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
 		65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */; };
 		65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182625DDCD9A006CF438 /* Ratio.swift */; };
@@ -228,6 +229,7 @@
 		65D5DE83260D38B800353385 /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65E1205A260E6F060059465B /* SegmentControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
+		65E12064261104A90059465B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
 		65F5182625DDCD9A006CF438 /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				65A2775325FFE88F0093B0B9 /* AlertHelper.swift */,
 				65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */,
 				65127BBC260D09CA0014A9E7 /* CoreDataStack.swift */,
+				65E12064261104A90059465B /* DataManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */,
 				65D5DE85260D38B800353385 /* SessionMO+CoreDataClass.swift in Sources */,
 				6599310625EEC38600840005 /* Style.swift in Sources */,
+				65E12065261104A90059465B /* DataManager.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
 				6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */,
 				65B3140925F41BB4004D9758 /* SwitchTableCell.swift in Sources */,
