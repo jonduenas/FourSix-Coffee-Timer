@@ -32,10 +32,10 @@ class NotesCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showDetails(for note: NSManagedObjectID, coreDataStack: CoreDataStack) {
+    func showDetails(for noteID: NSManagedObjectID, coreDataStack: CoreDataStack) {
         let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
         vc.coordinator = self
-        vc.note = note
+        vc.noteID = noteID
         vc.coreDataStack = coreDataStack
         navigationController.pushViewController(vc, animated: true)
     }
