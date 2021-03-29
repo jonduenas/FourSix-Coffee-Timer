@@ -13,7 +13,7 @@ import CoreData
 
 extension NoteMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<NoteMO> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<NoteMO> {
         return NSFetchRequest<NoteMO>(entityName: "Note")
     }
 

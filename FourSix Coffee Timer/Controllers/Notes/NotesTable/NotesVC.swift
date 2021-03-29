@@ -114,7 +114,7 @@ extension NotesVC: UITableViewDelegate {
 
 extension NotesVC: NSFetchedResultsControllerDelegate {
     private func configureFetchedResultsController() {
-        let request: NSFetchRequest<NoteMO> = NoteMO.fetchRequest()
+        let request = NoteMO.createFetchRequest()
         let sort = NSSortDescriptor(key: #keyPath(NoteMO.date), ascending: false)
         request.sortDescriptors = [sort]
         

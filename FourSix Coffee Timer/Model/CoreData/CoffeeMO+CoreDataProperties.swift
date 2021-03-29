@@ -13,7 +13,7 @@ import CoreData
 
 extension CoffeeMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CoffeeMO> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<CoffeeMO> {
         return NSFetchRequest<CoffeeMO>(entityName: "Coffee")
     }
 

@@ -13,7 +13,7 @@ import CoreData
 
 extension RecipeMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<RecipeMO> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<RecipeMO> {
         return NSFetchRequest<RecipeMO>(entityName: "Recipe")
     }
 

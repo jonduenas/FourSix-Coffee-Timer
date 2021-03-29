@@ -13,7 +13,7 @@ import CoreData
 
 extension SessionMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<SessionMO> {
+    @nonobjc public class func createFetchRequest() -> NSFetchRequest<SessionMO> {
         return NSFetchRequest<SessionMO>(entityName: "Session")
     }
 
