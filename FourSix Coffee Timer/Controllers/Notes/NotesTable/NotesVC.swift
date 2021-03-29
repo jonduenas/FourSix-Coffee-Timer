@@ -74,13 +74,8 @@ class NotesVC: UIViewController, Storyboarded {
             recipe.strengthRaw = Int64(Strength.strong.rawValue)
             recipe.interval = 30
             recipe.coffee = 25
-            let waterTotal = WaterMO(context: backgroundMOC)
-            waterTotal.amount = 375
-            recipe.waterTotal = waterTotal
-            let waterPour = WaterMO(context: backgroundMOC)
-            waterPour.amount = 65
-            let waterArray = Array(repeating: waterPour, count: 6)
-            waterArray.forEach { recipe.addToWaterPours($0) }
+            recipe.waterTotal = 375
+            recipe.waterPours = [50, 70, 60, 60, 60]
             note.recipe = recipe
             
             let session = SessionMO(context: backgroundMOC)

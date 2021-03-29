@@ -30,25 +30,19 @@
         <attribute name="coffee" attributeType="Double" minValueString="0" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="interval" attributeType="Double" minValueString="0" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="strengthRaw" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="waterPours" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Double]"/>
+        <attribute name="waterTotal" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="recipe" inverseEntity="Note"/>
-        <relationship name="waterPours" toMany="YES" minCount="1" deletionRule="Cascade" ordered="YES" destinationEntity="Water" inverseName="recipePours" inverseEntity="Water"/>
-        <relationship name="waterTotal" maxCount="1" deletionRule="Cascade" destinationEntity="Water" inverseName="recipeTotal" inverseEntity="Water"/>
     </entity>
     <entity name="Session" representedClassName="SessionMO" syncable="YES">
         <attribute name="averageDrawdown" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="totalTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="session" inverseEntity="Note"/>
     </entity>
-    <entity name="Water" representedClassName="WaterMO" syncable="YES">
-        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="recipePours" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="waterPours" inverseEntity="Recipe"/>
-        <relationship name="recipeTotal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="waterTotal" inverseEntity="Recipe"/>
-    </entity>
     <elements>
         <element name="Coffee" positionX="219.740234375" positionY="278.58203125" width="128" height="119"/>
         <element name="Note" positionX="203.6853637695312" positionY="5.0843505859375" width="128" height="179"/>
         <element name="Recipe" positionX="81" positionY="162" width="128" height="134"/>
         <element name="Session" positionX="-57.89324951171875" positionY="79.94985961914065" width="128" height="74"/>
-        <element name="Water" positionX="90" positionY="171" width="128" height="74"/>
     </elements>
 </model>

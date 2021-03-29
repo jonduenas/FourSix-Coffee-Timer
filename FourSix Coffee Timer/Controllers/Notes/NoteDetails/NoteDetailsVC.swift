@@ -115,7 +115,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         // Recipe
         flavorProfileLabel.text = flavorProfileText(from: note.recipe)
         coffeeAmountLabel.text = note.recipe.coffee.clean + "g"
-        waterAmountLabel.text = note.recipe.waterTotal.amount.clean + "g"
+        waterAmountLabel.text = note.recipe.waterTotal.clean + "g"
         poursLabel.text = poursLabelText(from: note.recipe)
         pourIntervalLabel.text = note.recipe.interval.minAndSecString
         grindSettingTextField.text = note.grindSetting
@@ -143,8 +143,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func poursLabelText(from recipe: RecipeMO) -> String {
-        let recipePours = recipe.waterPours?.array as! [WaterMO]
-        let recipePoursStrings = recipePours.map { $0.amount.clean + "g" }
+        let recipePours = recipe.waterPours
+        let recipePoursStrings = recipePours.map { $0.clean + "g" }
         
         return recipePoursStrings.joined(separator: " → ")
     }

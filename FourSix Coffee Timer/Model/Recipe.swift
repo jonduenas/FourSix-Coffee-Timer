@@ -44,12 +44,10 @@ struct Recipe: ManagedObjectInitializable {
         
         let balance = Balance(rawValue: Float(recipeMO.balanceRaw)) ?? .neutral
         let strength = Strength(rawValue: Int(recipeMO.strengthRaw)) ?? .medium
-        
-        let waterPoursArray = recipeMO.waterPours?.array as! [WaterMO]
-        
+
         self.coffee = Float(recipeMO.coffee)
-        self.waterTotal = Float(recipeMO.waterTotal.amount)
-        self.waterPours = waterPoursArray.map { Float($0.amount) }
+        self.waterTotal = Float(recipeMO.waterTotal)
+        self.waterPours = recipeMO.waterPours.map { Float($0) }
         self.interval = recipeMO.interval
         self.balance = balance
         self.strength = strength
