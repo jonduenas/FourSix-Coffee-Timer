@@ -51,7 +51,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         registerKeyboardNotifications()
         
         navigationController?.hideBarShadow(true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveNote))
+        navigationItem.rightBarButtonItem = editButtonItem
+        setUIEditMode(false)
         
         if let noteID = noteID {
             let noteObject = dataManager.mainContext.object(with: noteID) as! NoteMO
@@ -63,6 +64,42 @@ class NoteDetailsVC: UIViewController, Storyboarded {
 //            note = newNote
 //            configureView(with: newNote)
 //        }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        print("isEditing: \(editing)")
+        
+        setUIEditMode(editing)
+    }
+    
+    private func setUIEditMode(_ shouldSetToEdit: Bool) {
+        let borderStyle: UITextField.BorderStyle = shouldSetToEdit ? .roundedRect : .none
+        
+        grindSettingTextField.isEnabled = shouldSetToEdit
+        grindSettingTextField.borderStyle = borderStyle
+        
+        waterTempTextField.isEnabled = shouldSetToEdit
+        waterTempTextField.borderStyle = borderStyle
+        
+        //setUnitControlToEditMode(shouldSetToEdit)
+        
+        roasterNameTextField.isEnabled = shouldSetToEdit
+        roasterNameTextField.borderStyle = borderStyle
+        
+        coffeeNameTextField.isEnabled = shouldSetToEdit
+        coffeeNameTextField.borderStyle = borderStyle
+        
+        originTextField.isEnabled = shouldSetToEdit
+        originTextField.borderStyle = borderStyle
+        
+        roastDateTextField.isEnabled = shouldSetToEdit
+        roastDateTextField.borderStyle = borderStyle
+        
+        roastLevelTextField.isEnabled = shouldSetToEdit
+        roastLevelTextField.borderStyle = borderStyle
+        
+        notesTextView.setToEditMode(shouldSetToEdit)
     }
     
     @objc func saveNote() {

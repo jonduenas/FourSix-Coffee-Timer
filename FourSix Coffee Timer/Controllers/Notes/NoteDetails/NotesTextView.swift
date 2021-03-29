@@ -25,5 +25,16 @@ class NotesTextView: UITextView {
         layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
         layer.borderWidth = 0.5
         clipsToBounds = true
+        setToEditMode(false)
+    }
+    
+    func setToEditMode(_ shouldSetToEdit: Bool) {
+        if shouldSetToEdit {
+            isEditable = true
+            layer.backgroundColor = UIColor.systemBackground.cgColor
+        } else {
+            isEditable = false
+            layer.backgroundColor = UIColor(named: AssetsColor.background.rawValue)?.cgColor
+        }
     }
 }
