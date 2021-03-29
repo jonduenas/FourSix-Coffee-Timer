@@ -33,6 +33,16 @@ class RatingControl: UIStackView {
     private var onImage: UIImage? = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
     private var onColor: UIColor? = UIColor(named: AssetsColor.accent.rawValue)
     private var offColor: UIColor? = UIColor(named: AssetsColor.accent.rawValue)
+    private var enabledColor: UIColor? = UIColor(named: AssetsColor.accent.rawValue)
+    private var disabledColor: UIColor = UIColor.systemGray
+    
+    private var editMode: Bool = false {
+        didSet {
+            for button in ratingButtons {
+                button.tintColor = editMode ? enabledColor : disabledColor
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,10 +67,12 @@ class RatingControl: UIStackView {
         for index in 0..<starCount {
             let button = UIButton()
             
+            // Default to disabled
+            button.tintColor = disabledColor
+            
             button.setImage(offImage, for: .normal)
             button.setImage(onImage, for: .selected)
             button.setImage(onImage, for: .highlighted)
-            button.tintColor = onColor
             button.adjustsImageWhenHighlighted = false
             
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
@@ -81,6 +93,8 @@ class RatingControl: UIStackView {
     // MARK: Button Action
     
     @objc func ratingButtonTapped(button: UIButton) {
+        guard editMode == true else { return }
+        
         guard let index = ratingButtons.firstIndex(of: button) else {
             fatalError("The button, \(button), is not in the ratingButtons array: \(ratingButtons)")
         }
@@ -120,5 +134,11 @@ class RatingControl: UIStackView {
             button.accessibilityHint = hintString
             button.accessibilityValue = valueString
         }
+    }
+    
+    func setToEditMode(_ shouldSetToEdit: Bool) {
+        guard editMode != shouldSetToEdit else { return }
+        
+        editMode = shouldSetToEdit
     }
 }

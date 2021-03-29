@@ -76,6 +76,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     private func setUIEditMode(_ shouldSetToEdit: Bool) {
         let borderStyle: UITextField.BorderStyle = shouldSetToEdit ? .roundedRect : .none
         
+        ratingControl.setToEditMode(shouldSetToEdit)
+        
         grindSettingTextField.isEnabled = shouldSetToEdit
         grindSettingTextField.borderStyle = borderStyle
         
