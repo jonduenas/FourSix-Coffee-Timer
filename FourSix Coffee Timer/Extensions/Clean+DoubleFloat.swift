@@ -29,6 +29,7 @@ extension Formatter {
     static let decimal: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
+        numberFormatter.usesGroupingSeparator = false
         numberFormatter.locale = .current
         return numberFormatter
     }()
