@@ -70,6 +70,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         super.setEditing(editing, animated: animated)
         print("isEditing: \(editing)")
         setUIEditMode()
+        
+        if !editing {
+            saveNote()
+        }
     }
     
     private func setUIEditMode() {
@@ -109,6 +113,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             testNote.grindSetting = grindSettingTextField.text ?? ""
             testNote.rating = Int64(ratingControl.rating)
             testNote.waterTempC = getCelsiusTemp()
+            testNote.tempUnitRawValue = Int64(waterTempUnitControl.selectedSegmentIndex)
             
             testNote.coffee.roaster = roasterNameTextField.text ?? ""
             testNote.coffee.name = coffeeNameTextField.text ?? ""
@@ -128,8 +133,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         case TempUnit.celsius.rawValue:
             return value
         case TempUnit.fahrenheit.rawValue:
-            let temp = Measurement(value: value, unit: UnitTemperature.fahrenheit)
-            return temp.converted(to: .celsius).value
+            return convertTemp(value: value, from: .fahrenheit, to: .celsius)
         default:
             fatalError("There should never be more than 2 options.")
         }
@@ -142,11 +146,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     private func configureView(with note: NoteMO) {
         note.managedObjectContext?.perform {
+            self.initializeTempUnitSelector(with: note)
             self.dateLabel.text = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
             self.updateLabels(with: note)
             self.initializeDatePicker(with: note)
             self.ratingControl.rating = Int(note.rating)
-            self.waterTempUnitControl.selectedSegmentIndex = UserDefaultsManager.tempUnitRawValue
         }
     }
     
@@ -155,6 +159,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                       selectedDate: note.roastDate,
                                       datePickerMode: .date,
                                       valueChangedSelector: #selector(didChangeDateValue(_:)))
+    }
+    
+    private func initializeTempUnitSelector(with note: NoteMO) {
+        waterTempUnitControl.selectedSegmentIndex = Int(note.tempUnitRawValue)
     }
     
     private func updateLabels(with note: NoteMO) {
@@ -169,7 +177,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         poursLabel.text = poursLabelText(from: note.recipe)
         pourIntervalLabel.text = note.recipe.interval.minAndSecString
         grindSettingTextField.text = note.grindSetting
-        waterTempTextField.text = note.waterTempC != 0 ? note.waterTempC.clean : ""
+        waterTempTextField.text = setWaterTempTextField(with: note.waterTempC)
         
         // Coffee Details
         roasterNameTextField.text = note.coffee.roaster
@@ -180,6 +188,19 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         // Notes
         notesTextView.text = note.text
+    }
+    
+    private func setWaterTempTextField(with cValue: Double) -> String {
+        guard cValue != 0 else { return "" }
+        
+        switch waterTempUnitControl.selectedSegmentIndex {
+        case TempUnit.celsius.rawValue:
+            return cValue.clean
+        case TempUnit.fahrenheit.rawValue:
+            return convertTemp(value: cValue, from: .celsius, to: .fahrenheit).clean
+        default:
+            fatalError("There should never be more than 2 options.")
+        }
     }
     
     private func flavorProfileText(from recipe: RecipeMO) -> String {
@@ -241,26 +262,20 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         case (TempUnit.celsius.rawValue, false):
             print("Switched to \(TempUnit.celsius), should convert")
             guard let tempValue = Double(waterTempTextField.text!) else { return }
-            waterTempTextField.text = convertTemp(value: tempValue, to: .celsius).clean
+            waterTempTextField.text = convertTemp(value: tempValue, from: .fahrenheit, to: .celsius).clean
         case (TempUnit.fahrenheit.rawValue, false):
             print("Switched to \(TempUnit.fahrenheit), should convert")
             guard let tempValue = Double(waterTempTextField.text!) else { return }
-            waterTempTextField.text = convertTemp(value: tempValue, to: .fahrenheit).clean
+            waterTempTextField.text = convertTemp(value: tempValue, from: .celsius, to: .fahrenheit).clean
         
         default:
             fatalError("There should only be 4 possible states.")
         }
     }
     
-    private func convertTemp(value: Double, to unit: TempUnit) -> Double {
-        switch unit {
-        case .celsius:
-            let temperature = Measurement(value: value, unit: UnitTemperature.fahrenheit)
-            return temperature.converted(to: .celsius).value
-        case .fahrenheit:
-            let temperature = Measurement(value: value, unit: UnitTemperature.celsius)
-            return temperature.converted(to: .fahrenheit).value
-        }
+    private func convertTemp(value: Double, from inUnit: UnitTemperature, to outUnit: UnitTemperature) -> Double {
+        let temperature = Measurement(value: value, unit: inUnit)
+        return temperature.converted(to: outUnit).value
     }
 }
 
