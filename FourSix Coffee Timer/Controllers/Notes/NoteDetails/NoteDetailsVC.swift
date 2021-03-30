@@ -52,7 +52,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         navigationController?.hideBarShadow(true)
         navigationItem.rightBarButtonItem = editButtonItem
-        setUIEditMode(false)
+        setUIEditMode()
         
         if let noteID = noteID {
             let noteObject = dataManager.mainContext.object(with: noteID) as! NoteMO
@@ -69,39 +69,38 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         print("isEditing: \(editing)")
-        
-        setUIEditMode(editing)
+        setUIEditMode()
     }
     
-    private func setUIEditMode(_ shouldSetToEdit: Bool) {
-        let borderStyle: UITextField.BorderStyle = shouldSetToEdit ? .roundedRect : .none
+    private func setUIEditMode() {
+        let borderStyle: UITextField.BorderStyle = isEditing ? .roundedRect : .none
         
-        ratingControl.setToEditMode(shouldSetToEdit)
+        ratingControl.setToEditMode(isEditing)
         
-        grindSettingTextField.isEnabled = shouldSetToEdit
+        grindSettingTextField.isEnabled = isEditing
         grindSettingTextField.borderStyle = borderStyle
         
-        waterTempTextField.isEnabled = shouldSetToEdit
+        waterTempTextField.isEnabled = isEditing
         waterTempTextField.borderStyle = borderStyle
         
         //setUnitControlToEditMode(shouldSetToEdit)
         
-        roasterNameTextField.isEnabled = shouldSetToEdit
+        roasterNameTextField.isEnabled = isEditing
         roasterNameTextField.borderStyle = borderStyle
         
-        coffeeNameTextField.isEnabled = shouldSetToEdit
+        coffeeNameTextField.isEnabled = isEditing
         coffeeNameTextField.borderStyle = borderStyle
         
-        originTextField.isEnabled = shouldSetToEdit
+        originTextField.isEnabled = isEditing
         originTextField.borderStyle = borderStyle
         
-        roastDateTextField.isEnabled = shouldSetToEdit
+        roastDateTextField.isEnabled = isEditing
         roastDateTextField.borderStyle = borderStyle
         
-        roastLevelTextField.isEnabled = shouldSetToEdit
+        roastLevelTextField.isEnabled = isEditing
         roastLevelTextField.borderStyle = borderStyle
         
-        notesTextView.setToEditMode(shouldSetToEdit)
+        notesTextView.setToEditMode(isEditing)
     }
     
     @objc func saveNote() {
@@ -215,6 +214,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {
+        let appState = (sender.selectedSegmentIndex, isEditing)
         switch sender.selectedSegmentIndex {
         case TempUnit.celsius.rawValue:
             print("Switched to \(TempUnit.celsius)")
