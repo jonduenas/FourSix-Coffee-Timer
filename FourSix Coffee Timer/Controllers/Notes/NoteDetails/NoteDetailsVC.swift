@@ -260,3 +260,9 @@ extension NoteDetailsVC: UITextFieldDelegate {
         saveNote()
     }
 }
+
+extension NoteDetailsVC: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        saveNote()
+    }
+}
