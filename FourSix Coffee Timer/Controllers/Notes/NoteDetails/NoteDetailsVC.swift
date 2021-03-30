@@ -215,15 +215,39 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {
         let appState = (sender.selectedSegmentIndex, isEditing)
-        switch sender.selectedSegmentIndex {
-        case TempUnit.celsius.rawValue:
-            print("Switched to \(TempUnit.celsius)")
+        
+        switch appState {
+        // If isEditing is true, changing segment sets the value on the object
+        case (TempUnit.celsius.rawValue, true):
+            print("Switched to \(TempUnit.celsius), should write")
             //note?.waterTempUnit = .celsius
-        case TempUnit.fahrenheit.rawValue:
-            print("Switched to \(TempUnit.fahrenheit)")
+        case (TempUnit.fahrenheit.rawValue, true):
+            print("Switched to \(TempUnit.fahrenheit), should write")
             //note?.waterTempUnit = .fahrenheit
+        
+        // If isEditing is false, changing segment converts displayed value but doesn't change any stored values on object
+        case (TempUnit.celsius.rawValue, false):
+            print("Switched to \(TempUnit.celsius), should convert")
+            guard let tempValue = Double(waterTempTextField.text!) else { return }
+            waterTempTextField.text = convertTemp(value: tempValue, to: .celsius).clean
+        case (TempUnit.fahrenheit.rawValue, false):
+            print("Switched to \(TempUnit.fahrenheit), should convert")
+            guard let tempValue = Double(waterTempTextField.text!) else { return }
+            waterTempTextField.text = convertTemp(value: tempValue, to: .fahrenheit).clean
+        
         default:
-            fatalError("There should only be 2 segments for this control.")
+            fatalError("There should only be 4 possible states.")
+        }
+    }
+    
+    private func convertTemp(value: Double, to unit: TempUnit) -> Double {
+        switch unit {
+        case .celsius:
+            let temperature = Measurement(value: value, unit: UnitTemperature.fahrenheit)
+            return temperature.converted(to: .celsius).value
+        case .fahrenheit:
+            let temperature = Measurement(value: value, unit: UnitTemperature.celsius)
+            return temperature.converted(to: .fahrenheit).value
         }
     }
 }
