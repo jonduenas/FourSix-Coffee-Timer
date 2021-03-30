@@ -108,7 +108,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             
             testNote.grindSetting = grindSettingTextField.text ?? ""
             testNote.rating = Int64(ratingControl.rating)
-            testNote.waterTempC = Double(waterTempTextField.text!) ?? 0
+            testNote.waterTempC = getCelsiusTemp()
             
             testNote.coffee.roaster = roasterNameTextField.text ?? ""
             testNote.coffee.name = coffeeNameTextField.text ?? ""
@@ -118,6 +118,20 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             testNote.text = notesTextView.text ?? ""
             
             dataManager.save(testNote)
+        }
+    }
+    
+    private func getCelsiusTemp() -> Double {
+        guard let value = Double(waterTempTextField.text!) else { return 0 }
+        
+        switch waterTempUnitControl.selectedSegmentIndex {
+        case TempUnit.celsius.rawValue:
+            return value
+        case TempUnit.fahrenheit.rawValue:
+            let temp = Measurement(value: value, unit: UnitTemperature.fahrenheit)
+            return temp.converted(to: .celsius).value
+        default:
+            fatalError("There should never be more than 2 options.")
         }
     }
     
