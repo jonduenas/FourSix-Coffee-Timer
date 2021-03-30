@@ -83,8 +83,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         waterTempTextField.isEnabled = isEditing
         waterTempTextField.borderStyle = borderStyle
         
-        //setUnitControlToEditMode(shouldSetToEdit)
-        
         roasterNameTextField.isEnabled = isEditing
         roasterNameTextField.borderStyle = borderStyle
         
@@ -256,5 +254,9 @@ extension NoteDetailsVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        saveNote()
     }
 }
