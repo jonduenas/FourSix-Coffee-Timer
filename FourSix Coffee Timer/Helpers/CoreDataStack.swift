@@ -41,34 +41,4 @@ open class CoreDataStack {
         context.automaticallyMergesChangesFromParent = true
         return context
     }
-    
-    public func deletePersistentStore() {
-        guard let url = persistentContainer.persistentStoreDescriptions.first?.url else { return }
-        
-        let persistentStoreCoordinator = persistentContainer.persistentStoreCoordinator
-        
-        mainContext.perform {
-            self.mainContext.reset()
-            
-            do {
-                try persistentStoreCoordinator.destroyPersistentStore(at:url, ofType: NSSQLiteStoreType, options: nil)
-            } catch {
-                print("Attempted to clear persistent store: " + error.localizedDescription)
-            }
-            
-            self.persistentContainer.loadPersistentStores { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                } else {
-                    do {
-                        try self.mainContext.save()
-                        self.mainContext = self.persistentContainer.viewContext
-                    } catch {
-                        let nserror = error as NSError
-                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                    }
-                }
-            }
-        }
-    }
 }
