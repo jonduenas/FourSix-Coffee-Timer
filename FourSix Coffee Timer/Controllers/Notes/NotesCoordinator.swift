@@ -12,17 +12,18 @@ import CoreData
 class NotesCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+    var dataManager: DataManager!
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
+        guard dataManager != nil else { fatalError("Coordinator requires a DataManager.") }
+        
         let vc = NotesVC.instantiate(fromStoryboardNamed: String(describing: NotesVC.self))
         vc.coordinator = self
-        
-        let app = UIApplication.shared.delegate as! AppDelegate
-        vc.dataManager = DataManager(mainContext: app.coreDataStack.mainContext, backgroundContext: app.coreDataStack.newDerivedContext())
+        vc.dataManager = dataManager
         
         let tabImage: UIImage?
         if #available(iOS 14.0, *) {

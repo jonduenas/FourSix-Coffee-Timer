@@ -13,9 +13,9 @@ public final class DataManager {
     let mainContext: NSManagedObjectContext
     let backgroundContext: NSManagedObjectContext
     
-    public init(mainContext: NSManagedObjectContext, backgroundContext: NSManagedObjectContext) {
-        self.mainContext = mainContext
-        self.backgroundContext = backgroundContext
+    public init(coreDataStack: CoreDataStack) {
+        self.mainContext = coreDataStack.mainContext
+        self.backgroundContext = coreDataStack.newDerivedContext()
     }
 }
 

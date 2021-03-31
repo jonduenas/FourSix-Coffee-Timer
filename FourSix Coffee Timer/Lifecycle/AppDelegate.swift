@@ -11,12 +11,8 @@ import Purchases
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var coreDataStack: CoreDataStack!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Initialize CoreDataStack
-        coreDataStack = CoreDataStack()
         
         // Configure RevenueCat with public API key
         Purchases.debugLogsEnabled = false

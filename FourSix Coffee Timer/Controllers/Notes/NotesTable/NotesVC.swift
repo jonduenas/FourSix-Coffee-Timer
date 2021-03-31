@@ -21,6 +21,8 @@ class NotesVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard dataManager != nil else { fatalError("Controller requires DataManager.") }
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Note", style: .plain, target: self, action: #selector(createNewNote))
         
         tableView.delegate = self

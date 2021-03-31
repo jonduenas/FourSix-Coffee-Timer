@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
         
-        let tabBarController = MainTabBarController()
+        let coreDataStack = CoreDataStack()
+        let dataManager = DataManager(coreDataStack: coreDataStack)
+        let tabBarController = MainTabBarController(dataManager: dataManager)
         
         appWindow.rootViewController = tabBarController
         appWindow.makeKeyAndVisible()
