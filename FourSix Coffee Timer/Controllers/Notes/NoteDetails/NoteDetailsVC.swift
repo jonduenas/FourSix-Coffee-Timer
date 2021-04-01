@@ -110,7 +110,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             let derivedContext = dataManager.backgroundContext
             derivedContext.perform {
                 let testNote = derivedContext.object(with: noteID) as! NoteMO
-                
+                #warning("Don't get values from UI elements on background thread")
                 testNote.grindSetting = self.grindSettingTextField.text ?? ""
                 testNote.rating = Int64(self.ratingControl.rating)
                 testNote.waterTempC = self.getCelsiusTemp()
@@ -185,7 +185,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         roasterNameTextField.text = note.coffee.roaster
         coffeeNameTextField.text = note.coffee.name
         originTextField.text = note.coffee.origin
-        roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate() : ""
+        roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate(dateStyle: .medium, timeStyle: nil) : ""
         roastLevelTextField.text = note.coffee.roastLevel
         
         // Notes
@@ -245,7 +245,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     @objc func didChangeDateValue(_ sender: UIDatePicker) {
-        roastDateTextField.text = sender.date.stringFromDate()
+        roastDateTextField.text = sender.date.stringFromDate(dateStyle: .medium, timeStyle: nil)
     }
     
     @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {

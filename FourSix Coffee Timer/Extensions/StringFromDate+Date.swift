@@ -9,8 +9,14 @@
 import Foundation
 
 extension Date {
-    func stringFromDate(dateStyle: DateFormatter.Style? = .medium, timeStyle: DateFormatter.Style? = nil) -> String {
+    func stringFromDate(dateStyle: DateFormatter.Style?, timeStyle: DateFormatter.Style?) -> String {
+        guard dateStyle != nil || timeStyle != nil else {
+            print("stringFromDate needs at least one valid date or time style.")
+            return ""
+        }
+        
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = .current
         
         if let dateStyle = dateStyle {
             dateFormatter.dateStyle = dateStyle
