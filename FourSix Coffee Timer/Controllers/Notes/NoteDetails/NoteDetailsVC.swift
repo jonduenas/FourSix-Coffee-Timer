@@ -108,21 +108,23 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @objc func saveNote() {
         if let noteID = noteID {
             let derivedContext = dataManager.backgroundContext
-            let testNote = derivedContext.object(with: noteID) as! NoteMO
-            
-            testNote.grindSetting = grindSettingTextField.text ?? ""
-            testNote.rating = Int64(ratingControl.rating)
-            testNote.waterTempC = getCelsiusTemp()
-            testNote.tempUnitRawValue = Int64(waterTempUnitControl.selectedSegmentIndex)
-            
-            testNote.coffee.roaster = roasterNameTextField.text ?? ""
-            testNote.coffee.name = coffeeNameTextField.text ?? ""
-            testNote.coffee.origin = originTextField.text ?? ""
-            testNote.coffee.roastLevel = roastLevelTextField.text ?? ""
-            
-            testNote.text = notesTextView.text ?? ""
-            
-            dataManager.save(testNote)
+            derivedContext.perform {
+                let testNote = derivedContext.object(with: noteID) as! NoteMO
+                
+                testNote.grindSetting = self.grindSettingTextField.text ?? ""
+                testNote.rating = Int64(self.ratingControl.rating)
+                testNote.waterTempC = self.getCelsiusTemp()
+                testNote.tempUnitRawValue = Int64(self.waterTempUnitControl.selectedSegmentIndex)
+                
+                testNote.coffee.roaster = self.roasterNameTextField.text ?? ""
+                testNote.coffee.name = self.coffeeNameTextField.text ?? ""
+                testNote.coffee.origin = self.originTextField.text ?? ""
+                testNote.coffee.roastLevel = self.roastLevelTextField.text ?? ""
+                
+                testNote.text = self.notesTextView.text ?? ""
+                
+                self.dataManager.save(testNote)
+            }
         }
     }
     

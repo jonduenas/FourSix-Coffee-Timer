@@ -35,29 +35,32 @@ extension DataManager {
             return
         }
         
-        guard context.hasChanges else { return }
-        
-        do {
-            try context.save()
-            print("Core Data main context saved.")
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        context.perform {
+            guard context.hasChanges else { return }
+            
+            do {
+                try context.save()
+                print("Core Data main context saved.")
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         }
-        
     }
     
     public func saveDerivedContext(_ context: NSManagedObjectContext) {
-        guard context.hasChanges else { return }
+        context.perform {
+            guard context.hasChanges else { return }
+            
+            do {
+                try context.save()
+                print("Core Data derived context saved.")
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         
-        do {
-            try context.save()
-            print("Core Data derived context saved.")
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            self.saveContext(self.mainContext)
         }
-        
-        self.saveContext(self.mainContext)
     }
 }

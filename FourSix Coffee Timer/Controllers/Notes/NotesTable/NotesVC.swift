@@ -66,9 +66,9 @@ class NotesVC: UIViewController, Storyboarded {
     }
     
     @objc func createNewNote() {
-        DispatchQueue.global(qos: .background).async {
-            let backgroundMOC = self.dataManager.backgroundContext
-            
+        let backgroundMOC = self.dataManager.backgroundContext
+        
+        backgroundMOC.perform {
             let note = NoteMO(context: backgroundMOC)
             
             let recipe = RecipeMO(context: backgroundMOC)
