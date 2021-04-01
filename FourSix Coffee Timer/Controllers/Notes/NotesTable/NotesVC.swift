@@ -23,7 +23,7 @@ class NotesVC: UIViewController, Storyboarded {
         
         guard dataManager != nil else { fatalError("Controller requires DataManager.") }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Note", style: .plain, target: self, action: #selector(createNewNote))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Notes", style: .plain, target: self, action: #selector(createNewNote))
         
         tableView.delegate = self
         configureDataSource()
@@ -55,8 +55,11 @@ class NotesVC: UIViewController, Storyboarded {
             guard let balance = Balance(rawValue: Float(note.recipe.balanceRaw)) else { return cell }
             guard let strength = Strength(rawValue: Int(note.recipe.strengthRaw)) else { return cell }
 
-            cell.headerLabel.text = String(describing: balance).capitalized + " & " + String(describing: strength).capitalized
-            cell.subheaderLabel.text = note.date.stringFromDate(dateStyle: .short)
+            cell.monthLabel.text = note.date.stringFromDate(component: .month)
+            cell.dayLabel.text = note.date.stringFromDate(component: .day)
+            cell.recipeLabel.text = String(describing: balance).capitalized + " & " + String(describing: strength).capitalized
+            cell.coffeeLabel.text = note.recipe.coffee.clean + "g"
+            cell.waterLabel.text = note.recipe.waterTotal.clean + "g"
             
             return cell
         })
@@ -68,39 +71,44 @@ class NotesVC: UIViewController, Storyboarded {
     @objc func createNewNote() {
         let backgroundMOC = self.dataManager.backgroundContext
         
+        var date = Date()
+        
         backgroundMOC.perform {
-            let note = NoteMO(context: backgroundMOC)
+            for _ in 0...15 {
+                let note = NoteMO(context: backgroundMOC)
+                
+                let recipe = RecipeMO(context: backgroundMOC)
+                recipe.balanceRaw = Double(Balance.allCases[Int.random(in: 0...2)].rawValue)
+                recipe.strengthRaw = Int64(Strength.allCases[Int.random(in: 0...2)].rawValue)
+                recipe.interval = 30
+                recipe.coffee = 25
+                recipe.waterTotal = 375
+                recipe.waterPours = [50, 70, 60, 60, 60]
+                note.recipe = recipe
+                
+                let session = SessionMO(context: backgroundMOC)
+                session.averageDrawdown = 45
+                session.totalTime = 360
+                note.session = session
+                
+                let coffee = CoffeeMO(context: backgroundMOC)
+                coffee.id = UUID()
+                coffee.name = ""
+                coffee.origin = ""
+                coffee.roastLevel = ""
+                coffee.roaster = "Coava"
+                note.coffee = coffee
+                
+                note.date = date
+                date = date.addingTimeInterval(86400)
+                note.grindSetting = ""
+                note.rating = Int64(Int.random(in: 0...5))
+                note.roastDate = nil
+                note.text = ""
+                note.waterTempC = 0
+            }
             
-            let recipe = RecipeMO(context: backgroundMOC)
-            recipe.balanceRaw = Double(Balance.bright.rawValue)
-            recipe.strengthRaw = Int64(Strength.strong.rawValue)
-            recipe.interval = 30
-            recipe.coffee = 25
-            recipe.waterTotal = 375
-            recipe.waterPours = [50, 70, 60, 60, 60]
-            note.recipe = recipe
-            
-            let session = SessionMO(context: backgroundMOC)
-            session.averageDrawdown = 45
-            session.totalTime = 360
-            note.session = session
-            
-            let coffee = CoffeeMO(context: backgroundMOC)
-            coffee.id = UUID()
-            coffee.name = ""
-            coffee.origin = ""
-            coffee.roastLevel = ""
-            coffee.roaster = "Coava"
-            note.coffee = coffee
-            
-            note.date = Date()
-            note.grindSetting = ""
-            note.rating = 1
-            note.roastDate = nil
-            note.text = ""
-            note.waterTempC = 0
-            
-            self.dataManager.save(note)
+            self.dataManager.saveContext(backgroundMOC)
         }
     }
 }

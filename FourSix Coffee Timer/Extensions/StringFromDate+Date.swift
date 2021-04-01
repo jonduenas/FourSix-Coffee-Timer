@@ -22,4 +22,21 @@ extension Date {
         
         return dateFormatter.string(from: self)
     }
+    
+    func stringFromDate(component: Calendar.Component) -> String {
+        let dateFormatter = DateFormatter()
+        
+        switch component {
+        case .month:
+            dateFormatter.dateFormat = "MMM"
+        case .day:
+            dateFormatter.dateFormat = "d"
+        case .year:
+            dateFormatter.dateFormat = "yyyy"
+        default:
+            return ""
+        }
+        
+        return dateFormatter.string(from: self)
+    }
 }
