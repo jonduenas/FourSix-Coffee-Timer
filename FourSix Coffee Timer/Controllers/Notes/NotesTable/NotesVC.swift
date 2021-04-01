@@ -120,6 +120,8 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
         let sort = NSSortDescriptor(key: #keyPath(NoteMO.date), ascending: false)
         request.sortDescriptors = [sort]
         
+        request.fetchBatchSize = 15
+        
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataManager.mainContext, sectionNameKeyPath: nil, cacheName: "notesCache")
         fetchedResultsController.delegate = self
     }
