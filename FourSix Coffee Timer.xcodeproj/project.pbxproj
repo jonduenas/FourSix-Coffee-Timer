@@ -335,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				6577F2A32603D03E0029E396 /* NotesCoordinator.swift */,
+				653E631A26095B6E00BA32BF /* RatingControl.swift */,
 				6536F2732602BE6000E2DF28 /* NotesTable */,
 				6536F2762602BE7000E2DF28 /* NoteDetails */,
 			);
@@ -357,7 +358,6 @@
 				6536F27B2602BED600E2DF28 /* NoteDetailsVC.storyboard */,
 				6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */,
 				657A2634260A8C4C0009CD9A /* DatePicker.swift */,
-				653E631A26095B6E00BA32BF /* RatingControl.swift */,
 				653E6316260957AE00BA32BF /* NotesTextView.swift */,
 			);
 			path = NoteDetails;
