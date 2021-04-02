@@ -38,6 +38,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
     
+    @IBOutlet weak var deleteButton: RoundButton!
+    
     var dataManager: DataManager!
     weak var coordinator: NotesCoordinator?
     var noteID: NSManagedObjectID?
@@ -103,6 +105,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         roastLevelTextField.borderStyle = borderStyle
         
         notesTextView.setToEditMode(isEditing)
+        
+        deleteButton.isHidden = !isEditing
     }
     
     @objc func saveNote() {
@@ -111,17 +115,17 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             derivedContext.perform {
                 let testNote = derivedContext.object(with: noteID) as! NoteMO
                 #warning("Don't get values from UI elements on background thread")
-                testNote.grindSetting = self.grindSettingTextField.text ?? ""
+                //testNote.grindSetting = self.grindSettingTextField.text ?? ""
                 testNote.rating = Int64(self.ratingControl.rating)
-                testNote.waterTempC = self.getCelsiusTemp()
-                testNote.tempUnitRawValue = Int64(self.waterTempUnitControl.selectedSegmentIndex)
+                //testNote.waterTempC = self.getCelsiusTemp()
+                //testNote.tempUnitRawValue = Int64(self.waterTempUnitControl.selectedSegmentIndex)
                 
-                testNote.coffee.roaster = self.roasterNameTextField.text ?? ""
-                testNote.coffee.name = self.coffeeNameTextField.text ?? ""
-                testNote.coffee.origin = self.originTextField.text ?? ""
-                testNote.coffee.roastLevel = self.roastLevelTextField.text ?? ""
-                
-                testNote.text = self.notesTextView.text ?? ""
+//                testNote.coffee.roaster = self.roasterNameTextField.text ?? ""
+//                testNote.coffee.name = self.coffeeNameTextField.text ?? ""
+//                testNote.coffee.origin = self.originTextField.text ?? ""
+//                testNote.coffee.roastLevel = self.roastLevelTextField.text ?? ""
+//                
+//                testNote.text = self.notesTextView.text ?? ""
                 
                 self.dataManager.save(testNote)
             }
@@ -278,6 +282,22 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     private func convertTemp(value: Double, from inUnit: UnitTemperature, to outUnit: UnitTemperature) -> Double {
         let temperature = Measurement(value: value, unit: inUnit)
         return temperature.converted(to: outUnit).value
+    }
+    
+    @IBAction func didTapDeleteButton(_ sender: RoundButton) {
+        let ac = UIAlertController(title: "Deleting Note...",
+                                   message: "Are you sure you want to delete this note? You can't undo it.",
+                                   preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            self?.deleteNote()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(ac, animated: true, completion: nil)
+    }
+    
+    private func deleteNote() {
+        print("Deleting note")
+        navigationController?.popViewController(animated: true)
     }
 }
 
