@@ -34,9 +34,19 @@ class RatingControl: UIStackView {
     private var onColor: UIColor? = UIColor(named: AssetsColor.accent.rawValue)
     private var offColor: UIColor? = UIColor(named: AssetsColor.accent.rawValue)
     private var enabledColor: UIColor? = UIColor(named: AssetsColor.accent.rawValue)
-    private var disabledColor: UIColor = UIColor.systemGray
+    @IBInspectable var disabledColor: UIColor? = UIColor.label {
+        didSet {
+            setupButtons()
+        }
+    }
     
-    private var editMode: Bool = false
+    private var editMode: Bool = false {
+        didSet {
+            for button in ratingButtons {
+                button.tintColor = editMode ? enabledColor : disabledColor
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +71,7 @@ class RatingControl: UIStackView {
         for index in 0..<starCount {
             let button = UIButton()
             
-            button.tintColor = onColor
+            button.tintColor = disabledColor
             
             button.setImage(offImage, for: .normal)
             button.setImage(onImage, for: .selected)
