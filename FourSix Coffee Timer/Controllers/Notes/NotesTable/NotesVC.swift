@@ -14,7 +14,7 @@ class NotesVC: UIViewController, Storyboarded {
 
     var dataManager: DataManager!
     weak var coordinator: NotesCoordinator?
-    var dataSource: UITableViewDiffableDataSource<Int, NSManagedObjectID>!
+    var dataSource: DataSource!
     var fetchedResultsController: NSFetchedResultsController<NoteMO>! = nil
     var isVisible: Bool = false
     
@@ -47,7 +47,7 @@ class NotesVC: UIViewController, Storyboarded {
     }
     
     private func configureDataSource() {
-        let dataSource = UITableViewDiffableDataSource<Int, NSManagedObjectID>(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
+        let dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NoteCell.self), for: indexPath) as! NoteCell
             
             guard let note = try? self.dataManager.mainContext.existingObject(with: noteID) as? NoteMO else { fatalError("Managed object should be available") }
@@ -65,6 +65,7 @@ class NotesVC: UIViewController, Storyboarded {
             return cell
         })
         
+        dataSource.dataManager = dataManager
         self.dataSource = dataSource
         tableView.dataSource = dataSource
     }
@@ -144,7 +145,7 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-        guard let dataSource = tableView.dataSource as? UITableViewDiffableDataSource<Int, NSManagedObjectID> else {
+        guard let dataSource = tableView.dataSource as? DataSource else {
             assertionFailure("The data source has not implemented snapshot support while it should")
             return
         }

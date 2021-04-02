@@ -74,6 +74,7 @@
 		659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659785CF25141CB200DFB60A /* CalculatorTests.swift */; };
 		6599310625EEC38600840005 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310525EEC38600840005 /* Style.swift */; };
 		6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310925EECAF400840005 /* Style+FourSix.swift */; };
+		659FCE8C2617C9AE00039F6A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659FCE8B2617C9AE00039F6A /* DataSource.swift */; };
 		65A2775425FFE88F0093B0B9 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2775325FFE88F0093B0B9 /* AlertHelper.swift */; };
 		65A282A0251D3342001AD862 /* MockTimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2829F251D3342001AD862 /* MockTimerScheduler.swift */; };
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
@@ -201,6 +202,7 @@
 		659785D125141CB200DFB60A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6599310525EEC38600840005 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		6599310925EECAF400840005 /* Style+FourSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style+FourSix.swift"; sourceTree = "<group>"; };
+		659FCE8B2617C9AE00039F6A /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		65A2775325FFE88F0093B0B9 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		65A2829F251D3342001AD862 /* MockTimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimerScheduler.swift; sourceTree = "<group>"; };
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			children = (
 				6536F2672602934300E2DF28 /* NotesVC.storyboard */,
 				6536F26B2602936000E2DF28 /* NotesVC.swift */,
+				659FCE8B2617C9AE00039F6A /* DataSource.swift */,
 				6536F26F2602BD8000E2DF28 /* NoteCell.swift */,
 			);
 			path = NotesTable;
@@ -846,6 +849,7 @@
 				65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */,
 				657A2635260A8C4C0009CD9A /* DatePicker.swift in Sources */,
 				65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */,
+				659FCE8C2617C9AE00039F6A /* DataSource.swift in Sources */,
 				65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */,
 				65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */,
 				65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */,
