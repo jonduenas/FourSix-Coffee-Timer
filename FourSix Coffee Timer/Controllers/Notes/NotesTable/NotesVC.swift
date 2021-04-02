@@ -60,6 +60,7 @@ class NotesVC: UIViewController, Storyboarded {
             cell.recipeLabel.text = String(describing: balance).capitalized + " & " + String(describing: strength).capitalized
             cell.coffeeLabel.text = note.recipe.coffee.clean + "g"
             cell.waterLabel.text = note.recipe.waterTotal.clean + "g"
+            cell.ratingStackView.rating = Int(note.rating)
             
             return cell
         })
