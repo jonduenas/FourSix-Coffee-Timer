@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RatingControlDelegate: class {
+    func ratingControlShouldShowHint(ratingControl: RatingControl)
+}
+
 @IBDesignable
 class RatingControl: UIStackView {
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
@@ -27,6 +31,8 @@ class RatingControl: UIStackView {
             updateButtonSelectionStates()
         }
     }
+    
+    weak var delegate: RatingControlDelegate?
     
     private var ratingButtons: [UIButton] = []
     private var offImage: UIImage? = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
@@ -78,7 +84,12 @@ class RatingControl: UIStackView {
             button.setImage(onImage, for: .highlighted)
             button.adjustsImageWhenHighlighted = false
             
-            button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+            // Action for single tap
+            button.addTarget(self, action: #selector(ratingButtonTapped(sender:forEvent:)), for: .touchUpInside)
+            
+            // Action for long press
+            let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ratingButtonLongTapped(sender:)))
+            button.addGestureRecognizer(longGesture)
             
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
@@ -95,9 +106,24 @@ class RatingControl: UIStackView {
     
     // MARK: Button Action
     
-    @objc func ratingButtonTapped(button: UIButton) {
-        guard editMode == true else { return }
+    @objc private func ratingButtonTapped(sender: UIButton, forEvent event: UIEvent) {
+        guard editMode == true else {
+            // If editMode is not enabled, should show hint for long pressing
+            delegate?.ratingControlShouldShowHint(ratingControl: self)
+            return
+        }
         
+        setRating(for: sender)
+    }
+    
+    @objc private func ratingButtonLongTapped(sender: UILongPressGestureRecognizer) {
+        guard sender.state == .began else { return }
+        guard let button = sender.view as? UIButton else { return }
+        
+        setRating(for: button)
+    }
+    
+    private func setRating(for button: UIButton) {
         guard let index = ratingButtons.firstIndex(of: button) else {
             fatalError("The button, \(button), is not in the ratingButtons array: \(ratingButtons)")
         }
