@@ -53,8 +53,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         registerKeyboardNotifications()
         ratingControl.delegate = self
-        navigationController?.hideBarShadow(true)
-        navigationItem.rightBarButtonItem = editButtonItem
+        configureNavController()
         setUIEditMode()
         
         if let noteID = noteID {
@@ -67,6 +66,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
 //            note = newNote
 //            configureView(with: newNote)
 //        }
+    }
+    
+    private func configureNavController() {
+        navigationController?.hideBarShadow(true)
+        navigationItem.rightBarButtonItem = editButtonItem
+        // TODO: Remove setting tint color and move it to global setting
+        navigationController?.navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
