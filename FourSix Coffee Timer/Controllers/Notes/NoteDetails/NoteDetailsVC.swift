@@ -277,56 +277,70 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     // MARK: Update Note Managed Object
+    private func getBackgroundNote() -> NoteMO? {
+        let objectID = note.objectID
+        
+        var backgroundNote: NoteMO?
+        dataManager.backgroundContext.performAndWait {
+            backgroundNote = self.dataManager.backgroundContext.object(with: objectID) as? NoteMO
+        }
+        
+        return backgroundNote
+    }
     
     private func updateNote(with textField: UITextField) {
         let text = textField.text ?? ""
         
-        note.managedObjectContext?.perform {
+        guard let backgroundNote = getBackgroundNote() else { return }
+        
+        backgroundNote.managedObjectContext?.perform {
             switch textField {
             case self.grindSettingTextField:
-                self.note.grindSetting = text
+                backgroundNote.grindSetting = text
             case self.waterTempTextField:
-                self.note.waterTempC = self.getCelsiusTemp()
+                backgroundNote.waterTempC = self.getCelsiusTemp()
             case self.roasterNameTextField:
-                self.note.coffee.roaster = text
+                backgroundNote.coffee.roaster = text
             case self.coffeeNameTextField:
-                self.note.coffee.name = text
+                backgroundNote.coffee.name = text
             case self.originTextField:
-                self.note.coffee.origin = text
+                backgroundNote.coffee.origin = text
             case self.roastDateTextField:
                 print(text)
                 // TODO: Subclass UITextField and add function for extracting Date instead of string text
             case self.roastLevelTextField:
-                self.note.coffee.roastLevel = text
+                backgroundNote.coffee.roastLevel = text
             default:
                 print("Not a valid text field")
                 return
             }
             
-            self.dataManager.save(self.note)
+            self.dataManager.save(backgroundNote)
         }
     }
     
     private func updateNote(with textView: UITextView) {
-        let text = textView.text ?? ""
-        
         guard textView == notesTextView else { return }
+        let text = textView.text ?? ""
+        guard let backgroundNote = getBackgroundNote() else { return }
         
-        note.managedObjectContext?.perform {
-            self.note.text = text
-            self.dataManager.save(self.note)
+        backgroundNote.managedObjectContext?.perform {
+            backgroundNote.text = text
+            self.dataManager.save(backgroundNote)
         }
     }
     
     private func updateNote(with rating: Int) {
-        note.managedObjectContext?.perform {
-            self.note.rating = Int64(rating)
-            self.dataManager.save(self.note)
+        guard note.rating != rating else { return }
+        guard let backgroundNote = getBackgroundNote() else { return }
+        backgroundNote.managedObjectContext?.perform {
+            backgroundNote.rating = Int64(rating)
+            self.dataManager.save(backgroundNote)
         }
     }
     
     // MARK: Delete Note
-    
+    // TODO: Finish configuring delete button
     @IBAction func didTapDeleteButton(_ sender: RoundButton) {
         let ac = UIAlertController(title: "Deleting Note...",
                                    message: "Are you sure you want to delete this note? You can't undo it.",
@@ -343,6 +357,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         navigationController?.popViewController(animated: true)
     }
 }
+
+// MARK: - UITextField and UITextView delegate methods
 
 extension NoteDetailsVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -361,6 +377,8 @@ extension NoteDetailsVC: UITextViewDelegate {
     }
 }
 
+// MARK: - RatingControl delegate methods
+
 extension NoteDetailsVC: RatingControlDelegate {
     func ratingControlShouldShowHint(ratingControl: RatingControl) {
         guard doubleTapHint.alpha == 0 else { return }
@@ -375,7 +393,6 @@ extension NoteDetailsVC: RatingControlDelegate {
     }
     
     func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int) {
-        print("did set rating: \(rating)")
         updateNote(with: rating)
     }
 }
