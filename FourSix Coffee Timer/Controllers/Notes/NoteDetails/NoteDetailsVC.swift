@@ -44,6 +44,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     var dataManager: DataManager!
     weak var coordinator: NotesCoordinator?
     var noteID: NSManagedObjectID?
+    var note: NoteMO!
     var recipe: Recipe? = Recipe.defaultRecipe
     var session: SessionMO?
     var coffeeDetails: CoffeeMO?
@@ -57,8 +58,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         setUIEditMode()
         
         if let noteID = noteID {
-            let noteObject = dataManager.mainContext.object(with: noteID) as! NoteMO
-            configureView(with: noteObject)
+            note = dataManager.mainContext.object(with: noteID) as? NoteMO
+            configureView()
         }
 //        else {
 //            guard let recipe = recipe, let session = session else { return }
@@ -75,14 +76,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         navigationController?.navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
     }
     
+    // MARK: Edit Mode
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        print("isEditing: \(editing)")
         setUIEditMode()
-        
-        if !editing {
-            saveNote()
-        }
     }
     
     private func setUIEditMode() {
@@ -116,70 +114,62 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         deleteButton.isHidden = !isEditing
     }
     
-    @objc func saveNote() {
-        if let noteID = noteID {
-            let derivedContext = dataManager.backgroundContext
-            derivedContext.perform {
-                let testNote = derivedContext.object(with: noteID) as! NoteMO
-                #warning("Don't get values from UI elements on background thread")
-                //testNote.grindSetting = self.grindSettingTextField.text ?? ""
-                testNote.rating = Int64(self.ratingControl.rating)
-                //testNote.waterTempC = self.getCelsiusTemp()
-                //testNote.tempUnitRawValue = Int64(self.waterTempUnitControl.selectedSegmentIndex)
-                
-//                testNote.coffee.roaster = self.roasterNameTextField.text ?? ""
-//                testNote.coffee.name = self.coffeeNameTextField.text ?? ""
-//                testNote.coffee.origin = self.originTextField.text ?? ""
-//                testNote.coffee.roastLevel = self.roastLevelTextField.text ?? ""
-//                
-//                testNote.text = self.notesTextView.text ?? ""
-                
-                self.dataManager.save(testNote)
-            }
-        }
-    }
-    
-    private func getCelsiusTemp() -> Double {
-        guard let value = Double(waterTempTextField.text!) else { return 0 }
-        
-        switch waterTempUnitControl.selectedSegmentIndex {
-        case TempUnit.celsius.rawValue:
-            return value
-        case TempUnit.fahrenheit.rawValue:
-            return convertTemp(value: value, from: .fahrenheit, to: .celsius)
-        default:
-            fatalError("There should never be more than 2 options.")
-        }
-    }
+    // MARK: Adjust scrollView for keyboard
     
     private func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    private func configureView(with note: NoteMO) {
-        note.managedObjectContext?.perform {
-            self.initializeTempUnitSelector(with: note)
-            self.dateLabel.text = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
-            self.updateLabels(with: note)
-            self.initializeDatePicker(with: note)
-            self.ratingControl.rating = Int(note.rating)
+    @objc private func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: 0,
+                                                   bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (tabBarController?.tabBar.frame.height ?? 0) + 10,
+                                                   right: 0)
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+        
+        if notesTextView.isFirstResponder {
+            scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
         }
     }
     
-    private func initializeDatePicker(with note: NoteMO) {
+    // MARK: Update UI with Note
+    
+    private func configureView() {
+        guard note != nil else { fatalError("Note is nil.") }
+        
+        note.managedObjectContext?.perform {
+            self.initializeTempUnitSelector()
+            self.updateLabels()
+            self.initializeDatePicker()
+            self.ratingControl.rating = Int(self.note.rating)
+        }
+    }
+    
+    private func initializeDatePicker() {
         roastDateTextField.datePicker(target: self,
                                       selectedDate: note.roastDate,
                                       datePickerMode: .date,
                                       valueChangedSelector: #selector(didChangeDateValue(_:)))
     }
     
-    private func initializeTempUnitSelector(with note: NoteMO) {
+    private func initializeTempUnitSelector() {
         waterTempUnitControl.selectedSegmentIndex = Int(note.tempUnitRawValue)
     }
     
-    private func updateLabels(with note: NoteMO) {
+    private func updateLabels() {
         // Session
+        dateLabel.text = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
         drawdownLabel.text = note.session.averageDrawdown.minAndSecString
         totalTimeLabel.text = note.session.totalTime.minAndSecString
         
@@ -233,31 +223,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         return recipePoursStrings.joined(separator: " → ")
     }
     
-    @objc private func adjustForKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        if notification.name == UIResponder.keyboardWillHideNotification {
-            scrollView.contentInset = .zero
-        } else {
-            scrollView.contentInset = UIEdgeInsets(top: 0,
-                                                   left: 0,
-                                                   bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (tabBarController?.tabBar.frame.height ?? 0) + 10,
-                                                   right: 0)
-        }
-        
-        scrollView.scrollIndicatorInsets = scrollView.contentInset
-        
-        if notesTextView.isFirstResponder {
-            scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
-        }
-    }
+    // MARK: DatePicker delegate methods
     
     @objc func didChangeDateValue(_ sender: UIDatePicker) {
         roastDateTextField.text = sender.date.stringFromDate(dateStyle: .medium, timeStyle: nil)
     }
+    
+    // MARK: Temperature Unit Control
     
     @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {
         let appState = (sender.selectedSegmentIndex, isEditing)
@@ -291,6 +263,63 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         return temperature.converted(to: outUnit).value
     }
     
+    private func getCelsiusTemp() -> Double {
+        guard let value = Double(waterTempTextField.text!) else { return 0 }
+        
+        switch waterTempUnitControl.selectedSegmentIndex {
+        case TempUnit.celsius.rawValue:
+            return value
+        case TempUnit.fahrenheit.rawValue:
+            return convertTemp(value: value, from: .fahrenheit, to: .celsius)
+        default:
+            fatalError("There should never be more than 2 options.")
+        }
+    }
+    
+    // MARK: Update Note Managed Object
+    
+    private func updateNote(with textField: UITextField) {
+        let text = textField.text ?? ""
+        
+        note.managedObjectContext?.perform {
+            switch textField {
+            case self.grindSettingTextField:
+                self.note.grindSetting = text
+            case self.waterTempTextField:
+                self.note.waterTempC = self.getCelsiusTemp()
+            case self.roasterNameTextField:
+                self.note.coffee.roaster = text
+            case self.coffeeNameTextField:
+                self.note.coffee.name = text
+            case self.originTextField:
+                self.note.coffee.origin = text
+            case self.roastDateTextField:
+                print(text)
+                // TODO: Subclass UITextField and add function for extracting Date instead of string text
+            case self.roastLevelTextField:
+                self.note.coffee.roastLevel = text
+            default:
+                print("Not a valid text field")
+                return
+            }
+            
+            self.dataManager.save(self.note)
+        }
+    }
+    
+    private func updateNote(with textView: UITextView) {
+        let text = textView.text ?? ""
+        
+        guard textView == notesTextView else { return }
+        
+        note.managedObjectContext?.perform {
+            self.note.text = text
+            self.dataManager.save(self.note)
+        }
+    }
+    
+    // MARK: Delete Note
+    
     @IBAction func didTapDeleteButton(_ sender: RoundButton) {
         let ac = UIAlertController(title: "Deleting Note...",
                                    message: "Are you sure you want to delete this note? You can't undo it.",
@@ -315,13 +344,13 @@ extension NoteDetailsVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        saveNote()
+        updateNote(with: textField)
     }
 }
 
 extension NoteDetailsVC: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-        saveNote()
+        updateNote(with: textView)
     }
 }
 
@@ -338,4 +367,3 @@ extension NoteDetailsVC: RatingControlDelegate {
         }
     }
 }
-
