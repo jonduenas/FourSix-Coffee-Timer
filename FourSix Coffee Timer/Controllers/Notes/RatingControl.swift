@@ -10,6 +10,7 @@ import UIKit
 
 protocol RatingControlDelegate: class {
     func ratingControlShouldShowHint(ratingControl: RatingControl)
+    func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int)
 }
 
 @IBDesignable
@@ -29,6 +30,7 @@ class RatingControl: UIStackView {
     var rating: Int = 0 {
         didSet {
             updateButtonSelectionStates()
+            delegate?.ratingControl(ratingControl: self, didChangeRating: rating)
         }
     }
     

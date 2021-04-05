@@ -318,6 +318,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         }
     }
     
+    private func updateNote(with rating: Int) {
+        note.managedObjectContext?.perform {
+            self.note.rating = Int64(rating)
+            self.dataManager.save(self.note)
+        }
+    }
+    
     // MARK: Delete Note
     
     @IBAction func didTapDeleteButton(_ sender: RoundButton) {
@@ -365,5 +372,10 @@ extension NoteDetailsVC: RatingControlDelegate {
                 self.doubleTapHint.alpha = 0
             }
         }
+    }
+    
+    func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int) {
+        print("did set rating: \(rating)")
+        updateNote(with: rating)
     }
 }
