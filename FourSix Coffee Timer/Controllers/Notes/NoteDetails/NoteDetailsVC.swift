@@ -33,7 +33,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var roasterNameTextField: UITextField!
     @IBOutlet weak var coffeeNameTextField: UITextField!
     @IBOutlet weak var originTextField: UITextField!
-    @IBOutlet weak var roastDateTextField: UITextField!
+    @IBOutlet weak var roastDateTextField: DateTextField!
     @IBOutlet weak var roastLevelTextField: UITextField!
     
     // Notes
@@ -157,10 +157,9 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func initializeDatePicker() {
-        roastDateTextField.datePicker(target: self,
-                                      selectedDate: note.roastDate,
-                                      datePickerMode: .date,
-                                      valueChangedSelector: #selector(didChangeDateValue(_:)))
+        if let roastDate = note.roastDate {
+            roastDateTextField.datePicker.setDate(roastDate, animated: false)
+        }
     }
     
     private func initializeTempUnitSelector() {
@@ -221,12 +220,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         let recipePoursStrings = recipePours.map { $0.clean + "g" }
         
         return recipePoursStrings.joined(separator: " → ")
-    }
-    
-    // MARK: DatePicker delegate methods
-    
-    @objc func didChangeDateValue(_ sender: UIDatePicker) {
-        roastDateTextField.text = sender.date.stringFromDate(dateStyle: .medium, timeStyle: nil)
     }
     
     // MARK: Temperature Unit Control
@@ -298,6 +291,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             case self.grindSettingTextField:
                 backgroundNote.grindSetting = text
             case self.waterTempTextField:
+                // FIXME: getCelsiusTemp accesses main thread
                 backgroundNote.waterTempC = self.getCelsiusTemp()
             case self.roasterNameTextField:
                 backgroundNote.coffee.roaster = text
@@ -306,8 +300,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             case self.originTextField:
                 backgroundNote.coffee.origin = text
             case self.roastDateTextField:
-                print(text)
-                // TODO: Subclass UITextField and add function for extracting Date instead of string text
+                backgroundNote.roastDate = self.roastDateTextField.dateValue
             case self.roastLevelTextField:
                 backgroundNote.coffee.roastLevel = text
             default:

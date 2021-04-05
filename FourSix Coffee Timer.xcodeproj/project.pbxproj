@@ -64,7 +64,6 @@
 		6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A32603D03E0029E396 /* NotesCoordinator.swift */; };
 		6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A72603D24F0029E396 /* MainTabBarController.swift */; };
 		657A2631260A85A20009CD9A /* DoneToolBar+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */; };
-		657A2635260A8C4C0009CD9A /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A2634260A8C4C0009CD9A /* DatePicker.swift */; };
 		657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */; };
 		6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B525F6D2110019D8D1 /* RatioCell.swift */; };
 		6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */; };
@@ -74,6 +73,7 @@
 		659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659785CF25141CB200DFB60A /* CalculatorTests.swift */; };
 		6599310625EEC38600840005 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310525EEC38600840005 /* Style.swift */; };
 		6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310925EECAF400840005 /* Style+FourSix.swift */; };
+		659F8803261B9F7000D4F89F /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8802261B9F7000D4F89F /* DateTextField.swift */; };
 		659FCE8C2617C9AE00039F6A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659FCE8B2617C9AE00039F6A /* DataSource.swift */; };
 		65A2775425FFE88F0093B0B9 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2775325FFE88F0093B0B9 /* AlertHelper.swift */; };
 		65A282A0251D3342001AD862 /* MockTimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2829F251D3342001AD862 /* MockTimerScheduler.swift */; };
@@ -190,7 +190,6 @@
 		6577F2A72603D24F0029E396 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		6579557F25E32FE500BC244E /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoneToolBar+UITextField.swift"; sourceTree = "<group>"; };
-		657A2634260A8C4C0009CD9A /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringFromDate+Date.swift"; sourceTree = "<group>"; };
 		6584A9B525F6D2110019D8D1 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
 		6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
@@ -202,6 +201,7 @@
 		659785D125141CB200DFB60A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6599310525EEC38600840005 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		6599310925EECAF400840005 /* Style+FourSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style+FourSix.swift"; sourceTree = "<group>"; };
+		659F8802261B9F7000D4F89F /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		659FCE8B2617C9AE00039F6A /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		65A2775325FFE88F0093B0B9 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		65A2829F251D3342001AD862 /* MockTimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimerScheduler.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 			children = (
 				6536F27B2602BED600E2DF28 /* NoteDetailsVC.storyboard */,
 				6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */,
-				657A2634260A8C4C0009CD9A /* DatePicker.swift */,
+				659F8802261B9F7000D4F89F /* DateTextField.swift */,
 				653E6316260957AE00BA32BF /* NotesTextView.swift */,
 			);
 			path = NoteDetails;
@@ -847,7 +847,6 @@
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */,
-				657A2635260A8C4C0009CD9A /* DatePicker.swift in Sources */,
 				65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */,
 				659FCE8C2617C9AE00039F6A /* DataSource.swift in Sources */,
 				65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */,
@@ -865,6 +864,7 @@
 				6536F26C2602936000E2DF28 /* NotesVC.swift in Sources */,
 				65E1206D261129830059465B /* Session.swift in Sources */,
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,
+				659F8803261B9F7000D4F89F /* DateTextField.swift in Sources */,
 				6537159D25F16AE800F162DD /* RatioPickerView.swift in Sources */,
 				6542DDFA25D858AB0067C704 /* SettingsNavigationController.swift in Sources */,
 				653DBF6625F2F31A00AE7D9E /* Constants.swift in Sources */,
