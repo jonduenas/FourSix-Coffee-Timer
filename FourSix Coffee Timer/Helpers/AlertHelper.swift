@@ -48,6 +48,20 @@ class AlertHelper {
         controller.present(alert, animated: true, completion: nil)
     }
     
+    static func showDesctructiveAlert(title: String?, message: String?, destructiveButtonTitle: String, dismissButtonTitle: String, on controller: UIViewController, destructiveHandler: AlertHandler?) {
+        assert((title ?? message) != nil, "Title OR message must be passed in")
+        
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: destructiveButtonTitle,
+                                      style: .destructive,
+                                      handler: destructiveHandler))
+        alert.addAction(UIAlertAction(title: dismissButtonTitle,
+                                      style: .cancel))
+        controller.present(alert, animated: true, completion: nil)
+    }
+    
     static func showRestorePurchaseAlert(on controller: UIViewController, cancelHandler: AlertHandler? = nil, completion: (() -> Void)?) {
         AlertHelper.showCancellableAlert(title: "Restore FourSix Pro",
                                          message: "Would you like to restore your previous purchase of FourSix Pro?",
