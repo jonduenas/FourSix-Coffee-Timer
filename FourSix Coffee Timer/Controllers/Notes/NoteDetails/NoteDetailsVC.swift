@@ -339,20 +339,21 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     // MARK: Delete Note
-    // TODO: Finish configuring delete button
+
     @IBAction func didTapDeleteButton(_ sender: RoundButton) {
-        let ac = UIAlertController(title: "Deleting Note...",
-                                   message: "Are you sure you want to delete this note? You can't undo it.",
-                                   preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
-            self?.deleteNote()
-        }))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(ac, animated: true, completion: nil)
+        AlertHelper.showDestructiveAlert(title: "Deleting Note",
+                                          message: "Are you sure you want to delete this note? You can't undo it.",
+                                          destructiveButtonTitle: "Delete",
+                                          dismissButtonTitle: "Cancel",
+                                          on: self) { action in
+            guard action.style == .destructive else { return }
+            self.deleteNote()
+        }
     }
     
     private func deleteNote() {
         print("Deleting note")
+        dataManager.delete(note)
         navigationController?.popViewController(animated: true)
     }
 }

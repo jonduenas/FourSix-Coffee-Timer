@@ -48,7 +48,7 @@ class AlertHelper {
         controller.present(alert, animated: true, completion: nil)
     }
     
-    static func showDesctructiveAlert(title: String?, message: String?, destructiveButtonTitle: String, dismissButtonTitle: String, on controller: UIViewController, destructiveHandler: AlertHandler?) {
+    static func showDestructiveAlert(title: String?, message: String?, destructiveButtonTitle: String, dismissButtonTitle: String, on controller: UIViewController, destructiveHandler: AlertHandler?) {
         assert((title ?? message) != nil, "Title OR message must be passed in")
         
         let alert = UIAlertController(title: title,
