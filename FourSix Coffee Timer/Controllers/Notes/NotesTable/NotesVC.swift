@@ -65,7 +65,6 @@ class NotesVC: UIViewController, Storyboarded {
             return cell
         })
         
-        dataSource.dataManager = dataManager
         self.dataSource = dataSource
         tableView.dataSource = dataSource
     }
@@ -113,6 +112,16 @@ class NotesVC: UIViewController, Storyboarded {
             self.dataManager.saveContext(backgroundMOC)
         }
     }
+    
+    private func deleteNote(at indexPath: IndexPath) {
+        if let objectID = dataSource.itemIdentifier(for: indexPath) {
+            var snapshot = dataSource.snapshot()
+            snapshot.deleteItems([objectID])
+            dataSource.apply(snapshot) {
+                self.dataManager.delete(objectID)
+            }
+        }
+    }
 }
 
 extension NotesVC: UITableViewDelegate {
@@ -121,6 +130,21 @@ extension NotesVC: UITableViewDelegate {
         
         coordinator?.showDetails(for: noteID, dataManager: dataManager)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: Swipe to delete
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+            self.deleteNote(at: indexPath)
+        }
+        
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
+        
+        // Disable delete for full swipe
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
     }
 }
 

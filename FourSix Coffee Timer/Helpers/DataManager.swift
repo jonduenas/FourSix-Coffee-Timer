@@ -33,6 +33,13 @@ extension DataManager {
         }
     }
     
+    func delete(_ objectID: NSManagedObjectID) {
+        backgroundContext.perform {
+            let object = self.backgroundContext.object(with: objectID)
+            self.delete(object)
+        }
+    }
+    
     public func saveContext() {
         saveContext(mainContext)
     }
