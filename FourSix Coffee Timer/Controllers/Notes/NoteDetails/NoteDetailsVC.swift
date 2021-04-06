@@ -77,8 +77,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     private func configureNavController() {
         navigationController?.hideBarShadow(true)
         navigationItem.rightBarButtonItem = editButtonItem
-        // TODO: Remove setting tint color and move it to global setting
-        navigationController?.navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
     }
     
     // MARK: Edit Mode
