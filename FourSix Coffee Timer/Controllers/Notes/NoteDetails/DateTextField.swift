@@ -10,7 +10,6 @@ import UIKit
 
 class DateTextField: UITextField {
     var datePicker: UIDatePicker!
-    var dateValue: Date = Date()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +39,5 @@ class DateTextField: UITextField {
     @objc private func didChangeDateValue(sender: UIDatePicker) {
         print("Set date to date: \(sender.date)")
         text = sender.date.stringFromDate(dateStyle: .medium, timeStyle: nil)
-        dateValue = datePicker.date
     }
 }

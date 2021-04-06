@@ -283,6 +283,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     private func updateNote(with textField: UITextField) {
         let text = textField.text ?? ""
+        let temp = getCelsiusTemp()
+        let roastDate = roastDateTextField.datePicker.date
         
         guard let backgroundNote = getBackgroundNote() else { return }
         
@@ -291,8 +293,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             case self.grindSettingTextField:
                 backgroundNote.grindSetting = text
             case self.waterTempTextField:
-                // FIXME: getCelsiusTemp accesses main thread
-                backgroundNote.waterTempC = self.getCelsiusTemp()
+                backgroundNote.waterTempC = temp
             case self.roasterNameTextField:
                 backgroundNote.coffee.roaster = text
             case self.coffeeNameTextField:
@@ -300,7 +301,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             case self.originTextField:
                 backgroundNote.coffee.origin = text
             case self.roastDateTextField:
-                backgroundNote.roastDate = self.roastDateTextField.dateValue
+                backgroundNote.roastDate = roastDate
             case self.roastLevelTextField:
                 backgroundNote.coffee.roastLevel = text
             default:
