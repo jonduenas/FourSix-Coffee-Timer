@@ -25,6 +25,14 @@ extension DataManager {
         saveContext(context)
     }
     
+    func delete(_ object: NSManagedObject) {
+        guard let context = object.managedObjectContext else { return }
+        context.perform {
+            context.delete(object)
+            self.saveContext(context)
+        }
+    }
+    
     public func saveContext() {
         saveContext(mainContext)
     }
