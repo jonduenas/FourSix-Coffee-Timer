@@ -69,6 +69,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
 //        }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataManager.saveContext(dataManager.backgroundContext)
+    }
+    
     private func configureNavController() {
         navigationController?.hideBarShadow(true)
         navigationItem.rightBarButtonItem = editButtonItem
@@ -231,10 +236,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         // If isEditing is true, changing segment sets the value on the object
         case (TempUnit.celsius.rawValue, true):
             print("Switched to \(TempUnit.celsius), should write")
-            //note?.waterTempUnit = .celsius
+            note.tempUnitRawValue = Int64(TempUnit.celsius.rawValue)
         case (TempUnit.fahrenheit.rawValue, true):
             print("Switched to \(TempUnit.fahrenheit), should write")
-            //note?.waterTempUnit = .fahrenheit
+            note.tempUnitRawValue = Int64(TempUnit.fahrenheit.rawValue)
         
         // If isEditing is false, changing segment converts displayed value but doesn't change any stored values on object
         case (TempUnit.celsius.rawValue, false):
