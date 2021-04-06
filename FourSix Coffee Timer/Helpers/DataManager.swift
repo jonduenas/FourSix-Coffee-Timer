@@ -50,17 +50,16 @@ extension DataManager {
     
     public func saveDerivedContext(_ context: NSManagedObjectContext) {
         context.perform {
-            guard context.hasChanges else { return }
-            
-            do {
-                try context.save()
-                print("Core Data derived context saved.")
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            if context.hasChanges {
+                do {
+                    try context.save()
+                    print("Core Data derived context saved.")
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
             }
-        
-            self.saveContext(self.mainContext)
         }
+        saveContext(mainContext)
     }
 }
