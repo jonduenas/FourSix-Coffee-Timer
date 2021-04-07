@@ -95,6 +95,8 @@ class BrewVC: UIViewController, Storyboarded {
     private func initializeNavBar() {
         navigationItem.title = "Let's Brew"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
+        
+        navigationController?.navigationBar.tintColor = UIColor.systemGray
     }
     
     private func initializeFonts() {
