@@ -30,11 +30,14 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var waterTempUnitControl: UISegmentedControl!
     
     // Coffee Details
-    @IBOutlet weak var roasterNameTextField: UITextField!
-    @IBOutlet weak var coffeeNameTextField: UITextField!
-    @IBOutlet weak var originTextField: UITextField!
+    @IBOutlet weak var coffeeView: RoundedView!
+    @IBOutlet weak var coffeeDivider: UIView!
+    @IBOutlet weak var coffeeNameLabel: UILabel!
+    @IBOutlet weak var roasterLabel: UILabel!
+    @IBOutlet weak var originLabel: UILabel!
+    @IBOutlet weak var roastLevelLabel: UILabel!
+    
     @IBOutlet weak var roastDateTextField: DateTextField!
-    @IBOutlet weak var roastLevelTextField: UITextField!
     
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
@@ -53,6 +56,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         registerKeyboardNotifications()
         ratingControl.delegate = self
         configureNavController()
+        configureCoffeeView()
         
         isEditing = isNewNote
         setUIEditMode()
@@ -98,6 +102,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         dismiss(animated: true)
     }
     
+    private func configureCoffeeView() {
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.addTarget(self, action: #selector(didTapCoffeeView))
+        coffeeView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
     // MARK: Edit Mode
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -116,20 +126,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         waterTempTextField.isEnabled = isEditing
         waterTempTextField.borderStyle = borderStyle
         
-        roasterNameTextField.isEnabled = isEditing
-        roasterNameTextField.borderStyle = borderStyle
-        
-        coffeeNameTextField.isEnabled = isEditing
-        coffeeNameTextField.borderStyle = borderStyle
-        
-        originTextField.isEnabled = isEditing
-        originTextField.borderStyle = borderStyle
-        
         roastDateTextField.isEnabled = isEditing
         roastDateTextField.borderStyle = borderStyle
-        
-        roastLevelTextField.isEnabled = isEditing
-        roastLevelTextField.borderStyle = borderStyle
         
         notesTextView.setToEditMode(isEditing)
         
@@ -205,11 +203,35 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         waterTempTextField.text = setWaterTempTextField(with: note.waterTempC)
         
         // Coffee Details
-        roasterNameTextField.text = note.coffee.roaster
-        coffeeNameTextField.text = note.coffee.name
-        originTextField.text = note.coffee.origin
+        if note.coffee.name == "" {
+            coffeeNameLabel.text = "Select coffee or add new"
+            coffeeDivider.isHidden = true
+            roasterLabel.isHidden = true
+            originLabel.isHidden = true
+            roastLevelLabel.isHidden = true
+        } else {
+            coffeeNameLabel.text = note.coffee.name
+        }
+        
+        if note.coffee.roaster == "" {
+            roasterLabel.text = "Enter coffee roaster"
+        } else {
+            roasterLabel.text = note.coffee.roaster
+        }
+        
+        if note.coffee.origin == "" {
+            originLabel.text = "Enter coffee origin"
+        } else {
+            originLabel.text = note.coffee.origin
+        }
+        
+        if note.coffee.roastLevel == "" {
+            roastLevelLabel.text = "Enter roast level"
+        } else {
+            roastLevelLabel.text = note.coffee.roastLevel
+        }
+        
         roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate(dateStyle: .medium, timeStyle: nil) : ""
-        roastLevelTextField.text = note.coffee.roastLevel
         
         // Notes
         notesTextView.text = note.text
@@ -243,6 +265,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         let recipePoursStrings = recipePours.map { $0.clean + "g" }
         
         return recipePoursStrings.joined(separator: " → ")
+    }
+    
+    // MARK: Load Coffee
+    
+    @objc private func didTapCoffeeView() {
+        print("tapped coffee view")
     }
     
     // MARK: Temperature Unit Control
@@ -318,16 +346,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                 backgroundNote.grindSetting = text
             case self.waterTempTextField:
                 backgroundNote.waterTempC = temp
-            case self.roasterNameTextField:
-                backgroundNote.coffee.roaster = text
-            case self.coffeeNameTextField:
-                backgroundNote.coffee.name = text
-            case self.originTextField:
-                backgroundNote.coffee.origin = text
             case self.roastDateTextField:
                 backgroundNote.roastDate = roastDate
-            case self.roastLevelTextField:
-                backgroundNote.coffee.roastLevel = text
             default:
                 print("Not a valid text field")
                 return
