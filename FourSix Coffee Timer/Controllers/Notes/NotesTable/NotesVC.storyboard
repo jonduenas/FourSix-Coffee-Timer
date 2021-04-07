@@ -159,6 +159,7 @@
             <point key="canvasLocation" x="-294.20289855072468" y="148.66071428571428"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="Accent"/>
     <resources>
         <image name="bean" width="472" height="506"/>
         <image name="drop.fill" catalog="system" width="101" height="128"/>

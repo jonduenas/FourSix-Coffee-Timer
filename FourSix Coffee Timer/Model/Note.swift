@@ -49,23 +49,23 @@ struct Note: ManagedObjectInitializable {
     }
 }
 
-extension Note {
-    static let testNote1 = Note(recipe: Recipe(coffee: 25, waterTotal: 350, waterPours: [50, 80, 120, 120], interval: 40, balance: .bright, strength: .strong),
-                                session: Session(averageDrawdown: 45, totalTime: 240),
-                                date: Date().addingTimeInterval(-108000),
-                                rating: 5,
-                                noteText: "This cup was perfect.",
-                                coffee: Coffee.testDetails1,
-                                grindSetting: "12",
-                                waterTempC: 100.0,
-                                waterTempUnit: .celsius)
-    static let testNote2 = Note(recipe: Recipe.defaultRecipe,
-                                session: Session(averageDrawdown: 47, totalTime: 485),
-                                date: Date().addingTimeInterval(-250568),
-                                rating: 3,
-                                noteText: "Grind finer.",
-                                coffee: Coffee.testDetails2,
-                                grindSetting: "18",
-                                waterTempC: 95.0,
-                                waterTempUnit: .fahrenheit)
-}
+//extension Note {
+//    static let testNote1 = Note(recipe: Recipe(coffee: 25, waterTotal: 350, waterPours: [50, 80, 120, 120], interval: 40, balance: .bright, strength: .strong),
+//                                session: Session(drawdownTimes: 45, totalTime: 240),
+//                                date: Date().addingTimeInterval(-108000),
+//                                rating: 5,
+//                                noteText: "This cup was perfect.",
+//                                coffee: Coffee.testDetails1,
+//                                grindSetting: "12",
+//                                waterTempC: 100.0,
+//                                waterTempUnit: .celsius)
+//    static let testNote2 = Note(recipe: Recipe.defaultRecipe,
+//                                session: Session(averageDrawdown: 47, totalTime: 485),
+//                                date: Date().addingTimeInterval(-250568),
+//                                rating: 3,
+//                                noteText: "Grind finer.",
+//                                coffee: Coffee.testDetails2,
+//                                grindSetting: "18",
+//                                waterTempC: 95.0,
+//                                waterTempUnit: .fahrenheit)
+//}

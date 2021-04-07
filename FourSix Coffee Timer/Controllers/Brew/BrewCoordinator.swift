@@ -66,6 +66,23 @@ class BrewCoordinator: Coordinator {
         navigationController.present(childCoordinator.navigationController, animated: true, completion: nil)
     }
     
+    func didFinishTimer(session: Session, recipe: Recipe) {
+        showNewNote(recipe: recipe, session: session)
+    }
+    
+    func showNewNote(recipe: Recipe, session: Session) {
+        let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
+        vc.dataManager = dataManager
+        vc.brewCoordinator = self
+        vc.note = dataManager.newNoteMO(session: session, recipe: recipe, coffee: Coffee())
+        vc.isNewNote = true
+        
+        let newNoteNavController = MainNavigationController()
+        newNoteNavController.viewControllers = [vc]
+        
+        navigationController.present(newNoteNavController, animated: true, completion: nil)
+    }
+    
     func showProPaywall(delegate: PaywallDelegate) {
         let vc = PurchaseProVC.instantiate(fromStoryboardNamed: String(describing: PurchaseProVC.self))
         vc.delegate = delegate

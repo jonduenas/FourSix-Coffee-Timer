@@ -77,4 +77,55 @@ extension DataManager {
         }
         saveContext(mainContext)
     }
+    
+    // MARK: New Object Methods
+    
+    @discardableResult func newNoteMO(session: Session, recipe: Recipe, coffee: Coffee) -> NoteMO {
+        let newNote = NoteMO(context: mainContext)
+        newNote.date = Date()
+        
+        let newSession = newSessionMO(from: session)
+        newNote.session = newSession
+        
+        let newRecipe = newRecipeMO(from: recipe)
+        newNote.recipe = newRecipe
+        
+        let newCoffee = newCoffeeMO(from: coffee)
+        newNote.coffee = newCoffee
+        
+        saveContext(mainContext)
+        
+        return newNote
+    }
+    
+    @discardableResult func newSessionMO(from session: Session) -> SessionMO {
+        let newSession = SessionMO(context: mainContext)
+        newSession.averageDrawdown = session.averageDrawdown()
+        newSession.totalTime = session.totalTime
+        newSession.drawdownTimes = session.drawdownTimes
+        
+        return newSession
+    }
+    
+    @discardableResult func newRecipeMO(from recipe: Recipe) -> RecipeMO {
+        let newRecipe = RecipeMO(context: mainContext)
+        newRecipe.balanceRaw = Double(recipe.balance.rawValue)
+        newRecipe.coffee = Double(recipe.coffee)
+        newRecipe.interval = recipe.interval
+        newRecipe.strengthRaw = Int64(recipe.strength.rawValue)
+        newRecipe.waterTotal = Double(recipe.waterTotal)
+        newRecipe.waterPours = recipe.waterPours.map { Double($0) }
+        
+        return newRecipe
+    }
+    
+    @discardableResult func newCoffeeMO(from coffee: Coffee) -> CoffeeMO {
+        let newCoffeeMO = CoffeeMO(context: mainContext)
+        newCoffeeMO.name = coffee.name
+        newCoffeeMO.origin = coffee.origin
+        newCoffeeMO.roastLevel = coffee.roastLevel
+        newCoffeeMO.roaster = coffee.roaster
+        
+        return newCoffeeMO
+    }
 }

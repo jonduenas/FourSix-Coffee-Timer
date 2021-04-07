@@ -42,12 +42,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var deleteButton: RoundButton!
     
     var dataManager: DataManager!
-    weak var coordinator: NotesCoordinator?
-    var noteID: NSManagedObjectID?
+    weak var notesCoordinator: NotesCoordinator?
+    weak var brewCoordinator: BrewCoordinator?
     var note: NoteMO!
-    var recipe: Recipe? = Recipe.defaultRecipe
-    var session: SessionMO?
-    var coffeeDetails: CoffeeMO?
+    var isNewNote: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,18 +53,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         registerKeyboardNotifications()
         ratingControl.delegate = self
         configureNavController()
+        
+        isEditing = isNewNote
         setUIEditMode()
         
-        if let noteID = noteID {
-            note = dataManager.mainContext.object(with: noteID) as? NoteMO
-            configureView()
-        }
-//        else {
-//            guard let recipe = recipe, let session = session else { return }
-//            let newNote = Note(recipe: recipe, session: session, date: Date(), rating: 0, noteText: "", coffeeDetails: CoffeeDetails(roaster: "", coffeeName: "", origin: "", roastDate: Date(), roastLevel: ""), grindSetting: "", waterTemp: 0, waterTempUnit: .celsius)
-//            note = newNote
-//            configureView(with: newNote)
-//        }
+        configureView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -76,7 +67,35 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     private func configureNavController() {
         navigationController?.hideBarShadow(true)
-        navigationItem.rightBarButtonItem = editButtonItem
+        
+        if isNewNote {
+            title = "New Note"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reminder",
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(didTapRemindButton))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"),
+                                                               style: .done, target: self,
+                                                               action: #selector(didTapCloseButton))
+        } else {
+            navigationItem.rightBarButtonItem = editButtonItem
+        }
+    }
+    
+    @objc private func didTapRemindButton() {
+        AlertHelper.showCancellableAlert(title: "Set Reminder",
+                                         message: "Judging the flavor of your coffee is best after it's cooled a little. Would you like a reminder in 5 minutes to come back and rate this cup?",
+                                         confirmButtonTitle: "Remind me",
+                                         dismissButtonTitle: "Cancel",
+                                         on: self,
+                                         cancelHandler: nil) { _ in
+            print("Set reminder")
+            // TODO: Add local push notification for reminding user to update note
+        }
+    }
+    
+    @objc private func didTapCloseButton() {
+        dismiss(animated: true)
     }
     
     // MARK: Edit Mode
@@ -114,7 +133,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         notesTextView.setToEditMode(isEditing)
         
-        deleteButton.isHidden = !isEditing
+        // Delete button is hidden if not editing OR if it's a new note
+        deleteButton.isHidden = !isEditing || isNewNote
     }
     
     // MARK: Adjust scrollView for keyboard
@@ -273,6 +293,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     // MARK: Update Note Managed Object
+    
     private func getBackgroundNote() -> NoteMO? {
         let objectID = note.objectID
         

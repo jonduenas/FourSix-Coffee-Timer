@@ -90,10 +90,10 @@ class NotesVC: UIViewController, Storyboarded {
                 let session = SessionMO(context: backgroundMOC)
                 session.averageDrawdown = 45
                 session.totalTime = 360
+                session.drawdownTimes = [45, 45, 45, 45, 45]
                 note.session = session
                 
                 let coffee = CoffeeMO(context: backgroundMOC)
-                coffee.id = UUID()
                 coffee.name = ""
                 coffee.origin = ""
                 coffee.roastLevel = ""
@@ -127,8 +127,9 @@ class NotesVC: UIViewController, Storyboarded {
 extension NotesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let noteID = dataSource.itemIdentifier(for: indexPath) else { return }
+        guard let noteObject = try? dataManager.mainContext.existingObject(with: noteID) as? NoteMO else { fatalError("Note with noteID not found.") }
         
-        coordinator?.showDetails(for: noteID, dataManager: dataManager)
+        coordinator?.showDetails(for: noteObject, dataManager: dataManager)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

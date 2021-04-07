@@ -2,7 +2,7 @@
 //  CoffeeMO+CoreDataProperties.swift
 //  FourSix Coffee Timer
 //
-//  Created by Jon Duenas on 3/29/21.
+//  Created by Jon Duenas on 4/6/21.
 //  Copyright © 2021 Jon Duenas. All rights reserved.
 //
 //
@@ -17,7 +17,6 @@ extension CoffeeMO {
         return NSFetchRequest<CoffeeMO>(entityName: "Coffee")
     }
 
-    @NSManaged public var id: UUID
     @NSManaged public var name: String
     @NSManaged public var origin: String
     @NSManaged public var roaster: String

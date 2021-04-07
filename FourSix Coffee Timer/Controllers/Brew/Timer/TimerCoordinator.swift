@@ -27,13 +27,10 @@ class TimerCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showSummary(recipe: Recipe, drawdownTimes: [TimeInterval], totalTime: TimeInterval) {
-        let vc = BrewSummaryVC.instantiate(fromStoryboardNamed: String(describing: BrewSummaryVC.self))
-        vc.coordinator = self
-        vc.recipe = recipe
-        vc.drawdownTimes = drawdownTimes
-        vc.totalTime = totalTime
-        navigationController.pushViewController(vc, animated: true)
+    func didFinishTimer(session: Session, recipe: Recipe) {
+        navigationController.dismiss(animated: true, completion: nil)
+        parentCoordinator?.didFinishTimer(session: session, recipe: recipe)
+        parentCoordinator?.childDidFinish(self)
     }
     
     func didCancelTimer() {

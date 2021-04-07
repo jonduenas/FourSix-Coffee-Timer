@@ -10,17 +10,28 @@ import Foundation
 import CoreData
 
 struct Session: ManagedObjectInitializable {
-    let averageDrawdown: TimeInterval
     let totalTime: TimeInterval
+    let drawdownTimes: [TimeInterval]
     
     init(managedObject: NSManagedObject) {
         let sessionMO = managedObject as! SessionMO
-        self.averageDrawdown = sessionMO.averageDrawdown
         self.totalTime = sessionMO.totalTime
+        self.drawdownTimes = sessionMO.drawdownTimes
     }
     
-    init(averageDrawdown: TimeInterval, totalTime: TimeInterval) {
-        self.averageDrawdown = averageDrawdown
+    init(drawdownTimes: [TimeInterval], totalTime: TimeInterval) {
+        self.drawdownTimes = drawdownTimes
         self.totalTime = totalTime
+    }
+    
+    private func calculateAverage(_ drawdownTimes: [TimeInterval]) -> TimeInterval {
+        let averageTime = drawdownTimes.reduce(0, +) / Double(drawdownTimes.count)
+        let roundedAverageTime = averageTime.rounded()
+        
+        return roundedAverageTime
+    }
+    
+    func averageDrawdown() -> TimeInterval {
+        return calculateAverage(drawdownTimes)
     }
 }

@@ -220,7 +220,9 @@ class TimerVC: UIViewController, Storyboarded {
         
         UIApplication.shared.isIdleTimerDisabled = false
         
-        coordinator?.showSummary(recipe: self.recipe, drawdownTimes: self.coffeeTimer.stepsActualTime, totalTime: self.coffeeTimer.totalElapsedTime)
+        let session = Session(drawdownTimes: coffeeTimer.stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
+        
+        coordinator?.didFinishTimer(session: session, recipe: recipe)
     }
     
     private func countdownStart() {

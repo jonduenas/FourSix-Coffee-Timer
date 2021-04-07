@@ -10,10 +10,12 @@ import Foundation
 import CoreData
 
 struct Coffee: ManagedObjectInitializable {
-    var roaster: String
-    var name: String
-    var origin: String
-    var roastLevel: String
+    var roaster: String = ""
+    var name: String = ""
+    var origin: String = ""
+    var roastLevel: String = ""
+    
+    init() { }
     
     init(managedObject: NSManagedObject) {
         let coffeeMO = managedObject as! CoffeeMO
