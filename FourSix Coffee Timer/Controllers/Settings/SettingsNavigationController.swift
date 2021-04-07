@@ -13,7 +13,7 @@ class SettingsNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.tintColor = UIColor.systemGray
+        navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
         navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
         navigationBar.isTranslucent = false
     }
