@@ -271,6 +271,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @objc private func didTapCoffeeView() {
         print("tapped coffee view")
+        notesCoordinator?.showCoffeePicker(dataManager: dataManager)
     }
     
     // MARK: Temperature Unit Control

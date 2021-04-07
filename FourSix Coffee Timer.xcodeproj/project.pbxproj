@@ -102,6 +102,8 @@
 		65D5DE8C260D38B800353385 /* CoffeeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE82260D38B800353385 /* CoffeeMO+CoreDataProperties.swift */; };
 		65D5DE8D260D38B800353385 /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE83260D38B800353385 /* NoteMO+CoreDataClass.swift */; };
 		65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */; };
+		65DD15DD261E6BA300EB000E /* CoffeePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */; };
+		65DD15E3261E6D0600EB000E /* CoffeePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */; };
 		65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1205A260E6F060059465B /* SegmentControlCell.swift */; };
 		65E12065261104A90059465B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12064261104A90059465B /* DataManager.swift */; };
 		65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E120682611209D0059465B /* MangedObjectInitializable.swift */; };
@@ -229,6 +231,8 @@
 		65D5DE82260D38B800353385 /* CoffeeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoffeeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65D5DE83260D38B800353385 /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoffeePickerVC.storyboard; sourceTree = "<group>"; };
+		65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePickerVC.swift; sourceTree = "<group>"; };
 		65E1205A260E6F060059465B /* SegmentControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
 		65E12064261104A90059465B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		65E120682611209D0059465B /* MangedObjectInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangedObjectInitializable.swift; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 				653E631A26095B6E00BA32BF /* RatingControl.swift */,
 				6536F2732602BE6000E2DF28 /* NotesTable */,
 				6536F2762602BE7000E2DF28 /* NoteDetails */,
+				65DD15DB261E6B8200EB000E /* CoffeePicker */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -601,6 +606,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		65DD15DB261E6B8200EB000E /* CoffeePicker */ = {
+			isa = PBXGroup;
+			children = (
+				65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */,
+				65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */,
+			);
+			path = CoffeePicker;
+			sourceTree = "<group>";
+		};
 		65FB6547249C18A100ED732F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +741,7 @@
 				6561ACAD24BBE64300C9F129 /* PurchaseProVC.storyboard in Resources */,
 				650E81F925EDBAD800DF119B /* TimerVC.storyboard in Resources */,
 				65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */,
+				65DD15DD261E6BA300EB000E /* CoffeePickerVC.storyboard in Resources */,
 				652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */,
 				6536F2682602934300E2DF28 /* NotesVC.storyboard in Resources */,
 			);
@@ -832,6 +847,7 @@
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */,
+				65DD15E3261E6D0600EB000E /* CoffeePickerVC.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */,
 				65E12071261129B30059465B /* Coffee.swift in Sources */,
