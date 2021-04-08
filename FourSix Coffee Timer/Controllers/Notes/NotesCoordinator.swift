@@ -54,4 +54,11 @@ class NotesCoordinator: Coordinator {
     func didFinishCoffeePicker() {
         navigationController.popViewController(animated: true)
     }
+    
+    func showCoffeeEditor(coffee: CoffeeMO, dataManager: DataManager) {
+        let vc = CoffeeEditorVC.instantiate(fromStoryboardNamed: String(describing: CoffeeEditorVC.self))
+        vc.coffeeMO = coffee
+        vc.dataManager = dataManager
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

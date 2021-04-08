@@ -105,6 +105,8 @@
 		65DD15DD261E6BA300EB000E /* CoffeePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */; };
 		65DD15E3261E6D0600EB000E /* CoffeePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */; };
 		65DD15E7261F739E00EB000E /* CoffeeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */; };
+		65DD15EB261F949E00EB000E /* CoffeeEditorVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD15EA261F949E00EB000E /* CoffeeEditorVC.storyboard */; };
+		65DD15F0261F94D900EB000E /* CoffeeEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15EF261F94D900EB000E /* CoffeeEditorVC.swift */; };
 		65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1205A260E6F060059465B /* SegmentControlCell.swift */; };
 		65E12065261104A90059465B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12064261104A90059465B /* DataManager.swift */; };
 		65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E120682611209D0059465B /* MangedObjectInitializable.swift */; };
@@ -235,6 +237,8 @@
 		65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoffeePickerVC.storyboard; sourceTree = "<group>"; };
 		65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePickerVC.swift; sourceTree = "<group>"; };
 		65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDataSource.swift; sourceTree = "<group>"; };
+		65DD15EA261F949E00EB000E /* CoffeeEditorVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CoffeeEditorVC.storyboard; sourceTree = "<group>"; };
+		65DD15EF261F94D900EB000E /* CoffeeEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeEditorVC.swift; sourceTree = "<group>"; };
 		65E1205A260E6F060059465B /* SegmentControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
 		65E12064261104A90059465B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		65E120682611209D0059465B /* MangedObjectInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangedObjectInitializable.swift; sourceTree = "<group>"; };
@@ -611,11 +615,21 @@
 		65DD15DB261E6B8200EB000E /* CoffeePicker */ = {
 			isa = PBXGroup;
 			children = (
+				65DD15EE261F94AC00EB000E /* CoffeeEditor */,
 				65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */,
 				65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */,
 				65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */,
 			);
 			path = CoffeePicker;
+			sourceTree = "<group>";
+		};
+		65DD15EE261F94AC00EB000E /* CoffeeEditor */ = {
+			isa = PBXGroup;
+			children = (
+				65DD15EA261F949E00EB000E /* CoffeeEditorVC.storyboard */,
+				65DD15EF261F94D900EB000E /* CoffeeEditorVC.swift */,
+			);
+			path = CoffeeEditor;
 			sourceTree = "<group>";
 		};
 		65FB6547249C18A100ED732F /* Model */ = {
@@ -730,6 +744,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DD15EB261F949E00EB000E /* CoffeeEditorVC.storyboard in Resources */,
 				6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */,
 				650E81FD25EDBB0900DF119B /* BrewSummaryVC.storyboard in Resources */,
 				6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */,
@@ -906,6 +921,7 @@
 				653715A125F177B200F162DD /* IntervalPickerView.swift in Sources */,
 				6512EA882603E0C1002DC1CF /* Note.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
+				65DD15F0261F94D900EB000E /* CoffeeEditorVC.swift in Sources */,
 				656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
 				657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */,

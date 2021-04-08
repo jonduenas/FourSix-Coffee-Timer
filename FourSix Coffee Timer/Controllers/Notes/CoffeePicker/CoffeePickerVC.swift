@@ -82,8 +82,12 @@ extension CoffeePickerVC: UITableViewDelegate {
         guard let objectID = dataSource.itemIdentifier(for: indexPath) else { return }
         guard let coffeeObject = try? dataManager.mainContext.existingObject(with: objectID) as? CoffeeMO else { fatalError("Object should exist") }
         
-        delegate?.didPickCoffee(coffeeObject)
-        notesCoordinator?.didFinishCoffeePicker()
+        if isEditing {
+            notesCoordinator?.showCoffeeEditor(coffee: coffeeObject, dataManager: dataManager)
+        } else {
+            delegate?.didPickCoffee(coffeeObject)
+            notesCoordinator?.didFinishCoffeePicker()
+        }
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
