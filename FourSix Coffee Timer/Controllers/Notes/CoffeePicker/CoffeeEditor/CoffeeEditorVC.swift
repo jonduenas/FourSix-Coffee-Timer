@@ -37,4 +37,51 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
         originTextField.text = coffee.origin
         roastLevelTextField.text = coffee.roastLevel
     }
+    
+    private func updateCoffee(with textField: UITextField) {
+        guard let coffee = coffeeMO else { return }
+        
+        let text = textField.text ?? ""
+        
+        switch textField {
+        case roasterTextField:
+            if text == "" {
+                AlertHelper.showConfirmationAlert(title: "Required Field",
+                                                  message: "A roaster name is required.",
+                                                  confirmButtonTitle: "OK",
+                                                  on: self) { _ in
+                    textField.becomeFirstResponder()
+                }
+            } else {
+                coffee.roaster = text
+                dataManager.saveContext()
+            }
+        case coffeeNameTextField:
+            if text == "" {
+                AlertHelper.showConfirmationAlert(title: "Required Field",
+                                                  message: "A coffee name is required.",
+                                                  confirmButtonTitle: "OK",
+                                                  on: self) { _ in
+                    textField.becomeFirstResponder()
+                }
+            } else {
+                coffee.name = text
+                dataManager.saveContext()
+            }
+        case originTextField:
+            coffee.origin = text
+        case roastLevelTextField:
+            coffee.origin = text
+        default:
+            return
+        }
+    }
+}
+
+extension CoffeeEditorVC: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        guard reason == .committed else { return }
+        
+        updateCoffee(with: textField)
+    }
 }
