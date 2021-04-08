@@ -104,6 +104,7 @@
 		65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */; };
 		65DD15DD261E6BA300EB000E /* CoffeePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */; };
 		65DD15E3261E6D0600EB000E /* CoffeePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */; };
+		65DD15E7261F739E00EB000E /* CoffeeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */; };
 		65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1205A260E6F060059465B /* SegmentControlCell.swift */; };
 		65E12065261104A90059465B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12064261104A90059465B /* DataManager.swift */; };
 		65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E120682611209D0059465B /* MangedObjectInitializable.swift */; };
@@ -233,6 +234,7 @@
 		65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoffeePickerVC.storyboard; sourceTree = "<group>"; };
 		65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePickerVC.swift; sourceTree = "<group>"; };
+		65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDataSource.swift; sourceTree = "<group>"; };
 		65E1205A260E6F060059465B /* SegmentControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
 		65E12064261104A90059465B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		65E120682611209D0059465B /* MangedObjectInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangedObjectInitializable.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			children = (
 				65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */,
 				65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */,
+				65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */,
 			);
 			path = CoffeePicker;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
 				65127BBD260D09CA0014A9E7 /* CoreDataStack.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
+				65DD15E7261F739E00EB000E /* CoffeeDataSource.swift in Sources */,
 				6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
 				65315ADE249ADB4D00994E28 /* Clean+DoubleFloat.swift in Sources */,

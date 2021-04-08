@@ -17,7 +17,7 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     var dataManager: DataManager!
     weak var notesCoordinator: NotesCoordinator?
     weak var brewCoordinator: BrewCoordinator?
-    var dataSource: UITableViewDiffableDataSource<Int, NSManagedObjectID>!
+    var dataSource: CoffeeDataSource! = nil
     var fetchedResultsController: NSFetchedResultsController<CoffeeMO>! = nil
     var isVisible: Bool = false
     
@@ -43,14 +43,13 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     }
     
     private func configureDataSource() {
-        let dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
+        let dataSource = CoffeeDataSource(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-            
+
             guard let coffee = try? self.dataManager.mainContext.existingObject(with: noteID) as? CoffeeMO else { fatalError("Managed object should be available") }
-            
+
             cell.textLabel?.text = coffee.name
-            cell.detailTextLabel?.text = coffee.roaster
-            
+
             return cell
         })
         
@@ -59,7 +58,7 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     }
     
     @objc func createNewCoffee() {
-        let coffee = Coffee(roaster: "Coava", name: "Kilenso", origin: "Ethiopia", roastLevel: "Light Roast")
+        let coffee = Coffee(roaster: "Onyx", name: "Coffee Name", origin: "", roastLevel: "")
         let coffeeMO = dataManager.newCoffeeMO(from: coffee)
         try! dataManager.mainContext.obtainPermanentIDs(for: [coffeeMO])
         dataManager.saveContext()
@@ -69,16 +68,18 @@ class CoffeePickerVC: UIViewController, Storyboarded {
 extension CoffeePickerVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected row: \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension CoffeePickerVC: NSFetchedResultsControllerDelegate {
     private func configureFetchedResultsController() {
         let request = CoffeeMO.createFetchRequest()
-        let sort = NSSortDescriptor(key: #keyPath(CoffeeMO.roaster), ascending: true)
-        request.sortDescriptors = [sort]
+        let sort1 = NSSortDescriptor(key: #keyPath(CoffeeMO.roaster), ascending: true)
+        let sort2 = NSSortDescriptor(key: #keyPath(CoffeeMO.name), ascending: true)
+        request.sortDescriptors = [sort1, sort2]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataManager.mainContext, sectionNameKeyPath: nil, cacheName: "coffeeCache")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataManager.mainContext, sectionNameKeyPath: #keyPath(CoffeeMO.roaster), cacheName: "coffeeCache")
         fetchedResultsController.delegate = self
     }
     
@@ -91,14 +92,14 @@ extension CoffeePickerVC: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-        guard let dataSource = tableView.dataSource as? DataSource else {
+        guard let dataSource = tableView.dataSource as? CoffeeDataSource else {
             assertionFailure("The data source has not implemented snapshot support while it should")
             return
         }
         
-        var snapshot = snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
-        let currentSnapshot = dataSource.snapshot() as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
-
+        var snapshot = snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        let currentSnapshot = dataSource.snapshot() as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        
         // NSManagedObjectID doesn't change and isn't seen as needing updated. Instead, compare index between snapshots.
         let reloadIdentifiers: [NSManagedObjectID] = snapshot.itemIdentifiers.compactMap { itemIdentifier in
             // If the index of the NSManagedObjectID in the currentSnapshot is the same as the new snapshot, skip reloading
@@ -114,6 +115,6 @@ extension CoffeePickerVC: NSFetchedResultsControllerDelegate {
         
         // Only animate if there are already cells in the table and the view itself is visible
         let shouldAnimate = tableView.numberOfSections != 0 && isVisible
-        dataSource.apply(snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>, animatingDifferences: shouldAnimate)
+        dataSource.apply(snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, animatingDifferences: shouldAnimate)
     }
 }
