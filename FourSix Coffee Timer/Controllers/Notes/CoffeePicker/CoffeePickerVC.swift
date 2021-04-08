@@ -35,7 +35,8 @@ class CoffeePickerVC: UIViewController, Storyboarded {
         configureFetchedResultsController()
         fetchCoffees()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Coffee", style: .plain, target: self, action: #selector(createNewCoffee))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Coffee", style: .plain, target: self, action: #selector(createNewCoffee))
+        navigationItem.rightBarButtonItem = editButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,6 +47,11 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         isVisible = false
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
     }
     
     private func configureDataSource() {
