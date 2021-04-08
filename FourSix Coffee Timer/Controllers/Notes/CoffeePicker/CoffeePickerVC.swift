@@ -134,8 +134,6 @@ extension CoffeePickerVC: NSFetchedResultsControllerDelegate {
         }
         snapshot.reloadItems(reloadIdentifiers)
         
-        // Only animate if there are already cells in the table and the view itself is visible
-        let shouldAnimate = tableView.numberOfSections != 0 && isVisible
-        dataSource.apply(snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, animatingDifferences: shouldAnimate)
+        dataSource.apply(snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, animatingDifferences: false)
     }
 }

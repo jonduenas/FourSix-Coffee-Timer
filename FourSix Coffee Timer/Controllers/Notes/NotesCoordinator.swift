@@ -59,6 +59,9 @@ class NotesCoordinator: Coordinator {
         let vc = CoffeeEditorVC.instantiate(fromStoryboardNamed: String(describing: CoffeeEditorVC.self))
         vc.coffeeMO = coffee
         vc.dataManager = dataManager
-        navigationController.pushViewController(vc, animated: true)
+        
+        let navController = MainNavigationController(rootViewController: vc)
+        
+        navigationController.present(navController, animated: true, completion: nil)
     }
 }
