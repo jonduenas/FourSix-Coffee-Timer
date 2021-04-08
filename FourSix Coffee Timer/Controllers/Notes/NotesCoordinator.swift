@@ -43,10 +43,15 @@ class NotesCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showCoffeePicker(dataManager: DataManager) {
+    func showCoffeePicker(dataManager: DataManager, delegate: CoffeePickerDelegate) {
         let vc = CoffeePickerVC.instantiate(fromStoryboardNamed: String(describing: CoffeePickerVC.self))
         vc.notesCoordinator = self
+        vc.delegate = delegate
         vc.dataManager = dataManager
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func didFinishCoffeePicker() {
+        navigationController.popViewController(animated: true)
     }
 }

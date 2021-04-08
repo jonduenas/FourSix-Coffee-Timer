@@ -203,6 +203,14 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         waterTempTextField.text = setWaterTempTextField(with: note.waterTempC)
         
         // Coffee Details
+        updateCoffeePickerLabels()
+        roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate(dateStyle: .medium, timeStyle: nil) : ""
+        
+        // Notes
+        notesTextView.text = note.text
+    }
+    
+    private func updateCoffeePickerLabels() {
         if note.coffee.name == "" {
             coffeeNameLabel.text = "Select coffee or add new"
             coffeeDivider.isHidden = true
@@ -211,6 +219,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             roastLevelLabel.isHidden = true
         } else {
             coffeeNameLabel.text = note.coffee.name
+            coffeeDivider.isHidden = false
+            roasterLabel.isHidden = false
+            originLabel.isHidden = false
+            roastLevelLabel.isHidden = false
         }
         
         if note.coffee.roaster == "" {
@@ -230,11 +242,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         } else {
             roastLevelLabel.text = note.coffee.roastLevel
         }
-        
-        roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate(dateStyle: .medium, timeStyle: nil) : ""
-        
-        // Notes
-        notesTextView.text = note.text
     }
     
     private func setWaterTempTextField(with cValue: Double) -> String {
@@ -271,7 +278,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @objc private func didTapCoffeeView() {
         print("tapped coffee view")
-        notesCoordinator?.showCoffeePicker(dataManager: dataManager)
+        notesCoordinator?.showCoffeePicker(dataManager: dataManager, delegate: self)
     }
     
     // MARK: Temperature Unit Control
@@ -417,7 +424,7 @@ extension NoteDetailsVC: UITextViewDelegate {
     }
 }
 
-// MARK: - RatingControl delegate methods
+// MARK: - RatingControlDelegate methods
 
 extension NoteDetailsVC: RatingControlDelegate {
     func ratingControlShouldShowHint(ratingControl: RatingControl) {
@@ -434,5 +441,15 @@ extension NoteDetailsVC: RatingControlDelegate {
     
     func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int) {
         updateNote(with: rating)
+    }
+}
+
+// MARK: - CoffeePickerDelegate methods
+
+extension NoteDetailsVC: CoffeePickerDelegate {
+    func didPickCoffee(_ coffee: CoffeeMO) {
+        note.coffee = coffee
+        dataManager.saveContext()
+        updateCoffeePickerLabels()
     }
 }

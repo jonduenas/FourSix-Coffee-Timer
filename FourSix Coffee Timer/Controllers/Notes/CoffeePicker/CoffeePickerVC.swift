@@ -9,11 +9,17 @@
 import UIKit
 import CoreData
 
+protocol CoffeePickerDelegate: class {
+    func didPickCoffee(_ coffee: CoffeeMO)
+}
+
 class CoffeePickerVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
     
     let cellIdentifier = "CoffeeCell"
+    
+    weak var delegate: CoffeePickerDelegate?
     var dataManager: DataManager!
     weak var notesCoordinator: NotesCoordinator?
     weak var brewCoordinator: BrewCoordinator?
@@ -67,7 +73,12 @@ class CoffeePickerVC: UIViewController, Storyboarded {
 
 extension CoffeePickerVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected row: \(indexPath.row)")
+        guard let objectID = dataSource.itemIdentifier(for: indexPath) else { return }
+        guard let coffeeObject = try? dataManager.mainContext.existingObject(with: objectID) as? CoffeeMO else { fatalError("Object should exist") }
+        
+        delegate?.didPickCoffee(coffeeObject)
+        notesCoordinator?.didFinishCoffeePicker()
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
