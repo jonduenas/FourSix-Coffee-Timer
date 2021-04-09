@@ -62,6 +62,12 @@ class CoffeePickerVC: UIViewController, Storyboarded {
             guard let coffee = try? self.dataManager.mainContext.existingObject(with: noteID) as? CoffeeMO else { fatalError("Managed object should be available") }
 
             cell.textLabel?.text = coffee.name
+            
+            if coffee == self.currentPicked {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
 
             return cell
         })
@@ -101,6 +107,7 @@ extension CoffeePickerVC: UITableViewDelegate {
         if isEditing {
             notesCoordinator?.showCoffeeEditor(coffee: coffeeObject, dataManager: dataManager)
         } else {
+            currentPicked = coffeeObject
             delegate?.didPickCoffee(coffeeObject)
             notesCoordinator?.didFinishCoffeePicker()
         }
