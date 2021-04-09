@@ -30,14 +30,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var waterTempUnitControl: UISegmentedControl!
     
     // Coffee Details
-    @IBOutlet weak var coffeeView: RoundedView!
-    @IBOutlet weak var coffeeDivider: UIView!
-    @IBOutlet weak var addCoffeeStack: UIStackView!
-    @IBOutlet weak var coffeeNameLabel: UILabel!
-    @IBOutlet weak var roasterLabel: UILabel!
-    @IBOutlet weak var originLabel: UILabel!
-    @IBOutlet weak var roastLevelLabel: UILabel!
-    
+    @IBOutlet weak var coffeePickerView: CoffeePickerView!
     @IBOutlet weak var roastDateTextField: DateTextField!
     
     // Notes
@@ -108,7 +101,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     private func configureCoffeeView() {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.addTarget(self, action: #selector(didTapCoffeeView))
-        coffeeView.addGestureRecognizer(tapGestureRecognizer)
+        coffeePickerView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     // MARK: Edit Mode
@@ -132,39 +125,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         roastDateTextField.isEnabled = isEditing
         roastDateTextField.borderStyle = borderStyle
         
+        coffeePickerView.setEditing(isEditing)
+        
         notesTextView.setToEditMode(isEditing)
         
         // Delete button is hidden if not editing OR if it's a new note
         deleteButton.isHidden = !isEditing || isNewNote
-    }
-    
-    // MARK: Adjust scrollView for keyboard
-    
-    private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    @objc private func adjustForKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        if notification.name == UIResponder.keyboardWillHideNotification {
-            scrollView.contentInset = .zero
-        } else {
-            scrollView.contentInset = UIEdgeInsets(top: 0,
-                                                   left: 0,
-                                                   bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (tabBarController?.tabBar.frame.height ?? 0) + 10,
-                                                   right: 0)
-        }
-        
-        scrollView.scrollIndicatorInsets = scrollView.contentInset
-        
-        if notesTextView.isFirstResponder {
-            scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
-        }
     }
     
     // MARK: Update UI with Note
@@ -206,39 +172,11 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         waterTempTextField.text = setWaterTempTextField(with: note.waterTempC)
         
         // Coffee Details
-        updateCoffeePickerLabels()
+        coffeePickerView.coffee = note.coffee
         roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate(dateStyle: .medium, timeStyle: nil) : ""
         
         // Notes
         notesTextView.text = note.text
-    }
-    
-    private func updateCoffeePickerLabels() {
-        if let coffee = note.coffee {
-            showNewCoffeePicker(false)
-            
-            coffeeNameLabel.text = coffee.name
-            roasterLabel.text = "Roaster: \(coffee.roaster)"
-            
-            let unknownString = "Unknown"
-            
-            let origin = coffee.origin == "" ? unknownString : coffee.origin
-            originLabel.text = "Origin: \(origin)"
-            
-            let roastLevel = coffee.roastLevel == "" ? unknownString : coffee.roastLevel
-            roastLevelLabel.text = "Roast Level: \(roastLevel)"
-        } else {
-            showNewCoffeePicker(true)
-        }
-    }
-    
-    private func showNewCoffeePicker(_ shouldShow: Bool) {
-        addCoffeeStack.isHidden = !shouldShow
-        coffeeNameLabel.isHidden = shouldShow
-        coffeeDivider.isHidden = shouldShow
-        roasterLabel.isHidden = shouldShow
-        originLabel.isHidden = shouldShow
-        roastLevelLabel.isHidden = shouldShow
     }
     
     private func setWaterTempTextField(with cValue: Double) -> String {
@@ -271,11 +209,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         return recipePoursStrings.joined(separator: " → ")
     }
     
-    // MARK: Load Coffee
+    // MARK: Coffee Picker
     
     @objc private func didTapCoffeeView() {
-        print("tapped coffee view")
-        notesCoordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
+        if isEditing {
+            notesCoordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
+        }
     }
     
     // MARK: Temperature Unit Control
@@ -402,6 +341,37 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
 }
 
+// MARK: - Adjust scrollView for keyboard
+
+extension NoteDetailsVC {
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc private func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: 0,
+                                                   bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (tabBarController?.tabBar.frame.height ?? 0) + 10,
+                                                   right: 0)
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+        
+        if notesTextView.isFirstResponder {
+            scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
+        }
+    }
+}
+
 // MARK: - UITextField and UITextView delegate methods
 
 extension NoteDetailsVC: UITextFieldDelegate {
@@ -447,6 +417,6 @@ extension NoteDetailsVC: CoffeePickerDelegate {
     func didPickCoffee(_ coffee: CoffeeMO?) {
         note.coffee = coffee
         dataManager.saveContext()
-        updateCoffeePickerLabels()
+        coffeePickerView.coffee = coffee
     }
 }

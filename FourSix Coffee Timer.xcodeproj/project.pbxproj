@@ -120,6 +120,7 @@
 		65FB31AF24CA130E00781023 /* WalkthroughPageVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB31AD24CA130E00781023 /* WalkthroughPageVC.storyboard */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
 		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
+		65FF841D2620F006008B2BE2 /* CoffeePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF841C2620F006008B2BE2 /* CoffeePickerView.swift */; };
 		7809654740865E175362B9C9 /* Pods_FourSix_Coffee_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */; };
 /* End PBXBuildFile section */
 
@@ -252,6 +253,7 @@
 		65FB31AE24CA130E00781023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WalkthroughPageVC.storyboard; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		65FF841C2620F006008B2BE2 /* CoffeePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePickerView.swift; sourceTree = "<group>"; };
 		90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C3092A6CB8D224FB0CD0F1 /* Pods-FourSix Coffee Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.debug.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,6 +375,7 @@
 				6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */,
 				659F8802261B9F7000D4F89F /* DateTextField.swift */,
 				653E6316260957AE00BA32BF /* NotesTextView.swift */,
+				65FF841C2620F006008B2BE2 /* CoffeePickerView.swift */,
 			);
 			path = NoteDetails;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
 				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */,
+				65FF841D2620F006008B2BE2 /* CoffeePickerView.swift in Sources */,
 				65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */,
 				659FCE8C2617C9AE00039F6A /* DataSource.swift in Sources */,
 				65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */,
