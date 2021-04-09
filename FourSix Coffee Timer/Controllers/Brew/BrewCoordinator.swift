@@ -74,7 +74,7 @@ class BrewCoordinator: Coordinator {
         let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
         vc.dataManager = dataManager
         vc.brewCoordinator = self
-        vc.note = dataManager.newNoteMO(session: session, recipe: recipe, coffee: Coffee())
+        vc.note = dataManager.newNoteMO(session: session, recipe: recipe, coffee: nil)
         vc.isNewNote = true
         
         let newNoteNavController = MainNavigationController()

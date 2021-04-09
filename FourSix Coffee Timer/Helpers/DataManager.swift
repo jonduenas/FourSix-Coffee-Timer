@@ -80,7 +80,7 @@ extension DataManager {
     
     // MARK: New Object Methods
     
-    @discardableResult func newNoteMO(session: Session, recipe: Recipe, coffee: Coffee) -> NoteMO {
+    @discardableResult func newNoteMO(session: Session, recipe: Recipe, coffee: Coffee?) -> NoteMO {
         let newNote = NoteMO(context: mainContext)
         newNote.date = Date()
         
@@ -90,8 +90,10 @@ extension DataManager {
         let newRecipe = newRecipeMO(from: recipe)
         newNote.recipe = newRecipe
         
-        let newCoffee = newCoffeeMO(from: coffee)
-        newNote.coffee = newCoffee
+        if let coffee = coffee {
+            let newCoffee = newCoffeeMO(from: coffee)
+            newNote.coffee = newCoffee
+        }
         
         saveContext(mainContext)
         

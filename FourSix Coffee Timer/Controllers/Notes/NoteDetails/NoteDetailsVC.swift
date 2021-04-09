@@ -50,7 +50,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         registerKeyboardNotifications()
         ratingControl.delegate = self
         configureNavController()
-        configureCoffeeView()
+        configureCoffeePickerView()
         
         isEditing = isNewNote
         setUIEditMode()
@@ -98,7 +98,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         dismiss(animated: true)
     }
     
-    private func configureCoffeeView() {
+    private func configureCoffeePickerView() {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.addTarget(self, action: #selector(didTapCoffeeView))
         coffeePickerView.addGestureRecognizer(tapGestureRecognizer)
