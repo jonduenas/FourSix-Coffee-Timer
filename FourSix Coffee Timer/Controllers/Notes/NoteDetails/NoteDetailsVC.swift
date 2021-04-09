@@ -65,14 +65,16 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         configureView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hideBarShadow(true)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         dataManager.saveContext(dataManager.backgroundContext)
     }
     
     private func configureNavController() {
-        navigationController?.hideBarShadow(true)
-        
         if isNewNote {
             title = "New Note"
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reminder",
