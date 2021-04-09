@@ -32,7 +32,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Coffee Details
     @IBOutlet weak var coffeeView: RoundedView!
     @IBOutlet weak var coffeeDivider: UIView!
-    @IBOutlet weak var addCoffeeLabel: UILabel!
+    @IBOutlet weak var addCoffeeStack: UIStackView!
     @IBOutlet weak var coffeeNameLabel: UILabel!
     @IBOutlet weak var roasterLabel: UILabel!
     @IBOutlet weak var originLabel: UILabel!
@@ -233,7 +233,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func showNewCoffeePicker(_ shouldShow: Bool) {
-        addCoffeeLabel.isHidden = !shouldShow
+        addCoffeeStack.isHidden = !shouldShow
         coffeeNameLabel.isHidden = shouldShow
         coffeeDivider.isHidden = shouldShow
         roasterLabel.isHidden = shouldShow
