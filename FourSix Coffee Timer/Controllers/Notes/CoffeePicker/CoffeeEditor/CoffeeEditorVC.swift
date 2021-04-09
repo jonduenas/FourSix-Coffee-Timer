@@ -20,6 +20,9 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
     var coffeeMO: CoffeeMO?
     var coffee: Coffee = Coffee()
     var hasChanges: Bool = false
+    var isNewCoffee: Bool {
+        coffeeMO == nil
+    }
     var requiredFieldsFilled: Bool {
         coffeeNameTextField.text != "" && roasterTextField.text != ""
     }
@@ -27,21 +30,27 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Edit Coffee"
+        configureNavController()
+        
+        if isNewCoffee {
+            updateTextFields()
+        } else {
+            showStoredData()
+        }
+        
+        roasterTextField.becomeFirstResponder()
+    }
+    
+    private func configureNavController() {
+        title = isNewCoffee ? "Add Coffee" : "Edit Coffee"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelButton))
-        
-        if coffeeMO != nil {
-            showStoredData()
-        } else {
-            createNewCoffee()
-        }
     }
     
     @objc private func didTapDoneButton() {
         guard requiredFieldsFilled else {
-            AlertHelper.showAlert(title: "Require Fields", message: "Roaster name and coffee name are required.", on: self)
+            AlertHelper.showAlert(title: "Sorry...", message: "Roaster name and coffee name are required.", on: self)
             return
         }
         
@@ -66,11 +75,6 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
         }
     }
     
-    private func createNewCoffee() {
-        coffeeMO = CoffeeMO(context: dataManager.mainContext)
-        updateTextFields()
-    }
-    
     private func showStoredData() {
         guard let coffeeMO = coffeeMO else { return }
         coffee = Coffee(managedObject: coffeeMO)
@@ -93,16 +97,45 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
     }
     
     private func updateCoffeeMO() {
-        guard let coffeeMO = coffeeMO else { return }
-        coffeeMO.name = coffee.name
-        coffeeMO.roaster = coffee.roaster
-        coffeeMO.origin = coffee.origin
-        coffeeMO.roastLevel = coffee.roastLevel
+        if isNewCoffee {
+            let newCoffee = CoffeeMO(context: dataManager.mainContext)
+            newCoffee.name = coffee.name
+            newCoffee.roaster = coffee.roaster
+            newCoffee.origin = coffee.origin
+            newCoffee.roastLevel = coffee.roastLevel
+            coffeeMO = newCoffee
+            
+            do {
+                try dataManager.mainContext.obtainPermanentIDs(for: [newCoffee])
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            coffeeMO!.name = coffee.name
+            coffeeMO!.roaster = coffee.roaster
+            coffeeMO!.origin = coffee.origin
+            coffeeMO!.roastLevel = coffee.roastLevel
+        }
     }
 }
 
 extension CoffeeEditorVC: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        hasChanges = true
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if !hasChanges {
+            hasChanges = true
+        }
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if !hasChanges {
+            hasChanges = true
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

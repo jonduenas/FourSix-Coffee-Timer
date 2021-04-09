@@ -16,6 +16,7 @@ protocol CoffeePickerDelegate: class {
 class CoffeePickerVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addNewButton: UIButton!
     
     let cellIdentifier = "CoffeeCell"
     
@@ -36,7 +37,6 @@ class CoffeePickerVC: UIViewController, Storyboarded {
         configureFetchedResultsController()
         fetchCoffees()
         
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Coffee", style: .plain, target: self, action: #selector(createNewCoffee))
         navigationItem.rightBarButtonItem = editButtonItem
     }
     
@@ -68,6 +68,10 @@ class CoffeePickerVC: UIViewController, Storyboarded {
         
         self.dataSource = dataSource
         tableView.dataSource = dataSource
+    }
+    
+    @IBAction func didTapAddNewButton(_ sender: UIButton) {
+        notesCoordinator?.showCoffeeEditor(coffee: nil, dataManager: dataManager)
     }
     
     @objc func createNewCoffee() {
@@ -165,6 +169,7 @@ extension CoffeePickerVC: NSFetchedResultsControllerDelegate {
         }
         snapshot.reloadItems(reloadIdentifiers)
         
+        // Not animating difference ensures editing stored Coffee name is updated after changing
         dataSource.apply(snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, animatingDifferences: false)
     }
 }

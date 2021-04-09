@@ -56,7 +56,7 @@ class NotesCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     
-    func showCoffeeEditor(coffee: CoffeeMO, dataManager: DataManager) {
+    func showCoffeeEditor(coffee: CoffeeMO?, dataManager: DataManager) {
         let vc = CoffeeEditorVC.instantiate(fromStoryboardNamed: String(describing: CoffeeEditorVC.self))
         vc.coffeeMO = coffee
         vc.dataManager = dataManager

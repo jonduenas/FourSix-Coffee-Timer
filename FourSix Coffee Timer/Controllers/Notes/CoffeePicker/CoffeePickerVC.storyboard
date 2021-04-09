@@ -4,9 +4,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,17 +43,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="og9-9v-z3D">
+                                <rect key="frame" x="349" y="797" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4qe-3u-7nu"/>
+                                    <constraint firstAttribute="height" constant="50" id="AuR-gT-vt0"/>
+                                </constraints>
+                                <color key="tintColor" name="Accent"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapAddNewButton:" destination="uqK-5z-UEz" eventType="touchUpInside" id="5z1-MT-0qW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eXY-SA-1be"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
                             <constraint firstItem="eXY-SA-1be" firstAttribute="trailing" secondItem="Ny7-cF-p99" secondAttribute="trailing" id="1Lj-J8-Hzz"/>
                             <constraint firstAttribute="bottom" secondItem="Ny7-cF-p99" secondAttribute="bottom" id="FOp-NC-D9q"/>
+                            <constraint firstItem="eXY-SA-1be" firstAttribute="bottom" secondItem="og9-9v-z3D" secondAttribute="bottom" constant="15" id="e0S-eU-kdv"/>
+                            <constraint firstItem="eXY-SA-1be" firstAttribute="trailing" secondItem="og9-9v-z3D" secondAttribute="trailing" constant="15" id="rO5-Hz-GwL"/>
                             <constraint firstItem="Ny7-cF-p99" firstAttribute="top" secondItem="eXY-SA-1be" secondAttribute="top" id="tG2-FI-Xzm"/>
                             <constraint firstItem="Ny7-cF-p99" firstAttribute="leading" secondItem="eXY-SA-1be" secondAttribute="leading" id="yuO-0t-9Wi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addNewButton" destination="og9-9v-z3D" id="j7o-8Q-0fM"/>
                         <outlet property="tableView" destination="Ny7-cF-p99" id="t78-Ii-iGy"/>
                     </connections>
                 </viewController>
@@ -63,6 +81,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="Accent">
             <color red="0.74500000476837158" green="0.56099998950958252" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -72,8 +91,5 @@
         <namedColor name="SecondaryBackground">
             <color red="0.89800000190734863" green="0.89800000190734863" blue="0.89800000190734863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
