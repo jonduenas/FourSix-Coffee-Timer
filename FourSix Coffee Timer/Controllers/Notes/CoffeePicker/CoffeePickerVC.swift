@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 protocol CoffeePickerDelegate: class {
-    func didPickCoffee(_ coffee: CoffeeMO)
+    func didPickCoffee(_ coffee: CoffeeMO?)
 }
 
 class CoffeePickerVC: UIViewController, Storyboarded {
@@ -20,6 +20,7 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     let cellIdentifier = "CoffeeCell"
     
     weak var delegate: CoffeePickerDelegate?
+    var currentPicked: CoffeeMO?
     var dataManager: DataManager!
     weak var notesCoordinator: NotesCoordinator?
     weak var brewCoordinator: BrewCoordinator?
@@ -75,6 +76,17 @@ class CoffeePickerVC: UIViewController, Storyboarded {
         try! dataManager.mainContext.obtainPermanentIDs(for: [coffeeMO])
         dataManager.saveContext()
     }
+    
+    private func deleteCoffee(at indexPath: IndexPath) {
+        guard let objectID = dataSource.itemIdentifier(for: indexPath) else { return }
+        guard let object = dataManager.mainContext.object(with: objectID) as? CoffeeMO else { return }
+        
+        if object == currentPicked {
+            delegate?.didPickCoffee(nil)
+        }
+        
+        dataManager.delete(objectID)
+    }
 }
 
 extension CoffeePickerVC: UITableViewDelegate {
@@ -90,6 +102,25 @@ extension CoffeePickerVC: UITableViewDelegate {
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+            AlertHelper.showDestructiveAlert(title: "Delete Coffee?",
+                                             message: "Are you sure you want to delete this coffee? It will be removed from any notes and you won't be able to undo.",
+                                             destructiveButtonTitle: "Delete",
+                                             dismissButtonTitle: "Cancel",
+                                             on: self) { _ in
+                self.deleteCoffee(at: indexPath)
+            }
+        }
+        
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
+        
+        // Disable delete for full swipe
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
     }
 }
 

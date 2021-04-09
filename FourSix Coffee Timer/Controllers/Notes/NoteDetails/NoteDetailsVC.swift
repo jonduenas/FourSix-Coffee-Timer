@@ -32,6 +32,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Coffee Details
     @IBOutlet weak var coffeeView: RoundedView!
     @IBOutlet weak var coffeeDivider: UIView!
+    @IBOutlet weak var addCoffeeLabel: UILabel!
     @IBOutlet weak var coffeeNameLabel: UILabel!
     @IBOutlet weak var roasterLabel: UILabel!
     @IBOutlet weak var originLabel: UILabel!
@@ -211,37 +212,31 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func updateCoffeePickerLabels() {
-        if note.coffee.name == "" {
-            coffeeNameLabel.text = "Select coffee or add new"
-            coffeeDivider.isHidden = true
-            roasterLabel.isHidden = true
-            originLabel.isHidden = true
-            roastLevelLabel.isHidden = true
+        if let coffee = note.coffee {
+            showNewCoffeePicker(false)
+            
+            coffeeNameLabel.text = coffee.name
+            roasterLabel.text = "Roaster: \(coffee.roaster)"
+            
+            let unknownString = "Unknown"
+            
+            let origin = coffee.origin == "" ? unknownString : coffee.origin
+            originLabel.text = "Origin: \(origin)"
+            
+            let roastLevel = coffee.roastLevel == "" ? unknownString : coffee.roastLevel
+            roastLevelLabel.text = "Roast Level: \(roastLevel)"
         } else {
-            coffeeNameLabel.text = note.coffee.name
-            coffeeDivider.isHidden = false
-            roasterLabel.isHidden = false
-            originLabel.isHidden = false
-            roastLevelLabel.isHidden = false
+            showNewCoffeePicker(true)
         }
-        
-        if note.coffee.roaster == "" {
-            roasterLabel.text = "Enter coffee roaster"
-        } else {
-            roasterLabel.text = note.coffee.roaster
-        }
-        
-        if note.coffee.origin == "" {
-            originLabel.text = "Enter coffee origin"
-        } else {
-            originLabel.text = note.coffee.origin
-        }
-        
-        if note.coffee.roastLevel == "" {
-            roastLevelLabel.text = "Enter roast level"
-        } else {
-            roastLevelLabel.text = note.coffee.roastLevel
-        }
+    }
+    
+    private func showNewCoffeePicker(_ shouldShow: Bool) {
+        addCoffeeLabel.isHidden = !shouldShow
+        coffeeNameLabel.isHidden = shouldShow
+        coffeeDivider.isHidden = shouldShow
+        roasterLabel.isHidden = shouldShow
+        originLabel.isHidden = shouldShow
+        roastLevelLabel.isHidden = shouldShow
     }
     
     private func setWaterTempTextField(with cValue: Double) -> String {
@@ -278,7 +273,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @objc private func didTapCoffeeView() {
         print("tapped coffee view")
-        notesCoordinator?.showCoffeePicker(dataManager: dataManager, delegate: self)
+        notesCoordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
     }
     
     // MARK: Temperature Unit Control
@@ -447,7 +442,7 @@ extension NoteDetailsVC: RatingControlDelegate {
 // MARK: - CoffeePickerDelegate methods
 
 extension NoteDetailsVC: CoffeePickerDelegate {
-    func didPickCoffee(_ coffee: CoffeeMO) {
+    func didPickCoffee(_ coffee: CoffeeMO?) {
         note.coffee = coffee
         dataManager.saveContext()
         updateCoffeePickerLabels()

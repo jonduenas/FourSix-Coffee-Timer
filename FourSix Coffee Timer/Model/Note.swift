@@ -15,7 +15,7 @@ struct Note: ManagedObjectInitializable {
     let date: Date
     var rating: Int
     var noteText: String
-    var coffee: Coffee
+    var coffee: Coffee?
     var grindSetting: String
     var waterTempC: Double
     var waterTempUnit: TempUnit
@@ -25,7 +25,11 @@ struct Note: ManagedObjectInitializable {
         let noteMO = managedObject as! NoteMO
         self.recipe = Recipe(managedObject: noteMO.recipe)
         self.session = Session(managedObject: noteMO.session)
-        self.coffee = Coffee(managedObject: noteMO.coffee)
+        
+        if let coffee = noteMO.coffee {
+            self.coffee = Coffee(managedObject: coffee)
+        }
+
         self.date = noteMO.date
         self.rating = Int(noteMO.rating)
         self.noteText = noteMO.text
