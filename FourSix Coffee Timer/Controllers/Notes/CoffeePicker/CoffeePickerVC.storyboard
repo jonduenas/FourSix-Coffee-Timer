@@ -20,7 +20,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-cF-p99">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" name="SecondaryBackground"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoffeeCell" editingAccessoryType="disclosureIndicator" textLabel="JwQ-Ca-cFe" style="IBUITableViewCellStyleDefault" id="jZ9-8e-tGS">
                                         <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
@@ -38,7 +38,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="SecondaryBackground"/>
                                         <color key="tintColor" name="Accent"/>
                                     </tableViewCell>
                                 </prototypes>
