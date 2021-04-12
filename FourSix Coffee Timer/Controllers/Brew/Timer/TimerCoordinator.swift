@@ -27,12 +27,11 @@ class TimerCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showSummary(recipe: Recipe, drawdownTimes: [TimeInterval], totalTime: TimeInterval) {
+    func showSummary(recipe: Recipe, session: Session) {
         let vc = BrewSummaryVC.instantiate(fromStoryboardNamed: String(describing: BrewSummaryVC.self))
         vc.coordinator = self
         vc.recipe = recipe
-        vc.drawdownTimes = drawdownTimes
-        vc.totalTime = totalTime
+        vc.session = session
         navigationController.pushViewController(vc, animated: true)
     }
     
