@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NotesCoordinator: Coordinator {
+class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     var dataManager: DataManager!
@@ -20,6 +20,8 @@ class NotesCoordinator: Coordinator {
     
     func start() {
         guard dataManager != nil else { fatalError("Coordinator requires a DataManager.") }
+        
+        navigationController.delegate = self
         
         let vc = NotesVC.instantiate(fromStoryboardNamed: String(describing: NotesVC.self))
         vc.coordinator = self
@@ -41,5 +43,25 @@ class NotesCoordinator: Coordinator {
         childCoordinators.append(child)
         child.note = note
         child.start()
+    }
+    
+    // Checks Navigation Controller if popped View Controller is NoteDetailsVC
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        // Reads the view controller we're moving from
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+            return
+        }
+
+        // Check whether our view controller array already contains that view controller.
+        // If it does it means we’re pushing a different view controller on top rather than popping it, so exit.
+        if navigationController.viewControllers.contains(fromViewController) {
+            return
+        }
+
+        // We’re still here – it means we’re popping the view controller, so we can check whether it’s a note details view controller
+        if let noteDetailsVC = fromViewController as? NoteDetailsVC {
+            // We're popping a note details controller; end its coordinator
+            childDidFinish(noteDetailsVC.coordinator)
+        }
     }
 }

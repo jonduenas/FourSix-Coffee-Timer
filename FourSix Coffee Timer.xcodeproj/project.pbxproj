@@ -350,7 +350,6 @@
 		6536F2662602931D00E2DF28 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				6577F2A32603D03E0029E396 /* NotesCoordinator.swift */,
 				653E631A26095B6E00BA32BF /* RatingControl.swift */,
 				6536F2732602BE6000E2DF28 /* NotesTable */,
 				6536F2762602BE7000E2DF28 /* NoteDetails */,
@@ -366,6 +365,7 @@
 				6536F26B2602936000E2DF28 /* NotesVC.swift */,
 				659FCE8B2617C9AE00039F6A /* DataSource.swift */,
 				6536F26F2602BD8000E2DF28 /* NoteCell.swift */,
+				6577F2A32603D03E0029E396 /* NotesCoordinator.swift */,
 			);
 			path = NotesTable;
 			sourceTree = "<group>";
