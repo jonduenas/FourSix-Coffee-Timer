@@ -9,7 +9,7 @@
 import UIKit
 
 class BrewSummaryVC: UIViewController, Storyboarded {
-    var recipe: Recipe!
+    var recipe: Recipe?
     var session: Session?
     weak var coordinator: TimerCoordinator?
     
@@ -35,7 +35,7 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
     
     private func updateLabels() {
-        guard let session = session else { return }
+        guard let session = session, let recipe = recipe else { fatalError("Nil values for session or recipe.") }
         
         let totalCoffee = recipe.coffee
         let totalWater = recipe.waterTotal
