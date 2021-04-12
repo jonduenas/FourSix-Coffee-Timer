@@ -222,7 +222,7 @@ class TimerVC: UIViewController, Storyboarded {
         
         let session = Session(drawdownTimes: coffeeTimer.stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
         
-        coordinator?.didFinishTimer(session: session, recipe: recipe)
+        coordinator?.showSummary(recipe: self.recipe, drawdownTimes: self.coffeeTimer.stepsActualTime, totalTime: self.coffeeTimer.totalElapsedTime)
     }
     
     private func countdownStart() {
