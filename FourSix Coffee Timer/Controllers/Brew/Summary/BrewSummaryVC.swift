@@ -70,4 +70,8 @@ class BrewSummaryVC: UIViewController, Storyboarded {
             AppStoreReviewManager.requestReviewIfAppropriate()
         }
     }
+    
+    @IBAction func didTapEnterDetails(_ sender: UIButton) {
+        print("Enter Details")
+    }
 }
