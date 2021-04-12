@@ -23,8 +23,7 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     weak var delegate: CoffeePickerDelegate?
     var currentPicked: CoffeeMO?
     var dataManager: DataManager!
-    weak var notesCoordinator: NotesCoordinator?
-    weak var brewCoordinator: BrewCoordinator?
+    weak var coordinator: NoteDetailsCoordinator?
     var dataSource: CoffeeDataSource! = nil
     var fetchedResultsController: NSFetchedResultsController<CoffeeMO>! = nil
     var isVisible: Bool = false
@@ -78,7 +77,7 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     }
     
     @IBAction func didTapAddNewButton(_ sender: UIButton) {
-        notesCoordinator?.showCoffeeEditor(coffee: nil, dataManager: dataManager)
+        coordinator?.showCoffeeEditor(coffee: nil, dataManager: dataManager)
     }
     
     @objc func createNewCoffee() {
@@ -106,11 +105,11 @@ extension CoffeePickerVC: UITableViewDelegate {
         guard let coffeeObject = try? dataManager.mainContext.existingObject(with: objectID) as? CoffeeMO else { fatalError("Object should exist") }
         
         if isEditing {
-            notesCoordinator?.showCoffeeEditor(coffee: coffeeObject, dataManager: dataManager)
+            coordinator?.showCoffeeEditor(coffee: coffeeObject, dataManager: dataManager)
         } else {
             currentPicked = coffeeObject
             delegate?.didPickCoffee(coffeeObject)
-            notesCoordinator?.didFinishCoffeePicker()
+            coordinator?.didFinishCoffeePicker()
         }
         
         tableView.deselectRow(at: indexPath, animated: true)

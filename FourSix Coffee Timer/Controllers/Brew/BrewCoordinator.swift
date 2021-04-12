@@ -59,28 +59,11 @@ class BrewCoordinator: Coordinator {
     
     func showTimer(for recipe: Recipe) {
         let timerNav = TimerNavigationController()
-        let childCoordinator = TimerCoordinator(navigationController: timerNav, recipe: recipe)
+        let childCoordinator = TimerCoordinator(navigationController: timerNav, recipe: recipe, dataManager: dataManager)
         childCoordinators.append(childCoordinator)
         childCoordinator.parentCoordinator = self
         childCoordinator.start()
         navigationController.present(childCoordinator.navigationController, animated: true, completion: nil)
-    }
-    
-    func didFinishTimer(session: Session, recipe: Recipe) {
-        showNewNote(recipe: recipe, session: session)
-    }
-    
-    func showNewNote(recipe: Recipe, session: Session) {
-        let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
-        vc.dataManager = dataManager
-        vc.brewCoordinator = self
-        vc.note = dataManager.newNoteMO(session: session, recipe: recipe, coffee: nil)
-        vc.isNewNote = true
-        
-        let newNoteNavController = MainNavigationController()
-        newNoteNavController.viewControllers = [vc]
-        
-        navigationController.present(newNoteNavController, animated: true, completion: nil)
     }
     
     func showProPaywall(delegate: PaywallDelegate) {

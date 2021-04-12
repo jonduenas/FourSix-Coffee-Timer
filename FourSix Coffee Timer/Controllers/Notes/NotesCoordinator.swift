@@ -36,33 +36,10 @@ class NotesCoordinator: Coordinator {
     }
     
     func showDetails(for note: NoteMO, dataManager: DataManager) {
-        let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
-        vc.notesCoordinator = self
-        vc.note = note
-        vc.dataManager = dataManager
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func showCoffeePicker(currentPicked: CoffeeMO?, dataManager: DataManager, delegate: CoffeePickerDelegate) {
-        let vc = CoffeePickerVC.instantiate(fromStoryboardNamed: String(describing: CoffeePickerVC.self))
-        vc.notesCoordinator = self
-        vc.currentPicked = currentPicked
-        vc.delegate = delegate
-        vc.dataManager = dataManager
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func didFinishCoffeePicker() {
-        navigationController.popViewController(animated: true)
-    }
-    
-    func showCoffeeEditor(coffee: CoffeeMO?, dataManager: DataManager) {
-        let vc = CoffeeEditorVC.instantiate(fromStoryboardNamed: String(describing: CoffeeEditorVC.self))
-        vc.coffeeMO = coffee
-        vc.dataManager = dataManager
-        
-        let navController = MainNavigationController(rootViewController: vc)
-        
-        navigationController.present(navController, animated: true, completion: nil)
+        let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.note = note
+        child.start()
     }
 }

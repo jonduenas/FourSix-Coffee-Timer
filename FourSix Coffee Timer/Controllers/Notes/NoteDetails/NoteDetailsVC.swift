@@ -39,8 +39,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var deleteButton: RoundButton!
     
     var dataManager: DataManager!
-    weak var notesCoordinator: NotesCoordinator?
-    weak var brewCoordinator: BrewCoordinator?
+    weak var coordinator: NoteDetailsCoordinator?
     var note: NoteMO!
     var isNewNote: Bool = false
     
@@ -95,7 +94,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     @objc private func didTapCloseButton() {
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.coordinator?.didFinishDetails()
+            AppStoreReviewManager.requestReviewIfAppropriate()
+        }
     }
     
     private func configureCoffeePickerView() {
@@ -213,7 +215,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     @objc private func didTapCoffeeView() {
         if isEditing {
-            notesCoordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
+            coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
         }
     }
     

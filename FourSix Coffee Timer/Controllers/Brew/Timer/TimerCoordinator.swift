@@ -13,10 +13,12 @@ class TimerCoordinator: Coordinator {
     weak var parentCoordinator: BrewCoordinator?
     var navigationController: UINavigationController
     let recipe: Recipe
+    let dataManager: DataManager
     
-    init(navigationController: UINavigationController, recipe: Recipe) {
+    init(navigationController: UINavigationController, recipe: Recipe, dataManager: DataManager) {
         self.navigationController = navigationController
         self.recipe = recipe
+        self.dataManager = dataManager
     }
     
     func start() {
@@ -35,12 +37,6 @@ class TimerCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func didFinishTimer(session: Session, recipe: Recipe) {
-        navigationController.dismiss(animated: true, completion: nil)
-        parentCoordinator?.didFinishTimer(session: session, recipe: recipe)
-        parentCoordinator?.childDidFinish(self)
-    }
-    
     func didCancelTimer() {
         parentCoordinator?.childDidFinish(self)
     }
@@ -50,7 +46,11 @@ class TimerCoordinator: Coordinator {
     }
     
     func showNewNote(recipe: Recipe, session: Session) {
-        didFinishSummary()
-        parentCoordinator?.showNewNote(recipe: recipe, session: session)
+        let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
+        childCoordinators.append(child)
+        child.parentCoordinator = self
+        child.recipe = recipe
+        child.session = session
+        child.start()
     }
 }

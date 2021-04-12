@@ -72,11 +72,7 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
     
     @IBAction func didTapEnterDetails(_ sender: UIButton) {
-        dismiss(animated: true) {
-            if let recipe = self.recipe, let session = self.session {
-                self.coordinator?.showNewNote(recipe: recipe, session: session)
-            }
-            AppStoreReviewManager.requestReviewIfAppropriate()
-        }
+        guard let recipe = recipe, let session = session else { return }
+        coordinator?.showNewNote(recipe: recipe, session: session)
     }
 }
