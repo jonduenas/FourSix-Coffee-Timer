@@ -48,4 +48,9 @@ class TimerCoordinator: Coordinator {
     func didFinishSummary() {
         parentCoordinator?.childDidFinish(self)
     }
+    
+    func showNewNote(recipe: Recipe, session: Session) {
+        didFinishSummary()
+        parentCoordinator?.showNewNote(recipe: recipe, session: session)
+    }
 }
