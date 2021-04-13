@@ -9,6 +9,7 @@
 import UIKit
 
 class BrewSummaryVC: UIViewController, Storyboarded {
+    var dataManager: DataManager?
     var recipe: Recipe?
     var session: Session?
     weak var coordinator: TimerCoordinator?
@@ -21,33 +22,31 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initNavBar()
         updateLabels()
     }
     
-    private func initNavBar() {
-        title = "Brew Summary"
-        navigationItem.setHidesBackButton(true, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+    private func createNewNoteForLater() {
+        guard let recipe = recipe, let session = session else { return }
+        dataManager?.newNoteMO(session: session, recipe: recipe, coffee: nil)
     }
     
     private func updateLabels() {
-        guard let session = session else { fatalError("Nil values for session or recipe.") }
+        guard let session = session else { fatalError("Nil value for session.") }
         
         drawdownLabel.text = "\(session.averageDrawdown().clean)s"
-        
         totalTimeLabel.text = "\(session.totalTime.stringFromTimeInterval())"
-    }
-    
-    @objc private func doneTapped() {
-        dismiss(animated: true) { [weak self] in
-            self?.coordinator?.didFinishSummary()
-            AppStoreReviewManager.requestReviewIfAppropriate()
-        }
     }
     
     @IBAction func didTapEnterDetails(_ sender: UIButton) {
         guard let recipe = recipe, let session = session else { return }
-        coordinator?.showNewNote(recipe: recipe, session: session)
+        dismiss(animated: true) {
+            self.coordinator?.showNewNote(recipe: recipe, session: session)
+        }
+    }
+    @IBAction func didTapLater(_ sender: UIButton) {
+        dismiss(animated: true) {
+            self.createNewNoteForLater()
+            self.coordinator?.didFinishSummary()
+        }
     }
 }

@@ -130,6 +130,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="tintColor" name="fourSixWhite"/>
                                                 <state key="normal" title="Later"/>
+                                                <connections>
+                                                    <action selector="didTapLater:" destination="qPv-b9-e4Q" eventType="touchUpInside" id="bon-ch-90p"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

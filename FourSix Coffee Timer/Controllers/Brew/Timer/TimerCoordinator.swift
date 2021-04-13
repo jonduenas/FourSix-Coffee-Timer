@@ -33,6 +33,7 @@ class TimerCoordinator: Coordinator {
     func showSummary(recipe: Recipe, session: Session) {
         let vc = BrewSummaryVC.instantiate(fromStoryboardNamed: String(describing: BrewSummaryVC.self))
         vc.coordinator = self
+        vc.dataManager = dataManager
         vc.recipe = recipe
         vc.session = session
         vc.transitioningDelegate = summaryTransitioningDelegate
@@ -45,7 +46,9 @@ class TimerCoordinator: Coordinator {
     }
     
     func didFinishSummary() {
-        parentCoordinator?.childDidFinish(self)
+        navigationController.dismiss(animated: true) {
+            self.parentCoordinator?.childDidFinish(self)
+        }
     }
     
     func showNewNote(recipe: Recipe, session: Session) {
