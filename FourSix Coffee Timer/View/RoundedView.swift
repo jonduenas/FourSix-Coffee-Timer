@@ -17,6 +17,12 @@ class RoundedView: UIView {
         }
     }
     
+    @IBInspectable var shadow: Bool = false {
+        didSet {
+            addShadow(shadow)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeView()
@@ -37,5 +43,23 @@ class RoundedView: UIView {
     
     func refreshCorners(value: CGFloat) {
         layer.cornerRadius = value
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addShadow(shadow)
+    }
+    
+    private func addShadow(_ shouldAddShadow: Bool) {
+        if shouldAddShadow {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = 0.2
+            layer.shadowOffset = CGSize(width: 0, height: 1)
+            layer.shadowRadius = 1
+            layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        } else {
+            layer.shadowColor = nil
+            layer.shadowPath = nil
+        }
     }
 }
