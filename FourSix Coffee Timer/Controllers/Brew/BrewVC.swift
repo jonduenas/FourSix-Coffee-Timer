@@ -93,18 +93,15 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeNavBar() {
-        title = "Let's Brew"
- 
         let settingsImage: UIImage?
         if #available(iOS 14.0, *) {
             settingsImage = UIImage(systemName: "gearshape.fill")
         } else {
             settingsImage = UIImage(systemName: "gear")
         }
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettings))
         navigationItem.title = "Let's Brew"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
-        
         navigationController?.navigationBar.tintColor = UIColor.systemGray
     }
     
