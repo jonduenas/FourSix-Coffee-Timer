@@ -12,6 +12,7 @@ class SummaryTransitioningDelegate: NSObject, UIViewControllerTransitioningDeleg
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let presentation = SlideOverPresentation(presentedViewController: presented, presenting: presenting)
         presentation.height = 450
+        presentation.tapToDismiss = false
         return presentation
     }
 }

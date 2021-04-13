@@ -13,9 +13,12 @@ class SlideOverPresentation: UIPresentationController {
     
     var height: CGFloat = 300.0
     var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
+    var tapToDismiss: Bool = true
     
     @objc func dismiss() {
-        self.presentedViewController.dismiss(animated: true, completion: nil)
+        if tapToDismiss {
+            self.presentedViewController.dismiss(animated: true, completion: nil)
+        }
     }
     
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
