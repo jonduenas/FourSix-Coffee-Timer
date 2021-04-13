@@ -14,6 +14,7 @@ class TimerCoordinator: Coordinator {
     var navigationController: UINavigationController
     let recipe: Recipe
     let dataManager: DataManager
+    let summaryTransitioningDelegate = SummaryTransitioningDelegate()
     
     init(navigationController: UINavigationController, recipe: Recipe, dataManager: DataManager) {
         self.navigationController = navigationController
@@ -34,7 +35,9 @@ class TimerCoordinator: Coordinator {
         vc.coordinator = self
         vc.recipe = recipe
         vc.session = session
-        navigationController.pushViewController(vc, animated: true)
+        vc.transitioningDelegate = summaryTransitioningDelegate
+        vc.modalPresentationStyle = .custom
+        navigationController.present(vc, animated: true)
     }
     
     func didCancelTimer() {
