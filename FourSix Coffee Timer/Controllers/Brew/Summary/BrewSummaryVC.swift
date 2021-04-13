@@ -15,9 +15,6 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     
     // MARK: IBOutlets
     
-    @IBOutlet var subHeaderLabel: UILabel!
-    @IBOutlet var recipeSubHeaderLabel: UILabel!
-    @IBOutlet var recipeBreakdownLabel: UILabel!
     @IBOutlet var drawdownLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
     
@@ -35,33 +32,11 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
     
     private func updateLabels() {
-        guard let session = session, let recipe = recipe else { fatalError("Nil values for session or recipe.") }
-        
-        let totalCoffee = recipe.coffee
-        let totalWater = recipe.waterTotal
-        
-        subHeaderLabel.text = "\(totalCoffee.clean)g coffee : \(totalWater.clean)g water"
-        
-        let recipeBalance = "\(recipe.balance)"
-        let recipeStrength = "\(recipe.strength)"
-        
-        recipeSubHeaderLabel.text = "\(recipeBalance.capitalized) & \(recipeStrength.capitalized)"
-        
-        let recipePours = recipe.waterPours
-        let recipePoursStrings = recipePours.map { $0.clean + "g" }
-        
-        recipeBreakdownLabel.text = recipePoursStrings.joined(separator: " | ")
+        guard let session = session else { fatalError("Nil values for session or recipe.") }
         
         drawdownLabel.text = "\(session.averageDrawdown().clean)s"
         
         totalTimeLabel.text = "\(session.totalTime.stringFromTimeInterval())"
-    }
-    
-    private func calculateAverageDrawdown(with times: [TimeInterval]) -> TimeInterval {
-        let averageTime = times.reduce(0, +) / Double(times.count)
-        let roundedAverageTime = averageTime.rounded()
-        
-        return roundedAverageTime
     }
     
     @objc private func doneTapped() {
