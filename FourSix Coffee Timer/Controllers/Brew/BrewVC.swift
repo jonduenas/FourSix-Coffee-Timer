@@ -14,6 +14,7 @@ class BrewVC: UIViewController, Storyboarded {
     weak var coordinator: BrewCoordinator?
     lazy var selectionFeedback = UISelectionFeedbackGenerator()
     lazy var calculator = Calculator()
+    var dataManager: DataManager!
     
     var timerStepInterval: TimeInterval = TimeInterval(UserDefaultsManager.timerStepInterval) {
         didSet {
@@ -67,6 +68,9 @@ class BrewVC: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard dataManager != nil else { fatalError("Controller requires a DataManager.") }
+        
         checkForStepAdvanceMigration()
         initializeNavBar()
         initializeFonts()
@@ -98,6 +102,10 @@ class BrewVC: UIViewController, Storyboarded {
             settingsImage = UIImage(systemName: "gear")
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettings))
+        navigationItem.title = "Let's Brew"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(didTapSettings))
+        
+        navigationController?.navigationBar.tintColor = UIColor.systemGray
     }
     
     private func initializeFonts() {

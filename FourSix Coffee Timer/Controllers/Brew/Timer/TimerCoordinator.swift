@@ -13,10 +13,12 @@ class TimerCoordinator: Coordinator {
     weak var parentCoordinator: BrewCoordinator?
     var navigationController: UINavigationController
     let recipe: Recipe
+    let dataManager: DataManager
     
-    init(navigationController: UINavigationController, recipe: Recipe) {
+    init(navigationController: UINavigationController, recipe: Recipe, dataManager: DataManager) {
         self.navigationController = navigationController
         self.recipe = recipe
+        self.dataManager = dataManager
     }
     
     func start() {
@@ -27,12 +29,11 @@ class TimerCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showSummary(recipe: Recipe, drawdownTimes: [TimeInterval], totalTime: TimeInterval) {
+    func showSummary(recipe: Recipe, session: Session) {
         let vc = BrewSummaryVC.instantiate(fromStoryboardNamed: String(describing: BrewSummaryVC.self))
         vc.coordinator = self
         vc.recipe = recipe
-        vc.drawdownTimes = drawdownTimes
-        vc.totalTime = totalTime
+        vc.session = session
         navigationController.pushViewController(vc, animated: true)
     }
     
@@ -42,5 +43,14 @@ class TimerCoordinator: Coordinator {
     
     func didFinishSummary() {
         parentCoordinator?.childDidFinish(self)
+    }
+    
+    func showNewNote(recipe: Recipe, session: Session) {
+        let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
+        childCoordinators.append(child)
+        child.parentCoordinator = self
+        child.recipe = recipe
+        child.session = session
+        child.start()
     }
 }

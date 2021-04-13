@@ -9,9 +9,8 @@
 import UIKit
 
 class BrewSummaryVC: UIViewController, Storyboarded {
-    var recipe: Recipe!
-    var drawdownTimes = [TimeInterval]()
-    var totalTime: TimeInterval = 0
+    var recipe: Recipe?
+    var session: Session?
     weak var coordinator: TimerCoordinator?
     
     // MARK: IBOutlets
@@ -36,6 +35,8 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
     
     private func updateLabels() {
+        guard let session = session, let recipe = recipe else { fatalError("Nil values for session or recipe.") }
+        
         let totalCoffee = recipe.coffee
         let totalWater = recipe.waterTotal
         
@@ -51,13 +52,9 @@ class BrewSummaryVC: UIViewController, Storyboarded {
         
         recipeBreakdownLabel.text = recipePoursStrings.joined(separator: " | ")
         
-        let averageDrawdown = calculateAverageDrawdown(with: drawdownTimes)
+        drawdownLabel.text = "\(session.averageDrawdown().clean)s"
         
-        drawdownLabel.text = "\(averageDrawdown.clean)s"
-        
-        let totalTimeFormatted = totalTime.stringFromTimeInterval()
-        
-        totalTimeLabel.text = "\(totalTimeFormatted)"
+        totalTimeLabel.text = "\(session.totalTime.stringFromTimeInterval())"
     }
     
     private func calculateAverageDrawdown(with times: [TimeInterval]) -> TimeInterval {
@@ -72,5 +69,10 @@ class BrewSummaryVC: UIViewController, Storyboarded {
             self?.coordinator?.didFinishSummary()
             AppStoreReviewManager.requestReviewIfAppropriate()
         }
+    }
+    
+    @IBAction func didTapEnterDetails(_ sender: UIButton) {
+        guard let recipe = recipe, let session = session else { return }
+        coordinator?.showNewNote(recipe: recipe, session: session)
     }
 }

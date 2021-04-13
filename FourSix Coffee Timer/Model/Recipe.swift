@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum Balance: Float, CaseIterable {
     case sweet = 0.42
@@ -20,7 +21,7 @@ enum Strength: Int, CaseIterable {
     case strong = 4
 }
 
-struct Recipe {
+struct Recipe: ManagedObjectInitializable {
     static let coffeeMin: Float = 10.0
     static let coffeeMax: Float = 40.0
     static let acceptableCoffeeRange: ClosedRange<Float> = 15...25
@@ -37,4 +38,27 @@ struct Recipe {
     var interval: TimeInterval
     var balance: Balance
     var strength: Strength
+    
+    init(managedObject: NSManagedObject) {
+        let recipeMO = managedObject as! RecipeMO
+        
+        let balance = Balance(rawValue: Float(recipeMO.balanceRaw)) ?? .neutral
+        let strength = Strength(rawValue: Int(recipeMO.strengthRaw)) ?? .medium
+
+        self.coffee = Float(recipeMO.coffee)
+        self.waterTotal = Float(recipeMO.waterTotal)
+        self.waterPours = recipeMO.waterPours.map { Float($0) }
+        self.interval = recipeMO.interval
+        self.balance = balance
+        self.strength = strength
+    }
+    
+    init(coffee: Float, waterTotal: Float, waterPours: [Float], interval: TimeInterval, balance: Balance, strength: Strength) {
+        self.coffee = coffee
+        self.waterTotal = waterTotal
+        self.waterPours = waterPours
+        self.interval = interval
+        self.balance = balance
+        self.strength = strength
+    }
 }

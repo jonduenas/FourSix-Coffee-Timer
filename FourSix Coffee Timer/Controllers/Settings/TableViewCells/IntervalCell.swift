@@ -16,12 +16,7 @@ class IntervalCell: TextFieldTableCell {
         didSet {
             dataSource.selectedInterval = interval
             
-            if interval >= 60 {
-                let (minutes, seconds) = interval.convertToMinAndSec()
-                cellTextField.text = "\(minutes) min \(seconds) sec"
-            } else {
-                cellTextField.text = "\(interval) sec"
-            }
+            cellTextField.text = TimeInterval(interval).minAndSecString
         }
     }
     
@@ -40,9 +35,9 @@ class IntervalCell: TextFieldTableCell {
         cellTextField.inputAccessoryView = pickerView?.toolbar
         
         // Set picker to current saved value
-        let (minutes, seconds) = interval.convertToMinAndSec()
-        let currentMinIndex = dataSource.intervalMin.firstIndex(of: minutes) ?? 0
-        let currentSecIndex = dataSource.intervalSec.firstIndex(of: seconds) ?? 0
+        let (minutes, seconds) = TimeInterval(interval).minAndSec
+        let currentMinIndex = dataSource.intervalMin.firstIndex(of: Int(minutes)) ?? 0
+        let currentSecIndex = dataSource.intervalSec.firstIndex(of: Int(seconds)) ?? 0
         
         pickerView?.selectRow(currentMinIndex, inComponent: IntervalPickerComponent.minValue.rawValue, animated: false)
         pickerView?.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)

@@ -28,6 +28,7 @@ class UserDefaultsManager: NSObject {
     private static let userHasSeenCoffeeRangeWarningKey = "userHasSeenCoffeeRangeWarningKey"
     private static let userHasMigratedStepAdvanceKey = "userHasMigratedStepAdvanceKey"
     private static let autoAdvanceTimerKey = "autoAdvanceTimerKey"
+    private static let tempUnitRawValueKey = "tempUnitRawValueKey"
     
     // MARK: Variables
     
@@ -163,6 +164,17 @@ class UserDefaultsManager: NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: autoAdvanceTimerKey)
+        }
+    }
+    
+    static var tempUnitRawValue: Int {
+        get {
+            return userDefaults.object(forKey: tempUnitRawValueKey) as? Int ?? 0
+        }
+        set {
+            let allowedValues = [0, 1]
+            guard allowedValues.contains(newValue) else { fatalError("This value should never be anything besides 0 or 1.") }
+            userDefaults.set(newValue, forKey: tempUnitRawValueKey)
         }
     }
 }
