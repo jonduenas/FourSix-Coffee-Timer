@@ -56,7 +56,7 @@
                                                                         <integer key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
-                                                                        <color key="value" name="Accent"/>
+                                                                        <color key="value" systemColor="labelColor"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </stackView>
