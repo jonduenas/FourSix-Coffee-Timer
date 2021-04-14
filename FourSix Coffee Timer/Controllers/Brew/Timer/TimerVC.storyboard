@@ -137,10 +137,10 @@
                                         <rect key="frame" x="20" y="694" width="374" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1h-Xl-nf3">
-                                                <rect key="frame" x="167" y="12" width="40" height="40"/>
+                                                <rect key="frame" x="165" y="8" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="W2V-hy-YlI"/>
-                                                    <constraint firstAttribute="height" constant="40" id="l0w-N6-dn6"/>
+                                                    <constraint firstAttribute="width" constant="44" id="W2V-hy-YlI"/>
+                                                    <constraint firstAttribute="height" constant="44" id="l0w-N6-dn6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" name="Accent"/>
@@ -152,9 +152,9 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXf-Tj-ANC">
-                                                <rect key="frame" x="307" y="12" width="47" height="40"/>
+                                                <rect key="frame" x="307" y="8" width="47" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="Vtm-Jc-b7x"/>
+                                                    <constraint firstAttribute="height" constant="44" id="Vtm-Jc-b7x"/>
                                                     <constraint firstAttribute="width" constant="47" id="Z0E-c9-ZED"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>

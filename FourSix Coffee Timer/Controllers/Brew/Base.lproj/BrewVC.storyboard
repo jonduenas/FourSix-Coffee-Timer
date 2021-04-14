@@ -161,7 +161,7 @@
                                         </variation>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKE-sT-B5i">
-                                        <rect key="frame" x="25" y="244.33333333333331" width="320" height="99"/>
+                                        <rect key="frame" x="25" y="246.66666666666669" width="320" height="99"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-xE-ICZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
@@ -205,7 +205,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-LE-uJD">
-                                        <rect key="frame" x="25" y="431.66666666666663" width="320" height="106"/>
+                                        <rect key="frame" x="25" y="436.33333333333337" width="320" height="106"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-hd-SvQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
@@ -245,14 +245,11 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FUY-dS-iUv">
-                                        <rect key="frame" x="25" y="626" width="320" height="51"/>
+                                        <rect key="frame" x="25" y="633" width="320" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4I2-aS-mxO" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="155" height="51"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="155" height="44"/>
                                                 <color key="backgroundColor" name="Background"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="51" id="ABv-so-cGh"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="Show Recipe">
                                                     <color key="titleColor" name="Accent"/>
@@ -265,7 +262,7 @@
                                                         <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="25"/>
+                                                        <real key="value" value="21"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -273,10 +270,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgi-ZW-LPo" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                                <rect key="frame" x="165" y="0.0" width="155" height="51"/>
+                                                <rect key="frame" x="165" y="0.0" width="155" height="44"/>
                                                 <color key="backgroundColor" name="Accent"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="51" id="0Pa-MW-75P"/>
+                                                    <constraint firstAttribute="height" constant="44" id="0Pa-MW-75P"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="Start">
@@ -284,7 +281,7 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="25"/>
+                                                        <real key="value" value="21"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -292,6 +289,9 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="pgi-ZW-LPo" firstAttribute="height" secondItem="4I2-aS-mxO" secondAttribute="height" id="y7E-Iy-QJm"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
