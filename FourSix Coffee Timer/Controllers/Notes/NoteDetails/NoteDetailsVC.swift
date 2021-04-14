@@ -12,7 +12,7 @@ import CoreData
 class NoteDetailsVC: UIViewController, Storyboarded {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var ratingControl: RatingControl!
-    @IBOutlet weak var doubleTapHint: UILabel!
+    @IBOutlet weak var longTapHint: UILabel!
     
     // Session
     @IBOutlet weak var dateLabel: UILabel!
@@ -403,15 +403,15 @@ extension NoteDetailsVC: UITextViewDelegate {
 
 extension NoteDetailsVC: RatingControlDelegate {
     func ratingControlShouldShowHint(ratingControl: RatingControl) {
-        guard doubleTapHint.alpha == 0, !hintIsAnimating else { return }
+        guard longTapHint.alpha == 0, !hintIsAnimating else { return }
         
         hintIsAnimating = true
         
         UIView.animate(withDuration: 0.75, delay: 0) {
-            self.doubleTapHint.alpha = 1
+            self.longTapHint.alpha = 1
         } completion: { _ in
             UIView.animate(withDuration: 0.75, delay: 5) {
-                self.doubleTapHint.alpha = 0
+                self.longTapHint.alpha = 0
             } completion: { _ in
                 self.hintIsAnimating = false
             }

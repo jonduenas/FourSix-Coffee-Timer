@@ -553,10 +553,10 @@
                         <outlet property="coffeePickerView" destination="jB1-kz-DLK" id="nGR-4L-EK8"/>
                         <outlet property="dateLabel" destination="ny4-ft-NiK" id="UIb-41-s0R"/>
                         <outlet property="deleteButton" destination="zbh-af-PU9" id="VVg-1Z-Al2"/>
-                        <outlet property="doubleTapHint" destination="dEg-xP-BLf" id="pPi-yM-IxF"/>
                         <outlet property="drawdownLabel" destination="6Ld-E6-NmD" id="Eqw-ys-Gky"/>
                         <outlet property="flavorProfileLabel" destination="rb7-ut-1ac" id="CUr-YA-Tqr"/>
                         <outlet property="grindSettingTextField" destination="w6P-kr-NAj" id="OLt-wV-MjF"/>
+                        <outlet property="longTapHint" destination="dEg-xP-BLf" id="pPi-yM-IxF"/>
                         <outlet property="notesTextView" destination="AWr-eY-C2J" id="NY3-aW-6FO"/>
                         <outlet property="pourIntervalLabel" destination="Z0D-hJ-Fks" id="w9i-xn-foz"/>
                         <outlet property="poursLabel" destination="EEr-0a-AO8" id="bJd-wx-hy4"/>
