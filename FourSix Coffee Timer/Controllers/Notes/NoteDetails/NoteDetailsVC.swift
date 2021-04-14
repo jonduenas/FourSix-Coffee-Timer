@@ -42,6 +42,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     weak var coordinator: NoteDetailsCoordinator?
     var note: NoteMO?
     var isNewNote: Bool = false
+    var hintIsAnimating: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -402,13 +403,17 @@ extension NoteDetailsVC: UITextViewDelegate {
 
 extension NoteDetailsVC: RatingControlDelegate {
     func ratingControlShouldShowHint(ratingControl: RatingControl) {
-        guard doubleTapHint.alpha == 0 else { return }
+        guard doubleTapHint.alpha == 0, !hintIsAnimating else { return }
+        
+        hintIsAnimating = true
         
         UIView.animate(withDuration: 0.75, delay: 0) {
             self.doubleTapHint.alpha = 1
         } completion: { _ in
             UIView.animate(withDuration: 0.75, delay: 5) {
                 self.doubleTapHint.alpha = 0
+            } completion: { _ in
+                self.hintIsAnimating = false
             }
         }
     }
