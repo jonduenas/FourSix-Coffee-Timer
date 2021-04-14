@@ -80,7 +80,7 @@ extension DataManager {
     
     // MARK: New Object Methods
     
-    @discardableResult func newNoteMO(session: Session, recipe: Recipe, coffee: Coffee?) -> NoteMO {
+    @discardableResult func newNoteMO(session: Session, recipe: Recipe, coffee: Coffee?) -> NoteMO? {
         let newNote = NoteMO(context: mainContext)
         newNote.date = Date()
         
@@ -93,6 +93,13 @@ extension DataManager {
         if let coffee = coffee {
             let newCoffee = newCoffeeMO(from: coffee)
             newNote.coffee = newCoffee
+        }
+        
+        do {
+            try mainContext.obtainPermanentIDs(for: [newNote])
+        } catch {
+            print(error.localizedDescription)
+            return nil
         }
         
         saveContext(mainContext)

@@ -40,7 +40,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     var dataManager: DataManager!
     weak var coordinator: NoteDetailsCoordinator?
-    var note: NoteMO!
+    var note: NoteMO?
     var isNewNote: Bool = false
     
     override func viewDidLoad() {
@@ -138,27 +138,30 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // MARK: Update UI with Note
     
     private func configureView() {
-        guard note != nil else { fatalError("Note is nil.") }
+        guard let note = note else { fatalError("Note is nil.") }
         
         note.managedObjectContext?.perform {
             self.initializeTempUnitSelector()
             self.updateLabels()
             self.initializeDatePicker()
-            self.ratingControl.rating = Int(self.note.rating)
+            self.ratingControl.rating = Int(note.rating)
         }
     }
     
     private func initializeDatePicker() {
-        if let roastDate = note.roastDate {
+        if let roastDate = note?.roastDate {
             roastDateTextField.datePicker.setDate(roastDate, animated: false)
         }
     }
     
     private func initializeTempUnitSelector() {
+        guard let note = note else { return }
         waterTempUnitControl.selectedSegmentIndex = Int(note.tempUnitRawValue)
     }
     
     private func updateLabels() {
+        guard let note = note else { return }
+        
         // Session
         dateLabel.text = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
         drawdownLabel.text = note.session.averageDrawdown.minAndSecString
@@ -214,6 +217,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // MARK: Coffee Picker
     
     @objc private func didTapCoffeeView() {
+        guard let note = note else { return }
+        
         if isEditing {
             coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
         }
@@ -228,10 +233,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         // If isEditing is true, changing segment sets the value on the object
         case (TempUnit.celsius.rawValue, true):
             print("Switched to \(TempUnit.celsius), should write")
-            note.tempUnitRawValue = Int64(TempUnit.celsius.rawValue)
+            note?.tempUnitRawValue = Int64(TempUnit.celsius.rawValue)
         case (TempUnit.fahrenheit.rawValue, true):
             print("Switched to \(TempUnit.fahrenheit), should write")
-            note.tempUnitRawValue = Int64(TempUnit.fahrenheit.rawValue)
+            note?.tempUnitRawValue = Int64(TempUnit.fahrenheit.rawValue)
         
         // If isEditing is false, changing segment converts displayed value but doesn't change any stored values on object
         case (TempUnit.celsius.rawValue, false):
@@ -269,7 +274,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // MARK: Update Note Managed Object
     
     private func getBackgroundNote() -> NoteMO? {
-        let objectID = note.objectID
+        guard let objectID = note?.objectID else { return nil }
         
         var backgroundNote: NoteMO?
         dataManager.backgroundContext.performAndWait {
@@ -315,7 +320,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func updateNote(with rating: Int) {
-        guard note.rating != rating else { return }
+        guard let note = note, note.rating != rating else { return }
         guard let backgroundNote = getBackgroundNote() else { return }
         backgroundNote.managedObjectContext?.perform {
             backgroundNote.rating = Int64(rating)
@@ -337,7 +342,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func deleteNote() {
-        print("Deleting note")
+        guard let note = note else { return }
         dataManager.delete(note)
         navigationController?.popViewController(animated: true)
     }
@@ -417,7 +422,7 @@ extension NoteDetailsVC: RatingControlDelegate {
 
 extension NoteDetailsVC: CoffeePickerDelegate {
     func didPickCoffee(_ coffee: CoffeeMO?) {
-        note.coffee = coffee
+        note?.coffee = coffee
         dataManager.saveContext()
         coffeePickerView.coffee = coffee
     }
