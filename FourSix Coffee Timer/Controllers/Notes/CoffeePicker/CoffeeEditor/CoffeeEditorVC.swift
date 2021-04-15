@@ -111,10 +111,10 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
                 fatalError(error.localizedDescription)
             }
         } else {
-            coffeeMO!.name = coffee.name
-            coffeeMO!.roaster = coffee.roaster
-            coffeeMO!.origin = coffee.origin
-            coffeeMO!.roastLevel = coffee.roastLevel
+            coffeeMO?.name = coffee.name
+            coffeeMO?.roaster = coffee.roaster
+            coffeeMO?.origin = coffee.origin
+            coffeeMO?.roastLevel = coffee.roastLevel
         }
     }
 }
