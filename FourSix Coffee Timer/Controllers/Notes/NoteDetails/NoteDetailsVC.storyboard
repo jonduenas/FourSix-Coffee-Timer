@@ -427,7 +427,7 @@
                                                             <outlet property="roasterLabel" destination="exP-21-lAX" id="2uR-fx-kJe"/>
                                                         </connections>
                                                     </view>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-c1-40m" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-c1-40m" customClass="DatePickerView" customModule="FourSix" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="1026" width="334" height="350"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roast Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHU-rz-Cxx">
@@ -446,7 +446,7 @@
                                                                 <rect key="frame" x="10" y="50.5" width="314" height="216"/>
                                                                 <color key="tintColor" name="Accent"/>
                                                                 <connections>
-                                                                    <action selector="didChangeDate:" destination="21v-4u-HzI" eventType="valueChanged" id="Ndl-KY-QIa"/>
+                                                                    <action selector="didChangeDate:" destination="j5f-c1-40m" eventType="valueChanged" id="7Ur-QQ-3Wz"/>
                                                                 </connections>
                                                             </datePicker>
                                                         </subviews>
@@ -465,6 +465,11 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="datePicker" destination="7js-a7-cUE" id="tbv-Dl-gl7"/>
+                                                            <outlet property="datePickerHeight" destination="PyJ-7Y-3Rv" id="JI7-vf-UbW"/>
+                                                            <outlet property="roastDateLabel" destination="O9y-wh-HWR" id="kOH-bW-H7f"/>
+                                                        </connections>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbX-fI-wPn">
                                                         <rect key="frame" x="134" y="1396" width="66.5" height="29"/>
@@ -559,8 +564,6 @@
                         <outlet property="coffeeAmountLabel" destination="lfv-XX-Gek" id="gG4-tG-QRg"/>
                         <outlet property="coffeePickerView" destination="jB1-kz-DLK" id="nGR-4L-EK8"/>
                         <outlet property="dateLabel" destination="ny4-ft-NiK" id="UIb-41-s0R"/>
-                        <outlet property="datePicker" destination="7js-a7-cUE" id="Bz4-VO-yAD"/>
-                        <outlet property="datePickerHeight" destination="PyJ-7Y-3Rv" id="LVs-sn-dMu"/>
                         <outlet property="datePickerView" destination="j5f-c1-40m" id="ZSY-5B-0Ho"/>
                         <outlet property="deleteButton" destination="zbh-af-PU9" id="VVg-1Z-Al2"/>
                         <outlet property="drawdownLabel" destination="6Ld-E6-NmD" id="Eqw-ys-Gky"/>
@@ -571,7 +574,6 @@
                         <outlet property="pourIntervalLabel" destination="Z0D-hJ-Fks" id="w9i-xn-foz"/>
                         <outlet property="poursLabel" destination="EEr-0a-AO8" id="bJd-wx-hy4"/>
                         <outlet property="ratingControl" destination="2J5-lp-iQX" id="eGd-6f-cqF"/>
-                        <outlet property="roastDateLabel" destination="O9y-wh-HWR" id="Jfp-g4-JkQ"/>
                         <outlet property="scrollView" destination="aBg-dc-E8K" id="y5X-lM-6qv"/>
                         <outlet property="totalTimeLabel" destination="nWC-pA-jVW" id="lOI-I4-4PP"/>
                         <outlet property="waterAmountLabel" destination="uQR-9c-GzU" id="q5K-bx-zIl"/>
