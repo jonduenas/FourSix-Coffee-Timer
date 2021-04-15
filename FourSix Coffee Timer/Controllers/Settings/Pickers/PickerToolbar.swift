@@ -31,7 +31,7 @@ class PickerToolbar: UIToolbar {
     
     private func commonInit() {
         barStyle = .default
-        isTranslucent = true
+        isTranslucent = false
         tintColor = UIColor(named: AssetsColor.accent.rawValue)
         barTintColor = UIColor(named: AssetsColor.secondaryBackground.rawValue)
         
