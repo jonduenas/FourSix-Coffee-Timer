@@ -50,7 +50,7 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
     
     @objc private func didTapDoneButton() {
         guard requiredFieldsFilled else {
-            AlertHelper.showAlert(title: "Sorry...", message: "Roaster name and coffee name are required.", on: self)
+            AlertHelper.showAlert(title: "Sorry...", message: "Roaster Name and Coffee Name are required.", on: self)
             return
         }
         
