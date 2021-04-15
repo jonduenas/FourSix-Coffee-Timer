@@ -43,14 +43,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     var note: NoteMO?
     var isNewNote: Bool = false
     var hintIsAnimating: Bool = false
-    let datePickerVisibleHeight_iOS14: CGFloat = 350
-    let datePickerVisibleHeight_iOS13: CGFloat = 285
-    let datePickerHiddenHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerKeyboardNotifications()
+        registerMOCChangeNotification()
         ratingControl.delegate = self
         datePickerView.delegate = self
         configureNavController()
@@ -382,6 +380,24 @@ extension NoteDetailsVC {
         
         if notesTextView.isFirstResponder {
             scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
+        }
+    }
+}
+
+// MARK: - Update CoffeePickerView
+// Updates CoffeePickerView labels when CoffeeMO object is edited and it's the currently selected and displayed coffee
+
+extension NoteDetailsVC {
+    private func registerMOCChangeNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(contextDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: dataManager.mainContext)
+    }
+    
+    @objc func contextDidChange(notification: Notification) {
+        guard let updatedObjects = notification.userInfo?[NSUpdatedObjectsKey] as? Set<NSManagedObject> else { return }
+        guard let coffee = note?.coffee else { return }
+        
+        if updatedObjects.contains(coffee) {
+            coffeePickerView.updateCoffeeLabels()
         }
     }
 }

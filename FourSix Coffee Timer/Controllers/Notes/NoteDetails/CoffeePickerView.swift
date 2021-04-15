@@ -62,4 +62,9 @@ class CoffeePickerView: RoundedView {
         let roastLevel = coffee.roastLevel == "" ? unknownString : coffee.roastLevel
         roastLevelLabel.text = "Roast Level: \(roastLevel)"
     }
+    
+    func updateCoffeeLabels() {
+        guard let coffee = coffee else { return }
+        updateCoffeeLabels(coffee)
+    }
 }
