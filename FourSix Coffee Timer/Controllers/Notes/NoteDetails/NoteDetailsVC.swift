@@ -31,7 +31,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     // Coffee Details
     @IBOutlet weak var coffeePickerView: CoffeePickerView!
-    @IBOutlet weak var roastDateTextField: DateTextField!
+    @IBOutlet weak var roastDateLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datePickerView: RoundedView!
+    @IBOutlet weak var datePickerHeight: NSLayoutConstraint!
     
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
@@ -43,6 +46,9 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     var note: NoteMO?
     var isNewNote: Bool = false
     var hintIsAnimating: Bool = false
+    let datePickerVisibleHeight_iOS14: CGFloat = 350
+    let datePickerVisibleHeight_iOS13: CGFloat = 285
+    let datePickerHiddenHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +117,37 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        setUIEditMode()
+        
+        if animated {
+            UIView.animate(withDuration: 0.2) {
+                self.setUIEditMode()
+                self.showDatePicker(editing, animated: true)
+            }
+            
+        } else {
+            setUIEditMode()
+            self.showDatePicker(editing, animated: false)
+        }
+    }
+    
+    private func showDatePicker(_ show: Bool, animated: Bool) {
+        if animated {
+            UIView.animate(withDuration: 0.2) {
+                if #available(iOS 14.0, *) {
+                    self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS14 : self.datePickerHiddenHeight)
+                } else {
+                    self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS13 : self.datePickerHiddenHeight)
+                }
+            }
+        } else {
+            if #available(iOS 14.0, *) {
+                self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS14 : self.datePickerHiddenHeight)
+            } else {
+                self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS13 : self.datePickerHiddenHeight)
+            }
+        }
+        
+        view.layoutIfNeeded()
     }
     
     private func setUIEditMode() {
@@ -124,9 +160,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         waterTempTextField.isEnabled = isEditing
         waterTempTextField.borderStyle = borderStyle
-        
-        roastDateTextField.isEnabled = isEditing
-        roastDateTextField.borderStyle = borderStyle
         
         coffeePickerView.setEditing(isEditing)
         
@@ -150,8 +183,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func initializeDatePicker() {
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        }
+        
         if let roastDate = note?.roastDate {
-            roastDateTextField.datePicker.setDate(roastDate, animated: false)
+            datePicker.date = roastDate
+            roastDateLabel.text = roastDate.stringFromDate(dateStyle: .medium, timeStyle: nil)
         }
     }
     
@@ -179,7 +217,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         // Coffee Details
         coffeePickerView.coffee = note.coffee
-        roastDateTextField.text = note.roastDate != nil ? note.roastDate!.stringFromDate(dateStyle: .medium, timeStyle: nil) : ""
+        roastDateLabel.textColor = note.roastDate != nil ? UIColor.label : UIColor.secondaryLabel
+        roastDateLabel.text = note.roastDate != nil ? note.roastDate!.stringFromDate(dateStyle: .medium, timeStyle: nil) : "Select Date"
         
         // Notes
         notesTextView.text = note.text
@@ -274,6 +313,20 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     
     // MARK: Update Note Managed Object
     
+    @IBAction func didChangeDate(_ sender: UIDatePicker) {
+        guard let note = note, note.roastDate != sender.date else { return }
+        
+        note.roastDate = sender.date
+        roastDateLabel.text = sender.date.stringFromDate(dateStyle: .medium, timeStyle: nil)
+        
+        if roastDateLabel.textColor == UIColor.secondaryLabel {
+            roastDateLabel.textColor = UIColor.label
+        }
+        
+        dataManager.saveContext()
+    }
+    
+    
     private func getBackgroundNote() -> NoteMO? {
         guard let objectID = note?.objectID else { return nil }
         
@@ -288,7 +341,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     private func updateNote(with textField: UITextField) {
         let text = textField.text ?? ""
         let temp = getCelsiusTemp()
-        let roastDate = roastDateTextField.datePicker.date
         
         guard let backgroundNote = getBackgroundNote() else { return }
         
@@ -298,8 +350,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                 backgroundNote.grindSetting = text
             case self.waterTempTextField:
                 backgroundNote.waterTempC = temp
-            case self.roastDateTextField:
-                backgroundNote.roastDate = roastDate
             default:
                 print("Not a valid text field")
                 return

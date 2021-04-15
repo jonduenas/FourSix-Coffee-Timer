@@ -53,6 +53,7 @@
 		6543841A25F063CC00AB71F7 /* MinAndSec+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6543841925F063CC00AB71F7 /* MinAndSec+Double.swift */; };
 		6544681E2626531600494D0A /* SummaryTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6544681D2626531600494D0A /* SummaryTransitioningDelegate.swift */; };
 		654468222626536A00494D0A /* SlideOverPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654468212626536A00494D0A /* SlideOverPresentation.swift */; };
+		654A327E2628C18F00A07E5B /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A327D2628C18F00A07E5B /* DatePickerView.swift */; };
 		6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6557571424A673C00071DDB8 /* ProgressCircle.swift */; };
 		6559A03424BD1B5B00AE4C14 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6559A03324BD1B5A00AE4C14 /* IAPManager.swift */; };
 		655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BB6B224916B3900ED5575 /* SettingsVC.swift */; };
@@ -187,6 +188,7 @@
 		6543841925F063CC00AB71F7 /* MinAndSec+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinAndSec+Double.swift"; sourceTree = "<group>"; };
 		6544681D2626531600494D0A /* SummaryTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTransitioningDelegate.swift; sourceTree = "<group>"; };
 		654468212626536A00494D0A /* SlideOverPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverPresentation.swift; sourceTree = "<group>"; };
+		654A327D2628C18F00A07E5B /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/View/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
 		6559A03324BD1B5A00AE4C14 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		655BB6B224916B3900ED5575 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				6536F27B2602BED600E2DF28 /* NoteDetailsVC.storyboard */,
 				6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */,
+				654A327D2628C18F00A07E5B /* DatePickerView.swift */,
 				659F8802261B9F7000D4F89F /* DateTextField.swift */,
 				653E6316260957AE00BA32BF /* NotesTextView.swift */,
 				65FF841C2620F006008B2BE2 /* CoffeePickerView.swift */,
@@ -922,6 +925,7 @@
 				65A2775425FFE88F0093B0B9 /* AlertHelper.swift in Sources */,
 				653E631B26095B6E00BA32BF /* RatingControl.swift in Sources */,
 				65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */,
+				654A327E2628C18F00A07E5B /* DatePickerView.swift in Sources */,
 				65D5DE8C260D38B800353385 /* CoffeeMO+CoreDataProperties.swift in Sources */,
 				6542DDF625D8512D0067C704 /* SettingsCoordinator.swift in Sources */,
 				653715AB25F1874200F162DD /* PickerToolbar.swift in Sources */,

@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-sH-RJX" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1383"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1694"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-Nf-Lj6">
-                                                <rect key="frame" x="40" y="5" width="334" height="1348"/>
+                                                <rect key="frame" x="40" y="5" width="334" height="1659"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="goG-F7-Oiy">
-                                                        <rect key="frame" x="47" y="0.0" width="240" height="69"/>
+                                                        <rect key="frame" x="47" y="0.0" width="240" height="75"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIr-iv-Fny">
                                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="25"/>
@@ -47,7 +47,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2J5-lp-iQX" userLabel="RatingStack" customClass="RatingControl" customModule="FourSix" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="25" width="240" height="44"/>
+                                                                <rect key="frame" x="0.0" y="25" width="240" height="50"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                                                         <size key="value" width="44" height="44"/>
@@ -67,19 +67,19 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-4M-KTr">
-                                                        <rect key="frame" x="123" y="89" width="88.5" height="29"/>
+                                                        <rect key="frame" x="123" y="95" width="88.5" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ny4-ft-NiK">
-                                                        <rect key="frame" x="147.5" y="138" width="39" height="21.5"/>
+                                                        <rect key="frame" x="147.5" y="144" width="39" height="21.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oEw-MJ-mMM" userLabel="SessionStack">
-                                                        <rect key="frame" x="0.0" y="179.5" width="334" height="90"/>
+                                                        <rect key="frame" x="0.0" y="185.5" width="334" height="90"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jC-cv-t6W">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="45"/>
@@ -132,19 +132,19 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmH-1c-oi0">
-                                                        <rect key="frame" x="128.5" y="289.5" width="77" height="29"/>
+                                                        <rect key="frame" x="128.5" y="295.5" width="77" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EEr-0a-AO8">
-                                                        <rect key="frame" x="143.5" y="338.5" width="47.5" height="21.5"/>
+                                                        <rect key="frame" x="143.5" y="344.5" width="47.5" height="21.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="toL-AX-tUx" userLabel="RecipeStack">
-                                                        <rect key="frame" x="0.0" y="380" width="334" height="270"/>
+                                                        <rect key="frame" x="0.0" y="386" width="334" height="270"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPV-z9-gH7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="45"/>
@@ -328,7 +328,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-fx-9hu">
-                                                        <rect key="frame" x="67" y="670" width="200" height="29"/>
+                                                        <rect key="frame" x="67" y="676" width="200" height="29"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-Oe-ftg">
                                                                 <rect key="frame" x="21" y="0.0" width="158.5" height="29"/>
@@ -342,7 +342,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jB1-kz-DLK" customClass="CoffeePickerView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="719" width="334" height="281"/>
+                                                        <rect key="frame" x="0.0" y="725" width="334" height="281"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Npy-Jv-iC5">
                                                                 <rect key="frame" x="15" y="15" width="161" height="251"/>
@@ -427,43 +427,53 @@
                                                             <outlet property="roasterLabel" destination="exP-21-lAX" id="2uR-fx-kJe"/>
                                                         </connections>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXh-2h-TBd">
-                                                        <rect key="frame" x="0.0" y="1020" width="334" height="45"/>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-c1-40m" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="1026" width="334" height="350"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roast Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHU-rz-Cxx">
-                                                                <rect key="frame" x="0.0" y="12.5" width="152" height="20.5"/>
+                                                                <rect key="frame" x="15" y="15" width="83.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter date" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bgf-Z9-I9Y" customClass="DateTextField" customModule="FourSix" customModuleProvider="target">
-                                                                <rect key="frame" x="167" y="5.5" width="167" height="34"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9y-wh-HWR">
+                                                                <rect key="frame" x="167" y="15" width="41.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="7js-a7-cUE">
+                                                                <rect key="frame" x="10" y="50.5" width="314" height="216"/>
+                                                                <color key="tintColor" name="Accent"/>
                                                                 <connections>
-                                                                    <outlet property="delegate" destination="21v-4u-HzI" id="Tha-ee-Lip"/>
+                                                                    <action selector="didChangeDate:" destination="21v-4u-HzI" eventType="valueChanged" id="Ndl-KY-QIa"/>
                                                                 </connections>
-                                                            </textField>
+                                                            </datePicker>
                                                         </subviews>
+                                                        <color key="backgroundColor" name="SecondaryBackground"/>
                                                         <constraints>
-                                                            <constraint firstItem="vHU-rz-Cxx" firstAttribute="centerY" secondItem="LXh-2h-TBd" secondAttribute="centerY" id="3t9-Wu-tot"/>
-                                                            <constraint firstItem="Bgf-Z9-I9Y" firstAttribute="leading" secondItem="vHU-rz-Cxx" secondAttribute="trailing" constant="15" id="8kB-s1-TMv"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Bgf-Z9-I9Y" secondAttribute="trailing" id="d5P-Kz-JDH"/>
-                                                            <constraint firstItem="Bgf-Z9-I9Y" firstAttribute="centerY" secondItem="LXh-2h-TBd" secondAttribute="centerY" id="q0o-5r-Spd"/>
-                                                            <constraint firstItem="vHU-rz-Cxx" firstAttribute="leading" secondItem="LXh-2h-TBd" secondAttribute="leading" id="uhO-Dm-tNw"/>
+                                                            <constraint firstItem="7js-a7-cUE" firstAttribute="leading" secondItem="j5f-c1-40m" secondAttribute="leading" constant="10" id="64b-kR-rwn"/>
+                                                            <constraint firstItem="vHU-rz-Cxx" firstAttribute="top" secondItem="j5f-c1-40m" secondAttribute="top" constant="15" id="6sE-34-Wpc"/>
+                                                            <constraint firstAttribute="trailing" secondItem="7js-a7-cUE" secondAttribute="trailing" constant="10" id="AAS-Y1-K11"/>
+                                                            <constraint firstItem="7js-a7-cUE" firstAttribute="top" secondItem="vHU-rz-Cxx" secondAttribute="bottom" constant="15" id="Kx9-NR-b7f"/>
+                                                            <constraint firstAttribute="height" constant="350" id="PyJ-7Y-3Rv"/>
+                                                            <constraint firstItem="O9y-wh-HWR" firstAttribute="top" secondItem="j5f-c1-40m" secondAttribute="top" constant="15" id="mSy-WA-8xH"/>
+                                                            <constraint firstItem="vHU-rz-Cxx" firstAttribute="leading" secondItem="j5f-c1-40m" secondAttribute="leading" constant="15" id="wEH-nZ-drb"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbX-fI-wPn">
-                                                        <rect key="frame" x="134" y="1085" width="66.5" height="29"/>
+                                                        <rect key="frame" x="134" y="1396" width="66.5" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="AWr-eY-C2J" customClass="NotesTextView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="1134" width="334" height="150"/>
+                                                        <rect key="frame" x="0.0" y="1445" width="334" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="VPc-6V-WTK"/>
@@ -477,7 +487,7 @@
                                                         </connections>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbh-af-PU9" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="87" y="1304" width="160" height="44"/>
+                                                        <rect key="frame" x="87" y="1615" width="160" height="44"/>
                                                         <color key="backgroundColor" red="0.76866525409999997" green="0.15744084119999999" blue="0.20944714549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="ECa-iS-wzo"/>
@@ -499,16 +509,13 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="1jC-cv-t6W" firstAttribute="height" secondItem="fPV-z9-gH7" secondAttribute="height" id="1p2-1w-8PX"/>
+                                                    <constraint firstItem="O9y-wh-HWR" firstAttribute="leading" secondItem="rb7-ut-1ac" secondAttribute="leading" id="1yw-wb-50L"/>
                                                     <constraint firstItem="oEw-MJ-mMM" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="5NO-VG-ALR"/>
-                                                    <constraint firstItem="LXh-2h-TBd" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="75D-4j-33a"/>
                                                     <constraint firstAttribute="trailing" secondItem="toL-AX-tUx" secondAttribute="trailing" id="9NL-mP-jWo"/>
                                                     <constraint firstAttribute="trailing" secondItem="oEw-MJ-mMM" secondAttribute="trailing" id="AzP-6T-Yre"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LXh-2h-TBd" secondAttribute="trailing" id="C0T-7g-62b"/>
                                                     <constraint firstItem="AWr-eY-C2J" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="CDq-Ph-SSm"/>
-                                                    <constraint firstItem="Bgf-Z9-I9Y" firstAttribute="leading" secondItem="w6P-kr-NAj" secondAttribute="leading" id="DuO-kR-5Jt"/>
                                                     <constraint firstItem="toL-AX-tUx" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="JwN-0x-9mN"/>
                                                     <constraint firstItem="jB1-kz-DLK" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="KTI-hd-UNh"/>
-                                                    <constraint firstItem="LXh-2h-TBd" firstAttribute="height" secondItem="fPV-z9-gH7" secondAttribute="height" id="Neg-ju-snz"/>
                                                     <constraint firstAttribute="trailing" secondItem="jB1-kz-DLK" secondAttribute="trailing" id="QvL-43-SO1"/>
                                                     <constraint firstItem="6Ld-E6-NmD" firstAttribute="width" secondItem="rb7-ut-1ac" secondAttribute="width" id="cQB-UZ-Asr"/>
                                                     <constraint firstItem="nWC-pA-jVW" firstAttribute="width" secondItem="rb7-ut-1ac" secondAttribute="width" id="m4l-tX-GxI"/>
@@ -552,6 +559,9 @@
                         <outlet property="coffeeAmountLabel" destination="lfv-XX-Gek" id="gG4-tG-QRg"/>
                         <outlet property="coffeePickerView" destination="jB1-kz-DLK" id="nGR-4L-EK8"/>
                         <outlet property="dateLabel" destination="ny4-ft-NiK" id="UIb-41-s0R"/>
+                        <outlet property="datePicker" destination="7js-a7-cUE" id="Bz4-VO-yAD"/>
+                        <outlet property="datePickerHeight" destination="PyJ-7Y-3Rv" id="LVs-sn-dMu"/>
+                        <outlet property="datePickerView" destination="j5f-c1-40m" id="ZSY-5B-0Ho"/>
                         <outlet property="deleteButton" destination="zbh-af-PU9" id="VVg-1Z-Al2"/>
                         <outlet property="drawdownLabel" destination="6Ld-E6-NmD" id="Eqw-ys-Gky"/>
                         <outlet property="flavorProfileLabel" destination="rb7-ut-1ac" id="CUr-YA-Tqr"/>
@@ -561,7 +571,7 @@
                         <outlet property="pourIntervalLabel" destination="Z0D-hJ-Fks" id="w9i-xn-foz"/>
                         <outlet property="poursLabel" destination="EEr-0a-AO8" id="bJd-wx-hy4"/>
                         <outlet property="ratingControl" destination="2J5-lp-iQX" id="eGd-6f-cqF"/>
-                        <outlet property="roastDateTextField" destination="Bgf-Z9-I9Y" id="em7-Je-kPd"/>
+                        <outlet property="roastDateLabel" destination="O9y-wh-HWR" id="Jfp-g4-JkQ"/>
                         <outlet property="scrollView" destination="aBg-dc-E8K" id="y5X-lM-6qv"/>
                         <outlet property="totalTimeLabel" destination="nWC-pA-jVW" id="lOI-I4-4PP"/>
                         <outlet property="waterAmountLabel" destination="uQR-9c-GzU" id="q5K-bx-zIl"/>
