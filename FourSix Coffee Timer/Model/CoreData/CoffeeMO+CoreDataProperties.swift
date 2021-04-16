@@ -22,6 +22,7 @@ extension CoffeeMO {
     @NSManaged public var roaster: String
     @NSManaged public var roastLevel: String
     @NSManaged public var notes: NSSet?
+    @NSManaged public var previousRoastDate: Date?
 
 }
 

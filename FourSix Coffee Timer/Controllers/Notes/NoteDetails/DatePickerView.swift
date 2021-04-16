@@ -26,10 +26,8 @@ class DatePickerView: RoundedView {
     
     weak var delegate: DatePickerViewDelegate?
     
-    var roastDate: Date? = nil {
+    private(set) var roastDate: Date? = nil {
         didSet {
-            delegate?.datePickerView(self, didChangeToDate: roastDate)
-            
             if let date = roastDate {
                 roastDateLabel.text = date.stringFromDate(dateStyle: .medium, timeStyle: nil)
                 
@@ -42,6 +40,8 @@ class DatePickerView: RoundedView {
             }
         }
     }
+    
+    private(set) var datePickerIsHidden: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -88,7 +88,14 @@ class DatePickerView: RoundedView {
         }
     }
     
+    func setDate(_ date: Date?) {
+        guard roastDate != date else { return }
+        roastDate = date
+        datePicker.date = date ?? Date()
+        delegate?.datePickerView(self, didChangeToDate: date)
+    }
+    
     @IBAction private func didChangeDate(_ sender: UIDatePicker) {
-        roastDate = sender.date
+        setDate(sender.date)
     }
 }

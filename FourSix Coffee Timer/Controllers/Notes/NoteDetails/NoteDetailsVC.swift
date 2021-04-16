@@ -186,7 +186,9 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         coffeePickerView.coffee = note.coffee
         datePickerView.isHidden = note.coffee == nil
         if let roastDate = note.roastDate {
-            datePickerView.roastDate = roastDate
+            datePickerView.setDate(roastDate)
+        } else if let previousRoastDate = note.coffee?.previousRoastDate {
+            datePickerView.setDate(previousRoastDate)
         }
         
         // Notes
@@ -453,10 +455,15 @@ extension NoteDetailsVC: CoffeePickerDelegate {
         note?.coffee = coffee
         dataManager.saveContext()
         coffeePickerView.coffee = coffee
+        datePickerView.setDate(coffee?.previousRoastDate ?? Date())
         
         if coffee == nil {
+            // If the user deletes the currently picked coffee without picking another new one
             datePickerView.isHidden = true
             note?.roastDate = nil
+        } else {
+            // Makes sure the datePickerView is visible when a coffee is selected
+            datePickerView.isHidden = false
         }
     }
 }
@@ -465,8 +472,9 @@ extension NoteDetailsVC: CoffeePickerDelegate {
 
 extension NoteDetailsVC: DatePickerViewDelegate {
     func datePickerView(_ datePickerView: DatePickerView, didChangeToDate date: Date?) {
-        guard note?.coffee != nil else { return }
+        guard note?.coffee != nil, note?.roastDate != date else { return }
         note?.roastDate = date
+        note?.coffee?.previousRoastDate = date
         dataManager.saveContext()
     }
 }
