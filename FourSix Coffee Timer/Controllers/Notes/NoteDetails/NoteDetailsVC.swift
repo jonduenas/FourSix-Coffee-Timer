@@ -53,20 +53,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         datePickerView.delegate = self
         configureNavController()
         configureCoffeePickerView()
-        
-        isEditing = isNewNote
-        setUIEditMode()
-        
+        setEditing(isNewNote, animated: false)
         configureView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hideBarShadow(true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        dataManager.saveContext(dataManager.backgroundContext)
     }
     
     private func configureNavController() {
@@ -116,16 +108,18 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         let animationDuration: TimeInterval = 0.2
         
-        if animated {
+        // Only animate if the datePickerView is currently visible and animated set to true
+        let shouldAnimate = animated && !datePickerView.isHidden
+        
+        if shouldAnimate {
             UIView.animate(withDuration: animationDuration) {
                 self.setUIEditMode()
-                self.datePickerView.showDatePicker(editing, animated: true, duration: animationDuration)
+                self.datePickerView.showDatePicker(editing)
                 self.view.layoutIfNeeded()
             }
-            
         } else {
             setUIEditMode()
-            datePickerView.showDatePicker(editing, animated: false, duration: nil)
+            datePickerView.showDatePicker(editing)
         }
     }
     

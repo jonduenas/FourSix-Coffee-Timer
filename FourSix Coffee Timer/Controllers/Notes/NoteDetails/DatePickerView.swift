@@ -68,23 +68,15 @@ class DatePickerView: RoundedView {
         roastDateLabel.textColor = emptyDateColor
     }
     
-    func showDatePicker(_ show: Bool, animated: Bool, duration: TimeInterval?) {
-        if animated {
-            UIView.animate(withDuration: duration ?? 0.2) {
-                if #available(iOS 14.0, *) {
-                    self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS14 : self.datePickerHiddenHeight)
-                } else {
-                    self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS13 : self.datePickerHiddenHeight)
-                }
-                self.layoutIfNeeded()
-            }
+    func showDatePicker(_ show: Bool) {
+        guard datePickerIsHidden == show else { return }
+        
+        datePickerIsHidden = !show
+        
+        if #available(iOS 14.0, *) {
+            self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS14 : self.datePickerHiddenHeight)
         } else {
-            if #available(iOS 14.0, *) {
-                self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS14 : self.datePickerHiddenHeight)
-            } else {
-                self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS13 : self.datePickerHiddenHeight)
-            }
-            layoutIfNeeded()
+            self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS13 : self.datePickerHiddenHeight)
         }
     }
     
