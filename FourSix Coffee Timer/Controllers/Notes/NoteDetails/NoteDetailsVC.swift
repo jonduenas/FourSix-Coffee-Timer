@@ -184,6 +184,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         // Coffee Details
         coffeePickerView.coffee = note.coffee
+        datePickerView.isHidden = note.coffee == nil
         if let roastDate = note.roastDate {
             datePickerView.roastDate = roastDate
         }
@@ -452,6 +453,11 @@ extension NoteDetailsVC: CoffeePickerDelegate {
         note?.coffee = coffee
         dataManager.saveContext()
         coffeePickerView.coffee = coffee
+        
+        if coffee == nil {
+            datePickerView.isHidden = true
+            note?.roastDate = nil
+        }
     }
 }
 
@@ -459,6 +465,7 @@ extension NoteDetailsVC: CoffeePickerDelegate {
 
 extension NoteDetailsVC: DatePickerViewDelegate {
     func datePickerView(_ datePickerView: DatePickerView, didChangeToDate date: Date?) {
+        guard note?.coffee != nil else { return }
         note?.roastDate = date
         dataManager.saveContext()
     }
