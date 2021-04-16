@@ -39,7 +39,7 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
     func showDetails(for note: NoteMO, dataManager: DataManager) {
         let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
-        child.parentCoordinator = self
+        child.notesCoordinator = self
         childCoordinators.append(child)
         child.note = note
         child.start()
@@ -62,6 +62,15 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         if let noteDetailsVC = fromViewController as? NoteDetailsVC {
             // We're popping a note details controller; end its coordinator
             childDidFinish(noteDetailsVC.coordinator)
+        }
+    }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
         }
     }
 }

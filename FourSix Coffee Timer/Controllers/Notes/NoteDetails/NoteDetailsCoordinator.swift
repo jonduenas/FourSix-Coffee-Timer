@@ -10,7 +10,8 @@ import UIKit
 
 class NoteDetailsCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
-    weak var parentCoordinator: Coordinator?
+    weak var notesCoordinator: NotesCoordinator?
+    weak var timerCoordinator: TimerCoordinator?
     var navigationController: UINavigationController
     var dataManager: DataManager
     var note: NoteMO?
@@ -63,6 +64,17 @@ class NoteDetailsCoordinator: Coordinator {
     }
     
     func didFinishDetails() {
-        parentCoordinator?.childDidFinish(self)
+        notesCoordinator?.childDidFinish(self)
+        timerCoordinator?.childDidFinish(self)
+        timerCoordinator?.didFinishNewNote()
+    }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
 }

@@ -54,9 +54,22 @@ class TimerCoordinator: Coordinator {
     func showNewNote(recipe: Recipe, session: Session) {
         let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
         childCoordinators.append(child)
-        child.parentCoordinator = self
+        child.timerCoordinator = self
         child.recipe = recipe
         child.session = session
         child.start()
+    }
+    
+    func didFinishNewNote() {
+        parentCoordinator?.childDidFinish(self)
+    }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
 }
