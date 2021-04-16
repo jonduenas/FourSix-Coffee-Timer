@@ -147,50 +147,45 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     private func configureView() {
         guard let note = note else { fatalError("Note is nil.") }
         
-        note.managedObjectContext?.perform {
-            self.initializeTempUnitSelector()
-            self.updateLabels()
-            self.ratingControl.rating = Int(note.rating)
-        }
+        self.initializeTempUnitSelector()
+        self.updateLabels()
+        self.ratingControl.rating = Int(note.rating)
     }
     
     private func initializeTempUnitSelector() {
-        guard let note = note else { return }
-        waterTempUnitControl.selectedSegmentIndex = Int(note.tempUnitRawValue)
+        waterTempUnitControl.selectedSegmentIndex = Int(note?.tempUnitRawValue ?? 0)
     }
     
     private func updateLabels() {
-        guard let note = note else { return }
-        
         // Session
-        dateLabel.text = note.date.stringFromDate(dateStyle: .short, timeStyle: .short)
-        drawdownLabel.text = note.session.averageDrawdown.minAndSecString
-        totalTimeLabel.text = note.session.totalTime.minAndSecString
+        dateLabel.text = note?.date.stringFromDate(dateStyle: .short, timeStyle: .short)
+        drawdownLabel.text = note?.session.averageDrawdown.minAndSecString
+        totalTimeLabel.text = note?.session.totalTime.minAndSecString
         
         // Recipe
-        flavorProfileLabel.text = flavorProfileText(from: note.recipe)
-        coffeeAmountLabel.text = note.recipe.coffee.clean + "g"
-        waterAmountLabel.text = note.recipe.waterTotal.clean + "g"
-        poursLabel.text = poursLabelText(from: note.recipe)
-        pourIntervalLabel.text = note.recipe.interval.minAndSecString
-        grindSettingTextField.text = note.grindSetting
-        waterTempTextField.text = setWaterTempTextField(with: note.waterTempC)
+        flavorProfileLabel.text = flavorProfileText(from: note?.recipe)
+        coffeeAmountLabel.text = note?.recipe.coffee.clean ?? "0" + "g"
+        waterAmountLabel.text = note?.recipe.waterTotal.clean ?? "0" + "g"
+        poursLabel.text = poursLabelText(from: note?.recipe)
+        pourIntervalLabel.text = note?.recipe.interval.minAndSecString
+        grindSettingTextField.text = note?.grindSetting
+        waterTempTextField.text = setWaterTempTextField(with: note?.waterTempC)
         
         // Coffee Details
-        coffeePickerView.coffee = note.coffee
-        datePickerView.isHidden = note.coffee == nil
-        if let roastDate = note.roastDate {
+        coffeePickerView.coffee = note?.coffee
+        datePickerView.isHidden = note?.coffee == nil
+        if let roastDate = note?.roastDate {
             datePickerView.setDate(roastDate)
-        } else if let previousRoastDate = note.coffee?.previousRoastDate {
+        } else if let previousRoastDate = note?.coffee?.previousRoastDate {
             datePickerView.setDate(previousRoastDate)
         }
         
         // Notes
-        notesTextView.text = note.text
+        notesTextView.text = note?.text
     }
     
-    private func setWaterTempTextField(with cValue: Double) -> String {
-        guard cValue != 0 else { return "" }
+    private func setWaterTempTextField(with cValue: Double?) -> String {
+        guard let cValue = cValue, cValue != 0 else { return "" }
         
         switch waterTempUnitControl.selectedSegmentIndex {
         case TempUnit.celsius.rawValue:
@@ -202,9 +197,9 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         }
     }
     
-    private func flavorProfileText(from recipe: RecipeMO) -> String {
-        guard let balance = Balance(rawValue: Float(recipe.balanceRaw)) else { return "" }
-        guard let strength = Strength(rawValue: Int(recipe.strengthRaw)) else { return "" }
+    private func flavorProfileText(from recipe: RecipeMO?) -> String {
+        guard let balance = Balance(rawValue: Float(recipe!.balanceRaw)) else { return "" }
+        guard let strength = Strength(rawValue: Int(recipe!.strengthRaw)) else { return "" }
         
         let balanceString = String(describing: balance).capitalized
         let strengthString = String(describing: strength).capitalized
@@ -212,8 +207,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         return balanceString + " & " + strengthString
     }
     
-    private func poursLabelText(from recipe: RecipeMO) -> String {
-        let recipePours = recipe.waterPours
+    private func poursLabelText(from recipe: RecipeMO?) -> String {
+        guard let recipePours = recipe?.waterPours else { return "" }
         let recipePoursStrings = recipePours.map { $0.clean + "g" }
         
         return recipePoursStrings.joined(separator: " → ")
