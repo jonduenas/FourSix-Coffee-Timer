@@ -27,7 +27,7 @@ class TimerVC: UIViewController, Storyboarded {
     @IBOutlet var playPauseButton: UIButton!
     @IBOutlet var nextButton: UIButton!
     
-    @IBOutlet var progressView: ProgressCircle!
+    @IBOutlet weak var progressView: ProgressCircle!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,10 @@ class TimerVC: UIViewController, Storyboarded {
         initCoffeeTimer()
         updateWeightLabels()
         initSoundFile()
+    }
+    
+    deinit {
+        print("TimerVC deinit")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -192,9 +196,7 @@ class TimerVC: UIViewController, Storyboarded {
             guard !progressStrokeColorIsWarning else { return } // Makes sure color isn't already set for warning
             
             // User has auto-advance turned off - set color for warning
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-
+            DispatchQueue.main.async {
                 self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressWarningStrokeColor, animated: true)
             }
         } else {

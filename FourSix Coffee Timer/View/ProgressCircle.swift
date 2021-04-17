@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ProgressCircle: UIControl, CAAnimationDelegate {
-    
+class ProgressCircle: UIControl {
     let progressStrokeColor = UIColor(named: AssetsColor.fill.rawValue) ?? #colorLiteral(red: 0.4103244543, green: 0.5630832911, blue: 0.9429332614, alpha: 1)
     let progressWarningStrokeColor = UIColor.red
     private let trackStrokeColor = UIColor.systemGray4
@@ -22,6 +21,10 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         didSet {
             sendActions(for: .valueChanged)
         }
+    }
+    
+    deinit {
+        print("ProgressCircle deinit")
     }
     
     override init(frame: CGRect) {
@@ -95,7 +98,6 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         let basicAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
-        basicAnimation.delegate = self
         basicAnimation.fromValue = fromProgress
         basicAnimation.toValue = toProgress
         basicAnimation.duration = duration
@@ -124,7 +126,6 @@ class ProgressCircle: UIControl, CAAnimationDelegate {
         if animated {
             CATransaction.begin()
             let colorChangeAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeColor))
-            colorChangeAnimation.delegate = self
             colorChangeAnimation.fromValue = layer.strokeColor
             colorChangeAnimation.toValue = color.cgColor
             colorChangeAnimation.duration = 0.25
