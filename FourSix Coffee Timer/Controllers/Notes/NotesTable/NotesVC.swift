@@ -75,7 +75,7 @@ class NotesVC: UIViewController, Storyboarded {
         var date = Date()
         
         backgroundMOC.perform {
-            for _ in 0...15 {
+            for _ in 0...150 {
                 let note = NoteMO(context: backgroundMOC)
                 
                 let recipe = RecipeMO(context: backgroundMOC)
@@ -94,14 +94,14 @@ class NotesVC: UIViewController, Storyboarded {
                 note.session = session
                 
                 let coffee = CoffeeMO(context: backgroundMOC)
-                coffee.name = ""
-                coffee.origin = ""
-                coffee.roastLevel = ""
+                coffee.name = "Rayos del Sol"
+                coffee.origin = "Peru"
+                coffee.roastLevel = "Light"
                 coffee.roaster = "Coava"
                 note.coffee = coffee
                 
                 note.date = date
-                date = date.addingTimeInterval(86400)
+                date = date.addingTimeInterval(-86400)
                 note.grindSetting = ""
                 note.rating = Int64(Int.random(in: 0...5))
                 note.roastDate = nil
