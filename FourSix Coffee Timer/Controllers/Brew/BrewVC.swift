@@ -63,7 +63,7 @@ class BrewVC: UIViewController, Storyboarded {
     @IBOutlet var strengthSelect: UISegmentedControl!
     
     @IBOutlet var editButton: UIButton!
-    @IBOutlet var slider: TactileSlider!
+    @IBOutlet weak var coffeeWaterSlider: UISlider!
     @IBOutlet var sliderStackView: UIStackView!
     
     override func viewDidLoad() {
@@ -88,7 +88,7 @@ class BrewVC: UIViewController, Storyboarded {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.slider.setValue(self.coffee, animated: true)
+            self.coffeeWaterSlider.setValue(self.coffee, animated: true)
         }
     }
     
@@ -115,9 +115,9 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeSlider() {
-        slider.minimum = Recipe.coffeeMin
-        slider.maximum = Recipe.coffeeMax
-        slider.setValue(Recipe.coffeeMin, animated: false)
+        coffeeWaterSlider.minimumValue = Recipe.coffeeMin
+        coffeeWaterSlider.maximumValue = Recipe.coffeeMax
+        coffeeWaterSlider.setValue(Recipe.coffeeMin, animated: false)
     }
     
     private func initializeSelectors() {
@@ -158,8 +158,8 @@ class BrewVC: UIViewController, Storyboarded {
         coordinator?.showProPaywall(delegate: self)
     }
     
-    @IBAction func sliderChanged(_ sender: TactileSlider) {
-        let currentValue = slider.value
+    @IBAction func sliderDidChange(_ sender: CoffeeWaterSlider) {
+        let currentValue = coffeeWaterSlider.value
         
         coffee = currentValue.rounded()
     }

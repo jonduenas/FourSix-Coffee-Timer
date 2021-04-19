@@ -23,7 +23,7 @@
                                 <rect key="frame" x="10" y="25" width="370" height="677"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-hQ-KGE">
-                                        <rect key="frame" x="25" y="0.0" width="320" height="156"/>
+                                        <rect key="frame" x="25" y="0.0" width="320" height="206"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-uo-qi4">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
@@ -91,59 +91,40 @@
                                                     <action selector="editTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="2pD-7t-J1I"/>
                                                 </connections>
                                             </button>
-                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-qw-I3m">
-                                                <rect key="frame" x="0.0" y="156" width="320" height="70"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-O8-axF">
+                                                <rect key="frame" x="-2" y="176" width="324" height="31"/>
+                                                <color key="minimumTrackTintColor" name="Fill"/>
+                                                <color key="maximumTrackTintColor" name="SliderBackground"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="trackHeight">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbRadius">
+                                                        <real key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sliderDidChange:" destination="dQX-07-Wto" eventType="valueChanged" id="baM-Ew-ST6"/>
+                                                </connections>
+                                            </slider>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-qw-I3m">
+                                                <rect key="frame" x="0.0" y="206" width="320" height="0.0"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIy-gb-ykS" customClass="Shadow" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                                        <subviews>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZi-FL-C3T" customClass="TactileSlider" customModule="TactileSlider">
-                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="60" id="pZ3-ar-5ML"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="trackBackground">
-                                                                        <color key="value" name="SliderBackground"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbTint">
-                                                                        <color key="value" name="Fill"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="sliderChanged:" destination="dQX-07-Wto" eventType="valueChanged" id="W2x-LW-65z"/>
-                                                                </connections>
-                                                            </view>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="aZi-FL-C3T" firstAttribute="top" secondItem="OIy-gb-ykS" secondAttribute="top" id="Nt9-pN-2gO"/>
-                                                            <constraint firstItem="aZi-FL-C3T" firstAttribute="leading" secondItem="OIy-gb-ykS" secondAttribute="leading" id="Pyo-zW-0KI"/>
-                                                            <constraint firstAttribute="trailing" secondItem="aZi-FL-C3T" secondAttribute="trailing" id="aGx-AY-L3q"/>
-                                                            <constraint firstAttribute="bottom" secondItem="aZi-FL-C3T" secondAttribute="bottom" id="hxl-Hm-1C3"/>
-                                                            <constraint firstAttribute="height" constant="60" id="qfo-Bg-fSL"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide to adjust" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ziv-EH-0fx">
-                                                        <rect key="frame" x="119.66666666666666" y="70" width="80.666666666666657" height="0.0"/>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide to adjust" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ziv-EH-0fx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80.666666666666671" height="0.0"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="OIy-gb-ykS" secondAttribute="trailing" id="EO7-C0-7cd"/>
-                                                    <constraint firstItem="OIy-gb-ykS" firstAttribute="leading" secondItem="UsE-qw-I3m" secondAttribute="leading" id="lic-a8-CKy"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Hsi-jl-E5P">
                                                 <variation key="widthClass=regular" constant="313"/>
                                             </constraint>
+                                            <constraint firstItem="wcp-O8-axF" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="aFt-TO-WgB"/>
+                                            <constraint firstAttribute="trailing" secondItem="wcp-O8-axF" secondAttribute="trailing" id="b5d-Z1-KwX"/>
                                             <constraint firstItem="XW2-uo-qi4" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="egY-OK-sGp"/>
                                             <constraint firstAttribute="trailing" secondItem="XW2-uo-qi4" secondAttribute="trailing" id="fre-RQ-hfB"/>
                                             <constraint firstItem="UsE-qw-I3m" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="nRE-gi-kSL"/>
@@ -161,7 +142,7 @@
                                         </variation>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKE-sT-B5i">
-                                        <rect key="frame" x="25" y="246.66666666666669" width="320" height="99"/>
+                                        <rect key="frame" x="25" y="280" width="320" height="99"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-xE-ICZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
@@ -205,7 +186,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-LE-uJD">
-                                        <rect key="frame" x="25" y="436.33333333333337" width="320" height="106"/>
+                                        <rect key="frame" x="25" y="453" width="320" height="106"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-hd-SvQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
@@ -318,8 +299,8 @@
                     <connections>
                         <outlet property="balanceSelect" destination="03L-Qm-9vC" id="H88-zL-PYt"/>
                         <outlet property="coffeeLabel" destination="apM-sG-DyS" id="lxa-O9-vYf"/>
+                        <outlet property="coffeeWaterSlider" destination="wcp-O8-axF" id="nWK-EF-RbK"/>
                         <outlet property="editButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>
-                        <outlet property="slider" destination="aZi-FL-C3T" id="bL7-pd-0DO"/>
                         <outlet property="sliderStackView" destination="UsE-qw-I3m" id="eVH-SM-7yZ"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
                         <outlet property="waterLabel" destination="ddD-7S-1A3" id="LKK-wy-fGX"/>
