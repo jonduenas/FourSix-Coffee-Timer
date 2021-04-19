@@ -164,8 +164,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         // Recipe
         flavorProfileLabel.text = flavorProfileText(from: note?.recipe)
-        coffeeAmountLabel.text = note?.recipe.coffee.clean ?? "0" + "g"
-        waterAmountLabel.text = note?.recipe.waterTotal.clean ?? "0" + "g"
+        coffeeAmountLabel.text = (note?.recipe.coffee.clean ?? "0") + "g"
+        waterAmountLabel.text = (note?.recipe.waterTotal.clean ?? "0") + "g"
         poursLabel.text = poursLabelText(from: note?.recipe)
         pourIntervalLabel.text = note?.recipe.interval.minAndSecString
         grindSettingTextField.text = note?.grindSetting
