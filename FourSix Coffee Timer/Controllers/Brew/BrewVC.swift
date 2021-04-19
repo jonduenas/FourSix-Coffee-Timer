@@ -158,10 +158,14 @@ class BrewVC: UIViewController, Storyboarded {
         coordinator?.showProPaywall(delegate: self)
     }
     
-    @IBAction func sliderDidChange(_ sender: CoffeeWaterSlider) {
-        let currentValue = coffeeWaterSlider.value
+    @IBAction func sliderDidChange(_ sender: UISlider) {
+        // Rounds the slider value to give "stepped" movement
+        sender.setValue(sender.value.rounded(), animated: false)
         
-        coffee = currentValue.rounded()
+        if coffee != sender.value {
+            coffee = sender.value
+            selectionFeedback.selectionChanged()
+        }
     }
     
     @IBAction func balanceChanged(_ sender: Any) {
