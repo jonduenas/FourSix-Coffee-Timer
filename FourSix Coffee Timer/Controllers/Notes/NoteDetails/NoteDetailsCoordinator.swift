@@ -15,8 +15,7 @@ class NoteDetailsCoordinator: Coordinator {
     var navigationController: UINavigationController
     var dataManager: DataManager
     var note: NoteMO?
-    var session: Session?
-    var recipe: Recipe?
+    var isNewNote: Bool = false
     
     init(navigationController: UINavigationController, dataManager: DataManager) {
         self.navigationController = navigationController
@@ -27,16 +26,8 @@ class NoteDetailsCoordinator: Coordinator {
         let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
         vc.coordinator = self
         vc.dataManager = dataManager
-        
-        if let note = note {
-            vc.note = note
-        } else {
-            // Create new note
-            guard let recipe = recipe, let session = session else { return }
-            vc.note = dataManager.newNoteMO(session: session, recipe: recipe, coffee: nil)
-            vc.isNewNote = true
-        }
-        
+        vc.isNewNote = isNewNote
+        vc.note = note        
         navigationController.pushViewController(vc, animated: true)
     }
     

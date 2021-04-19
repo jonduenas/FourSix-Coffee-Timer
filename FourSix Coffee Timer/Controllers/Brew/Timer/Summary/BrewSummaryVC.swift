@@ -39,8 +39,10 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     
     @IBAction func didTapEnterDetails(_ sender: UIButton) {
         guard let recipe = recipe, let session = session else { return }
+        let newNote = dataManager?.newNoteMO(session: session, recipe: recipe, coffee: nil)
+        
         dismiss(animated: true) {
-            self.coordinator?.showNewNote(recipe: recipe, session: session)
+            self.coordinator?.showNewNote(note: newNote)
         }
     }
     @IBAction func didTapLater(_ sender: UIButton) {

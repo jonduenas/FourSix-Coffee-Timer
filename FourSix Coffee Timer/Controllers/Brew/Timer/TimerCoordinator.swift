@@ -51,12 +51,12 @@ class TimerCoordinator: Coordinator {
         }
     }
     
-    func showNewNote(recipe: Recipe, session: Session) {
+    func showNewNote(note: NoteMO?) {
         let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
         childCoordinators.append(child)
         child.timerCoordinator = self
-        child.recipe = recipe
-        child.session = session
+        child.note = note
+        child.isNewNote = true
         child.start()
     }
     
