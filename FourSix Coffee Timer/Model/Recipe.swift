@@ -22,7 +22,7 @@ enum Strength: Int, CaseIterable {
 }
 
 struct Recipe: ManagedObjectInitializable {
-    static let coffeeMin: Float = 10.0
+    static let coffeeMin: Float = 5.0
     static let coffeeMax: Float = 40.0
     static let acceptableCoffeeRange: ClosedRange<Float> = 15...25
     static let defaultRecipe = Recipe(coffee: 20,
