@@ -65,9 +65,6 @@ class BrewVC: UIViewController, Storyboarded {
     
     @IBOutlet var editButton: UIButton!
     @IBOutlet weak var coffeeWaterSlider: UISlider!
-    @IBOutlet var sliderStackView: UIStackView!
-    @IBOutlet weak var sliderImageViewMin: UIView!
-    @IBOutlet weak var sliderImageViewMax: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +75,6 @@ class BrewVC: UIViewController, Storyboarded {
         initializeNavBar()
         initializeFonts()
         initializeSlider()
-        initializeSliderButtons()
         initializeSelectors()
         checkForProStatus()
         updateValueLabels()
@@ -92,7 +88,7 @@ class BrewVC: UIViewController, Storyboarded {
                 coordinator?.showWalkthrough()
             }
             
-            let shouldAnimate = !sliderStackView.isHidden
+            let shouldAnimate = !coffeeWaterSlider.isHidden
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.coffeeWaterSlider.setValue(self.coffee, animated: shouldAnimate)
@@ -100,29 +96,6 @@ class BrewVC: UIViewController, Storyboarded {
             
             isFirstAppearance = false
         }
-    }
-    
-    private func initializeSliderButtons() {
-        let tapGestureMin = UITapGestureRecognizer(target: self, action: #selector(didTapSliderMin(sender:)))
-        let tapGestureMax = UITapGestureRecognizer(target: self, action: #selector(didTapSliderMax(sender:)))
-        sliderImageViewMin.addGestureRecognizer(tapGestureMin)
-        sliderImageViewMax.addGestureRecognizer(tapGestureMax)
-    }
-    
-    @objc private func didTapSliderMin(sender: UIView) {
-        guard coffee > Recipe.coffeeMin else { return }
-        let currentValue = coffeeWaterSlider.value
-        coffeeWaterSlider.setValue(currentValue - 1, animated: true)
-        coffee -= 1
-        selectionFeedback.selectionChanged()
-    }
-    
-    @objc private func didTapSliderMax(sender: UIView) {
-        guard coffee < Recipe.coffeeMax else { return }
-        let currentValue = coffeeWaterSlider.value
-        coffeeWaterSlider.setValue(currentValue + 1, animated: true)
-        coffee += 1
-        selectionFeedback.selectionChanged()
     }
     
     private func initializeNavBar() {
@@ -266,11 +239,11 @@ extension BrewVC: PaywallDelegate {
         if userIsPro {
             editButton.isHidden = true
             UIView.animate(withDuration: 0.25) {
-                self.sliderStackView.isHidden = false
+                self.coffeeWaterSlider.isHidden = false
             }
         } else {
             editButton.isHidden = false
-            sliderStackView.isHidden = true
+            coffeeWaterSlider.isHidden = true
         }
     }
 }

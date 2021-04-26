@@ -26,8 +26,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-hQ-KGE">
                                         <rect key="frame" x="25" y="0.0" width="320" height="205"/>
                                         <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-O8-axF">
+                                                <rect key="frame" x="-2" y="0.0" width="324" height="31"/>
+                                                <color key="minimumTrackTintColor" name="Accent"/>
+                                                <color key="maximumTrackTintColor" name="SliderBackground"/>
+                                                <connections>
+                                                    <action selector="sliderDidChange:" destination="dQX-07-Wto" eventType="valueChanged" id="baM-Ew-ST6"/>
+                                                </connections>
+                                            </slider>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-uo-qi4">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                                <rect key="frame" x="0.0" y="50" width="320" height="95"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-I1-ums">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
@@ -91,7 +99,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-ku-8J4">
-                                                <rect key="frame" x="110" y="115" width="100" height="40"/>
+                                                <rect key="frame" x="110" y="165" width="100" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Kwb-uC-e6e"/>
                                                     <constraint firstAttribute="height" constant="40" id="uQu-i4-kum"/>
@@ -102,66 +110,6 @@
                                                     <action selector="editTapped:" destination="dQX-07-Wto" eventType="touchUpInside" id="2pD-7t-J1I"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-qw-I3m">
-                                                <rect key="frame" x="0.0" y="175" width="320" height="30"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Wt-uy-Vox">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bean" translatesAutoresizingMaskIntoConstraints="NO" id="zH8-ok-GgW">
-                                                                <rect key="frame" x="7.6666666666666643" y="7.6666666666666856" width="15" height="15"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="15" id="IYN-oM-sl0"/>
-                                                                    <constraint firstAttribute="height" constant="15" id="Qap-2o-LHv"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="Kly-Rt-pW9"/>
-                                                            <constraint firstAttribute="width" constant="30" id="OnH-cY-AaQ"/>
-                                                            <constraint firstItem="zH8-ok-GgW" firstAttribute="centerX" secondItem="8Wt-uy-Vox" secondAttribute="centerX" id="jmQ-q1-xyj"/>
-                                                            <constraint firstItem="zH8-ok-GgW" firstAttribute="centerY" secondItem="8Wt-uy-Vox" secondAttribute="centerY" id="qKb-wS-bMe"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-O8-axF">
-                                                        <rect key="frame" x="33" y="0.0" width="254" height="31"/>
-                                                        <color key="minimumTrackTintColor" name="Fill"/>
-                                                        <color key="maximumTrackTintColor" name="SliderBackground"/>
-                                                        <connections>
-                                                            <action selector="sliderDidChange:" destination="dQX-07-Wto" eventType="valueChanged" id="baM-Ew-ST6"/>
-                                                        </connections>
-                                                    </slider>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQ6-CA-3NW">
-                                                        <rect key="frame" x="290" y="0.0" width="30" height="30"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bean" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-w9-hgK">
-                                                                <rect key="frame" x="15" y="7.6666666666666856" width="15" height="15"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="15" id="dfM-qJ-A5X"/>
-                                                                    <constraint firstAttribute="height" constant="15" id="rtM-6V-itY"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bean" translatesAutoresizingMaskIntoConstraints="NO" id="Kla-m6-uTq">
-                                                                <rect key="frame" x="0.0" y="7.6666666666666856" width="15" height="15"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="15" id="CSy-GS-NPQ"/>
-                                                                    <constraint firstAttribute="height" constant="15" id="dwc-bK-vEe"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="ndC-w9-hgK" secondAttribute="trailing" id="0lX-aJ-nS9"/>
-                                                            <constraint firstItem="Kla-m6-uTq" firstAttribute="leading" secondItem="yQ6-CA-3NW" secondAttribute="leading" id="Hdd-X5-dqI"/>
-                                                            <constraint firstAttribute="height" constant="30" id="QSn-RH-JS8"/>
-                                                            <constraint firstAttribute="width" constant="30" id="f2W-gc-VvC"/>
-                                                            <constraint firstItem="Kla-m6-uTq" firstAttribute="centerY" secondItem="yQ6-CA-3NW" secondAttribute="centerY" id="gLU-Ed-aeS"/>
-                                                            <constraint firstItem="ndC-w9-hgK" firstAttribute="centerY" secondItem="yQ6-CA-3NW" secondAttribute="centerY" id="qyO-lD-Ex8"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Hsi-jl-E5P">
@@ -169,8 +117,8 @@
                                             </constraint>
                                             <constraint firstItem="XW2-uo-qi4" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="egY-OK-sGp"/>
                                             <constraint firstAttribute="trailing" secondItem="XW2-uo-qi4" secondAttribute="trailing" id="fre-RQ-hfB"/>
-                                            <constraint firstItem="UsE-qw-I3m" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="nRE-gi-kSL"/>
-                                            <constraint firstAttribute="trailing" secondItem="UsE-qw-I3m" secondAttribute="trailing" id="vDT-gZ-MtH"/>
+                                            <constraint firstItem="wcp-O8-axF" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="iwR-tx-vNS"/>
+                                            <constraint firstAttribute="trailing" secondItem="wcp-O8-axF" secondAttribute="trailing" id="nYn-hi-cbv"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -343,9 +291,6 @@
                         <outlet property="coffeeLabel" destination="apM-sG-DyS" id="lxa-O9-vYf"/>
                         <outlet property="coffeeWaterSlider" destination="wcp-O8-axF" id="nWK-EF-RbK"/>
                         <outlet property="editButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>
-                        <outlet property="sliderImageViewMax" destination="yQ6-CA-3NW" id="eKS-2p-mJI"/>
-                        <outlet property="sliderImageViewMin" destination="8Wt-uy-Vox" id="VwU-I1-b2P"/>
-                        <outlet property="sliderStackView" destination="UsE-qw-I3m" id="eVH-SM-7yZ"/>
                         <outlet property="strengthSelect" destination="DJn-eZ-TUv" id="YMY-TZ-8nO"/>
                         <outlet property="waterLabel" destination="ddD-7S-1A3" id="LKK-wy-fGX"/>
                     </connections>
