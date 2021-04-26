@@ -24,18 +24,36 @@
                                 <rect key="frame" x="10" y="25" width="370" height="677"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-hQ-KGE">
-                                        <rect key="frame" x="25" y="0.0" width="320" height="205"/>
+                                        <rect key="frame" x="25" y="0.0" width="320" height="225"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-O8-axF">
-                                                <rect key="frame" x="-2" y="0.0" width="324" height="31"/>
-                                                <color key="minimumTrackTintColor" name="Accent"/>
-                                                <color key="maximumTrackTintColor" name="SliderBackground"/>
-                                                <connections>
-                                                    <action selector="sliderDidChange:" destination="dQX-07-Wto" eventType="valueChanged" id="baM-Ew-ST6"/>
-                                                </connections>
-                                            </slider>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1X-Yk-nJf" customClass="Shadow" customModule="FourSix" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                <subviews>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wcp-O8-axF" customClass="CustomSlider" customModule="FourSix" customModuleProvider="target">
+                                                        <rect key="frame" x="-2" y="1" width="324" height="49"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="8Zq-7i-HS9"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="sliderDidChange:" destination="dQX-07-Wto" eventType="valueChanged" id="baM-Ew-ST6"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="XIs-If-rW1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wcp-O8-axF" secondAttribute="trailing" id="XXj-6j-nLL"/>
+                                                    <constraint firstItem="wcp-O8-axF" firstAttribute="centerY" secondItem="L1X-Yk-nJf" secondAttribute="centerY" id="dhb-wD-Kck"/>
+                                                    <constraint firstItem="wcp-O8-axF" firstAttribute="leading" secondItem="L1X-Yk-nJf" secondAttribute="leading" id="reE-xy-gz7"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-uo-qi4">
-                                                <rect key="frame" x="0.0" y="50" width="320" height="95"/>
+                                                <rect key="frame" x="0.0" y="70" width="320" height="95"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-I1-ums">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
@@ -99,7 +117,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-ku-8J4">
-                                                <rect key="frame" x="110" y="165" width="100" height="40"/>
+                                                <rect key="frame" x="110" y="185" width="100" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Kwb-uC-e6e"/>
                                                     <constraint firstAttribute="height" constant="40" id="uQu-i4-kum"/>
@@ -112,13 +130,13 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="L1X-Yk-nJf" secondAttribute="trailing" id="GjL-H2-omg"/>
                                             <constraint firstAttribute="width" constant="300" id="Hsi-jl-E5P">
                                                 <variation key="widthClass=regular" constant="313"/>
                                             </constraint>
                                             <constraint firstItem="XW2-uo-qi4" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="egY-OK-sGp"/>
                                             <constraint firstAttribute="trailing" secondItem="XW2-uo-qi4" secondAttribute="trailing" id="fre-RQ-hfB"/>
-                                            <constraint firstItem="wcp-O8-axF" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="iwR-tx-vNS"/>
-                                            <constraint firstAttribute="trailing" secondItem="wcp-O8-axF" secondAttribute="trailing" id="nYn-hi-cbv"/>
+                                            <constraint firstItem="L1X-Yk-nJf" firstAttribute="leading" secondItem="Q4X-hQ-KGE" secondAttribute="leading" id="lxa-xm-beq"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -132,7 +150,7 @@
                                         </variation>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKE-sT-B5i">
-                                        <rect key="frame" x="25" y="282.33333333333331" width="320" height="98"/>
+                                        <rect key="frame" x="25" y="295.66666666666669" width="320" height="98"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-xE-ICZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
@@ -176,7 +194,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-LE-uJD">
-                                        <rect key="frame" x="25" y="457.66666666666663" width="320" height="98"/>
+                                        <rect key="frame" x="25" y="464.33333333333337" width="320" height="98"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-hd-SvQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
@@ -320,9 +338,6 @@
         </namedColor>
         <namedColor name="Fill">
             <color red="0.33700001239776611" green="0.47099998593330383" blue="0.67500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SliderBackground">
-            <color red="0.86699998378753662" green="0.86699998378753662" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
