@@ -15,6 +15,7 @@ class BrewVC: UIViewController, Storyboarded {
     lazy var selectionFeedback = UISelectionFeedbackGenerator()
     lazy var calculator = Calculator()
     var dataManager: DataManager!
+    var isFirstAppearance: Bool = true
     
     var timerStepInterval: TimeInterval = TimeInterval(UserDefaultsManager.timerStepInterval) {
         didSet {
@@ -86,12 +87,18 @@ class BrewVC: UIViewController, Storyboarded {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !UserDefaultsManager.userHasSeenWalkthrough {
-            coordinator?.showWalkthrough()
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.coffeeWaterSlider.setValue(self.coffee, animated: true)
+        if isFirstAppearance {
+            if !UserDefaultsManager.userHasSeenWalkthrough {
+                coordinator?.showWalkthrough()
+            }
+            
+            let shouldAnimate = !sliderStackView.isHidden
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.coffeeWaterSlider.setValue(self.coffee, animated: shouldAnimate)
+            }
+            
+            isFirstAppearance = false
         }
     }
     
