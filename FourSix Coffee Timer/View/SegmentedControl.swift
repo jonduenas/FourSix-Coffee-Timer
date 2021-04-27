@@ -22,7 +22,7 @@ class SegmentedControl: UIControl {
     
     var selectedIndex: Int = 0 {
         didSet {
-            displayNewSelectedIndex()
+            displayNewSelectedIndex(animated: true)
         }
     }
     
@@ -149,7 +149,7 @@ class SegmentedControl: UIControl {
         thumbView.backgroundColor = thumbColor
         thumbView.layer.cornerRadius = thumbView.frame.height / 2
         
-        displayNewSelectedIndex()
+        displayNewSelectedIndex(animated: false)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -168,7 +168,7 @@ class SegmentedControl: UIControl {
         }
     }
     
-    func displayNewSelectedIndex() {
+    func displayNewSelectedIndex(animated: Bool) {
         for label in labels {
             label.textColor = unselectedLabelColor
         }
@@ -176,9 +176,13 @@ class SegmentedControl: UIControl {
         let label = labels[selectedIndex]
         label.textColor = selectedLabelColor
         
-        UIView.animate(withDuration: 0.2,
-                       delay: 0,
-                       options: .curveEaseOut) {
+        if animated {
+            UIView.animate(withDuration: 0.2,
+                           delay: 0,
+                           options: .curveEaseOut) {
+                self.thumbView.frame = label.frame
+            }
+        } else {
             self.thumbView.frame = label.frame
         }
     }
