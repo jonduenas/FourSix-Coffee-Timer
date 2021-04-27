@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable
 class SegmentedControl: UIControl {
     private var labels: [UILabel] = []
+    private var stackView = UIStackView()
     var thumbView = UIView()
     
     var items: [String] = ["Item 1", "Item 2", "Item 3"] {
@@ -72,18 +73,29 @@ class SegmentedControl: UIControl {
         layer.borderColor = borderColor.cgColor
         layer.borderWidth = 2
         
+        setupStackView()
         setupLabels()
         
         insertSubview(thumbView, at: 0)
     }
     
+    func setupStackView() {
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
     
     func setupLabels() {
-        for label in labels {
-            label.removeFromSuperview()
-        }
+        stackView.subviews.forEach { $0.removeFromSuperview() }
         
-        labels.removeAll(keepingCapacity: true)
+        labels.removeAll()
         
         for index in 1...items.count {
             let label = UILabel()
@@ -92,12 +104,9 @@ class SegmentedControl: UIControl {
             label.textAlignment = .center
             label.font = font
             label.textColor = index == 1 ? selectedLabelColor : unselectedLabelColor
-            label.translatesAutoresizingMaskIntoConstraints = false
-            addSubview(label)
+            stackView.addArrangedSubview(label)
             labels.append(label)
         }
-        
-        addIndividualItemConstraints(items: labels, mainView: self, padding: 0)
     }
     
     override func layoutSubviews() {
@@ -143,32 +152,6 @@ class SegmentedControl: UIControl {
                        delay: 0,
                        options: .curveEaseOut) {
             self.thumbView.frame = label.frame
-        }
-    }
-    
-    func addIndividualItemConstraints(items: [UIView], mainView: UIView, padding: CGFloat) {
-        
-        for (index, button) in items.enumerated() {
-            button.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
-            
-            button.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
-            
-            if index == items.count - 1 {
-                button.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -padding).isActive = true
-            } else {
-                let nextButton = items[index + 1]
-                button.trailingAnchor.constraint(equalTo: nextButton.leadingAnchor, constant: -padding).isActive = true
-            }
-            
-            if index == 0 {
-                button.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: -padding).isActive = true
-            } else {
-                let prevButton = items[index - 1]
-                button.leadingAnchor.constraint(equalTo: prevButton.trailingAnchor, constant: -padding).isActive = true
-                
-                let firstItem = items[0]
-                button.widthAnchor.constraint(equalTo: firstItem.widthAnchor).isActive = true
-            }
         }
     }
     
