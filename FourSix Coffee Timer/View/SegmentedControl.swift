@@ -208,7 +208,9 @@ class SegmentedControl: UIControl {
             layer.shadowOpacity = shadowOpacity
             layer.shadowOffset = shadowOffset
             layer.shadowRadius = shadowRadius
+            layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: frame.height / 2).cgPath
         } else {
+            layer.shadowPath = nil
             layer.shadowColor = nil
             layer.shadowOpacity = 0
         }
