@@ -122,8 +122,8 @@ class SegmentedControl: UIControl {
         displayNewSelectedIndex()
     }
     
-    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        let location = touch.location(in: self)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let location = touches.first?.location(in: self) else { return }
         
         var calculatedIndex: Int?
         for (index, item) in labels.enumerated() {
@@ -136,8 +136,6 @@ class SegmentedControl: UIControl {
             selectedIndex = newIndex
             sendActions(for: .valueChanged)
         }
-        
-        return false
     }
     
     func displayNewSelectedIndex() {
