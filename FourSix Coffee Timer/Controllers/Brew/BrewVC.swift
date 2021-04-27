@@ -60,6 +60,7 @@ class BrewVC: UIViewController, Storyboarded {
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
     
+    @IBOutlet weak var balanceSegmentedControl: SegmentedControl!
     @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
@@ -127,6 +128,10 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeSelectors() {
+        let balanceStrings = Balance.allCases.map { String(describing: $0.self).capitalized }
+        balanceSegmentedControl.items = balanceStrings
+        balanceSegmentedControl.selectedIndex = Balance.allCases.firstIndex(of: balance) ?? 1
+        
         balanceSelect.selectedSegmentIndex = Balance.allCases.firstIndex(of: balance) ?? 1
         strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
     }
@@ -172,6 +177,10 @@ class BrewVC: UIViewController, Storyboarded {
             coffee = sender.value
             selectionFeedback.selectionChanged()
         }
+    }
+    
+    @IBAction func didChangeBalance(_ sender: SegmentedControl) {
+        print(Balance.allCases[sender.selectedIndex])
     }
     
     @IBAction func balanceChanged(_ sender: Any) {
