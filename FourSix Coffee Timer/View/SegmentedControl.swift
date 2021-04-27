@@ -149,6 +149,7 @@ class SegmentedControl: UIControl {
         thumbView.backgroundColor = thumbColor
         thumbView.layer.cornerRadius = thumbView.frame.height / 2
         
+        setShadow()
         displayNewSelectedIndex(animated: false)
     }
     
