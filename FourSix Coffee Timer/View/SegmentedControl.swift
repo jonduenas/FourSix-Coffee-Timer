@@ -163,7 +163,7 @@ class SegmentedControl: UIControl {
             }
         }
         
-        if let newIndex = calculatedIndex {
+        if let newIndex = calculatedIndex, selectedIndex != newIndex {
             selectedIndex = newIndex
             sendActions(for: .valueChanged)
         }
