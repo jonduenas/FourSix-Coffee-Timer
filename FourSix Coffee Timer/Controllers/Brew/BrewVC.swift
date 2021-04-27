@@ -61,7 +61,7 @@ class BrewVC: UIViewController, Storyboarded {
     @IBOutlet var waterLabel: UILabel!
     
     @IBOutlet weak var balanceSegmentedControl: SegmentedControl!
-    @IBOutlet var strengthSelect: UISegmentedControl!
+    @IBOutlet weak var strengthSegmentedControl: SegmentedControl!
     
     @IBOutlet var editButton: UIButton!
     @IBOutlet weak var coffeeWaterSlider: UISlider!
@@ -131,7 +131,9 @@ class BrewVC: UIViewController, Storyboarded {
         balanceSegmentedControl.items = balanceStrings
         balanceSegmentedControl.selectedIndex = Balance.allCases.firstIndex(of: balance) ?? 1
         
-        strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
+        let strengthStrings = Strength.allCases.map { String(describing: $0.self).capitalized }
+        strengthSegmentedControl.items = strengthStrings
+        strengthSegmentedControl.selectedIndex = Strength.allCases.firstIndex(of: strength) ?? 1
     }
     
     private func updateValueLabels() {
@@ -182,9 +184,9 @@ class BrewVC: UIViewController, Storyboarded {
         balance = Balance.allCases[sender.selectedIndex]
     }
     
-    @IBAction func strengthChanged(_ sender: Any) {
+    @IBAction func didChangeStrength(_ sender: SegmentedControl) {
         selectionFeedback.selectionChanged() // Haptic feedback
-        strength = Strength.allCases[strengthSelect.selectedSegmentIndex]
+        strength = Strength.allCases[sender.selectedIndex]
     }
 
     @IBAction func showRecipeTapped(_ sender: UIButton) {
