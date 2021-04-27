@@ -50,9 +50,39 @@ class SegmentedControl: UIControl {
         }
     }
     
-    @IBInspectable var font: UIFont = .systemFont(ofSize: 14, weight: .medium) {
+    @IBInspectable var fontSize: CGFloat = 14 {
         didSet {
             setFont()
+        }
+    }
+    
+    @IBInspectable var fontWeight: UIFont.Weight = .medium {
+        didSet {
+            setFont()
+        }
+    }
+    
+    @IBInspectable var addShadow: Bool = false {
+        didSet {
+            setShadow()
+        }
+    }
+    
+    @IBInspectable var shadowOpacity: Float = 0.25 {
+        didSet {
+            setShadow()
+        }
+    }
+    
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 0, height: 1.5) {
+        didSet {
+            setShadow()
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat = 0.5 {
+        didSet {
+            setShadow()
         }
     }
     
@@ -102,7 +132,7 @@ class SegmentedControl: UIControl {
             label.text = items[index - 1]
             label.backgroundColor = .clear
             label.textAlignment = .center
-            label.font = font
+            label.font = .systemFont(ofSize: fontSize, weight: fontWeight)
             label.textColor = index == 1 ? selectedLabelColor : unselectedLabelColor
             stackView.addArrangedSubview(label)
             labels.append(label)
@@ -155,7 +185,7 @@ class SegmentedControl: UIControl {
     
     func setFont() {
         for label in labels {
-            label.font = font
+            label.font = .systemFont(ofSize: fontSize, weight: fontWeight)
         }
     }
     
@@ -170,5 +200,17 @@ class SegmentedControl: UIControl {
         
         thumbView.backgroundColor = thumbColor
         layer.borderColor = borderColor.cgColor
+    }
+    
+    func setShadow() {
+        if addShadow {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = shadowOpacity
+            layer.shadowOffset = shadowOffset
+            layer.shadowRadius = shadowRadius
+        } else {
+            layer.shadowColor = nil
+            layer.shadowOpacity = 0
+        }
     }
 }
