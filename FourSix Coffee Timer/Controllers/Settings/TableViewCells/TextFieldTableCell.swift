@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TextFieldCellDelegate: class {
+protocol TextFieldCellDelegate: AnyObject {
     func textField(_ textField: UITextField, didUpdateTo string: String)
 }
 

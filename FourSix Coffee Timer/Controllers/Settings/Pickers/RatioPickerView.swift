@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ToolBarPickerViewDelegate: class {
+protocol ToolBarPickerViewDelegate: AnyObject {
     func didTapDone(_ picker: UIPickerView)
     func didTapDefault(_ picker: UIPickerView)
 }

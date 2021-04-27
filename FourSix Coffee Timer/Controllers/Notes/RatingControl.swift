@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RatingControlDelegate: class {
+protocol RatingControlDelegate: AnyObject {
     func ratingControlShouldShowHint(ratingControl: RatingControl)
     func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int)
 }

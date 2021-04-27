@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-protocol CoffeePickerDelegate: class {
+protocol CoffeePickerDelegate: AnyObject {
     func didPickCoffee(_ coffee: CoffeeMO?)
 }
 
