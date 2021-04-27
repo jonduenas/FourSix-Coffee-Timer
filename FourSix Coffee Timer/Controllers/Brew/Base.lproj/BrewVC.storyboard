@@ -149,100 +149,54 @@
                                             </mask>
                                         </variation>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKE-sT-B5i">
-                                        <rect key="frame" x="25" y="252.66666666666669" width="320" height="227.33333333333331"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-xE-ICZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="227.33333333333334"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BALANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLM-eO-blP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="55.666666666666664" height="94.333333333333329"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VY-vM-2Jc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="99.333333333333314" width="320" height="48"/>
-                                                        <color key="backgroundColor" name="SliderBackground"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="GQO-Bq-FvZ"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLabelColor">
-                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedLabelColor">
-                                                                <color key="value" systemColor="labelColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
-                                                                <color key="value" name="Accent"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="0.25"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                <size key="value" width="0.0" height="1.5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="0.5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="didChangeBalance:" destination="dQX-07-Wto" eventType="valueChanged" id="Kti-tV-sks"/>
-                                                        </connections>
-                                                    </view>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="03L-Qm-9vC" customClass="CustomSegmentControl" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="152.33333333333331" width="320" height="76"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="NnT-c2-aWd"/>
-                                                        </constraints>
-                                                        <segments>
-                                                            <segment title="Sweet"/>
-                                                            <segment title="Neutral"/>
-                                                            <segment title="Bright"/>
-                                                        </segments>
-                                                        <color key="selectedSegmentTintColor" name="Accent"/>
-                                                        <connections>
-                                                            <action selector="balanceChanged:" destination="dQX-07-Wto" eventType="valueChanged" id="DZO-qP-g1H"/>
-                                                        </connections>
-                                                    </segmentedControl>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="2VY-vM-2Jc" secondAttribute="trailing" id="cUQ-5P-qiO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="03L-Qm-9vC" secondAttribute="trailing" id="iL1-IW-6Fp"/>
-                                                    <constraint firstItem="2VY-vM-2Jc" firstAttribute="leading" secondItem="nIe-xE-ICZ" secondAttribute="leading" id="k5C-gg-qU4"/>
-                                                    <constraint firstItem="03L-Qm-9vC" firstAttribute="leading" secondItem="nIe-xE-ICZ" secondAttribute="leading" id="qw3-WE-Llp"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" name="Background"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VY-vM-2Jc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="312.33333333333331" width="320" height="48"/>
+                                        <color key="backgroundColor" name="SliderBackground"/>
                                         <constraints>
-                                            <constraint firstItem="nIe-xE-ICZ" firstAttribute="top" secondItem="uKE-sT-B5i" secondAttribute="top" id="8o7-gX-jL0"/>
-                                            <constraint firstAttribute="bottom" secondItem="nIe-xE-ICZ" secondAttribute="bottom" id="DP1-0s-Dh1"/>
-                                            <constraint firstItem="nIe-xE-ICZ" firstAttribute="leading" secondItem="uKE-sT-B5i" secondAttribute="leading" id="HFf-ZZ-giD"/>
-                                            <constraint firstItem="nIe-xE-ICZ" firstAttribute="leading" secondItem="uKE-sT-B5i" secondAttribute="leading" id="Kgi-Kl-9G9"/>
-                                            <constraint firstAttribute="trailing" secondItem="nIe-xE-ICZ" secondAttribute="trailing" id="iZd-Pq-xCx"/>
-                                            <constraint firstAttribute="trailing" secondItem="nIe-xE-ICZ" secondAttribute="trailing" id="jde-Zr-FP2"/>
+                                            <constraint firstAttribute="height" constant="48" id="GQO-Bq-FvZ"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLabelColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedLabelColor">
+                                                <color key="value" systemColor="labelColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                                <color key="value" name="Accent"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didChangeBalance:" destination="dQX-07-Wto" eventType="valueChanged" id="Kti-tV-sks"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-LE-uJD">
-                                        <rect key="frame" x="25" y="507.33333333333337" width="320" height="98"/>
+                                        <rect key="frame" x="25" y="447.66666666666663" width="320" height="98"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-hd-SvQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STRENGTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItY-Sl-V0C">
-                                                        <rect key="frame" x="0.0" y="0.0" width="64.666666666666671" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="64.666666666666671" height="14.333333333333334"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="DJn-eZ-TUv" customClass="CustomSegmentControl" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="23" width="320" height="76"/>
+                                                        <rect key="frame" x="0.0" y="19.333333333333371" width="320" height="79.666666666666671"/>
                                                         <segments>
                                                             <segment title="Light"/>
                                                             <segment title="Medium"/>
@@ -320,12 +274,12 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2VY-vM-2Jc" secondAttribute="trailing" constant="25" id="PKZ-pJ-nqL"/>
                                     <constraint firstItem="FUY-dS-iUv" firstAttribute="width" secondItem="Q4X-hQ-KGE" secondAttribute="width" id="Pik-ij-Uxk"/>
                                     <constraint firstAttribute="trailing" secondItem="Q4X-hQ-KGE" secondAttribute="trailing" constant="25" id="eZM-XQ-EYd"/>
-                                    <constraint firstItem="Q4X-hQ-KGE" firstAttribute="width" secondItem="uKE-sT-B5i" secondAttribute="width" id="fkK-e3-ro2"/>
                                     <constraint firstItem="Q4X-hQ-KGE" firstAttribute="width" secondItem="xAw-LE-uJD" secondAttribute="width" id="gf1-xD-2rT"/>
+                                    <constraint firstItem="2VY-vM-2Jc" firstAttribute="leading" secondItem="OCw-yD-UST" secondAttribute="leading" constant="25" id="hwc-dr-OfK"/>
                                     <constraint firstItem="Q4X-hQ-KGE" firstAttribute="leading" secondItem="OCw-yD-UST" secondAttribute="leading" constant="25" id="iMc-nN-Iox"/>
-                                    <constraint firstItem="03L-Qm-9vC" firstAttribute="height" secondItem="DJn-eZ-TUv" secondAttribute="height" id="wP8-zP-C9Q"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -342,7 +296,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="balanceSegmentedControl" destination="2VY-vM-2Jc" id="SCZ-p1-75q"/>
-                        <outlet property="balanceSelect" destination="03L-Qm-9vC" id="H88-zL-PYt"/>
                         <outlet property="coffeeLabel" destination="apM-sG-DyS" id="lxa-O9-vYf"/>
                         <outlet property="coffeeWaterSlider" destination="wcp-O8-axF" id="nWK-EF-RbK"/>
                         <outlet property="editButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>

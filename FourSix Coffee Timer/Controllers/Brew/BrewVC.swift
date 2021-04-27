@@ -61,7 +61,6 @@ class BrewVC: UIViewController, Storyboarded {
     @IBOutlet var waterLabel: UILabel!
     
     @IBOutlet weak var balanceSegmentedControl: SegmentedControl!
-    @IBOutlet var balanceSelect: UISegmentedControl!
     @IBOutlet var strengthSelect: UISegmentedControl!
     
     @IBOutlet var editButton: UIButton!
@@ -132,7 +131,6 @@ class BrewVC: UIViewController, Storyboarded {
         balanceSegmentedControl.items = balanceStrings
         balanceSegmentedControl.selectedIndex = Balance.allCases.firstIndex(of: balance) ?? 1
         
-        balanceSelect.selectedSegmentIndex = Balance.allCases.firstIndex(of: balance) ?? 1
         strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
     }
     
@@ -180,12 +178,8 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     @IBAction func didChangeBalance(_ sender: SegmentedControl) {
-        print(Balance.allCases[sender.selectedIndex])
-    }
-    
-    @IBAction func balanceChanged(_ sender: Any) {
         selectionFeedback.selectionChanged() // Haptic feedback
-        balance = Balance.allCases[balanceSelect.selectedSegmentIndex]
+        balance = Balance.allCases[sender.selectedIndex]
     }
     
     @IBAction func strengthChanged(_ sender: Any) {
