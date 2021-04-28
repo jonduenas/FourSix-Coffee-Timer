@@ -160,7 +160,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VY-vM-2Jc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="33" width="320" height="48"/>
-                                                <color key="backgroundColor" name="SliderBackground"/>
+                                                <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="GQO-Bq-FvZ"/>
                                                 </constraints>
@@ -194,7 +194,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFx-mc-irc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="96.999999999999943" width="320" height="48"/>
-                                                <color key="backgroundColor" name="SliderBackground"/>
+                                                <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Rlf-P5-ina"/>
                                                 </constraints>
@@ -306,6 +306,7 @@
                         <outlet property="coffeeLabel" destination="apM-sG-DyS" id="lxa-O9-vYf"/>
                         <outlet property="coffeeWaterSlider" destination="wcp-O8-axF" id="nWK-EF-RbK"/>
                         <outlet property="editButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>
+                        <outlet property="sliderContainerView" destination="L1X-Yk-nJf" id="XO4-r0-REc"/>
                         <outlet property="strengthSegmentedControl" destination="IFx-mc-irc" id="slF-PT-bPf"/>
                         <outlet property="waterLabel" destination="ddD-7S-1A3" id="LKK-wy-fGX"/>
                     </connections>
@@ -333,8 +334,8 @@
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="SliderBackground">
-            <color red="0.86699998378753662" green="0.86699998378753662" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="SecondaryBackground">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

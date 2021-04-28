@@ -65,6 +65,7 @@ class BrewVC: UIViewController, Storyboarded {
     
     @IBOutlet var editButton: UIButton!
     @IBOutlet weak var coffeeWaterSlider: UISlider!
+    @IBOutlet weak var sliderContainerView: Shadow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -243,12 +244,10 @@ extension BrewVC: PaywallDelegate {
     private func enableProFeatures(_ userIsPro: Bool) {
         if userIsPro {
             editButton.isHidden = true
-            UIView.animate(withDuration: 0.25) {
-                self.coffeeWaterSlider.isHidden = false
-            }
+            sliderContainerView.isHidden = false
         } else {
             editButton.isHidden = false
-            coffeeWaterSlider.isHidden = true
+            sliderContainerView.isHidden = true
         }
     }
 }
