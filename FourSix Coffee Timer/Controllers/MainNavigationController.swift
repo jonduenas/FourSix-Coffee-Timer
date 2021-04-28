@@ -17,11 +17,20 @@ class MainNavigationController: UINavigationController {
     }
     
     func setupNavigationBarAppearance() {
-        navigationBar.isTranslucent = false
         navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
-        navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.layoutIfNeeded()
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: AssetsColor.header.rawValue)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        let buttonAppearance = UIBarButtonItemAppearance(style: .plain)
+        buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(named: AssetsColor.accent.rawValue) ?? UIColor.systemYellow]
+        appearance.buttonAppearance = buttonAppearance
+        
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.compactAppearance = appearance
     }
 }
 

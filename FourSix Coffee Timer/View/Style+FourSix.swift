@@ -18,6 +18,7 @@ enum AssetsColor: String {
     case sliderBackground = "SliderBackground"
     case fourSixBlue
     case fourSixWhite
+    case header = "Header"
 }
 
 extension UIColor {
