@@ -42,6 +42,8 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
     }
     
     private func configureNavController() {
+        navigationItem.largeTitleDisplayMode = .never
+        
         title = isNewCoffee ? "Add Coffee" : "Edit Coffee"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton))

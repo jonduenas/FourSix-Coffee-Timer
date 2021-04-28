@@ -37,7 +37,7 @@ class CoffeePickerVC: UIViewController, Storyboarded {
         fetchCoffees()
         
         navigationItem.rightBarButtonItem = editButtonItem
-        navigationController?.hideBarShadow(true)
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     override func viewDidAppear(_ animated: Bool) {

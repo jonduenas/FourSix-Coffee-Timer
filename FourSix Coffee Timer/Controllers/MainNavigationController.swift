@@ -18,6 +18,8 @@ class MainNavigationController: UINavigationController {
     
     func setupNavigationBarAppearance() {
         navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
+        navigationBar.prefersLargeTitles = true
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: AssetsColor.header.rawValue)

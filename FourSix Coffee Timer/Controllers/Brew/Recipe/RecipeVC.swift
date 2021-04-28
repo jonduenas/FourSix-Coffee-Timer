@@ -34,6 +34,7 @@ class RecipeVC: UIViewController, Storyboarded {
     
     private func initNavBar() {
         title = "Recipe"
+        navigationItem.largeTitleDisplayMode = .never
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(xButtonTapped))
     }
     

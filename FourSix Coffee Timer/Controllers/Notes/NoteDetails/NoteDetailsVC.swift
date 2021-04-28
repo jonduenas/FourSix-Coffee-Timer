@@ -57,11 +57,9 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         configureView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.hideBarShadow(true)
-    }
-    
     private func configureNavController() {
+        navigationItem.largeTitleDisplayMode = .never
+        
         if isNewNote {
             title = "New Note"
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reminder",
