@@ -100,6 +100,7 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
         let settingsImage: UIImage?
         if #available(iOS 14.0, *) {
             settingsImage = UIImage(systemName: "gearshape.fill")
@@ -108,8 +109,8 @@ class BrewVC: UIViewController, Storyboarded {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettings))
-        navigationItem.title = "Let's Brew"
-        navigationController?.navigationBar.tintColor = UIColor.systemGray
+        navigationItem.title = "Good Morning..."
+        navigationController?.navigationBar.tintColor = UIColor.lightText
     }
     
     private func initializeFonts() {
