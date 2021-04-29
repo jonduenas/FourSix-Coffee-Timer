@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5dg-5l-FRc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="vWg-cb-BBD">
                                     <rect key="frame" x="0.0" y="148.00000034679067" width="414" height="1"/>
@@ -142,12 +142,12 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aAp-2q-tXh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Header"/>
                         <constraints>
                             <constraint firstItem="aAp-2q-tXh" firstAttribute="trailing" secondItem="5dg-5l-FRc" secondAttribute="trailing" id="XWl-Ve-41j"/>
                             <constraint firstItem="5dg-5l-FRc" firstAttribute="top" secondItem="aAp-2q-tXh" secondAttribute="top" id="enz-rs-5bO"/>
                             <constraint firstItem="5dg-5l-FRc" firstAttribute="leading" secondItem="aAp-2q-tXh" secondAttribute="leading" id="qFM-gq-vaF"/>
-                            <constraint firstItem="aAp-2q-tXh" firstAttribute="bottom" secondItem="5dg-5l-FRc" secondAttribute="bottom" id="ycg-gm-Dyt"/>
+                            <constraint firstAttribute="bottom" secondItem="5dg-5l-FRc" secondAttribute="bottom" id="ycg-gm-Dyt"/>
                         </constraints>
                     </view>
                     <connections>
@@ -169,6 +169,9 @@
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Header">
+            <color red="0.36078431372549019" green="0.25098039215686274" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SecondaryBackground">
             <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -177,9 +180,6 @@
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

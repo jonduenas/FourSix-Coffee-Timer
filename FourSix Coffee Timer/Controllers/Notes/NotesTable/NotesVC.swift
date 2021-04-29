@@ -23,8 +23,9 @@ class NotesVC: UIViewController, Storyboarded {
         
         guard dataManager != nil else { fatalError("Controller requires DataManager.") }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Notes", style: .plain, target: self, action: #selector(createNewNote))
-        
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Notes", style: .plain, target: self, action: #selector(createNewNote))
+        tableView.layer.cornerRadius = 24
+        tableView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         tableView.delegate = self
         configureDataSource()
         configureFetchedResultsController()
