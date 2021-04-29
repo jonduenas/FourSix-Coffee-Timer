@@ -66,3 +66,16 @@ extension UIColor {
         return colorArray
     }
 }
+
+extension UIFont {
+    static func newYork(size: CGFloat, weight: UIFont.Weight) -> UIFont {
+        let descriptor = UIFont.systemFont(ofSize: size,
+                                           weight: weight).fontDescriptor
+        
+        if let serif = descriptor.withDesign(.serif) {
+            return UIFont(descriptor: serif, size: 0.0)
+        }
+        
+        return UIFont(descriptor: descriptor, size: 0.0)
+    }
+}

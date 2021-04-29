@@ -58,6 +58,7 @@ class BrewVC: UIViewController, Storyboarded {
     
     // MARK: IBOutlets
     @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var subGreetingLabel: UILabel!
     
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
@@ -127,8 +128,13 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeFonts() {
-        coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
-        waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
+        let headerFont = UIFont.newYork(size: 24, weight: .bold)
+        greetingLabel.font = headerFont
+        subGreetingLabel.font = headerFont
+        
+        let coffeeWaterFont = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
+        coffeeLabel.font = coffeeWaterFont
+        waterLabel.font = coffeeWaterFont
     }
     
     @objc func didTapSettings() {

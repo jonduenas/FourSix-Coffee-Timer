@@ -35,7 +35,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="Header"/>
                                 <constraints>
                                     <constraint firstItem="FFg-bd-plj" firstAttribute="leading" secondItem="Tqe-Mg-vGs" secondAttribute="leadingMargin" constant="9" id="2Hg-BX-xMB"/>
                                     <constraint firstItem="G7h-pK-BNJ" firstAttribute="top" secondItem="FFg-bd-plj" secondAttribute="bottom" id="9x3-Ix-7zZ"/>
@@ -346,6 +345,7 @@
                         <outlet property="greetingLabel" destination="FFg-bd-plj" id="vC0-cd-yPj"/>
                         <outlet property="sliderContainerView" destination="L1X-Yk-nJf" id="XO4-r0-REc"/>
                         <outlet property="strengthSegmentedControl" destination="IFx-mc-irc" id="slF-PT-bPf"/>
+                        <outlet property="subGreetingLabel" destination="G7h-pK-BNJ" id="xpC-30-Gox"/>
                         <outlet property="waterLabel" destination="ddD-7S-1A3" id="LKK-wy-fGX"/>
                     </connections>
                 </viewController>
