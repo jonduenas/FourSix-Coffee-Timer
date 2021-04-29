@@ -16,6 +16,10 @@ class MainNavigationController: UINavigationController {
         setupNavigationBarAppearance()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func setupNavigationBarAppearance() {
         navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
         
