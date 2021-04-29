@@ -18,13 +18,13 @@ class MainNavigationController: UINavigationController {
     
     func setupNavigationBarAppearance() {
         navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
-        navigationBar.prefersLargeTitles = true
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: AssetsColor.header.rawValue)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.systemFont(ofSize: 24, weight: .bold)]
+        appearance.shadowColor = .clear
         
         let buttonAppearance = UIBarButtonItemAppearance(style: .plain)
         buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(named: AssetsColor.accent.rawValue) ?? UIColor.systemYellow]

@@ -45,4 +45,17 @@ extension Date {
         
         return dateFormatter.string(from: self)
     }
+    
+    func stringGreetingFromDate(using calendar: Calendar = Calendar.current) -> String {
+        guard let noon = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: self) else { return "" }
+        guard let fivePM = calendar.date(bySettingHour: 17, minute: 0, second: 0, of: self) else { return "" }
+        
+        if self < noon {
+            return "Good morning..."
+        } else if self < fivePM {
+            return "Good afternoon..."
+        } else {
+            return "Good evening..."
+        }
+    }
 }

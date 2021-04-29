@@ -66,6 +66,7 @@
 		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
 		6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A32603D03E0029E396 /* NotesCoordinator.swift */; };
 		6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A72603D24F0029E396 /* MainTabBarController.swift */; };
+		6579FB52263A09D700CAAAA0 /* RoundedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6579FB51263A09D700CAAAA0 /* RoundedStackView.swift */; };
 		657A2631260A85A20009CD9A /* DoneToolBar+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */; };
 		657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */; };
 		6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B525F6D2110019D8D1 /* RatioCell.swift */; };
@@ -204,6 +205,7 @@
 		6577F2A32603D03E0029E396 /* NotesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCoordinator.swift; sourceTree = "<group>"; };
 		6577F2A72603D24F0029E396 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		6579557F25E32FE500BC244E /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6579FB51263A09D700CAAAA0 /* RoundedStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedStackView.swift; sourceTree = "<group>"; };
 		657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoneToolBar+UITextField.swift"; sourceTree = "<group>"; };
 		657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringFromDate+Date.swift"; sourceTree = "<group>"; };
 		6584A9B525F6D2110019D8D1 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
 				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
 				6561ACA924BBDE5800C9F129 /* RoundedView.swift */,
+				6579FB51263A09D700CAAAA0 /* RoundedStackView.swift */,
 				6515EACE24B2563B004255EB /* Shadow.swift */,
 				65C7843326373D030014A6EC /* CustomSlider.swift */,
 				656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */,
@@ -938,6 +941,7 @@
 				6542DDF625D8512D0067C704 /* SettingsCoordinator.swift in Sources */,
 				653715AB25F1874200F162DD /* PickerToolbar.swift in Sources */,
 				65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */,
+				6579FB52263A09D700CAAAA0 /* RoundedStackView.swift in Sources */,
 				652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */,
 				65F1F7B32624D6D700B2C369 /* NoteDetailsCoordinator.swift in Sources */,
 				6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */,

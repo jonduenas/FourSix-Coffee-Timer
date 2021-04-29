@@ -57,6 +57,8 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     // MARK: IBOutlets
+    @IBOutlet weak var greetingLabel: UILabel!
+    
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
     
@@ -73,12 +75,19 @@ class BrewVC: UIViewController, Storyboarded {
         guard dataManager != nil else { fatalError("Controller requires a DataManager.") }
         
         checkForStepAdvanceMigration()
+        initializeGreeting()
         initializeNavBar()
         initializeFonts()
         initializeSlider()
         initializeSelectors()
         checkForProStatus()
         updateValueLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        initializeGreeting()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,8 +108,11 @@ class BrewVC: UIViewController, Storyboarded {
         }
     }
     
+    private func initializeGreeting() {
+        greetingLabel.text = Date().stringGreetingFromDate()
+    }
+    
     private func initializeNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         let settingsImage: UIImage?
         if #available(iOS 14.0, *) {
             settingsImage = UIImage(systemName: "gearshape.fill")
@@ -108,8 +120,9 @@ class BrewVC: UIViewController, Storyboarded {
             settingsImage = UIImage(systemName: "gear")
         }
         
+        navigationController?.navigationBar.standardAppearance.configureWithTransparentBackground()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettings))
-        navigationItem.title = "Good Morning..."
+        navigationItem.title = ""
         navigationController?.navigationBar.tintColor = UIColor.lightText
     }
     
