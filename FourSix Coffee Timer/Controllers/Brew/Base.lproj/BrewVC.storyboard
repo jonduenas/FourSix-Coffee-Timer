@@ -327,10 +327,8 @@
                                 <edgeInsets key="layoutMargins" top="16" left="8" bottom="16" right="8"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundTopLeft" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundTopright" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
