@@ -20,5 +20,11 @@ class NoteCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        initializeFonts()
+    }
+    
+    private func initializeFonts() {
+        monthLabel.font = UIFont.newYork(size: 18, weight: .regular)
+        dayLabel.font = UIFont.newYork(size: 44, weight: .medium)
     }
 }
