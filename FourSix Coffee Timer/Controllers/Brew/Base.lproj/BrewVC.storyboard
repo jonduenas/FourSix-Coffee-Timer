@@ -175,16 +175,16 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yRs-Ml-pDt">
-                                        <rect key="frame" x="25" y="335.33333333333337" width="340" height="145"/>
+                                        <rect key="frame" x="25" y="335" width="340" height="146"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavor Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMa-cE-GgX">
-                                                <rect key="frame" x="0.0" y="0.0" width="340" height="17"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLAVOR PROFILE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMa-cE-GgX">
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VY-vM-2Jc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="33" width="340" height="48"/>
+                                                <rect key="frame" x="0.0" y="34" width="340" height="48"/>
                                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="GQO-Bq-FvZ"/>
@@ -218,7 +218,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFx-mc-irc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="96.999999999999943" width="340" height="48"/>
+                                                <rect key="frame" x="0.0" y="98.000000000000057" width="340" height="48"/>
                                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Rlf-P5-ina"/>
