@@ -29,6 +29,30 @@ class RoundButton: UIButton {
         }
     }
     
+    @IBInspectable var addShadow: Bool = false {
+        didSet {
+            setShadow()
+        }
+    }
+
+    @IBInspectable var shadowOpacity: Float = 0.25 {
+        didSet {
+            setShadow()
+        }
+    }
+    
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 0, height: 1.5) {
+        didSet {
+            setShadow()
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat = 0.5 {
+        didSet {
+            setShadow()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         createButton()
@@ -43,19 +67,38 @@ class RoundButton: UIButton {
         createButton()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setShadow()
+    }
+    
     private func createButton() {
         refreshCorners(value: cornerRadius)
     }
     
-    func refreshCorners(value: CGFloat) {
+    private func refreshCorners(value: CGFloat) {
         layer.cornerRadius = value
     }
     
-    func refreshBorderColor(_ color: UIColor) {
+    private func refreshBorderColor(_ color: UIColor) {
         layer.borderColor = color.cgColor
     }
     
-    func refreshBorderWidth(value: CGFloat) {
+    private func refreshBorderWidth(value: CGFloat) {
         layer.borderWidth = value
+    }
+    
+    private func setShadow() {
+        if addShadow {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = shadowOpacity
+            layer.shadowOffset = shadowOffset
+            layer.shadowRadius = shadowRadius
+            layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        } else {
+            layer.shadowColor = nil
+            layer.shadowPath = nil
+            layer.shadowOpacity = 0
+        }
     }
 }
