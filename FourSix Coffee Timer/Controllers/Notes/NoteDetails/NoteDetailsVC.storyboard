@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-sH-RJX" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1624"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-Nf-Lj6">
-                                                <rect key="frame" x="40" y="5" width="334" height="1589"/>
+                                                <rect key="frame" x="40" y="5" width="334" height="1565"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="goG-F7-Oiy">
                                                         <rect key="frame" x="47" y="0.0" width="240" height="75"/>
@@ -67,16 +67,19 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ElB-VM-bxD">
-                                                        <rect key="frame" x="123" y="95" width="88.5" height="51.5"/>
+                                                        <rect key="frame" x="134" y="95" width="66" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-4M-KTr" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="29"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="66" height="23"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontWeight" value="medium"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ny4-ft-NiK">
-                                                                <rect key="frame" x="31" y="37" width="26.5" height="14.5"/>
+                                                                <rect key="frame" x="20" y="31" width="26.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -84,7 +87,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXS-qe-jrf" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="166.5" width="334" height="106"/>
+                                                        <rect key="frame" x="0.0" y="160.5" width="334" height="106"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oEw-MJ-mMM" userLabel="SessionStack">
                                                                 <rect key="frame" x="16" y="8" width="302" height="90"/>
@@ -154,16 +157,19 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dp6-c7-HIQ">
-                                                        <rect key="frame" x="128.5" y="292.5" width="77" height="51.5"/>
+                                                        <rect key="frame" x="138" y="286.5" width="58" height="45.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmH-1c-oi0" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="23"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontWeight" value="medium"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEr-0a-AO8">
-                                                                <rect key="frame" x="22.5" y="37" width="32.5" height="14.5"/>
+                                                                <rect key="frame" x="13" y="31" width="32.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -171,7 +177,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g44-jm-k1p" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="364" width="334" height="286"/>
+                                                        <rect key="frame" x="0.0" y="352" width="334" height="286"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="toL-AX-tUx" userLabel="RecipeStack">
                                                                 <rect key="frame" x="16" y="8" width="302" height="270"/>
@@ -371,25 +377,20 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-fx-9hu">
-                                                        <rect key="frame" x="67" y="670" width="200" height="29"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-Oe-ftg" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
-                                                                <rect key="frame" x="21" y="0.0" width="158.5" height="29"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="Qta-Ys-GRX"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-Oe-ftg" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
+                                                        <rect key="frame" x="107.5" y="658" width="119.5" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fontWeight" value="medium"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jB1-kz-DLK" customClass="CoffeePickerView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="719" width="334" height="281"/>
+                                                        <rect key="frame" x="0.0" y="701" width="334" height="281"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Npy-Jv-iC5">
-                                                                <rect key="frame" x="15" y="15" width="161" height="251"/>
+                                                                <rect key="frame" x="16" y="15" width="272" height="251"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3A-TU-6oG">
                                                                         <rect key="frame" x="0.0" y="0.0" width="161" height="17"/>
@@ -449,8 +450,9 @@
                                                         <color key="backgroundColor" name="Background"/>
                                                         <constraints>
                                                             <constraint firstItem="71R-sO-6AO" firstAttribute="centerY" secondItem="jB1-kz-DLK" secondAttribute="centerY" id="FfV-7f-elz"/>
+                                                            <constraint firstItem="71R-sO-6AO" firstAttribute="leading" secondItem="Npy-Jv-iC5" secondAttribute="trailing" constant="16" id="ICl-Y2-eez"/>
                                                             <constraint firstItem="Npy-Jv-iC5" firstAttribute="top" secondItem="jB1-kz-DLK" secondAttribute="top" constant="15" id="QaV-OG-EyZ"/>
-                                                            <constraint firstItem="Npy-Jv-iC5" firstAttribute="leading" secondItem="jB1-kz-DLK" secondAttribute="leading" constant="15" id="RUx-PZ-vcl"/>
+                                                            <constraint firstItem="Npy-Jv-iC5" firstAttribute="leading" secondItem="jB1-kz-DLK" secondAttribute="leading" constant="16" id="RUx-PZ-vcl"/>
                                                             <constraint firstAttribute="trailing" secondItem="71R-sO-6AO" secondAttribute="trailing" constant="10" id="nI2-qK-pPI"/>
                                                             <constraint firstAttribute="bottom" secondItem="Npy-Jv-iC5" secondAttribute="bottom" constant="15" id="xLE-8b-rVC"/>
                                                         </constraints>
@@ -472,7 +474,7 @@
                                                         </connections>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-c1-40m" customClass="DatePickerView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="1020" width="334" height="350"/>
+                                                        <rect key="frame" x="0.0" y="1002" width="334" height="350"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-Zb-cp9">
                                                                 <rect key="frame" x="16" y="0.0" width="302" height="45"/>
@@ -529,13 +531,16 @@
                                                         </connections>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbX-fI-wPn" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="134" y="1390" width="66.5" height="29"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                        <rect key="frame" x="142" y="1372" width="50.5" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fontWeight" value="medium"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWr-eY-C2J" customClass="NotesTextView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="1439" width="334" height="150"/>
+                                                        <rect key="frame" x="0.0" y="1415" width="334" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="VPc-6V-WTK"/>

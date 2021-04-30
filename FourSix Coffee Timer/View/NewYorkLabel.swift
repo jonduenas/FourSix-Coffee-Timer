@@ -8,33 +8,57 @@
 
 import UIKit
 
-
 class NewYorkLabel: UILabel {
-    @IBInspectable var fontWeight: UIFont.Weight = .medium {
+    @IBInspectable var fontWeight: String = "" {
         didSet {
-            setFont()
+            switch fontWeight {
+            case "bold":
+                weight = .bold
+            case "medium":
+                weight = .medium
+            case "regular", "":
+                weight = .regular
+            case "semibold":
+                weight = .semibold
+            case "ultralight":
+                weight = .ultraLight
+            case "light":
+                weight = .light
+            case "thin":
+                weight = .thin
+            case "heavy":
+                weight = .heavy
+            case "black":
+                weight = .black
+            default:
+                print("Error: NewYorkLabel - \(self) - fontWeight set to invalid case.")
+                weight = .regular
+            }
+            
+            convertFont()
         }
     }
     
-    @IBInspectable var metricsStyle: UIFont.TextStyle = .headline {
-        didSet {
-            setFont()
-        }
-    }
+    private var weight: UIFont.Weight = .regular
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setFont()
+        convertFont()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setFont()
+        convertFont()
     }
     
-    private func setFont() {
-        let newYorkFont = UIFont.newYork(size: font.pointSize, weight: fontWeight)
-        let metrics = UIFontMetrics(forTextStyle: metricsStyle)
-        font = metrics.scaledFont(for: newYorkFont)
+    private func convertFont() {
+        guard let currentFont = font else { return }
+        
+        if let currentStyle = currentFont.fontDescriptor.fontAttributes[.textStyle] as? UIFont.TextStyle {
+            font = UIFont.newYork(style: currentStyle, weight: weight)
+            return
+        }
+        
+        font = UIFont.newYork(size: currentFont.pointSize, weight: weight)
     }
 }

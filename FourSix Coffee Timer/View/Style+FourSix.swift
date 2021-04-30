@@ -78,4 +78,26 @@ extension UIFont {
         
         return UIFont(descriptor: descriptor, size: 0.0)
     }
+    
+    static func newYork(style: TextStyle, weight: Weight) -> UIFont {
+        let metrics = UIFontMetrics(forTextStyle: style)
+        let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
+        
+        if let serifDescriptor = descriptor.withDesign(.serif) {
+            let font = UIFont.systemFont(ofSize: serifDescriptor.pointSize, weight: weight)
+            return metrics.scaledFont(for: font)
+        }
+        
+        let font = UIFont.systemFont(ofSize: descriptor.pointSize, weight: weight)
+        return metrics.scaledFont(for: font)
+    }
+    
+    func convertToNewYork() -> UIFont {
+        let descriptor = self.fontDescriptor
+        if let serif = descriptor.withDesign(.serif) {
+            return UIFont(descriptor: serif, size: 0)
+        }
+        
+        return self
+    }
 }
