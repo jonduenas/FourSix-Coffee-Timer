@@ -53,7 +53,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         datePickerView.delegate = self
         configureNavController()
         configureCoffeePickerView()
-        setEditing(isNewNote, animated: false)
+        setEditing(true, animated: false)
         configureView()
     }
     
@@ -70,7 +70,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                                                style: .done, target: self,
                                                                action: #selector(didTapCloseButton))
         } else {
-            navigationItem.rightBarButtonItem = editButtonItem
+            //navigationItem.rightBarButtonItem = editButtonItem
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapTrashButton))
         }
     }
     
@@ -93,6 +94,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         }
     }
     
+    @objc private func didTapTrashButton() {
+        showDeleteAlert()
+    }
+    
     private func configureCoffeePickerView() {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.addTarget(self, action: #selector(didTapCoffeeView))
@@ -112,12 +117,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         if shouldAnimate {
             UIView.animate(withDuration: animationDuration) {
                 self.setUIEditMode()
-                self.datePickerView.showDatePicker(editing)
+                //self.datePickerView.showDatePicker(editing)
                 self.view.layoutIfNeeded()
             }
         } else {
             setUIEditMode()
-            datePickerView.showDatePicker(editing)
+            //datePickerView.showDatePicker(editing)
         }
     }
     
@@ -326,6 +331,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // MARK: Delete Note
 
     @IBAction func didTapDeleteButton(_ sender: RoundButton) {
+        showDeleteAlert()
+    }
+    
+    private func showDeleteAlert() {
         AlertHelper.showDestructiveAlert(title: "Deleting Note",
                                           message: "Are you sure you want to delete this note? You can't undo it.",
                                           destructiveButtonTitle: "Delete",
