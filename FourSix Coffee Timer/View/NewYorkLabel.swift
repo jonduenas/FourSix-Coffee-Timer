@@ -40,25 +40,36 @@ class NewYorkLabel: UILabel {
     }
     
     private var weight: UIFont.Weight = .regular
+    private var sbFont: UIFont?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        if let font = font {
+            sbFont = font
+        }
+        
         convertFont()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        if let font = font {
+            sbFont = font
+        }
+        
         convertFont()
     }
     
     private func convertFont() {
-        guard let currentFont = font else { return }
+        guard let originalFont = sbFont else { return }
         
-        if let currentStyle = currentFont.fontDescriptor.fontAttributes[.textStyle] as? UIFont.TextStyle {
+        if let currentStyle = originalFont.fontDescriptor.fontAttributes[.textStyle] as? UIFont.TextStyle {
             font = UIFont.newYork(style: currentStyle, weight: weight)
             return
         }
         
-        font = UIFont.newYork(size: currentFont.pointSize, weight: weight)
+        font = UIFont.newYork(size: originalFont.pointSize, weight: weight)
     }
 }

@@ -84,7 +84,7 @@ extension UIFont {
         let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
         
         if let serifDescriptor = descriptor.withDesign(.serif) {
-            let font = UIFont.systemFont(ofSize: serifDescriptor.pointSize, weight: weight)
+            let font = UIFont.newYork(size: serifDescriptor.pointSize, weight: weight)
             return metrics.scaledFont(for: font)
         }
         
