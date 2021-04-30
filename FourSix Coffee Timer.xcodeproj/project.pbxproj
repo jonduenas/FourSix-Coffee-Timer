@@ -89,6 +89,7 @@
 		65B3140525F40291004D9758 /* SettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3140425F40291004D9758 /* SettingsDataSource.swift */; };
 		65B3140925F41BB4004D9758 /* SwitchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3140825F41BB4004D9758 /* SwitchTableCell.swift */; };
 		65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3140C25F422BD004D9758 /* TextFieldTableCell.swift */; };
+		65BAE628263B844400F94D23 /* NewYorkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAE627263B844300F94D23 /* NewYorkLabel.swift */; };
 		65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBA6C425E99979003BC3C7 /* PaywallDelegate.swift */; };
 		65BBA6C925E999DD003BC3C7 /* TimerScheduling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBA6C825E999DD003BC3C7 /* TimerScheduling.swift */; };
 		65BBE40125E470F700788156 /* RecipeBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40025E470F700788156 /* RecipeBarChart.swift */; };
@@ -229,6 +230,7 @@
 		65B3140425F40291004D9758 /* SettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataSource.swift; sourceTree = "<group>"; };
 		65B3140825F41BB4004D9758 /* SwitchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableCell.swift; sourceTree = "<group>"; };
 		65B3140C25F422BD004D9758 /* TextFieldTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
+		65BAE627263B844300F94D23 /* NewYorkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkLabel.swift; sourceTree = "<group>"; };
 		65BBA6C425E99979003BC3C7 /* PaywallDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallDelegate.swift; sourceTree = "<group>"; };
 		65BBA6C825E999DD003BC3C7 /* TimerScheduling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduling.swift; sourceTree = "<group>"; };
 		65BBE40025E470F700788156 /* RecipeBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBarChart.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				65C7843326373D030014A6EC /* CustomSlider.swift */,
 				656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */,
 				65D5096E26388B1F0078307E /* SegmentedControl.swift */,
+				65BAE627263B844300F94D23 /* NewYorkLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */,
+				65BAE628263B844400F94D23 /* NewYorkLabel.swift in Sources */,
 				65DD15E3261E6D0600EB000E /* CoffeePickerVC.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
 				65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */,
