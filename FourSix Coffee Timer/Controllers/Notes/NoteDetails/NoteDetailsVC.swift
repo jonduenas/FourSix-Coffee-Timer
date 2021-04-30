@@ -36,8 +36,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
     
-    @IBOutlet weak var deleteButton: RoundButton!
-    
     var dataManager: DataManager!
     weak var coordinator: NoteDetailsCoordinator?
     var note: NoteMO?
@@ -140,9 +138,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         coffeePickerView.setEditing(isEditing)
         
         notesTextView.setToEditMode(isEditing)
-        
-        // Delete button is hidden if not editing OR if it's a new note
-        deleteButton.isHidden = !isEditing || isNewNote
     }
     
     // MARK: Update UI with Note
@@ -329,10 +324,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     // MARK: Delete Note
-
-    @IBAction func didTapDeleteButton(_ sender: RoundButton) {
-        showDeleteAlert()
-    }
     
     private func showDeleteAlert() {
         AlertHelper.showDestructiveAlert(title: "Deleting Note",
