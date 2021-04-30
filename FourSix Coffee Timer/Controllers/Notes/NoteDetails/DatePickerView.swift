@@ -19,14 +19,18 @@ class DatePickerView: RoundedView {
     @IBOutlet weak var roastDateLabel: UILabel!
     @IBOutlet weak var labelsContainerView: UIView!
     
-    let datePickerVisibleHeight_iOS14: CGFloat = 330
-    let datePickerVisibleHeight_iOS13: CGFloat = 285
-    let datePickerHiddenHeight: CGFloat = 45
-    let emptyDateColor: UIColor = .secondaryLabel
-    let emptyDateText: String = "Select Date"
-    let filledDateColor: UIColor = .label
+    private let emptyDateColor: UIColor = .secondaryLabel
+    private let emptyDateText: String = "Select Date"
+    private let filledDateColor: UIColor = .label
     
     weak var delegate: DatePickerViewDelegate?
+    private lazy var datePickerVisibleHeight: CGFloat = {
+        let labelsContainerHeight = labelsContainerView.frame.height
+        let datePickerHeight = datePicker.frame.height
+        return labelsContainerHeight + datePickerHeight + 8
+    }()
+    
+    private(set) var datePickerIsHidden: Bool = false
     
     private(set) var roastDate: Date? = nil {
         didSet {
@@ -42,8 +46,6 @@ class DatePickerView: RoundedView {
             }
         }
     }
-    
-    private(set) var datePickerIsHidden: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,9 +71,9 @@ class DatePickerView: RoundedView {
         roastDateLabel.text = emptyDateText
         roastDateLabel.textColor = emptyDateColor
         
-        addTapGesture()
-        
         showDatePicker(false)
+        
+        addTapGesture()
     }
     
     private func addTapGesture() {
@@ -82,8 +84,9 @@ class DatePickerView: RoundedView {
     @objc private func didTapLabelsView(sender: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.2) {
             self.showDatePicker(self.datePickerIsHidden)
-            self.delegate?.didChangePickerVisibility(self)
         }
+        
+        delegate?.didChangePickerVisibility(self)
     }
     
     func showDatePicker(_ show: Bool) {
@@ -91,12 +94,7 @@ class DatePickerView: RoundedView {
         
         datePickerIsHidden = !show
         
-        // Set height based on whether using new iOS 14 inline UIDatePicker or iOS13 UIDatePicker wheels
-        if #available(iOS 14.0, *) {
-            self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS14 : self.datePickerHiddenHeight)
-        } else {
-            self.datePickerHeight.constant = (show ? self.datePickerVisibleHeight_iOS13 : self.datePickerHiddenHeight)
-        }
+        datePickerHeight.constant = (show ? datePickerVisibleHeight : labelsContainerView.frame.height)
     }
     
     func setDate(_ date: Date?) {
