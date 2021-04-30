@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-sH-RJX" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1682"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1688"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-Nf-Lj6">
-                                                <rect key="frame" x="40" y="5" width="334" height="1647"/>
+                                                <rect key="frame" x="40" y="5" width="334" height="1653"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="goG-F7-Oiy">
-                                                        <rect key="frame" x="47" y="0.0" width="240" height="69"/>
+                                                        <rect key="frame" x="47" y="0.0" width="240" height="75"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIr-iv-Fny">
                                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="25"/>
@@ -47,7 +47,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2J5-lp-iQX" userLabel="RatingStack" customClass="RatingControl" customModule="FourSix" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="25" width="240" height="44"/>
+                                                                <rect key="frame" x="0.0" y="25" width="240" height="50"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                                                         <size key="value" width="44" height="44"/>
@@ -67,7 +67,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ElB-VM-bxD">
-                                                        <rect key="frame" x="123" y="89" width="88.5" height="51.5"/>
+                                                        <rect key="frame" x="123" y="95" width="88.5" height="51.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-4M-KTr" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="88.5" height="29"/>
@@ -84,7 +84,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXS-qe-jrf" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="160.5" width="334" height="106"/>
+                                                        <rect key="frame" x="0.0" y="166.5" width="334" height="106"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oEw-MJ-mMM" userLabel="SessionStack">
                                                                 <rect key="frame" x="16" y="8" width="302" height="90"/>
@@ -154,7 +154,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dp6-c7-HIQ">
-                                                        <rect key="frame" x="128.5" y="286.5" width="77" height="51.5"/>
+                                                        <rect key="frame" x="128.5" y="292.5" width="77" height="51.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmH-1c-oi0" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="29"/>
@@ -171,7 +171,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g44-jm-k1p" customClass="RoundedView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="358" width="334" height="286"/>
+                                                        <rect key="frame" x="0.0" y="364" width="334" height="286"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="toL-AX-tUx" userLabel="RecipeStack">
                                                                 <rect key="frame" x="16" y="8" width="302" height="270"/>
@@ -372,7 +372,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-fx-9hu">
-                                                        <rect key="frame" x="67" y="664" width="200" height="29"/>
+                                                        <rect key="frame" x="67" y="670" width="200" height="29"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-Oe-ftg" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
                                                                 <rect key="frame" x="21" y="0.0" width="158.5" height="29"/>
@@ -386,7 +386,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jB1-kz-DLK" customClass="CoffeePickerView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="713" width="334" height="281"/>
+                                                        <rect key="frame" x="0.0" y="719" width="334" height="281"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Npy-Jv-iC5">
                                                                 <rect key="frame" x="15" y="15" width="161" height="251"/>
@@ -472,22 +472,34 @@
                                                         </connections>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-c1-40m" customClass="DatePickerView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="1014" width="334" height="350"/>
+                                                        <rect key="frame" x="0.0" y="1020" width="334" height="350"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roast Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHU-rz-Cxx">
-                                                                <rect key="frame" x="15" y="15" width="71" height="17"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9y-wh-HWR">
-                                                                <rect key="frame" x="167" y="15" width="35.5" height="17"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-Zb-cp9">
+                                                                <rect key="frame" x="16" y="0.0" width="302" height="45"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roast Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHU-rz-Cxx">
+                                                                        <rect key="frame" x="0.0" y="14" width="71" height="17"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9y-wh-HWR">
+                                                                        <rect key="frame" x="151" y="14" width="151" height="17"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="vHU-rz-Cxx" firstAttribute="leading" secondItem="wMT-Zb-cp9" secondAttribute="leading" id="NWM-AV-JCw"/>
+                                                                    <constraint firstItem="O9y-wh-HWR" firstAttribute="centerY" secondItem="wMT-Zb-cp9" secondAttribute="centerY" id="PbX-Xz-puG"/>
+                                                                    <constraint firstItem="vHU-rz-Cxx" firstAttribute="centerY" secondItem="wMT-Zb-cp9" secondAttribute="centerY" id="RP7-II-Dyj"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="O9y-wh-HWR" secondAttribute="trailing" id="lrK-tn-M06"/>
+                                                                </constraints>
+                                                            </view>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="7js-a7-cUE">
-                                                                <rect key="frame" x="10" y="47" width="314" height="216"/>
+                                                                <rect key="frame" x="10" y="53" width="314" height="216"/>
                                                                 <color key="tintColor" name="Accent"/>
                                                                 <connections>
                                                                     <action selector="didChangeDate:" destination="j5f-c1-40m" eventType="valueChanged" id="7Ur-QQ-3Wz"/>
@@ -496,13 +508,13 @@
                                                         </subviews>
                                                         <color key="backgroundColor" name="Background"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="wMT-Zb-cp9" secondAttribute="trailing" constant="16" id="62g-xK-far"/>
                                                             <constraint firstItem="7js-a7-cUE" firstAttribute="leading" secondItem="j5f-c1-40m" secondAttribute="leading" constant="10" id="64b-kR-rwn"/>
-                                                            <constraint firstItem="vHU-rz-Cxx" firstAttribute="top" secondItem="j5f-c1-40m" secondAttribute="top" constant="15" id="6sE-34-Wpc"/>
+                                                            <constraint firstItem="wMT-Zb-cp9" firstAttribute="leading" secondItem="j5f-c1-40m" secondAttribute="leading" constant="16" id="7qL-Xl-db3"/>
                                                             <constraint firstAttribute="trailing" secondItem="7js-a7-cUE" secondAttribute="trailing" constant="10" id="AAS-Y1-K11"/>
-                                                            <constraint firstItem="7js-a7-cUE" firstAttribute="top" secondItem="vHU-rz-Cxx" secondAttribute="bottom" constant="15" id="Kx9-NR-b7f"/>
+                                                            <constraint firstItem="wMT-Zb-cp9" firstAttribute="top" secondItem="j5f-c1-40m" secondAttribute="top" id="HNh-tx-LAg"/>
                                                             <constraint firstAttribute="height" constant="350" id="PyJ-7Y-3Rv"/>
-                                                            <constraint firstItem="O9y-wh-HWR" firstAttribute="top" secondItem="j5f-c1-40m" secondAttribute="top" constant="15" id="mSy-WA-8xH"/>
-                                                            <constraint firstItem="vHU-rz-Cxx" firstAttribute="leading" secondItem="j5f-c1-40m" secondAttribute="leading" constant="15" id="wEH-nZ-drb"/>
+                                                            <constraint firstItem="7js-a7-cUE" firstAttribute="top" secondItem="wMT-Zb-cp9" secondAttribute="bottom" constant="8" id="T07-da-t1n"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -512,17 +524,18 @@
                                                         <connections>
                                                             <outlet property="datePicker" destination="7js-a7-cUE" id="tbv-Dl-gl7"/>
                                                             <outlet property="datePickerHeight" destination="PyJ-7Y-3Rv" id="JI7-vf-UbW"/>
+                                                            <outlet property="labelsContainerView" destination="wMT-Zb-cp9" id="mUo-5s-r4N"/>
                                                             <outlet property="roastDateLabel" destination="O9y-wh-HWR" id="kOH-bW-H7f"/>
                                                         </connections>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbX-fI-wPn" customClass="NewYorkLabel" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="134" y="1384" width="66.5" height="29"/>
+                                                        <rect key="frame" x="134" y="1390" width="66.5" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWr-eY-C2J" customClass="NotesTextView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="1433" width="334" height="150"/>
+                                                        <rect key="frame" x="0.0" y="1439" width="334" height="150"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="VPc-6V-WTK"/>
@@ -536,7 +549,7 @@
                                                         </connections>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbh-af-PU9" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="87" y="1603" width="160" height="44"/>
+                                                        <rect key="frame" x="87" y="1609" width="160" height="44"/>
                                                         <color key="backgroundColor" red="0.76866525409999997" green="0.15744084119999999" blue="0.20944714549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="ECa-iS-wzo"/>
@@ -563,13 +576,14 @@
                                                     <constraint firstAttribute="trailing" secondItem="jB1-kz-DLK" secondAttribute="trailing" id="QvL-43-SO1"/>
                                                     <constraint firstItem="rb7-ut-1ac" firstAttribute="leading" secondItem="6Ld-E6-NmD" secondAttribute="leading" id="Xle-cS-bD3"/>
                                                     <constraint firstAttribute="trailing" secondItem="g44-jm-k1p" secondAttribute="trailing" id="ahY-3J-Q1n"/>
+                                                    <constraint firstItem="O9y-wh-HWR" firstAttribute="leading" secondItem="rb7-ut-1ac" secondAttribute="leading" id="cbY-wL-baS"/>
                                                     <constraint firstItem="g44-jm-k1p" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="dKY-fj-kEg"/>
-                                                    <constraint firstItem="O9y-wh-HWR" firstAttribute="leading" secondItem="rb7-ut-1ac" secondAttribute="leading" id="dTX-LW-4Rm"/>
                                                     <constraint firstItem="fPV-z9-gH7" firstAttribute="height" secondItem="1jC-cv-t6W" secondAttribute="height" id="fv3-bP-xLf"/>
                                                     <constraint firstItem="EXS-qe-jrf" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="m7M-un-hM4"/>
                                                     <constraint firstAttribute="trailing" secondItem="EXS-qe-jrf" secondAttribute="trailing" id="ntc-CN-8dq"/>
                                                     <constraint firstAttribute="trailing" secondItem="AWr-eY-C2J" secondAttribute="trailing" id="oRk-xD-qzm"/>
                                                     <constraint firstItem="rb7-ut-1ac" firstAttribute="leading" secondItem="nWC-pA-jVW" secondAttribute="leading" id="qET-DH-Dtf"/>
+                                                    <constraint firstItem="wMT-Zb-cp9" firstAttribute="height" secondItem="fPV-z9-gH7" secondAttribute="height" id="vPE-kF-Sqg"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>

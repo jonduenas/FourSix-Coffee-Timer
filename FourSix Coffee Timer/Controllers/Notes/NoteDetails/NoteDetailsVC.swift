@@ -458,6 +458,10 @@ extension NoteDetailsVC: CoffeePickerDelegate {
 // MARK: - DatePickerViewDelegate methods
 
 extension NoteDetailsVC: DatePickerViewDelegate {
+    func didChangePickerVisibility(_ datePickerView: DatePickerView) {
+        view.layoutIfNeeded()
+    }
+    
     func datePickerView(_ datePickerView: DatePickerView, didChangeToDate date: Date?) {
         guard note?.coffee != nil, note?.roastDate != date else { return }
         note?.roastDate = date
