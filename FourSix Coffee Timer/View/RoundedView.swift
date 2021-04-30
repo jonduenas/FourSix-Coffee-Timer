@@ -23,6 +23,24 @@ class RoundedView: UIView {
         }
     }
     
+    @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet {
+            setBorder()
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor = .clear {
+        didSet {
+            setBorder()
+        }
+    }
+    
+    @IBInspectable var borderAlpha: CGFloat = 0 {
+        didSet {
+            setBorder()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeView()
@@ -48,6 +66,11 @@ class RoundedView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         addShadow(shadow)
+    }
+    
+    private func setBorder() {
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.withAlphaComponent(borderAlpha).cgColor
     }
     
     private func addShadow(_ shouldAddShadow: Bool) {
