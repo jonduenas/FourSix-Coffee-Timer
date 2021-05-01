@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -137,7 +137,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KLF-8p-nWR"/>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
                             <constraint firstItem="KLF-8p-nWR" firstAttribute="trailing" secondItem="MYM-ns-TLw" secondAttribute="trailing" constant="40" id="9R9-gd-Zv9"/>
                             <constraint firstItem="MYM-ns-TLw" firstAttribute="leading" secondItem="KLF-8p-nWR" secondAttribute="leading" constant="40" id="Ox2-SF-LUn"/>
@@ -157,8 +157,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Background">
-            <color red="0.92500001192092896" green="0.92500001192092896" blue="0.92500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="SecondaryBackground">
+            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
