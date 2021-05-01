@@ -84,9 +84,8 @@ class DatePickerView: RoundedView {
     @objc private func didTapLabelsView(sender: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.2) {
             self.showDatePicker(self.datePickerIsHidden)
+            self.delegate?.didChangePickerVisibility(self)
         }
-        
-        delegate?.didChangePickerVisibility(self)
     }
     
     func showDatePicker(_ show: Bool) {
