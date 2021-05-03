@@ -60,7 +60,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         
         if isNewNote {
             title = "New Note"
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reminder",
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bell"),
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(didTapRemindButton))
