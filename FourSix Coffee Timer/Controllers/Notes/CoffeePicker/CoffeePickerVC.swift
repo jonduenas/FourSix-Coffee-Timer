@@ -68,6 +68,11 @@ class CoffeePickerVC: UIViewController, Storyboarded {
             } else {
                 cell.accessoryType = .none
             }
+            
+            // Sets custom color for background when cell is selected
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = UIColor(named: AssetsColor.separator.rawValue)
+            cell.selectedBackgroundView = backgroundView
 
             return cell
         })

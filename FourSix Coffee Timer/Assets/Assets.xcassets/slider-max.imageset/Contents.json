@@ -3,6 +3,16 @@
     {
       "filename" : "slider-max.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "slider-max-dark.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

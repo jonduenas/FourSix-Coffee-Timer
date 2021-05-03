@@ -19,6 +19,7 @@ enum AssetsColor: String {
     case fourSixBlue
     case fourSixWhite
     case header = "Header"
+    case separator = "Separator"
 }
 
 extension UIColor {

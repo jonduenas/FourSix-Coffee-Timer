@@ -56,7 +56,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" name="Background"/>
+                                                <color key="backgroundColor" name="TertiaryBackground"/>
                                                 <constraints>
                                                     <constraint firstItem="xJO-a4-LL4" firstAttribute="top" secondItem="UCO-uK-3ob" secondAttribute="top" constant="20" id="Mep-i7-Cje"/>
                                                     <constraint firstItem="xJO-a4-LL4" firstAttribute="leading" secondItem="UCO-uK-3ob" secondAttribute="leading" constant="10" id="iY2-gL-wP9"/>
@@ -88,7 +88,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" name="Background"/>
+                                                <color key="backgroundColor" name="TertiaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="5r7-DV-sDC" secondAttribute="trailing" constant="10" id="2eh-D6-ajz"/>
                                                     <constraint firstAttribute="bottom" secondItem="5r7-DV-sDC" secondAttribute="bottom" constant="20" id="Ihv-tQ-6r8"/>
@@ -186,11 +186,11 @@
         <namedColor name="Accent">
             <color red="0.91764705882352937" green="0.72156862745098038" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Background">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Header">
             <color red="0.36078431372549019" green="0.25098039215686274" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TertiaryBackground">
+            <color red="0.96100002527236938" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

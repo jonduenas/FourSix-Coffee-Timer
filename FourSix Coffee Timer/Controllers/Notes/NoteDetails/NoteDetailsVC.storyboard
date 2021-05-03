@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="NoteDetailsVC" id="21v-4u-HzI" customClass="NoteDetailsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EBI-Hj-nsl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="aBg-dc-E8K">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-sH-RJX" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
@@ -143,7 +143,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="Background"/>
                                                         <constraints>
                                                             <constraint firstItem="oEw-MJ-mMM" firstAttribute="top" secondItem="EXS-qe-jrf" secondAttribute="top" constant="8" id="0b9-OH-aFJ"/>
                                                             <constraint firstItem="oEw-MJ-mMM" firstAttribute="leading" secondItem="EXS-qe-jrf" secondAttribute="leading" constant="16" id="K8U-f7-Iw7"/>
@@ -291,6 +291,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter size" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w6P-kr-NAj">
                                                                                 <rect key="frame" x="151" y="5.5" width="151" height="34"/>
+                                                                                <color key="backgroundColor" name="Background"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                                                 <connections>
@@ -318,6 +319,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Temp" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Eey-MR-GHl">
                                                                                 <rect key="frame" x="151" y="5.5" width="81" height="34"/>
+                                                                                <color key="backgroundColor" name="Background"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
                                                                                 <userDefinedRuntimeAttributes>
@@ -364,7 +366,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="toL-AX-tUx" secondAttribute="trailing" constant="16" id="7PU-Ha-qdT"/>
                                                             <constraint firstAttribute="bottom" secondItem="toL-AX-tUx" secondAttribute="bottom" constant="8" id="fef-kZ-ibf"/>
@@ -492,7 +494,6 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="vHU-rz-Cxx" firstAttribute="leading" secondItem="wMT-Zb-cp9" secondAttribute="leading" id="NWM-AV-JCw"/>
                                                                     <constraint firstItem="O9y-wh-HWR" firstAttribute="centerY" secondItem="wMT-Zb-cp9" secondAttribute="centerY" id="PbX-Xz-puG"/>
@@ -541,7 +542,7 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWr-eY-C2J" customClass="NotesTextView" customModule="FourSix" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="1415" width="334" height="150"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="VPc-6V-WTK"/>
                                                         </constraints>
@@ -602,8 +603,6 @@
                             <constraint firstItem="ONP-EL-Hqx" firstAttribute="bottom" secondItem="aBg-dc-E8K" secondAttribute="bottom" id="NlM-ai-abB"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="coffeeAmountLabel" destination="lfv-XX-Gek" id="gG4-tG-QRg"/>
                         <outlet property="coffeePickerView" destination="jB1-kz-DLK" id="nGR-4L-EK8"/>
@@ -649,9 +648,6 @@
         </systemColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

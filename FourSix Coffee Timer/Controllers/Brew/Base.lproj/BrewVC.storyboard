@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -34,6 +34,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-Jl-Tvs">
+                                        <rect key="frame" x="0.0" y="72.333333333333329" width="390" height="1"/>
+                                        <color key="backgroundColor" name="Separator"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="vCX-Ha-L40"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FFg-bd-plj" firstAttribute="leading" secondItem="Tqe-Mg-vGs" secondAttribute="leadingMargin" constant="9" id="2Hg-BX-xMB"/>
@@ -41,7 +48,10 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="FFg-bd-plj" secondAttribute="trailing" id="CHr-1T-2SC"/>
                                     <constraint firstItem="G7h-pK-BNJ" firstAttribute="leading" secondItem="FFg-bd-plj" secondAttribute="leading" id="JKT-Gq-8X8"/>
                                     <constraint firstAttribute="bottom" secondItem="G7h-pK-BNJ" secondAttribute="bottom" constant="16" id="QXa-Ok-LJL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zhb-Jl-Tvs" secondAttribute="trailing" id="kXO-ff-2Gi"/>
+                                    <constraint firstItem="Zhb-Jl-Tvs" firstAttribute="leading" secondItem="Tqe-Mg-vGs" secondAttribute="leading" id="kly-YE-tie"/>
                                     <constraint firstAttribute="trailing" secondItem="G7h-pK-BNJ" secondAttribute="trailing" constant="8" id="m8f-jA-GVO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zhb-Jl-Tvs" secondAttribute="bottom" id="tU2-N1-iGJ"/>
                                     <constraint firstItem="FFg-bd-plj" firstAttribute="top" secondItem="Tqe-Mg-vGs" secondAttribute="top" id="xD3-1v-Ht9"/>
                                 </constraints>
                             </view>
@@ -62,7 +72,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bean" translatesAutoresizingMaskIntoConstraints="NO" id="s4e-8w-DqU">
                                                                         <rect key="frame" x="72.333333333333329" y="0.0" width="25" height="33"/>
-                                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="33" id="0Fg-64-GpG"/>
                                                                             <constraint firstAttribute="width" constant="25" id="Vty-e0-iXU"/>
@@ -88,7 +98,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-aY-W8N">
                                                                         <rect key="frame" x="68.000000000000028" y="2.6666666666666643" width="33" height="28"/>
-                                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="33" id="9Si-0n-Cgl"/>
                                                                             <constraint firstAttribute="height" constant="33" id="gDi-Ww-5rz"/>
@@ -185,7 +195,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VY-vM-2Jc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="34" width="340" height="48"/>
-                                                <color key="backgroundColor" name="SecondaryBackground"/>
+                                                <color key="backgroundColor" name="TertiaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="GQO-Bq-FvZ"/>
                                                 </constraints>
@@ -219,7 +229,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFx-mc-irc" customClass="SegmentedControl" customModule="FourSix" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="98.000000000000057" width="340" height="48"/>
-                                                <color key="backgroundColor" name="SecondaryBackground"/>
+                                                <color key="backgroundColor" name="TertiaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Rlf-P5-ina"/>
                                                 </constraints>
@@ -287,7 +297,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <state key="normal" title="Start">
-                                                    <color key="titleColor" name="Background"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -383,7 +393,10 @@
         <namedColor name="Header">
             <color red="0.36078431372549019" green="0.25098039215686274" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="SecondaryBackground">
+        <namedColor name="Separator">
+            <color red="0.5" green="0.5" blue="0.5" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TertiaryBackground">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">

@@ -9,9 +9,9 @@
 import UIKit
 
 class ProgressCircle: UIControl {
-    let progressStrokeColor = UIColor(named: AssetsColor.fill.rawValue) ?? #colorLiteral(red: 0.4103244543, green: 0.5630832911, blue: 0.9429332614, alpha: 1)
-    let progressWarningStrokeColor = UIColor.red
-    private let trackStrokeColor = UIColor.systemGray4
+    let progressStrokeColor = UIColor(named: AssetsColor.accent.rawValue) ?? UIColor.systemYellow
+    let progressWarningStrokeColor = UIColor.systemRed
+    private let trackStrokeColor = UIColor(named: AssetsColor.separator.rawValue) ?? UIColor.separator
     
     var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!

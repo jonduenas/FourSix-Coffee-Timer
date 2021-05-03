@@ -21,10 +21,17 @@ class NoteCell: UITableViewCell {
         super.awakeFromNib()
         
         initializeFonts()
+        setSelectedBackgroundColor()
     }
     
     private func initializeFonts() {
         monthLabel.font = UIFont.newYork(size: 18, weight: .regular)
         dayLabel.font = UIFont.newYork(size: 44, weight: .medium)
+    }
+    
+    private func setSelectedBackgroundColor() {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(named: AssetsColor.separator.rawValue)
+        selectedBackgroundView = backgroundView
     }
 }

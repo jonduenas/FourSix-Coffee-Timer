@@ -36,4 +36,10 @@ class CustomSlider: UISlider {
         
         setThumbImage(UIImage(named: "thumb-image"), for: .normal)
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        setImages()
+    }
 }
