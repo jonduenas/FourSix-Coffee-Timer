@@ -52,6 +52,12 @@ class TimerCoordinator: Coordinator {
     }
     
     func showNewNote(note: NoteMO?) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: AssetsColor.header.rawValue)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.newYork(size: 17, weight: .medium)]
+        navigationController.navigationBar.standardAppearance = appearance
+        
         let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
         childCoordinators.append(child)
         child.timerCoordinator = self
