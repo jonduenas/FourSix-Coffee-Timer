@@ -12,7 +12,8 @@ class RecipeVC: UIViewController, Storyboarded {
     weak var coordinator: BrewCoordinator?
     var recipe: Recipe!
     
-    @IBOutlet var totalCoffeeWaterLabel: UILabel!
+    @IBOutlet weak var totalCoffeeWaterLabel: UILabel!
+    @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
     
     @IBOutlet weak var barChartView: RecipeBarChart!
@@ -39,8 +40,9 @@ class RecipeVC: UIViewController, Storyboarded {
     }
     
     private func updateLabels() {
-        footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
+        totalCoffeeWaterLabel.font = .preferredFont(for: .title2, weight: .semibold)
         totalCoffeeWaterLabel.text = recipe.coffee.clean + "g coffee : " + recipe.waterTotal.clean + "g water"
+        subheadLabel.text = "Pour water every \(recipe.interval.clean) seconds"
     }
     
     private func initBarChart() {
@@ -68,6 +70,23 @@ class RecipeVC: UIViewController, Storyboarded {
 
 extension RecipeVC: RecipeBarChartDelegate {
     func recipeBarChart(_ recipeBarChart: RecipeBarChart, didSelect section: Int) {
-        print("recipeBarChartDelegate recieved: Section \(section)")
+        var newLabelString = "Pour \(section + 1): "
+        
+        switch section {
+        case 0:
+            newLabelString += "A larger pour results in a brighter, more acidic cup."
+        case 1:
+            newLabelString += "A larger pour results in a sweeter, less acidic cup."
+        case 2...6:
+            newLabelString += "Dividing the remaining 60% into more pours results in higher extraction strength. Fewer pours extracts less and results in a lighter cup."
+        default:
+            break
+        }
+        
+        UIView.transition(with: footerLabel,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve) {
+            self.footerLabel.text = newLabelString
+        }
     }
 }
