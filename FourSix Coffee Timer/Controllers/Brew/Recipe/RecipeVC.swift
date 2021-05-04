@@ -23,7 +23,7 @@ class RecipeVC: UIViewController, Storyboarded {
         
         initNavBar()
         updateLabels()
-        barChartView.createBarChart(for: recipe)
+        initBarChart()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +43,11 @@ class RecipeVC: UIViewController, Storyboarded {
         totalCoffeeWaterLabel.text = recipe.coffee.clean + "g coffee : " + recipe.waterTotal.clean + "g water"
     }
     
+    private func initBarChart() {
+        barChartView.delegate = self
+        barChartView.createBarChart(for: recipe)
+    }
+    
     private func animateDetails() {
         guard recipeBarDetailView.isHidden || recipeBarDetailView.alpha == 0 else { return }
         
@@ -58,5 +63,11 @@ class RecipeVC: UIViewController, Storyboarded {
     
     @objc private func xButtonTapped() {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RecipeVC: RecipeBarChartDelegate {
+    func recipeBarChart(_ recipeBarChart: RecipeBarChart, didSelect section: Int) {
+        print("recipeBarChartDelegate recieved: Section \(section)")
     }
 }

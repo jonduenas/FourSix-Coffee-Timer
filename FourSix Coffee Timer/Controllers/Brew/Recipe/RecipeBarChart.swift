@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol RecipeBarChartDelegate: AnyObject {
+    func recipeBarChart(_ recipeBarChart: RecipeBarChart, didSelect section: Int)
+}
+
 class RecipeBarChart: UIView {
     @IBOutlet weak var barChartStack: UIStackView!
+    
+    weak var delegate: RecipeBarChartDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +32,7 @@ class RecipeBarChart: UIView {
             guard colorArray.count >= index else { return }
             
             let view = createPourView(frame: .zero, backgroundColor: colorArray[index])
+            view.tag = index
             
             switch index {
             case 0:
@@ -42,6 +49,9 @@ class RecipeBarChart: UIView {
             
             view.widthAnchor.constraint(equalTo: barChartStack.widthAnchor).isActive = true
             view.heightAnchor.constraint(equalTo: barChartStack.heightAnchor, multiplier: CGFloat(pour / recipe.waterTotal), constant: -barChartStack.spacing).isActive = true
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
+            view.addGestureRecognizer(tapGesture)
             
             let label = createValueLabel(for: pour)
             view.addSubview(label)
@@ -66,5 +76,20 @@ class RecipeBarChart: UIView {
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = UIColor(white: 0.9, alpha: 1)
         return label
+    }
+    
+    @objc private func didTap(sender: UITapGestureRecognizer) {
+        guard let tappedViewIndex = sender.view?.tag else { return }
+        
+        for view in barChartStack.arrangedSubviews {
+            if view.tag == tappedViewIndex {
+                view.alpha = 1
+                continue
+            }
+            
+            view.alpha = 0.5
+        }
+        
+        delegate?.recipeBarChart(self, didSelect: tappedViewIndex)
     }
 }
