@@ -32,7 +32,10 @@ class RecipeBarChart: UIView {
             guard colorArray.count >= index else { return }
             
             let view = createPourView(frame: .zero, backgroundColor: colorArray[index])
-            view.tag = index
+            
+            // Sets tag to number of pour
+            // Count - index results in reversed order with bottom view being first pour and top being the last
+            view.tag = recipe.waterPours.count - index
             
             switch index {
             case 0:

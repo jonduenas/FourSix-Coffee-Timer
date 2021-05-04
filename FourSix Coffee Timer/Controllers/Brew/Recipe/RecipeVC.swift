@@ -70,14 +70,14 @@ class RecipeVC: UIViewController, Storyboarded {
 
 extension RecipeVC: RecipeBarChartDelegate {
     func recipeBarChart(_ recipeBarChart: RecipeBarChart, didSelect section: Int) {
-        var newLabelString = "Pour \(section + 1): "
+        var newLabelString = "Pour \(section): "
         
         switch section {
-        case 0:
-            newLabelString += "A larger pour results in a brighter, more acidic cup."
         case 1:
+            newLabelString += "A larger pour results in a brighter, more acidic cup."
+        case 2:
             newLabelString += "A larger pour results in a sweeter, less acidic cup."
-        case 2...6:
+        case 3...7:
             newLabelString += "Dividing the remaining 60% into more pours results in higher extraction strength. Fewer pours extracts less and results in a lighter cup."
         default:
             break
