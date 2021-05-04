@@ -83,11 +83,16 @@ class RecipeBarChart: UIView {
         
         for view in barChartStack.arrangedSubviews {
             if view.tag == tappedViewIndex {
-                view.alpha = 1
+                UIView.animate(withDuration: 0.2) {
+                    view.alpha = 1
+                }
+                
                 continue
             }
             
-            view.alpha = 0.5
+            UIView.animate(withDuration: 0.2) {
+                view.alpha = 0.5
+            }
         }
         
         delegate?.recipeBarChart(self, didSelect: tappedViewIndex)
