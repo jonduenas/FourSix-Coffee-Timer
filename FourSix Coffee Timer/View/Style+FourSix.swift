@@ -20,6 +20,7 @@ enum AssetsColor: String {
     case fourSixWhite
     case header = "Header"
     case separator = "Separator"
+    case fourSixBrown
 }
 
 extension UIColor {
@@ -29,6 +30,10 @@ extension UIColor {
     
     static var fourSixWhite: UIColor? {
         return UIColor(named: AssetsColor.fourSixWhite.rawValue)
+    }
+    
+    static var fourSixBrown: UIColor {
+        return UIColor(named: AssetsColor.fourSixBrown.rawValue) ?? UIColor.brown
     }
     
     func lighter(by percentage: CGFloat = 30.0) -> UIColor {
@@ -54,13 +59,13 @@ extension UIColor {
     }
     
     static func barChartColors() -> [UIColor?] {
-        let brightestColor = UIColor.fourSixBlue?.lighter(by: 24)
+        let brightestColor = UIColor.fourSixBrown.lighter(by: 24)
         var colorArray = [brightestColor]
         
         var currentColor = brightestColor
         
         for _ in 1...5 {
-            currentColor = currentColor?.darker(by: 8)
+            currentColor = currentColor.darker(by: 8)
             colorArray.append(currentColor)
         }
         
