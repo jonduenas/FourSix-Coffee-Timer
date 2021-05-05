@@ -258,7 +258,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="didChangeBalance:" destination="dQX-07-Wto" eventType="valueChanged" id="4cb-s3-EjA"/>
                                                     <action selector="didChangeStrength:" destination="dQX-07-Wto" eventType="valueChanged" id="vZE-ai-nnM"/>
                                                 </connections>
                                             </view>
