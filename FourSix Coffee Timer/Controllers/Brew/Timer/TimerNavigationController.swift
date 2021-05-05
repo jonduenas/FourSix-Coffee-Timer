@@ -9,6 +9,16 @@
 import UIKit
 
 class TimerNavigationController: UINavigationController {
+    
+    var darkBackground: Bool = false
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if darkBackground {
+            return .lightContent
+        } else {
+            return .darkContent
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,5 +28,11 @@ class TimerNavigationController: UINavigationController {
         navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
         navigationBar.shadowImage = UIImage()
         navigationBar.layoutIfNeeded()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        darkBackground = traitCollection.userInterfaceStyle == .dark
     }
 }

@@ -27,6 +27,13 @@ class TimerCoordinator: Coordinator {
         vc.coordinator = self
         vc.recipe = recipe
         navigationController.modalPresentationStyle = .fullScreen
+        
+        if navigationController.traitCollection.userInterfaceStyle == .light {
+            setStatusBarStyle(.darkContent)
+        } else {
+            setStatusBarStyle(.lightContent)
+        }
+        
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -58,6 +65,8 @@ class TimerCoordinator: Coordinator {
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.newYork(size: 17, weight: .medium)]
         navigationController.navigationBar.standardAppearance = appearance
         
+        setStatusBarStyle(.lightContent)
+        
         let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
         childCoordinators.append(child)
         child.timerCoordinator = self
@@ -76,6 +85,12 @@ class TimerCoordinator: Coordinator {
                 childCoordinators.remove(at: index)
                 break
             }
+        }
+    }
+    
+    private func setStatusBarStyle(_ style: UIStatusBarStyle) {
+        if let timerNav = navigationController as? TimerNavigationController {
+            timerNav.darkBackground = style == .lightContent
         }
     }
 }
