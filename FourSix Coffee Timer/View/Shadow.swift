@@ -10,8 +10,11 @@ import UIKit
 
 class Shadow: UIView {
     @IBInspectable private var cornerRadius: CGFloat = 8
+    @IBInspectable var shadowOpacity: Float = 0.25
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 0, height: 1.5)
+    @IBInspectable var shadowRadius: CGFloat = 0.5
     
-    let shadowLayer = CAShapeLayer()
+    private let shadowLayer = CAShapeLayer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,9 +41,9 @@ class Shadow: UIView {
         
         shadowLayer.fillColor = UIColor.clear.cgColor
         shadowLayer.shadowColor = UIColor.black.cgColor
-        shadowLayer.shadowOpacity = 0.2
-        shadowLayer.shadowOffset = CGSize(width: 0, height: 1.0)
-        shadowLayer.shadowRadius = 1
+        shadowLayer.shadowOpacity = shadowOpacity
+        shadowLayer.shadowOffset = shadowOffset
+        shadowLayer.shadowRadius = shadowRadius
         
         layer.insertSublayer(shadowLayer, at: 0)
     }

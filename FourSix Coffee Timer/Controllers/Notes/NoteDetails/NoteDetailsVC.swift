@@ -36,8 +36,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
     
-    @IBOutlet weak var deleteButton: RoundButton!
-    
     var dataManager: DataManager!
     weak var coordinator: NoteDetailsCoordinator?
     var note: NoteMO?
@@ -53,18 +51,16 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         datePickerView.delegate = self
         configureNavController()
         configureCoffeePickerView()
-        setEditing(isNewNote, animated: false)
+        setEditing(true, animated: false)
         configureView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.hideBarShadow(true)
-    }
-    
     private func configureNavController() {
+        navigationItem.largeTitleDisplayMode = .never
+        
         if isNewNote {
             title = "New Note"
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reminder",
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bell"),
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(didTapRemindButton))
@@ -72,7 +68,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                                                style: .done, target: self,
                                                                action: #selector(didTapCloseButton))
         } else {
-            navigationItem.rightBarButtonItem = editButtonItem
+            //navigationItem.rightBarButtonItem = editButtonItem
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapTrashButton))
         }
     }
     
@@ -95,6 +92,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         }
     }
     
+    @objc private func didTapTrashButton() {
+        showDeleteAlert()
+    }
+    
     private func configureCoffeePickerView() {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.addTarget(self, action: #selector(didTapCoffeeView))
@@ -114,12 +115,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         if shouldAnimate {
             UIView.animate(withDuration: animationDuration) {
                 self.setUIEditMode()
-                self.datePickerView.showDatePicker(editing)
+                //self.datePickerView.showDatePicker(editing)
                 self.view.layoutIfNeeded()
             }
         } else {
             setUIEditMode()
-            datePickerView.showDatePicker(editing)
+            //datePickerView.showDatePicker(editing)
         }
     }
     
@@ -137,9 +138,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         coffeePickerView.setEditing(isEditing)
         
         notesTextView.setToEditMode(isEditing)
-        
-        // Delete button is hidden if not editing OR if it's a new note
-        deleteButton.isHidden = !isEditing || isNewNote
     }
     
     // MARK: Update UI with Note
@@ -326,8 +324,8 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     // MARK: Delete Note
-
-    @IBAction func didTapDeleteButton(_ sender: RoundButton) {
+    
+    private func showDeleteAlert() {
         AlertHelper.showDestructiveAlert(title: "Deleting Note",
                                           message: "Are you sure you want to delete this note? You can't undo it.",
                                           destructiveButtonTitle: "Delete",
@@ -460,6 +458,10 @@ extension NoteDetailsVC: CoffeePickerDelegate {
 // MARK: - DatePickerViewDelegate methods
 
 extension NoteDetailsVC: DatePickerViewDelegate {
+    func didChangePickerVisibility(_ datePickerView: DatePickerView) {
+        view.layoutIfNeeded()
+    }
+    
     func datePickerView(_ datePickerView: DatePickerView, didChangeToDate date: Date?) {
         guard note?.coffee != nil, note?.roastDate != date else { return }
         note?.roastDate = date

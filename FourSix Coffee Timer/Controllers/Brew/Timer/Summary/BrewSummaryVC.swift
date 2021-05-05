@@ -15,6 +15,7 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     weak var coordinator: TimerCoordinator?
     
     // MARK: IBOutlets
+    @IBOutlet weak var doneLabel: UILabel!
     
     @IBOutlet var drawdownLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
@@ -32,6 +33,8 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     
     private func updateLabels() {
         guard let session = session else { fatalError("Nil value for session.") }
+        
+        doneLabel.font = UIFont.newYork(size: 36, weight: .bold)
         
         drawdownLabel.text = "\(session.averageDrawdown().clean)s"
         totalTimeLabel.text = "\(session.totalTime.stringFromTimeInterval())"

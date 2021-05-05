@@ -11,12 +11,13 @@ import UIKit
 class NotesTextView: UITextView {
     private var editMode: Bool = false {
         didSet {
-            layer.backgroundColor = editMode ? editOnColor.cgColor : editOffColor?.cgColor
+            layer.backgroundColor = editMode ? editOnColor?.cgColor : editOffColor?.cgColor
+            layer.borderWidth = editMode ? 0.5 : 0
             isEditable = editMode
         }
     }
     
-    private var editOnColor: UIColor = UIColor.systemBackground
+    private var editOnColor: UIColor? = UIColor(named: AssetsColor.background.rawValue)
     private var editOffColor: UIColor? = UIColor(named: AssetsColor.background.rawValue)
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
@@ -32,10 +33,12 @@ class NotesTextView: UITextView {
     private func commonInit() {
         layer.cornerRadius = 5
         layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
-        layer.borderWidth = 0.5
+        layer.borderWidth = 0
         clipsToBounds = true
         layer.backgroundColor = editOffColor?.cgColor
         isEditable = false
+        
+        textContainerInset = UIEdgeInsets(top: 15, left: 8, bottom: 15, right: 8)
     }
     
     func setToEditMode(_ shouldSetToEdit: Bool) {
@@ -51,6 +54,6 @@ class NotesTextView: UITextView {
     }
     
     private func updateColors() {
-        layer.backgroundColor = editMode ? editOnColor.cgColor : editOffColor?.cgColor
+        layer.backgroundColor = editMode ? editOnColor?.cgColor : editOffColor?.cgColor
     }
 }

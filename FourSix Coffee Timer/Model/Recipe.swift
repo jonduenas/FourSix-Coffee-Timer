@@ -11,7 +11,7 @@ import CoreData
 
 enum Balance: Float, CaseIterable {
     case sweet = 0.42
-    case neutral = 0.5
+    case even = 0.5
     case bright = 0.58
 }
 
@@ -29,7 +29,7 @@ struct Recipe: ManagedObjectInitializable {
                                       waterTotal: 300,
                                       waterPours: [60, 60, 60, 60, 60],
                                       interval: 45,
-                                      balance: .neutral,
+                                      balance: .even,
                                       strength: .medium)
     
     var coffee: Float
@@ -42,7 +42,7 @@ struct Recipe: ManagedObjectInitializable {
     init(managedObject: NSManagedObject) {
         let recipeMO = managedObject as! RecipeMO
         
-        let balance = Balance(rawValue: Float(recipeMO.balanceRaw)) ?? .neutral
+        let balance = Balance(rawValue: Float(recipeMO.balanceRaw)) ?? .even
         let strength = Strength(rawValue: Int(recipeMO.strengthRaw)) ?? .medium
 
         self.coffee = Float(recipeMO.coffee)

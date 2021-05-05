@@ -57,17 +57,18 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     // MARK: IBOutlets
+    @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var subGreetingLabel: UILabel!
+    
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
     
-    @IBOutlet var balanceSelect: UISegmentedControl!
-    @IBOutlet var strengthSelect: UISegmentedControl!
+    @IBOutlet weak var balanceSegmentedControl: SegmentedControl!
+    @IBOutlet weak var strengthSegmentedControl: SegmentedControl!
     
     @IBOutlet var editButton: UIButton!
     @IBOutlet weak var coffeeWaterSlider: UISlider!
-    @IBOutlet var sliderStackView: UIStackView!
-    @IBOutlet weak var sliderImageViewMin: UIView!
-    @IBOutlet weak var sliderImageViewMax: UIView!
+    @IBOutlet weak var sliderContainerView: Shadow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,13 +76,19 @@ class BrewVC: UIViewController, Storyboarded {
         guard dataManager != nil else { fatalError("Controller requires a DataManager.") }
         
         checkForStepAdvanceMigration()
+        initializeGreeting()
         initializeNavBar()
         initializeFonts()
         initializeSlider()
-        initializeSliderButtons()
         initializeSelectors()
         checkForProStatus()
         updateValueLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        initializeGreeting()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,7 +99,7 @@ class BrewVC: UIViewController, Storyboarded {
                 coordinator?.showWalkthrough()
             }
             
-            let shouldAnimate = !sliderStackView.isHidden
+            let shouldAnimate = !coffeeWaterSlider.isHidden
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.coffeeWaterSlider.setValue(self.coffee, animated: shouldAnimate)
@@ -102,27 +109,8 @@ class BrewVC: UIViewController, Storyboarded {
         }
     }
     
-    private func initializeSliderButtons() {
-        let tapGestureMin = UITapGestureRecognizer(target: self, action: #selector(didTapSliderMin(sender:)))
-        let tapGestureMax = UITapGestureRecognizer(target: self, action: #selector(didTapSliderMax(sender:)))
-        sliderImageViewMin.addGestureRecognizer(tapGestureMin)
-        sliderImageViewMax.addGestureRecognizer(tapGestureMax)
-    }
-    
-    @objc private func didTapSliderMin(sender: UIView) {
-        guard coffee > Recipe.coffeeMin else { return }
-        let currentValue = coffeeWaterSlider.value
-        coffeeWaterSlider.setValue(currentValue - 1, animated: true)
-        coffee -= 1
-        selectionFeedback.selectionChanged()
-    }
-    
-    @objc private func didTapSliderMax(sender: UIView) {
-        guard coffee < Recipe.coffeeMax else { return }
-        let currentValue = coffeeWaterSlider.value
-        coffeeWaterSlider.setValue(currentValue + 1, animated: true)
-        coffee += 1
-        selectionFeedback.selectionChanged()
+    private func initializeGreeting() {
+        greetingLabel.text = Date().stringGreetingFromDate()
     }
     
     private func initializeNavBar() {
@@ -133,14 +121,20 @@ class BrewVC: UIViewController, Storyboarded {
             settingsImage = UIImage(systemName: "gear")
         }
         
+        navigationController?.navigationBar.standardAppearance.configureWithTransparentBackground()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettings))
-        navigationItem.title = "Let's Brew"
-        navigationController?.navigationBar.tintColor = UIColor.systemGray
+        navigationItem.title = ""
+        navigationController?.navigationBar.tintColor = UIColor.lightText
     }
     
     private func initializeFonts() {
-        coffeeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
-        waterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
+        let headerFont = UIFont.newYork(size: 24, weight: .bold)
+        greetingLabel.font = headerFont
+        subGreetingLabel.font = headerFont
+        
+        let coffeeWaterFont = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .bold)
+        coffeeLabel.font = coffeeWaterFont
+        waterLabel.font = coffeeWaterFont
     }
     
     @objc func didTapSettings() {
@@ -154,8 +148,13 @@ class BrewVC: UIViewController, Storyboarded {
     }
     
     private func initializeSelectors() {
-        balanceSelect.selectedSegmentIndex = Balance.allCases.firstIndex(of: balance) ?? 1
-        strengthSelect.selectedSegmentIndex = Strength.allCases.firstIndex(of: strength) ?? 1
+        let balanceStrings = Balance.allCases.map { String(describing: $0.self).capitalized }
+        balanceSegmentedControl.items = balanceStrings
+        balanceSegmentedControl.selectedIndex = Balance.allCases.firstIndex(of: balance) ?? 1
+        
+        let strengthStrings = Strength.allCases.map { String(describing: $0.self).capitalized }
+        strengthSegmentedControl.items = strengthStrings
+        strengthSegmentedControl.selectedIndex = Strength.allCases.firstIndex(of: strength) ?? 1
     }
     
     private func updateValueLabels() {
@@ -201,14 +200,14 @@ class BrewVC: UIViewController, Storyboarded {
         }
     }
     
-    @IBAction func balanceChanged(_ sender: Any) {
+    @IBAction func didChangeBalance(_ sender: SegmentedControl) {
         selectionFeedback.selectionChanged() // Haptic feedback
-        balance = Balance.allCases[balanceSelect.selectedSegmentIndex]
+        balance = Balance.allCases[sender.selectedIndex]
     }
     
-    @IBAction func strengthChanged(_ sender: Any) {
+    @IBAction func didChangeStrength(_ sender: SegmentedControl) {
         selectionFeedback.selectionChanged() // Haptic feedback
-        strength = Strength.allCases[strengthSelect.selectedSegmentIndex]
+        strength = Strength.allCases[sender.selectedIndex]
     }
 
     @IBAction func showRecipeTapped(_ sender: UIButton) {
@@ -265,12 +264,10 @@ extension BrewVC: PaywallDelegate {
     private func enableProFeatures(_ userIsPro: Bool) {
         if userIsPro {
             editButton.isHidden = true
-            UIView.animate(withDuration: 0.25) {
-                self.sliderStackView.isHidden = false
-            }
+            sliderContainerView.isHidden = false
         } else {
             editButton.isHidden = false
-            sliderStackView.isHidden = true
+            sliderContainerView.isHidden = true
         }
     }
 }

@@ -12,7 +12,8 @@ class RecipeVC: UIViewController, Storyboarded {
     weak var coordinator: BrewCoordinator?
     var recipe: Recipe!
     
-    @IBOutlet var totalCoffeeWaterLabel: UILabel!
+    @IBOutlet weak var totalCoffeeWaterLabel: UILabel!
+    @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
     
     @IBOutlet weak var barChartView: RecipeBarChart!
@@ -23,7 +24,7 @@ class RecipeVC: UIViewController, Storyboarded {
         
         initNavBar()
         updateLabels()
-        barChartView.createBarChart(for: recipe)
+        initBarChart()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,12 +35,19 @@ class RecipeVC: UIViewController, Storyboarded {
     
     private func initNavBar() {
         title = "Recipe"
+        navigationItem.largeTitleDisplayMode = .never
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(xButtonTapped))
     }
     
     private func updateLabels() {
-        footerLabel.text = "Pour the amounts shown every \(recipe.interval.clean) seconds, allowing the water to drain completely between each pour."
+        totalCoffeeWaterLabel.font = .preferredFont(for: .title2, weight: .semibold)
         totalCoffeeWaterLabel.text = recipe.coffee.clean + "g coffee : " + recipe.waterTotal.clean + "g water"
+        subheadLabel.text = "Pour water every \(recipe.interval.clean) seconds"
+    }
+    
+    private func initBarChart() {
+        barChartView.delegate = self
+        barChartView.createBarChart(for: recipe)
     }
     
     private func animateDetails() {
@@ -57,5 +65,28 @@ class RecipeVC: UIViewController, Storyboarded {
     
     @objc private func xButtonTapped() {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RecipeVC: RecipeBarChartDelegate {
+    func recipeBarChart(_ recipeBarChart: RecipeBarChart, didSelect section: Int) {
+        var newLabelString = "Pour \(section): "
+        
+        switch section {
+        case 1:
+            newLabelString += "A larger pour results in a brighter, more acidic cup."
+        case 2:
+            newLabelString += "A larger pour results in a sweeter, less acidic cup."
+        case 3...7:
+            newLabelString += "Dividing the remaining 60% into more pours results in higher extraction strength. Fewer pours extracts less and results in a lighter cup."
+        default:
+            break
+        }
+        
+        UIView.transition(with: footerLabel,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve) {
+            self.footerLabel.text = newLabelString
+        }
     }
 }

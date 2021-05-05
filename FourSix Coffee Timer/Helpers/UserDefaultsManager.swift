@@ -97,7 +97,7 @@ class UserDefaultsManager: NSObject {
     
     static var previousSelectedBalance: Float {
         get {
-            return userDefaults.object(forKey: previousSelectedBalanceKey) as? Float ?? Balance.neutral.rawValue
+            return userDefaults.object(forKey: previousSelectedBalanceKey) as? Float ?? Balance.even.rawValue
         }
         set {
             userDefaults.set(newValue, forKey: previousSelectedBalanceKey)
