@@ -31,7 +31,9 @@ class DatePickerView: RoundedView {
         return labelsContainerHeight + datePickerHeight + 8
     }()
     
-    private(set) var datePickerIsHidden: Bool = false
+    lazy private(set) var datePickerIsHidden: Bool = {
+        return datePickerHeight.constant == labelsContainerView.frame.height
+    }()
     
     private(set) var roastDate: Date? = nil {
         didSet {
