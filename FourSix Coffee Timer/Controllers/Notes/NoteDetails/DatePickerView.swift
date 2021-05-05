@@ -24,6 +24,7 @@ class DatePickerView: RoundedView {
     private let filledDateColor: UIColor = .label
     
     weak var delegate: DatePickerViewDelegate?
+    private var firstInit: Bool = true
     private lazy var datePickerVisibleHeight: CGFloat = {
         let labelsContainerHeight = labelsContainerView.frame.height
         let datePickerHeight = datePicker.frame.height
@@ -47,20 +48,19 @@ class DatePickerView: RoundedView {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         commonInit()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if firstInit {
+            datePickerHeight.constant = labelsContainerView.frame.height
+            firstInit = false
+        }
     }
     
     private func commonInit() {
@@ -70,8 +70,6 @@ class DatePickerView: RoundedView {
         
         roastDateLabel.text = emptyDateText
         roastDateLabel.textColor = emptyDateColor
-        
-        showDatePicker(false)
         
         addTapGesture()
     }
