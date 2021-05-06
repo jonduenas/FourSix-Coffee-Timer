@@ -15,9 +15,6 @@ class PurchaseProVC: UIViewController, Storyboarded {
     var productDescription: String?
     var defaultRestoreButtonText: String?
     
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var subtitleLabel: UILabel!
-    @IBOutlet var featureListLabel: UILabel!
     @IBOutlet var purchaseButton: LoadingButton!
     @IBOutlet var restoreButton: UIButton!
     @IBOutlet var closeButton: UIButton!
@@ -33,18 +30,17 @@ class PurchaseProVC: UIViewController, Storyboarded {
             guard let self = self else { return }
             
             if error != nil {
-                self.titleLabel.text = "Error"
-                self.subtitleLabel.text = error
-                self.featureListLabel.text = ""
                 self.restoreButton.isEnabled = false
                 self.purchaseButton.isHidden = true
+                
+                AlertHelper.showConfirmationAlert(title: "Unexpected Error", message: "Unable to load offerings. Please try again later.", confirmButtonTitle: "OK", on: self) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
             } else {
                 self.productPrice = IAPManager.shared.productPrice
                 self.productName = IAPManager.shared.productName
                 self.productDescription = IAPManager.shared.productDescription
                 
-                self.titleLabel.text = self.productName
-                self.subtitleLabel.text = "\(self.productName!) is a one time purchase that unlocks several features and helps support future development."
                 self.purchaseButton.setTitle("Get Pro for \(self.productPrice!)", for: .normal)
             }
         }
@@ -97,7 +93,7 @@ class PurchaseProVC: UIViewController, Storyboarded {
         }
     }
     
-    @IBAction func closeTapped(_ sender: Any) {
+    @IBAction func closeTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
@@ -118,5 +114,16 @@ class PurchaseProVC: UIViewController, Storyboarded {
             
             closeButton.isHidden = false
         }
+    }
+}
+
+class PaywallTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
+    var height: CGFloat = 677
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        let presentation = SlideOverPresentation(presentedViewController: presented, presenting: presenting)
+        presentation.height = height
+        presentation.tapToDismiss = true
+        return presentation
     }
 }
