@@ -13,6 +13,7 @@ class BrewCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentVC: BrewVC?
     var dataManager: DataManager!
+    let paywallTransitioningDelegate = PaywallTransitioningDelegate()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -69,8 +70,13 @@ class BrewCoordinator: Coordinator {
     func showProPaywall(delegate: PaywallDelegate) {
         let vc = PurchaseProVC.instantiate(fromStoryboardNamed: String(describing: PurchaseProVC.self))
         vc.delegate = delegate
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
+        
+        // Checks if screen height can accomodate custom presentation style
+        if UIScreen.main.bounds.height > paywallTransitioningDelegate.height {
+            vc.transitioningDelegate = paywallTransitioningDelegate
+            vc.modalPresentationStyle = .custom
+        }
+        
         navigationController.present(vc, animated: true, completion: nil)
     }
     
