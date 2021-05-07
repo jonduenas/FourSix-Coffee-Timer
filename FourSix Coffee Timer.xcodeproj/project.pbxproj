@@ -32,6 +32,7 @@
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
 		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
 		652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */; };
+		652DC7E92645C29B003CDAA7 /* RatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC7E82645C29B003CDAA7 /* RatingStackView.swift */; };
 		65315ADE249ADB4D00994E28 /* Clean+DoubleFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
@@ -171,6 +172,7 @@
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
 		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsVC.storyboard; sourceTree = "<group>"; };
+		652DC7E82645C29B003CDAA7 /* RatingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStackView.swift; sourceTree = "<group>"; };
 		65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clean+DoubleFloat.swift"; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				653E631A26095B6E00BA32BF /* RatingControl.swift */,
+				652DC7E82645C29B003CDAA7 /* RatingStackView.swift */,
 				6536F2732602BE6000E2DF28 /* NotesTable */,
 				6536F2762602BE7000E2DF28 /* NoteDetails */,
 				65DD15DB261E6B8200EB000E /* CoffeePicker */,
@@ -937,6 +940,7 @@
 				6542DDFA25D858AB0067C704 /* SettingsNavigationController.swift in Sources */,
 				653DBF6625F2F31A00AE7D9E /* Constants.swift in Sources */,
 				65D5DE8B260D38B800353385 /* CoffeeMO+CoreDataClass.swift in Sources */,
+				652DC7E92645C29B003CDAA7 /* RatingStackView.swift in Sources */,
 				65A2775425FFE88F0093B0B9 /* AlertHelper.swift in Sources */,
 				653E631B26095B6E00BA32BF /* RatingControl.swift in Sources */,
 				65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */,

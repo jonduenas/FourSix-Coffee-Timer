@@ -15,7 +15,7 @@ class NoteCell: UITableViewCell {
     @IBOutlet weak var recipeLabel: UILabel!
     @IBOutlet weak var coffeeLabel: UILabel!
     @IBOutlet weak var waterLabel: UILabel!
-    @IBOutlet weak var ratingStackView: RatingControl!
+    @IBOutlet weak var ratingStackView: RatingStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
