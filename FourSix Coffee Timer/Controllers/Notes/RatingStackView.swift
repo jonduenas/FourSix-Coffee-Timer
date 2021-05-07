@@ -9,7 +9,7 @@
 import UIKit
 
 class RatingStackView: UIStackView {
-    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
+    @IBInspectable var starSize: CGSize = CGSize(width: 18, height: 18) {
         didSet {
             setupImages()
         }
@@ -28,8 +28,8 @@ class RatingStackView: UIStackView {
     }
     
     private var ratingImages: [UIImageView] = []
-    private var offImage: UIImage? = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
-    private var onImage: UIImage? = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+    private var offImage: UIImage? = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(scale: .small))
+    private var onImage: UIImage? = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .small))
     @IBInspectable var color: UIColor? = UIColor(named: AssetsColor.accent.rawValue) {
         didSet {
             setupImages()
