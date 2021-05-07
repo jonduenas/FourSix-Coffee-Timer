@@ -13,7 +13,7 @@ enum TableSection: Int, CaseIterable {
 }
 
 enum SettingsSectionCell: Int, CaseIterable {
-    case showTotalTime, tempUnit
+    case showTotalTime
 }
 
 enum ProSectionEnabledCell: Int, CaseIterable {
@@ -47,8 +47,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         .aboutFourSix: "About FourSix"
     ]
     let settingsSectionStrings: [SettingsSectionCell: String] = [
-        .showTotalTime: "Show Total Time Elapsed",
-        .tempUnit: "Temperature Unit"
+        .showTotalTime: "Show Total Time Elapsed"
     ]
     
     let proSectionEnabledStrings: [ProSectionEnabledCell: String] = [
@@ -146,8 +145,6 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
             switch settingsIndex {
             case .showTotalTime:
                 return createTotalTimeCell(for: tableView, indexPath, text: settingsSectionStrings[.showTotalTime])
-            case .tempUnit:
-                return createTempUnitCell(for: tableView, indexPath, text: settingsSectionStrings[.tempUnit])
             }
         case .fourSixProEnabled:
             guard let proIndex = ProSectionEnabledCell(rawValue: indexPath.row) else { fatalError("Undefined cell in Pro section") }
@@ -198,19 +195,6 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         cell.cellLabel.text = text
         cell.settingSwitch.isOn = settingsModel.showTotalTime
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchTotalTime(_:)), for: .valueChanged)
-        return cell
-    }
-    
-    private func createTempUnitCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.segmentControlCell.rawValue, for: indexPath) as? SegmentControlCell else { fatalError("Unable to create SegmentControlCell") }
-        
-        cell.cellLabel.text = text
-        
-        let segments = ["ºC", "ºF"]
-        cell.configureSegmentControl(options: segments)
-        cell.cellSegmentedControl.selectedSegmentIndex = settingsModel.tempUnit.rawValue
-        cell.cellSegmentedControl.addTarget(self, action: #selector(didSelectTempUnit(_:)), for: .valueChanged)
-        
         return cell
     }
     
