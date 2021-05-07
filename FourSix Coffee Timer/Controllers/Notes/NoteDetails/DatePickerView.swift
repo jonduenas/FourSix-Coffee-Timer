@@ -15,7 +15,6 @@ protocol DatePickerViewDelegate: AnyObject {
 
 class DatePickerView: RoundedView {
     @IBOutlet weak var datePickerHeight: NSLayoutConstraint!
-    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var roastDateLabel: UILabel!
     @IBOutlet weak var labelsContainerView: UIView!
     
@@ -23,13 +22,9 @@ class DatePickerView: RoundedView {
     private let emptyDateText: String = "Select Date"
     private let filledDateColor: UIColor = .label
     
+    var datePicker: UIDatePicker?
     weak var delegate: DatePickerViewDelegate?
     private var firstInit: Bool = true
-    private lazy var datePickerVisibleHeight: CGFloat = {
-        let labelsContainerHeight = labelsContainerView.frame.height
-        let datePickerHeight = datePicker.frame.height
-        return labelsContainerHeight + datePickerHeight + 8
-    }()
     
     lazy private(set) var datePickerIsHidden: Bool = {
         return datePickerHeight.constant == labelsContainerView.frame.height
@@ -66,10 +61,6 @@ class DatePickerView: RoundedView {
     }
     
     private func commonInit() {
-        if #available(iOS 14.0, *) {
-            datePicker.preferredDatePickerStyle = .inline
-        }
-        
         roastDateLabel.text = emptyDateText
         roastDateLabel.textColor = emptyDateColor
         
@@ -82,6 +73,10 @@ class DatePickerView: RoundedView {
     }
     
     @objc private func didTapLabelsView(sender: UITapGestureRecognizer) {
+        if datePicker == nil {
+            datePicker = initializeDatePicker()
+        }
+        
         UIView.animate(withDuration: 0.2) {
             self.showDatePicker(self.datePickerIsHidden)
             self.delegate?.didChangePickerVisibility(self)
@@ -91,19 +86,49 @@ class DatePickerView: RoundedView {
     func showDatePicker(_ show: Bool) {
         guard datePickerIsHidden == show else { return }
         
-        datePickerIsHidden = !show
+        let datePickerVisibleHeight = getDatePickerVisibleHeight()
         
         datePickerHeight.constant = (show ? datePickerVisibleHeight : labelsContainerView.frame.height)
+        
+        datePickerIsHidden = !show
+    }
+    
+    private func initializeDatePicker() -> UIDatePicker {
+        let datePicker = UIDatePicker()
+        datePicker.date = roastDate ?? Date()
+        datePicker.datePickerMode = .date
+        datePicker.tintColor = UIColor(named: AssetsColor.accent.rawValue)
+        
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        }
+        
+        addSubview(datePicker)
+        datePicker.addTarget(self, action: #selector(didChangeDate(_:)), for: .valueChanged)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.topAnchor.constraint(equalTo: labelsContainerView.bottomAnchor, constant: 8).isActive = true
+        datePicker.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+        
+        layoutIfNeeded()
+        
+        return datePicker
+    }
+    
+    private func getDatePickerVisibleHeight() -> CGFloat {
+        let labelsContainerHeight = labelsContainerView.frame.height
+        let datePickerHeight = datePicker?.frame.height ?? 0
+        return labelsContainerHeight + datePickerHeight + 8
     }
     
     func setDate(_ date: Date?) {
         guard roastDate != date else { return }
         roastDate = date
-        datePicker.date = date ?? Date()
+        datePicker?.date = date ?? Date()
         delegate?.datePickerView(self, didChangeToDate: date)
     }
     
-    @IBAction private func didChangeDate(_ sender: UIDatePicker) {
+    @objc private func didChangeDate(_ sender: UIDatePicker) {
         setDate(sender.date)
     }
 }
