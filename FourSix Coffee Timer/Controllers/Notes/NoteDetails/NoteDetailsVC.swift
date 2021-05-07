@@ -51,7 +51,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         datePickerView.delegate = self
         configureNavController()
         configureCoffeePickerView()
-        setEditing(true, animated: false)
         configureView()
     }
     
@@ -68,7 +67,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                                                style: .done, target: self,
                                                                action: #selector(didTapCloseButton))
         } else {
-            //navigationItem.rightBarButtonItem = editButtonItem
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapTrashButton))
         }
     }
@@ -100,44 +98,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.addTarget(self, action: #selector(didTapCoffeeView))
         coffeePickerView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    // MARK: Edit Mode
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        
-        let animationDuration: TimeInterval = 0.2
-        
-        // Only animate if the datePickerView is currently visible and animated set to true
-        let shouldAnimate = animated && !datePickerView.isHidden
-        
-        if shouldAnimate {
-            UIView.animate(withDuration: animationDuration) {
-                self.setUIEditMode()
-                //self.datePickerView.showDatePicker(editing)
-                self.view.layoutIfNeeded()
-            }
-        } else {
-            setUIEditMode()
-            //datePickerView.showDatePicker(editing)
-        }
-    }
-    
-    private func setUIEditMode() {
-        let borderStyle: UITextField.BorderStyle = isEditing ? .roundedRect : .none
-        
-        ratingControl.setToEditMode(isEditing)
-        
-        grindSettingTextField.isEnabled = isEditing
-        grindSettingTextField.borderStyle = borderStyle
-        
-        waterTempTextField.isEnabled = isEditing
-        waterTempTextField.borderStyle = borderStyle
-        
-        coffeePickerView.setEditing(isEditing)
-        
-        notesTextView.setToEditMode(isEditing)
     }
     
     // MARK: Update UI with Note
@@ -217,38 +177,15 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     @objc private func didTapCoffeeView() {
         guard let note = note else { return }
         
-        if isEditing {
-            coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
-        }
+        coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
     }
     
     // MARK: Temperature Unit Control
     
     @IBAction func didChangeTempUnit(_ sender: UISegmentedControl) {
-        let appState = (sender.selectedSegmentIndex, isEditing)
+        guard let selectedUnit = TempUnit(rawValue: sender.selectedSegmentIndex) else { return }
         
-        switch appState {
-        // If isEditing is true, changing segment sets the value on the object
-        case (TempUnit.celsius.rawValue, true):
-            print("Switched to \(TempUnit.celsius), should write")
-            note?.tempUnitRawValue = Int64(TempUnit.celsius.rawValue)
-        case (TempUnit.fahrenheit.rawValue, true):
-            print("Switched to \(TempUnit.fahrenheit), should write")
-            note?.tempUnitRawValue = Int64(TempUnit.fahrenheit.rawValue)
-        
-        // If isEditing is false, changing segment converts displayed value but doesn't change any stored values on object
-        case (TempUnit.celsius.rawValue, false):
-            print("Switched to \(TempUnit.celsius), should convert")
-            guard let tempValue = Double(waterTempTextField.text!) else { return }
-            waterTempTextField.text = convertTemp(value: tempValue, from: .fahrenheit, to: .celsius).clean
-        case (TempUnit.fahrenheit.rawValue, false):
-            print("Switched to \(TempUnit.fahrenheit), should convert")
-            guard let tempValue = Double(waterTempTextField.text!) else { return }
-            waterTempTextField.text = convertTemp(value: tempValue, from: .celsius, to: .fahrenheit).clean
-        
-        default:
-            fatalError("There should only be 4 possible states.")
-        }
+        note?.tempUnitRawValue = Int64(selectedUnit.rawValue)
     }
     
     private func convertTemp(value: Double, from inUnit: UnitTemperature, to outUnit: UnitTemperature) -> Double {
@@ -257,15 +194,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func getCelsiusTemp() -> Double {
-        guard let value = Double(waterTempTextField.text!) else { return 0 }
+        guard let value = Double(waterTempTextField.text!), let selectedUnit = TempUnit(rawValue: waterTempUnitControl.selectedSegmentIndex) else { return 0 }
         
-        switch waterTempUnitControl.selectedSegmentIndex {
-        case TempUnit.celsius.rawValue:
+        switch selectedUnit {
+        case .celsius:
             return value
-        case TempUnit.fahrenheit.rawValue:
+        case .fahrenheit:
             return convertTemp(value: value, from: .fahrenheit, to: .celsius)
-        default:
-            fatalError("There should never be more than 2 options.")
         }
     }
     

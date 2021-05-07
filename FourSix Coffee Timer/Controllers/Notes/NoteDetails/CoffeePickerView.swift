@@ -31,14 +31,13 @@ class CoffeePickerView: RoundedView {
         }
     }
     
-    var isEditing: Bool = false
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        commonInit()
+    }
     
-    func setEditing(_ editing: Bool) {
-        isEditing = editing
-        
-        addCoffeeLabel.text = isEditing ? "Pick Coffee" : "None Selected"
-        chevronImage.isHidden = !isEditing
-        addCoffeeImage.isHidden = !isEditing
+    private func commonInit() {
+        showNewCoffeePicker(true)
     }
     
     private func showNewCoffeePicker(_ shouldShow: Bool) {

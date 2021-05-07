@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var childCoordinators: [Coordinator] = []

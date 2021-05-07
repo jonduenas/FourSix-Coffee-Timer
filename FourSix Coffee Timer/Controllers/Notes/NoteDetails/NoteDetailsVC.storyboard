@@ -55,9 +55,6 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                                         <integer key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
-                                                                        <color key="value" systemColor="labelColor"/>
-                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </stackView>
                                                         </subviews>
@@ -426,7 +423,7 @@
                                                                                     <constraint firstAttribute="height" constant="20" id="8Eq-Bx-iOw"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None selected" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s9-M6-BVZ">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Coffee" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s9-M6-BVZ">
                                                                                 <rect key="frame" x="28" y="1.5" width="264" height="17"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                                 <nil key="highlightedColor"/>
@@ -498,10 +495,10 @@
                                                         </connections>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-c1-40m" customClass="DatePickerView" customModule="FourSix" customModuleProvider="target">
-                                                        <rect key="frame" x="7" y="1042" width="340" height="350"/>
+                                                        <rect key="frame" x="0.0" y="1042" width="354" height="350"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-Zb-cp9">
-                                                                <rect key="frame" x="16" y="0.0" width="308" height="45"/>
+                                                                <rect key="frame" x="16" y="0.0" width="322" height="45"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Roast Date" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHU-rz-Cxx">
                                                                         <rect key="frame" x="0.0" y="14" width="71" height="17"/>
@@ -510,7 +507,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9y-wh-HWR">
-                                                                        <rect key="frame" x="154" y="14" width="154" height="17"/>
+                                                                        <rect key="frame" x="161" y="14" width="161" height="17"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -528,24 +525,14 @@
                                                                     <constraint firstItem="O9y-wh-HWR" firstAttribute="top" secondItem="wMT-Zb-cp9" secondAttribute="top" constant="14" id="yCv-k5-iRw"/>
                                                                 </constraints>
                                                             </view>
-                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="7js-a7-cUE">
-                                                                <rect key="frame" x="10" y="53" width="320" height="216"/>
-                                                                <color key="tintColor" name="Accent"/>
-                                                                <connections>
-                                                                    <action selector="didChangeDate:" destination="j5f-c1-40m" eventType="valueChanged" id="7Ur-QQ-3Wz"/>
-                                                                </connections>
-                                                            </datePicker>
                                                         </subviews>
                                                         <color key="backgroundColor" name="Background"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="wMT-Zb-cp9" secondAttribute="trailing" constant="16" id="62g-xK-far"/>
-                                                            <constraint firstItem="7js-a7-cUE" firstAttribute="leading" secondItem="j5f-c1-40m" secondAttribute="leading" constant="10" id="64b-kR-rwn"/>
                                                             <constraint firstItem="wMT-Zb-cp9" firstAttribute="leading" secondItem="j5f-c1-40m" secondAttribute="leading" constant="16" id="7qL-Xl-db3"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7js-a7-cUE" secondAttribute="trailing" constant="10" id="AAS-Y1-K11"/>
                                                             <constraint firstItem="wMT-Zb-cp9" firstAttribute="top" secondItem="j5f-c1-40m" secondAttribute="top" id="HNh-tx-LAg"/>
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wMT-Zb-cp9" secondAttribute="bottom" id="HnY-DE-th8"/>
                                                             <constraint firstAttribute="height" constant="350" id="PyJ-7Y-3Rv"/>
-                                                            <constraint firstItem="7js-a7-cUE" firstAttribute="top" secondItem="wMT-Zb-cp9" secondAttribute="bottom" constant="8" id="T07-da-t1n"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -553,7 +540,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <outlet property="datePicker" destination="7js-a7-cUE" id="tbv-Dl-gl7"/>
                                                             <outlet property="datePickerHeight" destination="PyJ-7Y-3Rv" id="JI7-vf-UbW"/>
                                                             <outlet property="labelsContainerView" destination="wMT-Zb-cp9" id="mUo-5s-r4N"/>
                                                             <outlet property="roastDateLabel" destination="O9y-wh-HWR" id="kOH-bW-H7f"/>
@@ -587,10 +573,12 @@
                                                     <constraint firstItem="AWr-eY-C2J" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="CDq-Ph-SSm"/>
                                                     <constraint firstItem="jB1-kz-DLK" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="KTI-hd-UNh"/>
                                                     <constraint firstAttribute="trailing" secondItem="jB1-kz-DLK" secondAttribute="trailing" id="QvL-43-SO1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="j5f-c1-40m" secondAttribute="trailing" id="VZN-8x-dbF"/>
                                                     <constraint firstItem="rb7-ut-1ac" firstAttribute="leading" secondItem="6Ld-E6-NmD" secondAttribute="leading" id="Xle-cS-bD3"/>
                                                     <constraint firstAttribute="trailing" secondItem="g44-jm-k1p" secondAttribute="trailing" id="ahY-3J-Q1n"/>
                                                     <constraint firstItem="O9y-wh-HWR" firstAttribute="leading" secondItem="rb7-ut-1ac" secondAttribute="leading" id="cbY-wL-baS"/>
                                                     <constraint firstItem="g44-jm-k1p" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="dKY-fj-kEg"/>
+                                                    <constraint firstItem="j5f-c1-40m" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="j39-Uc-ZKk"/>
                                                     <constraint firstItem="EXS-qe-jrf" firstAttribute="leading" secondItem="a4b-Nf-Lj6" secondAttribute="leading" id="m7M-un-hM4"/>
                                                     <constraint firstAttribute="trailing" secondItem="EXS-qe-jrf" secondAttribute="trailing" id="ntc-CN-8dq"/>
                                                     <constraint firstAttribute="trailing" secondItem="AWr-eY-C2J" secondAttribute="trailing" id="oRk-xD-qzm"/>

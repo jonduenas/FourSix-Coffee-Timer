@@ -48,7 +48,7 @@ class RatingControl: UIStackView {
         }
     }
     
-    private var editMode: Bool = false {
+    private var editMode: Bool = true {
         didSet {
             for button in ratingButtons {
                 button.tintColor = editMode ? enabledColor : disabledColor
@@ -79,7 +79,7 @@ class RatingControl: UIStackView {
         for index in 0..<starCount {
             let button = UIButton()
             
-            button.tintColor = disabledColor
+            button.tintColor = enabledColor
             
             button.setImage(offImage, for: .normal)
             button.setImage(onImage, for: .selected)
