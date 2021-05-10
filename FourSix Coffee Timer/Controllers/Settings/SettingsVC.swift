@@ -128,14 +128,12 @@ extension SettingsVC: UITableViewDelegate {
             let row = AboutSectionCell(rawValue: indexPath.row)
             
             switch row {
-            case .whatIsFourSix:
-                coordinator?.showWhatIs46()
-            case .howTo:
-                coordinator?.showHowTo()
-            case .faq:
-                coordinator?.showFAQ()
+            case .learnMore:
+                print("Go to website")
             case .feedback:
                 sendFeedback()
+            case .tipJar:
+                print("Show Tip Jar")
             case .rate:
                 rateInAppStore()
             case .share:

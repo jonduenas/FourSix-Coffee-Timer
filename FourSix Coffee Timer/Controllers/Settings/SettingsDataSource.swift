@@ -25,7 +25,7 @@ enum ProSectionDisabledCell: Int, CaseIterable {
 }
 
 enum AboutSectionCell: Int, CaseIterable {
-    case whatIsFourSix, howTo, faq, feedback, rate, share, acknowledgements
+    case learnMore, feedback, tipJar, rate, share, acknowledgements
 }
 
 enum TableCellIdentifier: String {
@@ -62,10 +62,9 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     ]
     
     let aboutSectionStrings: [AboutSectionCell: String] = [
-        .whatIsFourSix: "What Is FourSix?",
-        .howTo: "How Do I Use This App?",
-        .faq: "FAQ",
+        .learnMore: "Learn More",
         .feedback: "Send Feedback",
+        .tipJar: "Tip Jar",
         .rate: "Rate in the App Store",
         .share: "Share FourSix",
         .acknowledgements: "Acknowledgements"
