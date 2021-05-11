@@ -14,7 +14,8 @@ class SettingsNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
-        navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
+        navigationBar.barTintColor = UIColor(named: AssetsColor.header.rawValue)
+        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.newYork(size: 17, weight: .medium)]
         navigationBar.isTranslucent = false
     }
     

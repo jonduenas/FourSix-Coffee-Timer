@@ -31,28 +31,11 @@ class SettingsCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func showProPaywall(delegate: PaywallDelegate) {
-        let vc = PurchaseProVC.instantiate(fromStoryboardNamed: String(describing: PurchaseProVC.self))
-        vc.delegate = delegate
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        navigationController.present(vc, animated: true, completion: nil)
-    }
-    
-    func showWhatIs46() {
-        let vc = WhatIs46VC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.coordinator = self
+    func showLearnMore() {
+        let vc = WebViewVC()
+        vc.urlString = "https://foursixcoffeeapp.com/about/"
+        vc.showTitle = false
         navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func showHowTo() {
-        let vc = HowToVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func showFAQ() {
-        pushVCWithNoDependencies(viewController: FrequentlyAskedVC())
     }
     
     func showAcknowledgements() {
