@@ -130,6 +130,7 @@ extension SettingsVC: UITableViewDelegate {
             switch row {
             case .learnMore:
                 print("Go to website")
+                coordinator?.showLearnMore()
             case .feedback:
                 sendFeedback()
             case .tipJar:
