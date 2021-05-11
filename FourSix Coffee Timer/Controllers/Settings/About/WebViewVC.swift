@@ -68,11 +68,15 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
             style: .plain,
             target: self.webView,
             action: #selector(WKWebView.reload))
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil)
         
-        toolbarItems = [backButton, forwardButton,
-                             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                             reloadButton
-        ]
+        toolbarItems = [backButton,
+                        forwardButton,
+                        flexibleSpace,
+                        reloadButton]
         
         self.backButton = backButton
         self.forwardButton = forwardButton
