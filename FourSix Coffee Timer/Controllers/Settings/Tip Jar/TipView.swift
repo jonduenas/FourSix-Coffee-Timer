@@ -39,6 +39,9 @@ class TipView: UIView {
     }
     
     private func commonInit() {
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
         addSubview(tipLabel)
         addSubview(tipPriceButton)
         
@@ -48,7 +51,7 @@ class TipView: UIView {
         tipLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
         tipPriceButton.translatesAutoresizingMaskIntoConstraints = false
-        tipPriceButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
+        tipPriceButton.widthAnchor.constraint(equalToConstant: 65).isActive = true
         tipPriceButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         tipPriceButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         tipPriceButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
