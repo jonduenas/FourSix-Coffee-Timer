@@ -30,6 +30,7 @@
 		6529E119249FECC60093FAE1 /* faq.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E118249FECC60093FAE1 /* faq.rtf */; };
 		6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E11A249FEFFB0093FAE1 /* HowToVC.swift */; };
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
+		6529E78F264C4AD600A82AAE /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E78E264C4AD600A82AAE /* TipView.swift */; };
 		652BAFE2264B0AC500D4011E /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652BAFE1264B0AC500D4011E /* WebViewVC.swift */; };
 		652BAFE7264B392400D4011E /* TipJarVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652BAFE6264B392400D4011E /* TipJarVC.storyboard */; };
 		652BAFE9264B452100D4011E /* TipJarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652BAFE8264B452100D4011E /* TipJarVC.swift */; };
@@ -173,6 +174,7 @@
 		6529E118249FECC60093FAE1 /* faq.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = faq.rtf; sourceTree = "<group>"; };
 		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/Settings/About/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
+		6529E78E264C4AD600A82AAE /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 		652BAFE1264B0AC500D4011E /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		652BAFE6264B392400D4011E /* TipJarVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipJarVC.storyboard; sourceTree = "<group>"; };
 		652BAFE8264B452100D4011E /* TipJarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarVC.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			children = (
 				652BAFE6264B392400D4011E /* TipJarVC.storyboard */,
 				652BAFE8264B452100D4011E /* TipJarVC.swift */,
+				6529E78E264C4AD600A82AAE /* TipView.swift */,
 			);
 			path = "Tip Jar";
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				6544681E2626531600494D0A /* SummaryTransitioningDelegate.swift in Sources */,
 				65BBA6C925E999DD003BC3C7 /* TimerScheduling.swift in Sources */,
 				6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */,
+				6529E78F264C4AD600A82AAE /* TipView.swift in Sources */,
 				655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */,
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,

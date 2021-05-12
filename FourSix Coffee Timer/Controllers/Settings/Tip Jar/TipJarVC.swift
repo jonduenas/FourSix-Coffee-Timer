@@ -8,18 +8,25 @@
 
 import UIKit
 
-class TipJarVC: UIViewController {
+class TipJarVC: UIViewController, Storyboarded {
     
-    @IBOutlet weak var tip1View: UIView!
-    @IBOutlet weak var tip1PriceLabel: UILabel!
-    @IBOutlet weak var tip2View: UIView!
-    @IBOutlet weak var tip2PriceLabel: UILabel!
-    @IBOutlet weak var tip3View: UIView!
-    @IBOutlet weak var tip3PriceLabel: UILabel!
+    @IBOutlet weak var tipStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        for view in tipStackView.arrangedSubviews {
+            tipStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
         
+        for index in 1...3 {
+            let tipView = TipView()
+            tipView.tipLabel.text = "Test Tip \(index)"
+            tipView.tipPriceButton.setTitle("$\(index)", for: .normal)
+            tipView.translatesAutoresizingMaskIntoConstraints = false
+            tipView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+            tipStackView.addArrangedSubview(tipView)
+        }
     }
 }
