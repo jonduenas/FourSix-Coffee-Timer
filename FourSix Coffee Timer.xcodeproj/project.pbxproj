@@ -26,9 +26,7 @@
 		6527564A2475B138004E067F /* BrewVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652756482475B138004E067F /* BrewVC.storyboard */; };
 		6527564C2475B13B004E067F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6527564B2475B13B004E067F /* Assets.xcassets */; };
 		6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6527564D2475B13B004E067F /* LaunchScreen.storyboard */; };
-		6529E117249FE66F0093FAE1 /* FrequentlyAskedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */; };
 		6529E119249FECC60093FAE1 /* faq.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E118249FECC60093FAE1 /* faq.rtf */; };
-		6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E11A249FEFFB0093FAE1 /* HowToVC.swift */; };
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
 		652BAFE2264B0AC500D4011E /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652BAFE1264B0AC500D4011E /* WebViewVC.swift */; };
 		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
@@ -65,7 +63,6 @@
 		656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */; };
 		656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D0D53251D586A001EE918 /* TimerScheduler.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
-		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
 		6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A32603D03E0029E396 /* NotesCoordinator.swift */; };
 		6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A72603D24F0029E396 /* MainTabBarController.swift */; };
 		6579FB52263A09D700CAAAA0 /* RoundedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6579FB51263A09D700CAAAA0 /* RoundedStackView.swift */; };
@@ -167,9 +164,7 @@
 		6527564B2475B13B004E067F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6527564E2475B13B004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		652756502475B13B004E067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedVC.swift; sourceTree = "<group>"; };
 		6529E118249FECC60093FAE1 /* faq.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = faq.rtf; sourceTree = "<group>"; };
-		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/Settings/About/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
 		652BAFE1264B0AC500D4011E /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
@@ -206,7 +201,6 @@
 		656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		656D0D53251D586A001EE918 /* TimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduler.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
 		6577F2A32603D03E0029E396 /* NotesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCoordinator.swift; sourceTree = "<group>"; };
 		6577F2A72603D24F0029E396 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		6579557F25E32FE500BC244E /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -505,10 +499,7 @@
 		65A2774C25FFE7380093B0B9 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
 				652BAFE1264B0AC500D4011E /* WebViewVC.swift */,
-				6529E11A249FEFFB0093FAE1 /* HowToVC.swift */,
-				6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */,
 				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
 			);
 			path = About;
@@ -885,7 +876,6 @@
 				65B3140525F40291004D9758 /* SettingsDataSource.swift in Sources */,
 				6536F2782602BEAE00E2DF28 /* NoteDetailsVC.swift in Sources */,
 				65D5DE8A260D38B800353385 /* RecipeMO+CoreDataProperties.swift in Sources */,
-				6529E117249FE66F0093FAE1 /* FrequentlyAskedVC.swift in Sources */,
 				6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */,
 				65F5182B25E052FE006CF438 /* TimerNavigationController.swift in Sources */,
 				65D5DE8D260D38B800353385 /* NoteMO+CoreDataClass.swift in Sources */,
@@ -893,7 +883,6 @@
 				6543841625F0541700AB71F7 /* PickerDataSource.swift in Sources */,
 				65FB6549249C18CC00ED732F /* Calculator.swift in Sources */,
 				6542EDCB24E20096009AA897 /* BrewSummaryVC.swift in Sources */,
-				6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */,
 				6544681E2626531600494D0A /* SummaryTransitioningDelegate.swift in Sources */,
 				65BBA6C925E999DD003BC3C7 /* TimerScheduling.swift in Sources */,
 				6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */,
@@ -917,7 +906,6 @@
 				6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */,
 				65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
-				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
 				65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */,
 				65FF841D2620F006008B2BE2 /* CoffeePickerView.swift in Sources */,
 				65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */,
