@@ -228,6 +228,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="553-qv-njm">
+            <size key="intrinsicContentSize" width="15.333333333333334" height="22"/>
+        </designable>
         <designable name="U9B-Uz-27Z">
             <size key="intrinsicContentSize" width="130" height="33"/>
         </designable>
