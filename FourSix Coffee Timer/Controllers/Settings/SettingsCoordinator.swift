@@ -38,6 +38,11 @@ class SettingsCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func showTipJar() {
+        let vc = TipJarVC.instantiate(fromStoryboardNamed: String(describing: TipJarVC.self))
+        navigationController.present(vc, animated: true, completion: nil)
+    }
+    
     func showAcknowledgements() {
         pushVCWithNoDependencies(viewController: AcknowledgementsVC())
     }
