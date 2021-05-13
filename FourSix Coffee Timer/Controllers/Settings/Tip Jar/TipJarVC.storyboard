@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="TipJarVC" id="Y6W-OH-hqX" customClass="TipJarVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="569"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tipjar-header" translatesAutoresizingMaskIntoConstraints="NO" id="Mos-Pk-Z8v">
@@ -46,7 +46,7 @@
                                     <action selector="didTapCloseButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="V36-8q-SC3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you're feeling extra generous and would like to support FourSix development even more, feel free to leave a tip." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-mg-ICC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you're feeling extra generous and would like to support FourSix development even more, feel free to leave a tip." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-mg-ICC">
                                 <rect key="frame" x="50" y="230" width="314" height="81.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -93,12 +93,6 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anything is appreciated!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aG-0n-7Ok">
-                                <rect key="frame" x="50" y="519.5" width="314" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
@@ -107,20 +101,17 @@
                             <constraint firstItem="FmP-b5-gkv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="2L6-qo-cmb"/>
                             <constraint firstItem="FmP-b5-gkv" firstAttribute="top" secondItem="HRj-mg-ICC" secondAttribute="bottom" constant="30" id="8mj-9v-aug"/>
                             <constraint firstItem="HRj-mg-ICC" firstAttribute="top" secondItem="Mos-Pk-Z8v" secondAttribute="bottom" constant="30" id="9W8-RA-gvq"/>
-                            <constraint firstItem="2aG-0n-7Ok" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FmP-b5-gkv" secondAttribute="bottom" constant="30" id="9pb-eU-cWg"/>
-                            <constraint firstItem="2aG-0n-7Ok" firstAttribute="leading" secondItem="FmP-b5-gkv" secondAttribute="leading" id="F9G-JF-wiL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mos-Pk-Z8v" secondAttribute="trailing" id="GRy-mG-0Vh"/>
                             <constraint firstItem="HRj-mg-ICC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="HaN-ah-pfN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FmP-b5-gkv" secondAttribute="trailing" constant="50" id="PA0-T5-O2o"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FmP-b5-gkv" secondAttribute="bottom" constant="16" id="Q51-il-is8"/>
                             <constraint firstItem="Mos-Pk-Z8v" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="S9v-p0-EtJ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2aG-0n-7Ok" secondAttribute="bottom" constant="30" id="SI9-fZ-bNJ"/>
                             <constraint firstItem="AtC-Y0-sK6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="TL8-QO-1Wb"/>
                             <constraint firstItem="AtC-Y0-sK6" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="16" id="cmG-2b-eM9"/>
                             <constraint firstItem="Mos-Pk-Z8v" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dsv-Bc-Gfj"/>
-                            <constraint firstItem="2aG-0n-7Ok" firstAttribute="trailing" secondItem="FmP-b5-gkv" secondAttribute="trailing" id="dwd-T6-kWx"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="569"/>
+                    <size key="freeformSize" width="414" height="600"/>
                     <connections>
                         <outlet property="closeButton" destination="AtC-Y0-sK6" id="bO3-1V-Uuh"/>
                         <outlet property="tipStackView" destination="FmP-b5-gkv" id="1O5-6m-T4w"/>

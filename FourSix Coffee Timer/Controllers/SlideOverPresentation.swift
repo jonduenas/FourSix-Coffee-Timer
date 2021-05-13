@@ -76,3 +76,14 @@ class SlideOverPresentation: UIPresentationController {
     }
 }
 
+class SlideOverTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
+    var height: CGFloat = 569
+    var tapToDismiss: Bool = true
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        let presentation = SlideOverPresentation(presentedViewController: presented, presenting: presenting)
+        presentation.height = height
+        presentation.tapToDismiss = tapToDismiss
+        return presentation
+    }
+}
