@@ -10,42 +10,47 @@ import UIKit
 
 class LoadingButton: RoundButton {
     var originalButtonText: String?
-    var activityIndicator: UIActivityIndicatorView!
+    var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        activityIndicator.color = titleColor(for: .normal)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+    }
     
     func showLoading() {
         originalButtonText = self.titleLabel?.text
         self.setTitle("", for: .normal)
         
-        if activityIndicator == nil {
-            activityIndicator = createActivityIndicator()
-        }
-        
-        showSpinning()
+        activityIndicator.startAnimating()
         
         self.isEnabled = false
     }
     
     func hideLoading() {
         self.setTitle(originalButtonText, for: .normal)
-        self.isEnabled = true
+        
         activityIndicator.stopAnimating()
+        
+        self.isEnabled = true
     }
-    
-    private func createActivityIndicator() -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = self.titleColor(for: .normal)
-        return activityIndicator
-    }
-    
-    private func showSpinning() {
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(activityIndicator)
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        ])
-        activityIndicator.startAnimating()
-    }
-    
 }
