@@ -15,6 +15,7 @@ class TipView: UIView {
         label.text = ""
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -25,6 +26,7 @@ class TipView: UIView {
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)
         button.backgroundColor = UIColor(named: AssetsColor.accent.rawValue)
         button.cornerRadius = 10
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         return button
     }()
     
@@ -47,13 +49,15 @@ class TipView: UIView {
         
         tipLabel.translatesAutoresizingMaskIntoConstraints = false
         tipLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        tipLabel.trailingAnchor.constraint(greaterThanOrEqualTo: tipPriceButton.leadingAnchor, constant: 8).isActive = true
+        tipLabel.trailingAnchor.constraint(equalTo: tipPriceButton.leadingAnchor, constant: 8).isActive = true
         tipLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        tipLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         tipPriceButton.translatesAutoresizingMaskIntoConstraints = false
-        tipPriceButton.widthAnchor.constraint(equalToConstant: 65).isActive = true
+        tipPriceButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 65).isActive = true
         tipPriceButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         tipPriceButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         tipPriceButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        tipPriceButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 }

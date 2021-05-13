@@ -47,6 +47,7 @@ class TipJarVC: UIViewController, Storyboarded {
         let tipView = TipView()
         tipView.tipLabel.text = tip.name
         tipView.tipPriceButton.setTitle(tip.localizedPriceString, for: .normal)
+        tipView.tipPriceButton.sizeToFit()
         tipView.tipPriceButton.tag = index
         tipView.tipPriceButton.addTarget(self, action: #selector(didTapTipButton(sender:)), for: .touchUpInside)
         
