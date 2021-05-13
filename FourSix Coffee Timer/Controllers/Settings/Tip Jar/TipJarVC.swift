@@ -14,6 +14,8 @@ class TipJarVC: UIViewController, Storyboarded {
     @IBOutlet weak var closeButton: RoundButton!
     
     var tips: [IAPurchase] = []
+    private var showLoadingError: Bool = false
+    private var error: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +28,22 @@ class TipJarVC: UIViewController, Storyboarded {
         loadTips()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if showLoadingError {
+            AlertHelper.showAlert(title: "Error", message: error, on: self)
+            showLoadingError = false
+        }
+    }
+    
     private func loadTips() {
         IAPManager.shared.loadTips { [weak self] succeeded, error in
             guard let self = self else { return }
             
             if !succeeded, let error = error {
-                AlertHelper.showAlert(title: "Error", message: error, on: self)
-                return
+                self.showLoadingError = true
+                self.error = error
             } else {
                 let allTips = IAPManager.shared.tips
                 for (index, tip) in allTips.enumerated() {
