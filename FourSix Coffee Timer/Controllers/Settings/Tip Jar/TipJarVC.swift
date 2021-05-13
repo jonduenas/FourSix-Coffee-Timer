@@ -55,14 +55,14 @@ class TipJarVC: UIViewController, Storyboarded {
     }
     
     @objc private func didTapTipButton(sender: LoadingButton) {
-        setState(loading: true, button: sender)
+        setState(loading: true, button: sender, animated: true)
         
         let tipPackage = IAPManager.shared.tipPackages[sender.tag]
         
         IAPManager.shared.purchase(package: tipPackage) { [weak self] succeeded, error in
             guard let self = self else { return }
             
-            self.setState(loading: false, button: sender)
+            self.setState(loading: false, button: sender, animated: true)
             
             if succeeded {
                 AlertHelper.showConfirmationAlert(
@@ -84,10 +84,21 @@ class TipJarVC: UIViewController, Storyboarded {
         }
     }
     
-    private func setState(loading: Bool, button: LoadingButton) {
-        if loading {
+    private func setState(loading: Bool, button: LoadingButton, animated: Bool) {
+        switch (loading, animated) {
+        case (true, true):
+            UIView.animate(withDuration: 0.25) {
+                button.showLoading()
+                self.view.layoutIfNeeded()
+            }
+        case (true, false):
             button.showLoading()
-        } else {
+        case (false, true):
+            UIView.animate(withDuration: 0.25) {
+                button.hideLoading()
+                self.view.layoutIfNeeded()
+            }
+        case (false, false):
             button.hideLoading()
         }
         
