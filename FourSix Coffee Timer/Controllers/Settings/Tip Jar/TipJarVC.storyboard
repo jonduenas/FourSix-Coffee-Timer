@@ -42,6 +42,9 @@
                                         <real key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="V36-8q-SC3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you're feeling extra generous and would like to support FourSix development even more, feel free to leave a tip." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-mg-ICC">
                                 <rect key="frame" x="50" y="230" width="314" height="81.5"/>
@@ -124,6 +127,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="569"/>
                     <connections>
+                        <outlet property="closeButton" destination="AtC-Y0-sK6" id="bO3-1V-Uuh"/>
                         <outlet property="tipStackView" destination="FmP-b5-gkv" id="1O5-6m-T4w"/>
                     </connections>
                 </viewController>

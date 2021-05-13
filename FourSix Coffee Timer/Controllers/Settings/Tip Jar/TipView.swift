@@ -18,8 +18,8 @@ class TipView: UIView {
         return label
     }()
     
-    var tipPriceButton: RoundButton = {
-        let button = RoundButton()
+    var tipPriceButton: LoadingButton = {
+        let button = LoadingButton()
         button.setTitle("", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)

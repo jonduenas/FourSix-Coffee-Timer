@@ -89,8 +89,6 @@ class PurchaseProVC: UIViewController, Storyboarded {
                     if let error = error {
                         print(error)
                         AlertHelper.showAlert(title: "Purchase Failed", message: error, on: self)
-                    } else {
-                        AlertHelper.showAlert(title: "Purchase Failed", message: "Unknown error. Please try again or contact the developer if the error persists.", on: self)
                     }
                 }
             }

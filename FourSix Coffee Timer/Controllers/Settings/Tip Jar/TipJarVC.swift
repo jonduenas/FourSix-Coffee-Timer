@@ -11,6 +11,7 @@ import UIKit
 class TipJarVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var tipStackView: UIStackView!
+    @IBOutlet weak var closeButton: RoundButton!
     
     var tips: [IAPurchase] = []
     
@@ -52,12 +53,47 @@ class TipJarVC: UIViewController, Storyboarded {
         tipStackView.addArrangedSubview(tipView)
     }
     
-    @objc private func didTapTipButton(sender: UIButton) {
+    @objc private func didTapTipButton(sender: LoadingButton) {
+        setState(loading: true, button: sender)
+        
         let tipPackage = IAPManager.shared.tipPackages[sender.tag]
         
-        IAPManager.shared.purchase(package: tipPackage) { succeeded, error in
-            print(succeeded)
-            print(error)
+        IAPManager.shared.purchase(package: tipPackage) { [weak self] succeeded, error in
+            guard let self = self else { return }
+            
+            self.setState(loading: false, button: sender)
+            
+            if succeeded {
+                AlertHelper.showConfirmationAlert(
+                    title: "Tip Received",
+                    message: """
+                        👏 You're the true hero 👏
+                        Thanks so much!
+                        """,
+                    confirmButtonTitle: "OK",
+                    on: self)
+            } else {
+                if let error = error {
+                    AlertHelper.showAlert(
+                        title: "Tipping Failed",
+                        message: "Error: \(error). Please try again.",
+                        on: self)
+                }
+            }
         }
+    }
+    
+    private func setState(loading: Bool, button: LoadingButton) {
+        if loading {
+            button.showLoading()
+        } else {
+            button.hideLoading()
+        }
+        
+        closeButton.isEnabled = !loading
+    }
+    
+    @IBAction func didTapCloseButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }
