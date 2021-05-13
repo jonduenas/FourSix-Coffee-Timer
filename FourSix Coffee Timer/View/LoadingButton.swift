@@ -9,8 +9,8 @@
 import UIKit
 
 class LoadingButton: RoundButton {
-    var originalButtonText: String?
-    var activityIndicator: UIActivityIndicatorView = {
+    private var originalButtonText: String?
+    private var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.hidesWhenStopped = true
         return activityIndicator
