@@ -25,8 +25,8 @@ class TipView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)
         button.backgroundColor = UIColor(named: AssetsColor.accent.rawValue)
-        button.cornerRadius = 10
-        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        button.cornerRadius = 22
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         return button
     }()
     
@@ -54,7 +54,7 @@ class TipView: UIView {
         tipLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         tipPriceButton.translatesAutoresizingMaskIntoConstraints = false
-        tipPriceButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 65).isActive = true
+        tipPriceButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 75).isActive = true
         tipPriceButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         tipPriceButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         tipPriceButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
