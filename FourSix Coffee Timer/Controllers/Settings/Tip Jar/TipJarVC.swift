@@ -76,8 +76,12 @@ class TipJarVC: UIViewController, Storyboarded {
             } else {
                 if let error = error {
                     AlertHelper.showAlert(
-                        title: "Tipping Failed",
-                        message: "Error: \(error). Please try again.",
+                        title: "Tip Failed",
+                        message: """
+                            There was an error during the transaction. You were not charged. Please try again.
+                            
+                            Error: \(error)
+                            """,
                         on: self)
                 }
             }
