@@ -20,6 +20,7 @@
 @property (readwrite, nullable) NSDate *unsubscribeDetectedAt;
 @property (readwrite, nullable) NSDate *billingIssueDetectedAt;
 @property (readwrite) BOOL willRenew;
+@property (readwrite) RCPurchaseOwnershipType ownershipType;
 
 @end
 
@@ -39,13 +40,37 @@
         self.isSandbox = [productData[@"is_sandbox"] boolValue];
         self.unsubscribeDetectedAt = [self parseDate:productData[@"unsubscribe_detected_at"] withDateFormatter:dateFormatter];
         self.billingIssueDetectedAt = [self parseDate:productData[@"billing_issues_detected_at"] withDateFormatter:dateFormatter];
-        if ([entitlementData[@"expires_date"] isKindOfClass:NSNull.class]) {
-            self.willRenew = true;
-        } else {
-            self.willRenew = self.unsubscribeDetectedAt == nil && self.billingIssueDetectedAt == nil;
-        }
+        self.willRenew = [self willRenewWithExpirationDate:self.expirationDate
+                                                     store:self.store
+                                     unsubscribeDetectedAt:self.unsubscribeDetectedAt
+                                    billingIssueDetectedAt:self.billingIssueDetectedAt];
+        self.ownershipType = [self parseOwnershipType:productData[@"ownership_type"]];
+
     }
     return self;
+}
+
+- (RCPurchaseOwnershipType)parseOwnershipType:(NSString * _Nullable)ownershipType {
+    if (!ownershipType) {
+        return RCPurchaseOwnershipTypePurchased;
+    }
+    if ([ownershipType isEqualToString:@"PURCHASED"]) {
+        return RCPurchaseOwnershipTypePurchased;
+    } else if ([ownershipType isEqualToString:@"FAMILY_SHARED"]) {
+            return RCPurchaseOwnershipTypeFamilyShared;
+    } else {
+        return RCPurchaseOwnershipTypeUnknown;
+    }
+}
+
+- (BOOL)willRenewWithExpirationDate:(NSDate *)expirationDate store:(RCStore)store unsubscribeDetectedAt:(NSDate *)unsubscribeDetectedAt billingIssueDetectedAt:(NSDate *)billingIssueDetectedAt
+{
+    BOOL isPromo = store == RCPromotional;
+    BOOL isLifetime = expirationDate == nil;
+    BOOL hasUnsubscribed = unsubscribeDetectedAt != nil;
+    BOOL hasBillingIssues = billingIssueDetectedAt != nil;
+    
+    return !(isPromo || isLifetime || hasUnsubscribed || hasBillingIssues);
 }
 
 - (BOOL)isDateActive:(nullable NSDate *)expirationDate forRequestDate:(NSDate *)requestDate
@@ -105,6 +130,7 @@
     [description appendFormat:@"isSandbox=%d,\n", self.isSandbox];
     [description appendFormat:@"unsubscribeDetectedAt=%@,\n", self.unsubscribeDetectedAt];
     [description appendFormat:@"billingIssueDetectedAt=%@,\n", self.billingIssueDetectedAt];
+    [description appendFormat:@"ownershipType=%li,\n", (long) self.ownershipType];
     [description appendString:@">"];
     return description;
 }
@@ -149,6 +175,8 @@
         return NO;
     if (self.billingIssueDetectedAt != info.billingIssueDetectedAt && ![self.billingIssueDetectedAt isEqualToDate:info.billingIssueDetectedAt])
         return NO;
+    if (self.ownershipType != info.ownershipType)
+        return NO;
     return YES;
 }
 
@@ -166,6 +194,7 @@
     hash = hash * 31u + self.isSandbox;
     hash = hash * 31u + [self.unsubscribeDetectedAt hash];
     hash = hash * 31u + [self.billingIssueDetectedAt hash];
+    hash = hash * 31u + (NSUInteger)self.ownershipType;
     return hash;
 }
 
