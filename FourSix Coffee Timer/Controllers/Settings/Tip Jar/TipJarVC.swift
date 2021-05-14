@@ -70,7 +70,7 @@ class TipJarVC: UIViewController, Storyboarded {
         
         let tipPackage = IAPManager.shared.tipPackages[sender.tag]
         
-        IAPManager.shared.purchase(package: tipPackage) { [weak self] succeeded, error in
+        IAPManager.shared.purchase(package: tipPackage, entitlementID: nil) { [weak self] succeeded, error in
             guard let self = self else { return }
             
             self.setState(loading: false, button: sender, animated: true)

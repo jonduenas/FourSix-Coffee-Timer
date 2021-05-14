@@ -68,28 +68,37 @@ class PurchaseProVC: UIViewController, Storyboarded {
     }
     
     @IBAction func getProTapped(_ sender: Any) {
+        guard let package = IAPManager.shared.proPackage else {
+            AlertHelper.showAlert(title: "Error", message: "There was an error finding the product for purchasing.", on: self)
+            return
+        }
+        
         self.setState(loading: true)
         
-        if let package = IAPManager.shared.proPackage {
-            IAPManager.shared.purchase(package: package) { [weak self] (succeeded, error) in
-                guard let self = self else { return }
-                
-                self.setState(loading: false)
-                
-                if succeeded {
-                    print("successful purchase")
-                    AlertHelper.showConfirmationAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Time to take your coffee to the next level.", confirmButtonTitle: "Let's Go", on: self) { [weak self] _ in
-                        self?.dismiss(animated: true) {
-                            if let purchaseCompleteHandler = self?.delegate?.purchaseCompleted {
-                                purchaseCompleteHandler()
-                            }
+        IAPManager.shared.purchase(package: package, entitlementID: IAPManager.shared.entitlementID) { [weak self] (succeeded, error) in
+            guard let self = self else { return }
+            
+            self.setState(loading: false)
+            
+            if succeeded {
+                AlertHelper.showConfirmationAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Time to take your coffee to the next level.", confirmButtonTitle: "Let's Go", on: self) { [weak self] _ in
+                    self?.dismiss(animated: true) {
+                        if let purchaseCompleteHandler = self?.delegate?.purchaseCompleted {
+                            purchaseCompleteHandler()
                         }
                     }
-                } else {
-                    if let error = error {
-                        print(error)
-                        AlertHelper.showAlert(title: "Purchase Failed", message: error, on: self)
-                    }
+                }
+            } else {
+                if let error = error {
+                    print(error)
+                    AlertHelper.showAlert(
+                        title: "Purchase Failed",
+                        message: """
+                            There was an error during the transaction. You were not charged. Please try again.
+                            
+                            Error: \(error)
+                            """,
+                        on: self)
                 }
             }
         }

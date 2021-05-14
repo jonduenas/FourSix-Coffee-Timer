@@ -124,7 +124,7 @@ class IAPManager: NSObject {
         }
     }
     
-    func purchase(package: Purchases.Package, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
+    func purchase(package: Purchases.Package, entitlementID: String?, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
         if Purchases.canMakePayments() {
             Purchases.shared.purchasePackage(package) { (_, purchaserInfo, error, userCancelled) in
                 if let error = error as NSError? {
@@ -152,7 +152,17 @@ class IAPManager: NSObject {
                         purchaseSucceeded(false, nil)
                     }
                 } else {
-                    // Successful purchase
+                    // Successful purchase, double check if user now has active entitlement
+                    if let entitlementID = entitlementID {
+                        let activeEntitlement = purchaserInfo?.entitlements[entitlementID]?.isActive
+                        if activeEntitlement == true {
+                            purchaseSucceeded(true, nil)
+                        } else {
+                            purchaseSucceeded(false, "Unknown error. Please contact developer.")
+                        }
+                    }
+                    
+                    // If no check is needed, like for tips, then just mark as successful
                     purchaseSucceeded(true, nil)
                 }
             }
