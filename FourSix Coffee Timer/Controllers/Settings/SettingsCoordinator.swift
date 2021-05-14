@@ -38,6 +38,22 @@ class SettingsCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func showTipJar() {
+        let vc = TipJarVC.instantiate(fromStoryboardNamed: String(describing: TipJarVC.self))
+        
+        // Checks if screen height can accomodate custom presentation style
+        let tipJarTransitioningDelegate = SlideOverTransitioningDelegate()
+        tipJarTransitioningDelegate.height = 580
+        tipJarTransitioningDelegate.tapToDismiss = true
+        
+        if UIScreen.main.bounds.height > tipJarTransitioningDelegate.height {
+            vc.transitioningDelegate = tipJarTransitioningDelegate
+            vc.modalPresentationStyle = .custom
+        }
+        
+        navigationController.present(vc, animated: true, completion: nil)
+    }
+    
     func showAcknowledgements() {
         pushVCWithNoDependencies(viewController: AcknowledgementsVC())
     }

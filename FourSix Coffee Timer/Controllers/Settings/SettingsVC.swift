@@ -135,6 +135,7 @@ extension SettingsVC: UITableViewDelegate {
                 sendFeedback()
             case .tipJar:
                 print("Show Tip Jar")
+                coordinator?.showTipJar()
             case .rate:
                 rateInAppStore()
             case .share:

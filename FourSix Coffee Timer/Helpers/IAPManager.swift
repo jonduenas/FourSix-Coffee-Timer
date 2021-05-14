@@ -35,41 +35,90 @@ enum AppStoreReviewManager {
     }
 }
 
+struct IAPurchase {
+    var name: String?
+    var localizedPriceString: String?
+    var localizedDescription: String?
+}
+
 class IAPManager: NSObject {
     static let shared = IAPManager()
     
-    let proPopUpSBName = "FourSixProPopup"
     let entitlementID = "pro"
-    let packageID = "Lifetime"
+    let tipsPackageID = "tips"
     
-    var offering: Purchases.Offering?
-    var offeringID: String?
-    var package: Purchases.Package?
-    var productPrice: String?
-    var productName: String?
-    var productDescription: String?
+    var offerings: Purchases.Offerings?
     
-    func loadOfferings(loadSucceeded: @escaping (Bool, String?) -> Void) {
-        
+    var proOffering: Purchases.Offering?
+    
+    var tips: [IAPurchase] = []
+    var tipPackages: [Purchases.Package] = []
+    
+    var fourSixPro: IAPurchase?
+    var proPackage: Purchases.Package?
+    
+    func loadCurrentOffering(loadSucceeded: @escaping (Bool, String?) -> Void) {
         Purchases.shared.offerings { [weak self] (offerings, error) in
             if error != nil {
                 loadSucceeded(false, error!.localizedDescription)
             } else {
-                if let offeringID = self?.offeringID {
-                    self?.offering = offerings?.offering(identifier: offeringID)
-                } else {
-                    self?.offering = offerings?.current
-                }
+                self?.proOffering = offerings?.current
                 
-                if self?.offering == nil {
+                if self?.proOffering == nil {
                     loadSucceeded(false, "No offerings found.")
                 } else {
-                    self?.package = self?.offering?.availablePackages.first
-                    self?.productPrice = self?.package?.localizedPriceString
-                    self?.productName = self?.package?.product.localizedTitle
-                    self?.productDescription = self?.package?.product.localizedDescription
+                    let pro = self?.proOffering?.lifetime
+                    self?.proPackage = pro
+                    self?.fourSixPro = IAPurchase(
+                        name: pro?.product.localizedTitle,
+                        localizedPriceString: pro?.localizedPriceString,
+                        localizedDescription: pro?.product.localizedDescription)
                     
                     loadSucceeded(true, nil)
+                }
+            }
+        }
+    }
+    
+    func loadAllOfferings(loadSucceeded: @escaping (Bool, String?) -> Void) {
+        Purchases.shared.offerings { [weak self] (offerings, error) in
+            if error != nil {
+                loadSucceeded(false, error!.localizedDescription)
+            } else {
+                if let offerings = offerings {
+                    self?.offerings = offerings
+                    loadSucceeded(true, nil)
+                } else {
+                    loadSucceeded(false, "No offerings found.")
+                }
+            }
+        }
+    }
+    
+    func loadTips(loadSucceeded: @escaping (Bool, String?) -> Void) {
+        Purchases.shared.offerings { [weak self] (offerings, error) in
+            if error != nil {
+                loadSucceeded(false, error!.localizedDescription)
+            } else {
+                if let offerings = offerings, let tipProducts = offerings.offering(identifier: self?.tipsPackageID)?.availablePackages {
+                    self?.offerings = offerings
+                    
+                    self?.tips.removeAll()
+                    
+                    for tipProduct in tipProducts {
+                        let tip = IAPurchase(
+                            name: tipProduct.product.localizedTitle,
+                            localizedPriceString: tipProduct.localizedPriceString,
+                            localizedDescription: tipProduct.product.localizedDescription
+                        )
+                        self?.tips.append(tip)
+                    }
+                    
+                    self?.tipPackages = tipProducts
+                    
+                    loadSucceeded(true, nil)
+                } else {
+                    loadSucceeded(false, "No tips found.")
                 }
             }
         }

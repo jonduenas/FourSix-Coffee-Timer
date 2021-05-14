@@ -10,6 +10,7 @@ import UIKit
 
 class PurchaseProVC: UIViewController, Storyboarded {
     weak var delegate: PaywallDelegate?
+    var fourSixPro: IAPurchase?
     var productPrice: String?
     var productName: String?
     var productDescription: String?
@@ -26,7 +27,7 @@ class PurchaseProVC: UIViewController, Storyboarded {
     }
     
     private func loadOfferings() {
-        IAPManager.shared.loadOfferings { [weak self] (_, error) in
+        IAPManager.shared.loadCurrentOffering { [weak self] (_, error) in
             guard let self = self else { return }
             
             if error != nil {
@@ -37,11 +38,14 @@ class PurchaseProVC: UIViewController, Storyboarded {
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {
-                self.productPrice = IAPManager.shared.productPrice
-                self.productName = IAPManager.shared.productName
-                self.productDescription = IAPManager.shared.productDescription
-                
-                self.purchaseButton.setTitle("Get Pro for \(self.productPrice!)", for: .normal)
+                if let fourSixPro = IAPManager.shared.fourSixPro, let price = fourSixPro.localizedPriceString {
+                    self.purchaseButton.setTitle("Get Pro for \(price)", for: .normal)
+                    self.fourSixPro = fourSixPro
+                } else {
+                    AlertHelper.showConfirmationAlert(title: "Unexpected Error", message: "Unable to load offerings. Please try again later.", confirmButtonTitle: "OK", on: self) { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
     }
@@ -66,7 +70,7 @@ class PurchaseProVC: UIViewController, Storyboarded {
     @IBAction func getProTapped(_ sender: Any) {
         self.setState(loading: true)
         
-        if let package = IAPManager.shared.package {
+        if let package = IAPManager.shared.proPackage {
             IAPManager.shared.purchase(package: package) { [weak self] (succeeded, error) in
                 guard let self = self else { return }
                 
@@ -85,8 +89,6 @@ class PurchaseProVC: UIViewController, Storyboarded {
                     if let error = error {
                         print(error)
                         AlertHelper.showAlert(title: "Purchase Failed", message: error, on: self)
-                    } else {
-                        AlertHelper.showAlert(title: "Purchase Failed", message: "Unknown error. Please try again or contact the developer if the error persists.", on: self)
                     }
                 }
             }
