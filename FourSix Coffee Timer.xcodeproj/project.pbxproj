@@ -15,6 +15,8 @@
 		65127BC2260D0A5E0014A9E7 /* FourSix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65127BC0260D0A5E0014A9E7 /* FourSix.xcdatamodeld */; };
 		65127BCC260D0B8A0014A9E7 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65127BC6260D0B600014A9E7 /* TestCoreDataStack.swift */; };
 		6512EA882603E0C1002DC1CF /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6512EA872603E0C1002DC1CF /* Note.swift */; };
+		65138D5A264EFA25008EB429 /* FourSixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65138D59264EFA25008EB429 /* FourSixUITests.swift */; };
+		65138D62264EFA93008EB429 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65138D61264EFA93008EB429 /* SnapshotHelper.swift */; };
 		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
 		65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65185B9324BF8CB200F47F30 /* LoadingButton.swift */; };
 		6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6518D13424B4FADE00F786C4 /* Settings.bundle */; };
@@ -134,6 +136,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		65138D5C264EFA25008EB429 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 652756372475B138004E067F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6527563E2475B138004E067F;
+			remoteInfo = "FourSix Coffee Timer";
+		};
 		659785D225141CB200DFB60A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 652756372475B138004E067F /* Project object */;
@@ -153,6 +162,10 @@
 		65127BC1260D0A5E0014A9E7 /* FourSix.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FourSix.xcdatamodel; sourceTree = "<group>"; };
 		65127BC6260D0B600014A9E7 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		6512EA872603E0C1002DC1CF /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		65138D57264EFA25008EB429 /* FourSixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65138D59264EFA25008EB429 /* FourSixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSixUITests.swift; sourceTree = "<group>"; };
+		65138D5B264EFA25008EB429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65138D61264EFA93008EB429 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		65185B9324BF8CB200F47F30 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		6518D13424B4FADE00F786C4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -277,6 +290,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		65138D54264EFA25008EB429 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6527563C2475B138004E067F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,11 +342,22 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		65138D58264EFA25008EB429 /* FourSixUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65138D59264EFA25008EB429 /* FourSixUITests.swift */,
+				65138D61264EFA93008EB429 /* SnapshotHelper.swift */,
+				65138D5B264EFA25008EB429 /* Info.plist */,
+			);
+			path = FourSixUITests;
+			sourceTree = "<group>";
+		};
 		652756362475B138004E067F = {
 			isa = PBXGroup;
 			children = (
 				652756412475B138004E067F /* FourSix Coffee Timer */,
 				659785CE25141CB200DFB60A /* FourSixTests */,
+				65138D58264EFA25008EB429 /* FourSixUITests */,
 				652756402475B138004E067F /* Products */,
 				6572EE722492A0C5008AAD56 /* Frameworks */,
 				DB8B806FFE40500727875B03 /* Pods */,
@@ -338,6 +369,7 @@
 			children = (
 				6527563F2475B138004E067F /* FourSix.app */,
 				659785CD25141CB200DFB60A /* FourSixTests.xctest */,
+				65138D57264EFA25008EB429 /* FourSixUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -701,6 +733,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		65138D56264EFA25008EB429 /* FourSixUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65138D60264EFA25008EB429 /* Build configuration list for PBXNativeTarget "FourSixUITests" */;
+			buildPhases = (
+				65138D53264EFA25008EB429 /* Sources */,
+				65138D54264EFA25008EB429 /* Frameworks */,
+				65138D55264EFA25008EB429 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65138D5D264EFA25008EB429 /* PBXTargetDependency */,
+			);
+			name = FourSixUITests;
+			productName = FourSixUITests;
+			productReference = 65138D57264EFA25008EB429 /* FourSixUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6527563E2475B138004E067F /* FourSix Coffee Timer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 652756532475B13B004E067F /* Build configuration list for PBXNativeTarget "FourSix Coffee Timer" */;
@@ -745,10 +795,14 @@
 		652756372475B138004E067F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Jon Duenas";
 				TargetAttributes = {
+					65138D56264EFA25008EB429 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 6527563E2475B138004E067F;
+					};
 					6527563E2475B138004E067F = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -773,11 +827,19 @@
 			targets = (
 				6527563E2475B138004E067F /* FourSix Coffee Timer */,
 				659785CC25141CB200DFB60A /* FourSixTests */,
+				65138D56264EFA25008EB429 /* FourSixUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		65138D55264EFA25008EB429 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6527563D2475B138004E067F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -875,6 +937,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		65138D53264EFA25008EB429 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65138D5A264EFA25008EB429 /* FourSixUITests.swift in Sources */,
+				65138D62264EFA93008EB429 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6527563B2475B138004E067F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -992,6 +1063,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		65138D5D264EFA25008EB429 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6527563E2475B138004E067F /* FourSix Coffee Timer */;
+			targetProxy = 65138D5C264EFA25008EB429 /* PBXContainerItemProxy */;
+		};
 		659785D325141CB200DFB60A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6527563E2475B138004E067F /* FourSix Coffee Timer */;
@@ -1043,6 +1119,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		65138D5E264EFA25008EB429 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XWQQ29E97Q;
+				INFOPLIST_FILE = FourSixUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonduenas.FourSixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "FourSix Coffee Timer";
+			};
+			name = Debug;
+		};
+		65138D5F264EFA25008EB429 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XWQQ29E97Q;
+				INFOPLIST_FILE = FourSixUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonduenas.FourSixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "FourSix Coffee Timer";
+			};
+			name = Release;
+		};
 		652756512475B13B004E067F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1250,6 +1366,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		65138D60264EFA25008EB429 /* Build configuration list for PBXNativeTarget "FourSixUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65138D5E264EFA25008EB429 /* Debug */,
+				65138D5F264EFA25008EB429 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6527563A2475B138004E067F /* Build configuration list for PBXProject "FourSix Coffee Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
