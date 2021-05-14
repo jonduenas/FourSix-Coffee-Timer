@@ -127,14 +127,3 @@ class PurchaseProVC: UIViewController, Storyboarded {
         }
     }
 }
-
-class PaywallTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
-    var height: CGFloat = 677
-    
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        let presentation = SlideOverPresentation(presentedViewController: presented, presenting: presenting)
-        presentation.height = height
-        presentation.tapToDismiss = true
-        return presentation
-    }
-}

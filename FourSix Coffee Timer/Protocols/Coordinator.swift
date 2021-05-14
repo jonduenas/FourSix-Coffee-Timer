@@ -23,9 +23,12 @@ extension Coordinator {
         vc.delegate = delegate
         
         // Checks if screen height can accomodate custom presentation style
-        let transitioningDelegate = PaywallTransitioningDelegate()
-        if UIScreen.main.bounds.height > transitioningDelegate.height {
-            vc.transitioningDelegate = transitioningDelegate
+        let paywallTransitioningDelegate = SlideOverTransitioningDelegate()
+        paywallTransitioningDelegate.height = 677
+        paywallTransitioningDelegate.tapToDismiss = true
+        
+        if UIScreen.main.bounds.height > paywallTransitioningDelegate.height {
+            vc.transitioningDelegate = paywallTransitioningDelegate
             vc.modalPresentationStyle = .custom
         }
         
