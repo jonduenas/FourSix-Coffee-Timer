@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import TactileSlider
-import Purchases
 
 class BrewVC: UIViewController, Storyboarded {
     weak var coordinator: BrewCoordinator?
