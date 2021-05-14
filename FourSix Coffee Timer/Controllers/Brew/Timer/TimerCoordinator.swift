@@ -14,7 +14,6 @@ class TimerCoordinator: Coordinator {
     var navigationController: UINavigationController
     let recipe: Recipe
     let dataManager: DataManager
-    let summaryTransitioningDelegate = SummaryTransitioningDelegate()
     
     init(navigationController: UINavigationController, recipe: Recipe, dataManager: DataManager) {
         self.navigationController = navigationController
@@ -43,8 +42,13 @@ class TimerCoordinator: Coordinator {
         vc.dataManager = dataManager
         vc.recipe = recipe
         vc.session = session
+        
+        let summaryTransitioningDelegate = SlideOverTransitioningDelegate()
+        summaryTransitioningDelegate.height = 450
+        summaryTransitioningDelegate.tapToDismiss = false
         vc.transitioningDelegate = summaryTransitioningDelegate
         vc.modalPresentationStyle = .custom
+        
         navigationController.present(vc, animated: true)
     }
     
