@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FourSix Coffee Timer - StoreKit.xcscheme</key>
+		<key>FourSix Coffee Timer - StoreKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -13,6 +13,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>FourSixTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>FourSixUITests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>6527563E2475B138004E067F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>659785CC25141CB200DFB60A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
