@@ -756,6 +756,7 @@
 			buildConfigurationList = 652756532475B13B004E067F /* Build configuration list for PBXNativeTarget "FourSix Coffee Timer" */;
 			buildPhases = (
 				A3A9D62A28BBBE31558BE7A1 /* [CP] Check Pods Manifest.lock */,
+				65480C03265325BE0060F3F9 /* ShellScript */,
 				6527563B2475B138004E067F /* Sources */,
 				6527563C2475B138004E067F /* Frameworks */,
 				6527563D2475B138004E067F /* Resources */,
@@ -894,6 +895,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cp \"${SRCROOT}/Pods/Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer-acknowledgements.plist\" \"${SRCROOT}/FourSix Coffee Timer/Settings.bundle/OpenSource.plist\"\n";
+		};
+		65480C03265325BE0060F3F9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		6C236755B93D99DE5DF05CDA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
