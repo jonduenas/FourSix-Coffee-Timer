@@ -22,7 +22,7 @@ jobs:
           key: 1-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - run: bundle exec fastlane lint # SwiftLint
+      
       - run: bundle exec fastlane test # Run tests
 
       # Collect XML test results data to show in the UI, and save the same XML
@@ -32,3 +32,18 @@ jobs:
       - store_artifacts:
           path: test_output
           destination: scan-output
+  
+  swiftlint:
+    steps:
+      - checkout
+      - run: bundle exec fastlane lint
+      - store_artifacts:
+          path: swiftlint.result.html
+      - store_test_results:
+          path: swiftlint.result.html
+          
+workflows:
+  build-test-lint:
+    jobs:
+      - swiftlint
+      - build
