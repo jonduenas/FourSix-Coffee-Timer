@@ -2,19 +2,23 @@ PODS:
   - Purchases (3.11.1):
     - PurchasesCoreSwift (= 3.11.1)
   - PurchasesCoreSwift (3.11.1)
+  - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - Purchases (~> 3.4)
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Purchases
     - PurchasesCoreSwift
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Purchases: 6351f9ff6bd514e5ec5aa0f989ea181effa94bf5
   PurchasesCoreSwift: ee857e4c21e6254b09d7e303a756fcf2b9164408
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 55de5b7e39a6899ffc2683a92a82aaf38ab9ef5e
+PODFILE CHECKSUM: 761885522005c26e7f4146e419274af541686b25
 
 COCOAPODS: 1.10.1
