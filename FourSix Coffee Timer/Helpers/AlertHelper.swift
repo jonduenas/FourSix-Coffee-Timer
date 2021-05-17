@@ -69,7 +69,7 @@ class AlertHelper {
                                          dismissButtonTitle: "Cancel",
                                          on: controller,
                                          cancelHandler: cancelHandler,
-                                         confirmHandler:  { _ in
+                                         confirmHandler: { _ in
                                             IAPManager.shared.restorePurchases { (_, error) in
                                                 if let err = error {
                                                     AlertHelper.showConfirmationAlert(title: "Unexpected Error", message: err, confirmButtonTitle: "OK", on: controller, handler: cancelHandler)

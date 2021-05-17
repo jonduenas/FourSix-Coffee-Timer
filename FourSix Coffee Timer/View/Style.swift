@@ -37,8 +37,7 @@ class Style {
     
     init(backgroundColor: UIColor,
          preferredStatusBarStyle: UIStatusBarStyle = .default,
-         attributesForStyle: @escaping (_ style: TextStyle) -> TextAttributes)
-    {
+         attributesForStyle: @escaping (_ style: TextStyle) -> TextAttributes) {
         self.backgroundColor = backgroundColor
         self.preferredStatusBarStyle = preferredStatusBarStyle
         self.attributesForStyle = attributesForStyle

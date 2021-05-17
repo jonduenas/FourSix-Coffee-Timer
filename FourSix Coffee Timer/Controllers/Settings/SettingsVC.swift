@@ -70,7 +70,7 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
                                          confirmButtonTitle: "Open Twitter",
                                          dismissButtonTitle: "Cancel",
                                          on: self,
-                                         confirmHandler:  { _ in
+                                         confirmHandler: { _ in
                                             UIApplication.shared.open(Constants.twitterURL)
                                          })
     }
