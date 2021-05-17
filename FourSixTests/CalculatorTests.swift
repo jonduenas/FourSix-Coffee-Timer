@@ -57,7 +57,7 @@ class CalculatorTests: XCTestCase {
     
     func testCalculator_TotalWater() {
         // given
-        let balance = Balance.neutral
+        let balance = Balance.even
         let strength = Strength.light
         let coffee: Float = 25
         let water: Float = 375

@@ -6,5 +6,6 @@ target 'FourSix Coffee Timer' do
   # Pods for FourSix Coffee Timer
 
   pod 'Purchases', '~> 3.4'
+  pod 'SwiftLint'
 
 end
