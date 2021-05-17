@@ -56,11 +56,37 @@ class SegmentedControl: UIControl {
         }
     }
     
-    @IBInspectable var fontWeight: UIFont.Weight = .medium {
+    @IBInspectable var fontWeight: String = "" {
         didSet {
+            switch fontWeight {
+            case "bold":
+                weight = .bold
+            case "medium":
+                weight = .medium
+            case "regular", "":
+                weight = .regular
+            case "semibold":
+                weight = .semibold
+            case "ultralight":
+                weight = .ultraLight
+            case "light":
+                weight = .light
+            case "thin":
+                weight = .thin
+            case "heavy":
+                weight = .heavy
+            case "black":
+                weight = .black
+            default:
+                print("Error: SegmentedControl - \(self) - fontWeight set to invalid case.")
+                weight = .regular
+            }
+            
             setFont()
         }
     }
+    
+    var weight: UIFont.Weight = .regular
     
     @IBInspectable var addShadow: Bool = false {
         didSet {
@@ -132,7 +158,7 @@ class SegmentedControl: UIControl {
             label.text = items[index - 1]
             label.backgroundColor = .clear
             label.textAlignment = .center
-            label.font = .systemFont(ofSize: fontSize, weight: fontWeight)
+            label.font = .systemFont(ofSize: fontSize, weight: weight)
             label.textColor = index == 1 ? selectedLabelColor : unselectedLabelColor
             stackView.addArrangedSubview(label)
             labels.append(label)
@@ -190,7 +216,7 @@ class SegmentedControl: UIControl {
     
     func setFont() {
         for label in labels {
-            label.font = .systemFont(ofSize: fontSize, weight: fontWeight)
+            label.font = .systemFont(ofSize: fontSize, weight: weight)
         }
     }
     

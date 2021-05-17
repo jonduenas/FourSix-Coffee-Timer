@@ -16,7 +16,6 @@ disabled_rules:
   - function_parameter_count
   - function_body_length
   - block_based_kvo
-  - valid_ibinspectable
   
 identifier_name:
   excluded:
