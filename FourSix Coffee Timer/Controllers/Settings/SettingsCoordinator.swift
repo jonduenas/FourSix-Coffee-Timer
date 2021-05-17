@@ -62,13 +62,4 @@ class SettingsCoordinator: Coordinator {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)
     }
-    
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
-    }
 }

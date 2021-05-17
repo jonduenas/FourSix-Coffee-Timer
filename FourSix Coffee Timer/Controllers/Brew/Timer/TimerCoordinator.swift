@@ -83,15 +83,6 @@ class TimerCoordinator: Coordinator {
         parentCoordinator?.childDidFinish(self)
     }
     
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
-    }
-    
     private func setStatusBarStyle(_ style: UIStatusBarStyle) {
         if let timerNav = navigationController as? TimerNavigationController {
             timerNav.darkBackground = style == .lightContent

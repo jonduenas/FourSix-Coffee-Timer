@@ -63,13 +63,4 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             childDidFinish(noteDetailsVC.coordinator)
         }
     }
-    
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
-    }
 }

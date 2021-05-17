@@ -65,13 +65,4 @@ class BrewCoordinator: Coordinator {
         childCoordinator.start()
         navigationController.present(childCoordinator.navigationController, animated: true, completion: nil)
     }
-    
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
-    }
 }

@@ -34,4 +34,11 @@ extension Coordinator {
         
         navigationController.present(vc, animated: true, completion: nil)
     }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated() where coordinator === child {
+            childCoordinators.remove(at: index)
+            break
+        }
+    }
 }
