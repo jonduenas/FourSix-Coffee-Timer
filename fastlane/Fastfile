@@ -32,7 +32,7 @@ platform :ios do
   		mode: :lint,
   		executable: "Pods/SwiftLint/swiftlint",
   		output_file: "test_output/swiftlint.result.json",
-  		config_file: ".swiftlint.yml"
+  		config_file: ".swiftlint.yml",
   		ignore_exit_status: true
   	)		 
 	end
