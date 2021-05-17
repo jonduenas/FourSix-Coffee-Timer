@@ -85,13 +85,6 @@ class CoffeePickerVC: UIViewController, Storyboarded {
         coordinator?.showCoffeeEditor(coffee: nil, dataManager: dataManager)
     }
     
-    @objc func createNewCoffee() {
-        let coffee = Coffee(roaster: "Onyx", name: "Coffee Name", origin: "", roastLevel: "")
-        let coffeeMO = dataManager.newCoffeeMO(from: coffee)
-        try! dataManager.mainContext.obtainPermanentIDs(for: [coffeeMO])
-        dataManager.saveContext()
-    }
-    
     private func deleteCoffee(at indexPath: IndexPath) {
         guard let objectID = dataSource.itemIdentifier(for: indexPath) else { return }
         guard let object = dataManager.mainContext.object(with: objectID) as? CoffeeMO else { return }
