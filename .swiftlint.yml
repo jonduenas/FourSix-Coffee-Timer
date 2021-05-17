@@ -30,4 +30,4 @@ identifier_name:
     - vc
     - ok
     
-reporter: "json"
+reporter: "junit"
