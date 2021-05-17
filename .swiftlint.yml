@@ -29,5 +29,3 @@ identifier_name:
     - id
     - vc
     - ok
-    
-reporter: "junit"
