@@ -14,7 +14,7 @@ disabled_rules:
   - for_where
   - force_cast
   - opening_brace
-  # - force_try
+  - force_try
   - cyclomatic_complexity
   - file_length
   - function_parameter_count
