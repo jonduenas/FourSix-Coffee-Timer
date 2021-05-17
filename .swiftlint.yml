@@ -1,0 +1,31 @@
+excluded:
+  - Pods
+  
+disabled_rules:
+  - trailing_whitespace
+  - vertical_whitespace
+  - comment_spacing
+  - line_length
+  - xctfail_message
+  - unused_closure_parameter
+  - todo
+  - for_where
+  - force_cast
+  - opening_brace
+  - force_try
+  - cyclomatic_complexity
+  - file_length
+  - function_parameter_count
+  - colon
+  - identifier_name
+  - unneeded_break_in_switch
+  - function_body_length
+  - block_based_kvo
+  - valid_ibinspectable
+  - trailing_newline
+  
+identifier_name:
+  excluded:
+    - id
+    - vc
+    - ok
