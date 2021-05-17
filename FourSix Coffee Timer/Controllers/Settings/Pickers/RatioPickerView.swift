@@ -77,16 +77,16 @@ class RatioPickerView: UIPickerView {
     private func layoutLabels() {
         let fontSize = antecedentLabel.font.pointSize
         let componentWidth: CGFloat = frame.width / CGFloat(numberOfComponents)
-        let y = (frame.size.height / 2) - (fontSize / 2)
+        let yPosition = (frame.size.height / 2) - (fontSize / 2)
         
         let antecedentComponentPosition = CGFloat(RatioPickerComponent.antecedent.rawValue)
         let colonComponentPosition = CGFloat(RatioPickerComponent.colon.rawValue)
         let decimalComponentPosition = CGFloat(RatioPickerComponent.decimal.rawValue)
         
-        antecedentLabel.frame = CGRect(x: componentWidth * (antecedentComponentPosition + 0.5), y: y, width: componentWidth * 0.4, height: fontSize)
+        antecedentLabel.frame = CGRect(x: componentWidth * (antecedentComponentPosition + 0.5), y: yPosition, width: componentWidth * 0.4, height: fontSize)
         
-        colonLabel.frame = CGRect(x: componentWidth * (colonComponentPosition + 0.5), y: y, width: componentWidth * 0.4, height: fontSize)
+        colonLabel.frame = CGRect(x: componentWidth * (colonComponentPosition + 0.5), y: yPosition, width: componentWidth * 0.4, height: fontSize)
         
-        decimalLabel.frame = CGRect(x: componentWidth * (decimalComponentPosition + 0.5), y: y, width: componentWidth * 0.4, height: fontSize)
+        decimalLabel.frame = CGRect(x: componentWidth * (decimalComponentPosition + 0.5), y: yPosition, width: componentWidth * 0.4, height: fontSize)
     }
 }

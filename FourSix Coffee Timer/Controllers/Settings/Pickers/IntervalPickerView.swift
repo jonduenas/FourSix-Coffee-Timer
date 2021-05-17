@@ -65,13 +65,13 @@ class IntervalPickerView: UIPickerView {
     private func layoutLabels() {
         let fontSize = minuteLabel.font.pointSize
         let componentWidth = frame.width / CGFloat(numberOfComponents)
-        let y = (frame.size.height / 2) - (fontSize / 2)
+        let yPosition = (frame.size.height / 2) - (fontSize / 2)
         
         let minuteComponentPosition = CGFloat(IntervalPickerComponent.minValue.rawValue)
         let secondComponentPosition = CGFloat(IntervalPickerComponent.secValue.rawValue)
         
-        minuteLabel.frame = CGRect(x: componentWidth * (minuteComponentPosition + 0.7), y: y, width: componentWidth * 0.4, height: fontSize)
+        minuteLabel.frame = CGRect(x: componentWidth * (minuteComponentPosition + 0.7), y: yPosition, width: componentWidth * 0.4, height: fontSize)
         
-        secondLabel.frame = CGRect(x: componentWidth * (secondComponentPosition + 0.75), y: y, width: componentWidth * 0.4, height: fontSize)
+        secondLabel.frame = CGRect(x: componentWidth * (secondComponentPosition + 0.75), y: yPosition, width: componentWidth * 0.4, height: fontSize)
     }
 }

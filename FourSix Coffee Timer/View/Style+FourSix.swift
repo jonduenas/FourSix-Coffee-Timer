@@ -45,14 +45,14 @@ extension UIColor {
     }
     
     func adjustBrightness(by percentage: CGFloat = 30.0) -> UIColor {
-        var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        if self.getHue(&h, saturation: &s, brightness: &b, alpha: &a) {
-            if b < 1.0 {
-                let newB: CGFloat = max(min(b + (percentage/100.0)*b, 1.0), 0.0)
-                return UIColor(hue: h, saturation: s, brightness: newB, alpha: a)
+        var hue: CGFloat = 0, saturation: CGFloat = 0, brightness: CGFloat = 0, alpha: CGFloat = 0
+        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            if brightness < 1.0 {
+                let newB: CGFloat = max(min(brightness + (percentage/100.0)*brightness, 1.0), 0.0)
+                return UIColor(hue: hue, saturation: saturation, brightness: newB, alpha: alpha)
             } else {
-                let newS: CGFloat = min(max(s - (percentage/100.0)*s, 0.0), 1.0)
-                return UIColor(hue: h, saturation: newS, brightness: b, alpha: a)
+                let newS: CGFloat = min(max(saturation - (percentage/100.0)*saturation, 0.0), 1.0)
+                return UIColor(hue: hue, saturation: newS, brightness: brightness, alpha: alpha)
             }
         }
         return self
