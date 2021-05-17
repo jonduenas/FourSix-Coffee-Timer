@@ -102,11 +102,13 @@ extension SettingsVC: UITableViewDelegate {
             
             switch row {
             case .ratio:
-                let cell = tableView.cellForRow(at: indexPath) as! RatioCell
-                cell.cellTextField.becomeFirstResponder()
+                if let cell = tableView.cellForRow(at: indexPath) as? RatioCell {
+                    cell.cellTextField.becomeFirstResponder()
+                }
             case .interval:
-                let cell = tableView.cellForRow(at: indexPath) as! IntervalCell
-                cell.cellTextField.becomeFirstResponder()
+                if let cell = tableView.cellForRow(at: indexPath) as? IntervalCell {
+                    cell.cellTextField.becomeFirstResponder()
+                }
             default:
                 break
             }

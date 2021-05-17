@@ -22,7 +22,9 @@ struct Note: ManagedObjectInitializable {
     var roastDate: Date?
     
     init(managedObject: NSManagedObject) {
+        // swiftlint:disable:next force_cast
         let noteMO = managedObject as! NoteMO
+        
         self.recipe = Recipe(managedObject: noteMO.recipe)
         self.session = Session(managedObject: noteMO.session)
         

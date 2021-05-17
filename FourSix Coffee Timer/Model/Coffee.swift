@@ -18,6 +18,7 @@ struct Coffee: ManagedObjectInitializable {
     init() { }
     
     init(managedObject: NSManagedObject) {
+        // swiftlint:disable:next force_cast
         let coffeeMO = managedObject as! CoffeeMO
         self.roaster = coffeeMO.roaster
         self.name = coffeeMO.name

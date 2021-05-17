@@ -40,6 +40,7 @@ struct Recipe: ManagedObjectInitializable {
     var strength: Strength
     
     init(managedObject: NSManagedObject) {
+        // swiftlint:disable:next force_cast
         let recipeMO = managedObject as! RecipeMO
         
         let balance = Balance(rawValue: Float(recipeMO.balanceRaw)) ?? .even

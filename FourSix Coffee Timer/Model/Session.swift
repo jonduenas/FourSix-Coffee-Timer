@@ -14,6 +14,7 @@ struct Session: ManagedObjectInitializable {
     let drawdownTimes: [TimeInterval]
     
     init(managedObject: NSManagedObject) {
+        // swiftlint:disable:next force_cast
         let sessionMO = managedObject as! SessionMO
         self.totalTime = sessionMO.totalTime
         self.drawdownTimes = sessionMO.drawdownTimes

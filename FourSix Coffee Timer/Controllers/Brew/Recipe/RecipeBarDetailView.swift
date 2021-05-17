@@ -11,7 +11,9 @@ import UIKit
 class BraceView: UIView {
     override class var layerClass: Swift.AnyClass { return CAShapeLayer.self }
     
-    lazy var shapeLayer: CAShapeLayer = { self.layer as! CAShapeLayer }()
+    lazy var shapeLayer: CAShapeLayer = {
+        self.layer as! CAShapeLayer // swiftlint:disable:this force_cast
+    }()
 }
 
 class RecipeBarDetailView: UIView {
