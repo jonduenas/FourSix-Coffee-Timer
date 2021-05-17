@@ -17,7 +17,6 @@ disabled_rules:
   - function_body_length
   - block_based_kvo
   - valid_ibinspectable
-  - trailing_newline
   
 identifier_name:
   excluded:

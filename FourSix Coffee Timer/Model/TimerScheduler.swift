@@ -24,4 +24,3 @@ class TimerScheduler: TimerScheduling {
         timer?.invalidate()
     }
 }
-
