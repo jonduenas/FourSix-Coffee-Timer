@@ -1,0 +1,11 @@
+[
+  {
+    "character" : 9,
+    "file" : "\/Users\/jonduenas\/Local Documents\/46 Timer\/FourSix Coffee Timer\/FourSix Coffee Timer\/Controllers\/Notes\/CoffeePicker\/CoffeePickerVC.swift",
+    "line" : 91,
+    "reason" : "Force tries should be avoided.",
+    "rule_id" : "force_try",
+    "severity" : "Error",
+    "type" : "Force Try"
+  }
+]

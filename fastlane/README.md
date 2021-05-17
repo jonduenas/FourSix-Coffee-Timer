@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios test
 ```
 Runs all the tests
+### ios lint
+```
+fastlane ios lint
+```
+Run SwiftLint
 ### ios screenshots
 ```
 fastlane ios screenshots
