@@ -155,7 +155,7 @@
 /* Begin PBXFileReference section */
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
 		65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		650E81F425EDBA9400DF119B /* RecipeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = RecipeVC.storyboard; path = "/Users/jonduenas/Local Documents/46 Timer/FourSix Coffee Timer/FourSix Coffee Timer/Controllers/Brew/Recipe/RecipeVC.storyboard"; sourceTree = "<absolute>"; };
+		650E81F425EDBA9400DF119B /* RecipeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeVC.storyboard; sourceTree = "<group>"; };
 		650E81F825EDBAD800DF119B /* TimerVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimerVC.storyboard; sourceTree = "<group>"; };
 		650E81FC25EDBB0900DF119B /* BrewSummaryVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BrewSummaryVC.storyboard; sourceTree = "<group>"; };
 		65127BBC260D09CA0014A9E7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
