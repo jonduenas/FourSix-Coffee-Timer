@@ -124,7 +124,6 @@ extension SettingsVC: UITableViewDelegate {
                 }
             default:
                 print("Undefined indexPath.row")
-                break
             }
         case .aboutFourSix:
             let row = AboutSectionCell(rawValue: indexPath.row)
@@ -146,11 +145,9 @@ extension SettingsVC: UITableViewDelegate {
                 coordinator?.showAcknowledgements()
             default:
                 print("Undefined indexPath.row")
-                break
             }
         default:
             print("Undefined indexPath.section")
-            break
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
