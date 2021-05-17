@@ -18,11 +18,14 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         progressView.tintColor = UIColor(named: AssetsColor.accent.rawValue)
         return progressView
     }()
-    
+    var estimatedProgressObserver: NSKeyValueObservation?
     var urlString = ""
     var showTitle: Bool = false
+    var titleObserver: NSKeyValueObservation?
     var backButton: UIBarButtonItem?
+    var canGoBackObserver: NSKeyValueObservation?
     var forwardButton: UIBarButtonItem?
+    var canGoForwardObserver: NSKeyValueObservation?
     
     override func loadView() {
         view = webView
@@ -36,7 +39,10 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         configureProgressBar()
         
         if showTitle {
-            webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
+            titleObserver = webView.observe(\.title, options: [.new], changeHandler: { webView, change in
+                guard let newTitle = change.newValue else { return }
+                self.navigationItem.title = newTitle
+            })
         }
         
         webView.navigationDelegate = self
@@ -86,8 +92,15 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         backButton?.isEnabled = webView.canGoBack
         forwardButton?.isEnabled = webView.canGoForward
         
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.canGoBack), options: .new, context: nil)
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.canGoForward), options: .new, context: nil)
+        canGoBackObserver = webView.observe(\.canGoBack, options: [.new]) { webView, change in
+            guard let newValue = change.newValue else { return }
+            self.backButton?.isEnabled = newValue
+        }
+        
+        canGoForwardObserver = webView.observe(\.canGoForward, options: [.new], changeHandler: { webView, change in
+            guard let newValue = change.newValue else { return }
+            self.forwardButton?.isEnabled = newValue
+        })
     }
     
     private func configureProgressBar() {
@@ -98,11 +111,13 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         progressBar.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         progressBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
         
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        estimatedProgressObserver = webView.observe(\.estimatedProgress, options: [.new], changeHandler: { webView, change in
+            self.updateProgressBar(change.newValue)
+        })
     }
     
-    private func updateProgressBar() {
-        let newProgress = self.webView.estimatedProgress
+    private func updateProgressBar(_ progress: Double?) {
+        guard let newProgress = progress else { return }
         
         // Only animate moving forward
         if Float(newProgress) > progressBar.progress {
@@ -119,23 +134,6 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
             })
         } else {
             progressBar.isHidden = false
-        }
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard let webView = object as? WKWebView, webView == self.webView else { return }
-        
-        switch keyPath {
-        case #keyPath(WKWebView.canGoBack):
-            self.backButton?.isEnabled = self.webView.canGoBack
-        case #keyPath(WKWebView.canGoForward):
-            self.forwardButton?.isEnabled = self.webView.canGoForward
-        case #keyPath(WKWebView.estimatedProgress):
-            updateProgressBar()
-        case #keyPath(WKWebView.title):
-            navigationItem.title = webView.title
-        default:
-            return
         }
     }
 }
