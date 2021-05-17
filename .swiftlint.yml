@@ -1,6 +1,8 @@
-excluded:
-  - Pods
-  
+included:
+  - FourSix Coffee Timer
+  - FourSixTests
+  - FourSixUITests
+   
 disabled_rules:
   - trailing_whitespace
   - vertical_whitespace
