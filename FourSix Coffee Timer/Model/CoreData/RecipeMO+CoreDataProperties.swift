@@ -27,6 +27,6 @@ extension RecipeMO {
 
 }
 
-extension RecipeMO : Identifiable {
+extension RecipeMO: Identifiable {
 
 }

@@ -24,6 +24,6 @@ extension SessionMO {
 
 }
 
-extension SessionMO : Identifiable {
+extension SessionMO: Identifiable {
 
 }

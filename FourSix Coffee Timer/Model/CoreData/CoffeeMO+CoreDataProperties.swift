@@ -43,6 +43,6 @@ extension CoffeeMO {
 
 }
 
-extension CoffeeMO : Identifiable {
+extension CoffeeMO: Identifiable {
 
 }

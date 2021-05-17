@@ -30,6 +30,6 @@ extension NoteMO {
 
 }
 
-extension NoteMO : Identifiable {
+extension NoteMO: Identifiable {
 
 }
