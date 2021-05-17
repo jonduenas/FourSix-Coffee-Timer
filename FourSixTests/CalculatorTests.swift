@@ -51,7 +51,7 @@ class CalculatorTests: XCTestCase {
         let recipe = sut.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: 45)
         
         // then
-        XCTAssertEqual(recipe.waterPours[3], 560, "Third pour should be 56")
+        XCTAssertEqual(recipe.waterPours[3], 56, "Third pour should be 56")
         XCTAssertEqual(recipe.waterPours.count, 6, "Total pour count should be 6")
     }
     
