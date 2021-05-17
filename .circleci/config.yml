@@ -8,13 +8,23 @@ jobs:
 
     macos:
       xcode: 12.4.0 # Specify the Xcode version to use
+    working_directory: /Users/distiller/project
+    environment:
+      FL_OUTPUT_DIR: test_output
+    shell: /bin/bash --login -o pipefail
 
     steps:
       - checkout
-      - run: bundle install
+      - restore_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+      - run: bundle check || bundle install --path vendor/bundle
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run: bundle exec fastlane test # Run tests using Fastlane
-      - run: brew install swiftlint
-      - run: bundle exec fastlane lint # SwiftLint
+      # - run: brew install swiftlint
+      # - run: bundle exec fastlane lint # SwiftLint
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab
