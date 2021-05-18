@@ -278,37 +278,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
 }
 
-// MARK: - Adjust scrollView for keyboard
-
-extension NoteDetailsVC {
-    private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    @objc private func adjustForKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        if notification.name == UIResponder.keyboardWillHideNotification {
-            scrollView.contentInset = .zero
-        } else {
-            scrollView.contentInset = UIEdgeInsets(top: 0,
-                                                   left: 0,
-                                                   bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (tabBarController?.tabBar.frame.height ?? 0) + 10,
-                                                   right: 0)
-        }
-        
-        scrollView.scrollIndicatorInsets = scrollView.contentInset
-        
-        if notesTextView.isFirstResponder {
-            scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
-        }
-    }
-}
-
 // MARK: - Update CoffeePickerView
 // Updates CoffeePickerView labels when CoffeeMO object is edited and it's the currently selected and displayed coffee
 
