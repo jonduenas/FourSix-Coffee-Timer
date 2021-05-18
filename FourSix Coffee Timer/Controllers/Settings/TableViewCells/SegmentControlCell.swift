@@ -11,14 +11,14 @@ import UIKit
 class SegmentControlCell: UITableViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellSegmentedControl: UISegmentedControl!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
     func configureSegmentControl(options: [String]) {
         cellSegmentedControl.removeAllSegments()
-        
+
         for (index, segment) in options.enumerated() {
             cellSegmentedControl.insertSegment(withTitle: segment, at: index, animated: false)
         }

@@ -11,7 +11,7 @@ import XCTest
 class FourSixUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        
+
         continueAfterFailure = false
 
         let app = XCUIApplication()

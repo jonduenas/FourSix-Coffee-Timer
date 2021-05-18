@@ -12,7 +12,7 @@ class CustomPageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let pageControl = UIPageControl.appearance()
         pageControl.currentPageIndicatorTintColor = .systemGray
         pageControl.pageIndicatorTintColor = .systemGray4

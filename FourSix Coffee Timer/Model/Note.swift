@@ -20,14 +20,14 @@ struct Note: ManagedObjectInitializable {
     var waterTempC: Double
     var waterTempUnit: TempUnit
     var roastDate: Date?
-    
+
     init(managedObject: NSManagedObject) {
         // swiftlint:disable:next force_cast
         let noteMO = managedObject as! NoteMO
-        
+
         self.recipe = Recipe(managedObject: noteMO.recipe)
         self.session = Session(managedObject: noteMO.session)
-        
+
         if let coffee = noteMO.coffee {
             self.coffee = Coffee(managedObject: coffee)
         }
@@ -40,7 +40,7 @@ struct Note: ManagedObjectInitializable {
         self.grindSetting = noteMO.grindSetting
         self.roastDate = noteMO.roastDate
     }
-    
+
     init(recipe: Recipe, session: Session, date: Date, rating: Int, noteText: String, coffee: Coffee, grindSetting: String, waterTempC: Double, waterTempUnit: TempUnit, roastDate: Date? = nil) {
         self.recipe = recipe
         self.session = session

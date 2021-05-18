@@ -17,12 +17,12 @@ class NotesVC: UIViewController, Storyboarded {
     var dataSource: DataSource!
     var fetchedResultsController: NSFetchedResultsController<NoteMO>! = nil
     var isVisible: Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         guard dataManager != nil else { fatalError("Controller requires DataManager.") }
-        
+
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(
 //            title: "New Notes",
 //            style: .plain,
@@ -34,17 +34,17 @@ class NotesVC: UIViewController, Storyboarded {
         configureFetchedResultsController()
         fetchNotes()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         isVisible = true
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         isVisible = false
     }
-    
+
     private func configureDataSource() {
         let dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
             guard let cell = tableView.dequeueReusableCell(
@@ -54,11 +54,11 @@ class NotesVC: UIViewController, Storyboarded {
             else {
                 return nil
             }
-            
+
             guard let note = try? self.dataManager.mainContext.existingObject(with: noteID) as? NoteMO else {
                 fatalError("Managed object should be available")
             }
-            
+
             guard let balance = Balance(rawValue: Float(note.recipe.balanceRaw)) else { return cell }
             guard let strength = Strength(rawValue: Int(note.recipe.strengthRaw)) else { return cell }
 
@@ -68,24 +68,24 @@ class NotesVC: UIViewController, Storyboarded {
             cell.coffeeLabel.text = note.recipe.coffee.clean + "g"
             cell.waterLabel.text = note.recipe.waterTotal.clean + "g"
             cell.ratingStackView.rating = Int(note.rating)
-            
+
             return cell
         })
-        
+
         self.dataSource = dataSource
         tableView.dataSource = dataSource
     }
-    
+
     // TODO: Delete this function
     @objc func createNewNote() {
         let backgroundMOC = self.dataManager.backgroundContext
-        
+
         var date = Date()
-        
+
         backgroundMOC.perform {
             for _ in 0...150 {
                 let note = NoteMO(context: backgroundMOC)
-                
+
                 let recipe = RecipeMO(context: backgroundMOC)
                 recipe.balanceRaw = Double(Balance.allCases[Int.random(in: 0...2)].rawValue)
                 recipe.strengthRaw = Int64(Strength.allCases[Int.random(in: 0...2)].rawValue)
@@ -94,20 +94,20 @@ class NotesVC: UIViewController, Storyboarded {
                 recipe.waterTotal = 375
                 recipe.waterPours = [50, 70, 60, 60, 60]
                 note.recipe = recipe
-                
+
                 let session = SessionMO(context: backgroundMOC)
                 session.averageDrawdown = 45
                 session.totalTime = 360
                 session.drawdownTimes = [45, 45, 45, 45, 45]
                 note.session = session
-                
+
                 let coffee = CoffeeMO(context: backgroundMOC)
                 coffee.name = "Rayos del Sol"
                 coffee.origin = "Peru"
                 coffee.roastLevel = "Light"
                 coffee.roaster = "Coava"
                 note.coffee = coffee
-                
+
                 note.date = date
                 date = date.addingTimeInterval(-86400)
                 note.grindSetting = ""
@@ -116,11 +116,11 @@ class NotesVC: UIViewController, Storyboarded {
                 note.text = ""
                 note.waterTempC = 0
             }
-            
+
             self.dataManager.saveContext(backgroundMOC)
         }
     }
-    
+
     private func deleteNote(at indexPath: IndexPath) {
         if let objectID = dataSource.itemIdentifier(for: indexPath) {
             var snapshot = dataSource.snapshot()
@@ -138,13 +138,13 @@ extension NotesVC: UITableViewDelegate {
         guard let noteObject = try? dataManager.mainContext.existingObject(with: noteID) as? NoteMO else {
             fatalError("Note with noteID not found.")
         }
-        
+
         coordinator?.showDetails(for: noteObject, dataManager: dataManager)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     // MARK: Swipe to delete
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, _, _) in
             guard let self = self else { return }
@@ -157,12 +157,12 @@ extension NotesVC: UITableViewDelegate {
                 self.deleteNote(at: indexPath)
             }
         }
-        
+
         let configuration = UISwipeActionsConfiguration(actions: [delete])
-        
+
         // Disable delete for full swipe
         configuration.performsFirstActionWithFullSwipe = false
-        
+
         return configuration
     }
 }
@@ -172,9 +172,9 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
         let request = NoteMO.createFetchRequest()
         let sort = NSSortDescriptor(key: #keyPath(NoteMO.date), ascending: false)
         request.sortDescriptors = [sort]
-        
+
         request.fetchBatchSize = 15
-        
+
         fetchedResultsController = NSFetchedResultsController(
             fetchRequest: request,
             managedObjectContext: dataManager.mainContext,
@@ -183,7 +183,7 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
         )
         fetchedResultsController.delegate = self
     }
-    
+
     private func fetchNotes() {
         do {
             try fetchedResultsController.performFetch()
@@ -191,13 +191,13 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
             print("Error performing fetch - \(error.localizedDescription)")
         }
     }
-    
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         guard let dataSource = tableView.dataSource as? DataSource else {
             assertionFailure("The data source has not implemented snapshot support while it should")
             return
         }
-        
+
         var snapshot = snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
         let currentSnapshot = dataSource.snapshot() as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
 
@@ -210,18 +210,18 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
             else {
                 return nil
             }
-            
+
             // If the existing object doesn't have any updates, skip reloading
             guard let existingObject = try? controller.managedObjectContext.existingObject(with: itemIdentifier),
                   existingObject.isUpdated
             else {
                 return nil
             }
-            
+
             return itemIdentifier
         }
         snapshot.reloadItems(reloadIdentifiers)
-        
+
         // Only animate if there are already cells in the table and the view itself is visible
         let shouldAnimate = tableView.numberOfSections != 0 && isVisible
         dataSource.apply(snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>, animatingDifferences: shouldAnimate)

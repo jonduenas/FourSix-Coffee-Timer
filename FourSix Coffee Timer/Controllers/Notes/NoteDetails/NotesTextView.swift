@@ -13,12 +13,12 @@ class NotesTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
-    
+
     private func commonInit() {
         layer.cornerRadius = 5
         layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
@@ -26,7 +26,7 @@ class NotesTextView: UITextView {
         clipsToBounds = true
         layer.backgroundColor = UIColor(named: AssetsColor.background.rawValue)?.cgColor
         isEditable = true
-        
+
         textContainerInset = UIEdgeInsets(top: 15, left: 8, bottom: 15, right: 8)
     }
 }

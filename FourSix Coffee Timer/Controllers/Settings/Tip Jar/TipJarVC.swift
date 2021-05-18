@@ -9,38 +9,38 @@
 import UIKit
 
 class TipJarVC: UIViewController, Storyboarded {
-    
+
     @IBOutlet weak var tipStackView: UIStackView!
     @IBOutlet weak var closeButton: RoundButton!
-    
+
     var tips: [IAPurchase] = []
     private var showLoadingError: Bool = false
     private var error: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         for view in tipStackView.arrangedSubviews {
             tipStackView.removeArrangedSubview(view)
             view.removeFromSuperview()
         }
-        
+
         loadTips()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         if showLoadingError {
             AlertHelper.showAlert(title: "Error", message: error, on: self)
             showLoadingError = false
         }
     }
-    
+
     private func loadTips() {
         IAPManager.shared.loadTips { [weak self] succeeded, error in
             guard let self = self else { return }
-            
+
             if !succeeded, let error = error {
                 self.showLoadingError = true
                 self.error = error
@@ -53,7 +53,7 @@ class TipJarVC: UIViewController, Storyboarded {
             }
         }
     }
-    
+
     private func createTipView(for tip: IAPurchase, index: Int) {
         let tipView = TipView()
         tipView.tipLabel.text = tip.name
@@ -61,20 +61,20 @@ class TipJarVC: UIViewController, Storyboarded {
         tipView.tipPriceButton.sizeToFit()
         tipView.tipPriceButton.tag = index
         tipView.tipPriceButton.addTarget(self, action: #selector(didTapTipButton(sender:)), for: .touchUpInside)
-        
+
         tipStackView.addArrangedSubview(tipView)
     }
-    
+
     @objc private func didTapTipButton(sender: LoadingButton) {
         setState(loading: true, button: sender, animated: true)
-        
+
         let tipPackage = IAPManager.shared.tipPackages[sender.tag]
-        
+
         IAPManager.shared.purchase(package: tipPackage, entitlementID: nil) { [weak self] succeeded, error in
             guard let self = self else { return }
-            
+
             self.setState(loading: false, button: sender, animated: true)
-            
+
             if succeeded {
                 AlertHelper.showConfirmationAlert(
                     title: "Tip Received",
@@ -90,7 +90,7 @@ class TipJarVC: UIViewController, Storyboarded {
                         title: "Tip Failed",
                         message: """
                             There was an error during the transaction. You were not charged. Please try again.
-                            
+
                             Error: \(error)
                             """,
                         on: self)
@@ -98,7 +98,7 @@ class TipJarVC: UIViewController, Storyboarded {
             }
         }
     }
-    
+
     private func setState(loading: Bool, button: LoadingButton, animated: Bool) {
         switch (loading, animated) {
         case (true, true):
@@ -116,10 +116,10 @@ class TipJarVC: UIViewController, Storyboarded {
         case (false, false):
             button.hideLoading()
         }
-        
+
         closeButton.isEnabled = !loading
     }
-    
+
     @IBAction func didTapCloseButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

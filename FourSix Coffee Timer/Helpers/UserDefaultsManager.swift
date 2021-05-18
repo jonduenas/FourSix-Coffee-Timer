@@ -9,9 +9,9 @@
 import Foundation
 
 class UserDefaultsManager: NSObject {
-    
+
     private static let userDefaults = UserDefaults.standard
-    
+
     // MARK: Key Values
     private static let launchedBeforeKey = "launchedBeforeKey"
     private static let totalTimeShownKey = "totalTimeShownKey"
@@ -29,9 +29,9 @@ class UserDefaultsManager: NSObject {
     private static let userHasMigratedStepAdvanceKey = "userHasMigratedStepAdvanceKey"
     private static let autoAdvanceTimerKey = "autoAdvanceTimerKey"
     private static let tempUnitRawValueKey = "tempUnitRawValueKey"
-    
+
     // MARK: Variables
-    
+
     static var launchedBefore: Bool {
         get {
             return userDefaults.object(forKey: launchedBeforeKey) as? Bool ?? false
@@ -40,7 +40,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: launchedBeforeKey)
         }
     }
-    
+
     static var totalTimeShown: Bool {
         get {
             return userDefaults.object(forKey: totalTimeShownKey) as? Bool ?? false
@@ -49,7 +49,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: totalTimeShownKey)
         }
     }
-    
+
     static var timerStepAdvance: Int {
         get {
             return userDefaults.integer(forKey: timerStepAdvanceKey)
@@ -58,7 +58,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: timerStepAdvanceKey)
         }
     }
-    
+
     static var ratio: Float {
         get {
             return userDefaults.object(forKey: ratioKey) as? Float ?? Ratio.defaultRatio.consequent
@@ -67,7 +67,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: ratioKey)
         }
     }
-    
+
     static var ratioSelect: Int {
         get {
             return userDefaults.object(forKey: ratioSelectKey) as? Int ?? 3
@@ -76,7 +76,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: ratioSelectKey)
         }
     }
-    
+
     static var timerStepInterval: Int {
         get {
             return userDefaults.object(forKey: timerStepIntervalKey) as? Int ?? Int(Recipe.defaultRecipe.interval)
@@ -85,7 +85,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: timerStepIntervalKey)
         }
     }
-    
+
     static var previousCoffee: Float {
         get {
             return userDefaults.object(forKey: previousCoffeeKey) as? Float ?? Recipe.defaultRecipe.coffee
@@ -94,7 +94,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: previousCoffeeKey)
         }
     }
-    
+
     static var previousSelectedBalance: Float {
         get {
             return userDefaults.object(forKey: previousSelectedBalanceKey) as? Float ?? Balance.even.rawValue
@@ -103,7 +103,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: previousSelectedBalanceKey)
         }
     }
-    
+
     static var previousSelectedStrength: Int {
         get {
             return userDefaults.object(forKey: previousSelectedStrengthKey) as? Int ?? Strength.medium.rawValue
@@ -112,7 +112,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: previousSelectedStrengthKey)
         }
     }
-    
+
     static var userHasSeenWalkthrough: Bool {
         get {
             return userDefaults.object(forKey: userHasSeenWalkthroughKey) as? Bool ?? false
@@ -121,7 +121,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: userHasSeenWalkthroughKey)
         }
     }
-    
+
     static var reviewWorthyActionCount: Int {
         get {
             return userDefaults.object(forKey: reviewWorthyActionCountKey) as? Int ?? 0
@@ -130,7 +130,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: reviewWorthyActionCountKey)
         }
     }
-    
+
     static var lastReviewRequestAppVersion: String? {
         get {
             return userDefaults.object(forKey: lastReviewRequestAppVersionKey) as? String
@@ -139,7 +139,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: lastReviewRequestAppVersionKey)
         }
     }
-    
+
     static var userHasSeenCoffeeRangeWarning: Bool {
         get {
             return userDefaults.object(forKey: userHasSeenCoffeeRangeWarningKey) as? Bool ?? false
@@ -148,7 +148,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: userHasSeenCoffeeRangeWarningKey)
         }
     }
-    
+
     static var userHasMigratedStepAdvance: Bool {
         get {
             return userDefaults.object(forKey: userHasMigratedStepAdvanceKey) as? Bool ?? false
@@ -157,7 +157,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: userHasMigratedStepAdvanceKey)
         }
     }
-    
+
     static var autoAdvanceTimer: Bool {
         get {
             return userDefaults.object(forKey: autoAdvanceTimerKey) as? Bool ?? true
@@ -166,7 +166,7 @@ class UserDefaultsManager: NSObject {
             userDefaults.set(newValue, forKey: autoAdvanceTimerKey)
         }
     }
-    
+
     static var tempUnitRawValue: Int {
         get {
             return userDefaults.object(forKey: tempUnitRawValueKey) as? Int ?? 0

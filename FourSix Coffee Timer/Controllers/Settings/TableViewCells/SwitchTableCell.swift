@@ -12,9 +12,9 @@ class SwitchTableCell: UITableViewCell {
 
     @IBOutlet weak var settingSwitch: UISwitch!
     @IBOutlet weak var cellLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
     }
 }

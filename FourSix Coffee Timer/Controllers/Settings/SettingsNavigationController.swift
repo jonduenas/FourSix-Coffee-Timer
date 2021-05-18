@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsNavigationController: UINavigationController {
     weak var coordinator: SettingsCoordinator?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
@@ -18,7 +18,7 @@ class SettingsNavigationController: UINavigationController {
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.newYork(size: 17, weight: .medium)]
         navigationBar.isTranslucent = false
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         coordinator?.didFinishSettings()

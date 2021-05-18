@@ -22,7 +22,7 @@ class CustomSlider: UISlider {
     private func commonInit() {
         setImages()
     }
-    
+
     private func setImages() {
         let insets = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
 
@@ -33,13 +33,13 @@ class CustomSlider: UISlider {
         let maxTrackImage = UIImage(named: "slider-max")
         let maxResizable = maxTrackImage?.resizableImage(withCapInsets: insets)
         setMaximumTrackImage(maxResizable, for: .normal)
-        
+
         setThumbImage(UIImage(named: "thumb-image"), for: .normal)
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
+
         setImages()
     }
 }

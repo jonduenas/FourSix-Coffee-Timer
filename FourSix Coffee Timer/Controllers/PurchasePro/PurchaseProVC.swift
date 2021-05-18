@@ -15,25 +15,25 @@ class PurchaseProVC: UIViewController, Storyboarded {
     var productName: String?
     var productDescription: String?
     var defaultRestoreButtonText: String?
-    
+
     @IBOutlet var purchaseButton: LoadingButton!
     @IBOutlet var restoreButton: UIButton!
     @IBOutlet var closeButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         loadOfferings()
     }
-    
+
     private func loadOfferings() {
         IAPManager.shared.loadCurrentOffering { [weak self] (_, error) in
             guard let self = self else { return }
-            
+
             if error != nil {
                 self.restoreButton.isEnabled = false
                 self.purchaseButton.isHidden = true
-                
+
                 AlertHelper.showConfirmationAlert(
                     title: "Unexpected Error",
                     message: "Unable to load offerings. Please try again later.",
@@ -57,10 +57,10 @@ class PurchaseProVC: UIViewController, Storyboarded {
             }
         }
     }
-    
+
     @IBAction func restorePurchaseTapped(_ sender: Any) {
         setState(loading: true)
-        
+
         AlertHelper.showRestorePurchaseAlert(on: self,
                                              cancelHandler: { [weak self] _ in
                                                 self?.setState(loading: false)
@@ -74,20 +74,20 @@ class PurchaseProVC: UIViewController, Storyboarded {
                                                 }
                                              })
     }
-    
+
     @IBAction func getProTapped(_ sender: Any) {
         guard let package = IAPManager.shared.proPackage else {
             AlertHelper.showAlert(title: "Error", message: "There was an error finding the product for purchasing.", on: self)
             return
         }
-        
+
         self.setState(loading: true)
-        
+
         IAPManager.shared.purchase(package: package, entitlementID: IAPManager.shared.entitlementID) { [weak self] (succeeded, error) in
             guard let self = self else { return }
-            
+
             self.setState(loading: false)
-            
+
             if succeeded {
                 AlertHelper.showConfirmationAlert(
                     title: "FourSix Pro Successfully Purchased",
@@ -106,7 +106,7 @@ class PurchaseProVC: UIViewController, Storyboarded {
                         title: "Purchase Failed",
                         message: """
                             There was an error during the transaction. You were not charged. Please try again.
-                            
+
                             Error: \(error)
                             """,
                         on: self)
@@ -114,26 +114,26 @@ class PurchaseProVC: UIViewController, Storyboarded {
             }
         }
     }
-    
+
     @IBAction func closeTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
+
     private func setState(loading: Bool) {
         if loading {
             purchaseButton.showLoading()
-            
+
             defaultRestoreButtonText = restoreButton.titleLabel?.text
             restoreButton.isEnabled = false
             restoreButton.setTitle("Loading...", for: .normal)
-            
+
             closeButton.isHidden = true
         } else {
             purchaseButton.hideLoading()
-            
+
             restoreButton.isEnabled = true
             restoreButton.setTitle(defaultRestoreButtonText, for: .normal)
-            
+
             closeButton.isHidden = false
         }
     }

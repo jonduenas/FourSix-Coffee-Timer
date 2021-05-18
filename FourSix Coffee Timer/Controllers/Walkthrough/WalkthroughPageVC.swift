@@ -10,18 +10,18 @@ import UIKit
 
 class WalkthroughPageVC: UIViewController, Storyboarded {
     let walkthroughImageNames = ["walkthrough-1", "walkthrough-2", "walkthrough-3", "walkthrough-4", "walkthrough-4"]
-    
+
     var currentViewControllerIndex = 0
     weak var coordinator: BrewCoordinator?
-    
+
     @IBOutlet weak var contentView: UIView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configurePageViewController()
     }
-    
+
     func configurePageViewController() {
         guard let pageViewController = storyboard?.instantiateViewController(
                 withIdentifier: String(describing: CustomPageViewController.self))
@@ -68,7 +68,7 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
         if index >= walkthroughImageNames.count || walkthroughImageNames.count == 0 {
             return nil
         }
-        
+
         guard let contentViewController = storyboard?.instantiateViewController(
                 withIdentifier: String(describing: WalkthroughContentVC.self))
                 as? WalkthroughContentVC else {

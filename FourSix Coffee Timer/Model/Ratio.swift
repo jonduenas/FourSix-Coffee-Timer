@@ -11,7 +11,7 @@ import Foundation
 struct Ratio: Equatable {
     let antecedent = 1
     var consequent: Float
-    
+
     var stringValue: String {
         return "\(antecedent):\(consequent.clean)"
     }

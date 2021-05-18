@@ -23,13 +23,13 @@ extension NoteDetailsVC {
             object: nil
         )
     }
-    
+
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        
+
         let keyboardScreenEndFrame = keyboardValue.cgRectValue
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
+
         if notification.name == UIResponder.keyboardWillHideNotification {
             scrollView.contentInset = .zero
         } else {
@@ -42,9 +42,9 @@ extension NoteDetailsVC {
                                                    right: 0
             )
         }
-        
+
         scrollView.scrollIndicatorInsets = scrollView.contentInset
-        
+
         if notesTextView.isFirstResponder {
             scrollView.scrollRectToVisible(notesTextView.frame, animated: true)
         }

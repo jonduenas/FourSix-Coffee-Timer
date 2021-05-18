@@ -13,13 +13,13 @@ protocol TextFieldCellDelegate: AnyObject {
 }
 
 class TextFieldTableCell: UITableViewCell {
-    
+
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellTextField: UITextField!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         cellTextField.textColor = .secondaryLabel
     }
 }

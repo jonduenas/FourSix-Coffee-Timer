@@ -7,7 +7,6 @@ excluded:
   - FourSixUITests/SnapshotHelper.swift
    
 disabled_rules:
-  - trailing_whitespace
   - todo
   - cyclomatic_complexity
   - function_parameter_count

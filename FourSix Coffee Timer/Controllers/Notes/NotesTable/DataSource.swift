@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class DataSource: UITableViewDiffableDataSource<Int, NSManagedObjectID> {
-    
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

@@ -10,25 +10,25 @@ import UIKit
 
 @IBDesignable
 class RoundButton: UIButton {
-    
+
     @IBInspectable var cornerRadius: CGFloat = 15 {
         didSet {
             refreshCorners(value: cornerRadius)
         }
     }
-    
+
     @IBInspectable var borderSize: CGFloat = 0 {
         didSet {
             refreshBorderWidth(value: borderSize)
         }
     }
-    
+
     @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
             refreshBorderColor(borderColor)
         }
     }
-    
+
     @IBInspectable var addShadow: Bool = false {
         didSet {
             setShadow()
@@ -40,54 +40,54 @@ class RoundButton: UIButton {
             setShadow()
         }
     }
-    
+
     @IBInspectable var shadowOffset: CGSize = CGSize(width: 0, height: 1.5) {
         didSet {
             setShadow()
         }
     }
-    
+
     @IBInspectable var shadowRadius: CGFloat = 0.5 {
         didSet {
             setShadow()
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         createButton()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         createButton()
     }
-    
+
     override func prepareForInterfaceBuilder() {
         createButton()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         setShadow()
     }
-    
+
     private func createButton() {
         refreshCorners(value: cornerRadius)
     }
-    
+
     private func refreshCorners(value: CGFloat) {
         layer.cornerRadius = value
     }
-    
+
     private func refreshBorderColor(_ color: UIColor) {
         layer.borderColor = color.cgColor
     }
-    
+
     private func refreshBorderWidth(value: CGFloat) {
         layer.borderWidth = value
     }
-    
+
     private func setShadow() {
         if addShadow {
             layer.shadowColor = UIColor.black.cgColor

@@ -15,7 +15,7 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
 
     weak var coordinator: SettingsCoordinator?
     var settingsDataSource = SettingsDataSource()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +24,7 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
         tableView.dataSource = settingsDataSource
         checkForProStatus()
     }
-    
+
     private func initNavBar() {
         title = "Settings"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"),
@@ -32,38 +32,38 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
                                                            target: self,
                                                            action: #selector(closeTapped(_:)))
     }
-    
+
     private func checkForProStatus() {
         IAPManager.shared.userIsPro { [weak self] (userIsPro, error) in
             guard let self = self else { return }
-            
+
             if let err = error {
                 AlertHelper.showAlert(title: "Unexpected Error",
                                       message: "Error checking for Pro status: \(err.localizedDescription)",
                                       on: self)
             }
-            
+
             self.enableProFeatures(userIsPro)
         }
     }
-    
+
     func purchaseCompleted() {
         enableProFeatures(true)
         tableView.reloadData()
     }
-    
+
     func purchaseRestored() {
         enableProFeatures(true)
         tableView.reloadData()
     }
-    
+
     private func enableProFeatures(_ userIsPro: Bool) {
         settingsDataSource.userIsPro = userIsPro
         tableView.reloadData()
     }
-    
+
     // MARK: TableView Methods
-    
+
     fileprivate func sendFeedback() {
         AlertHelper.showCancellableAlert(title: "Opening...",
                                          message: "Sending you to Twitter to give feedback.",
@@ -74,19 +74,19 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
                                             UIApplication.shared.open(Constants.twitterURL)
                                          })
     }
-    
+
     fileprivate func rateInAppStore() {
         guard let writeReviewURL = Constants.reviewProductURL else { return }
         UIApplication.shared.open(writeReviewURL)
     }
-    
+
     fileprivate func shareFourSix() {
         let activityVC = UIActivityViewController(activityItems: [Constants.productURL], applicationActivities: nil)
         present(activityVC, animated: true)
     }
 
     // MARK: Navigation Methods
-    
+
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             self?.coordinator?.didFinishSettings()
@@ -99,7 +99,7 @@ extension SettingsVC: UITableViewDelegate {
         switch settingsDataSource.shownSections[indexPath.section] {
         case .fourSixProEnabled:
             let row = ProSectionEnabledCell(rawValue: indexPath.row)
-            
+
             switch row {
             case .ratio:
                 if let cell = tableView.cellForRow(at: indexPath) as? RatioCell {
@@ -114,7 +114,7 @@ extension SettingsVC: UITableViewDelegate {
             }
         case .fourSixProDisabled:
             let row = ProSectionDisabledCell(rawValue: indexPath.row)
-            
+
             switch row {
             case .purchasePro:
                 coordinator?.showProPaywall(delegate: self)
@@ -127,7 +127,7 @@ extension SettingsVC: UITableViewDelegate {
             }
         case .aboutFourSix:
             let row = AboutSectionCell(rawValue: indexPath.row)
-            
+
             switch row {
             case .learnMore:
                 print("Go to website")

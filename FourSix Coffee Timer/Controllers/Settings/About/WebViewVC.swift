@@ -26,39 +26,39 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
     var canGoBackObserver: NSKeyValueObservation?
     var forwardButton: UIBarButtonItem?
     var canGoForwardObserver: NSKeyValueObservation?
-    
+
     override func loadView() {
         view = webView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureToolbar()
         configureBackAndForwardButtons()
         configureProgressBar()
-        
+
         if showTitle {
             titleObserver = webView.observe(\.title, options: [.new], changeHandler: { _, change in
                 guard let newTitle = change.newValue else { return }
                 self.navigationItem.title = newTitle
             })
         }
-        
+
         webView.navigationDelegate = self
         webView.load(urlString)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         navigationController?.setToolbarHidden(true, animated: animated)
     }
-    
+
     private func configureToolbar() {
         navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.toolbar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
-        
+
         let backButton = UIBarButtonItem(
             image: UIImage(systemName: "arrow.left")!,
             style: .plain,
@@ -78,54 +78,54 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
             barButtonSystemItem: .flexibleSpace,
             target: nil,
             action: nil)
-        
+
         toolbarItems = [backButton,
                         forwardButton,
                         flexibleSpace,
                         reloadButton]
-        
+
         self.backButton = backButton
         self.forwardButton = forwardButton
     }
-    
+
     private func configureBackAndForwardButtons() {
         backButton?.isEnabled = webView.canGoBack
         forwardButton?.isEnabled = webView.canGoForward
-        
+
         canGoBackObserver = webView.observe(\.canGoBack, options: [.new]) { _, change in
             guard let newValue = change.newValue else { return }
             self.backButton?.isEnabled = newValue
         }
-        
+
         canGoForwardObserver = webView.observe(\.canGoForward, options: [.new], changeHandler: { _, change in
             guard let newValue = change.newValue else { return }
             self.forwardButton?.isEnabled = newValue
         })
     }
-    
+
     private func configureProgressBar() {
         view.addSubview(progressBar)
-        
+
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         progressBar.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
         progressBar.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         progressBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-        
+
         estimatedProgressObserver = webView.observe(\.estimatedProgress, options: [.new], changeHandler: { _, change in
             self.updateProgressBar(change.newValue)
         })
     }
-    
+
     private func updateProgressBar(_ progress: Double?) {
         guard let newProgress = progress else { return }
-        
+
         // Only animate moving forward
         if Float(newProgress) > progressBar.progress {
             progressBar.setProgress(Float(newProgress), animated: true)
         } else {
             progressBar.setProgress(Float(newProgress), animated: false)
         }
-        
+
         // Hides progress bar when finished
         if newProgress >= 1 {
             // Delaying so that user can see progress view reach 100%

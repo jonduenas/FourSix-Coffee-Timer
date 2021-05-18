@@ -14,7 +14,7 @@ extension UIBezierPath {
         path.move(to: .zero)
         path.addCurve(to: CGPoint(x: 0.5, y: -0.1), controlPoint1: CGPoint(x: 0, y: -0.2), controlPoint2: CGPoint(x: 0.5, y: 0.1))
         path.addCurve(to: CGPoint(x: 1, y: 0), controlPoint1: CGPoint(x: 0.5, y: 0.1), controlPoint2: CGPoint(x: 1, y: -0.2))
-        
+
         let scaledCosine = end.x - start.x
         let scaledSine = end.y - start.y
         let transform = CGAffineTransform(a: scaledCosine, b: scaledSine, c: -scaledSine, d: scaledCosine, tx: start.x, ty: start.y)

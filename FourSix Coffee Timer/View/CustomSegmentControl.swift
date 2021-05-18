@@ -13,21 +13,21 @@ class CustomSegmentControl: UISegmentedControl {
         super.init(frame: frame)
         initializeSegmentControl()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         initializeSegmentControl()
     }
-    
+
     func initializeSegmentControl() {
         setTitleTextColor(UIColor.white)
         setTitleTextFont(size: 16, weight: .medium)
     }
-    
+
     private func setTitleTextColor(_ color: UIColor) {
         setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: .selected)
     }
-    
+
     private func setTitleTextFont(size: CGFloat, weight: UIFont.Weight) {
         let font = UIFont.systemFont(ofSize: size, weight: weight)
         setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
