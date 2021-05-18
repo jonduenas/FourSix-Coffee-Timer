@@ -84,8 +84,20 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                          on: self,
                                          cancelHandler: nil) { _ in
             print("Set reminder")
-            // TODO: Add local push notification for reminding user to update note
+            self.setReminder()
         }
+    }
+
+    private func setReminder() {
+        let notificationManager = LocalNotificationManager()
+        notificationManager.notifications = [LocalNotification(
+            id: "fiveMinuteReminder",
+            title: "Rate Your Coffee",
+            body: "Your coffee should be at the perfect temperature. Time to add a rating.",
+            timeInterval: 10
+        )]
+
+        notificationManager.schedule()
     }
 
     @objc private func didTapCloseButton() {
