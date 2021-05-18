@@ -25,6 +25,12 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
         checkForProStatus()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        navigationController?.setToolbarHidden(true, animated: animated)
+    }
+
     private func initNavBar() {
         title = "Settings"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"),
