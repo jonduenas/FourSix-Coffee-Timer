@@ -101,7 +101,7 @@ class CoffeeTimerTests: XCTestCase {
                 didFinish.fulfill()
             default:
                 didFinish.fulfill()
-                XCTFail()
+                XCTFail("If timer is .running and timer is set to start, it should return an error since the timer can't start while already running.")
             }
         }
         
@@ -122,7 +122,7 @@ class CoffeeTimerTests: XCTestCase {
         if let didFinishSafe = didFinish {
             wait(for: [didFinishSafe], timeout: 1)
         } else {
-            XCTFail()
+            XCTFail("didFinish is nil means timer did not start correctly.")
         }
         
         didFinish = nil
@@ -146,7 +146,7 @@ class CoffeeTimerTests: XCTestCase {
         if let didFinishSafe = didFinish {
             wait(for: [didFinishSafe], timeout: 1)
         } else {
-            XCTFail()
+            XCTFail("didFinish is nil means timer did not start correctly.")
         }
         
         didFinish = nil
@@ -173,7 +173,7 @@ class CoffeeTimerTests: XCTestCase {
         if let didFinishSafe = didFinish {
             wait(for: [didFinishSafe], timeout: 1)
         } else {
-            XCTFail()
+            XCTFail("didFinish is nil means timer did not start correctly.")
         }
         
         didFinish = nil
@@ -220,7 +220,7 @@ class CoffeeTimerTests: XCTestCase {
             wait(for: [didFinishSafe], timeout: 1)
             didFinish = nil
         } else {
-            XCTFail()
+            XCTFail("If didFinish is nil, the timer did not correctly end the timer on the last step.")
         }
         
         XCTAssertEqual(self.sut.timerState, .done)

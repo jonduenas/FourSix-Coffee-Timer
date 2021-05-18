@@ -11,7 +11,6 @@ disabled_rules:
   - vertical_whitespace
   - comment_spacing
   - line_length
-  - xctfail_message
   - todo
   - cyclomatic_complexity
   - function_parameter_count
