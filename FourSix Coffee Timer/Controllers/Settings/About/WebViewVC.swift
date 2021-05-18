@@ -49,14 +49,13 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         webView.load(urlString)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-        navigationController?.setToolbarHidden(true, animated: animated)
+        navigationController?.setToolbarHidden(false, animated: animated)
     }
 
     private func configureToolbar() {
-        navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.toolbar.tintColor = UIColor(named: AssetsColor.accent.rawValue)
 
         let backButton = UIBarButtonItem(
