@@ -60,12 +60,12 @@ class ProgressCircle: UIControl {
     }
     
     private func createProgressBar() {
-        //create track layer
+        // Create track layer
         trackLayer = createCircleShapeLayer(strokeColor: trackStrokeColor, fillColor: .clear, strokeEnd: 1)
         
         self.layer.addSublayer(trackLayer)
         
-        //create progress layer
+        // Create progress layer
         progressLayer = createCircleShapeLayer(strokeColor: progressStrokeColor, fillColor: .clear, strokeEnd: 0)
         
         self.layer.addSublayer(progressLayer)

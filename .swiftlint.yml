@@ -9,7 +9,6 @@ excluded:
 disabled_rules:
   - trailing_whitespace
   - vertical_whitespace
-  - comment_spacing
   - line_length
   - todo
   - cyclomatic_complexity

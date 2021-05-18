@@ -57,7 +57,7 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
         contentViewController.walkthroughImageName = walkthroughImageNames[index]
 
         if index == walkthroughImageNames.count - 1 {
-            //last page
+            // Last page
             contentViewController.isLastPage = true
         }
 

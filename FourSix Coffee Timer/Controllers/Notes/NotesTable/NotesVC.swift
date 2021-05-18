@@ -23,7 +23,7 @@ class NotesVC: UIViewController, Storyboarded {
         
         guard dataManager != nil else { fatalError("Controller requires DataManager.") }
         
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Notes", style: .plain, target: self, action: #selector(createNewNote))
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Notes", style: .plain, target: self, action: #selector(createNewNote))
         tableView.delegate = self
         configureDataSource()
         configureFetchedResultsController()
@@ -63,6 +63,7 @@ class NotesVC: UIViewController, Storyboarded {
         tableView.dataSource = dataSource
     }
     
+    // TODO: Delete this function
     @objc func createNewNote() {
         let backgroundMOC = self.dataManager.backgroundContext
         
