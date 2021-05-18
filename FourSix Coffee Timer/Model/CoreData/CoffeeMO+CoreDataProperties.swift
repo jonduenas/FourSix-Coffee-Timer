@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension CoffeeMO {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<CoffeeMO> {
@@ -43,6 +42,6 @@ extension CoffeeMO {
 
 }
 
-extension CoffeeMO : Identifiable {
+extension CoffeeMO: Identifiable {
 
 }

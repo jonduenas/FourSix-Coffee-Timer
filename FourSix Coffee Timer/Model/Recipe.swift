@@ -31,17 +31,18 @@ struct Recipe: ManagedObjectInitializable {
                                       interval: 45,
                                       balance: .even,
                                       strength: .medium)
-    
+
     var coffee: Float
     var waterTotal: Float
     var waterPours: [Float]
     var interval: TimeInterval
     var balance: Balance
     var strength: Strength
-    
+
     init(managedObject: NSManagedObject) {
+        // swiftlint:disable:next force_cast
         let recipeMO = managedObject as! RecipeMO
-        
+
         let balance = Balance(rawValue: Float(recipeMO.balanceRaw)) ?? .even
         let strength = Strength(rawValue: Int(recipeMO.strengthRaw)) ?? .medium
 
@@ -52,7 +53,7 @@ struct Recipe: ManagedObjectInitializable {
         self.balance = balance
         self.strength = strength
     }
-    
+
     init(coffee: Float, waterTotal: Float, waterPours: [Float], interval: TimeInterval, balance: Balance, strength: Strength) {
         self.coffee = coffee
         self.waterTotal = waterTotal

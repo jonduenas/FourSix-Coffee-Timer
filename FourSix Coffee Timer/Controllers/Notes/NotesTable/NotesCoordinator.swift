@@ -12,20 +12,20 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     var dataManager: DataManager!
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
         guard dataManager != nil else { fatalError("Coordinator requires a DataManager.") }
-        
+
         navigationController.delegate = self
-        
+
         let vc = NotesVC.instantiate(fromStoryboardNamed: String(describing: NotesVC.self))
         vc.coordinator = self
         vc.dataManager = dataManager
-        
+
         let tabImage: UIImage?
         if #available(iOS 14.0, *) {
             tabImage = UIImage(systemName: "note.text")
@@ -35,7 +35,7 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         vc.tabBarItem = UITabBarItem(title: "Notes", image: tabImage, tag: 1)
         navigationController.pushViewController(vc, animated: false)
     }
-    
+
     func showDetails(for note: NoteMO, dataManager: DataManager) {
         let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
         child.notesCoordinator = self
@@ -43,7 +43,7 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         child.note = note
         child.start()
     }
-    
+
     // Checks Navigation Controller if popped View Controller is NoteDetailsVC
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // Reads the view controller we're moving from
@@ -61,15 +61,6 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         if let noteDetailsVC = fromViewController as? NoteDetailsVC {
             // We're popping a note details controller; end its coordinator
             childDidFinish(noteDetailsVC.coordinator)
-        }
-    }
-    
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
         }
     }
 }

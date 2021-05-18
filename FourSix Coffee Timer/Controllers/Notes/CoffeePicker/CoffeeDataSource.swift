@@ -14,7 +14,7 @@ class CoffeeDataSource: UITableViewDiffableDataSource<String, NSManagedObjectID>
         let currentSnapshot = snapshot()
         return currentSnapshot.sectionIdentifiers[section]
     }
-    
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

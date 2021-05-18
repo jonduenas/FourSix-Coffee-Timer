@@ -15,7 +15,7 @@ class TimerVC: UIViewController, Storyboarded {
     private var audioPlayer: AVAudioPlayer?
     weak var coordinator: TimerCoordinator?
     private var currentWater: Float = 0
-    
+
     @IBOutlet var currentStepTimeLabel: UILabel!
     @IBOutlet var totalTimeLabel: UILabel!
     @IBOutlet var currentStepWeightLabel: UILabel!
@@ -23,15 +23,15 @@ class TimerVC: UIViewController, Storyboarded {
     @IBOutlet var currentStepLabel: UILabel!
     @IBOutlet var currentStepStackView: UIStackView!
     @IBOutlet var totalTimeStackView: UIStackView!
-    
+
     @IBOutlet var playPauseButton: UIButton!
     @IBOutlet var nextButton: UIButton!
-    
+
     @IBOutlet weak var progressView: ProgressCircle!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         initNavBar()
         initTimerFonts()
         initTimerUserPreferences()
@@ -39,38 +39,43 @@ class TimerVC: UIViewController, Storyboarded {
         updateWeightLabels()
         initSoundFile()
     }
-    
+
     deinit {
         print("TimerVC deinit")
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        
+
         UIApplication.shared.isIdleTimerDisabled = false
     }
-    
+
     private func initNavBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .plain,
+            target: self,
+            action: #selector(closeTapped)
+        )
     }
-    
+
     private func initTimerFonts() {
         // Make timer font monospaced
         currentStepTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 80, weight: .light)
         totalTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .light)
     }
-    
+
     private func initTimerUserPreferences() {
         totalTimeStackView.isHidden = !UserDefaultsManager.totalTimeShown
     }
-    
+
     private func initCoffeeTimer() {
         let timerScheduler = TimerScheduler()
         coffeeTimer = CoffeeTimer(timerScheduler: timerScheduler, recipe: recipe)
     }
 
     // MARK: Button methods
-    
+
     @objc func closeTapped() {
         AlertHelper.showCancellableAlert(title: "Do you want to exit the timer?",
                                          message: nil,
@@ -84,7 +89,7 @@ class TimerVC: UIViewController, Storyboarded {
                                             })
                                          })
     }
-    
+
     @IBAction func playPauseTapped(_ sender: Any) {
         switch coffeeTimer.timerState {
         case .running:
@@ -101,13 +106,13 @@ class TimerVC: UIViewController, Storyboarded {
             print("Error loading coffeeTimer.")
         }
     }
-    
+
     @IBAction func forwardTapped(_ sender: Any) {
         coffeeTimer.nextStep(auto: false)
     }
-    
+
     // MARK: Update UI methods
-    
+
     private func updateWeightLabels() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -116,7 +121,7 @@ class TimerVC: UIViewController, Storyboarded {
             self.currentTotalWeightLabel.text = self.currentWater.clean + "g"
         }
     }
-    
+
     func updateTimeLabels(_ currentInterval: TimeInterval, _ totalElapsedTime: TimeInterval) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -124,20 +129,20 @@ class TimerVC: UIViewController, Storyboarded {
             self.totalTimeLabel.text = totalElapsedTime.stringFromTimeInterval()
         }
     }
-    
+
     private func nextStep() {
         playSoundWithVibrate()
-        
+
         currentWater += recipe.waterPours[coffeeTimer.recipeIndex]
-        
+
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.updateWeightLabels()
         }
     }
-    
+
     // MARK: Timer methods
-    
+
     private func startTimer() {
         coffeeTimer.start { [weak self] timerUpdate in
             switch timerUpdate {
@@ -153,87 +158,95 @@ class TimerVC: UIViewController, Storyboarded {
             }
         }
     }
-    
+
     private func startNewTimer() {
         // First run of brand new timer
         guard coffeeTimer.timerState == .new else {
             print("Attempting to start new timer when timer state is not new.")
             return
         }
-        
+
         // Disable screen from sleeping while timer being used
         UIApplication.shared.isIdleTimerDisabled = true
-        
+
         startTimer()
         playSoundWithVibrate()
-        
+
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.playPauseButton.isEnabled = true
             self.playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            
+
             self.currentWater += self.recipe.waterPours[self.coffeeTimer.recipeIndex]
             self.updateWeightLabels()
-            
+
             self.nextButton.isHidden = false
-            
+
             UIView.animate(withDuration: 0.2) {
                 self.nextButton.alpha = 1
             }
         }
     }
-    
+
     private func runTimer(currentStepElapsedTime: TimeInterval, totalElapsedTime: TimeInterval) {
         DispatchQueue.main.async {
             self.updateTimeLabels(currentStepElapsedTime, totalElapsedTime)
             self.updateProgress()
         }
-        
+
         let isPastInterval = currentStepElapsedTime > recipe.interval + CoffeeTimer.Constants.timerInterval
         let progressStrokeColorIsWarning = progressView.progressLayer.strokeColor == progressView.progressWarningStrokeColor.cgColor
-        
+
         if isPastInterval {
             guard !progressStrokeColorIsWarning else { return } // Makes sure color isn't already set for warning
-            
+
             // User has auto-advance turned off - set color for warning
             DispatchQueue.main.async {
-                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressWarningStrokeColor, animated: true)
+                self.progressView.setStrokeColor(
+                    for: self.progressView.progressLayer,
+                    to: self.progressView.progressWarningStrokeColor,
+                    animated: true
+                )
             }
         } else {
             guard progressStrokeColorIsWarning else { return } // Makes sure color is set to warning before changing it back
-            
+
             DispatchQueue.main.async {
-                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressStrokeColor, animated: false)
+                self.progressView.setStrokeColor(
+                    for: self.progressView.progressLayer,
+                    to: self.progressView.progressStrokeColor,
+                    animated: false
+                )
             }
         }
     }
-    
+
     func updateProgress() {
         let fromPercentage = coffeeTimer.fromPercentage
         let toPercentage = coffeeTimer.toPercentage
-        
+
         DispatchQueue.main.async {
             self.progressView.animateProgress(from: fromPercentage, to: toPercentage, duration: CoffeeTimer.Constants.timerInterval)
         }
     }
-    
+
     private func endTimer() {
         playSoundWithVibrate()
-        
+
         UIApplication.shared.isIdleTimerDisabled = false
-        
+
         let session = Session(drawdownTimes: coffeeTimer.stepsActualTime, totalTime: coffeeTimer.totalElapsedTime)
-        
+
         coordinator?.showSummary(recipe: recipe, session: session)
     }
-    
+
     private func countdownStart() {
         playPauseButton.setImage(nil, for: .normal)
         playPauseButton.setTitle("\(coffeeTimer.countdownTime)", for: .normal)
         playPauseButton.setTitleColor(UIColor.systemGray2, for: .normal)
         playPauseButton.contentHorizontalAlignment = .center
         playPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 38)
-        
+
         coffeeTimer.startCountdownTimer { [weak self] countdownUpdate in
             switch countdownUpdate {
             case .countdown(let countdownTime):
@@ -256,10 +269,10 @@ extension TimerVC: AVAudioPlayerDelegate {
         } catch {
             print(error.localizedDescription)
         }
-    
+
         guard let sound = Bundle.main.path(forResource: "custom-notification", ofType: "mp3") else { return }
         let url = URL(fileURLWithPath: sound)
-        
+
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.delegate = self
@@ -267,7 +280,7 @@ extension TimerVC: AVAudioPlayerDelegate {
             print(error.localizedDescription)
         }
     }
-    
+
     private func activateAudioSession(_ activate: Bool) {
         do {
             try AVAudioSession.sharedInstance().setActive(activate)
@@ -275,7 +288,7 @@ extension TimerVC: AVAudioPlayerDelegate {
             print(error.localizedDescription)
         }
     }
-    
+
     private func playSoundWithVibrate() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
@@ -285,7 +298,7 @@ extension TimerVC: AVAudioPlayerDelegate {
             UIDevice.vibrate()
         }
     }
-    
+
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.activateAudioSession(false)

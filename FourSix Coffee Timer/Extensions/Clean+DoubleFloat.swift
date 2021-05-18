@@ -8,11 +8,11 @@
 
 import Foundation
 
-//Converts Double to String with decimal place if it has one or more and no decimal place if there are none
+// Converts Double to String with decimal place if it has one or more and no decimal place if there are none
 extension Double {
     var clean: String {
         guard let formattedString = Formatter.decimal.string(for: self) else { return String(self) }
-        
+
         return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : formattedString
     }
 }
@@ -20,7 +20,7 @@ extension Double {
 extension Float {
     var clean: String {
         guard let formattedString = Formatter.decimal.string(for: self) else { return String(self) }
-        
+
         return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : formattedString
     }
 }

@@ -12,5 +12,5 @@ import CoreData
 
 @objc(RecipeMO)
 public class RecipeMO: NSManagedObject {
-    
+
 }
