@@ -23,7 +23,11 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
     }
     
     func configurePageViewController() {
-        guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: CustomPageViewController.self)) as? CustomPageViewController else { return }
+        guard let pageViewController = storyboard?.instantiateViewController(
+                withIdentifier: String(describing: CustomPageViewController.self))
+                as? CustomPageViewController else {
+            return
+        }
 
         pageViewController.delegate = self
         pageViewController.dataSource = self
@@ -37,9 +41,23 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
 
         let views: [String: Any] = ["pageView": pageViewController.view as Any]
 
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
+        contentView.addConstraints(
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[pageView]-0-|",
+                options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                metrics: nil,
+                views: views
+            )
+        )
 
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
+        contentView.addConstraints(
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[pageView]-0-|",
+                options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                metrics: nil,
+                views: views
+            )
+        )
 
         guard let startingViewController = contentViewControllerAt(index: currentViewControllerIndex) else { return }
 
@@ -50,8 +68,12 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
         if index >= walkthroughImageNames.count || walkthroughImageNames.count == 0 {
             return nil
         }
-
-        guard let contentViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: WalkthroughContentVC.self)) as? WalkthroughContentVC else { return nil }
+        
+        guard let contentViewController = storyboard?.instantiateViewController(
+                withIdentifier: String(describing: WalkthroughContentVC.self))
+                as? WalkthroughContentVC else {
+            return nil
+        }
 
         contentViewController.index = index
         contentViewController.walkthroughImageName = walkthroughImageNames[index]

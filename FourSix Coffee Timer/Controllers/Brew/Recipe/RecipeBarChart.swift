@@ -51,7 +51,11 @@ class RecipeBarChart: UIView {
             barChartStack.addArrangedSubview(view)
             
             view.widthAnchor.constraint(equalTo: barChartStack.widthAnchor).isActive = true
-            view.heightAnchor.constraint(equalTo: barChartStack.heightAnchor, multiplier: CGFloat(pour / recipe.waterTotal), constant: -barChartStack.spacing).isActive = true
+            view.heightAnchor.constraint(
+                equalTo: barChartStack.heightAnchor,
+                multiplier: CGFloat(pour / recipe.waterTotal),
+                constant: -barChartStack.spacing)
+                .isActive = true
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
             view.addGestureRecognizer(tapGesture)

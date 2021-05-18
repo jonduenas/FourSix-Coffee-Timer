@@ -22,6 +22,7 @@ class AcknowledgementsVC: UITableViewController, Storyboarded {
         
         ackLabel1.text = "4:6 Method invented by Tetsu Kasuya."
         ackLabel2.text = "Timer sound effect is \"Up Chime 2\" by FoolBoyMedia used under Creative Commons Attribution License 3.0."
+        // swiftlint:disable:next line_length
         ackLabel4.text = "Purchases Copyright (c) 2017 Jacob Eiting, used under the MIT License, details of which can be found in System Settings > FourSix."
     }
     

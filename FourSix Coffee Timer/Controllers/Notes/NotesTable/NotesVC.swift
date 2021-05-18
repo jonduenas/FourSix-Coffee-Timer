@@ -23,7 +23,12 @@ class NotesVC: UIViewController, Storyboarded {
         
         guard dataManager != nil else { fatalError("Controller requires DataManager.") }
         
-        // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Notes", style: .plain, target: self, action: #selector(createNewNote))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            title: "New Notes",
+//            style: .plain,
+//            target: self,
+//            action: #selector(createNewNote)
+//        )
         tableView.delegate = self
         configureDataSource()
         configureFetchedResultsController()
@@ -42,9 +47,17 @@ class NotesVC: UIViewController, Storyboarded {
     
     private func configureDataSource() {
         let dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NoteCell.self), for: indexPath) as? NoteCell else { return nil }
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: NoteCell.self),
+                    for: indexPath)
+                    as? NoteCell
+            else {
+                return nil
+            }
             
-            guard let note = try? self.dataManager.mainContext.existingObject(with: noteID) as? NoteMO else { fatalError("Managed object should be available") }
+            guard let note = try? self.dataManager.mainContext.existingObject(with: noteID) as? NoteMO else {
+                fatalError("Managed object should be available")
+            }
             
             guard let balance = Balance(rawValue: Float(note.recipe.balanceRaw)) else { return cell }
             guard let strength = Strength(rawValue: Int(note.recipe.strengthRaw)) else { return cell }
@@ -122,7 +135,9 @@ class NotesVC: UIViewController, Storyboarded {
 extension NotesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let noteID = dataSource.itemIdentifier(for: indexPath) else { return }
-        guard let noteObject = try? dataManager.mainContext.existingObject(with: noteID) as? NoteMO else { fatalError("Note with noteID not found.") }
+        guard let noteObject = try? dataManager.mainContext.existingObject(with: noteID) as? NoteMO else {
+            fatalError("Note with noteID not found.")
+        }
         
         coordinator?.showDetails(for: noteObject, dataManager: dataManager)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -160,7 +175,12 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
         
         request.fetchBatchSize = 15
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataManager.mainContext, sectionNameKeyPath: nil, cacheName: "notesCache")
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: request,
+            managedObjectContext: dataManager.mainContext,
+            sectionNameKeyPath: nil,
+            cacheName: "notesCache"
+        )
         fetchedResultsController.delegate = self
     }
     
@@ -184,11 +204,19 @@ extension NotesVC: NSFetchedResultsControllerDelegate {
         // NSManagedObjectID doesn't change and isn't seen as needing updated. Instead, compare index between snapshots.
         let reloadIdentifiers: [NSManagedObjectID] = snapshot.itemIdentifiers.compactMap { itemIdentifier in
             // If the index of the NSManagedObjectID in the currentSnapshot is the same as the new snapshot, skip reloading
-            guard let currentIndex = currentSnapshot.indexOfItem(itemIdentifier), let index = snapshot.indexOfItem(itemIdentifier), index == currentIndex else {
+            guard let currentIndex = currentSnapshot.indexOfItem(itemIdentifier),
+                  let index = snapshot.indexOfItem(itemIdentifier),
+                  index == currentIndex
+            else {
                 return nil
             }
+            
             // If the existing object doesn't have any updates, skip reloading
-            guard let existingObject = try? controller.managedObjectContext.existingObject(with: itemIdentifier), existingObject.isUpdated else { return nil }
+            guard let existingObject = try? controller.managedObjectContext.existingObject(with: itemIdentifier),
+                  existingObject.isUpdated
+            else {
+                return nil
+            }
             
             return itemIdentifier
         }

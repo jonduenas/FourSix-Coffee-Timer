@@ -30,7 +30,9 @@ class MainNavigationController: UINavigationController {
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.systemFont(ofSize: 24, weight: .bold)]
         
         let buttonAppearance = UIBarButtonItemAppearance(style: .plain)
-        buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(named: AssetsColor.accent.rawValue) ?? UIColor.systemYellow]
+        buttonAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor(named: AssetsColor.accent.rawValue) ?? UIColor.systemYellow
+        ]
         appearance.buttonAppearance = buttonAppearance
         
         navigationBar.standardAppearance = appearance

@@ -72,15 +72,23 @@ class AlertHelper {
                                          confirmHandler: { _ in
                                             IAPManager.shared.restorePurchases { (_, error) in
                                                 if let err = error {
-                                                    AlertHelper.showConfirmationAlert(title: "Unexpected Error", message: err, confirmButtonTitle: "OK", on: controller, handler: cancelHandler)
+                                                    AlertHelper.showConfirmationAlert(
+                                                        title: "Unexpected Error",
+                                                        message: err,
+                                                        confirmButtonTitle: "OK",
+                                                        on: controller,
+                                                        handler: cancelHandler)
                                                     return
                                                 }
                                                 
-                                                AlertHelper.showConfirmationAlert(title: "Restore Successful", message: "...And we're back! Thanks for being a pro user. Time to brew some coffee.", confirmButtonTitle: "Let's Go", on: controller, handler: { _ in
-                                                    if let completion = completion {
-                                                        completion()
-                                                    }
-                                                })
+                                                AlertHelper.showConfirmationAlert(
+                                                    title: "Restore Successful",
+                                                    message: "...And we're back! Thanks for being a pro user. Time to brew some coffee.",
+                                                    confirmButtonTitle: "Let's Go", on: controller, handler: { _ in
+                                                        if let completion = completion {
+                                                            completion()
+                                                        }
+                                                    })
                                             }
                                          })
     }

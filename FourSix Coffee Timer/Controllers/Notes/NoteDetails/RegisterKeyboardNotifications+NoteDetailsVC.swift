@@ -10,8 +10,18 @@ import UIKit
 
 extension NoteDetailsVC {
     func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustForKeyboard),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustForKeyboard),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
@@ -25,8 +35,12 @@ extension NoteDetailsVC {
         } else {
             scrollView.contentInset = UIEdgeInsets(top: 0,
                                                    left: 0,
-                                                   bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (tabBarController?.tabBar.frame.height ?? 0) + 10,
-                                                   right: 0)
+                                                   bottom: keyboardViewEndFrame.height
+                                                    - view.safeAreaInsets.bottom
+                                                    - (tabBarController?.tabBar.frame.height ?? 0)
+                                                    + 10,
+                                                   right: 0
+            )
         }
         
         scrollView.scrollIndicatorInsets = scrollView.contentInset

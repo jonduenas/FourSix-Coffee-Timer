@@ -59,7 +59,9 @@ extension RatioCell: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let newRatioInt = dataSource.ratioValueArray[pickerView.selectedRow(inComponent: RatioPickerComponent.consequent.rawValue)]
-        let newRatioDecimal = dataSource.ratioDecimalValueArray[pickerView.selectedRow(inComponent: RatioPickerComponent.decimalValue.rawValue)]
+        let newRatioDecimal = dataSource.ratioDecimalValueArray[
+            pickerView.selectedRow(inComponent: RatioPickerComponent.decimalValue.rawValue)
+        ]
         let newRatio: Float = Float(newRatioInt) + (Float(newRatioDecimal) * 0.1)
         ratio = newRatio
     }

@@ -120,7 +120,12 @@ class BrewVC: UIViewController, Storyboarded {
         }
         
         navigationController?.navigationBar.standardAppearance.configureWithTransparentBackground()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(didTapSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: settingsImage,
+            style: .plain,
+            target: self,
+            action: #selector(didTapSettings)
+        )
         navigationItem.title = ""
         navigationController?.navigationBar.tintColor = UIColor.lightText
     }
@@ -179,7 +184,13 @@ class BrewVC: UIViewController, Storyboarded {
             UserDefaultsManager.previousCoffee = coffee
         }
         
-        return calculator.calculateRecipe(balance: balance, strength: strength, coffee: coffee, water: water, stepInterval: timerStepInterval)
+        return calculator.calculateRecipe(
+            balance: balance,
+            strength: strength,
+            coffee: coffee,
+            water: water,
+            stepInterval: timerStepInterval
+        )
     }
     
     // MARK: IBActions
@@ -217,6 +228,7 @@ class BrewVC: UIViewController, Storyboarded {
             coordinator?.showTimer(for: createRecipe())
         } else {
             AlertHelper.showConfirmationAlert(title: "Warning",
+                                              // swiftlint:disable:next line_length
                                               message: "The selected amount of coffee is outside the usual amount for this style of brew, and your results may be unexpected. Between 15-25g of coffee is standard. Feel free to go outside that range, but it may take some additional adjustments to get a good tasting cup. Consider adjusting the step interval time.",
                                               confirmButtonTitle: "Continue",
                                               on: self) { [weak self] _ in

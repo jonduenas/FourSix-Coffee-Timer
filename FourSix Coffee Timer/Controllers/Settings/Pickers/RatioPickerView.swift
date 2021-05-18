@@ -83,10 +83,22 @@ class RatioPickerView: UIPickerView {
         let colonComponentPosition = CGFloat(RatioPickerComponent.colon.rawValue)
         let decimalComponentPosition = CGFloat(RatioPickerComponent.decimal.rawValue)
         
-        antecedentLabel.frame = CGRect(x: componentWidth * (antecedentComponentPosition + 0.5), y: yPosition, width: componentWidth * 0.4, height: fontSize)
+        antecedentLabel.frame = CGRect(
+            x: componentWidth * (antecedentComponentPosition + 0.5),
+            y: yPosition, width: componentWidth * 0.4,
+            height: fontSize
+        )
         
-        colonLabel.frame = CGRect(x: componentWidth * (colonComponentPosition + 0.5), y: yPosition, width: componentWidth * 0.4, height: fontSize)
+        colonLabel.frame = CGRect(
+            x: componentWidth * (colonComponentPosition + 0.5),
+            y: yPosition, width: componentWidth * 0.4,
+            height: fontSize
+        )
         
-        decimalLabel.frame = CGRect(x: componentWidth * (decimalComponentPosition + 0.5), y: yPosition, width: componentWidth * 0.4, height: fontSize)
+        decimalLabel.frame = CGRect(
+            x: componentWidth * (decimalComponentPosition + 0.5),
+            y: yPosition, width: componentWidth * 0.4,
+            height: fontSize
+        )
     }
 }

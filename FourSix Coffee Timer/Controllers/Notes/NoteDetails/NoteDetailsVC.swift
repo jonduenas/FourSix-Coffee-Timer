@@ -67,12 +67,17 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                                                                style: .done, target: self,
                                                                action: #selector(didTapCloseButton))
         } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapTrashButton))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                barButtonSystemItem: .trash,
+                target: self,
+                action: #selector(didTapTrashButton)
+            )
         }
     }
     
     @objc private func didTapRemindButton() {
         AlertHelper.showCancellableAlert(title: "Set Reminder",
+                                         // swiftlint:disable:next line_length
                                          message: "Judging the flavor of your coffee is best after it's cooled a little. Would you like a reminder in 5 minutes to come back and rate this cup?",
                                          confirmButtonTitle: "Remind me",
                                          dismissButtonTitle: "Cancel",
@@ -194,7 +199,9 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     }
     
     private func getCelsiusTemp() -> Double {
-        guard let value = Double(waterTempTextField.text!), let selectedUnit = TempUnit(rawValue: waterTempUnitControl.selectedSegmentIndex) else { return 0 }
+        guard let value = Double(waterTempTextField.text!),
+              let selectedUnit = TempUnit(rawValue: waterTempUnitControl.selectedSegmentIndex)
+        else { return 0 }
         
         switch selectedUnit {
         case .celsius:
@@ -283,7 +290,12 @@ class NoteDetailsVC: UIViewController, Storyboarded {
 
 extension NoteDetailsVC {
     private func registerMOCChangeNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(contextDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: dataManager.mainContext)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(contextDidChange(notification:)),
+            name: .NSManagedObjectContextObjectsDidChange,
+            object: dataManager.mainContext
+        )
     }
     
     @objc func contextDidChange(notification: Notification) {

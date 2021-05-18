@@ -101,7 +101,7 @@ class CoffeeTimerTests: XCTestCase {
                 didFinish.fulfill()
             default:
                 didFinish.fulfill()
-                XCTFail("If timer is .running and timer is set to start, it should return an error since the timer can't start while already running.")
+                XCTFail("Should return an error since the timer can't start while already running.")
             }
         }
         

@@ -190,7 +190,12 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
     
     private func createTotalTimeCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.switchCell.rawValue,
+                for: indexPath)
+                as? SwitchTableCell else {
+            fatalError("Unable to create SwitchTableCell")
+        }
         cell.cellLabel.text = text
         cell.settingSwitch.isOn = settingsModel.showTotalTime
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchTotalTime(_:)), for: .valueChanged)
@@ -198,14 +203,24 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
     
     private func createRatioCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.ratioCell.rawValue, for: indexPath) as? RatioCell else { fatalError("Unable to create TextFieldTableCell") }
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.ratioCell.rawValue,
+                for: indexPath)
+                as? RatioCell else {
+            fatalError("Unable to create TextFieldTableCell")
+        }
         cell.cellLabel.text = proSectionEnabledStrings[.ratio]
         cell.cellTextField.text = "1:\(settingsModel.ratio.clean)"
         return cell
     }
     
     private func createStepAdvanceCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.switchCell.rawValue,
+                for: indexPath)
+                as? SwitchTableCell else {
+            fatalError("Unable to create SwitchTableCell")
+        }
         cell.cellLabel.text = proSectionEnabledStrings[.stepAdvance]
         cell.settingSwitch.isOn = settingsModel.autoAdvanceTimer
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchAutoAdvance(_:)), for: .valueChanged)
@@ -213,7 +228,12 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
     
     private func createIntervalCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.intervalCell.rawValue, for: indexPath) as? IntervalCell else { fatalError("Unable to create TextFieldTableCell") }
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.intervalCell.rawValue,
+                for: indexPath)
+                as? IntervalCell else {
+            fatalError("Unable to create TextFieldTableCell")
+        }
         
         cell.cellLabel.text = proSectionEnabledStrings[.interval]
         cell.cellTextField.text = TimeInterval(settingsModel.stepInterval).minAndSecString

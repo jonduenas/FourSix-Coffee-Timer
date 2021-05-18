@@ -26,7 +26,14 @@ struct Calculator {
         
         waterPours.append(contentsOf: repeatElement(water60Pour.rounded(), count: water60Count))
         
-        let recipe = Recipe(coffee: coffee, waterTotal: water, waterPours: waterPours, interval: stepInterval, balance: balance, strength: strength)
+        let recipe = Recipe(
+            coffee: coffee,
+            waterTotal: water,
+            waterPours: waterPours,
+            interval: stepInterval,
+            balance: balance,
+            strength: strength
+        )
         
         return recipe
     }

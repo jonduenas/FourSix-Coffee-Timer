@@ -47,7 +47,11 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
         title = isNewCoffee ? "Add Coffee" : "Edit Coffee"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(didTapCancelButton)
+        )
     }
     
     @objc private func didTapDoneButton() {

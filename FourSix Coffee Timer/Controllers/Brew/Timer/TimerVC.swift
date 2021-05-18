@@ -51,7 +51,12 @@ class TimerVC: UIViewController, Storyboarded {
     }
     
     private func initNavBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .plain,
+            target: self,
+            action: #selector(closeTapped)
+        )
     }
     
     private func initTimerFonts() {
@@ -197,13 +202,21 @@ class TimerVC: UIViewController, Storyboarded {
             
             // User has auto-advance turned off - set color for warning
             DispatchQueue.main.async {
-                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressWarningStrokeColor, animated: true)
+                self.progressView.setStrokeColor(
+                    for: self.progressView.progressLayer,
+                    to: self.progressView.progressWarningStrokeColor,
+                    animated: true
+                )
             }
         } else {
             guard progressStrokeColorIsWarning else { return } // Makes sure color is set to warning before changing it back
             
             DispatchQueue.main.async {
-                self.progressView.setStrokeColor(for: self.progressView.progressLayer, to: self.progressView.progressStrokeColor, animated: false)
+                self.progressView.setStrokeColor(
+                    for: self.progressView.progressLayer,
+                    to: self.progressView.progressStrokeColor,
+                    animated: false
+                )
             }
         }
     }

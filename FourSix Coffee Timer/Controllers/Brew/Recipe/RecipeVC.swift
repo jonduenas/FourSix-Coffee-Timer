@@ -36,7 +36,12 @@ class RecipeVC: UIViewController, Storyboarded {
     private func initNavBar() {
         title = "Recipe"
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(xButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .done,
+            target: self,
+            action: #selector(xButtonTapped)
+        )
     }
     
     private func updateLabels() {
@@ -78,6 +83,7 @@ extension RecipeVC: RecipeBarChartDelegate {
         case 2:
             newLabelString += "A larger pour results in a sweeter, less acidic cup."
         case 3...7:
+            // swiftlint:disable:next line_length
             newLabelString += "Dividing the remaining 60% into more pours results in higher extraction strength. Fewer pours extracts less and results in a lighter cup."
         default:
             break

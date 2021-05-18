@@ -34,7 +34,11 @@ class PurchaseProVC: UIViewController, Storyboarded {
                 self.restoreButton.isEnabled = false
                 self.purchaseButton.isHidden = true
                 
-                AlertHelper.showConfirmationAlert(title: "Unexpected Error", message: "Unable to load offerings. Please try again later.", confirmButtonTitle: "OK", on: self) { _ in
+                AlertHelper.showConfirmationAlert(
+                    title: "Unexpected Error",
+                    message: "Unable to load offerings. Please try again later.",
+                    confirmButtonTitle: "OK",
+                    on: self) { _ in
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {
@@ -42,7 +46,11 @@ class PurchaseProVC: UIViewController, Storyboarded {
                     self.purchaseButton.setTitle("Get Pro for \(price)", for: .normal)
                     self.fourSixPro = fourSixPro
                 } else {
-                    AlertHelper.showConfirmationAlert(title: "Unexpected Error", message: "Unable to load offerings. Please try again later.", confirmButtonTitle: "OK", on: self) { _ in
+                    AlertHelper.showConfirmationAlert(
+                        title: "Unexpected Error",
+                        message: "Unable to load offerings. Please try again later.",
+                        confirmButtonTitle: "OK",
+                        on: self) { _ in
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
@@ -81,7 +89,10 @@ class PurchaseProVC: UIViewController, Storyboarded {
             self.setState(loading: false)
             
             if succeeded {
-                AlertHelper.showConfirmationAlert(title: "FourSix Pro Successfully Purchased", message: "Thank you for your support! Time to take your coffee to the next level.", confirmButtonTitle: "Let's Go", on: self) { [weak self] _ in
+                AlertHelper.showConfirmationAlert(
+                    title: "FourSix Pro Successfully Purchased",
+                    message: "Thank you for your support! Time to take your coffee to the next level.",
+                    confirmButtonTitle: "Let's Go", on: self) { [weak self] _ in
                     self?.dismiss(animated: true) {
                         if let purchaseCompleteHandler = self?.delegate?.purchaseCompleted {
                             purchaseCompleteHandler()

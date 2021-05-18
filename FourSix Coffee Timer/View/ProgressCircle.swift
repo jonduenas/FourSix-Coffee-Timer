@@ -73,7 +73,13 @@ class ProgressCircle: UIControl {
     
     private func layoutProgressBar() {
         let radius = (self.frame.size.height / 2) - 10
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: radius, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+        let circularPath = UIBezierPath(
+            arcCenter: .zero,
+            radius: radius,
+            startAngle: -90.degreesToRadians,
+            endAngle: 270.degreesToRadians,
+            clockwise: true
+        )
         
         trackLayer.path = circularPath.cgPath
         progressLayer.path = circularPath.cgPath
