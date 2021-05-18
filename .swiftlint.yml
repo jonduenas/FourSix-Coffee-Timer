@@ -2,6 +2,9 @@ included:
   - FourSix Coffee Timer
   - FourSixTests
   - FourSixUITests
+
+excluded:
+  - FourSixUITests/SnapshotHelper.swift
    
 disabled_rules:
   - trailing_whitespace
@@ -9,7 +12,6 @@ disabled_rules:
   - comment_spacing
   - line_length
   - xctfail_message
-  - unused_closure_parameter
   - todo
   - cyclomatic_complexity
   - function_parameter_count

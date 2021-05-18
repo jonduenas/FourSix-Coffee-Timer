@@ -114,7 +114,8 @@ extension CoffeePickerVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, _) in
+            guard let self = self else { return }
             AlertHelper.showDestructiveAlert(title: "Delete Coffee?",
                                              message: "Are you sure you want to delete this coffee? It will be removed from any notes and you won't be able to undo.",
                                              destructiveButtonTitle: "Delete",

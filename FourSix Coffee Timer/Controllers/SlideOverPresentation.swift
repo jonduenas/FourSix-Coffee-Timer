@@ -43,9 +43,9 @@ class SlideOverPresentation: UIPresentationController {
     }
     
     override func dismissalTransitionWillBegin() {
-        self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
+        self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { _ in
             self.blurEffectView.alpha = 0
-        }, completion: { (UIViewControllerTransitionCoordinatorContext) in
+        }, completion: { _ in
             self.blurEffectView.removeFromSuperview()
         })
     }
@@ -54,13 +54,10 @@ class SlideOverPresentation: UIPresentationController {
         if let containerView = self.containerView, let coordinator = presentingViewController.transitionCoordinator {
             self.blurEffectView.alpha = 0
             containerView.addSubview(blurEffectView)
-            coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
+            coordinator.animate(alongsideTransition: { _ in
                 self.blurEffectView.alpha = 1
-            }, completion: { (UIViewControllerTransitionCoordinatorContext) in
-
             })
         }
-        
     }
     
     override func containerViewWillLayoutSubviews() {

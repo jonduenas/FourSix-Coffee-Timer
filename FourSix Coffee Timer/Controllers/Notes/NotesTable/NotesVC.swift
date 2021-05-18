@@ -130,7 +130,8 @@ extension NotesVC: UITableViewDelegate {
     // MARK: Swipe to delete
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, _, _) in
+            guard let self = self else { return }
             AlertHelper.showDestructiveAlert(title: "Deleting Note",
                                              message: "Are you sure you want to delete this note? You can't undo it.",
                                              destructiveButtonTitle: "Delete",

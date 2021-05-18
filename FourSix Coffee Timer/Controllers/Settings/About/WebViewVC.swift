@@ -39,7 +39,7 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         configureProgressBar()
         
         if showTitle {
-            titleObserver = webView.observe(\.title, options: [.new], changeHandler: { webView, change in
+            titleObserver = webView.observe(\.title, options: [.new], changeHandler: { _, change in
                 guard let newTitle = change.newValue else { return }
                 self.navigationItem.title = newTitle
             })
@@ -92,12 +92,12 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         backButton?.isEnabled = webView.canGoBack
         forwardButton?.isEnabled = webView.canGoForward
         
-        canGoBackObserver = webView.observe(\.canGoBack, options: [.new]) { webView, change in
+        canGoBackObserver = webView.observe(\.canGoBack, options: [.new]) { _, change in
             guard let newValue = change.newValue else { return }
             self.backButton?.isEnabled = newValue
         }
         
-        canGoForwardObserver = webView.observe(\.canGoForward, options: [.new], changeHandler: { webView, change in
+        canGoForwardObserver = webView.observe(\.canGoForward, options: [.new], changeHandler: { _, change in
             guard let newValue = change.newValue else { return }
             self.forwardButton?.isEnabled = newValue
         })
@@ -111,7 +111,7 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         progressBar.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         progressBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
         
-        estimatedProgressObserver = webView.observe(\.estimatedProgress, options: [.new], changeHandler: { webView, change in
+        estimatedProgressObserver = webView.observe(\.estimatedProgress, options: [.new], changeHandler: { _, change in
             self.updateProgressBar(change.newValue)
         })
     }
