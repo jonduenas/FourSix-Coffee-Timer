@@ -8,7 +8,6 @@ excluded:
    
 disabled_rules:
   - trailing_whitespace
-  - vertical_whitespace
   - line_length
   - todo
   - cyclomatic_complexity

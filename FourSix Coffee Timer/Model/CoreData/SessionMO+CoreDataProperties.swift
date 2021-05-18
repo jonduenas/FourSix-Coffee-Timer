@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension SessionMO {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<SessionMO> {
