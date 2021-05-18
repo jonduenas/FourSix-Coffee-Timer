@@ -94,7 +94,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
             id: "fiveMinuteReminder",
             title: "Rate Your Coffee",
             body: "Your coffee should be at the perfect temperature. Time to add a rating.",
-            timeInterval: 10
+            timeInterval: 300
         )]
 
         notificationManager.schedule()
