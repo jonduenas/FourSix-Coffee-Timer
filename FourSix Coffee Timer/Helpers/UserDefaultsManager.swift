@@ -29,6 +29,7 @@ class UserDefaultsManager: NSObject {
     private static let userHasMigratedStepAdvanceKey = "userHasMigratedStepAdvanceKey"
     private static let autoAdvanceTimerKey = "autoAdvanceTimerKey"
     private static let hasSeenNotificationRequestKey = "hasSeenNotificationRequestKey"
+    private static let sendReminderNotificationKey = "sendReminderNotificationKey"
 
     // MARK: Variables
 
@@ -173,6 +174,15 @@ class UserDefaultsManager: NSObject {
         }
         set {
             userDefaults.set(newValue, forKey: hasSeenNotificationRequestKey)
+        }
+    }
+
+    static var sendReminderNotification: Bool {
+        get {
+            return userDefaults.object(forKey: sendReminderNotificationKey) as? Bool ?? false
+        }
+        set {
+            userDefaults.set(newValue, forKey: sendReminderNotificationKey)
         }
     }
 }

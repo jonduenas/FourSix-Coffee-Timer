@@ -12,6 +12,7 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     var dataManager: DataManager?
     var recipe: Recipe?
     var session: Session?
+    var newNote: NoteMO?
     weak var coordinator: TimerCoordinator?
 
     // MARK: IBOutlets
@@ -23,25 +24,21 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createNewNote()
         updateLabels()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if !UserDefaultsManager.hasSeenNotificationRequest {
-            AlertHelper.showRatingReminderAlert(on: self) { _ in
-                UserDefaultsManager.hasSeenNotificationRequest = true
-                self.setReminder()
-            }
-        } else {
+        if UserDefaultsManager.sendReminderNotification {
             setReminder()
         }
     }
 
-    private func createNewNoteForLater() {
+    private func createNewNote() {
         guard let recipe = recipe, let session = session else { return }
-        dataManager?.newNoteMO(session: session, recipe: recipe, coffee: nil)
+        newNote = dataManager?.newNoteMO(session: session, recipe: recipe, coffee: nil)
     }
 
     private func updateLabels() {
@@ -54,17 +51,14 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
 
     @IBAction func didTapEnterDetails(_ sender: UIButton) {
-        guard let recipe = recipe, let session = session else { return }
-        let newNote = dataManager?.newNoteMO(session: session, recipe: recipe, coffee: nil)
-
         dismiss(animated: true) {
+            guard let newNote = self.newNote else { return }
             self.coordinator?.showNewNote(note: newNote)
         }
     }
 
     @IBAction func didTapLater(_ sender: UIButton) {
         dismiss(animated: true) {
-            self.createNewNoteForLater()
             self.coordinator?.didFinishSummary()
         }
     }
