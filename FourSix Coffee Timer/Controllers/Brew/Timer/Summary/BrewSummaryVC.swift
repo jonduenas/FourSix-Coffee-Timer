@@ -31,7 +31,12 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if UserDefaultsManager.sendReminderNotification {
+        if !UserDefaultsManager.hasSeenNotificationRequest {
+            AlertHelper.showRatingReminderAlert(on: self) { _ in
+                UserDefaultsManager.hasSeenNotificationRequest = true
+                self.setReminder()
+            }
+        } else {
             setReminder()
         }
     }

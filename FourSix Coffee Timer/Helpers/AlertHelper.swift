@@ -96,9 +96,16 @@ class AlertHelper {
     static func showRatingReminderAlert(on controller: UIViewController, handler: AlertHandler?) {
         showConfirmationAlert(
             title: "Enable Notifications",
-            // swiftlint:disable:next line_length
-            message: "Your coffee will taste best after it's had time to cool. FourSix can automatically send you a reminder notification to come back and add a rating in 5 minutes, but needs your permission first.",
-            confirmButtonTitle: "OK",
+            message: """
+                Your coffee will taste best after it's had time to cool. \
+                FourSix can automatically send you a notification in 5 minutes \
+                to remind you it's a good time to rate this cup. But first you \
+                will need to give your permission.
+
+                You can always change your preference later by going to your \
+                device Settings > FourSix > Notifications.
+                """,
+            confirmButtonTitle: "Continue",
             on: controller,
             handler: handler
         )
