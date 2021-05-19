@@ -181,14 +181,6 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         settingsModel.autoAdvanceTimer = sender.isOn
     }
 
-    @objc func didSelectTempUnit(_ sender: UISegmentedControl) {
-        guard let selectedUnit = TempUnit(rawValue: sender.selectedSegmentIndex) else {
-            print("Selected Temp Unit is undefined")
-            return
-        }
-        settingsModel.tempUnit = selectedUnit
-    }
-
     private func createTotalTimeCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: TableCellIdentifier.switchCell.rawValue,

@@ -92,6 +92,17 @@ class AlertHelper {
                                             }
                                          })
     }
+
+    static func showRatingReminderAlert(on controller: UIViewController, handler: AlertHandler?) {
+        showConfirmationAlert(
+            title: "Enable Notifications",
+            // swiftlint:disable:next line_length
+            message: "Your coffee will taste best after it's had time to cool. FourSix can automatically send you a reminder notification to come back and add a rating in 5 minutes, but needs your permission first.",
+            confirmButtonTitle: "OK",
+            on: controller,
+            handler: handler
+        )
+    }
 }
 
 extension UIAlertAction {

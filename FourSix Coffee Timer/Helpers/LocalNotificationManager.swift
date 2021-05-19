@@ -67,4 +67,11 @@ struct LocalNotification {
     var title: String
     var body: String
     var timeInterval: TimeInterval
+
+    static let fiveMinuteRatingNotification = LocalNotification(
+        id: "fiveMinuteReminder",
+        title: "Rate Your Coffee",
+        body: "Your coffee should be at the perfect temperature. Time to add a rating.",
+        timeInterval: 300
+    )
 }

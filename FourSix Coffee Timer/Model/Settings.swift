@@ -40,10 +40,4 @@ class Settings {
             UserDefaultsManager.autoAdvanceTimer = autoAdvanceTimer
         }
     }
-
-    var tempUnit: TempUnit = TempUnit(rawValue: UserDefaultsManager.tempUnitRawValue) ?? .celsius {
-        didSet {
-            UserDefaultsManager.tempUnitRawValue = tempUnit.rawValue
-        }
-    }
 }

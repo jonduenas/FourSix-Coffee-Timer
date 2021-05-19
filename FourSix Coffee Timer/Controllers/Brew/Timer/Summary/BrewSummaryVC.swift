@@ -26,6 +26,19 @@ class BrewSummaryVC: UIViewController, Storyboarded {
         updateLabels()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if !UserDefaultsManager.hasSeenNotificationRequest {
+            AlertHelper.showRatingReminderAlert(on: self) { _ in
+                UserDefaultsManager.hasSeenNotificationRequest = true
+                self.setReminder()
+            }
+        } else {
+            setReminder()
+        }
+    }
+
     private func createNewNoteForLater() {
         guard let recipe = recipe, let session = session else { return }
         dataManager?.newNoteMO(session: session, recipe: recipe, coffee: nil)
@@ -48,10 +61,18 @@ class BrewSummaryVC: UIViewController, Storyboarded {
             self.coordinator?.showNewNote(note: newNote)
         }
     }
+
     @IBAction func didTapLater(_ sender: UIButton) {
         dismiss(animated: true) {
             self.createNewNoteForLater()
             self.coordinator?.didFinishSummary()
         }
+    }
+
+    private func setReminder() {
+        print("Setting reminder")
+        let notificationManager = LocalNotificationManager()
+        notificationManager.notifications = [LocalNotification.fiveMinuteRatingNotification]
+        notificationManager.schedule()
     }
 }
