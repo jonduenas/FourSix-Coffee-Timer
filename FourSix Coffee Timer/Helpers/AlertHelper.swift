@@ -101,9 +101,6 @@ class AlertHelper {
                 FourSix can automatically send you a notification in 5 minutes \
                 to remind you it's a good time to rate this cup. But first you \
                 will need to give your permission.
-
-                You can always change your preference later by going to your \
-                device Settings > FourSix > Notifications.
                 """,
             confirmButtonTitle: "Continue",
             on: controller,

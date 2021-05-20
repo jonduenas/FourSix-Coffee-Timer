@@ -9,36 +9,53 @@
 import UIKit
 
 class BrewSummaryVC: UIViewController, Storyboarded {
+    let notificationManager = LocalNotificationManager()
+
     var dataManager: DataManager?
     var recipe: Recipe?
     var session: Session?
     var newNote: NoteMO?
     weak var coordinator: TimerCoordinator?
+    private var showNotification: Bool = UserDefaultsManager.sendReminderNotification {
+        didSet {
+            switch (showNotification, notificationManager.permission) {
+            case (true, .authorized):
+                UserDefaultsManager.sendReminderNotification = true
+                setNotificationButtonImage(enabled: true)
+            case (true, .denied), (true, .notDetermined):
+                // Reverse setting to true if permission is not approved
+                showNotification = false
+            default:
+                // Any remaining cases are showNotification == false
+                UserDefaultsManager.sendReminderNotification = false
+                self.setNotificationButtonImage(enabled: false)
+            }
+        }
+    }
 
     // MARK: IBOutlets
     @IBOutlet weak var doneLabel: UILabel!
-
-    @IBOutlet var drawdownLabel: UILabel!
-    @IBOutlet var totalTimeLabel: UILabel!
+    @IBOutlet weak var drawdownLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var notificationButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         createNewNote()
+        notificationManager.delegate = self
         updateLabels()
+        setNotificationButtonImage(enabled: showNotification)
+
+        if showNotification {
+            setReminder()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if !UserDefaultsManager.hasSeenNotificationRequest {
-            AlertHelper.showRatingReminderAlert(on: self) { _ in
-                UserDefaultsManager.hasSeenNotificationRequest = true
-                self.setReminder()
-            }
-        } else {
-            setReminder()
-        }
+        notificationButton.wiggle()
     }
 
     private func createNewNote() {
@@ -69,9 +86,73 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     }
 
     private func setReminder() {
-        print("Setting reminder")
-        let notificationManager = LocalNotificationManager()
-        notificationManager.notifications = [LocalNotification.fiveMinuteRatingNotification]
-        notificationManager.schedule()
+        notificationManager.checkCurrentAuthorization { authorization in
+            if authorization == .denied {
+                self.showPermissionDeniedAlert()
+            } else {
+                self.notificationManager.notifications = [LocalNotification.fiveMinuteRatingNotification]
+                self.notificationManager.schedule()
+            }
+        }
+    }
+
+    private func showPermissionDeniedAlert() {
+        DispatchQueue.main.async {
+            AlertHelper.showAlert(
+                title: "FourSix Can't Show Notifications",
+                message: """
+                    To enable notifications, you will have to go \
+                    to your device Settings > FourSix > Notifications \
+                    and grant permission there.
+
+                    After selecting "Allow Notifications", return \
+                    to FourSix and try again.
+                    """,
+                on: self)
+        }
+    }
+
+    @IBAction func didTapNotificationButton(_ sender: UIButton) {
+        if !UserDefaultsManager.hasSeenNotificationRequest && !showNotification {
+            AlertHelper.showRatingReminderAlert(on: self) { _ in
+                UserDefaultsManager.hasSeenNotificationRequest = true
+                self.toggleShowNotification()
+            }
+        } else {
+            toggleShowNotification()
+        }
+    }
+
+    private func setNotificationButtonImage(enabled: Bool) {
+        let notificationOn: UIImage? = UIImage(systemName: "bell.fill")
+        let notificationOff: UIImage? = UIImage(systemName: "bell")
+
+        let selectedImage = enabled ? notificationOn : notificationOff
+
+        DispatchQueue.main.async {
+            self.notificationButton.setImage(selectedImage, for: .normal)
+        }
+    }
+
+    private func toggleShowNotification() {
+        if !showNotification {
+            // Current state is notifications off, so attempt to turn on
+            setReminder()
+        } else {
+            // Turns off notifications and cancels all pending ones
+            showNotification = false
+            notificationManager.cancelPendingReminders()
+        }
+    }
+}
+
+extension BrewSummaryVC: LocalNotificationManagerDelegate {
+    func notificationMananger(_ notificationManager: LocalNotificationManager, didChangePermission permission: NotificationPermission) {
+        switch permission {
+        case .authorized:
+            showNotification = true
+        case .denied, .notDetermined:
+            showNotification = false
+        }
     }
 }

@@ -44,7 +44,7 @@ class TimerCoordinator: Coordinator {
         vc.session = session
 
         let summaryTransitioningDelegate = SlideOverTransitioningDelegate()
-        summaryTransitioningDelegate.height = 450
+        summaryTransitioningDelegate.height = 500
         summaryTransitioningDelegate.tapToDismiss = false
         vc.transitioningDelegate = summaryTransitioningDelegate
         vc.modalPresentationStyle = .custom

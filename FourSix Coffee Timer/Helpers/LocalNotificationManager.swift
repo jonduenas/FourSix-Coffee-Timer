@@ -9,13 +9,32 @@
 import Foundation
 import UserNotifications
 
+enum NotificationPermission {
+    case notDetermined, authorized, denied
+}
+
+protocol LocalNotificationManagerDelegate: AnyObject {
+    func notificationMananger(_ notificationManager: LocalNotificationManager, didChangePermission permission: NotificationPermission)
+}
+
 class LocalNotificationManager {
+    weak var delegate: LocalNotificationManagerDelegate?
     var notifications: [LocalNotification] = []
+    var permission: NotificationPermission = .notDetermined {
+        didSet {
+            delegate?.notificationMananger(self, didChangePermission: permission)
+        }
+    }
 
     func listScheduledNotifications() {
+        // For debugging purposes
         UNUserNotificationCenter.current().getPendingNotificationRequests { notifications in
-            for notification in notifications {
-                print(notification)
+            if notifications.isEmpty {
+                print("No notifications scheduled")
+            } else {
+                for notification in notifications {
+                    print(notification)
+                }
             }
         }
     }
@@ -23,14 +42,19 @@ class LocalNotificationManager {
     private func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted && error == nil {
+                self.permission = .authorized
                 self.scheduleNotifications()
             } else if let error = error {
                 print(error.localizedDescription)
+            } else {
+                self.permission = .denied
             }
         }
     }
 
     private func scheduleNotifications() {
+        guard permission == .authorized else { return }
+
         for notification in notifications {
             let content = UNMutableNotificationContent()
             content.title = notification.title
@@ -54,11 +78,32 @@ class LocalNotificationManager {
             case .notDetermined:
                 self.requestAuthorization()
             case .authorized, .provisional:
+                self.permission = .authorized
                 self.scheduleNotifications()
             default:
                 break
             }
         }
+    }
+
+    func checkCurrentAuthorization(completion: @escaping (NotificationPermission) -> Void) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .authorized:
+                self.permission = .authorized
+            case .denied:
+                self.permission = .denied
+            default:
+                break
+            }
+
+            completion(self.permission)
+        }
+    }
+
+    func cancelPendingReminders() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        notifications.removeAll()
     }
 }
 
