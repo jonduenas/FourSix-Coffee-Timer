@@ -59,10 +59,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
 
         if isNewNote {
             title = "New Note"
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bell"),
-                                                                style: .plain,
-                                                                target: self,
-                                                                action: #selector(didTapRemindButton))
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"),
                                                                style: .done, target: self,
                                                                action: #selector(didTapCloseButton))
@@ -72,19 +68,6 @@ class NoteDetailsVC: UIViewController, Storyboarded {
                 target: self,
                 action: #selector(didTapTrashButton)
             )
-        }
-    }
-
-    @objc private func didTapRemindButton() {
-        AlertHelper.showCancellableAlert(title: "Set Reminder",
-                                         // swiftlint:disable:next line_length
-                                         message: "Judging the flavor of your coffee is best after it's cooled a little. Would you like a reminder in 5 minutes to come back and rate this cup?",
-                                         confirmButtonTitle: "Remind me",
-                                         dismissButtonTitle: "Cancel",
-                                         on: self,
-                                         cancelHandler: nil) { _ in
-            print("Set reminder")
-            // TODO: Add local push notification for reminding user to update note
         }
     }
 

@@ -65,6 +65,7 @@
 		6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */; };
 		6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA924BBDE5800C9F129 /* RoundedView.swift */; };
 		6561ACAD24BBE64300C9F129 /* PurchaseProVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6561ACAB24BBE64300C9F129 /* PurchaseProVC.storyboard */; };
+		656B9DFA2657065E00C05F69 /* Wiggle+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B9DF92657065E00C05F69 /* Wiggle+UIButton.swift */; };
 		656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */; };
 		656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D0D53251D586A001EE918 /* TimerScheduler.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
@@ -88,6 +89,7 @@
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
+		65ADCF9F265473B0009FB446 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADCF9E265473B0009FB446 /* LocalNotificationManager.swift */; };
 		65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
 		65B0D84025E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
 		65B3140525F40291004D9758 /* SettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3140425F40291004D9758 /* SettingsDataSource.swift */; };
@@ -217,6 +219,7 @@
 		6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProVC.swift; sourceTree = "<group>"; };
 		6561ACA924BBDE5800C9F129 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		6561ACAC24BBE64300C9F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PurchaseProVC.storyboard; sourceTree = "<group>"; };
+		656B9DF92657065E00C05F69 /* Wiggle+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wiggle+UIButton.swift"; sourceTree = "<group>"; };
 		656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		656D0D53251D586A001EE918 /* TimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduler.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -243,6 +246,7 @@
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
+		65ADCF9E265473B0009FB446 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		65B0D83E25E6D394002B4F34 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		65B3140425F40291004D9758 /* SettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataSource.swift; sourceTree = "<group>"; };
 		65B3140825F41BB4004D9758 /* SwitchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableCell.swift; sourceTree = "<group>"; };
@@ -542,6 +546,7 @@
 				65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */,
 				65127BBC260D09CA0014A9E7 /* CoreDataStack.swift */,
 				65E12064261104A90059465B /* DataManager.swift */,
+				65ADCF9E265473B0009FB446 /* LocalNotificationManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 				656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */,
 				65D5096E26388B1F0078307E /* SegmentedControl.swift */,
 				65BAE627263B844300F94D23 /* NewYorkLabel.swift */,
+				656B9DF92657065E00C05F69 /* Wiggle+UIButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1025,8 +1031,10 @@
 				6599310625EEC38600840005 /* Style.swift in Sources */,
 				65E12065261104A90059465B /* DataManager.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
+				656B9DFA2657065E00C05F69 /* Wiggle+UIButton.swift in Sources */,
 				6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */,
 				65B3140925F41BB4004D9758 /* SwitchTableCell.swift in Sources */,
+				65ADCF9F265473B0009FB446 /* LocalNotificationManager.swift in Sources */,
 				6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
 				654468222626536A00494D0A /* SlideOverPresentation.swift in Sources */,
