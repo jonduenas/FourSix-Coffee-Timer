@@ -9,180 +9,178 @@
 import Foundation
 
 class UserDefaultsManager: NSObject {
-
     private static let userDefaults = UserDefaults.standard
 
-    // MARK: Key Values
-    private static let launchedBeforeKey = "launchedBeforeKey"
-    private static let totalTimeShownKey = "totalTimeShownKey"
-    private static let timerStepAdvanceKey = "timerStepAdvanceKey"
-    private static let ratioKey = "ratioKey"
-    private static let ratioSelectKey = "ratioSelectKey"
-    private static let timerStepIntervalKey = "timerStepIntervalKey"
-    private static let previousCoffeeKey = "previousCoffeeKey"
-    private static let previousSelectedBalanceKey = "previousSelectedBalanceKey"
-    private static let previousSelectedStrengthKey = "previousSelectedStrengthKey"
-    private static let userHasSeenWalkthroughKey = "userHasSeenWalkthroughKey"
-    private static let reviewWorthyActionCountKey = "reviewWorthyActionCountKey"
-    private static let lastReviewRequestAppVersionKey = "lastReviewRequestAppVersionKey"
-    private static let userHasSeenCoffeeRangeWarningKey = "userHasSeenCoffeeRangeWarningKey"
-    private static let userHasMigratedStepAdvanceKey = "userHasMigratedStepAdvanceKey"
-    private static let autoAdvanceTimerKey = "autoAdvanceTimerKey"
-    private static let hasSeenNotificationRequestKey = "hasSeenNotificationRequestKey"
-    private static let sendReminderNotificationKey = "sendReminderNotificationKey"
-
-    // MARK: Variables
+    enum UserDefaultsKeys: String {
+        case launchedBeforeKey
+        case totalTimeShownKey
+        case timerStepAdvanceKey
+        case ratioKey
+        case ratioSelectKey
+        case timerStepIntervalKey
+        case previousCoffeeKey
+        case previousSelectedBalanceKey
+        case previousSelectedStrengthKey
+        case userHasSeenWalkthroughKey
+        case reviewWorthyActionCountKey
+        case lastReviewRequestAppVersionKey
+        case userHasSeenCoffeeRangeWarningKey
+        case userHasMigratedStepAdvanceKey
+        case autoAdvanceTimerKey
+        case hasSeenNotificationRequestKey
+        case sendReminderNotificationKey
+    }
 
     static var launchedBefore: Bool {
         get {
-            return userDefaults.object(forKey: launchedBeforeKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.launchedBeforeKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: launchedBeforeKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.launchedBeforeKey.rawValue)
         }
     }
 
     static var totalTimeShown: Bool {
         get {
-            return userDefaults.object(forKey: totalTimeShownKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.totalTimeShownKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: totalTimeShownKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.totalTimeShownKey.rawValue)
         }
     }
 
     static var timerStepAdvance: Int {
         get {
-            return userDefaults.integer(forKey: timerStepAdvanceKey)
+            return userDefaults.integer(forKey: UserDefaultsKeys.timerStepAdvanceKey.rawValue)
         }
         set {
-            userDefaults.set(newValue, forKey: timerStepAdvanceKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.timerStepAdvanceKey.rawValue)
         }
     }
 
     static var ratio: Float {
         get {
-            return userDefaults.object(forKey: ratioKey) as? Float ?? Ratio.defaultRatio.consequent
+            return userDefaults.object(forKey: UserDefaultsKeys.ratioKey.rawValue) as? Float ?? Ratio.defaultRatio.consequent
         }
         set {
-            userDefaults.set(newValue, forKey: ratioKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.ratioKey.rawValue)
         }
     }
 
     static var ratioSelect: Int {
         get {
-            return userDefaults.object(forKey: ratioSelectKey) as? Int ?? 3
+            return userDefaults.object(forKey: UserDefaultsKeys.ratioSelectKey.rawValue) as? Int ?? 3
         }
         set {
-            userDefaults.set(newValue, forKey: ratioSelectKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.ratioSelectKey.rawValue)
         }
     }
 
     static var timerStepInterval: Int {
         get {
-            return userDefaults.object(forKey: timerStepIntervalKey) as? Int ?? Int(Recipe.defaultRecipe.interval)
+            return userDefaults.object(forKey: UserDefaultsKeys.timerStepIntervalKey.rawValue) as? Int ?? Int(Recipe.defaultRecipe.interval)
         }
         set {
-            userDefaults.set(newValue, forKey: timerStepIntervalKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.timerStepIntervalKey.rawValue)
         }
     }
 
     static var previousCoffee: Float {
         get {
-            return userDefaults.object(forKey: previousCoffeeKey) as? Float ?? Recipe.defaultRecipe.coffee
+            return userDefaults.object(forKey: UserDefaultsKeys.previousCoffeeKey.rawValue) as? Float ?? Recipe.defaultRecipe.coffee
         }
         set {
-            userDefaults.set(newValue, forKey: previousCoffeeKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.previousCoffeeKey.rawValue)
         }
     }
 
     static var previousSelectedBalance: Float {
         get {
-            return userDefaults.object(forKey: previousSelectedBalanceKey) as? Float ?? Balance.even.rawValue
+            return userDefaults.object(forKey: UserDefaultsKeys.previousSelectedBalanceKey.rawValue) as? Float ?? Balance.even.rawValue
         }
         set {
-            userDefaults.set(newValue, forKey: previousSelectedBalanceKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.previousSelectedBalanceKey.rawValue)
         }
     }
 
     static var previousSelectedStrength: Int {
         get {
-            return userDefaults.object(forKey: previousSelectedStrengthKey) as? Int ?? Strength.medium.rawValue
+            return userDefaults.object(forKey: UserDefaultsKeys.previousSelectedStrengthKey.rawValue) as? Int ?? Strength.medium.rawValue
         }
         set {
-            userDefaults.set(newValue, forKey: previousSelectedStrengthKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.previousSelectedStrengthKey.rawValue)
         }
     }
 
     static var userHasSeenWalkthrough: Bool {
         get {
-            return userDefaults.object(forKey: userHasSeenWalkthroughKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.userHasSeenWalkthroughKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: userHasSeenWalkthroughKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.userHasSeenWalkthroughKey.rawValue)
         }
     }
 
     static var reviewWorthyActionCount: Int {
         get {
-            return userDefaults.object(forKey: reviewWorthyActionCountKey) as? Int ?? 0
+            return userDefaults.object(forKey: UserDefaultsKeys.reviewWorthyActionCountKey.rawValue) as? Int ?? 0
         }
         set {
-            userDefaults.set(newValue, forKey: reviewWorthyActionCountKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.reviewWorthyActionCountKey.rawValue)
         }
     }
 
     static var lastReviewRequestAppVersion: String? {
         get {
-            return userDefaults.object(forKey: lastReviewRequestAppVersionKey) as? String
+            return userDefaults.object(forKey: UserDefaultsKeys.lastReviewRequestAppVersionKey.rawValue) as? String
         }
         set {
-            userDefaults.set(newValue, forKey: lastReviewRequestAppVersionKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.lastReviewRequestAppVersionKey.rawValue)
         }
     }
 
     static var userHasSeenCoffeeRangeWarning: Bool {
         get {
-            return userDefaults.object(forKey: userHasSeenCoffeeRangeWarningKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.userHasSeenCoffeeRangeWarningKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: userHasSeenCoffeeRangeWarningKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.userHasSeenCoffeeRangeWarningKey.rawValue)
         }
     }
 
     static var userHasMigratedStepAdvance: Bool {
         get {
-            return userDefaults.object(forKey: userHasMigratedStepAdvanceKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.userHasMigratedStepAdvanceKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: userHasMigratedStepAdvanceKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.userHasMigratedStepAdvanceKey.rawValue)
         }
     }
 
     static var autoAdvanceTimer: Bool {
         get {
-            return userDefaults.object(forKey: autoAdvanceTimerKey) as? Bool ?? true
+            return userDefaults.object(forKey: UserDefaultsKeys.autoAdvanceTimerKey.rawValue) as? Bool ?? true
         }
         set {
-            userDefaults.set(newValue, forKey: autoAdvanceTimerKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.autoAdvanceTimerKey.rawValue)
         }
     }
 
     static var hasSeenNotificationRequest: Bool {
         get {
-            return userDefaults.object(forKey: hasSeenNotificationRequestKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.hasSeenNotificationRequestKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: hasSeenNotificationRequestKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.hasSeenNotificationRequestKey.rawValue)
         }
     }
 
     static var sendReminderNotification: Bool {
         get {
-            return userDefaults.object(forKey: sendReminderNotificationKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.sendReminderNotificationKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: sendReminderNotificationKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.sendReminderNotificationKey.rawValue)
         }
     }
 }
