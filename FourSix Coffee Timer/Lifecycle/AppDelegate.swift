@@ -13,11 +13,11 @@ import Purchases
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         // Configure RevenueCat with public API key
         Purchases.debugLogsEnabled = false
         Purchases.configure(withAPIKey: Constants.revenueCatAPIKey)
-        
+
         return true
     }
 }

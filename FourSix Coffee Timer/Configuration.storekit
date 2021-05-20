@@ -1,7 +1,11 @@
 {
+  "identifier" : "15D8C28D",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
     {
-      "displayPrice" : "1.99",
+      "displayPrice" : "2.99",
       "familyShareable" : false,
       "internalID" : "131F8965",
       "localizations" : [
@@ -14,6 +18,51 @@
       "productID" : "com.jonduenas.FourSixCoffeeTimer.FourSixPro",
       "referenceName" : "FourSix Pro",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "A91D6C2B",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Espresso Shot Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.jonduenas.FourSixCoffeeTimer.SmallTip",
+      "referenceName" : "Small Tip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "8A9A6097",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Cup of Coffee Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.jonduenas.FourSixCoffeeTimer.MediumTip",
+      "referenceName" : "Medium Tip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "A8792EED",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Bag of Beans Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.jonduenas.FourSixCoffeeTimer.LargeTip",
+      "referenceName" : "Large Tip",
+      "type" : "Consumable"
     }
   ],
   "settings" : {
@@ -24,6 +73,6 @@
   ],
   "version" : {
     "major" : 1,
-    "minor" : 0
+    "minor" : 1
   }
 }

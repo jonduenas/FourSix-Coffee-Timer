@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol TextFieldCellDelegate: class {
+protocol TextFieldCellDelegate: AnyObject {
     func textField(_ textField: UITextField, didUpdateTo string: String)
 }
 
 class TextFieldTableCell: UITableViewCell {
-    
+
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellTextField: UITextField!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         cellTextField.textColor = .secondaryLabel
     }
 }

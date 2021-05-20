@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension SessionMO {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<SessionMO> {
@@ -24,6 +23,6 @@ extension SessionMO {
 
 }
 
-extension SessionMO : Identifiable {
+extension SessionMO: Identifiable {
 
 }

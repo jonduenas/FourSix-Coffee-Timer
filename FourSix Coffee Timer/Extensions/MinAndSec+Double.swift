@@ -14,14 +14,14 @@ extension Double {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.minute, .second]
         formatter.unitsStyle = .abbreviated
-        
+
         return formatter.string(from: interval) ?? String(self)
     }
-    
+
     var minAndSec: (Double, Double) {
         let minutes = (self / 60).rounded(.down)
         let seconds = self.truncatingRemainder(dividingBy: 3600).truncatingRemainder(dividingBy: 60).rounded(.down)
-        
+
         return (minutes, seconds)
     }
 }

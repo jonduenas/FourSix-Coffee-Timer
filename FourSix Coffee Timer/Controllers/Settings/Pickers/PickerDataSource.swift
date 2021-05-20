@@ -37,25 +37,25 @@ class PickerDataSource: NSObject, UIPickerViewDataSource {
     let intervalSec = Array(0...59)
     let defaultIntervalIndex = 44
     let intervalMin = Array(0...9)
-    
+
     var selectedRatio: Float {
         didSet {
             settingsModel.ratio = selectedRatio
         }
     }
-    
+
     var selectedInterval: Int {
         didSet {
             settingsModel.stepInterval = selectedInterval
         }
     }
-    
+
     override init() {
         self.settingsModel = Settings()
         self.selectedRatio = settingsModel.ratio
         self.selectedInterval = settingsModel.stepInterval
     }
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerView.tag == SettingsPicker.ratio.rawValue {
             return RatioPickerComponent.allCases.count
@@ -63,11 +63,11 @@ class PickerDataSource: NSObject, UIPickerViewDataSource {
             return IntervalPickerComponent.allCases.count
         }
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == SettingsPicker.ratio.rawValue {
             let ratioComponent = RatioPickerComponent(rawValue: component)
-            
+
             switch ratioComponent {
             case .consequent:
                 return ratioValueArray.count
@@ -78,7 +78,7 @@ class PickerDataSource: NSObject, UIPickerViewDataSource {
             }
         } else {
             let intervalComponent = IntervalPickerComponent(rawValue: component)
-            
+
             switch intervalComponent {
             case .minValue:
                 return intervalMin.count

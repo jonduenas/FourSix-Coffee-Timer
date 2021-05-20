@@ -7,26 +7,25 @@
 //
 
 import UIKit
-import CoreData
 
 class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     var dataManager: DataManager!
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
         guard dataManager != nil else { fatalError("Coordinator requires a DataManager.") }
-        
+
         navigationController.delegate = self
-        
+
         let vc = NotesVC.instantiate(fromStoryboardNamed: String(describing: NotesVC.self))
         vc.coordinator = self
         vc.dataManager = dataManager
-        
+
         let tabImage: UIImage?
         if #available(iOS 14.0, *) {
             tabImage = UIImage(systemName: "note.text")
@@ -36,15 +35,15 @@ class NotesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         vc.tabBarItem = UITabBarItem(title: "Notes", image: tabImage, tag: 1)
         navigationController.pushViewController(vc, animated: false)
     }
-    
+
     func showDetails(for note: NoteMO, dataManager: DataManager) {
         let child = NoteDetailsCoordinator(navigationController: navigationController, dataManager: dataManager)
-        child.parentCoordinator = self
+        child.notesCoordinator = self
         childCoordinators.append(child)
         child.note = note
         child.start()
     }
-    
+
     // Checks Navigation Controller if popped View Controller is NoteDetailsVC
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // Reads the view controller we're moving from

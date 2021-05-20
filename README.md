@@ -1,5 +1,7 @@
 # FourSix Coffee Timer
 
+V2.0 is currently in development. Go to https://foursixcoffeeapp.com for a preview.
+
 FourSix is a coffee timer and calculator for iOS built using Swift and UIKit for iOS 13 and up.
 
 [App Store Link](https://apps.apple.com/us/app/id1519905670)

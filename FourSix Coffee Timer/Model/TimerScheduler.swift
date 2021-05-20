@@ -9,19 +9,18 @@
 import Foundation
 
 class TimerScheduler: TimerScheduling {
-    
+
     private weak var timer: Timer?
-    
+
     deinit {
         timer = nil
     }
-    
+
     func start(timeInterval: TimeInterval, repeats: Bool, block: @escaping (Timer) -> Void) {
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: repeats, block: block)
     }
-    
+
     func invalidate() {
         timer?.invalidate()
     }
 }
-

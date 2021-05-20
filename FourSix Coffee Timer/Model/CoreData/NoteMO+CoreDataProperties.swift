@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension NoteMO {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<NoteMO> {
@@ -30,6 +29,6 @@ extension NoteMO {
 
 }
 
-extension NoteMO : Identifiable {
+extension NoteMO: Identifiable {
 
 }

@@ -9,43 +9,48 @@
 import UIKit
 
 class LoadingButton: RoundButton {
-    var originalButtonText: String?
-    var activityIndicator: UIActivityIndicatorView!
-    
-    func showLoading() {
-        originalButtonText = self.titleLabel?.text
-        self.setTitle("", for: .normal)
-        
-        if activityIndicator == nil {
-            activityIndicator = createActivityIndicator()
-        }
-        
-        showSpinning()
-        
-        self.isEnabled = false
-    }
-    
-    func hideLoading() {
-        self.setTitle(originalButtonText, for: .normal)
-        self.isEnabled = true
-        activityIndicator.stopAnimating()
-    }
-    
-    private func createActivityIndicator() -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView()
+    private var originalButtonText: String?
+    private var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = self.titleColor(for: .normal)
         return activityIndicator
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
-    
-    private func showSpinning() {
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        activityIndicator.color = titleColor(for: .normal)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(activityIndicator)
+
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
-        activityIndicator.startAnimating()
     }
-    
+
+    func showLoading() {
+        originalButtonText = self.titleLabel?.text
+        self.setTitle("", for: .normal)
+
+        activityIndicator.startAnimating()
+
+        self.isEnabled = false
+    }
+
+    func hideLoading() {
+        self.setTitle(originalButtonText, for: .normal)
+
+        activityIndicator.stopAnimating()
+
+        self.isEnabled = true
+    }
 }

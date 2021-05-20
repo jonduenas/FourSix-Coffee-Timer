@@ -8,25 +8,35 @@
 
 import UIKit
 
+protocol RecipeBarChartDelegate: AnyObject {
+    func recipeBarChart(_ recipeBarChart: RecipeBarChart, didSelect section: Int)
+}
+
 class RecipeBarChart: UIView {
     @IBOutlet weak var barChartStack: UIStackView!
-    
+
+    weak var delegate: RecipeBarChartDelegate?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     func createBarChart(for recipe: Recipe) {
         let colorArray = UIColor.barChartColors()
-        
+
         for (index, pour) in recipe.waterPours.reversed().enumerated() {
             guard colorArray.count >= index else { return }
-            
+
             let view = createPourView(frame: .zero, backgroundColor: colorArray[index])
-            
+
+            // Sets tag to number of pour
+            // Count - index results in reversed order with bottom view being first pour and top being the last
+            view.tag = recipe.waterPours.count - index
+
             switch index {
             case 0:
                 // Rounds top corners
@@ -37,20 +47,27 @@ class RecipeBarChart: UIView {
             default:
                 view.layer.maskedCorners = []
             }
-            
+
             barChartStack.addArrangedSubview(view)
-            
+
             view.widthAnchor.constraint(equalTo: barChartStack.widthAnchor).isActive = true
-            view.heightAnchor.constraint(equalTo: barChartStack.heightAnchor, multiplier: CGFloat(pour / recipe.waterTotal), constant: -barChartStack.spacing).isActive = true
-            
+            view.heightAnchor.constraint(
+                equalTo: barChartStack.heightAnchor,
+                multiplier: CGFloat(pour / recipe.waterTotal),
+                constant: -barChartStack.spacing)
+                .isActive = true
+
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
+            view.addGestureRecognizer(tapGesture)
+
             let label = createValueLabel(for: pour)
             view.addSubview(label)
-            
+
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
     }
-    
+
     private func createPourView(frame: CGRect, backgroundColor: UIColor?) -> UIView {
         let view = UIView(frame: frame)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +75,7 @@ class RecipeBarChart: UIView {
         view.layer.cornerRadius = 10
         return view
     }
-    
+
     private func createValueLabel(for value: Float) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,5 +83,25 @@ class RecipeBarChart: UIView {
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = UIColor(white: 0.9, alpha: 1)
         return label
+    }
+
+    @objc private func didTap(sender: UITapGestureRecognizer) {
+        guard let tappedViewIndex = sender.view?.tag else { return }
+
+        for view in barChartStack.arrangedSubviews {
+            if view.tag == tappedViewIndex {
+                UIView.animate(withDuration: 0.2) {
+                    view.alpha = 1
+                }
+
+                continue
+            }
+
+            UIView.animate(withDuration: 0.2) {
+                view.alpha = 0.5
+            }
+        }
+
+        delegate?.recipeBarChart(self, didSelect: tappedViewIndex)
     }
 }

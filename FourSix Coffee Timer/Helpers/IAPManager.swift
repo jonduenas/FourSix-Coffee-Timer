@@ -11,85 +11,133 @@ import Purchases
 
 enum AppStoreReviewManager {
     static let minimumReviewWorthyActionCount = 2
-    
+
     static func requestReviewIfAppropriate() {
         // Check how many actions the user has made
         var actionCount = UserDefaultsManager.reviewWorthyActionCount
         actionCount += 1
         UserDefaultsManager.reviewWorthyActionCount = actionCount
-        
+
         guard actionCount >= minimumReviewWorthyActionCount else { return }
-        
+
         // Check if user has already been asked to review the current version
         let bundleVersionKey = kCFBundleVersionKey as String
         let currentVersion = Bundle.main.object(forInfoDictionaryKey: bundleVersionKey) as? String
         let lastVersion = UserDefaultsManager.lastReviewRequestAppVersion
-        
+
         guard lastVersion == nil || lastVersion != currentVersion else { return }
-        
+
         // Request review
         SKStoreReviewController.requestReview()
-        
+
         UserDefaultsManager.reviewWorthyActionCount = 0
         UserDefaultsManager.lastReviewRequestAppVersion = currentVersion
     }
 }
 
+struct IAPurchase {
+    var name: String?
+    var localizedPriceString: String?
+    var localizedDescription: String?
+}
+
 class IAPManager: NSObject {
     static let shared = IAPManager()
-    
-    let proPopUpSBName = "FourSixProPopup"
+
     let entitlementID = "pro"
-    let packageID = "Lifetime"
-    
-    var offering: Purchases.Offering?
-    var offeringID: String?
-    var package: Purchases.Package?
-    var productPrice: String?
-    var productName: String?
-    var productDescription: String?
-    
-    func loadOfferings(loadSucceeded: @escaping (Bool, String?) -> Void) {
-        
+    let tipsPackageID = "tips"
+
+    var offerings: Purchases.Offerings?
+
+    var proOffering: Purchases.Offering?
+
+    var tips: [IAPurchase] = []
+    var tipPackages: [Purchases.Package] = []
+
+    var fourSixPro: IAPurchase?
+    var proPackage: Purchases.Package?
+
+    func loadCurrentOffering(loadSucceeded: @escaping (Bool, String?) -> Void) {
         Purchases.shared.offerings { [weak self] (offerings, error) in
             if error != nil {
                 loadSucceeded(false, error!.localizedDescription)
             } else {
-                if let offeringID = self?.offeringID {
-                    self?.offering = offerings?.offering(identifier: offeringID)
-                } else {
-                    self?.offering = offerings?.current
-                }
-                
-                if self?.offering == nil {
+                self?.proOffering = offerings?.current
+
+                if self?.proOffering == nil {
                     loadSucceeded(false, "No offerings found.")
                 } else {
-                    self?.package = self?.offering?.availablePackages.first
-                    self?.productPrice = self?.package?.localizedPriceString
-                    self?.productName = self?.package?.product.localizedTitle
-                    self?.productDescription = self?.package?.product.localizedDescription
-                    
+                    let pro = self?.proOffering?.lifetime
+                    self?.proPackage = pro
+                    self?.fourSixPro = IAPurchase(
+                        name: pro?.product.localizedTitle,
+                        localizedPriceString: pro?.localizedPriceString,
+                        localizedDescription: pro?.product.localizedDescription)
+
                     loadSucceeded(true, nil)
                 }
             }
         }
     }
-    
-    func purchase(package: Purchases.Package, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
+
+    func loadAllOfferings(loadSucceeded: @escaping (Bool, String?) -> Void) {
+        Purchases.shared.offerings { [weak self] (offerings, error) in
+            if error != nil {
+                loadSucceeded(false, error!.localizedDescription)
+            } else {
+                if let offerings = offerings {
+                    self?.offerings = offerings
+                    loadSucceeded(true, nil)
+                } else {
+                    loadSucceeded(false, "No offerings found.")
+                }
+            }
+        }
+    }
+
+    func loadTips(loadSucceeded: @escaping (Bool, String?) -> Void) {
+        Purchases.shared.offerings { [weak self] (offerings, error) in
+            if error != nil {
+                loadSucceeded(false, error!.localizedDescription)
+            } else {
+                if let offerings = offerings, let tipProducts = offerings.offering(identifier: self?.tipsPackageID)?.availablePackages {
+                    self?.offerings = offerings
+
+                    self?.tips.removeAll()
+
+                    for tipProduct in tipProducts {
+                        let tip = IAPurchase(
+                            name: tipProduct.product.localizedTitle,
+                            localizedPriceString: tipProduct.localizedPriceString,
+                            localizedDescription: tipProduct.product.localizedDescription
+                        )
+                        self?.tips.append(tip)
+                    }
+
+                    self?.tipPackages = tipProducts
+
+                    loadSucceeded(true, nil)
+                } else {
+                    loadSucceeded(false, "No tips found.")
+                }
+            }
+        }
+    }
+
+    func purchase(package: Purchases.Package, entitlementID: String?, purchaseSucceeded: @escaping (Bool, String?) -> Void) {
         if Purchases.canMakePayments() {
-            Purchases.shared.purchasePackage(package) { [weak self] (_, purchaserInfo, error, userCancelled) in
-                guard let self = self else { return }
+            Purchases.shared.purchasePackage(package) { (_, purchaserInfo, error, userCancelled) in
                 if let error = error as NSError? {
                     if !userCancelled {
                         // Log error details
                         let errCode = error.userInfo[Purchases.ReadableErrorCodeKey]
                         let errMessage = error.localizedDescription
                         let errUnderlying = error.userInfo[NSUnderlyingErrorKey]
-                        
+
                         print("Error: \(String(describing: errCode))")
                         print("Message: \(errMessage)")
                         print("Underlying Error: \(String(describing: errUnderlying))")
-                        
+
                         // Handle specific errors
                         switch Purchases.ErrorCode(_nsError: error).code {
                         case .purchaseNotAllowedError:
@@ -100,22 +148,29 @@ class IAPManager: NSObject {
                             purchaseSucceeded(false, errMessage)
                         }
                     } else {
+                        // User cancelled
                         purchaseSucceeded(false, nil)
                     }
                 } else {
-                    // Successful purchase
-                    if purchaserInfo?.entitlements[self.entitlementID]?.isActive == true {
-                        purchaseSucceeded(true, nil)
-                    } else {
-                        purchaseSucceeded(false, nil)
+                    // Successful purchase, double check if user now has active entitlement
+                    if let entitlementID = entitlementID {
+                        let activeEntitlement = purchaserInfo?.entitlements[entitlementID]?.isActive
+                        if activeEntitlement == true {
+                            purchaseSucceeded(true, nil)
+                        } else {
+                            purchaseSucceeded(false, "Unknown error. Please contact developer.")
+                        }
                     }
+
+                    // If no check is needed, like for tips, then just mark as successful
+                    purchaseSucceeded(true, nil)
                 }
             }
         } else {
             purchaseSucceeded(false, "User is not authorized to make purchases on this device.")
         }
     }
-    
+
     func restorePurchases(restoreSucceeded: @escaping (Bool, String?) -> Void) {
         Purchases.shared.restoreTransactions { (purchaserInfo, error) in
             if error != nil {
@@ -131,12 +186,12 @@ class IAPManager: NSObject {
             }
         }
     }
-    
+
     func userIsPro(proStatus: @escaping (Bool, Error?) -> Void) {
         // Get the latest purchaserInfo to see if user paid for Pro
         Purchases.shared.purchaserInfo { [weak self] (purchaserInfo, error) in
             guard let self = self else { return }
-            
+
             if let err = error {
                 print("Error checking user Pro status: \(err)")
                 proStatus(false, err)

@@ -49,6 +49,16 @@
                ReferencedContainer = "container:FourSix Coffee Timer.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "65138D56264EFA25008EB429"
+               BuildableName = "FourSixUITests.xctest"
+               BlueprintName = "FourSixUITests"
+               ReferencedContainer = "container:FourSix Coffee Timer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -10,35 +10,27 @@ import UIKit
 
 class NoteDetailsCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
-    weak var parentCoordinator: Coordinator?
+    weak var notesCoordinator: NotesCoordinator?
+    weak var timerCoordinator: TimerCoordinator?
     var navigationController: UINavigationController
     var dataManager: DataManager
     var note: NoteMO?
-    var session: Session?
-    var recipe: Recipe?
-    
+    var isNewNote: Bool = false
+
     init(navigationController: UINavigationController, dataManager: DataManager) {
         self.navigationController = navigationController
         self.dataManager = dataManager
     }
-    
+
     func start() {
         let vc = NoteDetailsVC.instantiate(fromStoryboardNamed: String(describing: NoteDetailsVC.self))
         vc.coordinator = self
         vc.dataManager = dataManager
-        
-        if let note = note {
-            vc.note = note
-        } else {
-            // Create new note
-            guard let recipe = recipe, let session = session else { return }
-            vc.note = dataManager.newNoteMO(session: session, recipe: recipe, coffee: nil)
-            vc.isNewNote = true
-        }
-        
+        vc.isNewNote = isNewNote
+        vc.note = note
         navigationController.pushViewController(vc, animated: true)
     }
-    
+
     func showCoffeePicker(currentPicked: CoffeeMO?, dataManager: DataManager, delegate: CoffeePickerDelegate) {
         let vc = CoffeePickerVC.instantiate(fromStoryboardNamed: String(describing: CoffeePickerVC.self))
         vc.coordinator = self
@@ -47,22 +39,24 @@ class NoteDetailsCoordinator: Coordinator {
         vc.dataManager = dataManager
         navigationController.pushViewController(vc, animated: true)
     }
-    
+
     func didFinishCoffeePicker() {
         navigationController.popViewController(animated: true)
     }
-    
+
     func showCoffeeEditor(coffee: CoffeeMO?, dataManager: DataManager) {
         let vc = CoffeeEditorVC.instantiate(fromStoryboardNamed: String(describing: CoffeeEditorVC.self))
         vc.coffeeMO = coffee
         vc.dataManager = dataManager
-        
+
         let navController = MainNavigationController(rootViewController: vc)
-        
+
         navigationController.present(navController, animated: true, completion: nil)
     }
-    
+
     func didFinishDetails() {
-        parentCoordinator?.childDidFinish(self)
+        notesCoordinator?.childDidFinish(self)
+        timerCoordinator?.childDidFinish(self)
+        timerCoordinator?.didFinishNewNote()
     }
 }

@@ -14,17 +14,18 @@ struct Coffee: ManagedObjectInitializable {
     var name: String = ""
     var origin: String = ""
     var roastLevel: String = ""
-    
+
     init() { }
-    
+
     init(managedObject: NSManagedObject) {
+        // swiftlint:disable:next force_cast
         let coffeeMO = managedObject as! CoffeeMO
         self.roaster = coffeeMO.roaster
         self.name = coffeeMO.name
         self.origin = coffeeMO.origin
         self.roastLevel = coffeeMO.roastLevel
     }
-    
+
     init(roaster: String, name: String, origin: String, roastLevel: String) {
         self.roaster = roaster
         self.name = name

@@ -49,7 +49,7 @@ static BOOL _forceUniversalAppStore = NO;
 }
 
 + (NSString *)frameworkVersion {
-    return @"3.10.4";
+    return @"3.11.1";
 }
 
 + (NSString *)systemVersion {
@@ -145,6 +145,10 @@ static BOOL _forceUniversalAppStore = NO;
 }
 
 #endif
+
+- (BOOL)isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion)version {
+    return [NSProcessInfo.processInfo isOperatingSystemAtLeastVersion:version];
+}
 
 @end
 

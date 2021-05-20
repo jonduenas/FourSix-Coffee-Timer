@@ -11,21 +11,21 @@ import UIKit
 class IntervalCell: TextFieldTableCell {
     private var pickerView: IntervalPickerView?
     private var dataSource = PickerDataSource()
-    
+
     lazy var interval = dataSource.selectedInterval {
         didSet {
             dataSource.selectedInterval = interval
-            
+
             cellTextField.text = TimeInterval(interval).minAndSecString
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         configurePicker()
     }
-    
+
     private func configurePicker() {
         pickerView = IntervalPickerView(frame: .zero,
                                      dataSource: dataSource,
@@ -33,12 +33,12 @@ class IntervalCell: TextFieldTableCell {
                                      toolbarDelegate: self)
         cellTextField.inputView = pickerView
         cellTextField.inputAccessoryView = pickerView?.toolbar
-        
+
         // Set picker to current saved value
         let (minutes, seconds) = TimeInterval(interval).minAndSec
         let currentMinIndex = dataSource.intervalMin.firstIndex(of: Int(minutes)) ?? 0
         let currentSecIndex = dataSource.intervalSec.firstIndex(of: Int(seconds)) ?? 0
-        
+
         pickerView?.selectRow(currentMinIndex, inComponent: IntervalPickerComponent.minValue.rawValue, animated: false)
         pickerView?.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)
     }
@@ -47,7 +47,7 @@ class IntervalCell: TextFieldTableCell {
 extension IntervalCell: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let intervalComponent = IntervalPickerComponent(rawValue: component)
-        
+
         switch intervalComponent {
         case .minValue:
             return String(dataSource.intervalMin[row])
@@ -57,7 +57,7 @@ extension IntervalCell: UIPickerViewDelegate {
             return nil
         }
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let minutes = dataSource.intervalMin[pickerView.selectedRow(inComponent: IntervalPickerComponent.minValue.rawValue)]
         let seconds = dataSource.intervalSec[pickerView.selectedRow(inComponent: IntervalPickerComponent.secValue.rawValue)]
@@ -73,12 +73,12 @@ extension IntervalCell: ToolBarPickerViewDelegate {
         }
         cellTextField.resignFirstResponder()
     }
-    
+
     func didTapDefault(_ picker: UIPickerView) {
         let defaultInterval = Int(Recipe.defaultRecipe.interval)
         guard defaultInterval != dataSource.selectedInterval else { return }
         guard let defaultIntervalIndex = dataSource.intervalSec.firstIndex(of: defaultInterval) else { return }
-        
+
         picker.selectRow(0, inComponent: IntervalPickerComponent.minValue.rawValue, animated: true)
         picker.selectRow(defaultIntervalIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
         cellTextField.text = "\(defaultInterval) sec"

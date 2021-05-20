@@ -15,10 +15,23 @@ class NoteCell: UITableViewCell {
     @IBOutlet weak var recipeLabel: UILabel!
     @IBOutlet weak var coffeeLabel: UILabel!
     @IBOutlet weak var waterLabel: UILabel!
-    @IBOutlet weak var ratingStackView: RatingControl!
-    
+    @IBOutlet weak var ratingStackView: RatingStackView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
+        initializeFonts()
+        setSelectedBackgroundColor()
+    }
+
+    private func initializeFonts() {
+        monthLabel.font = UIFont.newYork(size: 18, weight: .regular)
+        dayLabel.font = UIFont.newYork(size: 44, weight: .medium)
+    }
+
+    private func setSelectedBackgroundColor() {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(named: AssetsColor.separator.rawValue)
+        selectedBackgroundView = backgroundView
     }
 }

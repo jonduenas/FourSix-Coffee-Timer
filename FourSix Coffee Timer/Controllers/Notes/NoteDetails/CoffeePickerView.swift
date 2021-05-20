@@ -9,7 +9,7 @@
 import UIKit
 
 class CoffeePickerView: RoundedView {
-    
+
     @IBOutlet weak var coffeeDivider: UIView!
     @IBOutlet weak var addCoffeeStack: UIStackView!
     @IBOutlet weak var addCoffeeLabel: UILabel!
@@ -30,17 +30,16 @@ class CoffeePickerView: RoundedView {
             }
         }
     }
-    
-    var isEditing: Bool = false
-    
-    func setEditing(_ editing: Bool) {
-        isEditing = editing
-        
-        addCoffeeLabel.text = isEditing ? "Pick Coffee" : "None Selected"
-        chevronImage.isHidden = !isEditing
-        addCoffeeImage.isHidden = !isEditing
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        commonInit()
     }
-    
+
+    private func commonInit() {
+        showNewCoffeePicker(true)
+    }
+
     private func showNewCoffeePicker(_ shouldShow: Bool) {
         addCoffeeStack.isHidden = !shouldShow
         coffeeNameLabel.isHidden = shouldShow
@@ -49,20 +48,20 @@ class CoffeePickerView: RoundedView {
         originLabel.isHidden = shouldShow
         roastLevelLabel.isHidden = shouldShow
     }
-    
+
     private func updateCoffeeLabels(_ coffee: CoffeeMO) {
         coffeeNameLabel.text = coffee.name
         roasterLabel.text = "Roaster: \(coffee.roaster)"
-        
+
         let unknownString = "Unknown"
-        
+
         let origin = coffee.origin == "" ? unknownString : coffee.origin
         originLabel.text = "Origin: \(origin)"
-        
+
         let roastLevel = coffee.roastLevel == "" ? unknownString : coffee.roastLevel
         roastLevelLabel.text = "Roast Level: \(roastLevel)"
     }
-    
+
     func updateCoffeeLabels() {
         guard let coffee = coffee else { return }
         updateCoffeeLabels(coffee)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RatingControlDelegate: class {
+protocol RatingControlDelegate: AnyObject {
     func ratingControlShouldShowHint(ratingControl: RatingControl)
     func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int)
 }
@@ -20,22 +20,22 @@ class RatingControl: UIStackView {
             setupButtons()
         }
     }
-    
+
     @IBInspectable var starCount: Int = 5 {
         didSet {
             setupButtons()
         }
     }
-    
+
     var rating: Int = 0 {
         didSet {
             updateButtonSelectionStates()
             delegate?.ratingControl(ratingControl: self, didChangeRating: rating)
         }
     }
-    
+
     weak var delegate: RatingControlDelegate?
-    
+
     private var ratingButtons: [UIButton] = []
     private var offImage: UIImage? = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
     private var onImage: UIImage? = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
@@ -47,8 +47,8 @@ class RatingControl: UIStackView {
             setupButtons()
         }
     }
-    
-    private var editMode: Bool = false {
+
+    private var editMode: Bool = true {
         didSet {
             for button in ratingButtons {
                 button.tintColor = editMode ? enabledColor : disabledColor
@@ -60,78 +60,78 @@ class RatingControl: UIStackView {
         super.init(frame: frame)
         setupButtons()
     }
-    
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
         setupButtons()
     }
-    
+
     private func setupButtons() {
         // Clear any existing buttons
         for button in ratingButtons {
             removeArrangedSubview(button)
             button.removeFromSuperview()
         }
-        
+
         ratingButtons.removeAll()
-        
+
         // Creates new buttons
         for index in 0..<starCount {
             let button = UIButton()
-            
-            button.tintColor = disabledColor
-            
+
+            button.tintColor = enabledColor
+
             button.setImage(offImage, for: .normal)
             button.setImage(onImage, for: .selected)
             button.setImage(onImage, for: .highlighted)
             button.adjustsImageWhenHighlighted = false
-            
+
             // Action for single tap
             button.addTarget(self, action: #selector(ratingButtonTapped(sender:forEvent:)), for: .touchUpInside)
-            
+
             // Action for long press
             let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(ratingButtonLongTapped(sender:)))
             button.addGestureRecognizer(longGesture)
-            
+
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
-            
+
             button.accessibilityLabel = "Set \(index + 1) star rating"
-            
+
             addArrangedSubview(button)
             ratingButtons.append(button)
         }
-        
+
         updateButtonSelectionStates()
     }
-    
+
     // MARK: Button Action
-    
+
     @objc private func ratingButtonTapped(sender: UIButton, forEvent event: UIEvent) {
         guard editMode == true else {
             // If editMode is not enabled, should show hint for long pressing
             delegate?.ratingControlShouldShowHint(ratingControl: self)
             return
         }
-        
+
         setRating(for: sender)
     }
-    
+
     @objc private func ratingButtonLongTapped(sender: UILongPressGestureRecognizer) {
         guard sender.state == .began else { return }
         guard let button = sender.view as? UIButton else { return }
-        
+
         setRating(for: button)
     }
-    
+
     private func setRating(for button: UIButton) {
         guard let index = ratingButtons.firstIndex(of: button) else {
             fatalError("The button, \(button), is not in the ratingButtons array: \(ratingButtons)")
         }
-        
+
         let selectedRating = index + 1
-        
+
         if selectedRating == rating {
             // Reset rating to 0  if user selects current rating
             rating = 0
@@ -139,19 +139,19 @@ class RatingControl: UIStackView {
             rating = selectedRating
         }
     }
-    
+
     private func updateButtonSelectionStates() {
         for (index, button) in ratingButtons.enumerated() {
             // If the index of a button is less than the rating, that button should be selected
             button.isSelected = index < rating
-            
+
             let hintString: String?
             if rating == index + 1 {
                 hintString = "Tap to reset the rating to zero."
             } else {
                 hintString = nil
             }
-            
+
             let valueString: String
             switch rating {
             case 0:
@@ -161,15 +161,15 @@ class RatingControl: UIStackView {
             default:
                 valueString = "\(rating) stars set."
             }
-            
+
             button.accessibilityHint = hintString
             button.accessibilityValue = valueString
         }
     }
-    
+
     func setToEditMode(_ shouldSetToEdit: Bool) {
         guard editMode != shouldSetToEdit else { return }
-        
+
         editMode = shouldSetToEdit
     }
 }

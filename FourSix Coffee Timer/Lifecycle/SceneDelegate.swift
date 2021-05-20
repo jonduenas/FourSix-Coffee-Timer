@@ -14,17 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
-        
+
         let coreDataStack = CoreDataStack()
         let dataManager = DataManager(coreDataStack: coreDataStack)
         let tabBarController = MainTabBarController(dataManager: dataManager)
-        
+
         appWindow.rootViewController = tabBarController
         appWindow.makeKeyAndVisible()
         window = appWindow
     }
 }
-

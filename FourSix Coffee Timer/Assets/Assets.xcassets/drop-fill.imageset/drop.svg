@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="87px" height="127px" viewBox="0 0 87 127" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Regular-L</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-36.000000, -16.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Regular-L" transform="translate(36.000000, 16.000000)">
+                <path d="M43.1992,126.7832 C67.0762,126.7832 86.1191,108.17969 86.1191,84.9375 C86.1191,71.9004 79.625,59.0586 73.9121,48.4141 L51.0605,5.6406 C49.2051,2.3203 46.6172,0.7578 43.1992,0.7578 C39.7324,0.7578 37.1445,2.3203 35.3867,5.6406 L12.4863,48.4141 C6.7734,59.0586 0.2793,71.9004 0.2793,84.9375 C0.2793,108.17969 19.3223,126.7832 43.1992,126.7832 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

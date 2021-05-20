@@ -13,7 +13,7 @@ enum TableSection: Int, CaseIterable {
 }
 
 enum SettingsSectionCell: Int, CaseIterable {
-    case showTotalTime, tempUnit
+    case showTotalTime
 }
 
 enum ProSectionEnabledCell: Int, CaseIterable {
@@ -25,7 +25,7 @@ enum ProSectionDisabledCell: Int, CaseIterable {
 }
 
 enum AboutSectionCell: Int, CaseIterable {
-    case whatIsFourSix, howTo, faq, feedback, rate, share, acknowledgements
+    case learnMore, feedback, tipJar, rate, share, acknowledgements
 }
 
 enum TableCellIdentifier: String {
@@ -39,7 +39,7 @@ enum TableCellIdentifier: String {
 
 class SettingsDataSource: NSObject, UITableViewDataSource {
     private let settingsModel: Settings
-    
+
     let sectionHeaderStrings: [TableSection: String] = [
         .settings: "Settings",
         .fourSixProDisabled: "FourSix Pro",
@@ -47,33 +47,31 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         .aboutFourSix: "About FourSix"
     ]
     let settingsSectionStrings: [SettingsSectionCell: String] = [
-        .showTotalTime: "Show Total Time Elapsed",
-        .tempUnit: "Temperature Unit"
+        .showTotalTime: "Show Total Time Elapsed"
     ]
-    
+
     let proSectionEnabledStrings: [ProSectionEnabledCell: String] = [
         .ratio: "Coffee:Water Ratio",
         .stepAdvance: "Auto Advance Timer",
         .interval: "Timer Step Intervals"
     ]
-    
+
     let proSectionDisabledStrings: [ProSectionDisabledCell: String] = [
         .purchasePro: "Purchase FourSix Pro",
         .restorePro: "Restore Purchase"
     ]
-    
+
     let aboutSectionStrings: [AboutSectionCell: String] = [
-        .whatIsFourSix: "What Is FourSix?",
-        .howTo: "How Do I Use This App?",
-        .faq: "FAQ",
+        .learnMore: "Learn More",
         .feedback: "Send Feedback",
+        .tipJar: "Tip Jar",
         .rate: "Rate in the App Store",
         .share: "Share FourSix",
         .acknowledgements: "Acknowledgements"
     ]
-    
+
     var shownSections: [TableSection] = [.settings, .fourSixProDisabled, .aboutFourSix]
-    
+
     var userIsPro = false {
         didSet {
             if userIsPro {
@@ -83,31 +81,31 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
             }
         }
     }
-    
+
     var ratio: Float {
         didSet {
             settingsModel.ratio = ratio
         }
     }
-    
+
     var stepInterval: Int {
         didSet {
             settingsModel.stepInterval = stepInterval
         }
     }
-    
+
     var showTotalTime: Bool {
         didSet {
             settingsModel.showTotalTime = showTotalTime
         }
     }
-    
+
     var autoAdvanceTimer: Bool {
         didSet {
             settingsModel.autoAdvanceTimer = autoAdvanceTimer
         }
     }
-    
+
     override init() {
         self.settingsModel = Settings()
         self.ratio = settingsModel.ratio
@@ -116,15 +114,15 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         self.autoAdvanceTimer = settingsModel.autoAdvanceTimer
         super.init()
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return shownSections.count
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionHeaderStrings[shownSections[section]]
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch shownSections[section] {
         case .settings:
@@ -137,21 +135,19 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
             return AboutSectionCell.allCases.count
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch shownSections[indexPath.section] {
         case .settings:
             guard let settingsIndex = SettingsSectionCell(rawValue: indexPath.row) else { fatalError("Undefined cell in Settings section")}
-            
+
             switch settingsIndex {
             case .showTotalTime:
                 return createTotalTimeCell(for: tableView, indexPath, text: settingsSectionStrings[.showTotalTime])
-            case .tempUnit:
-                return createTempUnitCell(for: tableView, indexPath, text: settingsSectionStrings[.tempUnit])
             }
         case .fourSixProEnabled:
             guard let proIndex = ProSectionEnabledCell(rawValue: indexPath.row) else { fatalError("Undefined cell in Pro section") }
-            
+
             switch proIndex {
             case .ratio:
                 return createRatioCell(for: tableView, indexPath)
@@ -168,7 +164,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
             return createBasicCell(for: tableView, indexPath, text: aboutSectionStrings[aboutIndex], showDisclosure: true)
         }
     }
-    
+
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == shownSections.count - 1 {
             return Constants.appVersion
@@ -176,76 +172,75 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
             return nil
         }
     }
-    
+
     @objc func didSwitchTotalTime(_ sender: UISwitch) {
         settingsModel.showTotalTime = sender.isOn
     }
-    
+
     @objc func didSwitchAutoAdvance(_ sender: UISwitch) {
         settingsModel.autoAdvanceTimer = sender.isOn
     }
-    
-    @objc func didSelectTempUnit(_ sender: UISegmentedControl) {
-        guard let selectedUnit = TempUnit(rawValue: sender.selectedSegmentIndex) else {
-            print("Selected Temp Unit is undefined")
-            return
-        }
-        settingsModel.tempUnit = selectedUnit
-    }
-    
+
     private func createTotalTimeCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.switchCell.rawValue,
+                for: indexPath)
+                as? SwitchTableCell else {
+            fatalError("Unable to create SwitchTableCell")
+        }
         cell.cellLabel.text = text
         cell.settingSwitch.isOn = settingsModel.showTotalTime
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchTotalTime(_:)), for: .valueChanged)
         return cell
     }
-    
-    private func createTempUnitCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.segmentControlCell.rawValue, for: indexPath) as? SegmentControlCell else { fatalError("Unable to create SegmentControlCell") }
-        
-        cell.cellLabel.text = text
-        
-        let segments = ["ºC", "ºF"]
-        cell.configureSegmentControl(options: segments)
-        cell.cellSegmentedControl.selectedSegmentIndex = settingsModel.tempUnit.rawValue
-        cell.cellSegmentedControl.addTarget(self, action: #selector(didSelectTempUnit(_:)), for: .valueChanged)
-        
-        return cell
-    }
-    
+
     private func createRatioCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.ratioCell.rawValue, for: indexPath) as? RatioCell else { fatalError("Unable to create TextFieldTableCell") }
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.ratioCell.rawValue,
+                for: indexPath)
+                as? RatioCell else {
+            fatalError("Unable to create TextFieldTableCell")
+        }
         cell.cellLabel.text = proSectionEnabledStrings[.ratio]
         cell.cellTextField.text = "1:\(settingsModel.ratio.clean)"
         return cell
     }
-    
+
     private func createStepAdvanceCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.switchCell.rawValue, for: indexPath) as? SwitchTableCell else { fatalError("Unable to create SwitchTableCell") }
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.switchCell.rawValue,
+                for: indexPath)
+                as? SwitchTableCell else {
+            fatalError("Unable to create SwitchTableCell")
+        }
         cell.cellLabel.text = proSectionEnabledStrings[.stepAdvance]
         cell.settingSwitch.isOn = settingsModel.autoAdvanceTimer
         cell.settingSwitch.addTarget(self, action: #selector(didSwitchAutoAdvance(_:)), for: .valueChanged)
         return cell
     }
-    
+
     private func createIntervalCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.intervalCell.rawValue, for: indexPath) as? IntervalCell else { fatalError("Unable to create TextFieldTableCell") }
-        
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TableCellIdentifier.intervalCell.rawValue,
+                for: indexPath)
+                as? IntervalCell else {
+            fatalError("Unable to create TextFieldTableCell")
+        }
+
         cell.cellLabel.text = proSectionEnabledStrings[.interval]
         cell.cellTextField.text = TimeInterval(settingsModel.stepInterval).minAndSecString
-        
+
         return cell
     }
-    
+
     private func createBasicCell(for tableView: UITableView, _ indexPath: IndexPath, text: String?, showDisclosure: Bool = false) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableCellIdentifier.basicCell.rawValue, for: indexPath)
         cell.textLabel?.text = text
-        
+
         if showDisclosure {
             cell.accessoryType = .disclosureIndicator
         }
-        
+
         return cell
     }
 }

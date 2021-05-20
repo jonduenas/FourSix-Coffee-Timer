@@ -13,14 +13,14 @@ class BrewCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentVC: BrewVC?
     var dataManager: DataManager!
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
         guard dataManager != nil else { fatalError("Coordinator requires a DataManager") }
-        
+
         let vc = BrewVC.instantiate(fromStoryboardNamed: String(describing: BrewVC.self))
         vc.coordinator = self
         vc.dataManager = dataManager
@@ -28,13 +28,13 @@ class BrewCoordinator: Coordinator {
         vc.tabBarItem = UITabBarItem(title: "Let's Brew", image: UIImage(systemName: "timer"), tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }
-    
+
     func showWalkthrough() {
         let vc = WalkthroughPageVC.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
         vc.coordinator = self
         navigationController.present(vc, animated: true, completion: nil)
     }
-    
+
     func showRecipe(recipe: Recipe) {
         let vc = RecipeVC.instantiate(fromStoryboardNamed: String(describing: RecipeVC.self))
         vc.coordinator = self
@@ -42,7 +42,7 @@ class BrewCoordinator: Coordinator {
         let recipeNav = MainNavigationController(rootViewController: vc)
         navigationController.present(recipeNav, animated: true, completion: nil)
     }
-    
+
     func showSettings() {
         let settingsNav = SettingsNavigationController()
         let child = SettingsCoordinator(navigationController: settingsNav)
@@ -52,11 +52,11 @@ class BrewCoordinator: Coordinator {
         child.start()
         navigationController.present(child.navigationController, animated: true, completion: nil)
     }
-    
+
     func didFinishSettings() {
         parentVC?.updateSettings()
     }
-    
+
     func showTimer(for recipe: Recipe) {
         let timerNav = TimerNavigationController()
         let childCoordinator = TimerCoordinator(navigationController: timerNav, recipe: recipe, dataManager: dataManager)
@@ -64,22 +64,5 @@ class BrewCoordinator: Coordinator {
         childCoordinator.parentCoordinator = self
         childCoordinator.start()
         navigationController.present(childCoordinator.navigationController, animated: true, completion: nil)
-    }
-    
-    func showProPaywall(delegate: PaywallDelegate) {
-        let vc = PurchaseProVC.instantiate(fromStoryboardNamed: String(describing: PurchaseProVC.self))
-        vc.delegate = delegate
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        navigationController.present(vc, animated: true, completion: nil)
-    }
-    
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
     }
 }
