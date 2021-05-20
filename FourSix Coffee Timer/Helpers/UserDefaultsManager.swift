@@ -9,9 +9,8 @@
 import Foundation
 
 class UserDefaultsManager: NSObject {
-
     private static let userDefaults = UserDefaults.standard
-    
+
     enum UserDefaultsKeys: String {
         case launchedBeforeKey
         case totalTimeShownKey
@@ -28,30 +27,9 @@ class UserDefaultsManager: NSObject {
         case userHasSeenCoffeeRangeWarningKey
         case userHasMigratedStepAdvanceKey
         case autoAdvanceTimerKey
-        case tempUnitRawValueKey
+        case hasSeenNotificationRequestKey
+        case sendReminderNotificationKey
     }
-    
-
-    // MARK: Key Values
-    private static let launchedBeforeKey = "launchedBeforeKey"
-    private static let totalTimeShownKey = "totalTimeShownKey"
-    private static let timerStepAdvanceKey = "timerStepAdvanceKey"
-    private static let ratioKey = "ratioKey"
-    private static let ratioSelectKey = "ratioSelectKey"
-    private static let timerStepIntervalKey = "timerStepIntervalKey"
-    private static let previousCoffeeKey = "previousCoffeeKey"
-    private static let previousSelectedBalanceKey = "previousSelectedBalanceKey"
-    private static let previousSelectedStrengthKey = "previousSelectedStrengthKey"
-    private static let userHasSeenWalkthroughKey = "userHasSeenWalkthroughKey"
-    private static let reviewWorthyActionCountKey = "reviewWorthyActionCountKey"
-    private static let lastReviewRequestAppVersionKey = "lastReviewRequestAppVersionKey"
-    private static let userHasSeenCoffeeRangeWarningKey = "userHasSeenCoffeeRangeWarningKey"
-    private static let userHasMigratedStepAdvanceKey = "userHasMigratedStepAdvanceKey"
-    private static let autoAdvanceTimerKey = "autoAdvanceTimerKey"
-    private static let hasSeenNotificationRequestKey = "hasSeenNotificationRequestKey"
-    private static let sendReminderNotificationKey = "sendReminderNotificationKey"
-
-    // MARK: Variables
 
     static var launchedBefore: Bool {
         get {
@@ -118,7 +96,7 @@ class UserDefaultsManager: NSObject {
 
     static var previousSelectedBalance: Float {
         get {
-            return userDefaults.object(forKey: UserDefaultsKeys.previousSelectedBalanceKey.rawValue) as? Float ?? Balance.neutral.rawValue
+            return userDefaults.object(forKey: UserDefaultsKeys.previousSelectedBalanceKey.rawValue) as? Float ?? Balance.even.rawValue
         }
         set {
             userDefaults.set(newValue, forKey: UserDefaultsKeys.previousSelectedBalanceKey.rawValue)
@@ -190,19 +168,19 @@ class UserDefaultsManager: NSObject {
 
     static var hasSeenNotificationRequest: Bool {
         get {
-            return userDefaults.object(forKey: hasSeenNotificationRequestKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.hasSeenNotificationRequestKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: hasSeenNotificationRequestKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.hasSeenNotificationRequestKey.rawValue)
         }
     }
 
     static var sendReminderNotification: Bool {
         get {
-            return userDefaults.object(forKey: sendReminderNotificationKey) as? Bool ?? false
+            return userDefaults.object(forKey: UserDefaultsKeys.sendReminderNotificationKey.rawValue) as? Bool ?? false
         }
         set {
-            userDefaults.set(newValue, forKey: sendReminderNotificationKey)
+            userDefaults.set(newValue, forKey: UserDefaultsKeys.sendReminderNotificationKey.rawValue)
         }
     }
 }
