@@ -18,29 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyP-I3-Duc">
-                                <rect key="frame" x="0.0" y="64" width="414" height="798"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" name="Background"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTs-qS-q48">
-                                <rect key="frame" x="361" y="54" width="33" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" name="Accent"/>
-                                <state key="normal" title="Skip"/>
-                                <connections>
-                                    <action selector="skipTapped:" destination="ubt-b4-YQe" eventType="touchUpInside" id="xfu-5x-XnH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lGL-Gr-hIl"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="yyP-I3-Duc" firstAttribute="leading" secondItem="lGL-Gr-hIl" secondAttribute="leading" id="2iv-2b-2cM"/>
-                            <constraint firstItem="CTs-qS-q48" firstAttribute="top" secondItem="lGL-Gr-hIl" secondAttribute="top" constant="10" id="ELR-u6-BA4"/>
-                            <constraint firstItem="CTs-qS-q48" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lGL-Gr-hIl" secondAttribute="leading" symbolic="YES" id="ZPC-rJ-HBX"/>
-                            <constraint firstItem="yyP-I3-Duc" firstAttribute="top" secondItem="lGL-Gr-hIl" secondAttribute="top" constant="20" id="byZ-wg-ukc"/>
+                            <constraint firstItem="yyP-I3-Duc" firstAttribute="top" secondItem="lGL-Gr-hIl" secondAttribute="top" id="byZ-wg-ukc"/>
                             <constraint firstItem="yyP-I3-Duc" firstAttribute="bottom" secondItem="lGL-Gr-hIl" secondAttribute="bottom" id="iL5-Tc-dqr"/>
                             <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="yyP-I3-Duc" secondAttribute="trailing" id="w3v-hP-SXZ"/>
-                            <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="CTs-qS-q48" secondAttribute="trailing" constant="20" id="yn7-1p-6qK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dwT-0P-IM5"/>

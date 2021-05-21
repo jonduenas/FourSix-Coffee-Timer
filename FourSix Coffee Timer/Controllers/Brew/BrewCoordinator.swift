@@ -30,7 +30,7 @@ class BrewCoordinator: Coordinator {
     }
 
     func showWalkthrough() {
-        let walkthroughNav = UINavigationController()
+        let walkthroughNav = MainNavigationController()
         let child = WalkthroughCoordinator(navigationController: walkthroughNav)
         child.parentCoordinator = self
         childCoordinators.append(child)

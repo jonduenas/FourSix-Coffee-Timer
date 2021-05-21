@@ -19,7 +19,18 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureNavigationController()
         configurePageViewController()
+    }
+
+    private func configureNavigationController() {
+        navigationController?.navigationBar.standardAppearance.configureWithTransparentBackground()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Skip",
+            style: .done,
+            target: self,
+            action: #selector(didTapSkipButton(_:)))
     }
 
     func configurePageViewController() {
@@ -72,9 +83,12 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
 
         return contentViewController
     }
-    @IBAction func skipTapped(_ sender: Any) {
-        UserDefaultsManager.userHasSeenWalkthrough = true
-        self.dismiss(animated: true)
+
+    @objc func didTapSkipButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true) {
+            // UserDefaultsManager.userHasSeenWalkthrough = true
+            self.coordinator?.didFinishWalkthrough()
+        }
     }
 }
 
