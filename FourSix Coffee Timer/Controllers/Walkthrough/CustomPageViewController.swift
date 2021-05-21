@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomPageViewController: UIPageViewController {
+class CustomPageViewController: UIPageViewController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()

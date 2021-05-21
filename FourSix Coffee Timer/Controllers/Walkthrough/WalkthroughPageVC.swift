@@ -23,9 +23,7 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
     }
 
     func configurePageViewController() {
-        guard let pageViewController = storyboard?.instantiateViewController(
-                withIdentifier: String(describing: CustomPageViewController.self))
-                as? CustomPageViewController else {
+        guard let pageViewController = coordinator?.getPageViewController() as? CustomPageViewController else {
             return
         }
 
@@ -39,25 +37,14 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
 
         contentView.addSubview(pageViewController.view)
 
-        let views: [String: Any] = ["pageView": pageViewController.view as Any]
+        let constraints = [
+            pageViewController.view.topAnchor.constraint(equalTo: contentView.topAnchor),
+            pageViewController.view.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            contentView.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor),
+            contentView.rightAnchor.constraint(equalTo: pageViewController.view.rightAnchor)
+        ]
 
-        contentView.addConstraints(
-            NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[pageView]-0-|",
-                options: NSLayoutConstraint.FormatOptions(rawValue: 0),
-                metrics: nil,
-                views: views
-            )
-        )
-
-        contentView.addConstraints(
-            NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-0-[pageView]-0-|",
-                options: NSLayoutConstraint.FormatOptions(rawValue: 0),
-                metrics: nil,
-                views: views
-            )
-        )
+        NSLayoutConstraint.activate(constraints)
 
         guard let startingViewController = contentViewControllerAt(index: currentViewControllerIndex) else { return }
 

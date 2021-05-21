@@ -35,6 +35,11 @@ class BrewCoordinator: Coordinator {
         navigationController.present(vc, animated: true, completion: nil)
     }
 
+    func getPageViewController() -> UIPageViewController {
+        let pageVC = CustomPageViewController.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
+        return pageVC
+    }
+
     func showRecipe(recipe: Recipe) {
         let vc = RecipeVC.instantiate(fromStoryboardNamed: String(describing: RecipeVC.self))
         vc.coordinator = self

@@ -11,9 +11,6 @@ import UIKit
 class WalkthroughContentVC: UIViewController {
 
     @IBOutlet var walkthroughImage: UIImageView!
-    @IBOutlet var endLabel: UILabel!
-    @IBOutlet var neededToolsStack: UIStackView!
-    @IBOutlet var startButton: UIButton!
 
     var walkthroughImageName = ""
     var index = 0
@@ -33,13 +30,13 @@ class WalkthroughContentVC: UIViewController {
 
     private func showLastPage(_ show: Bool) {
         walkthroughImage.isHidden = show
-        neededToolsStack.isHidden = !show
-        endLabel.isHidden = !show
-        startButton.isHidden = !show
+//        neededToolsStack.isHidden = !show
+//        endLabel.isHidden = !show
+//        startButton.isHidden = !show
     }
 
-    @IBAction func startTapped(_ sender: Any) {
-        UserDefaultsManager.userHasSeenWalkthrough = true
-        self.dismiss(animated: true)
-    }
+//    @IBAction func startTapped(_ sender: Any) {
+//        UserDefaultsManager.userHasSeenWalkthrough = true
+//        self.dismiss(animated: true)
+//    }
 }
