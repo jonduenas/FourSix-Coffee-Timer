@@ -12,7 +12,7 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
     let walkthroughImageNames = ["walkthrough-1", "walkthrough-2", "walkthrough-3", "walkthrough-4", "walkthrough-4"]
 
     var currentViewControllerIndex = 0
-    weak var coordinator: BrewCoordinator?
+    weak var coordinator: WalkthroughCoordinator?
 
     @IBOutlet weak var contentView: UIView!
 

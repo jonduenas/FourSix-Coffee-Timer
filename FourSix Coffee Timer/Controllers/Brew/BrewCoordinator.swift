@@ -30,14 +30,12 @@ class BrewCoordinator: Coordinator {
     }
 
     func showWalkthrough() {
-        let vc = WalkthroughPageVC.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
-        vc.coordinator = self
-        navigationController.present(vc, animated: true, completion: nil)
-    }
-
-    func getPageViewController() -> UIPageViewController {
-        let pageVC = CustomPageViewController.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
-        return pageVC
+        let walkthroughNav = UINavigationController()
+        let child = WalkthroughCoordinator(navigationController: walkthroughNav)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
+        navigationController.present(child.navigationController, animated: true, completion: nil)
     }
 
     func showRecipe(recipe: Recipe) {

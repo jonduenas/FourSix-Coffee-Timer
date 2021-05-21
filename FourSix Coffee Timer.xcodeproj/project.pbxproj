@@ -128,6 +128,7 @@
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
 		65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */; };
 		65F1F7B32624D6D700B2C369 /* NoteDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1F7B22624D6D700B2C369 /* NoteDetailsCoordinator.swift */; };
+		65F3D1B926583F6200451976 /* WalkthroughCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3D1B826583F6200451976 /* WalkthroughCoordinator.swift */; };
 		65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182625DDCD9A006CF438 /* Ratio.swift */; };
 		65F5182B25E052FE006CF438 /* TimerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182A25E052FE006CF438 /* TimerNavigationController.swift */; };
 		65F5182F25E06144006CF438 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182E25E06144006CF438 /* TimerCoordinator.swift */; };
@@ -284,6 +285,7 @@
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
 		65F1F7B22624D6D700B2C369 /* NoteDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsCoordinator.swift; sourceTree = "<group>"; };
+		65F3D1B826583F6200451976 /* WalkthroughCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughCoordinator.swift; sourceTree = "<group>"; };
 		65F5182625DDCD9A006CF438 /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 		65F5182A25E052FE006CF438 /* TimerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNavigationController.swift; sourceTree = "<group>"; };
 		65F5182E25E06144006CF438 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */,
 				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
 				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
+				65F3D1B826583F6200451976 /* WalkthroughCoordinator.swift */,
 			);
 			path = Walkthrough;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */,
 				65127BC2260D0A5E0014A9E7 /* FourSix.xcdatamodeld in Sources */,
 				65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */,
+				65F3D1B926583F6200451976 /* WalkthroughCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

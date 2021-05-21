@@ -43,18 +43,7 @@
                             <constraint firstItem="lGL-Gr-hIl" firstAttribute="trailing" secondItem="CTs-qS-q48" secondAttribute="trailing" constant="20" id="yn7-1p-6qK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dwT-0P-IM5">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="hCf-4g-wjN">
-                            <connections>
-                                <action selector="closeButtonTapped:" destination="ubt-b4-YQe" id="nft-4l-b2d"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Skip" id="Hwo-ip-viw">
-                            <connections>
-                                <action selector="skipButtonTapped:" destination="ubt-b4-YQe" id="eNf-IQ-sQ8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="dwT-0P-IM5"/>
                     <connections>
                         <outlet property="contentView" destination="yyP-I3-Duc" id="Pjt-EM-QoG"/>
                     </connections>
