@@ -57,31 +57,12 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
 
         NSLayoutConstraint.activate(constraints)
 
-        guard let startingViewController = contentViewControllerAt(index: currentViewControllerIndex) else { return }
+        guard let startingViewController = coordinator?.getContentViewController(
+                at: currentViewControllerIndex,
+                imageName: walkthroughImageNames[currentViewControllerIndex]
+        ) else { return }
 
         pageViewController.setViewControllers([startingViewController], direction: .forward, animated: true)
-    }
-
-    func contentViewControllerAt(index: Int) -> WalkthroughContentVC? {
-        if index >= walkthroughImageNames.count || walkthroughImageNames.count == 0 {
-            return nil
-        }
-
-        guard let contentViewController = storyboard?.instantiateViewController(
-                withIdentifier: String(describing: WalkthroughContentVC.self))
-                as? WalkthroughContentVC else {
-            return nil
-        }
-
-        contentViewController.index = index
-        contentViewController.walkthroughImageName = walkthroughImageNames[index]
-
-        if index == walkthroughImageNames.count - 1 {
-            // Last page
-            contentViewController.isLastPage = true
-        }
-
-        return contentViewController
     }
 
     @objc func didTapSkipButton(_ sender: UIBarButtonItem) {
@@ -114,7 +95,10 @@ extension WalkthroughPageVC: UIPageViewControllerDelegate, UIPageViewControllerD
 
         currentIndex -= 1
 
-        return contentViewControllerAt(index: currentIndex)
+        return coordinator?.getContentViewController(
+            at: currentIndex,
+            imageName: walkthroughImageNames[currentIndex]
+        )
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -130,6 +114,9 @@ extension WalkthroughPageVC: UIPageViewControllerDelegate, UIPageViewControllerD
 
         currentViewControllerIndex = currentIndex
 
-        return contentViewControllerAt(index: currentIndex)
+        return coordinator?.getContentViewController(
+            at: currentIndex,
+            imageName: walkthroughImageNames[currentIndex]
+        )
     }
 }

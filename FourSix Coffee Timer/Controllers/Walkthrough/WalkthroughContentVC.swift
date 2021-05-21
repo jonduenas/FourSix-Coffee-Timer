@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalkthroughContentVC: UIViewController {
+class WalkthroughContentVC: UIViewController, Storyboarded {
 
     @IBOutlet var walkthroughImage: UIImageView!
 

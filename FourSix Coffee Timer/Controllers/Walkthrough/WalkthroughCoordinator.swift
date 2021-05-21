@@ -28,6 +28,13 @@ class WalkthroughCoordinator: Coordinator {
         return pageVC
     }
 
+    func getContentViewController(at index: Int, imageName: String) -> WalkthroughContentVC {
+        let contentVC = WalkthroughContentVC.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
+        contentVC.index = index
+        contentVC.walkthroughImageName = imageName
+        return contentVC
+    }
+
     func didFinishWalkthrough() {
         parentCoordinator?.childDidFinish(self)
     }
