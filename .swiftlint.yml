@@ -1,0 +1,26 @@
+included:
+  - FourSix Coffee Timer
+  - FourSixTests
+  - FourSixUITests
+
+excluded:
+  - FourSixUITests/SnapshotHelper.swift
+   
+disabled_rules:
+  - cyclomatic_complexity
+  - function_parameter_count
+  - function_body_length
+  
+line_length:
+  warning: 140
+  error: 240
+  ignores_function_declarations: true
+  ignores_interpolated_strings: true
+  ignores_urls: true
+  
+identifier_name:
+  excluded:
+    - id
+    - vc
+    - ok
+    - UIViewControllerTransitionCoordinatorContext

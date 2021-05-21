@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tip JarVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TipJarVC" id="Y6W-OH-hqX" customClass="TipJarVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tipjar-header" translatesAutoresizingMaskIntoConstraints="NO" id="Mos-Pk-Z8v">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="iFY-Wj-9wx"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtC-Y0-sK6" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
+                                <rect key="frame" x="16" y="16" width="28" height="28"/>
+                                <color key="backgroundColor" name="Accent"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="3Qz-1m-TF6"/>
+                                    <constraint firstAttribute="width" constant="28" id="z5P-I5-Ve9"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="small"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="V36-8q-SC3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you're feeling extra generous and would like to support FourSix development even more, feel free to leave a tip." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-mg-ICC">
+                                <rect key="frame" x="50" y="230" width="314" height="81.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FmP-b5-gkv">
+                                <rect key="frame" x="50" y="341.5" width="314" height="44"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-KT-0k1">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Espresso Shot Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml7-7o-Ju2">
+                                                <rect key="frame" x="0.0" y="12" width="240" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beK-tl-xEK" customClass="LoadingButton" customModule="FourSix" customModuleProvider="target">
+                                                <rect key="frame" x="248" y="0.0" width="66" height="44"/>
+                                                <color key="backgroundColor" name="Accent"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="GVF-9f-6cA"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ml7-7o-Ju2" firstAttribute="leading" secondItem="0ns-KT-0k1" secondAttribute="leading" id="3Vk-AV-Ajf"/>
+                                            <constraint firstItem="beK-tl-xEK" firstAttribute="leading" secondItem="ml7-7o-Ju2" secondAttribute="trailing" constant="8" id="5RF-4X-Sgj"/>
+                                            <constraint firstItem="ml7-7o-Ju2" firstAttribute="centerY" secondItem="0ns-KT-0k1" secondAttribute="centerY" id="Acy-KL-bDm"/>
+                                            <constraint firstItem="beK-tl-xEK" firstAttribute="centerY" secondItem="0ns-KT-0k1" secondAttribute="centerY" id="Pe0-G4-5Vp"/>
+                                            <constraint firstAttribute="trailing" secondItem="beK-tl-xEK" secondAttribute="trailing" id="cws-g6-RPP"/>
+                                            <constraint firstAttribute="height" constant="44" id="uKj-Yq-IFc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HRj-mg-ICC" secondAttribute="trailing" constant="50" id="0nz-Vg-c96"/>
+                            <constraint firstItem="FmP-b5-gkv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="2L6-qo-cmb"/>
+                            <constraint firstItem="FmP-b5-gkv" firstAttribute="top" secondItem="HRj-mg-ICC" secondAttribute="bottom" constant="30" id="8mj-9v-aug"/>
+                            <constraint firstItem="HRj-mg-ICC" firstAttribute="top" secondItem="Mos-Pk-Z8v" secondAttribute="bottom" constant="30" id="9W8-RA-gvq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mos-Pk-Z8v" secondAttribute="trailing" id="GRy-mG-0Vh"/>
+                            <constraint firstItem="HRj-mg-ICC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="HaN-ah-pfN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FmP-b5-gkv" secondAttribute="trailing" constant="50" id="PA0-T5-O2o"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FmP-b5-gkv" secondAttribute="bottom" constant="16" id="Q51-il-is8"/>
+                            <constraint firstItem="Mos-Pk-Z8v" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="S9v-p0-EtJ"/>
+                            <constraint firstItem="AtC-Y0-sK6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="TL8-QO-1Wb"/>
+                            <constraint firstItem="AtC-Y0-sK6" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="16" id="cmG-2b-eM9"/>
+                            <constraint firstItem="Mos-Pk-Z8v" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dsv-Bc-Gfj"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="600"/>
+                    <connections>
+                        <outlet property="closeButton" destination="AtC-Y0-sK6" id="bO3-1V-Uuh"/>
+                        <outlet property="tipStackView" destination="FmP-b5-gkv" id="1O5-6m-T4w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4" y="113"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="AtC-Y0-sK6">
+            <size key="intrinsicContentSize" width="15.5" height="22"/>
+        </designable>
+        <designable name="beK-tl-xEK">
+            <size key="intrinsicContentSize" width="66" height="18"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="tipjar-header" width="428" height="250"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="Accent">
+            <color red="0.91764705882352937" green="0.72156862745098038" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

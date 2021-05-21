@@ -11,6 +11,12 @@
 		650E81F525EDBAA000DF119B /* RecipeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650E81F425EDBA9400DF119B /* RecipeVC.storyboard */; };
 		650E81F925EDBAD800DF119B /* TimerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650E81F825EDBAD800DF119B /* TimerVC.storyboard */; };
 		650E81FD25EDBB0900DF119B /* BrewSummaryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650E81FC25EDBB0900DF119B /* BrewSummaryVC.storyboard */; };
+		65127BBD260D09CA0014A9E7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65127BBC260D09CA0014A9E7 /* CoreDataStack.swift */; };
+		65127BC2260D0A5E0014A9E7 /* FourSix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65127BC0260D0A5E0014A9E7 /* FourSix.xcdatamodeld */; };
+		65127BCC260D0B8A0014A9E7 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65127BC6260D0B600014A9E7 /* TestCoreDataStack.swift */; };
+		6512EA882603E0C1002DC1CF /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6512EA872603E0C1002DC1CF /* Note.swift */; };
+		65138D5A264EFA25008EB429 /* FourSixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65138D59264EFA25008EB429 /* FourSixUITests.swift */; };
+		65138D62264EFA93008EB429 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65138D61264EFA93008EB429 /* SnapshotHelper.swift */; };
 		6515EACF24B2563B004255EB /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6515EACE24B2563B004255EB /* Shadow.swift */; };
 		65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65185B9324BF8CB200F47F30 /* LoadingButton.swift */; };
 		6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6518D13424B4FADE00F786C4 /* Settings.bundle */; };
@@ -22,46 +28,74 @@
 		6527564A2475B138004E067F /* BrewVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652756482475B138004E067F /* BrewVC.storyboard */; };
 		6527564C2475B13B004E067F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6527564B2475B13B004E067F /* Assets.xcassets */; };
 		6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6527564D2475B13B004E067F /* LaunchScreen.storyboard */; };
-		6529E117249FE66F0093FAE1 /* FrequentlyAskedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */; };
 		6529E119249FECC60093FAE1 /* faq.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E118249FECC60093FAE1 /* faq.rtf */; };
-		6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E11A249FEFFB0093FAE1 /* HowToVC.swift */; };
 		6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6529E11C249FF2E30093FAE1 /* howto.rtf */; };
+		6529E78F264C4AD600A82AAE /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529E78E264C4AD600A82AAE /* TipView.swift */; };
+		652BAFE2264B0AC500D4011E /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652BAFE1264B0AC500D4011E /* WebViewVC.swift */; };
+		652BAFE7264B392400D4011E /* TipJarVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652BAFE6264B392400D4011E /* TipJarVC.storyboard */; };
+		652BAFE9264B452100D4011E /* TipJarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652BAFE8264B452100D4011E /* TipJarVC.swift */; };
 		652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */; };
 		652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */; };
-		65315ADE249ADB4D00994E28 /* Clean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean.swift */; };
+		652DC7E92645C29B003CDAA7 /* RatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC7E82645C29B003CDAA7 /* RatingStackView.swift */; };
+		65315ADE249ADB4D00994E28 /* Clean+DoubleFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */; };
 		6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720924A6B06F00709062 /* RecipeVC.swift */; };
 		6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6531720D24A6B4DB00709062 /* RoundButton.swift */; };
+		6536F2682602934300E2DF28 /* NotesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6536F2672602934300E2DF28 /* NotesVC.storyboard */; };
+		6536F26C2602936000E2DF28 /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6536F26B2602936000E2DF28 /* NotesVC.swift */; };
+		6536F2702602BD8000E2DF28 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6536F26F2602BD8000E2DF28 /* NoteCell.swift */; };
+		6536F2782602BEAE00E2DF28 /* NoteDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */; };
+		6536F27C2602BED700E2DF28 /* NoteDetailsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6536F27B2602BED600E2DF28 /* NoteDetailsVC.storyboard */; };
 		6537159D25F16AE800F162DD /* RatioPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6537159C25F16AE800F162DD /* RatioPickerView.swift */; };
 		653715A125F177B200F162DD /* IntervalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653715A025F177B200F162DD /* IntervalPickerView.swift */; };
 		653715AB25F1874200F162DD /* PickerToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653715AA25F1874200F162DD /* PickerToolbar.swift */; };
 		653DBF6625F2F31A00AE7D9E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653DBF6525F2F31A00AE7D9E /* Constants.swift */; };
+		653E6317260957AE00BA32BF /* NotesTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E6316260957AE00BA32BF /* NotesTextView.swift */; };
+		653E631B26095B6E00BA32BF /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E631A26095B6E00BA32BF /* RatingControl.swift */; };
 		6542DDF625D8512D0067C704 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */; };
 		6542DDFA25D858AB0067C704 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */; };
 		6542EDCB24E20096009AA897 /* BrewSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */; };
 		6543841625F0541700AB71F7 /* PickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6543841525F0541700AB71F7 /* PickerDataSource.swift */; };
-		6543841A25F063CC00AB71F7 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6543841925F063CC00AB71F7 /* Int.swift */; };
+		6543841A25F063CC00AB71F7 /* MinAndSec+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6543841925F063CC00AB71F7 /* MinAndSec+Double.swift */; };
+		654468222626536A00494D0A /* SlideOverPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654468212626536A00494D0A /* SlideOverPresentation.swift */; };
+		65480C0526533AA90060F3F9 /* RegisterKeyboardNotifications+NoteDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65480C0426533AA90060F3F9 /* RegisterKeyboardNotifications+NoteDetailsVC.swift */; };
+		654A327E2628C18F00A07E5B /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A327D2628C18F00A07E5B /* DatePickerView.swift */; };
 		6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6557571424A673C00071DDB8 /* ProgressCircle.swift */; };
 		6559A03424BD1B5B00AE4C14 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6559A03324BD1B5A00AE4C14 /* IAPManager.swift */; };
 		655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BB6B224916B3900ED5575 /* SettingsVC.swift */; };
-		6561ACA624BBBEA400C9F129 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */; };
 		6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */; };
 		6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6561ACA924BBDE5800C9F129 /* RoundedView.swift */; };
-		6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */; };
+		6561ACAD24BBE64300C9F129 /* PurchaseProVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6561ACAB24BBE64300C9F129 /* PurchaseProVC.storyboard */; };
+		656B9DFA2657065E00C05F69 /* Wiggle+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B9DF92657065E00C05F69 /* Wiggle+UIButton.swift */; };
 		656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */; };
 		656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D0D53251D586A001EE918 /* TimerScheduler.swift */; };
 		6572EE742492A0C5008AAD56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6572EE732492A0C5008AAD56 /* WebKit.framework */; };
-		657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657744F2249194BE00B199F6 /* WhatIs46VC.swift */; };
+		6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A32603D03E0029E396 /* NotesCoordinator.swift */; };
+		6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577F2A72603D24F0029E396 /* MainTabBarController.swift */; };
+		6579FB52263A09D700CAAAA0 /* RoundedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6579FB51263A09D700CAAAA0 /* RoundedStackView.swift */; };
+		657A2631260A85A20009CD9A /* DoneToolBar+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */; };
+		657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */; };
+		6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B525F6D2110019D8D1 /* RatioCell.swift */; };
+		6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */; };
+		6584A9BE25F6F3690019D8D1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584A9BD25F6F3690019D8D1 /* Settings.swift */; };
 		65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C04247D8DEC00A4CE76 /* BrewVC.swift */; };
 		65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859C08247D95B700A4CE76 /* TimerVC.swift */; };
 		659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659785CF25141CB200DFB60A /* CalculatorTests.swift */; };
 		6599310625EEC38600840005 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310525EEC38600840005 /* Style.swift */; };
 		6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6599310925EECAF400840005 /* Style+FourSix.swift */; };
+		659F8803261B9F7000D4F89F /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8802261B9F7000D4F89F /* DateTextField.swift */; };
+		659FCE8C2617C9AE00039F6A /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659FCE8B2617C9AE00039F6A /* DataSource.swift */; };
+		65A2775425FFE88F0093B0B9 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2775325FFE88F0093B0B9 /* AlertHelper.swift */; };
 		65A282A0251D3342001AD862 /* MockTimerScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2829F251D3342001AD862 /* MockTimerScheduler.swift */; };
 		65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */; };
 		65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */; };
 		65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */; };
+		65ADCF9F265473B0009FB446 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADCF9E265473B0009FB446 /* LocalNotificationManager.swift */; };
 		65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
 		65B0D84025E6D394002B4F34 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 65B0D83E25E6D394002B4F34 /* Configuration.storekit */; };
+		65B3140525F40291004D9758 /* SettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3140425F40291004D9758 /* SettingsDataSource.swift */; };
+		65B3140925F41BB4004D9758 /* SwitchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3140825F41BB4004D9758 /* SwitchTableCell.swift */; };
+		65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3140C25F422BD004D9758 /* TextFieldTableCell.swift */; };
+		65BAE628263B844400F94D23 /* NewYorkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAE627263B844300F94D23 /* NewYorkLabel.swift */; };
 		65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBA6C425E99979003BC3C7 /* PaywallDelegate.swift */; };
 		65BBA6C925E999DD003BC3C7 /* TimerScheduling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBA6C825E999DD003BC3C7 /* TimerScheduling.swift */; };
 		65BBE40125E470F700788156 /* RecipeBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BBE40025E470F700788156 /* RecipeBarChart.swift */; };
@@ -70,19 +104,48 @@
 		65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9225D71775007177B8 /* Coordinator.swift */; };
 		65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9825D717DA007177B8 /* Storyboarded.swift */; };
 		65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */; };
-		65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF064925D759650075E082 /* BrewNavigationController.swift */; };
+		65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF064925D759650075E082 /* MainNavigationController.swift */; };
+		65C7843426373D030014A6EC /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7843326373D030014A6EC /* CustomSlider.swift */; };
+		65D5096F26388B1F0078307E /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5096E26388B1F0078307E /* SegmentedControl.swift */; };
+		65D5DE85260D38B800353385 /* SessionMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE7B260D38B800353385 /* SessionMO+CoreDataClass.swift */; };
+		65D5DE86260D38B800353385 /* SessionMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE7C260D38B800353385 /* SessionMO+CoreDataProperties.swift */; };
+		65D5DE89260D38B800353385 /* RecipeMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE7F260D38B800353385 /* RecipeMO+CoreDataClass.swift */; };
+		65D5DE8A260D38B800353385 /* RecipeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE80260D38B800353385 /* RecipeMO+CoreDataProperties.swift */; };
+		65D5DE8B260D38B800353385 /* CoffeeMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE81260D38B800353385 /* CoffeeMO+CoreDataClass.swift */; };
+		65D5DE8C260D38B800353385 /* CoffeeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE82260D38B800353385 /* CoffeeMO+CoreDataProperties.swift */; };
+		65D5DE8D260D38B800353385 /* NoteMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE83260D38B800353385 /* NoteMO+CoreDataClass.swift */; };
+		65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */; };
+		65DD15DD261E6BA300EB000E /* CoffeePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */; };
+		65DD15E3261E6D0600EB000E /* CoffeePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */; };
+		65DD15E7261F739E00EB000E /* CoffeeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */; };
+		65DD15EB261F949E00EB000E /* CoffeeEditorVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DD15EA261F949E00EB000E /* CoffeeEditorVC.storyboard */; };
+		65DD15F0261F94D900EB000E /* CoffeeEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD15EF261F94D900EB000E /* CoffeeEditorVC.swift */; };
+		65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1205A260E6F060059465B /* SegmentControlCell.swift */; };
+		65E12065261104A90059465B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12064261104A90059465B /* DataManager.swift */; };
+		65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E120682611209D0059465B /* MangedObjectInitializable.swift */; };
+		65E1206D261129830059465B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1206C261129830059465B /* Session.swift */; };
+		65E12071261129B30059465B /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E12070261129B30059465B /* Coffee.swift */; };
 		65E157D924C635A80082D7AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E157D824C635A70082D7AC /* AVFoundation.framework */; };
 		65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */; };
+		65F1F7B32624D6D700B2C369 /* NoteDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1F7B22624D6D700B2C369 /* NoteDetailsCoordinator.swift */; };
 		65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182625DDCD9A006CF438 /* Ratio.swift */; };
 		65F5182B25E052FE006CF438 /* TimerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182A25E052FE006CF438 /* TimerNavigationController.swift */; };
 		65F5182F25E06144006CF438 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5182E25E06144006CF438 /* TimerCoordinator.swift */; };
 		65FB31AF24CA130E00781023 /* WalkthroughPageVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB31AD24CA130E00781023 /* WalkthroughPageVC.storyboard */; };
 		65FB6549249C18CC00ED732F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB6548249C18CC00ED732F /* Calculator.swift */; };
 		65FB654B249C19F800ED732F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB654A249C19F800ED732F /* Recipe.swift */; };
+		65FF841D2620F006008B2BE2 /* CoffeePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF841C2620F006008B2BE2 /* CoffeePickerView.swift */; };
 		7809654740865E175362B9C9 /* Pods_FourSix_Coffee_Timer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		65138D5C264EFA25008EB429 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 652756372475B138004E067F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6527563E2475B138004E067F;
+			remoteInfo = "FourSix Coffee Timer";
+		};
 		659785D225141CB200DFB60A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 652756372475B138004E067F /* Project object */;
@@ -95,9 +158,17 @@
 /* Begin PBXFileReference section */
 		1359EFBCA6055F83DA97C30B /* Pods-FourSix Coffee Timer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.release.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.release.xcconfig"; sourceTree = "<group>"; };
 		65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		650E81F425EDBA9400DF119B /* RecipeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = RecipeVC.storyboard; path = "/Users/jonduenas/Local Documents/46 Timer/FourSix Coffee Timer/FourSix Coffee Timer/Controllers/Brew/Recipe/RecipeVC.storyboard"; sourceTree = "<absolute>"; };
+		650E81F425EDBA9400DF119B /* RecipeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeVC.storyboard; sourceTree = "<group>"; };
 		650E81F825EDBAD800DF119B /* TimerVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimerVC.storyboard; sourceTree = "<group>"; };
 		650E81FC25EDBB0900DF119B /* BrewSummaryVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BrewSummaryVC.storyboard; sourceTree = "<group>"; };
+		65127BBC260D09CA0014A9E7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		65127BC1260D0A5E0014A9E7 /* FourSix.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FourSix.xcdatamodel; sourceTree = "<group>"; };
+		65127BC6260D0B600014A9E7 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
+		6512EA872603E0C1002DC1CF /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		65138D57264EFA25008EB429 /* FourSixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65138D59264EFA25008EB429 /* FourSixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSixUITests.swift; sourceTree = "<group>"; };
+		65138D5B264EFA25008EB429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65138D61264EFA93008EB429 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		6515EACE24B2563B004255EB /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		65185B9324BF8CB200F47F30 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		6518D13424B4FADE00F786C4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -111,36 +182,56 @@
 		6527564B2475B13B004E067F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6527564E2475B13B004E067F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		652756502475B13B004E067F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedVC.swift; sourceTree = "<group>"; };
 		6529E118249FECC60093FAE1 /* faq.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = faq.rtf; sourceTree = "<group>"; };
-		6529E11A249FEFFB0093FAE1 /* HowToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HowToVC.swift; path = "FourSix Coffee Timer/Controllers/Settings/HowToVC.swift"; sourceTree = SOURCE_ROOT; };
 		6529E11C249FF2E30093FAE1 /* howto.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = howto.rtf; sourceTree = "<group>"; };
+		6529E78E264C4AD600A82AAE /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		652BAFE1264B0AC500D4011E /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		652BAFE6264B392400D4011E /* TipJarVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipJarVC.storyboard; sourceTree = "<group>"; };
+		652BAFE8264B452100D4011E /* TipJarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarVC.swift; sourceTree = "<group>"; };
 		652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsVC.swift; sourceTree = "<group>"; };
 		652C95E524B28E3B00B471C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsVC.storyboard; sourceTree = "<group>"; };
-		65315ADD249ADB4D00994E28 /* Clean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clean.swift; sourceTree = "<group>"; };
+		652DC7E82645C29B003CDAA7 /* RatingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStackView.swift; sourceTree = "<group>"; };
+		65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clean+DoubleFloat.swift"; sourceTree = "<group>"; };
 		6531720924A6B06F00709062 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		6531720D24A6B4DB00709062 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		6536F2672602934300E2DF28 /* NotesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotesVC.storyboard; sourceTree = "<group>"; };
+		6536F26B2602936000E2DF28 /* NotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesVC.swift; sourceTree = "<group>"; };
+		6536F26F2602BD8000E2DF28 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsVC.swift; sourceTree = "<group>"; };
+		6536F27B2602BED600E2DF28 /* NoteDetailsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoteDetailsVC.storyboard; sourceTree = "<group>"; };
 		6537159C25F16AE800F162DD /* RatioPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioPickerView.swift; sourceTree = "<group>"; };
 		653715A025F177B200F162DD /* IntervalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPickerView.swift; sourceTree = "<group>"; };
 		653715AA25F1874200F162DD /* PickerToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerToolbar.swift; sourceTree = "<group>"; };
 		653DBF6525F2F31A00AE7D9E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		653E6316260957AE00BA32BF /* NotesTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTextView.swift; sourceTree = "<group>"; };
+		653E631A26095B6E00BA32BF /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		6542EDCA24E20096009AA897 /* BrewSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSummaryVC.swift; sourceTree = "<group>"; };
 		6543841525F0541700AB71F7 /* PickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDataSource.swift; sourceTree = "<group>"; };
-		6543841925F063CC00AB71F7 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		6543841925F063CC00AB71F7 /* MinAndSec+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MinAndSec+Double.swift"; sourceTree = "<group>"; };
+		654468212626536A00494D0A /* SlideOverPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverPresentation.swift; sourceTree = "<group>"; };
+		65480C0426533AA90060F3F9 /* RegisterKeyboardNotifications+NoteDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterKeyboardNotifications+NoteDetailsVC.swift"; sourceTree = "<group>"; };
+		654A327D2628C18F00A07E5B /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		6557571424A673C00071DDB8 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressCircle.swift; path = "FourSix Coffee Timer/View/ProgressCircle.swift"; sourceTree = SOURCE_ROOT; };
 		6559A03324BD1B5A00AE4C14 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		655BB6B224916B3900ED5575 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseProVC.swift; sourceTree = "<group>"; };
 		6561ACA924BBDE5800C9F129 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
-		6561ACAC24BBE64300C9F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FourSixProPopup.storyboard; sourceTree = "<group>"; };
+		6561ACAC24BBE64300C9F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PurchaseProVC.storyboard; sourceTree = "<group>"; };
+		656B9DF92657065E00C05F69 /* Wiggle+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wiggle+UIButton.swift"; sourceTree = "<group>"; };
 		656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		656D0D53251D586A001EE918 /* TimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduler.swift; sourceTree = "<group>"; };
 		6572EE732492A0C5008AAD56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		657744F2249194BE00B199F6 /* WhatIs46VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIs46VC.swift; sourceTree = "<group>"; };
+		6577F2A32603D03E0029E396 /* NotesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCoordinator.swift; sourceTree = "<group>"; };
+		6577F2A72603D24F0029E396 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		6579557F25E32FE500BC244E /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6579FB51263A09D700CAAAA0 /* RoundedStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedStackView.swift; sourceTree = "<group>"; };
+		657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoneToolBar+UITextField.swift"; sourceTree = "<group>"; };
+		657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringFromDate+Date.swift"; sourceTree = "<group>"; };
+		6584A9B525F6D2110019D8D1 /* RatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCell.swift; sourceTree = "<group>"; };
+		6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalCell.swift; sourceTree = "<group>"; };
+		6584A9BD25F6F3690019D8D1 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		65859C04247D8DEC00A4CE76 /* BrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewVC.swift; sourceTree = "<group>"; };
 		65859C08247D95B700A4CE76 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		659785CD25141CB200DFB60A /* FourSixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,11 +239,19 @@
 		659785D125141CB200DFB60A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6599310525EEC38600840005 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		6599310925EECAF400840005 /* Style+FourSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style+FourSix.swift"; sourceTree = "<group>"; };
+		659F8802261B9F7000D4F89F /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
+		659FCE8B2617C9AE00039F6A /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		65A2775325FFE88F0093B0B9 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		65A2829F251D3342001AD862 /* MockTimerScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimerScheduler.swift; sourceTree = "<group>"; };
 		65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentVC.swift; sourceTree = "<group>"; };
 		65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		65AA73E92482EE5B00F8B519 /* WalkthroughPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageVC.swift; sourceTree = "<group>"; };
+		65ADCF9E265473B0009FB446 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		65B0D83E25E6D394002B4F34 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		65B3140425F40291004D9758 /* SettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataSource.swift; sourceTree = "<group>"; };
+		65B3140825F41BB4004D9758 /* SwitchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableCell.swift; sourceTree = "<group>"; };
+		65B3140C25F422BD004D9758 /* TextFieldTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
+		65BAE627263B844300F94D23 /* NewYorkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkLabel.swift; sourceTree = "<group>"; };
 		65BBA6C425E99979003BC3C7 /* PaywallDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallDelegate.swift; sourceTree = "<group>"; };
 		65BBA6C825E999DD003BC3C7 /* TimerScheduling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScheduling.swift; sourceTree = "<group>"; };
 		65BBE40025E470F700788156 /* RecipeBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBarChart.swift; sourceTree = "<group>"; };
@@ -161,20 +260,49 @@
 		65BE8A9225D71775007177B8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65BE8A9825D717DA007177B8 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCoordinator.swift; sourceTree = "<group>"; };
-		65BF064925D759650075E082 /* BrewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNavigationController.swift; sourceTree = "<group>"; };
+		65BF064925D759650075E082 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		65C7843326373D030014A6EC /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		65D5096E26388B1F0078307E /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		65D5DE7B260D38B800353385 /* SessionMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		65D5DE7C260D38B800353385 /* SessionMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65D5DE7F260D38B800353385 /* RecipeMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		65D5DE80260D38B800353385 /* RecipeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65D5DE81260D38B800353385 /* CoffeeMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoffeeMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		65D5DE82260D38B800353385 /* CoffeeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoffeeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65D5DE83260D38B800353385 /* NoteMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoffeePickerVC.storyboard; sourceTree = "<group>"; };
+		65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePickerVC.swift; sourceTree = "<group>"; };
+		65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDataSource.swift; sourceTree = "<group>"; };
+		65DD15EA261F949E00EB000E /* CoffeeEditorVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CoffeeEditorVC.storyboard; sourceTree = "<group>"; };
+		65DD15EF261F94D900EB000E /* CoffeeEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeEditorVC.swift; sourceTree = "<group>"; };
+		65E1205A260E6F060059465B /* SegmentControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
+		65E12064261104A90059465B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		65E120682611209D0059465B /* MangedObjectInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangedObjectInitializable.swift; sourceTree = "<group>"; };
+		65E1206C261129830059465B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		65E12070261129B30059465B /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		65E157D824C635A70082D7AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		65EF3BF8251AAEEA0038EA57 /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
+		65F1F7B22624D6D700B2C369 /* NoteDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsCoordinator.swift; sourceTree = "<group>"; };
 		65F5182625DDCD9A006CF438 /* Ratio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratio.swift; sourceTree = "<group>"; };
 		65F5182A25E052FE006CF438 /* TimerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNavigationController.swift; sourceTree = "<group>"; };
 		65F5182E25E06144006CF438 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		65FB31AE24CA130E00781023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WalkthroughPageVC.storyboard; sourceTree = "<group>"; };
 		65FB6548249C18CC00ED732F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		65FB654A249C19F800ED732F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		65FF841C2620F006008B2BE2 /* CoffeePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeePickerView.swift; sourceTree = "<group>"; };
 		90B655B6E32694C42047CF60 /* Pods_FourSix_Coffee_Timer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSix_Coffee_Timer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C3092A6CB8D224FB0CD0F1 /* Pods-FourSix Coffee Timer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSix Coffee Timer.debug.xcconfig"; path = "Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		65138D54264EFA25008EB429 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6527563C2475B138004E067F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -199,10 +327,35 @@
 		650E81EF25EDBA0500DF119B /* PurchasePro */ = {
 			isa = PBXGroup;
 			children = (
-				6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */,
+				6561ACAB24BBE64300C9F129 /* PurchaseProVC.storyboard */,
 				6561ACA724BBDC6E00C9F129 /* PurchaseProVC.swift */,
 			);
 			path = PurchasePro;
+			sourceTree = "<group>";
+		};
+		65127BC5260D0B4A0014A9E7 /* Test Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				65127BC6260D0B600014A9E7 /* TestCoreDataStack.swift */,
+			);
+			path = "Test Fakes";
+			sourceTree = "<group>";
+		};
+		65127BD3260D0C810014A9E7 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		65138D58264EFA25008EB429 /* FourSixUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65138D59264EFA25008EB429 /* FourSixUITests.swift */,
+				65138D61264EFA93008EB429 /* SnapshotHelper.swift */,
+				65138D5B264EFA25008EB429 /* Info.plist */,
+			);
+			path = FourSixUITests;
 			sourceTree = "<group>";
 		};
 		652756362475B138004E067F = {
@@ -210,6 +363,7 @@
 			children = (
 				652756412475B138004E067F /* FourSix Coffee Timer */,
 				659785CE25141CB200DFB60A /* FourSixTests */,
+				65138D58264EFA25008EB429 /* FourSixUITests */,
 				652756402475B138004E067F /* Products */,
 				6572EE722492A0C5008AAD56 /* Frameworks */,
 				DB8B806FFE40500727875B03 /* Pods */,
@@ -221,6 +375,7 @@
 			children = (
 				6527563F2475B138004E067F /* FourSix.app */,
 				659785CD25141CB200DFB60A /* FourSixTests.xctest */,
+				65138D57264EFA25008EB429 /* FourSixUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,17 +385,69 @@
 			children = (
 				65B0D83E25E6D394002B4F34 /* Configuration.storekit */,
 				653DBF6525F2F31A00AE7D9E /* Constants.swift */,
-				65BE8A9125D7175A007177B8 /* Protocols */,
-				654B2F3924C78C2600AA3A7C /* Assets */,
-				654B2F3B24C78C9C00AA3A7C /* Extensions */,
-				653DBF6925F2F5A700AE7D9E /* Lifecycle */,
 				6518D13424B4FADE00F786C4 /* Settings.bundle */,
+				652756502475B13B004E067F /* Info.plist */,
+				653DBF6925F2F5A700AE7D9E /* Lifecycle */,
+				654B2F3924C78C2600AA3A7C /* Assets */,
+				65127BD3260D0C810014A9E7 /* Support */,
+				65BE8A9125D7175A007177B8 /* Protocols */,
+				65A2774925FFE6C70093B0B9 /* Helpers */,
+				654B2F3B24C78C9C00AA3A7C /* Extensions */,
 				65FB6547249C18A100ED732F /* Model */,
 				65AFC1FB249D55A300576AFA /* View */,
 				65AFC1FC249D5A0800576AFA /* Controllers */,
-				652756502475B13B004E067F /* Info.plist */,
+				65127BC5260D0B4A0014A9E7 /* Test Fakes */,
 			);
 			path = "FourSix Coffee Timer";
+			sourceTree = "<group>";
+		};
+		652BAFE5264B391100D4011E /* Tip Jar */ = {
+			isa = PBXGroup;
+			children = (
+				652BAFE6264B392400D4011E /* TipJarVC.storyboard */,
+				652BAFE8264B452100D4011E /* TipJarVC.swift */,
+				6529E78E264C4AD600A82AAE /* TipView.swift */,
+			);
+			path = "Tip Jar";
+			sourceTree = "<group>";
+		};
+		6536F2662602931D00E2DF28 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				653E631A26095B6E00BA32BF /* RatingControl.swift */,
+				652DC7E82645C29B003CDAA7 /* RatingStackView.swift */,
+				6536F2732602BE6000E2DF28 /* NotesTable */,
+				6536F2762602BE7000E2DF28 /* NoteDetails */,
+				65DD15DB261E6B8200EB000E /* CoffeePicker */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		6536F2732602BE6000E2DF28 /* NotesTable */ = {
+			isa = PBXGroup;
+			children = (
+				6536F2672602934300E2DF28 /* NotesVC.storyboard */,
+				6536F26B2602936000E2DF28 /* NotesVC.swift */,
+				659FCE8B2617C9AE00039F6A /* DataSource.swift */,
+				6536F26F2602BD8000E2DF28 /* NoteCell.swift */,
+				6577F2A32603D03E0029E396 /* NotesCoordinator.swift */,
+			);
+			path = NotesTable;
+			sourceTree = "<group>";
+		};
+		6536F2762602BE7000E2DF28 /* NoteDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6536F27B2602BED600E2DF28 /* NoteDetailsVC.storyboard */,
+				6536F2772602BEAE00E2DF28 /* NoteDetailsVC.swift */,
+				65480C0426533AA90060F3F9 /* RegisterKeyboardNotifications+NoteDetailsVC.swift */,
+				654A327D2628C18F00A07E5B /* DatePickerView.swift */,
+				659F8802261B9F7000D4F89F /* DateTextField.swift */,
+				653E6316260957AE00BA32BF /* NotesTextView.swift */,
+				65FF841C2620F006008B2BE2 /* CoffeePickerView.swift */,
+				65F1F7B22624D6D700B2C369 /* NoteDetailsCoordinator.swift */,
+			);
+			path = NoteDetails;
 			sourceTree = "<group>";
 		};
 		653DBF6925F2F5A700AE7D9E /* Lifecycle */ = {
@@ -272,10 +479,11 @@
 		654B2F3B24C78C9C00AA3A7C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				65315ADD249ADB4D00994E28 /* Clean.swift */,
-				6543841925F063CC00AB71F7 /* Int.swift */,
+				65315ADD249ADB4D00994E28 /* Clean+DoubleFloat.swift */,
+				657A263A260AAEFC0009CD9A /* StringFromDate+Date.swift */,
+				6543841925F063CC00AB71F7 /* MinAndSec+Double.swift */,
 				65BBE40825E5AB1D00788156 /* Brace+UIBezierPath.swift */,
-				6561ACA524BBBEA400C9F129 /* UIViewControllerExtensions.swift */,
+				657A2630260A85A20009CD9A /* DoneToolBar+UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,16 +514,13 @@
 		6599B4732524FF73005EA7DD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				652BAFE5264B391100D4011E /* Tip Jar */,
+				65A2774C25FFE7380093B0B9 /* About */,
+				65A2774D25FFE7630093B0B9 /* TableViewCells */,
+				65A2774E25FFE77E0093B0B9 /* Pickers */,
 				652C95E424B28E3B00B471C8 /* SettingsVC.storyboard */,
 				655BB6B224916B3900ED5575 /* SettingsVC.swift */,
-				653715A025F177B200F162DD /* IntervalPickerView.swift */,
-				653715AA25F1874200F162DD /* PickerToolbar.swift */,
-				6537159C25F16AE800F162DD /* RatioPickerView.swift */,
-				6543841525F0541700AB71F7 /* PickerDataSource.swift */,
-				657744F2249194BE00B199F6 /* WhatIs46VC.swift */,
-				6529E11A249FEFFB0093FAE1 /* HowToVC.swift */,
-				6529E116249FE66F0093FAE1 /* FrequentlyAskedVC.swift */,
-				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
+				65B3140425F40291004D9758 /* SettingsDataSource.swift */,
 				6542DDF525D8512D0067C704 /* SettingsCoordinator.swift */,
 				6542DDF925D858AB0067C704 /* SettingsNavigationController.swift */,
 			);
@@ -333,6 +538,51 @@
 			path = Walkthrough;
 			sourceTree = "<group>";
 		};
+		65A2774925FFE6C70093B0B9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6559A03324BD1B5A00AE4C14 /* IAPManager.swift */,
+				65A2775325FFE88F0093B0B9 /* AlertHelper.swift */,
+				65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */,
+				65127BBC260D09CA0014A9E7 /* CoreDataStack.swift */,
+				65E12064261104A90059465B /* DataManager.swift */,
+				65ADCF9E265473B0009FB446 /* LocalNotificationManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		65A2774C25FFE7380093B0B9 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				652BAFE1264B0AC500D4011E /* WebViewVC.swift */,
+				652C4A5C24AAA77600857883 /* AcknowledgementsVC.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		65A2774D25FFE7630093B0B9 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				65B3140825F41BB4004D9758 /* SwitchTableCell.swift */,
+				65B3140C25F422BD004D9758 /* TextFieldTableCell.swift */,
+				6584A9B525F6D2110019D8D1 /* RatioCell.swift */,
+				65E1205A260E6F060059465B /* SegmentControlCell.swift */,
+				6584A9B925F6D6B90019D8D1 /* IntervalCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		65A2774E25FFE77E0093B0B9 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				653715A025F177B200F162DD /* IntervalPickerView.swift */,
+				653715AA25F1874200F162DD /* PickerToolbar.swift */,
+				6537159C25F16AE800F162DD /* RatioPickerView.swift */,
+				6543841525F0541700AB71F7 /* PickerDataSource.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
 		65AFC1FB249D55A300576AFA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,8 +593,13 @@
 				6531720D24A6B4DB00709062 /* RoundButton.swift */,
 				65185B9324BF8CB200F47F30 /* LoadingButton.swift */,
 				6561ACA924BBDE5800C9F129 /* RoundedView.swift */,
+				6579FB51263A09D700CAAAA0 /* RoundedStackView.swift */,
 				6515EACE24B2563B004255EB /* Shadow.swift */,
+				65C7843326373D030014A6EC /* CustomSlider.swift */,
 				656BE04F24AE691E0024AB48 /* CustomSegmentControl.swift */,
+				65D5096E26388B1F0078307E /* SegmentedControl.swift */,
+				65BAE627263B844300F94D23 /* NewYorkLabel.swift */,
+				656B9DF92657065E00C05F69 /* Wiggle+UIButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,6 +607,10 @@
 		65AFC1FC249D5A0800576AFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6577F2A72603D24F0029E396 /* MainTabBarController.swift */,
+				65BF064925D759650075E082 /* MainNavigationController.swift */,
+				654468212626536A00494D0A /* SlideOverPresentation.swift */,
+				6536F2662602931D00E2DF28 /* Notes */,
 				65BE8A9C25D71C9D007177B8 /* Brew */,
 				6599B4732524FF73005EA7DD /* Settings */,
 				650E81EF25EDBA0500DF119B /* PurchasePro */,
@@ -374,10 +633,11 @@
 		65BBE40D25E5AFCE00788156 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				65BBE40E25E5AFFB00788156 /* Summary */,
 				650E81F825EDBAD800DF119B /* TimerVC.storyboard */,
 				65859C08247D95B700A4CE76 /* TimerVC.swift */,
-				65F5182E25E06144006CF438 /* TimerCoordinator.swift */,
 				65F5182A25E052FE006CF438 /* TimerNavigationController.swift */,
+				65F5182E25E06144006CF438 /* TimerCoordinator.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -398,6 +658,7 @@
 				65BE8A9825D717DA007177B8 /* Storyboarded.swift */,
 				65BBA6C425E99979003BC3C7 /* PaywallDelegate.swift */,
 				65BBA6C825E999DD003BC3C7 /* TimerScheduling.swift */,
+				65E120682611209D0059465B /* MangedObjectInitializable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -408,26 +669,63 @@
 				652756482475B138004E067F /* BrewVC.storyboard */,
 				65859C04247D8DEC00A4CE76 /* BrewVC.swift */,
 				65BE8A9F25D7231A007177B8 /* BrewCoordinator.swift */,
-				65BF064925D759650075E082 /* BrewNavigationController.swift */,
 				65BBE40C25E5AFB500788156 /* Recipe */,
 				65BBE40D25E5AFCE00788156 /* Timer */,
-				65BBE40E25E5AFFB00788156 /* Summary */,
 			);
 			path = Brew;
+			sourceTree = "<group>";
+		};
+		65D5DE62260D350D00353385 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				65D5DE7B260D38B800353385 /* SessionMO+CoreDataClass.swift */,
+				65D5DE7C260D38B800353385 /* SessionMO+CoreDataProperties.swift */,
+				65D5DE7F260D38B800353385 /* RecipeMO+CoreDataClass.swift */,
+				65D5DE80260D38B800353385 /* RecipeMO+CoreDataProperties.swift */,
+				65D5DE81260D38B800353385 /* CoffeeMO+CoreDataClass.swift */,
+				65D5DE82260D38B800353385 /* CoffeeMO+CoreDataProperties.swift */,
+				65D5DE83260D38B800353385 /* NoteMO+CoreDataClass.swift */,
+				65D5DE84260D38B800353385 /* NoteMO+CoreDataProperties.swift */,
+				65127BC0260D0A5E0014A9E7 /* FourSix.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		65DD15DB261E6B8200EB000E /* CoffeePicker */ = {
+			isa = PBXGroup;
+			children = (
+				65DD15EE261F94AC00EB000E /* CoffeeEditor */,
+				65DD15DC261E6BA200EB000E /* CoffeePickerVC.storyboard */,
+				65DD15E2261E6D0600EB000E /* CoffeePickerVC.swift */,
+				65DD15E6261F739E00EB000E /* CoffeeDataSource.swift */,
+			);
+			path = CoffeePicker;
+			sourceTree = "<group>";
+		};
+		65DD15EE261F94AC00EB000E /* CoffeeEditor */ = {
+			isa = PBXGroup;
+			children = (
+				65DD15EA261F949E00EB000E /* CoffeeEditorVC.storyboard */,
+				65DD15EF261F94D900EB000E /* CoffeeEditorVC.swift */,
+			);
+			path = CoffeeEditor;
 			sourceTree = "<group>";
 		};
 		65FB6547249C18A100ED732F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6559A03324BD1B5A00AE4C14 /* IAPManager.swift */,
+				65D5DE62260D350D00353385 /* CoreData */,
 				6529E11C249FF2E30093FAE1 /* howto.rtf */,
 				6529E118249FECC60093FAE1 /* faq.rtf */,
 				651ACC0E249D96ED0087C4F3 /* CoffeeTimer.swift */,
 				656D0D53251D586A001EE918 /* TimerScheduler.swift */,
 				65FB6548249C18CC00ED732F /* Calculator.swift */,
+				6584A9BD25F6F3690019D8D1 /* Settings.swift */,
 				65FB654A249C19F800ED732F /* Recipe.swift */,
 				65F5182625DDCD9A006CF438 /* Ratio.swift */,
-				65065FEE24B3CA610070E3CE /* UserDefaultsManager.swift */,
+				6512EA872603E0C1002DC1CF /* Note.swift */,
+				65E12070261129B30059465B /* Coffee.swift */,
+				65E1206C261129830059465B /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,11 +742,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		65138D56264EFA25008EB429 /* FourSixUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65138D60264EFA25008EB429 /* Build configuration list for PBXNativeTarget "FourSixUITests" */;
+			buildPhases = (
+				65138D53264EFA25008EB429 /* Sources */,
+				65138D54264EFA25008EB429 /* Frameworks */,
+				65138D55264EFA25008EB429 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65138D5D264EFA25008EB429 /* PBXTargetDependency */,
+			);
+			name = FourSixUITests;
+			productName = FourSixUITests;
+			productReference = 65138D57264EFA25008EB429 /* FourSixUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6527563E2475B138004E067F /* FourSix Coffee Timer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 652756532475B13B004E067F /* Build configuration list for PBXNativeTarget "FourSix Coffee Timer" */;
 			buildPhases = (
 				A3A9D62A28BBBE31558BE7A1 /* [CP] Check Pods Manifest.lock */,
+				65480C03265325BE0060F3F9 /* ShellScript */,
 				6527563B2475B138004E067F /* Sources */,
 				6527563C2475B138004E067F /* Frameworks */,
 				6527563D2475B138004E067F /* Resources */,
@@ -488,10 +805,14 @@
 		652756372475B138004E067F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Jon Duenas";
 				TargetAttributes = {
+					65138D56264EFA25008EB429 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 6527563E2475B138004E067F;
+					};
 					6527563E2475B138004E067F = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -516,29 +837,42 @@
 			targets = (
 				6527563E2475B138004E067F /* FourSix Coffee Timer */,
 				659785CC25141CB200DFB60A /* FourSixTests */,
+				65138D56264EFA25008EB429 /* FourSixUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		65138D55264EFA25008EB429 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6527563D2475B138004E067F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DD15EB261F949E00EB000E /* CoffeeEditorVC.storyboard in Resources */,
 				6518D13524B4FADE00F786C4 /* Settings.bundle in Resources */,
 				650E81FD25EDBB0900DF119B /* BrewSummaryVC.storyboard in Resources */,
 				6527564F2475B13B004E067F /* LaunchScreen.storyboard in Resources */,
 				6529E119249FECC60093FAE1 /* faq.rtf in Resources */,
+				652BAFE7264B392400D4011E /* TipJarVC.storyboard in Resources */,
+				6536F27C2602BED700E2DF28 /* NoteDetailsVC.storyboard in Resources */,
 				6527564C2475B13B004E067F /* Assets.xcassets in Resources */,
 				650E81F525EDBAA000DF119B /* RecipeVC.storyboard in Resources */,
 				6522A40E24A955EC00583547 /* custom-notification.mp3 in Resources */,
 				6527564A2475B138004E067F /* BrewVC.storyboard in Resources */,
 				6529E11D249FF2E30093FAE1 /* howto.rtf in Resources */,
 				65FB31AF24CA130E00781023 /* WalkthroughPageVC.storyboard in Resources */,
-				6561ACAD24BBE64300C9F129 /* FourSixProPopup.storyboard in Resources */,
+				6561ACAD24BBE64300C9F129 /* PurchaseProVC.storyboard in Resources */,
 				650E81F925EDBAD800DF119B /* TimerVC.storyboard in Resources */,
 				65B0D83F25E6D394002B4F34 /* Configuration.storekit in Resources */,
+				65DD15DD261E6BA300EB000E /* CoffeePickerVC.storyboard in Resources */,
 				652C95E624B28E3B00B471C8 /* SettingsVC.storyboard in Resources */,
+				6536F2682602934300E2DF28 /* NotesVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +904,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cp \"${SRCROOT}/Pods/Target Support Files/Pods-FourSix Coffee Timer/Pods-FourSix Coffee Timer-acknowledgements.plist\" \"${SRCROOT}/FourSix Coffee Timer/Settings.bundle/OpenSource.plist\"\n";
+		};
+		65480C03265325BE0060F3F9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		6C236755B93D99DE5DF05CDA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -613,60 +964,117 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		65138D53264EFA25008EB429 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65138D5A264EFA25008EB429 /* FourSixUITests.swift in Sources */,
+				65138D62264EFA93008EB429 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6527563B2475B138004E067F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D5DE86260D38B800353385 /* SessionMO+CoreDataProperties.swift in Sources */,
+				6584A9BE25F6F3690019D8D1 /* Settings.swift in Sources */,
 				6559A03424BD1B5B00AE4C14 /* IAPManager.swift in Sources */,
 				6515EACF24B2563B004255EB /* Shadow.swift in Sources */,
+				6536F2702602BD8000E2DF28 /* NoteCell.swift in Sources */,
 				65F5182F25E06144006CF438 /* TimerCoordinator.swift in Sources */,
 				6531720A24A6B06F00709062 /* RecipeVC.swift in Sources */,
-				6529E117249FE66F0093FAE1 /* FrequentlyAskedVC.swift in Sources */,
+				65C7843426373D030014A6EC /* CustomSlider.swift in Sources */,
+				65D5096F26388B1F0078307E /* SegmentedControl.swift in Sources */,
+				65B3140525F40291004D9758 /* SettingsDataSource.swift in Sources */,
+				6536F2782602BEAE00E2DF28 /* NoteDetailsVC.swift in Sources */,
+				65D5DE8A260D38B800353385 /* RecipeMO+CoreDataProperties.swift in Sources */,
+				6584A9BA25F6D6B90019D8D1 /* IntervalCell.swift in Sources */,
 				65F5182B25E052FE006CF438 /* TimerNavigationController.swift in Sources */,
-				6543841A25F063CC00AB71F7 /* Int.swift in Sources */,
+				65D5DE8D260D38B800353385 /* NoteMO+CoreDataClass.swift in Sources */,
+				6543841A25F063CC00AB71F7 /* MinAndSec+Double.swift in Sources */,
 				6543841625F0541700AB71F7 /* PickerDataSource.swift in Sources */,
 				65FB6549249C18CC00ED732F /* Calculator.swift in Sources */,
 				6542EDCB24E20096009AA897 /* BrewSummaryVC.swift in Sources */,
-				6529E11B249FEFFB0093FAE1 /* HowToVC.swift in Sources */,
 				65BBA6C925E999DD003BC3C7 /* TimerScheduling.swift in Sources */,
 				6531720E24A6B4DB00709062 /* RoundButton.swift in Sources */,
+				6529E78F264C4AD600A82AAE /* TipView.swift in Sources */,
 				655BB6B324916B3900ED5575 /* SettingsVC.swift in Sources */,
 				6557571524A673C00071DDB8 /* ProgressCircle.swift in Sources */,
 				65859C05247D8DEC00A4CE76 /* BrewVC.swift in Sources */,
 				65BBE40525E485F400788156 /* RecipeBarDetailView.swift in Sources */,
+				65BAE628263B844400F94D23 /* NewYorkLabel.swift in Sources */,
+				65DD15E3261E6D0600EB000E /* CoffeePickerVC.swift in Sources */,
 				65FB654B249C19F800ED732F /* Recipe.swift in Sources */,
+				65E1205B260E6F060059465B /* SegmentControlCell.swift in Sources */,
+				65E12071261129B30059465B /* Coffee.swift in Sources */,
 				65185B9424BF8CB200F47F30 /* LoadingButton.swift in Sources */,
+				65127BBD260D09CA0014A9E7 /* CoreDataStack.swift in Sources */,
 				656BE05024AE691E0024AB48 /* CustomSegmentControl.swift in Sources */,
+				65DD15E7261F739E00EB000E /* CoffeeDataSource.swift in Sources */,
+				6577F2A42603D03E0029E396 /* NotesCoordinator.swift in Sources */,
 				65AA73E62482DE2F00F8B519 /* WalkthroughContentVC.swift in Sources */,
-				65315ADE249ADB4D00994E28 /* Clean.swift in Sources */,
+				65315ADE249ADB4D00994E28 /* Clean+DoubleFloat.swift in Sources */,
+				65D5DE89260D38B800353385 /* RecipeMO+CoreDataClass.swift in Sources */,
+				6577F2A82603D24F0029E396 /* MainTabBarController.swift in Sources */,
 				65BBA6C525E99979003BC3C7 /* PaywallDelegate.swift in Sources */,
+				652BAFE9264B452100D4011E /* TipJarVC.swift in Sources */,
 				652756432475B138004E067F /* AppDelegate.swift in Sources */,
-				657744F3249194BE00B199F6 /* WhatIs46VC.swift in Sources */,
-				65BF064A25D759650075E082 /* BrewNavigationController.swift in Sources */,
+				65D5DE8E260D38B800353385 /* NoteMO+CoreDataProperties.swift in Sources */,
+				65FF841D2620F006008B2BE2 /* CoffeePickerView.swift in Sources */,
+				65E120692611209D0059465B /* MangedObjectInitializable.swift in Sources */,
+				659FCE8C2617C9AE00039F6A /* DataSource.swift in Sources */,
+				65BF064A25D759650075E082 /* MainNavigationController.swift in Sources */,
 				65BBE40925E5AB1D00788156 /* Brace+UIBezierPath.swift in Sources */,
+				65B3140D25F422BD004D9758 /* TextFieldTableCell.swift in Sources */,
+				65D5DE85260D38B800353385 /* SessionMO+CoreDataClass.swift in Sources */,
 				6599310625EEC38600840005 /* Style.swift in Sources */,
+				65E12065261104A90059465B /* DataManager.swift in Sources */,
 				651ACC0F249D96ED0087C4F3 /* CoffeeTimer.swift in Sources */,
+				656B9DFA2657065E00C05F69 /* Wiggle+UIButton.swift in Sources */,
 				6599310A25EECAF400840005 /* Style+FourSix.swift in Sources */,
+				65B3140925F41BB4004D9758 /* SwitchTableCell.swift in Sources */,
+				65ADCF9F265473B0009FB446 /* LocalNotificationManager.swift in Sources */,
+				6584A9B625F6D2110019D8D1 /* RatioCell.swift in Sources */,
 				65859C09247D95B700A4CE76 /* TimerVC.swift in Sources */,
+				654468222626536A00494D0A /* SlideOverPresentation.swift in Sources */,
 				65BE8A9925D717DA007177B8 /* Storyboarded.swift in Sources */,
+				6536F26C2602936000E2DF28 /* NotesVC.swift in Sources */,
+				65E1206D261129830059465B /* Session.swift in Sources */,
 				6561ACA824BBDC6E00C9F129 /* PurchaseProVC.swift in Sources */,
+				659F8803261B9F7000D4F89F /* DateTextField.swift in Sources */,
 				6537159D25F16AE800F162DD /* RatioPickerView.swift in Sources */,
 				6542DDFA25D858AB0067C704 /* SettingsNavigationController.swift in Sources */,
 				653DBF6625F2F31A00AE7D9E /* Constants.swift in Sources */,
-				6561ACA624BBBEA400C9F129 /* UIViewControllerExtensions.swift in Sources */,
+				65D5DE8B260D38B800353385 /* CoffeeMO+CoreDataClass.swift in Sources */,
+				652DC7E92645C29B003CDAA7 /* RatingStackView.swift in Sources */,
+				65A2775425FFE88F0093B0B9 /* AlertHelper.swift in Sources */,
+				653E631B26095B6E00BA32BF /* RatingControl.swift in Sources */,
 				65BE8AA025D7231A007177B8 /* BrewCoordinator.swift in Sources */,
+				654A327E2628C18F00A07E5B /* DatePickerView.swift in Sources */,
+				65D5DE8C260D38B800353385 /* CoffeeMO+CoreDataProperties.swift in Sources */,
 				6542DDF625D8512D0067C704 /* SettingsCoordinator.swift in Sources */,
 				653715AB25F1874200F162DD /* PickerToolbar.swift in Sources */,
+				65480C0526533AA90060F3F9 /* RegisterKeyboardNotifications+NoteDetailsVC.swift in Sources */,
 				65F5182725DDCD9A006CF438 /* Ratio.swift in Sources */,
+				6579FB52263A09D700CAAAA0 /* RoundedStackView.swift in Sources */,
+				652BAFE2264B0AC500D4011E /* WebViewVC.swift in Sources */,
 				652C4A5D24AAA77600857883 /* AcknowledgementsVC.swift in Sources */,
+				65F1F7B32624D6D700B2C369 /* NoteDetailsCoordinator.swift in Sources */,
 				6561ACAA24BBDE5800C9F129 /* RoundedView.swift in Sources */,
+				657A2631260A85A20009CD9A /* DoneToolBar+UITextField.swift in Sources */,
 				65BBE40125E470F700788156 /* RecipeBarChart.swift in Sources */,
+				653E6317260957AE00BA32BF /* NotesTextView.swift in Sources */,
 				65BE8A9325D71775007177B8 /* Coordinator.swift in Sources */,
 				65065FEF24B3CA610070E3CE /* UserDefaultsManager.swift in Sources */,
 				653715A125F177B200F162DD /* IntervalPickerView.swift in Sources */,
+				6512EA882603E0C1002DC1CF /* Note.swift in Sources */,
 				652756452475B138004E067F /* SceneDelegate.swift in Sources */,
+				65DD15F0261F94D900EB000E /* CoffeeEditorVC.swift in Sources */,
 				656D0D54251D586A001EE918 /* TimerScheduler.swift in Sources */,
 				65AA73E82482ED0800F8B519 /* CustomPageViewController.swift in Sources */,
+				657A263B260AAEFC0009CD9A /* StringFromDate+Date.swift in Sources */,
+				65127BC2260D0A5E0014A9E7 /* FourSix.xcdatamodeld in Sources */,
 				65AA73EA2482EE5B00F8B519 /* WalkthroughPageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,12 +1086,18 @@
 				659785D025141CB200DFB60A /* CalculatorTests.swift in Sources */,
 				65A282A0251D3342001AD862 /* MockTimerScheduler.swift in Sources */,
 				65EF3BF9251AAEEA0038EA57 /* CoffeeTimerTests.swift in Sources */,
+				65127BCC260D0B8A0014A9E7 /* TestCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		65138D5D264EFA25008EB429 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6527563E2475B138004E067F /* FourSix Coffee Timer */;
+			targetProxy = 65138D5C264EFA25008EB429 /* PBXContainerItemProxy */;
+		};
 		659785D325141CB200DFB60A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6527563E2475B138004E067F /* FourSix Coffee Timer */;
@@ -716,12 +1130,12 @@
 			name = SettingsVC.storyboard;
 			sourceTree = "<group>";
 		};
-		6561ACAB24BBE64300C9F129 /* FourSixProPopup.storyboard */ = {
+		6561ACAB24BBE64300C9F129 /* PurchaseProVC.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6561ACAC24BBE64300C9F129 /* Base */,
 			);
-			name = FourSixProPopup.storyboard;
+			name = PurchaseProVC.storyboard;
 			sourceTree = "<group>";
 		};
 		65FB31AD24CA130E00781023 /* WalkthroughPageVC.storyboard */ = {
@@ -735,6 +1149,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		65138D5E264EFA25008EB429 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XWQQ29E97Q;
+				INFOPLIST_FILE = FourSixUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonduenas.FourSixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "FourSix Coffee Timer";
+			};
+			name = Debug;
+		};
+		65138D5F264EFA25008EB429 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XWQQ29E97Q;
+				INFOPLIST_FILE = FourSixUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonduenas.FourSixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "FourSix Coffee Timer";
+			};
+			name = Release;
+		};
 		652756512475B13B004E067F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -857,15 +1311,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
 				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;
@@ -880,15 +1334,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = XWQQ29E97Q;
 				INFOPLIST_FILE = "FourSix Coffee Timer/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jonduenas.FourSix-Coffee-Timer";
 				PRODUCT_NAME = FourSix;
 				SWIFT_VERSION = 5.0;
@@ -942,6 +1396,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		65138D60264EFA25008EB429 /* Build configuration list for PBXNativeTarget "FourSixUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65138D5E264EFA25008EB429 /* Debug */,
+				65138D5F264EFA25008EB429 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6527563A2475B138004E067F /* Build configuration list for PBXProject "FourSix Coffee Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -970,6 +1433,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		65127BC0260D0A5E0014A9E7 /* FourSix.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				65127BC1260D0A5E0014A9E7 /* FourSix.xcdatamodel */,
+			);
+			currentVersion = 65127BC1260D0A5E0014A9E7 /* FourSix.xcdatamodel */;
+			path = FourSix.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 652756372475B138004E067F /* Project object */;
 }

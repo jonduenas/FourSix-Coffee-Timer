@@ -14,54 +14,52 @@ class SettingsCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var parentVC: SettingsVC?
     let settingsStoryboardName = String(describing: SettingsVC.self)
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
         let vc = SettingsVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
         vc.coordinator = self
         parentVC = vc
         navigationController.pushViewController(vc, animated: false)
     }
-    
+
     func didFinishSettings() {
         parentCoordinator?.didFinishSettings()
         parentCoordinator?.childDidFinish(self)
     }
-    
-    func showWhatIs46() {
-        let vc = WhatIs46VC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.coordinator = self
+
+    func showLearnMore() {
+        let vc = WebViewVC()
+        vc.urlString = "https://foursixcoffeeapp.com/about/"
+        vc.showTitle = false
         navigationController.pushViewController(vc, animated: true)
     }
-    
-    func showHowTo() {
-        let vc = HowToVC.instantiate(fromStoryboardNamed: settingsStoryboardName)
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+
+    func showTipJar() {
+        let vc = TipJarVC.instantiate(fromStoryboardNamed: String(describing: TipJarVC.self))
+
+        // Checks if screen height can accomodate custom presentation style
+        let tipJarTransitioningDelegate = SlideOverTransitioningDelegate()
+        tipJarTransitioningDelegate.height = 580
+        tipJarTransitioningDelegate.tapToDismiss = true
+
+        if UIScreen.main.bounds.height > tipJarTransitioningDelegate.height {
+            vc.transitioningDelegate = tipJarTransitioningDelegate
+            vc.modalPresentationStyle = .custom
+        }
+
+        navigationController.present(vc, animated: true, completion: nil)
     }
-    
-    func showFAQ() {
-        pushVCWithNoDependencies(viewController: FrequentlyAskedVC())
-    }
-    
+
     func showAcknowledgements() {
         pushVCWithNoDependencies(viewController: AcknowledgementsVC())
     }
-    
+
     private func pushVCWithNoDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
     }
 }

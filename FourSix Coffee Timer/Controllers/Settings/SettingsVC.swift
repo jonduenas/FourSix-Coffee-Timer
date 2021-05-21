@@ -9,280 +9,140 @@
 import UIKit
 import Purchases
 
-enum StepAdvance: String, CaseIterable {
-    case auto, manual
-}
+class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
 
-class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
-    enum SettingsSection: Int {
-        case settings, fourSixPro, aboutFourSix
-    }
-    
-    enum ProSectionCell: Int {
-        case purchasePro, restorePro, ratio, stepAdvance, interval
-    }
-    
-    enum AboutSectionCell: Int {
-        case whatIsFourSix, howTo, faq, feedback, rate, share, acknowledgements
-    }
-    
-    // MARK: Constants
-    private let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
-    private let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    private let okActionNoClosure = UIAlertAction(title: "OK", style: .default)
-    private var ratioPickerView: RatioPickerView?
-    private var intervalPickerView: IntervalPickerView?
-    
-    // MARK: Variables
+    @IBOutlet weak var tableView: UITableView!
+
     weak var coordinator: SettingsCoordinator?
-    var pickerDataSource = PickerDataSource()
-    var ratio: Float = UserDefaultsManager.ratio {
-        didSet {
-            updateRatioText()
-            UserDefaultsManager.ratio = ratio
-        }
-    }
-    
-    var stepAdvance: StepAdvance = StepAdvance(rawValue: UserDefaultsManager.timerStepAdvanceSetting) ?? .auto {
-        didSet {
-            stepAdvanceLabel.text = stepAdvance.rawValue.capitalized
-            UserDefaultsManager.timerStepAdvanceSetting = stepAdvance.rawValue
-        }
-    }
-    
-    var stepInterval = UserDefaultsManager.timerStepInterval {
-        didSet {
-            updateIntervalText()
-            UserDefaultsManager.timerStepInterval = stepInterval
-        }
-    }
-    
-    var userIsPro: Bool = false
-    
-    // MARK: IBOutlets
-    @IBOutlet weak var showTotalTimeSwitch: UISwitch!
-    @IBOutlet weak var stepAdvanceLabel: UILabel!
-    @IBOutlet weak var ratioTextField: UITextField!
-    @IBOutlet weak var settingsTableView: UITableView!
-    @IBOutlet weak var stepIntervalTextField: UITextField!
-    
+    var settingsDataSource = SettingsDataSource()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
-        
-        showTotalTimeSwitch.isOn = UserDefaultsManager.totalTimeShown
+        initNavBar()
+        tableView.delegate = self
+        tableView.dataSource = settingsDataSource
         checkForProStatus()
-        initIntervalPicker()
-        initRatioPicker()
-        updateRatioText()
-        updateIntervalText()
     }
-    
-    private func initRatioPicker() {
-        ratioPickerView = RatioPickerView(frame: .zero,
-                                          dataSource: pickerDataSource,
-                                          delegate: self,
-                                          toolbarDelegate: self)
-        ratioTextField.inputView = ratioPickerView
-        ratioTextField.inputAccessoryView = ratioPickerView?.toolbar
-        
-        let currentRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(ratio)) ?? 14
-        ratioPickerView?.selectRow(currentRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: false)
-        
-        let currentRatioDecimal = ratio.truncatingRemainder(dividingBy: 1) * 10
-        let decimalIndex = pickerDataSource.ratioDecimalValueArray.firstIndex(of: Int(currentRatioDecimal)) ?? 0
-        ratioPickerView?.selectRow(decimalIndex, inComponent: RatioPickerComponent.decimalValue.rawValue, animated: false)
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        navigationController?.setToolbarHidden(true, animated: animated)
     }
-    
-    private func initIntervalPicker() {
-        intervalPickerView = IntervalPickerView(frame: .zero,
-                                                dataSource: pickerDataSource,
-                                                delegate: self,
-                                                toolbarDelegate: self)
-        stepIntervalTextField.inputView = intervalPickerView
-        stepIntervalTextField.inputAccessoryView = intervalPickerView?.toolbar
-        
-        let (minutes, seconds) = stepInterval.convertToMinAndSec()
-        let currentMinIndex = pickerDataSource.intervalMin.firstIndex(of: minutes) ?? 0
-        let currentSecIndex = pickerDataSource.intervalSec.firstIndex(of: seconds) ?? 0
-        
-        intervalPickerView?.selectRow(currentMinIndex, inComponent: IntervalPickerComponent.minValue.rawValue, animated: false)
-        intervalPickerView?.selectRow(currentSecIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: false)
+
+    private func initNavBar() {
+        title = "Settings"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"),
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(closeTapped(_:)))
     }
-    
-    private func updateIntervalText() {
-        let (minutes, seconds) = stepInterval.convertToMinAndSec()
-        
-        if minutes == 0 {
-            stepIntervalTextField.text = "\(seconds) sec"
-        } else if seconds == 0 {
-            stepIntervalTextField.text = "\(minutes) min"
-        } else {
-            stepIntervalTextField.text = "\(minutes) min \(seconds) sec"
-        }
-    }
-    
-    private func updateRatioText() {
-        ratioTextField.text = "1:\(ratio.clean)"
-    }
-    
+
     private func checkForProStatus() {
         IAPManager.shared.userIsPro { [weak self] (userIsPro, error) in
+            guard let self = self else { return }
+
             if let err = error {
-                self?.showAlert(message: "Error checking for Pro status: \(err.localizedDescription)")
-                self?.userIsPro = userIsPro
-                self?.enableProFeatures(userIsPro)
-            } else {
-                self?.userIsPro = userIsPro
-                self?.enableProFeatures(userIsPro)
+                AlertHelper.showAlert(title: "Unexpected Error",
+                                      message: "Error checking for Pro status: \(err.localizedDescription)",
+                                      on: self)
             }
+
+            self.enableProFeatures(userIsPro)
         }
     }
-    
+
     func purchaseCompleted() {
-        userIsPro = true
+        enableProFeatures(true)
         tableView.reloadData()
     }
-    
+
     func purchaseRestored() {
-        userIsPro = true
+        enableProFeatures(true)
         tableView.reloadData()
     }
-    
+
     private func enableProFeatures(_ userIsPro: Bool) {
+        settingsDataSource.userIsPro = userIsPro
         tableView.reloadData()
     }
-    
+
     // MARK: TableView Methods
-    
-    // Hides cells when user is Pro or not
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let section = SettingsSection(rawValue: indexPath.section), section == .fourSixPro else {
-            // Makes sure the section is defined and section is FourSix Pro - if not rest of the code doesn't run and just returns auto dimension
-            return UITableView.automaticDimension
-        }
-        
-        let row = ProSectionCell(rawValue: indexPath.row)
-        
-        if userIsPro {
-            switch row {
-            case .purchasePro:
-                return 0
-            case .restorePro:
-                return 0.25 // Keeps top border of section
-            default:
-                return UITableView.automaticDimension
-            }
-        } else {
-            switch row {
-            case .ratio, .stepAdvance, .interval:
-                return 0
-            default:
-                return UITableView.automaticDimension
-            }
-        }
-    }
-    
-    fileprivate func showRestoreAlert() {
-        let alert = UIAlertController(title: "Restore FourSix Pro", message: "Would you like to restore your previous purchase of FourSix Pro?", preferredStyle: .alert)
-        alert.addAction(cancelAction)
-        alert.addAction(UIAlertAction(title: "Restore", style: .default, handler: { _ in
-            IAPManager.shared.restorePurchases { (_, error) in
-                if error != nil {
-                    self.showAlert(title: "Error", message: error!)
-                } else {
-                    self.showAlert(title: "Restore Successful", message: "...And we're back! Let's get brewing.") {
-                        self.purchaseRestored()
-                    }
-                }
-            }
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    fileprivate func showStepAdvanceActionSheet(_ tableView: UITableView, _ indexPath: IndexPath) {
-        let actionSheet = UIAlertController(title: "Timer Step Advance", message: nil, preferredStyle: .actionSheet)
-        
-        for option in StepAdvance.allCases {
-            actionSheet.addAction(UIAlertAction(title: option.rawValue.capitalized,
-                                                style: .default,
-                                                handler: { [weak self] _ in
-                self?.stepAdvance = option
-            }))
-        }
-        actionSheet.addAction(cancelAction)
-        
-        // Sets where to show popover controller for iPad display
-        if let popoverController = actionSheet.popoverPresentationController {
-            guard let cellIndexPath = tableView.cellForRow(at: indexPath) else { return }
-            popoverController.sourceView = cellIndexPath.contentView
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection.up
-            
-            popoverController.sourceRect = CGRect(x: cellIndexPath.bounds.maxX - 40, y: cellIndexPath.bounds.maxY, width: 0, height: 0)
-        }
-        present(actionSheet, animated: true)
-    }
-    
+
     fileprivate func sendFeedback() {
-        let alert = UIAlertController(title: "Opening...", message: "Sending you to Twitter to give feedback.", preferredStyle: .alert)
-        alert.addAction(cancelAction)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            if let url = URL(string: "https://www.twitter.com/foursixcoffee") {
-                UIApplication.shared.open(url)
-            }
-        }))
-        present(alert, animated: true)
+        AlertHelper.showCancellableAlert(title: "Opening...",
+                                         message: "Sending you to Twitter to give feedback.",
+                                         confirmButtonTitle: "Open Twitter",
+                                         dismissButtonTitle: "Cancel",
+                                         on: self,
+                                         confirmHandler: { _ in
+                                            UIApplication.shared.open(Constants.twitterURL)
+                                         })
     }
-    
+
     fileprivate func rateInAppStore() {
-        var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
-        components?.queryItems = [URLQueryItem(name: "action", value: "write-review")]
-        
-        guard let writeReviewURL = components?.url else { return }
-        
+        guard let writeReviewURL = Constants.reviewProductURL else { return }
         UIApplication.shared.open(writeReviewURL)
     }
-    
+
     fileprivate func shareFourSix() {
-        let activityVC = UIActivityViewController(activityItems: [productURL], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [Constants.productURL], applicationActivities: nil)
         present(activityVC, animated: true)
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let section = SettingsSection(rawValue: indexPath.section)
-        
-        switch section {
-        case .fourSixPro:
-            let row = ProSectionCell(rawValue: indexPath.row)
-            
+
+    // MARK: Navigation Methods
+
+    @IBAction func closeTapped(_ sender: Any) {
+        dismiss(animated: true) { [weak self] in
+            self?.coordinator?.didFinishSettings()
+        }
+    }
+}
+
+extension SettingsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch settingsDataSource.shownSections[indexPath.section] {
+        case .fourSixProEnabled:
+            let row = ProSectionEnabledCell(rawValue: indexPath.row)
+
+            switch row {
+            case .ratio:
+                if let cell = tableView.cellForRow(at: indexPath) as? RatioCell {
+                    cell.cellTextField.becomeFirstResponder()
+                }
+            case .interval:
+                if let cell = tableView.cellForRow(at: indexPath) as? IntervalCell {
+                    cell.cellTextField.becomeFirstResponder()
+                }
+            default:
+                break
+            }
+        case .fourSixProDisabled:
+            let row = ProSectionDisabledCell(rawValue: indexPath.row)
+
             switch row {
             case .purchasePro:
-                showProPopup(delegate: self)
+                coordinator?.showProPaywall(delegate: self)
             case .restorePro:
-                showRestoreAlert()
-            case .ratio:
-                ratioTextField.becomeFirstResponder()
-            case .stepAdvance:
-                showStepAdvanceActionSheet(tableView, indexPath)
-            case .interval:
-                stepIntervalTextField.becomeFirstResponder()
+                AlertHelper.showRestorePurchaseAlert(on: self) { [weak self] in
+                    self?.purchaseRestored()
+                }
             default:
                 print("Undefined indexPath.row")
-                break
             }
         case .aboutFourSix:
             let row = AboutSectionCell(rawValue: indexPath.row)
-            
+
             switch row {
-            case .whatIsFourSix:
-                coordinator?.showWhatIs46()
-            case .howTo:
-                coordinator?.showHowTo()
-            case .faq:
-                coordinator?.showFAQ()
+            case .learnMore:
+                print("Go to website")
+                coordinator?.showLearnMore()
             case .feedback:
                 sendFeedback()
+            case .tipJar:
+                print("Show Tip Jar")
+                coordinator?.showTipJar()
             case .rate:
                 rateInAppStore()
             case .share:
@@ -291,114 +151,10 @@ class SettingsVC: UITableViewController, PaywallDelegate, Storyboarded {
                 coordinator?.showAcknowledgements()
             default:
                 print("Undefined indexPath.row")
-                break
             }
         default:
             print("Undefined indexPath.section")
-            break
         }
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 2 {
-            guard let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else { return nil }
-            guard let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else { return nil }
-            let versionWithBuild = "v\(appVersionString) (\(buildNumber))"
-            return versionWithBuild
-        } else {
-            return nil
-        }
-    }
-    
-    // MARK: IBActions
-    
-    @IBAction func showTotalTimeSwitched(_ sender: UISwitch) {
-        if showTotalTimeSwitch.isOn {
-            UserDefaultsManager.totalTimeShown = true
-        } else {
-            UserDefaultsManager.totalTimeShown = false
-        }
-    }
-
-    // MARK: Navigation Methods
-    
-    @IBAction func closeTapped(_ sender: Any) {
-        dismiss(animated: true) { [weak self] in
-            self?.coordinator?.didFinishSettings()
-        }
-    }
-}
-
-extension SettingsVC: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == SettingsPicker.ratio.rawValue {
-            let ratioComponent = RatioPickerComponent(rawValue: component)
-            
-            switch ratioComponent {
-            case .consequent:
-                return String(pickerDataSource.ratioValueArray[row])
-            case .decimalValue:
-                return String(pickerDataSource.ratioDecimalValueArray[row])
-            default:
-                return nil
-            }
-        } else {
-            let intervalComponent = IntervalPickerComponent(rawValue: component)
-            
-            switch intervalComponent {
-            case .minValue:
-                return String(pickerDataSource.intervalMin[row])
-            case .secValue:
-                return String(pickerDataSource.intervalSec[row])
-            default:
-                return nil
-            }
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == SettingsPicker.ratio.rawValue {
-            let newRatioValue = Float(pickerDataSource.ratioValueArray[pickerView.selectedRow(inComponent: RatioPickerComponent.consequent.rawValue)])
-            let newRatioDecimal = Float(pickerDataSource.ratioDecimalValueArray[pickerView.selectedRow(inComponent: RatioPickerComponent.decimalValue.rawValue)]) * 0.1
-            ratio = newRatioValue + newRatioDecimal
-        } else {
-            let minutes = pickerDataSource.intervalMin[pickerView.selectedRow(inComponent: IntervalPickerComponent.minValue.rawValue)]
-            let seconds = pickerDataSource.intervalSec[pickerView.selectedRow(inComponent: IntervalPickerComponent.secValue.rawValue)]
-            stepInterval = (minutes * 60) + seconds
-        }
-    }
-}
-
-extension SettingsVC: ToolBarPickerViewDelegate {
-    func didTapDone(_ picker: UIPickerView) {
-        if picker == ratioPickerView {
-            ratioTextField.resignFirstResponder()
-        } else {
-            if stepInterval == 0 {
-                stepInterval += 1
-                intervalPickerView?.selectRow(1, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
-            }
-            stepIntervalTextField.resignFirstResponder()
-        }
-    }
-    
-    func didTapDefault(_ picker: UIPickerView) {
-        if picker == ratioPickerView {
-            guard ratio != Ratio.defaultRatio.consequent else { return }
-            guard let defaultRatioIndex = pickerDataSource.ratioValueArray.firstIndex(of: Int(Ratio.defaultRatio.consequent)) else { return }
-            print("Set ratio to default")
-            ratioPickerView?.selectRow(defaultRatioIndex, inComponent: RatioPickerComponent.consequent.rawValue, animated: true)
-            ratioPickerView?.selectRow(0, inComponent: RatioPickerComponent.decimalValue.rawValue, animated: true)
-            ratio = Ratio.defaultRatio.consequent
-        } else {
-            let defaultInterval = Int(Recipe.defaultRecipe.interval)
-            guard defaultInterval != stepInterval else { return }
-            guard let defaultIntervalIndex = pickerDataSource.intervalSec.firstIndex(of: defaultInterval) else { return }
-            print("Set interval to default")
-            intervalPickerView?.selectRow(0, inComponent: IntervalPickerComponent.minValue.rawValue, animated: true)
-            intervalPickerView?.selectRow(defaultIntervalIndex, inComponent: IntervalPickerComponent.secValue.rawValue, animated: true)
-            stepInterval = defaultInterval
-        }
     }
 }

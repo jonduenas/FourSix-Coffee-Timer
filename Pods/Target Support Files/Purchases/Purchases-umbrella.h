@@ -18,6 +18,7 @@
 #import "RCOffering.h"
 #import "RCOfferings.h"
 #import "RCPackage.h"
+#import "RCPurchaseOwnershipType.h"
 #import "RCPurchaserInfo.h"
 #import "RCPurchases.h"
 #import "RCPurchasesErrors.h"

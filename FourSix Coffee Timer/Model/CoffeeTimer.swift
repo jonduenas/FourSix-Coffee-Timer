@@ -17,11 +17,11 @@ enum TimerState {
 }
 
 class CoffeeTimer {
-    
+
     enum Constants {
         static let timerInterval: TimeInterval = 0.25
     }
-    
+
     enum TimerUpdate {
         case tick(step: TimeInterval, total: TimeInterval)
         case countdown(_: Int)
@@ -29,16 +29,16 @@ class CoffeeTimer {
         case done
         case error
     }
-    
+
     let recipe: Recipe
     private let timerScheduler: TimerScheduling
     private let recipeStepInterval: TimeInterval
-    
+
     private var startTime: Date?
     private(set) var timerState: TimerState!
     private(set) var totalElapsedTime: TimeInterval = 0
     private(set) var currentStepElapsedTime: TimeInterval = 0
-    
+
     private(set) var timerUpdateCallback: ((TimerUpdate) -> Void)!
     private var countdownUpdateCallback: ((TimerUpdate) -> Void)!
     private(set) var fromPercentage: CGFloat = 0
@@ -47,7 +47,7 @@ class CoffeeTimer {
     private(set) var countdownTime: Int
     private(set) var stepsActualTime = [TimeInterval]()
     private(set) var totalStepTime: TimeInterval = 0
-    
+
     init(timerState: TimerState = .countdown, timerScheduler: TimerScheduling, recipe: Recipe, countdownTime: Int = 3) {
         self.timerScheduler = timerScheduler
         self.recipe = recipe
@@ -55,7 +55,7 @@ class CoffeeTimer {
         self.countdownTime = countdownTime
         self.recipeStepInterval = recipe.interval
     }
-    
+
     func start(timerUpdate: @escaping ((TimerUpdate) -> Void)) {
         switch timerState {
         case .new:
@@ -77,7 +77,7 @@ class CoffeeTimer {
             return
         }
     }
-    
+
     func pause() {
         if timerState == .running {
             print("pause")
@@ -87,7 +87,7 @@ class CoffeeTimer {
             return
         }
     }
-    
+
     func nextStep(auto: Bool) {
         // Check if end of recipe
         if recipeIndex >= recipe.waterPours.count - 1 {
@@ -104,7 +104,7 @@ class CoffeeTimer {
             currentStepElapsedTime = 0
         }
     }
-    
+
     private func runCoffeeTimer() {
         calculateProgress()
         // Check if end of recipe's set interval
@@ -113,7 +113,7 @@ class CoffeeTimer {
             timerUpdateCallback(.tick(step: currentStepElapsedTime, total: totalElapsedTime))
         } else {
             // End of interval - Check if user has set auto-advance on
-            if UserDefaultsManager.timerStepAdvanceSetting == StepAdvance.auto.rawValue {
+            if UserDefaultsManager.autoAdvanceTimer {
                 nextStep(auto: true)
             } else {
                 // User has step advance set to manual - send elapsed time to closure
@@ -121,30 +121,30 @@ class CoffeeTimer {
             }
         }
     }
-    
+
     private func calculateProgress() {
         guard let start = startTime else {
             print("Error with startTime")
             return
         }
-        
+
         totalElapsedTime = -start.timeIntervalSinceNow
-        
+
         let newCurrentStepElapsedTime = totalElapsedTime - totalStepTime
-        
+
         fromPercentage = CGFloat(currentStepElapsedTime) / CGFloat(recipeStepInterval)
         toPercentage = CGFloat(newCurrentStepElapsedTime) / CGFloat(recipeStepInterval)
-        
+
         currentStepElapsedTime = newCurrentStepElapsedTime
     }
-    
+
     func startCountdownTimer(countdownUpdate: @escaping (TimerUpdate) -> Void) {
         countdownUpdateCallback = countdownUpdate
         timerScheduler.start(timeInterval: 1, repeats: true) { [weak self] _ in
             self?.countdown()
         }
     }
-    
+
     private func countdown() {
         if countdownTime > 1 {
             countdownTime -= 1
@@ -155,13 +155,13 @@ class CoffeeTimer {
             countdownUpdateCallback(.done)
         }
     }
-    
+
     func endTimer() {
         timerState = .done
         timerScheduler.invalidate()
         timerUpdateCallback(.done)
     }
-    
+
     func cancelTimer() {
         timerScheduler.invalidate()
     }
