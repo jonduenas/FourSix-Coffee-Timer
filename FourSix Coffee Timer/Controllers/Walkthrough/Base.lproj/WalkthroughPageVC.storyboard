@@ -103,7 +103,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="neededToolsStack" destination="0Bx-WT-mfW" id="Ve3-T8-Btr"/>
+                        <outlet property="headerLabel" destination="V3Y-8s-nu6" id="HAL-zP-YfG"/>
                         <outlet property="walkthroughImage" destination="vx9-sE-Riq" id="NVo-MI-yZL"/>
                     </connections>
                 </viewController>

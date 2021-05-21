@@ -10,22 +10,17 @@ import UIKit
 
 class WalkthroughContentVC: UIViewController, Storyboarded {
 
-    @IBOutlet var walkthroughImage: UIImageView!
+    @IBOutlet weak var walkthroughImage: UIImageView!
+    @IBOutlet weak var headerLabel: UILabel!
 
+    var headerString: String = ""
     var walkthroughImageName = ""
-    var index = 0
-    var isLastPage = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        headerLabel.text = headerString
         walkthroughImage.image = UIImage(named: walkthroughImageName)
-
-        if isLastPage {
-            showLastPage(true)
-        } else {
-            showLastPage(false)
-        }
     }
 
     private func showLastPage(_ show: Bool) {

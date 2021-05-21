@@ -9,18 +9,24 @@
 import UIKit
 
 class WalkthroughPageVC: UIViewController, Storyboarded {
-    let walkthroughImageNames = ["walkthrough-1", "walkthrough-2", "walkthrough-3", "walkthrough-4", "walkthrough-4"]
-
-    var currentViewControllerIndex = 0
     weak var coordinator: WalkthroughCoordinator?
+    var pages: [UIViewController] = []
+    var currentViewControllerIndex = 0
 
     @IBOutlet weak var contentView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupPages()
         configureNavigationController()
         configurePageViewController()
+    }
+
+    private func setupPages() {
+        if let pages = coordinator?.getWalkthroughPages() {
+            self.pages = pages
+        }
     }
 
     private func configureNavigationController() {
@@ -34,19 +40,16 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
     }
 
     func configurePageViewController() {
-        guard let pageViewController = coordinator?.getPageViewController() as? CustomPageViewController else {
-            return
-        }
+        guard let pageViewController = coordinator?.getPageViewController() else { return }
 
-        pageViewController.delegate = self
         pageViewController.dataSource = self
 
         addChild(pageViewController)
         pageViewController.didMove(toParent: self)
 
-        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-
         contentView.addSubview(pageViewController.view)
+
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
             pageViewController.view.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -57,12 +60,8 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
 
         NSLayoutConstraint.activate(constraints)
 
-        guard let startingViewController = coordinator?.getContentViewController(
-                at: currentViewControllerIndex,
-                imageName: walkthroughImageNames[currentViewControllerIndex]
-        ) else { return }
-
-        pageViewController.setViewControllers([startingViewController], direction: .forward, animated: true)
+        guard !pages.isEmpty else { return }
+        pageViewController.setViewControllers([pages[0]], direction: .forward, animated: true)
     }
 
     @objc func didTapSkipButton(_ sender: UIBarButtonItem) {
@@ -73,50 +72,36 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
     }
 }
 
-extension WalkthroughPageVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+extension WalkthroughPageVC: UIPageViewControllerDataSource {
     public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return currentViewControllerIndex
     }
 
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return walkthroughImageNames.count
+        return pages.count
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let contentViewController = viewController as? WalkthroughContentVC
-
-        guard var currentIndex = contentViewController?.index else { return nil }
+        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
 
         currentViewControllerIndex = currentIndex
 
         if currentIndex == 0 {
             return nil
+        } else {
+            return pages[currentIndex - 1]
         }
-
-        currentIndex -= 1
-
-        return coordinator?.getContentViewController(
-            at: currentIndex,
-            imageName: walkthroughImageNames[currentIndex]
-        )
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let contentViewController = viewController as? WalkthroughContentVC
-
-        guard var currentIndex = contentViewController?.index else { return nil }
-
-        if currentIndex == walkthroughImageNames.count - 1 {
-            return nil
-        }
-
-        currentIndex += 1
+        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
 
         currentViewControllerIndex = currentIndex
 
-        return coordinator?.getContentViewController(
-            at: currentIndex,
-            imageName: walkthroughImageNames[currentIndex]
-        )
+        if currentIndex < pages.count - 1 {
+            return pages[currentIndex + 1]
+        } else {
+            return nil
+        }
     }
 }

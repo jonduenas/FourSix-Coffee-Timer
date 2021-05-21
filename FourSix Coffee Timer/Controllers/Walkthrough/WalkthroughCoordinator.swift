@@ -12,6 +12,7 @@ class WalkthroughCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     weak var parentCoordinator: BrewCoordinator?
+    var walkthroughModel = WalkthroughModel()
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -23,16 +24,22 @@ class WalkthroughCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
 
-    func getPageViewController() -> UIPageViewController {
+    func getPageViewController() -> CustomPageViewController {
         let pageVC = CustomPageViewController.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
         return pageVC
     }
 
-    func getContentViewController(at index: Int, imageName: String) -> WalkthroughContentVC {
-        let contentVC = WalkthroughContentVC.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
-        contentVC.index = index
-        contentVC.walkthroughImageName = imageName
-        return contentVC
+    func getWalkthroughPages() -> [UIViewController] {
+        var pages: [UIViewController] = []
+
+        for index in 0...walkthroughModel.headerStrings.count - 1 {
+            let page = WalkthroughContentVC.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
+            page.headerString = walkthroughModel.headerStrings[index]
+            page.walkthroughImageName = walkthroughModel.imageNames[index]
+            pages.append(page)
+        }
+
+        return pages
     }
 
     func didFinishWalkthrough() {
