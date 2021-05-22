@@ -539,6 +539,7 @@
 				65AA73E52482DE2F00F8B519 /* WalkthroughContentVC.swift */,
 				65AA73E72482ED0800F8B519 /* CustomPageViewController.swift */,
 				65F3D1B826583F6200451976 /* WalkthroughCoordinator.swift */,
+				65F3D1BC2658501D00451976 /* WalkthroughModel.swift */,
 			);
 			path = Walkthrough;
 			sourceTree = "<group>";
@@ -731,7 +732,6 @@
 				6512EA872603E0C1002DC1CF /* Note.swift */,
 				65E12070261129B30059465B /* Coffee.swift */,
 				65E1206C261129830059465B /* Session.swift */,
-				65F3D1BC2658501D00451976 /* WalkthroughModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

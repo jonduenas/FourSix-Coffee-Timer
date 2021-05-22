@@ -35,6 +35,7 @@ class WalkthroughCoordinator: Coordinator {
         for index in 0...walkthroughModel.headerStrings.count - 1 {
             let page = WalkthroughContentVC.instantiate(fromStoryboardNamed: String(describing: WalkthroughPageVC.self))
             page.headerString = walkthroughModel.headerStrings[index]
+            page.footerString = walkthroughModel.footerStrings[index]
             page.walkthroughImageName = walkthroughModel.imageNames[index]
             pages.append(page)
         }
