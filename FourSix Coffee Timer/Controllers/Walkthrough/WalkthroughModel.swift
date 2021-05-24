@@ -11,20 +11,20 @@ import Foundation
 struct WalkthroughModel {
     let headerStrings: [String] = [
         "Welcome to FourSix",
-        "Creating a custom recipe tailored to your preference is as easy as 1... 2... 3...",
-        "You can preview the generated recipe as a graph and see how each pour is broken down.",
-        "Following the recipe is easy using the timer.",
-        "The new Quick Summary page gives a quick glance at how this session went.",
-        "The new Notes feature lets you add a rating and save details about your brew."
+        "Creating a custom Recipe tailored to your preference is as easy as 1... 2... 3...",
+        "Preview the generated Recipe as a graph.",
+        "Following the Recipe is easy when using the Timer.",
+        "New in v2.0, save Notes and rate your brew.",
+        "Enable notifications for when your coffee is the perfect temperature."
     ]
 
     let footerStrings: [String] = [
         "FourSix makes brewing pour over coffee easy.",
-        "Start by setting the amount of coffee. Then choose your flavor profile and strength.",
-        "Learn how your choices change your recipe. Tap each section to see details.",
+        "1. Set the amount of coffee.\n2. Choose your flavor balance.\n3. Choose your strength.",
+        "See how each pour is broken down and learn how your choices change your recipe.",
         "Know exactly when to start pouring and how much water to pour.",
-        "Tap the notification button to get a 5 minute reminder when your coffee is at the perfect temperature.",
-        "From grind size, to water temperature, even save info about which coffee you used and who roasted it."
+        "Record your grind size, water temperature, even save info about which coffee you used and who roasted it.",
+        "Quickly return to the app and adjust your rating now that the coffee's flavor is at its peak."
     ]
 
     let imageNames: [String] = [
