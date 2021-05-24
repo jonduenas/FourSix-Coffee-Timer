@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="WalkthroughPageVC" modalPresentationStyle="formSheet" id="ubt-b4-YQe" customClass="WalkthroughPageVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="99x-ca-E1I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyP-I3-Duc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <color key="backgroundColor" name="Background"/>
                             </view>
                         </subviews>
@@ -58,11 +58,11 @@
             <objects>
                 <viewController storyboardIdentifier="WalkthroughContentVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FRd-qs-9je" customClass="WalkthroughContentVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vnn-O2-44w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can preview the generated recipe as a graph and see how each pour is broken down." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="V3Y-8s-nu6">
-                                <rect key="frame" x="40" y="20" width="240" height="81"/>
+                                <rect key="frame" x="40" y="64" width="310" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="W88-dh-8eX"/>
                                 </constraints>
@@ -71,13 +71,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="walkthrough-4" translatesAutoresizingMaskIntoConstraints="NO" id="vx9-sE-Riq">
-                                <rect key="frame" x="0.0" y="131" width="320" height="363"/>
+                                <rect key="frame" x="0.0" y="175" width="390" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="RVR-Nl-Sf5"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1vs-CO-Mab">
-                                <rect key="frame" x="40" y="524" width="240" height="24"/>
+                                <rect key="frame" x="40" y="605" width="310" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,26 +113,26 @@
             <objects>
                 <viewController storyboardIdentifier="WalkthroughLastPageVC" id="pQI-jj-JE5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sxf-sD-Dp5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="0Bx-WT-mfW">
-                                <rect key="frame" x="53.5" y="219.5" width="213" height="129"/>
+                                <rect key="frame" x="65.333333333333343" y="331" width="259.33333333333326" height="192"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your coffee!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-Vs-TH5">
-                                        <rect key="frame" x="23.5" y="0.0" width="166.5" height="37.5"/>
+                                        <rect key="frame" x="46.333333333333357" y="0.0" width="166.66666666666663" height="62.333333333333336"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start you'll need:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-3v-tQb">
-                                        <rect key="frame" x="42" y="61.5" width="129" height="28"/>
+                                        <rect key="frame" x="20.333333333333357" y="86.333333333333314" width="218.66666666666663" height="23.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Hario V60 • Digital Scale • Pouring Kettle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-4n-jL8">
-                                        <rect key="frame" x="24" y="113.5" width="165" height="15.5"/>
+                                        <rect key="frame" x="47.333333333333343" y="134" width="165" height="58"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -140,7 +140,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-ON-C1Y" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                <rect key="frame" x="62" y="491" width="196" height="51"/>
+                                <rect key="frame" x="97" y="733" width="196" height="51"/>
                                 <color key="backgroundColor" name="Accent"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="RRF-8x-3B0"/>
@@ -171,17 +171,111 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGj-qv-zEP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4713.04347826087" y="-1317.1875"/>
+            <point key="canvasLocation" x="5418" y="-1317"/>
+        </scene>
+        <!--Walkthrough NotificationsVC-->
+        <scene sceneID="JqE-Yv-BgY">
+            <objects>
+                <viewController storyboardIdentifier="WalkthroughNotificationsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iba-nB-UC7" customClass="WalkthroughNotificationsVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xe9-YG-eDL">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable notifications for when your coffee is the perfect temperature." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mmh-1p-1Lb">
+                                <rect key="frame" x="40" y="64" width="310" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="Qk1-Qp-c5x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="walkthrough-6" translatesAutoresizingMaskIntoConstraints="NO" id="SGf-7Q-9eX">
+                                <rect key="frame" x="0.0" y="175" width="390" height="306"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="kp9-wq-0Nh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly return to the app and adjust your rating now that the coffee's flavor is at its peak." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8lA-kB-7SO">
+                                <rect key="frame" x="40" y="511.00000000000006" width="310" height="71.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2g-g1-oii" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
+                                <rect key="frame" x="60" y="746" width="270" height="44"/>
+                                <color key="backgroundColor" name="Accent"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gaB-5F-hvg"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Enable Notifications" image="bell.fill" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapEnableNotificationsButton:" destination="iba-nB-UC7" eventType="touchUpInside" id="9Fk-MP-49d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M6X-fM-3ZT"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="8lA-kB-7SO" firstAttribute="leading" secondItem="M6X-fM-3ZT" secondAttribute="leading" constant="40" id="5u0-jw-NS0"/>
+                            <constraint firstItem="P2g-g1-oii" firstAttribute="centerX" secondItem="xe9-YG-eDL" secondAttribute="centerX" id="8a3-zd-Lcz"/>
+                            <constraint firstItem="M6X-fM-3ZT" firstAttribute="bottom" secondItem="P2g-g1-oii" secondAttribute="bottom" constant="20" id="I3N-On-Q0G"/>
+                            <constraint firstItem="SGf-7Q-9eX" firstAttribute="leading" secondItem="M6X-fM-3ZT" secondAttribute="leading" id="M2Z-tt-GB2"/>
+                            <constraint firstItem="SGf-7Q-9eX" firstAttribute="top" secondItem="mmh-1p-1Lb" secondAttribute="bottom" constant="30" id="MKq-ry-EqR"/>
+                            <constraint firstItem="mmh-1p-1Lb" firstAttribute="top" secondItem="M6X-fM-3ZT" secondAttribute="top" constant="20" id="Myn-ea-MgO"/>
+                            <constraint firstItem="mmh-1p-1Lb" firstAttribute="leading" secondItem="M6X-fM-3ZT" secondAttribute="leading" constant="40" id="NlI-MT-Jft"/>
+                            <constraint firstItem="M6X-fM-3ZT" firstAttribute="trailing" secondItem="8lA-kB-7SO" secondAttribute="trailing" constant="40" id="Tgv-ot-r0r"/>
+                            <constraint firstItem="8lA-kB-7SO" firstAttribute="top" secondItem="SGf-7Q-9eX" secondAttribute="bottom" constant="30" id="ZNM-vm-zeQ"/>
+                            <constraint firstItem="SGf-7Q-9eX" firstAttribute="trailing" secondItem="M6X-fM-3ZT" secondAttribute="trailing" id="cRD-HW-v11"/>
+                            <constraint firstItem="P2g-g1-oii" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8lA-kB-7SO" secondAttribute="bottom" constant="30" id="dkw-ep-lXF"/>
+                            <constraint firstItem="M6X-fM-3ZT" firstAttribute="trailing" secondItem="P2g-g1-oii" secondAttribute="trailing" constant="60" id="jnK-RV-Xhh"/>
+                            <constraint firstItem="M6X-fM-3ZT" firstAttribute="trailing" secondItem="mmh-1p-1Lb" secondAttribute="trailing" constant="40" id="rDN-4n-Qef"/>
+                            <constraint firstItem="P2g-g1-oii" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M6X-fM-3ZT" secondAttribute="leading" id="wbo-mg-4G0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="footerLabel" destination="8lA-kB-7SO" id="5mV-pZ-X0D"/>
+                        <outlet property="headerLabel" destination="mmh-1p-1Lb" id="fdm-cx-3Do"/>
+                        <outlet property="walkthroughImage" destination="SGf-7Q-9eX" id="iBa-Ok-PGG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHB-16-ieZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4698" y="-1317"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="P2g-g1-oii">
+            <size key="intrinsicContentSize" width="179" height="22"/>
+        </designable>
         <designable name="Tr6-ON-C1Y">
             <size key="intrinsicContentSize" width="100" height="36"/>
         </designable>
     </designables>
     <color key="tintColor" systemColor="secondaryLabelColor"/>
     <resources>
-        <image name="walkthrough-4" width="333" height="611"/>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
+        <image name="walkthrough-4" width="367.33334350585938" height="600"/>
+        <image name="walkthrough-6" width="367.33334350585938" height="306"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="Accent">
             <color red="0.91764705882352937" green="0.72156862745098038" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
