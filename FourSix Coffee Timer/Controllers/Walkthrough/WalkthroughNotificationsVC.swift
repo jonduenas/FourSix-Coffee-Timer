@@ -19,6 +19,42 @@ class WalkthroughNotificationsVC: WalkthroughContentVC {
     }
 
     @IBAction func didTapEnableNotificationsButton(_ sender: UIButton) {
-        print("button working")
+        let manager = LocalNotificationManager()
+        manager.checkCurrentAuthorization { permission in
+            switch permission {
+            case .authorized:
+                self.showAuthorizedAlert()
+            case .denied:
+                self.showDeniedAlert()
+            case .notDetermined:
+                manager.schedule()
+            }
+        }
+    }
+
+    private func showAuthorizedAlert() {
+        DispatchQueue.main.async {
+            AlertHelper.showAlert(
+                title: "Notifications Enabled",
+                message: """
+                    If you change your mind, you can turn off notifications \
+                    in Settings or revoke permission in your device settings.
+                    """,
+                on: self)
+        }
+    }
+
+    private func showDeniedAlert() {
+        DispatchQueue.main.async {
+            AlertHelper.showAlert(
+                title: "Notifications Disabled",
+                message: """
+                    You've previously denied FourSix permission to show \
+                    you notifications. To change this, you will have to \
+                    go to your device Settings > FourSix > Notifications \
+                    and enable them there.
+                    """,
+                on: self)
+        }
     }
 }
