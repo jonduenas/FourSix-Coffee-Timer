@@ -34,4 +34,12 @@ struct WalkthroughModel {
     // swiftlint:disable:next line_length
     let notificationFooterString = "Quickly return to the app, set your rating, and finalize your notes now that the coffee's flavor is at its best."
     let notificationImageName = "walkthrough-6"
+
+    let lastPageListString = """
+        • Coffee
+        • Pour Over Brewer
+        • Filter
+        • Digital Scale
+        • Pouring Kettle
+        """
 }

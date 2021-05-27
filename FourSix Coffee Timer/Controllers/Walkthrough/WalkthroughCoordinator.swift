@@ -54,7 +54,10 @@ class WalkthroughCoordinator: Coordinator {
         pages.append(notificationPage)
 
         // Final page
-        // TODO: Create and add final page to pages
+        let finalPage = WalkthroughLastPageVC.instantiate(fromStoryboardNamed: storyboardName)
+        finalPage.coordinator = self
+        finalPage.listString = walkthroughModel.lastPageListString
+        pages.append(finalPage)
 
         return pages
     }

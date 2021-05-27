@@ -153,43 +153,42 @@
             </objects>
             <point key="canvasLocation" x="4695" y="-1317"/>
         </scene>
-        <!--View Controller-->
+        <!--Walkthrough Last PageVC-->
         <scene sceneID="OiI-Lf-ac2">
             <objects>
-                <viewController storyboardIdentifier="WalkthroughLastPageVC" id="pQI-jj-JE5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalkthroughLastPageVC" id="pQI-jj-JE5" customClass="WalkthroughLastPageVC" customModule="FourSix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sxf-sD-Dp5">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="0Bx-WT-mfW">
-                                <rect key="frame" x="65.333333333333343" y="331" width="259.33333333333326" height="192"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0Bx-WT-mfW">
+                                <rect key="frame" x="85.666666666666671" y="315" width="218.66666666666663" height="224"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your coffee!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-Vs-TH5">
-                                        <rect key="frame" x="46.333333333333357" y="0.0" width="166.66666666666663" height="37.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-Vs-TH5">
+                                        <rect key="frame" x="52.333333333333336" y="0.0" width="114.33333333333331" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start you'll need:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-3v-tQb">
-                                        <rect key="frame" x="20.333333333333357" y="61.333333333333321" width="218.66666666666663" height="28.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start you'll need:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-3v-tQb">
+                                        <rect key="frame" x="0.0" y="78" width="218.66666666666666" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Hario V60 • Digital Scale • Pouring Kettle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-4n-jL8">
-                                        <rect key="frame" x="47.333333333333343" y="113.66666666666669" width="165" height="78.333333333333314"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Hario V60 • Digital Scale • Pouring Kettle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-4n-jL8">
+                                        <rect key="frame" x="27" y="138" width="165" height="86"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-ON-C1Y" customClass="RoundButton" customModule="FourSix" customModuleProvider="target">
-                                <rect key="frame" x="97" y="733" width="196" height="51"/>
+                                <rect key="frame" x="60" y="746" width="270" height="44"/>
                                 <color key="backgroundColor" name="Accent"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="RRF-8x-3B0"/>
-                                    <constraint firstAttribute="height" constant="51" id="snD-C0-P6m"/>
+                                    <constraint firstAttribute="height" constant="44" id="snD-C0-P6m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Let's Brew">
@@ -197,22 +196,36 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapCTAButton:" destination="pQI-jj-JE5" eventType="touchUpInside" id="krU-xn-6jG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I5v-ch-ZIG"/>
-                        <color key="backgroundColor" name="Background"/>
                         <constraints>
+                            <constraint firstItem="I5v-ch-ZIG" firstAttribute="trailing" secondItem="Tr6-ON-C1Y" secondAttribute="trailing" constant="60" id="Gfa-67-Kfc"/>
                             <constraint firstItem="0Bx-WT-mfW" firstAttribute="centerX" secondItem="I5v-ch-ZIG" secondAttribute="centerX" id="HSJ-62-SrL"/>
                             <constraint firstItem="Tr6-ON-C1Y" firstAttribute="centerX" secondItem="I5v-ch-ZIG" secondAttribute="centerX" id="NUt-QB-FF8"/>
                             <constraint firstItem="0Bx-WT-mfW" firstAttribute="centerY" secondItem="I5v-ch-ZIG" secondAttribute="centerY" id="Nvs-F3-RHs"/>
-                            <constraint firstItem="I5v-ch-ZIG" firstAttribute="bottom" secondItem="Tr6-ON-C1Y" secondAttribute="bottom" constant="26" id="Sjj-PC-S47"/>
-                            <constraint firstItem="0Bx-WT-mfW" firstAttribute="width" secondItem="sxf-sD-Dp5" secondAttribute="width" multiplier="0.665459" id="iVi-1v-b67"/>
-                            <constraint firstItem="0Bx-WT-mfW" firstAttribute="height" secondItem="sxf-sD-Dp5" secondAttribute="height" multiplier="0.227121" id="kSt-Ez-on4"/>
+                            <constraint firstItem="I5v-ch-ZIG" firstAttribute="bottom" secondItem="Tr6-ON-C1Y" secondAttribute="bottom" constant="20" id="Sjj-PC-S47"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="listLabel" destination="nkV-4n-jL8" id="f0w-1b-x5k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGj-qv-zEP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
