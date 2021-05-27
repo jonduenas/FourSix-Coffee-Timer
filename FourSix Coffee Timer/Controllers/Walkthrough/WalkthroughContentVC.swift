@@ -23,6 +23,6 @@ class WalkthroughContentVC: UIViewController, Storyboarded {
 
         headerLabel.text = headerString
         footerLabel.text = footerString
-        walkthroughImage.image = UIImage(named: walkthroughImageName)
+        walkthroughImage.image = UIImage(named: walkthroughImageName)?.rounded(radius: 20)
     }
 }

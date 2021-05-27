@@ -33,6 +33,10 @@ class WalkthroughCoordinator: Coordinator {
     func getWalkthroughPages() -> [UIViewController] {
         var pages: [UIViewController] = []
 
+        // Welcome Page
+        let welcomePage = WalkthroughWelcomeVC.instantiate(fromStoryboardNamed: storyboardName)
+        pages.append(welcomePage)
+
         // Standard walkthrough pages
         for index in 0...walkthroughModel.headerStrings.count - 1 {
             let page = WalkthroughContentVC.instantiate(fromStoryboardNamed: storyboardName)

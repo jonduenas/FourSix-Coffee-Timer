@@ -10,7 +10,6 @@ import Foundation
 
 struct WalkthroughModel {
     let headerStrings: [String] = [
-        "Welcome to FourSix",
         "Creating a custom Recipe tailored to your preference is as easy as 1... 2... 3...",
         "Preview the generated Recipe as a graph.",
         "Following the Recipe is easy when using the Timer.",
@@ -18,7 +17,6 @@ struct WalkthroughModel {
     ]
 
     let footerStrings: [String] = [
-        "FourSix makes brewing pour over coffee easy.",
         "1. Set the amount of coffee.\n2. Choose your flavor balance.\n3. Choose your strength.",
         "See how each pour is broken down and learn how your choices change your recipe.",
         "Know exactly when to start pouring and how much water to pour.",
@@ -26,7 +24,6 @@ struct WalkthroughModel {
     ]
 
     let imageNames: [String] = [
-        "walkthrough-1",
         "walkthrough-2",
         "walkthrough-3",
         "walkthrough-4",
