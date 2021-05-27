@@ -17,7 +17,7 @@ class CustomPageViewController: UIPageViewController, Storyboarded {
 
     func style() {
         let appearance = UIPageControl.appearance()
-        appearance.currentPageIndicatorTintColor = .systemGray
-        appearance.pageIndicatorTintColor = .systemGray4
+        appearance.currentPageIndicatorTintColor = .white
+        appearance.pageIndicatorTintColor = .lightGray
     }
 }
