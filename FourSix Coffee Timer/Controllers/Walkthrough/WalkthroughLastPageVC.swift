@@ -11,6 +11,7 @@ import UIKit
 class WalkthroughLastPageVC: UIViewController, Storyboarded {
     weak var coordinator: WalkthroughCoordinator?
     var listString = ""
+
     @IBOutlet weak var listLabel: UILabel!
 
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class WalkthroughLastPageVC: UIViewController, Storyboarded {
 
     @IBAction func didTapCTAButton(_ sender: UIButton) {
         dismiss(animated: true) {
+            UserDefaultsManager.userHasSeenWalkthrough = true
             self.coordinator?.didFinishWalkthrough()
         }
     }

@@ -66,7 +66,7 @@ class WalkthroughPageVC: UIViewController, Storyboarded {
 
     @objc func didTapSkipButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true) {
-            // UserDefaultsManager.userHasSeenWalkthrough = true
+            UserDefaultsManager.userHasSeenWalkthrough = true
             self.coordinator?.didFinishWalkthrough()
         }
     }
