@@ -9,27 +9,28 @@
 import UIKit
 
 class WalkthroughNotificationsVC: WalkthroughContentVC {
+    let notificationManager = LocalNotificationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        notificationManager.delegate = self
         headerLabel.text = headerString
         footerLabel.text = footerString
         walkthroughImage.image = UIImage(named: walkthroughImageName)?.rounded(radius: 20)
     }
 
     @IBAction func didTapEnableNotificationsButton(_ sender: UIButton) {
-        let manager = LocalNotificationManager()
-        manager.checkCurrentAuthorization { permission in
+        notificationManager.checkCurrentAuthorization { [weak self] permission in
             switch permission {
             case .authorized:
-                self.showAuthorizedAlert()
+                self?.showAuthorizedAlert()
                 UserDefaultsManager.sendReminderNotification = true
             case .denied:
-                self.showDeniedAlert()
+                self?.showDeniedAlert()
                 UserDefaultsManager.sendReminderNotification = false
             case .notDetermined:
-                manager.schedule()
+                self?.notificationManager.schedule()
             }
         }
     }
@@ -59,5 +60,11 @@ class WalkthroughNotificationsVC: WalkthroughContentVC {
                     """,
                 on: self)
         }
+    }
+}
+
+extension WalkthroughNotificationsVC: LocalNotificationManagerDelegate {
+    func notificationMananger(_ notificationManager: LocalNotificationManager, didChangePermission permission: NotificationPermission) {
+        UserDefaultsManager.sendReminderNotification = permission == .authorized
     }
 }
