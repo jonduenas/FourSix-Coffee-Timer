@@ -24,8 +24,10 @@ class WalkthroughNotificationsVC: WalkthroughContentVC {
             switch permission {
             case .authorized:
                 self.showAuthorizedAlert()
+                UserDefaultsManager.sendReminderNotification = true
             case .denied:
                 self.showDeniedAlert()
+                UserDefaultsManager.sendReminderNotification = false
             case .notDetermined:
                 manager.schedule()
             }
@@ -37,8 +39,9 @@ class WalkthroughNotificationsVC: WalkthroughContentVC {
             AlertHelper.showAlert(
                 title: "Notifications Enabled",
                 message: """
-                    If you change your mind, you can turn off notifications \
-                    in Settings or revoke permission in your device settings.
+                    If you change your mind, you can always turn them off \
+                    after a brew session, or revoke permission in device \
+                    Settings > FourSix > Notifications.
                     """,
                 on: self)
         }
