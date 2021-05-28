@@ -31,8 +31,10 @@ struct WalkthroughModel {
     ]
 
     let notificationHeaderString = "Enable notifications for when your coffee is the perfect temperature."
-    // swiftlint:disable:next line_length
-    let notificationFooterString = "Quickly return to the app, set your rating, and finalize your notes now that the coffee's flavor is at its best."
+    let notificationFooterString = """
+        Quickly return to the app, set your rating, and finalize your notes \
+        now that the coffee's flavor is at its best.
+        """
     let notificationImageName = "walkthrough-6"
 
     let lastPageListString = """
