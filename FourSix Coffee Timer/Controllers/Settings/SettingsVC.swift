@@ -70,17 +70,6 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
 
     // MARK: TableView Methods
 
-    fileprivate func sendFeedback() {
-        AlertHelper.showCancellableAlert(title: "Opening...",
-                                         message: "Sending you to Twitter to give feedback.",
-                                         confirmButtonTitle: "Open Twitter",
-                                         dismissButtonTitle: "Cancel",
-                                         on: self,
-                                         confirmHandler: { _ in
-                                            UIApplication.shared.open(Constants.twitterURL)
-                                         })
-    }
-
     fileprivate func rateInAppStore() {
         guard let writeReviewURL = Constants.reviewProductURL else { return }
         UIApplication.shared.open(writeReviewURL)
@@ -139,7 +128,7 @@ extension SettingsVC: UITableViewDelegate {
                 print("Go to website")
                 coordinator?.showLearnMore()
             case .feedback:
-                sendFeedback()
+                coordinator?.sendEmail()
             case .tipJar:
                 print("Show Tip Jar")
                 coordinator?.showTipJar()
