@@ -34,7 +34,7 @@ class SettingsCoordinator: NSObject, Coordinator {
 
     func showLearnMore() {
         let vc = WebViewVC()
-        vc.urlString = "https://foursixcoffeeapp.com/about/"
+        vc.urlString = Constants.learnMoreURLString
         vc.showTitle = false
         navigationController.pushViewController(vc, animated: true)
     }
