@@ -75,6 +75,11 @@ class SettingsCoordinator: NSObject, Coordinator {
         }
     }
 
+    func rateInAppStore() {
+        guard let writeReviewURL = Constants.reviewProductURL else { return }
+        UIApplication.shared.open(writeReviewURL)
+    }
+
     private func pushVCWithNoDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)

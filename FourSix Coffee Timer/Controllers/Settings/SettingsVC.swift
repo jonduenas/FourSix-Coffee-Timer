@@ -70,11 +70,6 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
 
     // MARK: TableView Methods
 
-    fileprivate func rateInAppStore() {
-        guard let writeReviewURL = Constants.reviewProductURL else { return }
-        UIApplication.shared.open(writeReviewURL)
-    }
-
     fileprivate func shareFourSix() {
         let activityVC = UIActivityViewController(activityItems: [Constants.productURL], applicationActivities: nil)
         present(activityVC, animated: true)
@@ -133,7 +128,7 @@ extension SettingsVC: UITableViewDelegate {
                 print("Show Tip Jar")
                 coordinator?.showTipJar()
             case .rate:
-                rateInAppStore()
+                coordinator?.rateInAppStore()
             case .share:
                 shareFourSix()
             case .acknowledgements:
