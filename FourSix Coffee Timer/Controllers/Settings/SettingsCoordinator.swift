@@ -34,7 +34,7 @@ class SettingsCoordinator: NSObject, Coordinator {
 
     func showLearnMore() {
         let vc = WebViewVC()
-        vc.urlString = "https://foursixcoffeeapp.com/about/"
+        vc.urlString = Constants.learnMoreURLString
         vc.showTitle = false
         navigationController.pushViewController(vc, animated: true)
     }
@@ -73,6 +73,16 @@ class SettingsCoordinator: NSObject, Coordinator {
                 message: "Please make sure you've setup email on your device. You can also simply send an email to jon@foursixcoffeeapp.com.",
                 on: navigationController)
         }
+    }
+
+    func rateInAppStore() {
+        guard let writeReviewURL = Constants.reviewProductURL else { return }
+        UIApplication.shared.open(writeReviewURL)
+    }
+
+    func shareFourSix() {
+        let activityVC = UIActivityViewController(activityItems: [Constants.productURL], applicationActivities: nil)
+        navigationController.present(activityVC, animated: true)
     }
 
     private func pushVCWithNoDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {

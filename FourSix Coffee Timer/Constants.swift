@@ -11,6 +11,7 @@ import Foundation
 struct Constants {
     static let emailAddress = "jon@foursixcoffeeapp.com"
     static let revenueCatAPIKey = "dDIhCeApJetzFIZVnXDjcLxLTPTjIoyr"
+    static let learnMoreURLString = "https://foursixcoffeeapp.com/about/"
     static let productURL = URL(string: "https://apps.apple.com/app/id1519905670")!
     static let twitterURL = URL(string: "https://www.twitter.com/foursixcoffee")!
 
