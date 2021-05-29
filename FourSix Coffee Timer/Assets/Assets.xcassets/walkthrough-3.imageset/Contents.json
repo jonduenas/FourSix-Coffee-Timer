@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "walkthrough-3-light.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +11,11 @@
           "value" : "dark"
         }
       ],
-      "filename" : "walkthrough-3-dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "walkthrough-3-light@2x.png",
+      "filename" : "walkthrough-3@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -33,7 +31,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "walkthrough-3-light@3x.png",
+      "filename" : "walkthrough-3@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },

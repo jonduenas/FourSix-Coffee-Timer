@@ -8,13 +8,16 @@
 
 import UIKit
 
-class CustomPageViewController: UIPageViewController {
-
+class CustomPageViewController: UIPageViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let pageControl = UIPageControl.appearance()
-        pageControl.currentPageIndicatorTintColor = .systemGray
-        pageControl.pageIndicatorTintColor = .systemGray4
+        style()
+    }
+
+    func style() {
+        let appearance = UIPageControl.appearance()
+        appearance.currentPageIndicatorTintColor = .white
+        appearance.pageIndicatorTintColor = .lightGray
     }
 }

@@ -8,38 +8,21 @@
 
 import UIKit
 
-class WalkthroughContentVC: UIViewController {
+class WalkthroughContentVC: UIViewController, Storyboarded {
 
-    @IBOutlet var walkthroughImage: UIImageView!
-    @IBOutlet var endLabel: UILabel!
-    @IBOutlet var neededToolsStack: UIStackView!
-    @IBOutlet var startButton: UIButton!
+    @IBOutlet weak var walkthroughImage: UIImageView!
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var footerLabel: UILabel!
 
+    var headerString: String = ""
+    var footerString: String = ""
     var walkthroughImageName = ""
-    var index = 0
-    var isLastPage = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        walkthroughImage.image = UIImage(named: walkthroughImageName)
-
-        if isLastPage {
-            showLastPage(true)
-        } else {
-            showLastPage(false)
-        }
-    }
-
-    private func showLastPage(_ show: Bool) {
-        walkthroughImage.isHidden = show
-        neededToolsStack.isHidden = !show
-        endLabel.isHidden = !show
-        startButton.isHidden = !show
-    }
-
-    @IBAction func startTapped(_ sender: Any) {
-        UserDefaultsManager.userHasSeenWalkthrough = true
-        self.dismiss(animated: true)
+        headerLabel.text = headerString
+        footerLabel.text = footerString
+        walkthroughImage.image = UIImage(named: walkthroughImageName)?.rounded(radius: 20)
     }
 }
