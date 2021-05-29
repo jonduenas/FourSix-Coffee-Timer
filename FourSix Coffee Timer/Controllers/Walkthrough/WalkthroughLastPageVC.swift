@@ -12,11 +12,13 @@ class WalkthroughLastPageVC: UIViewController, Storyboarded {
     weak var coordinator: WalkthroughCoordinator?
     var listString = ""
 
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var listLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        headerLabel.font = UIFont.newYork(size: 40, weight: .medium)
         listLabel.text = listString
     }
 

@@ -224,6 +224,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerLabel" destination="qYA-Vs-TH5" id="DTf-56-tzJ"/>
                         <outlet property="listLabel" destination="nkV-4n-jL8" id="f0w-1b-x5k"/>
                     </connections>
                 </viewController>
