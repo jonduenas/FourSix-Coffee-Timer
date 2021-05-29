@@ -68,13 +68,6 @@ class SettingsVC: UIViewController, PaywallDelegate, Storyboarded {
         tableView.reloadData()
     }
 
-    // MARK: TableView Methods
-
-    fileprivate func shareFourSix() {
-        let activityVC = UIActivityViewController(activityItems: [Constants.productURL], applicationActivities: nil)
-        present(activityVC, animated: true)
-    }
-
     // MARK: Navigation Methods
 
     @IBAction func closeTapped(_ sender: Any) {
@@ -120,17 +113,15 @@ extension SettingsVC: UITableViewDelegate {
 
             switch row {
             case .learnMore:
-                print("Go to website")
                 coordinator?.showLearnMore()
             case .feedback:
                 coordinator?.sendEmail()
             case .tipJar:
-                print("Show Tip Jar")
                 coordinator?.showTipJar()
             case .rate:
                 coordinator?.rateInAppStore()
             case .share:
-                shareFourSix()
+                coordinator?.shareFourSix()
             case .acknowledgements:
                 coordinator?.showAcknowledgements()
             default:

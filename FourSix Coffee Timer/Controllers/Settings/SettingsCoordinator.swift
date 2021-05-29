@@ -80,6 +80,11 @@ class SettingsCoordinator: NSObject, Coordinator {
         UIApplication.shared.open(writeReviewURL)
     }
 
+    func shareFourSix() {
+        let activityVC = UIActivityViewController(activityItems: [Constants.productURL], applicationActivities: nil)
+        navigationController.present(activityVC, animated: true)
+    }
+
     private func pushVCWithNoDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)
