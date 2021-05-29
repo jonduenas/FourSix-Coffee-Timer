@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingsCoordinator: Coordinator {
+class SettingsCoordinator: NSObject, Coordinator {
     var childCoordinators = [Coordinator]()
     weak var parentCoordinator: BrewCoordinator?
     var navigationController: UINavigationController
@@ -58,8 +59,30 @@ class SettingsCoordinator: Coordinator {
         pushVCWithNoDependencies(viewController: AcknowledgementsVC())
     }
 
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([Constants.emailAddress])
+            mail.setSubject("Feedback")
+
+            navigationController.present(mail, animated: true)
+        } else {
+            AlertHelper.showAlert(
+                title: "Error Creating Email",
+                message: "Please make sure you've setup email on your device. You can also simply send an email to jon@foursixcoffeeapp.com.",
+                on: navigationController)
+        }
+    }
+
     private func pushVCWithNoDependencies <T: Storyboarded>(viewController: T) where T: UIViewController {
         let vc = T.instantiate(fromStoryboardNamed: settingsStoryboardName)
         navigationController.pushViewController(vc, animated: true)
+    }
+}
+
+extension SettingsCoordinator: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }
