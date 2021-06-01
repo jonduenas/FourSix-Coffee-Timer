@@ -55,7 +55,7 @@
                                     <constraint firstItem="FFg-bd-plj" firstAttribute="top" secondItem="Tqe-Mg-vGs" secondAttribute="top" id="xD3-1v-Ht9"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OCw-yD-UST" customClass="RoundedStackView" customModule="FourSix" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OCw-yD-UST">
                                 <rect key="frame" x="0.0" y="117.33333333333331" width="390" height="692.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-hQ-KGE">
@@ -334,11 +334,6 @@
                                     <constraint firstAttribute="trailing" secondItem="yRs-Ml-pDt" secondAttribute="trailing" constant="25" id="pfD-Ng-QSP"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="16" left="8" bottom="16" right="8"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9no-cl-2lK"/>
@@ -361,6 +356,7 @@
                         <outlet property="dropIconImageView" destination="OcA-aY-W8N" id="4Fg-MK-3cC"/>
                         <outlet property="editButton" destination="n5t-ku-8J4" id="r5a-hB-Clb"/>
                         <outlet property="greetingLabel" destination="FFg-bd-plj" id="vC0-cd-yPj"/>
+                        <outlet property="mainStackView" destination="OCw-yD-UST" id="sDd-dd-oYz"/>
                         <outlet property="sliderContainerView" destination="L1X-Yk-nJf" id="XO4-r0-REc"/>
                         <outlet property="strengthSegmentedControl" destination="IFx-mc-irc" id="slF-PT-bPf"/>
                         <outlet property="subGreetingLabel" destination="G7h-pK-BNJ" id="xpC-30-Gox"/>
