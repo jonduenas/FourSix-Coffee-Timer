@@ -55,7 +55,9 @@ class BrewSummaryVC: UIViewController, Storyboarded {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        notificationButton.wiggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.notificationButton.wiggle()
+        }
     }
 
     private func createNewNote() {
