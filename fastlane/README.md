@@ -31,6 +31,11 @@ Run SwiftLint
 fastlane ios screenshots
 ```
 Generate new localized screenshots
+### ios beta
+```
+fastlane ios beta
+```
+
 
 ----
 
