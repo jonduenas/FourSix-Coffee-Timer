@@ -58,6 +58,7 @@ class BrewVC: UIViewController, Storyboarded {
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var subGreetingLabel: UILabel!
 
+    @IBOutlet weak var dropIconImageView: UIImageView!
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
 
@@ -76,6 +77,7 @@ class BrewVC: UIViewController, Storyboarded {
         checkForStepAdvanceMigration()
         initializeGreeting()
         initializeNavBar()
+        initializeDropIcon()
         initializeFonts()
         initializeSlider()
         initializeSelectors()
@@ -128,6 +130,16 @@ class BrewVC: UIViewController, Storyboarded {
         )
         navigationItem.title = ""
         navigationController?.navigationBar.tintColor = UIColor.lightText
+    }
+
+    private func initializeDropIcon() {
+        if #available(iOS 14.0, *) {
+            // Image set in Storyboard already
+            return
+        } else {
+            let insets = UIEdgeInsets(top: -3, left: -3, bottom: 0, right: -3)
+            dropIconImageView.image = UIImage(named: "drop")?.withAlignmentRectInsets(insets)
+        }
     }
 
     private func initializeFonts() {
