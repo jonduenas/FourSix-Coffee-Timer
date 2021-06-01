@@ -55,9 +55,12 @@ class BrewVC: UIViewController, Storyboarded {
     }
 
     // MARK: IBOutlets
+    @IBOutlet weak var mainStackView: UIStackView!
+
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var subGreetingLabel: UILabel!
 
+    @IBOutlet weak var dropIconImageView: UIImageView!
     @IBOutlet var coffeeLabel: UILabel!
     @IBOutlet var waterLabel: UILabel!
 
@@ -74,8 +77,10 @@ class BrewVC: UIViewController, Storyboarded {
         guard dataManager != nil else { fatalError("Controller requires a DataManager.") }
 
         checkForStepAdvanceMigration()
+        fixStackViewBackgrounds()
         initializeGreeting()
         initializeNavBar()
+        initializeDropIcon()
         initializeFonts()
         initializeSlider()
         initializeSelectors()
@@ -130,6 +135,24 @@ class BrewVC: UIViewController, Storyboarded {
         navigationController?.navigationBar.tintColor = UIColor.lightText
     }
 
+    private func initializeDropIcon() {
+        if #available(iOS 14.0, *) {
+            // Image set in Storyboard already
+            return
+        } else {
+            let insets = UIEdgeInsets(top: -3, left: -3, bottom: 0, right: -3)
+            dropIconImageView.image = UIImage(named: "drop")?.withAlignmentRectInsets(insets)
+        }
+    }
+
+    private func fixStackViewBackgrounds() {
+        if #available(iOS 14.0, *) {
+            return
+        } else {
+            mainStackView.addBackground(color: UIColor(named: AssetsColor.background.rawValue) ?? UIColor.systemBackground)
+        }
+    }
+
     private func initializeFonts() {
         let headerFont = UIFont.newYork(size: 24, weight: .bold)
         greetingLabel.font = headerFont
@@ -158,6 +181,9 @@ class BrewVC: UIViewController, Storyboarded {
         let strengthStrings = Strength.allCases.map { String(describing: $0.self).capitalized }
         strengthSegmentedControl.items = strengthStrings
         strengthSegmentedControl.selectedIndex = Strength.allCases.firstIndex(of: strength) ?? 1
+
+        balanceSegmentedControl.layoutIfNeeded()
+        strengthSegmentedControl.layoutIfNeeded()
     }
 
     private func updateValueLabels() {
