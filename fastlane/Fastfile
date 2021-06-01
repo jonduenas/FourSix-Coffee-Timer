@@ -43,4 +43,10 @@ platform :ios do
     capture_screenshots(workspace: "FourSix Coffee Timer.xcworkspace", scheme: "FourSixUITests")
     upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
   end
+  
+  lane :beta do
+  	increment_build_number
+  	build_app(scheme:"FourSix Coffee Timer")
+  	upload_to_testflight
+  end
 end
