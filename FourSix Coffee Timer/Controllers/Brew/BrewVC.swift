@@ -181,6 +181,9 @@ class BrewVC: UIViewController, Storyboarded {
         let strengthStrings = Strength.allCases.map { String(describing: $0.self).capitalized }
         strengthSegmentedControl.items = strengthStrings
         strengthSegmentedControl.selectedIndex = Strength.allCases.firstIndex(of: strength) ?? 1
+
+        balanceSegmentedControl.layoutIfNeeded()
+        strengthSegmentedControl.layoutIfNeeded()
     }
 
     private func updateValueLabels() {
