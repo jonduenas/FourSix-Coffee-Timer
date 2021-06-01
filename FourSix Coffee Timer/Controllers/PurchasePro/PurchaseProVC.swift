@@ -10,11 +10,11 @@ import UIKit
 
 class PurchaseProVC: UIViewController, Storyboarded {
     weak var delegate: PaywallDelegate?
-    var fourSixPro: IAPurchase?
     var productPrice: String?
     var productName: String?
     var productDescription: String?
     var defaultRestoreButtonText: String?
+    var error: String?
 
     @IBOutlet var purchaseButton: LoadingButton!
     @IBOutlet var restoreButton: UIButton!
@@ -26,6 +26,24 @@ class PurchaseProVC: UIViewController, Storyboarded {
         loadOfferings()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let errorMessage = error {
+            AlertHelper.showConfirmationAlert(
+                title: "Unexpected Error",
+                message: """
+                    Unable to load offerings. Please try again later.
+
+                    Error: \(errorMessage)
+                    """,
+                confirmButtonTitle: "OK",
+                on: self) { _ in
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+
     private func loadOfferings() {
         IAPManager.shared.loadCurrentOffering { [weak self] (_, error) in
             guard let self = self else { return }
@@ -34,26 +52,12 @@ class PurchaseProVC: UIViewController, Storyboarded {
                 self.restoreButton.isEnabled = false
                 self.purchaseButton.isHidden = true
 
-                AlertHelper.showConfirmationAlert(
-                    title: "Unexpected Error",
-                    message: "Unable to load offerings. Please try again later.",
-                    confirmButtonTitle: "OK",
-                    on: self) { _ in
-                    self.dismiss(animated: true, completion: nil)
-                }
+                self.error = error
             } else {
-                if let fourSixPro = IAPManager.shared.fourSixPro, let price = fourSixPro.localizedPriceString {
-                    self.purchaseButton.setTitle("Get Pro for \(price)", for: .normal)
-                    self.fourSixPro = fourSixPro
-                } else {
-                    AlertHelper.showConfirmationAlert(
-                        title: "Unexpected Error",
-                        message: "Unable to load offerings. Please try again later.",
-                        confirmButtonTitle: "OK",
-                        on: self) { _ in
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
+                let fourSixPro = IAPManager.shared.fourSixPro
+                let price = fourSixPro?.localizedPriceString
+
+                self.purchaseButton.setTitle("Get Pro for \(price ?? "???")", for: .normal)
             }
         }
     }
