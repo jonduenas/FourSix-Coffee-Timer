@@ -357,6 +357,15 @@ extension NoteDetailsVC: RatingControlDelegate {
         }
     }
 
+    func ratingControlShouldChangeRating(_ ratingControl: RatingControl) -> Bool {
+        if !userIsPro {
+            coordinator?.showProPaywall(delegate: self)
+            return false
+        } else {
+            return true
+        }
+    }
+
     func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int) {
         updateNote(with: rating)
     }
