@@ -165,9 +165,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // MARK: Coffee Picker
 
     @objc private func didTapCoffeeView() {
-        guard let note = note else { return }
+        if userIsPro {
+            guard let note = note else { return }
 
-        coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
+            coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
+        } else {
+            coordinator?.showProPaywall(delegate: self)
+        }
     }
 
     // MARK: Temperature Unit Control
