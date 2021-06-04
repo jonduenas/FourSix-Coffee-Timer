@@ -23,12 +23,6 @@ class NotesVC: UIViewController, Storyboarded {
 
         guard dataManager != nil else { fatalError("Controller requires DataManager.") }
 
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            title: "New Notes",
-//            style: .plain,
-//            target: self,
-//            action: #selector(createNewNote)
-//        )
         tableView.delegate = self
         configureDataSource()
         configureFetchedResultsController()
@@ -46,79 +40,32 @@ class NotesVC: UIViewController, Storyboarded {
     }
 
     private func configureDataSource() {
-        let dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
-            guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: String(describing: NoteCell.self),
-                    for: indexPath)
-                    as? NoteCell
-            else {
-                return nil
-            }
+        let dataSource = DataSource(
+            tableView: tableView,
+            cellProvider: { [weak self] (tableView, indexPath, noteID) -> UITableViewCell? in
+                guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: String(describing: NoteCell.self),
+                        for: indexPath) as? NoteCell else { return nil }
 
-            guard let note = try? self.dataManager.mainContext.existingObject(with: noteID) as? NoteMO else {
-                fatalError("Managed object should be available")
-            }
+                guard let note = try? self?.dataManager.mainContext.existingObject(with: noteID) as? NoteMO else {
+                    fatalError("Managed object should be available")
+                }
 
-            guard let balance = Balance(rawValue: Float(note.recipe.balanceRaw)) else { return cell }
-            guard let strength = Strength(rawValue: Int(note.recipe.strengthRaw)) else { return cell }
+                guard let balance = Balance(rawValue: Float(note.recipe.balanceRaw)) else { return cell }
+                guard let strength = Strength(rawValue: Int(note.recipe.strengthRaw)) else { return cell }
 
-            cell.monthLabel.text = note.date.stringFromDate(component: .month)
-            cell.dayLabel.text = note.date.stringFromDate(component: .day)
-            cell.recipeLabel.text = String(describing: balance).capitalized + " & " + String(describing: strength).capitalized
-            cell.coffeeLabel.text = note.recipe.coffee.clean + "g"
-            cell.waterLabel.text = note.recipe.waterTotal.clean + "g"
-            cell.ratingStackView.rating = Int(note.rating)
+                cell.monthLabel.text = note.date.stringFromDate(component: .month)
+                cell.dayLabel.text = note.date.stringFromDate(component: .day)
+                cell.recipeLabel.text = String(describing: balance).capitalized + " & " + String(describing: strength).capitalized
+                cell.coffeeLabel.text = note.recipe.coffee.clean + "g"
+                cell.waterLabel.text = note.recipe.waterTotal.clean + "g"
+                cell.ratingStackView.rating = Int(note.rating)
 
-            return cell
-        })
+                return cell
+            })
 
         self.dataSource = dataSource
         tableView.dataSource = dataSource
-    }
-
-    // TODO: Delete this function
-    @objc func createNewNote() {
-        let backgroundMOC = self.dataManager.backgroundContext
-
-        var date = Date()
-
-        backgroundMOC.perform {
-            for _ in 0...150 {
-                let note = NoteMO(context: backgroundMOC)
-
-                let recipe = RecipeMO(context: backgroundMOC)
-                recipe.balanceRaw = Double(Balance.allCases[Int.random(in: 0...2)].rawValue)
-                recipe.strengthRaw = Int64(Strength.allCases[Int.random(in: 0...2)].rawValue)
-                recipe.interval = 30
-                recipe.coffee = 25
-                recipe.waterTotal = 375
-                recipe.waterPours = [50, 70, 60, 60, 60]
-                note.recipe = recipe
-
-                let session = SessionMO(context: backgroundMOC)
-                session.averageDrawdown = 45
-                session.totalTime = 360
-                session.drawdownTimes = [45, 45, 45, 45, 45]
-                note.session = session
-
-                let coffee = CoffeeMO(context: backgroundMOC)
-                coffee.name = "Rayos del Sol"
-                coffee.origin = "Peru"
-                coffee.roastLevel = "Light"
-                coffee.roaster = "Coava"
-                note.coffee = coffee
-
-                note.date = date
-                date = date.addingTimeInterval(-86400)
-                note.grindSetting = ""
-                note.rating = Int64(Int.random(in: 0...5))
-                note.roastDate = nil
-                note.text = ""
-                note.waterTempC = 0
-            }
-
-            self.dataManager.saveContext(backgroundMOC)
-        }
     }
 
     private func deleteNote(at indexPath: IndexPath) {
