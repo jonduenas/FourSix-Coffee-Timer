@@ -109,6 +109,8 @@ class BrewVC: UIViewController, Storyboarded {
             }
 
             isFirstAppearance = false
+        } else {
+            checkForProStatus()
         }
     }
 
