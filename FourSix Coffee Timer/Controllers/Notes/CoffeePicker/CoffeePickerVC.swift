@@ -56,28 +56,32 @@ class CoffeePickerVC: UIViewController, Storyboarded {
     }
 
     private func configureDataSource() {
-        let dataSource = CoffeeDataSource(tableView: tableView, cellProvider: { (tableView, indexPath, noteID) -> UITableViewCell? in
-            let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        let dataSource = CoffeeDataSource(
+            tableView: tableView,
+            cellProvider: { [weak self] (tableView, indexPath, noteID) -> UITableViewCell? in
+                guard let self = self else { return nil }
 
-            guard let coffee = try? self.dataManager.mainContext.existingObject(with: noteID) as? CoffeeMO else {
-                fatalError("Managed object should be available")
-            }
+                let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
 
-            cell.textLabel?.text = coffee.name
+                guard let coffee = try? self.dataManager.mainContext.existingObject(with: noteID) as? CoffeeMO else {
+                    fatalError("Managed object should be available")
+                }
 
-            if coffee == self.currentPicked {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+                cell.textLabel?.text = coffee.name
 
-            // Sets custom color for background when cell is selected
-            let backgroundView = UIView()
-            backgroundView.backgroundColor = UIColor(named: AssetsColor.separator.rawValue)
-            cell.selectedBackgroundView = backgroundView
+                if coffee == self.currentPicked {
+                    cell.accessoryType = .checkmark
+                } else {
+                    cell.accessoryType = .none
+                }
 
-            return cell
-        })
+                // Sets custom color for background when cell is selected
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = UIColor(named: AssetsColor.separator.rawValue)
+                cell.selectedBackgroundView = backgroundView
+
+                return cell
+            })
 
         self.dataSource = dataSource
         tableView.dataSource = dataSource
