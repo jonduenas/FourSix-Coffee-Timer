@@ -10,17 +10,17 @@ import Foundation
 
 struct WalkthroughModel {
     let headerStrings: [String] = [
-        "Creating a custom Recipe tailored to your preference is as easy as 1... 2... 3...",
-        "Preview the generated Recipe as a graph.",
-        "Following the Recipe is easy when using the Timer.",
-        "New in v2.0, save Notes and rate your brew."
+        "Creating a custom pour over recipe is easy.",
+        "Preview the generated recipe as a graph.",
+        "Following the recipe is simple when using the timer.",
+        "New in v2.0, save notes and rate your brew."
     ]
 
     let footerStrings: [String] = [
-        "1. Set the amount of coffee.\n2. Choose your flavor balance.\n3. Choose your strength.",
+        "Simply choose your flavor balance and strength. That's it! Purchase FourSix Pro and you can customize brew size, ratio, and more.",
         "See how each pour is broken down and learn how your choices change your recipe.",
         "Know exactly when to start pouring and how much water to pour.",
-        "Automatically records stats on your session. Add extra details like grind size, water temperature, coffee choice, and more."
+        "Automatically records stats on your session. Pro users can add extra details like grind size, water temp, coffee choice, and more."
     ]
 
     let imageNames: [String] = [
