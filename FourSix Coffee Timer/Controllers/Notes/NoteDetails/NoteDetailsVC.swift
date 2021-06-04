@@ -10,6 +10,13 @@ import UIKit
 import CoreData
 
 class NoteDetailsVC: UIViewController, Storyboarded {
+    var dataManager: DataManager!
+    weak var coordinator: NoteDetailsCoordinator?
+    var note: NoteMO?
+    var isNewNote: Bool = false
+    var hintIsAnimating: Bool = false
+    var userIsPro: Bool = false
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var longTapHint: UILabel!
@@ -36,15 +43,10 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // Notes
     @IBOutlet weak var notesTextView: NotesTextView!
 
-    var dataManager: DataManager!
-    weak var coordinator: NoteDetailsCoordinator?
-    var note: NoteMO?
-    var isNewNote: Bool = false
-    var hintIsAnimating: Bool = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        checkForProStatus()
         registerKeyboardNotifications()
         registerMOCChangeNotification()
         ratingControl.delegate = self
@@ -163,9 +165,13 @@ class NoteDetailsVC: UIViewController, Storyboarded {
     // MARK: Coffee Picker
 
     @objc private func didTapCoffeeView() {
-        guard let note = note else { return }
+        if userIsPro {
+            guard let note = note else { return }
 
-        coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
+            coordinator?.showCoffeePicker(currentPicked: note.coffee, dataManager: dataManager, delegate: self)
+        } else {
+            coordinator?.showProPaywall(delegate: self)
+        }
     }
 
     // MARK: Temperature Unit Control
@@ -299,14 +305,36 @@ extension NoteDetailsVC: UITextFieldDelegate {
         return true
     }
 
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if !userIsPro {
+            coordinator?.showProPaywall(delegate: self)
+            return false
+        } else {
+            return true
+        }
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
-        updateNote(with: textField)
+        if userIsPro {
+            updateNote(with: textField)
+        }
     }
 }
 
 extension NoteDetailsVC: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if !userIsPro {
+            coordinator?.showProPaywall(delegate: self)
+            return false
+        } else {
+            return true
+        }
+    }
+
     func textViewDidEndEditing(_ textView: UITextView) {
-        updateNote(with: textView)
+        if userIsPro {
+            updateNote(with: textView)
+        }
     }
 }
 
@@ -326,6 +354,15 @@ extension NoteDetailsVC: RatingControlDelegate {
             } completion: { _ in
                 self.hintIsAnimating = false
             }
+        }
+    }
+
+    func ratingControlShouldChangeRating(_ ratingControl: RatingControl) -> Bool {
+        if !userIsPro {
+            coordinator?.showProPaywall(delegate: self)
+            return false
+        } else {
+            return true
         }
     }
 
@@ -366,5 +403,28 @@ extension NoteDetailsVC: DatePickerViewDelegate {
         note?.roastDate = date
         note?.coffee?.previousRoastDate = date
         dataManager.saveContext()
+    }
+}
+
+// MARK: - Paywall Delegate methods
+
+extension NoteDetailsVC: PaywallDelegate {
+    func purchaseCompleted() {
+        userIsPro = true
+    }
+
+    func purchaseRestored() {
+        userIsPro = true
+    }
+
+    func checkForProStatus() {
+        IAPManager.shared.userIsPro { userIsPro, error in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            self.userIsPro = userIsPro
+        }
     }
 }

@@ -11,6 +11,13 @@ import UIKit
 protocol RatingControlDelegate: AnyObject {
     func ratingControlShouldShowHint(ratingControl: RatingControl)
     func ratingControl(ratingControl: RatingControl, didChangeRating rating: Int)
+    func ratingControlShouldChangeRating(_ ratingControl: RatingControl) -> Bool
+}
+
+extension RatingControlDelegate {
+    func ratingControlShouldChangeRating(_ ratingControl: RatingControl) -> Bool {
+        return true
+    }
 }
 
 @IBDesignable
@@ -115,14 +122,18 @@ class RatingControl: UIStackView {
             return
         }
 
-        setRating(for: sender)
+        if delegate?.ratingControlShouldChangeRating(self) ?? true {
+            setRating(for: sender)
+        }
     }
 
     @objc private func ratingButtonLongTapped(sender: UILongPressGestureRecognizer) {
         guard sender.state == .began else { return }
         guard let button = sender.view as? UIButton else { return }
 
-        setRating(for: button)
+        if delegate?.ratingControlShouldChangeRating(self) ?? true {
+            setRating(for: button)
+        }
     }
 
     private func setRating(for button: UIButton) {
