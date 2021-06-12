@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewVC: UIViewController, WKNavigationDelegate {
+class WebViewVC: UIViewController {
     let webView = WKWebView()
     var progressBar: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .default)
@@ -134,6 +134,20 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         } else {
             progressBar.isHidden = false
         }
+    }
+}
+
+extension WebViewVC: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        AlertHelper.showAlert(title: "Error",
+                              message: error.localizedDescription,
+                              on: self)
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        AlertHelper.showAlert(title: "Error Loading Webpage",
+                              message: error.localizedDescription,
+                              on: self)
     }
 }
 
