@@ -180,6 +180,7 @@ class NoteDetailsVC: UIViewController, Storyboarded {
         guard let selectedUnit = TempUnit(rawValue: sender.selectedSegmentIndex) else { return }
 
         note?.tempUnitRawValue = Int64(selectedUnit.rawValue)
+        updateNote(with: waterTempTextField)
     }
 
     private func convertTemp(value: Double, from inUnit: UnitTemperature, to outUnit: UnitTemperature) -> Double {
