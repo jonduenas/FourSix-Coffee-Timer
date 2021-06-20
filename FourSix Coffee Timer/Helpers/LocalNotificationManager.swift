@@ -119,4 +119,13 @@ struct LocalNotification {
         body: "Your coffee should be at the perfect temperature. Time to add a rating.",
         timeInterval: 300
     )
+
+    #if DEBUG
+    static let testNotification = LocalNotification(
+        id: "test",
+        title: "Test Notification",
+        body: "This is just a test.",
+        timeInterval: 5
+    )
+    #endif
 }
