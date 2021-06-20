@@ -42,7 +42,7 @@ class RatingControl: UIStackView {
     }
 
     weak var delegate: RatingControlDelegate?
-
+    lazy var selectionFeedback = UINotificationFeedbackGenerator()
     private var ratingButtons: [UIButton] = []
     private var offImage: UIImage? = UIImage(systemName: "star", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
     private var onImage: UIImage? = UIImage(systemName: "star.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
@@ -124,6 +124,7 @@ class RatingControl: UIStackView {
 
         if delegate?.ratingControlShouldChangeRating(self) ?? true {
             setRating(for: sender)
+            selectionFeedback.notificationOccurred(.success)
         }
     }
 
