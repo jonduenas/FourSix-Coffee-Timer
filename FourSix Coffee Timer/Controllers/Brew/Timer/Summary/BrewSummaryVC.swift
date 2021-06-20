@@ -93,6 +93,9 @@ class BrewSummaryVC: UIViewController, Storyboarded {
                 self.showPermissionDeniedAlert()
             } else {
                 self.notificationManager.notifications = [LocalNotification.fiveMinuteRatingNotification]
+                #if DEBUG
+                    self.notificationManager.notifications.append(LocalNotification.testNotification)
+                #endif
                 self.notificationManager.schedule()
             }
         }
