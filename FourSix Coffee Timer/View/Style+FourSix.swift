@@ -24,8 +24,8 @@ enum AssetsColor: String {
 }
 
 extension UIColor {
-    static var fourSixBlue: UIColor? {
-        return UIColor(named: AssetsColor.fourSixBlue.rawValue)
+    static var fourSixBlue: UIColor {
+        return UIColor(named: AssetsColor.fourSixBlue.rawValue) ?? UIColor.systemBlue
     }
 
     static var fourSixWhite: UIColor? {
@@ -59,7 +59,7 @@ extension UIColor {
     }
 
     static func barChartColors() -> [UIColor?] {
-        let brightestColor = UIColor.fourSixBrown.lighter(by: 24)
+        let brightestColor = UIColor.fourSixBlue.lighter(by: 24)
         var colorArray = [brightestColor]
 
         var currentColor = brightestColor
