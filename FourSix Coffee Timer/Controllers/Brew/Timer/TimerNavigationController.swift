@@ -13,15 +13,13 @@ class TimerNavigationController: UINavigationController {
     var darkBackground: Bool = false
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        if darkBackground {
-            return .lightContent
-        } else {
-            return .darkContent
-        }
+        return darkBackground ? .lightContent : .darkContent
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(didActivate), name: UIScene.didActivateNotification, object: nil)
 
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = UIColor(named: AssetsColor.background.rawValue)
@@ -33,6 +31,21 @@ class TimerNavigationController: UINavigationController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
-        darkBackground = traitCollection.userInterfaceStyle == .dark
+        // Makes sure app is active before continuing
+        //      iOS takes screenshots of both dark and light mode when entering background, which
+        //      calls traitCollectionDidChange twice. This guard ensures the rest of the method only
+        //      executes when app is currently active.
+        guard UIApplication.shared.applicationState == .active else { return }
+
+        if previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle {
+            // TimerVC is the only view controller that needs to change status bar style
+            guard self.visibleViewController as? TimerVC != nil else { return }
+
+            darkBackground = traitCollection.userInterfaceStyle == .dark
+        }
+    }
+
+    @objc func didActivate() {
+        setNeedsStatusBarAppearanceUpdate()
     }
 }
