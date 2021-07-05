@@ -14,6 +14,7 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
     @IBOutlet weak var coffeeNameTextField: UITextField!
     @IBOutlet weak var originTextField: UITextField!
     @IBOutlet weak var roastLevelTextField: UITextField!
+    @IBOutlet weak var processButton: DropDownButton!
 
     weak var coordinator: NotesCoordinator?
     var dataManager: DataManager!
@@ -31,6 +32,7 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
         super.viewDidLoad()
 
         configureNavController()
+        configureProcessMenu()
 
         if isNewCoffee {
             updateTextFields()
@@ -121,6 +123,28 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
             coffeeMO?.roaster = coffee.roaster
             coffeeMO?.origin = coffee.origin
             coffeeMO?.roastLevel = coffee.roastLevel
+        }
+    }
+
+    func configureProcessMenu() {
+        if #available(iOS 14.0, *) {
+            processButton.configureDropDown(
+                title: "Process",
+                actions: [
+                    UIAction(title: "Unknown", handler: { _ in
+                        print("unknown")
+                    }),
+                    UIAction(title: "Washed", handler: { _ in
+                        print("washed")
+                    }),
+                    UIAction(title: "Natural", handler: { _ in
+                        print("natural")
+                    }),
+                    UIAction(title: "Honey", handler: { _ in
+                        print("honey")
+                    })
+                ]
+            )
         }
     }
 }

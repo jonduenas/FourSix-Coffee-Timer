@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Required Field" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryX-6W-uJ7">
-                                <rect key="frame" x="40" y="260" width="334" height="14.5"/>
+                                <rect key="frame" x="40" y="305" width="334" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" systemColor="tertiaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MYM-ns-TLw" userLabel="RecipeStack">
-                                <rect key="frame" x="40" y="64" width="334" height="180"/>
+                                <rect key="frame" x="40" y="64" width="334" height="225"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6L-EF-Lbf">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="45"/>
@@ -143,7 +143,48 @@
                                             <constraint firstItem="5TI-OO-tba" firstAttribute="centerY" secondItem="sH5-AG-fwj" secondAttribute="centerY" id="ucw-OC-Rkz"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLK-jp-gcD">
+                                        <rect key="frame" x="0.0" y="180" width="334" height="45"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Process" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyf-ch-TaO">
+                                                <rect key="frame" x="0.0" y="12.5" width="61" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-5X-doG" customClass="DropDownButton" customModule="FourSix" customModuleProvider="target">
+                                                <rect key="frame" x="167" y="5.5" width="167" height="34"/>
+                                                <color key="backgroundColor" name="Background"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.5" alpha="0.25245171351148593" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="5hw-5X-doG" firstAttribute="width" secondItem="zLK-jp-gcD" secondAttribute="width" multiplier="0.5" id="6lh-1I-Ngq"/>
+                                            <constraint firstItem="5hw-5X-doG" firstAttribute="centerY" secondItem="zLK-jp-gcD" secondAttribute="centerY" id="DVU-Ls-hmw"/>
+                                            <constraint firstItem="Vyf-ch-TaO" firstAttribute="leading" secondItem="zLK-jp-gcD" secondAttribute="leading" id="FAr-Gv-e8e"/>
+                                            <constraint firstAttribute="height" constant="45" id="VWh-Mk-KYJ"/>
+                                            <constraint firstItem="Vyf-ch-TaO" firstAttribute="centerY" secondItem="zLK-jp-gcD" secondAttribute="centerY" id="fyX-vr-xMu"/>
+                                            <constraint firstAttribute="trailing" secondItem="5hw-5X-doG" secondAttribute="trailing" id="pdj-Bo-Uai"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="5hw-5X-doG" firstAttribute="height" secondItem="0LM-C0-bAW" secondAttribute="height" id="1TD-RC-NLY"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KLF-8p-nWR"/>
@@ -160,6 +201,7 @@
                     <connections>
                         <outlet property="coffeeNameTextField" destination="Khx-fA-XAI" id="o4c-a6-c9T"/>
                         <outlet property="originTextField" destination="29K-BU-6ev" id="r8O-tV-kXG"/>
+                        <outlet property="processButton" destination="5hw-5X-doG" id="Exr-PZ-5Mr"/>
                         <outlet property="roastLevelTextField" destination="5TI-OO-tba" id="c30-Cf-Buu"/>
                         <outlet property="roasterTextField" destination="0LM-C0-bAW" id="us2-Jw-aYm"/>
                     </connections>
@@ -169,6 +211,11 @@
             <point key="canvasLocation" x="1100" y="159"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5hw-5X-doG">
+            <size key="intrinsicContentSize" width="58" height="21"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -176,6 +223,9 @@
         <namedColor name="SecondaryBackground">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
