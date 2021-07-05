@@ -413,7 +413,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ARd-rM-b78">
-                                                                        <rect key="frame" x="0.0" y="49.5" width="292" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="41" width="292" height="20"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mt2-AD-1px">
                                                                                 <rect key="frame" x="0.0" y="0.5" width="18" height="19"/>
@@ -431,24 +431,29 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="awf-ZB-814">
-                                                                        <rect key="frame" x="0.0" y="102" width="161" height="1"/>
+                                                                        <rect key="frame" x="0.0" y="85.5" width="161" height="1"/>
                                                                         <color key="backgroundColor" systemColor="separatorColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="bng-88-lM3"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roaster" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exP-21-lAX">
-                                                                        <rect key="frame" x="0.0" y="135" width="49.5" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="110.5" width="49.5" height="17"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz0-7K-9TO">
-                                                                        <rect key="frame" x="0.0" y="184.5" width="39" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="151.5" width="39" height="17"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roast Level" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxt-82-BbN">
-                                                                        <rect key="frame" x="0.0" y="234" width="74" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="193" width="74" height="17"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Process" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RN7-tg-kxe">
+                                                                        <rect key="frame" x="0.0" y="234" width="52" height="17"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -490,6 +495,7 @@
                                                             <outlet property="coffeeDivider" destination="awf-ZB-814" id="vb2-mX-3LI"/>
                                                             <outlet property="coffeeNameLabel" destination="C3A-TU-6oG" id="MOo-F4-QoU"/>
                                                             <outlet property="originLabel" destination="hz0-7K-9TO" id="UXJ-hN-5fs"/>
+                                                            <outlet property="processLabel" destination="RN7-tg-kxe" id="Yd1-KY-z0P"/>
                                                             <outlet property="roastLevelLabel" destination="Lxt-82-BbN" id="9OU-HG-szc"/>
                                                             <outlet property="roasterLabel" destination="exP-21-lAX" id="2uR-fx-kJe"/>
                                                         </connections>

@@ -18,6 +18,7 @@ class CoffeePickerView: RoundedView {
     @IBOutlet weak var roasterLabel: UILabel!
     @IBOutlet weak var originLabel: UILabel!
     @IBOutlet weak var roastLevelLabel: UILabel!
+    @IBOutlet weak var processLabel: UILabel!
     @IBOutlet weak var chevronImage: UIImageView!
 
     var coffee: CoffeeMO? = nil {
@@ -47,6 +48,7 @@ class CoffeePickerView: RoundedView {
         roasterLabel.isHidden = shouldShow
         originLabel.isHidden = shouldShow
         roastLevelLabel.isHidden = shouldShow
+        processLabel.isHidden = shouldShow
     }
 
     private func updateCoffeeLabels(_ coffee: CoffeeMO) {
@@ -60,6 +62,8 @@ class CoffeePickerView: RoundedView {
 
         let roastLevel = coffee.roastLevel == "" ? unknownString : coffee.roastLevel
         roastLevelLabel.text = "Roast Level: \(roastLevel)"
+
+        processLabel.text = "Process: \(unknownString)"
     }
 
     func updateCoffeeLabels() {
