@@ -10,10 +10,15 @@ import Foundation
 import CoreData
 
 struct Coffee: ManagedObjectInitializable {
+    enum Process: CaseIterable {
+        case unknown, washed, natural, honey
+    }
+
     var roaster: String = ""
     var name: String = ""
     var origin: String = ""
     var roastLevel: String = ""
+    var process: Process = .unknown
 
     init() { }
 
@@ -26,16 +31,17 @@ struct Coffee: ManagedObjectInitializable {
         self.roastLevel = coffeeMO.roastLevel
     }
 
-    init(roaster: String, name: String, origin: String, roastLevel: String) {
+    init(roaster: String, name: String, origin: String, roastLevel: String, process: Coffee.Process) {
         self.roaster = roaster
         self.name = name
         self.origin = origin
         self.roastLevel = roastLevel
+        self.process = process
     }
 }
 
 extension Coffee {
-    static let testDetails1 = Coffee(roaster: "Coava", name: "Meaza", origin: "Ethiopia", roastLevel: "Light")
+    static let testDetails1 = Coffee(roaster: "Coava", name: "Meaza", origin: "Ethiopia", roastLevel: "Light", process: .washed)
 
-    static let testDetails2 = Coffee(roaster: "Stumptown", name: "Hair Bender", origin: "Africa and Latin America", roastLevel: "Medium")
+    static let testDetails2 = Coffee(roaster: "Stumptown", name: "Hair Bender", origin: "Africa and Latin America", roastLevel: "Medium", process: .unknown)
 }
