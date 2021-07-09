@@ -32,7 +32,6 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
         super.viewDidLoad()
 
         configureNavController()
-        configureProcessMenu()
 
         if isNewCoffee {
             updateTextFields()
@@ -40,6 +39,7 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
             showStoredData()
         }
 
+        configureProcessMenu()
         roasterTextField.becomeFirstResponder()
     }
 
@@ -102,6 +102,7 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
         coffee.name = coffeeNameTextField.text ?? "Error"
         coffee.origin = originTextField.text ?? ""
         coffee.roastLevel = roastLevelTextField.text ?? ""
+        coffee.process = Coffee.Process.allCases[processButton.selectedTitleIndex]
     }
 
     private func updateCoffeeMO() {
@@ -123,28 +124,28 @@ class CoffeeEditorVC: UIViewController, Storyboarded {
             coffeeMO?.roaster = coffee.roaster
             coffeeMO?.origin = coffee.origin
             coffeeMO?.roastLevel = coffee.roastLevel
+            coffeeMO?.processRawValue = Int64(coffee.process.rawValue)
         }
     }
 
     func configureProcessMenu() {
+        processButton.delegate = self
+
         if #available(iOS 14.0, *) {
-            processButton.configureDropDown(
-                title: "Process",
-                actions: [
-                    UIAction(title: "Unknown", handler: { _ in
-                        print("unknown")
-                    }),
-                    UIAction(title: "Washed", handler: { _ in
-                        print("washed")
-                    }),
-                    UIAction(title: "Natural", handler: { _ in
-                        print("natural")
-                    }),
-                    UIAction(title: "Honey", handler: { _ in
-                        print("honey")
-                    })
-                ]
-            )
+            var titles: [String] = []
+
+            Coffee.Process.allCases.forEach { titles.append(String(describing: $0).capitalized) }
+
+            processButton.titles = titles
+
+            if let index = Coffee.Process.allCases.firstIndex(of: coffee.process) {
+                processButton.setTitle(titles[index], for: .normal)
+                processButton.selectedTitleIndex = index
+            }
+
+            processButton.configureDropDown(title: "Process")
+        } else {
+            // TODO: iOS 13 implementation
         }
     }
 }
@@ -167,5 +168,11 @@ extension CoffeeEditorVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension CoffeeEditorVC: DropDownButtonDelegate {
+    func dropDownButton(_ dropDownButton: DropDownButton, didSelectIndex index: Int) {
+        print("Selected \(Coffee.Process.allCases[index])")
     }
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Coffee" representedClassName="CoffeeMO" syncable="YES">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="origin" attributeType="String" defaultValueString=""/>
         <attribute name="previousRoastDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="processRawValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="roaster" attributeType="String" defaultValueString=""/>
         <attribute name="roastLevel" attributeType="String" defaultValueString=""/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="coffee" inverseEntity="Note"/>
@@ -46,7 +47,7 @@
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="session" inverseEntity="Note"/>
     </entity>
     <elements>
-        <element name="Coffee" positionX="265.6231079101562" positionY="143.1165161132812" width="128" height="119"/>
+        <element name="Coffee" positionX="265.6231079101562" positionY="143.1165161132812" width="128" height="134"/>
         <element name="Note" positionX="301.3611450195312" positionY="-197.4160461425781" width="128" height="179"/>
         <element name="Recipe" positionX="546.4086303710938" positionY="-199.0213012695312" width="128" height="134"/>
         <element name="Session" positionX="646.5580444335938" positionY="-43.81002807617188" width="128" height="89"/>

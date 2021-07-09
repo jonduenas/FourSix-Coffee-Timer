@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 struct Coffee: ManagedObjectInitializable {
-    enum Process: CaseIterable {
+    enum Process: Int, CaseIterable {
         case unknown, washed, natural, honey
     }
 
@@ -29,6 +29,7 @@ struct Coffee: ManagedObjectInitializable {
         self.name = coffeeMO.name
         self.origin = coffeeMO.origin
         self.roastLevel = coffeeMO.roastLevel
+        self.process = Coffee.Process(rawValue: Int(coffeeMO.processRawValue)) ?? .unknown
     }
 
     init(roaster: String, name: String, origin: String, roastLevel: String, process: Coffee.Process) {
